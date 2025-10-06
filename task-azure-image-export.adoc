@@ -69,7 +69,7 @@ South Central US          southcentralus       (US) South Central US
 | 9.17.1 及更高版本 | Azure 市場 | ontap_cloud_direct_gen2 
 
 
-| 9.17.1 及更高版本 | NetApp控制台 | ontap_cloud_gen2 
+| 9.17.1 及更高版本 | NetApp Console | ontap_cloud_gen2 
 
 
 | 9.16.1 | Azure 市場 | ontap_cloud_direct 

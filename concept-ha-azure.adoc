@@ -26,9 +26,9 @@ Cloud Volumes ONTAP高可用性 (HA) 對可在您的雲端環境發生故障時�
 
 Azure 中的Cloud Volumes ONTAP HA 頁面 blob 設定包含下列元件：
 
-image:diagram_ha_azure.png["概念圖顯示了一個負載平衡器管理來自NetApp控制台和用戶端的傳入流量、VMSS Flex 中的兩個Cloud Volumes ONTAP節點、用於啟動資料的 SSD 磁碟以及用於客戶資料的 Page Blob。"]
+image:diagram_ha_azure.png["概念圖顯示了負載平衡器管理來自NetApp Console和用戶端的傳入流量、VMSS Flex 中的兩個Cloud Volumes ONTAP節點、用於啟動資料的 SSD 磁碟以及用於客戶資料的 Page Blob。"]
 
-請注意有關NetApp控制台為您部署的 Azure 元件的以下事項：
+請注意有關NetApp Console為您部署的 Azure 元件的以下事項：
 
 Azure 標準負載平衡器:: 負載平衡器管理傳入Cloud Volumes ONTAP HA 對的流量。
 單一可用區域中的虛擬機:: 從Cloud Volumes ONTAP 9.15.1 開始，您可以在單一可用區 (AZ) 中建立和管理異質虛擬機器 (VM)。您可以在相同可用區內的不同故障域中部署高可用性 (HA) 節點，以確保最佳可用性。要了解有關實現此功能的靈活編排模式的更多信息，請參閱 https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/["Microsoft Azure 文件：虛擬機器規模集"^]。

@@ -33,7 +33,7 @@ endif::aws[]
 
 ifdef::azure[]
 
-* 對於 Azure，只要NetApp控制台具有所需的權限，您就不需要執行任何操作。<<將冷資料分層到 Azure Blob 儲存體的需求,了解更多>> 。
+* 對於 Azure，只要NetApp Console具有所需的權限，您就不需要執行任何操作。<<將冷資料分層到 Azure Blob 儲存體的需求,了解更多>> 。
 
 
 endif::azure[]
@@ -51,7 +51,7 @@ endif::gcp[]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"]建立、修改或複製磁碟區時選擇分層策略
 [role="quick-margin-para"]
-當您建立、修改或複製磁碟區時， NetApp控制台會提示您選擇分層策略。
+當您建立、修改或複製磁碟區時， NetApp Console會提示您選擇分層策略。
 
 [role="quick-margin-list"]
 * link:task-tiering.html#tier-data-from-read-write-volumes["來自讀寫卷的層次數據"]
@@ -229,9 +229,9 @@ image:screenshot_aggregate_tiering_enabled.png["螢幕截圖顯示了控制台�
 
 
 .在聚合上啟用分層的步驟
-. 在ONTAP系統管理員中，按一下 *儲存 > 層級*。
+. 在ONTAP系統管理員中，按一下「儲存」>「層級」。
 . 點擊聚合的操作選單並選擇*附加雲層*。
-. 選擇要附加的雲層並點擊*儲存*。
+. 選擇要附加的雲層，然後按一下「*儲存*」。
 
 
 .下一步是什麼？
@@ -254,7 +254,7 @@ Cloud Volumes ONTAP可以將讀寫磁碟區上的非活動資料分層到經濟�
 | 建立新磁碟區 | 按一下“新增磁碟區”。 
 
 
-| 修改現有捲 | 選擇所需的捲圖塊，按一下*管理磁碟區*以存取管理磁碟區右側面板，然後按一下右側面板下的*進階操作*和*變更分層原則*。 
+| 修改現有捲 | 選擇所需的磁碟區圖區塊，按一下「管理磁碟區」以存取「管理磁碟區」右側面板，然後按一下右側面板下的「進階操作」和「變更分層原則」。 
 |===
 . 選擇分層策略。
 +
@@ -267,7 +267,7 @@ Cloud Volumes ONTAP可以將讀寫磁碟區上的非活動資料分層到經濟�
 image:screenshot_volumes_change_tiering_policy.png["螢幕截圖顯示了可用於變更磁碟區分層策略的選項。"]
 
 +
-如果尚不存在啟用資料分層的聚合，則控制台會為磁碟區建立新的聚合。
+如果尚不存在啟用資料分層的聚合，則控制台將為磁碟區建立一個新的聚合。
 
 
 

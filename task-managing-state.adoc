@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-managing-state.html 
 keywords: schedule, schedules, scheduling, shutdowns, shut down, restart, stop, stopping, turn off, weekday, weekend 
-summary: 您可以從NetApp控制台停止並啟動Cloud Volumes ONTAP來管理您的雲端運算成本。 
+summary: 您可以從NetApp Console停止並啟動Cloud Volumes ONTAP來管理您的雲端運算成本。 
 ---
 = 啟動並停止Cloud Volumes ONTAP系統
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以從NetApp控制台停止並啟動Cloud Volumes ONTAP來管理�
 
 
 [role="lead"]
-您可以從NetApp控制台停止並啟動Cloud Volumes ONTAP來管理您的雲端運算成本。
+您可以從NetApp Console停止並啟動Cloud Volumes ONTAP來管理您的雲端運算成本。
 
 
 

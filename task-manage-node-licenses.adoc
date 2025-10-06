@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-node-licenses.html 
 keywords: license, licensing, install, updating license, system license, add system license, adding a system license,  update byol license, nlf, license generator, extra, by-node, NetApp Console, cloud backup, cloud data sense, cloud tiering 
-summary: 在NetApp控制台中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。 
+summary: 在NetApp Console中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。 
 ---
 = 管理Cloud Volumes ONTAP 的基於節點的許可
 :hardbreaks:
@@ -15,7 +15,7 @@ summary: 在NetApp控制台中管理基於節點的許可證，以確保每個Cl
 
 
 [role="lead"]
-在NetApp控制台中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。
+在NetApp Console中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。
 
 _基於節點的許可證_是上一代許可證模型（不適用於新客戶）：
 
@@ -23,7 +23,7 @@ _基於節點的許可證_是上一代許可證模型（不適用於新客戶）
 * 從雲端供應商的市場購買按小時付費 (PAYGO) 訂閱
 
 
-您可以從NetApp控制台管理基於節點的Cloud Volumes ONTAP許可證。
+您可以從NetApp Console管理基於節點的Cloud Volumes ONTAP許可證。
 
 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["了解有關Cloud Volumes ONTAP許可證的更多信息"] 。
 
@@ -31,17 +31,17 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 == 管理 PAYGO 許可證
 
-透過許可證和訂閱選單，您可以查看有關每個 PAYGO Cloud Volumes ONTAP系統的詳細信息，包括序號和 PAYGO 許可證類型。
+Licenses and subscriptions選單，您可以查看有關每個 PAYGO Cloud Volumes ONTAP系統的詳細信息，包括序號和 PAYGO 許可證類型。
 
 .步驟
-. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 從左側導覽窗格中，選擇「管理」> 「Licenses and subscriptions」。
 . 選擇“*概覽*”標籤。
 . 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
 . 從下拉式選單中選擇*基於節點的授權*。
 . 點擊*PAYGO*。
 . 在表格中查看有關每個 PAYGO 許可證的詳細資訊。
 +
-image:screenshot_paygo_licenses.png["螢幕截圖顯示了許可證和訂閱頁面中含有三個 paygo 許可證的表格。每行顯示名稱、系統類型、序號、套件以及管理許可證的連結。"]
+image:screenshot_paygo_licenses.png["螢幕截圖顯示了Licenses and subscriptions頁面中含有三個 paygo 許可證的表格。每行顯示名稱、系統類型、序號、套件以及管理許可證的連結。"]
 
 . 如果需要，請按一下*管理 PAYGO 授權*來變更 PAYGO 授權或變更執行個體類型。
 
@@ -62,7 +62,7 @@ NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，�
 將基於節點的許可證新增至控制台，以便您在建立新的Cloud Volumes ONTAP系統時可以選擇該許可證。控制台將這些許可證標識為_未分配_。
 
 .步驟
-. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 從左側導覽窗格中，選擇「管理」> 「Licenses and subscriptions」。
 . 選擇“*概覽*”標籤。
 . 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
 . 從下拉式選單中選擇*基於節點的授權*。
@@ -76,13 +76,13 @@ NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，�
 
 
 .結果
-控制台新增許可證。在您將許可證與新的Cloud Volumes ONTAP系統關聯之前，該許可證將被標識為未指派。此後，許可證將移至*許可證和訂閱*中的*BYOL*選項卡。
+控制台新增許可證。在您將許可證與新的Cloud Volumes ONTAP系統關聯之前，該許可證將被標識為未指派。此後，許可證將移至「Licenses and subscriptions」中的「BYOL」標籤。
 
 
 
 === 交換未分配的基於節點的許可證
 
-如果您有未指派的基於節點的Cloud Volumes ONTAP許可證且尚未使用，則可以將其轉換為NetApp備份和恢復許可證、 NetApp資料分類許可證或NetApp Cloud Tiering 許可證來交換該許可證。
+如果您有未指派的基於節點的Cloud Volumes ONTAP許可證且尚未使用，則可以將其轉換為NetApp Backup and Recovery許可證、 NetApp Data Classification許可證或NetApp Cloud Tiering許可證來交換該許可證。
 
 交換許可證將撤銷Cloud Volumes ONTAP許可證並為該服務建立等值美元的許可證：
 
@@ -95,7 +95,7 @@ NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，�
 link:https://mydemo.netapp.com/player/?demoId=c96ef113-c338-4e44-9bda-81a8d252de63&showGuide=true&showGuidesToolbar=true&showHotspots=true&source=app["查看如何交換基於節點的許可證的演練。"^]
 
 .步驟
-. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 從左側導覽窗格中，選擇「管理」> 「Licenses and subscriptions」。
 . 選擇“*概覽*”標籤。
 . 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
 . 從下拉式選單中選擇*基於節點的授權*。
@@ -137,7 +137,7 @@ image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品�
 當您透過聯絡NetApp代表續訂 BYOL 訂閱時，控制台會自動從NetApp取得新授權並將其安裝在Cloud Volumes ONTAP系統上。如果控制台無法透過安全的網路連線存取許可證文件，您可以自行取得該文件，然後手動上傳該文件。
 
 .步驟
-. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 從左側導覽窗格中，選擇「管理」> 「Licenses and subscriptions」。
 . 選擇“*概覽*”標籤。
 . 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
 . 從下拉式選單中選擇*基於節點的授權*。
@@ -165,7 +165,7 @@ image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品�
 透過控制台右下角的聊天圖示聯絡我們，購買額外容量許可證。購買許可證後，您可以將其套用至Cloud Volumes ONTAP系統。
 
 .步驟
-. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 從左側導覽窗格中，選擇「管理」> 「Licenses and subscriptions」。
 . 選擇“*概覽*”標籤。
 . 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
 . 從下拉式選單中選擇*基於節點的授權*。
@@ -182,7 +182,7 @@ image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品�
 如果您延長了額外容量許可證的期限，則需要在控制台中更新許可證。
 
 .步驟
-. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 從左側導覽窗格中，選擇「管理」> 「Licenses and subscriptions」。
 . 選擇“*概覽*”標籤。
 . 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
 . 從下拉式選單中選擇*基於節點的授權*。
@@ -199,7 +199,7 @@ image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品�
 如果額外容量許可證已過期且不再使用，那麼您可以隨時將其刪除。
 
 .步驟
-. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 從左側導覽窗格中，選擇「管理」> 「Licenses and subscriptions」。
 . 選擇“*概覽*”標籤。
 . 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
 . 從下拉式選單中選擇*基於節點的授權*。

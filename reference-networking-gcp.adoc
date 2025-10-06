@@ -14,7 +14,7 @@ summary: 設定您的 Google Cloud 網絡，以便Cloud Volumes ONTAP系統可�
 
 
 [role="lead"]
-NetApp控制台負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
+NetApp Console負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
 
 如果你想部署 HA 對，你應該link:concept-ha-google-cloud.html["了解 HA 對在 Google Cloud 中的工作原理"]。
 
@@ -60,7 +60,7 @@ NOTE: LIF 是與實體連接埠關聯的 IP 位址。  SnapCenter等管理工具
 
 === HA 對的特定要求
 
-如果您要部署 HA 對，請確保您的網路符合以下要求。
+如果要部署 HA 對，請確保您的網路符合以下要求。
 
 
 
@@ -250,7 +250,7 @@ https://cloud.google.com/vpn/docs/concepts/overview["Google Cloud 文件：Cloud
 
 === 防火牆規則
 
-控制台建立 Google Cloud 防火牆規則，其中包含Cloud Volumes ONTAP成功運作所需的入站和出站規則。您可能想要參考連接埠以進行測試，或者您喜歡使用自己的防火牆規則。
+控制台建立 Google Cloud 防火牆規則，其中包含Cloud Volumes ONTAP成功運作所需的入站和出站規則。您可能希望參考連接埠以進行測試，或者您喜歡使用自己的防火牆規則。
 
 Cloud Volumes ONTAP的防火牆規則需要入站和出站規則。如果您正在部署 HA 配置，這些是 VPC-0 中Cloud Volumes ONTAP的防火牆規則。
 
@@ -450,10 +450,10 @@ NOTE: 來源是Cloud Volumes ONTAP系統的介面（IP 位址）。
 | TCP | 3128 | 節點管理 LIF | 控制台代理 | 如果出站網路連線不可用，則透過控制台代理上的代理伺服器傳送AutoSupport訊息 
 
 
-| 配置備份 | HTTP | 80 | 節點管理 LIF | \http://<控制台代理 IP 位址>/occm/offboxconfig | 將配置備份傳送到控制台代理程式。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文件"^] 
+| 配置備份 | HTTP | 80 | 節點管理 LIF | \http://<控制台代理 IP 位址>/occm/offboxconfig | 將配置備份傳送到控制台代理程式。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP文檔"^] 
 
 
-| DHCP | UDP | 68 | 節點管理 LIF | DHCP | 首次設定的 DHCP 用戶端 
+| DHCP | UDP | 68 | 節點管理 LIF | DHCP | DHCP 用戶端首次設定 
 
 
 | DHCP服務 | UDP | 67 | 節點管理 LIF | DHCP | DHCP 伺服器 

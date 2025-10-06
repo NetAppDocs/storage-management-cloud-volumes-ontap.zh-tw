@@ -16,7 +16,7 @@ summary: ONTAP的AutoSupport元件收集遙測資料並將其發送以進行分�
 [role="lead"]
 ONTAP的AutoSupport元件收集遙測資料並將其發送以進行分析。 Active IQ Digital Advisor （也稱為Digital Advisor）分析來自AutoSupport 的數據並提供主動護理和優化。利用人工智慧，Digital Advisor可以識別潛在問題並在其影響您的業務之前幫助您解決它們。
 
-Digital Advisor透過雲端的入口網站和行動應用程式提供可操作的預測分析和主動支持，使您能夠優化全球混合雲中的資料基礎設施。所有擁有有效SupportEdge合約的NetApp客戶均可獲得Digital Advisor的資料驅動見解和建議（功能因產品和支援層級而異）。
+Digital Advisor透過雲端的入口網站和行動應用程式提供可操作的預測分析和主動支持，使您能夠優化全球混合雲中的資料基礎架構。所有擁有有效SupportEdge合約的NetApp客戶均可獲得Digital Advisor的資料驅動見解和建議（功能因產品和支援層級而異）。
 
 您可以使用Digital Advisor執行以下一些操作：
 

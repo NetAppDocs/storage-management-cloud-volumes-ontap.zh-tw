@@ -14,7 +14,7 @@ summary: 該控制台提供了Cloud Volumes ONTAP儲存的簡化和高階管理�
 
 
 [role="lead"]
-NetApp控制台提供了對Cloud Volumes ONTAP儲存的簡化和進階管理。
+NetApp Console提供了對Cloud Volumes ONTAP儲存的簡化和進階管理。
 
 
 CAUTION: 您必須直接從控制台建立和刪除所有磁碟和聚合。您不應從其他管理工具執行這些操作。這樣做會影響系統穩定性，妨礙將來添加磁碟的能力，並可能產生冗餘的雲端供應商費用。

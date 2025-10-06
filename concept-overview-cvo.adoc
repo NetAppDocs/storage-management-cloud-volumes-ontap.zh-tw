@@ -31,7 +31,7 @@ Cloud Volumes ONTAP是一款純軟體儲存設備，可在雲端運行ONTAP資�
 Cloud Volumes ONTAP利用 NetApp 業界領先的複製技術SnapMirror將本機資料複製到雲端，以便輕鬆取得可用於多種用例的輔助副本。
 
 +
-Cloud Volumes ONTAP還與NetApp Backup and Recovery 集成，提供備份和恢復功能，以保護和長期存檔您的雲端資料。
+Cloud Volumes ONTAP也與NetApp Backup and Recovery集成，提供備份和復原功能，以保護和長期存檔您的雲端資料。
 
 +
 link:https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關備份和恢復的更多信息"^]
@@ -53,7 +53,7 @@ Cloud Volumes ONTAP支援資料加密並提供防毒和勒索軟體的保護。
 
 * 隱私合規控制
 +
-與NetApp資料分類整合可協助您了解資料環境並識別敏感資料。
+與NetApp Data Classification整合可協助您了解資料環境並識別敏感資料。
 
 +
 https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關數據分類的更多信息"^]

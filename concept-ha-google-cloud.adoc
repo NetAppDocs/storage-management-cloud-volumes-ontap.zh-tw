@@ -56,7 +56,7 @@ image:diagram_gcp_ha.png["Cloud Volumes ONTAP HA 對及其組件的概念圖。"
 NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 Debian 10。
 
 --
-升級:: 升級Cloud Volumes ONTAP時， NetApp控制台也會依需求更新中介實例。
+升級:: 升級Cloud Volumes ONTAP時， NetApp Console也會根據需求更新中介實例。
 存取實例:: 對於 Debian，預設雲端用戶是 `admin`。 Google Cloud 為 `admin`當透過 Google Cloud 控制台或 gcloud 命令列請求 SSH 存取時的使用者。您可以指定 `sudo`取得root權限。
 第三方代理:: 中介實例不支援第三方代理或 VM 擴充。
 

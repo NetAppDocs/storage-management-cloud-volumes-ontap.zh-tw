@@ -71,9 +71,9 @@ indexpage:
       url: https://www.netapp.com/console/calculator-hub
   - title: 部落格和社區
     links:
-    - title: NetApp控制台
+    - title: NetApp Console
       url: https://www.netapp.com/console
-    - title: NetApp資料服務
+    - title: NetApp Data Services
       url: https://www.netapp.com/data-services/
     - title: NetApp社群
       url: https://community.netapp.com/

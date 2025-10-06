@@ -80,7 +80,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azur
 Azure 磁碟大小::
 +
 --
-啟動Cloud Volumes ONTAP實例時，您必須選擇聚合的預設磁碟大小。 NetApp控制台將此磁碟大小用於初始聚合，以及使用簡單設定選項時建立的任何其他聚合。您可以透過以下方式建立使用不同於預設磁碟大小的聚合：link:task-create-aggregates.html["使用進階分配選項"] 。
+啟動Cloud Volumes ONTAP實例時，您必須選擇聚合的預設磁碟大小。 NetApp Console將此磁碟大小用於初始聚合，以及使用簡單設定選項時建立的任何其他聚合。您可以透過以下方式建立使用不同於預設磁碟大小的聚合：link:task-create-aggregates.html["使用進階分配選項"] 。
 
 
 TIP: 聚合中的所有磁碟必須具有相同的大小。

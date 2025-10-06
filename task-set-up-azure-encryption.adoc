@@ -25,7 +25,7 @@ Cloud Volumes ONTAP資料在 Azure 中自動使用 https://learn.microsoft.com/e
 如果您想將客戶管理的金鑰與Cloud Volumes ONTAP一起使用，則需要完成以下步驟：
 
 . 從 Azure 建立一個金鑰保管庫，然後在該保管庫中產生一個金鑰。
-. 從NetApp控制台，使用 API 建立使用金鑰的Cloud Volumes ONTAP系統。
+. 從NetApp Console，使用 API 建立使用金鑰的Cloud Volumes ONTAP系統。
 
 
 
@@ -187,7 +187,7 @@ NOTE: 使用 Azure 客戶管理加密金鑰的前提是為金鑰保管庫啟用 
 
 . https://docs.microsoft.com/en-us/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault["在金鑰保管庫中產生金鑰"^] 。
 +
-請注意以下密鑰需求：
+請注意密鑰的以下要求：
 
 +
 ** 金鑰類型必須是*RSA*。
@@ -203,7 +203,7 @@ NOTE: 使用 Azure 客戶管理加密金鑰的前提是為金鑰保管庫啟用 
 建立金鑰保管庫並產生加密金鑰後，您可以建立配置為使用該金鑰的新Cloud Volumes ONTAP系統。這些步驟透過使用 API 來支援。
 
 .所需權限
-如果要在單節點Cloud Volumes ONTAP系統中使用客戶管理金鑰，請確保控制台代理具有下列權限：
+如果您想要將客戶管理的金鑰與單節點Cloud Volumes ONTAP系統一起使用，請確保控制台代理具有下列權限：
 
 [source, json]
 ----

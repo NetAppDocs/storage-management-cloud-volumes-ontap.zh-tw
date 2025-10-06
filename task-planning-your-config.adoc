@@ -65,7 +65,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.
 
 
 
-== 在 AWS 中調整系統規模
+== 在 AWS 中調整系統大小
 
 調整Cloud Volumes ONTAP系統的大小可以幫助您滿足效能和容量要求。選擇實例類型、磁碟類型和磁碟大小時，您應該注意幾個關鍵點：
 
@@ -88,7 +88,7 @@ EBS 磁碟類型:: 從高層次來看，EBS 磁碟類型之間的差異如下。
 --
 * _通用 SSD (gp3)_ 磁碟是成本最低的 SSD，可在廣泛的工作負載中平衡成本和效能。效能以 IOPS 和吞吐量來定義。 Cloud Cloud Volumes ONTAP 9.7 及更高版本支援 gp3 磁碟。
 +
-當您選擇 gp3 磁碟時， NetApp控制台會填寫預設 IOPS 和吞吐量值，這些值會根據所選磁碟大小提供與 gp2 磁碟相當的效能。您可以增加這些值以更高的成本獲得更好的效能，但我們不支援較低的值，因為這會導致效能下降。簡而言之，堅持預設值或增加它們。不要降低它們。 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type["AWS 文件：了解有關 gp3 磁碟及其效能的更多信息"^] 。
+當您選擇 gp3 磁碟時， NetApp Console會填入預設 IOPS 和吞吐量值，這些值會根據所選磁碟大小提供與 gp2 磁碟相當的效能。您可以增加這些值以更高的成本獲得更好的效能，但我們不支援較低的值，因為這會導致效能下降。簡而言之，堅持預設值或增加它們。不要降低它們。 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type["AWS 文件：了解有關 gp3 磁碟及其效能的更多信息"^] 。
 
 +
 請注意， Cloud Volumes ONTAP支援具有 gp3 磁碟的 Amazon EBS Elastic Volumes 功能。link:concept-aws-elastic-volumes.html["了解有關彈性卷支持的更多信息"] 。
@@ -213,7 +213,7 @@ TIP: 控制台代理還需要係統磁碟。 https://docs.netapp.com/us-en/bluex
 | 中介者的金鑰對 |  
 
 
-| 叢集管理網口浮動IP位址 |  
+| 叢集管理口浮動IP位址 |  
 
 
 | 節點 1 上資料的浮動 IP 位址 |  

@@ -16,7 +16,7 @@ summary: 已知限制標識了該產品的此版本不支援或無法與其正�
 [role="lead"]
 已知限制標識了該產品的此版本不支援或無法與其正確互通的平台、裝置或功能。仔細審查這些限制。
 
-這些限制特定於NetApp控制台中的Cloud Volumes ONTAP管理。若要查看Cloud Volumes ONTAP軟體本身的限制， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limitations.html["前往Cloud Volumes ONTAP發行說明"^] 。
+這些限制特定於NetApp Console中的Cloud Volumes ONTAP管理。若要查看Cloud Volumes ONTAP軟體本身的限制， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limitations.html["前往Cloud Volumes ONTAP發行說明"^] 。
 
 
 

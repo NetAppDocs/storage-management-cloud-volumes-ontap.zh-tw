@@ -66,7 +66,7 @@ link:task-manage-capacity-licenses.html["了解如何更改充電方式"] 。
 
 == 定價和支援的配置
 
-有關定價的詳細信息，請訪問 https://bluexp.netapp.com/pricing/["NetApp控制台網站"^]。
+有關定價的詳細信息，請訪問 https://bluexp.netapp.com/pricing/["NetApp Console網站"^]。
 
 Cloud Volumes ONTAP 9.7 及更高版本提供基於容量的授權包。
 
@@ -109,7 +109,7 @@ Cloud Volumes ONTAP 9.7 及更高版本提供基於容量的授權包。
 
 == 最大系統數量
 
-使用基於容量的許可，每個NetApp控制台帳戶的Cloud Volumes ONTAP系統的最大數量限制為 24 個。 _系統_ 是Cloud Volumes ONTAP HA 對、 Cloud Volumes ONTAP單節點系統或您建立的任何其他儲存虛擬機器。預設儲存虛擬機器不計入限制。此限制適用於所有許可模式。
+使用基於容量的許可，每個NetApp Console帳戶的Cloud Volumes ONTAP系統的最大數量限制為 24 個。 _系統_ 是Cloud Volumes ONTAP HA 對、 Cloud Volumes ONTAP單節點系統或您建立的任何其他儲存虛擬機器。預設儲存虛擬機器不計入限制。此限制適用於所有許可模式。
 
 例如，假設您有三個系統：
 
@@ -186,7 +186,7 @@ NOTE: 如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數�
 
 另外 50 TiB 在具有輔助卷的 HA 對上進行配置。控制台不會向 PAYGO 收取這 50 TiB 的費用，而是向 _Essentials Single Node_ 授權收取 50 TiB 的超額費用。該許可證的價格高於_Essentials Secondary HA_，但它利用您已購買的許可證，並且不會增加您的每月帳單費用。
 
-在*管理 > 許可證和訂閱*中，您可以看到針對_Essentials 單節點_許可證收取了 50 TiB 的費用。
+在「管理」> 「Licenses and subscriptions」中，您可以看到針對「Essentials 單節點」許可證收取了 50 TiB 的費用。
 
 這是另一個例子。假設您擁有 Essentials 套件的以下許可證：
 

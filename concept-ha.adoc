@@ -41,7 +41,7 @@ Cloud Volumes ONTAP高可用性 (HA) 設定提供無中斷操作和容錯功能�
 NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 Debian 10。
 
 --
-升級:: 升級Cloud Volumes ONTAP時， NetApp控制台也會依需求更新中介實例。
+升級:: 升級Cloud Volumes ONTAP時， NetApp Console也會根據需求更新中介實例。
 存取實例:: 當您從控制台建立Cloud Volumes ONTAP HA 對時，系統會提示您為中介實例提供金鑰對。您可以使用該金鑰對進行 SSH 訪問 `admin`用戶。
 第三方代理:: 中介實例不支援第三方代理或 VM 擴充。
 
@@ -158,7 +158,7 @@ AWS 本地區域是一種基礎設施部署，其中儲存、運算、資料庫�
 您可以在 AWS 本機區域中部署單一 AZ 或多個 AZ 配置。
 
 
-NOTE: 在標準和私有模式下使用控制台時，支援 AWS 本地區域。目前，AWS 本地區域不支援受限模式。
+NOTE: 在標準和私有模式下使用控制台時支援 AWS 本地區域。目前，AWS 本地區域不支援受限模式。
 
 
 

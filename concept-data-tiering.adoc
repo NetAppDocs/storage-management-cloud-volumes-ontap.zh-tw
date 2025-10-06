@@ -37,7 +37,7 @@ ifdef::aws[]
 容量層:: Cloud Volumes ONTAP系統將非活動資料分層到單一 S3 儲存桶。
 +
 --
-NetApp控制台為每個系統建立一個 S3 儲存桶，並將其命名為 fabric-pool-_cluster unique identifier_。不會為每個磁碟區建立不同的 S3 儲存桶。
+NetApp Console為每個系統建立一個 S3 儲存桶，並將其命名為 fabric-pool-_cluster unique identifier_。不會為每個磁碟區建立不同的 S3 儲存桶。
 
 當控制台建立 S3 儲存桶時，它會使用以下預設設定：
 

@@ -21,7 +21,7 @@ summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTA
 如果你沒有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要建立一個。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["了解如何在 Google Cloud 中建立控制台代理"^]
 
 [role="quick-margin-para"]
-請注意，如果您想在沒有網路存取的子網路中部署Cloud Volumes ONTAP ，則需要手動安裝控制台代理程式並存取在該控制台代理程式上執行的NetApp控制台。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在沒有網路存取的地方手動安裝控制台代理"^]
+請注意，如果您想在沒有網路存取的子網路中部署Cloud Volumes ONTAP ，則需要手動安裝控制台代理程式並存取在該控制台代理程式上執行的NetApp Console。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在沒有網路存取的地方手動安裝控制台代理"^]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"]規劃您的配置
 [role="quick-margin-para"]
@@ -47,7 +47,7 @@ link:reference-networking-gcp.html["了解有關網絡要求的更多信息"] �
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"]設定服務帳戶
 [role="quick-margin-para"]
-Cloud Volumes ONTAP需要 Google Cloud 服務帳戶來實現兩個目的。第一個是當你啟用link:concept-data-tiering.html["資料分層"]將冷資料分層到 Google Cloud 中的低成本物件儲存。第二個是當你啟用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp備份與復原"^]將磁碟區備份到低成本的物件儲存。
+Cloud Volumes ONTAP需要 Google Cloud 服務帳戶來實現兩個目的。第一個是當你啟用link:concept-data-tiering.html["資料分層"]將冷資料分層到 Google Cloud 中的低成本物件儲存。第二個是當你啟用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^]將磁碟區備份到低成本的物件儲存。
 
 [role="quick-margin-para"]
 您可以設定一個服務帳戶並將其用於兩種用途。服務帳戶必須具有*儲存管理員*角色。

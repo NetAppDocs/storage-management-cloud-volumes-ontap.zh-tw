@@ -40,7 +40,7 @@ image::screenshot_cloud_volumes_ontap_tar.gz.png[螢幕截圖雲卷 ontap tar.gz
 ** 建立下載的 disk.raw 檔案的摘要
 ** 比較兩個摘要文件進行驗證
 +
-image::graphic_azure_check_signature.png[圖形天藍色檢查簽名]
+image::graphic_azure_check_signature.png[圖形 Azure 檢查簽名]
 
 
 

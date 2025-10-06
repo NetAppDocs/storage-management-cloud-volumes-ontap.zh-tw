@@ -53,7 +53,7 @@ link:task-set-up-licensing-google.html["了解如何設定許可"] 。
 
 == 在 Google Cloud 啟動單節點系統
 
-在NetApp控制台中建立一個系統以在 Google Cloud 中啟動Cloud Volumes ONTAP 。
+在NetApp Console中建立一個系統以在 Google Cloud 中啟動Cloud Volumes ONTAP 。
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
@@ -73,7 +73,7 @@ link:task-set-up-licensing-google.html["了解如何設定許可"] 。
 | 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Google Cloud VM 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
 
 
-| 服務帳戶名稱 | 如果你打算使用link:concept-data-tiering.html["資料分層"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp備份與復原"^]使用Cloud Volumes ONTAP，則需要啟用*服務帳戶*並選擇具有預先定義儲存管理員角色的服務帳戶。link:task-creating-gcp-service-account.html["了解如何建立服務帳號"^] 。 
+| 服務帳戶名稱 | 如果你打算使用link:concept-data-tiering.html["資料分層"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^]使用Cloud Volumes ONTAP，則需要啟用*服務帳戶*並選擇具有預先定義儲存管理員角色的服務帳戶。link:task-creating-gcp-service-account.html["了解如何建立服務帳號"^] 。 
 
 
 | 添加標籤 | 標籤是您的 Google Cloud 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP系統以及與該系統關聯的 Google Cloud 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文件：標記資源"^]。 
@@ -164,7 +164,7 @@ link:concept-write-speed.html["了解有關寫入速度的更多信息"] 。
 
 NOTE: 透過*高*寫入速度選項可實現高寫入速度和更高的 8,896 位元組最大傳輸單元 (MTU)。此外，8,896 的更高 MTU 要求選擇 VPC-1、VPC-2 和 VPC-3 進行部署。有關 VPC-1、VPC-2 和 VPC-3 的更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的規則"^]。
 
-.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
+.. 如果需要，請啟動一次寫入、多次讀取 (WORM) 儲存。
 +
 如果為Cloud Volumes ONTAP 9.7 及更低版本啟用了資料分層，則無法啟用 WORM。啟用 WORM 和分層後，恢復或降級到Cloud Volumes ONTAP 9.8 的操作將被阻止。
 
@@ -249,7 +249,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 | DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
 
 
-| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。欲了解更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。欲了解更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
 |===
 . *使用情況設定檔、磁碟類型和分層策略*：選擇是否要啟用儲存效率功能並變更磁碟區分層策略（如果需要）。
 +
@@ -303,7 +303,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 | 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Google Cloud VM 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
 
 
-| 服務帳戶名稱 | 如果您打算使用link:concept-data-tiering.html["NetApp雲端分層"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["備份和復原"^]服務，您需要啟用*服務帳戶*開關，然後選擇具有預先定義儲存管理員角色的服務帳戶。 
+| 服務帳戶名稱 | 如果您打算使用link:concept-data-tiering.html["NetApp Cloud Tiering"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["備份和復原"^]服務，您需要啟用*服務帳戶*開關，然後選擇具有預先定義儲存管理員角色的服務帳戶。 
 
 
 | 添加標籤 | 標籤是您的 Google Cloud 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP系統以及與該系統關聯的 Google Cloud 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文件：標記資源"^]。 
@@ -398,7 +398,7 @@ link:concept-write-speed.html["了解有關寫入速度的更多信息"^] 。
 
 NOTE: 透過 n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 實例類型的 *高* 寫入速度選項，可以獲得高寫入速度和更高的 8,896 位元組的最大傳輸單元 (MTU)。此外，8,896 的更高 MTU 要求選擇 VPC-1、VPC-2 和 VPC-3 進行部署。高寫入速度和 8,896 的 MTU 取決於功能，無法在配置的實例中單獨停用。有關 VPC-1、VPC-2 和 VPC-3 的更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的規則"^]。
 
-.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
+.. 如果需要，請啟動一次寫入、多次讀取 (WORM) 儲存。
 +
 如果為Cloud Volumes ONTAP 9.7 及更低版本啟用了資料分層，則無法啟用 WORM。啟用 WORM 和分層後，恢復或降級到Cloud Volumes ONTAP 9.8 的操作將被阻止。
 
@@ -482,7 +482,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 | DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
 
 
-| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
 |===
 . *使用情況設定檔、磁碟類型和分層策略*：選擇是否要啟用儲存效率功能並變更磁碟區分層策略（如果需要）。
 +

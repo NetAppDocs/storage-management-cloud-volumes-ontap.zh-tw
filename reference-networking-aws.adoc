@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-networking-aws.html 
 keywords: networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, autosupport, ha, ha pair, high availability 
-summary: NetApp控制台負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。 
+summary: NetApp Console負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。 
 ---
 = 為Cloud Volumes ONTAP設定 AWS 網路
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp控制台負責設定Cloud Volumes ONTAP的網路元件，例如 
 
 
 [role="lead"]
-NetApp控制台負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
+NetApp Console負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
 
 
 
@@ -90,9 +90,9 @@ HA 中介執行個體必須具有與 AWS EC2 服務的出站連接，以便它�
 
 
 
-=== NetApp Console 代理程式的網路代理程式配置
+=== NetApp Console代理程式的網路代理程式配置
 
-您可以使用NetApp控制台代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的出站網路存取。控制台支援兩種類型的代理：
+您可以使用NetApp Console代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的外部網路存取。控制台支援兩種類型的代理：
 
 * *明確代理*：來自Cloud Volumes ONTAP 的出站流量使用在控制台代理的代理配置期間指定的代理伺服器的 HTTP 位址。管理員可能還配置了使用者憑證和根 CA 憑證以進行額外的身份驗證。Cloud Volumes ONTAP顯式代理程式有可用的根 CA 證書，請確保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
 * *透明代理*：網路配置為透過控制台代理的代理程式自動路由來自Cloud Volumes ONTAP 的出站流量。設定透明代理時，管理員只需要提供用於從Cloud Volumes ONTAP進行連接的根 CA 證書，而不是代理伺服器的 HTTP 位址。確保使用以下方式取得相同的根 CA 憑證並將其上傳到您的Cloud Volumes ONTAP系統 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
@@ -266,7 +266,7 @@ link:task-deploy-aws-shared-vpc.html["了解如何在共享子網路中部署 HA
 每個可用區都應該有一個子網路。
 
 [[floatingips]]
-用於 NAS 資料和叢集/SVM 管理的浮動 IP 位址:: 多個可用區中的 HA 配置使用浮動 IP 位址，如果發生故障，這些位址會在節點之間遷移。它們無法從 VPC 外部本機訪問，除非您link:task-setting-up-transit-gateway.html["設定 AWS 中繼網關"]。
+用於 NAS 資料和叢集/SVM 管理的浮動 IP 位址:: 多個可用區中的 HA 配置使用浮動 IP 位址，如果發生故障，這些位址會在節點之間遷移。它們無法從 VPC 外部本地訪問，除非您link:task-setting-up-transit-gateway.html["設定 AWS 中繼網關"]。
 +
 --
 一個浮動 IP 位址用於叢集管理，一個用於節點 1 上的 NFS/CIFS 數據，一個用於節點 2 上的 NFS/CIFS 資料。用於 SVM 管理的第四個浮動 IP 位址是可選的。

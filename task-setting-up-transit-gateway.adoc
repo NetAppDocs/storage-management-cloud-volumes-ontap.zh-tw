@@ -40,7 +40,7 @@ image:diagram_transit_gateway.png["該圖顯示了一個 VPC 中的 HA 配置，
 
 . 透過指定 HA 對的浮動 IP 位址在傳輸網關的路由表中建立路​​由。
 +
-您可以在NetApp控制台的系統資訊頁面上找到浮動 IP 位址。以下是一個例子：
+您可以在NetApp Console的系統資訊頁面上找到浮動 IP 位址。以下是一個例子：
 
 +
 image:screenshot_floating_ips.gif["此螢幕截圖顯示了叢集管理介面、兩個 NFS 和 CIFS 資料介面以及 SVM 管理介面的浮動 IP 位址。"]

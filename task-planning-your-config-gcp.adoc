@@ -76,7 +76,7 @@ GCP 磁碟類型:: 為Cloud Volumes ONTAP建立磁碟區時，您需要選擇Clo
 
 
 --
-GCP 磁碟大小:: 部署Cloud Volumes ONTAP系統時，您需要選擇初始磁碟大小。之後，您可以讓NetApp控制台為您管理系統的容量，但如果您想自行建立聚合，請注意以下事項：
+GCP 磁碟大小:: 部署Cloud Volumes ONTAP系統時，您需要選擇初始磁碟大小。之後，您可以讓NetApp Console為您管理系統的容量，但如果您想自行建立聚合，請注意以下事項：
 +
 --
 * 聚合中的所有磁碟必須具有相同的大小。

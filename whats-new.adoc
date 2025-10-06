@@ -14,7 +14,7 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 [role="lead"]
-了解NetApp控制台中Cloud Volumes ONTAP管理的新功能。
+了解NetApp Console中Cloud Volumes ONTAP管理的新功能。
 
 本頁所述的增強功能特定於透過控制台管理Cloud Volumes ONTAP 。要了解Cloud Volumes ONTAP軟體本身的新功能， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["前往Cloud Volumes ONTAP發行說明"^] 。
 
@@ -24,11 +24,11 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
-=== BlueXP現在是NetApp控制台
+=== BlueXP現在是NetApp Console
 
-NetApp控制台建立在增強和重組的BlueXP基礎之上，可在企業級內部和雲端環境中集中管理NetApp儲存和NetApp資料服務，提供即時洞察、更快的工作流程和簡化的管理，並且高度安全且合規。
+NetApp Console建立在增強和重組的BlueXP基礎之上，可在企業級內部和雲端環境中集中管理NetApp儲存和NetApp Data Services，提供即時洞察、更快的工作流程和簡化的管理，並且高度安全且合規。
 
-有關更改的詳細信息，請參閱 https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetApp控制台發行說明"^]。
+有關更改的詳細信息，請參閱 https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetApp Console發行說明"^]。
 
 
 
@@ -205,7 +205,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-gcp.
 
 === 透過 Azure 中的 API 自動建立儲存虛擬機
 
-現在您可以使用BlueXP API 在 Azure 中為Cloud Volumes ONTAP建立、重新命名和刪除其他資料服務儲存虛擬機器。如果您需要使用儲存虛擬機器進行管理，則使用 API 可以自動執行儲存虛擬機器的建立過程，包括所需網路介面、LIF 和管理 LIF 的配置。
+現在您可以使用BlueXP API 為 Azure 中的Cloud Volumes ONTAP建立、重新命名和刪除其他資料服務儲存虛擬機器。如果您需要使用儲存虛擬機器進行管理，則使用 API 可以自動執行儲存虛擬機器的建立過程，包括所需網路介面、LIF 和管理 LIF 的配置。
 
 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-azure.html["在 Azure 中管理Cloud Volumes ONTAP的資料服務儲存虛擬機"^]
 
@@ -273,7 +273,7 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-ad
 
 現在，您可以透過使用BlueXP digital wallet中改進的導航點來體驗簡化的Cloud Volumes ONTAP授權管理：
 
-* 透過*管理>許可證和訂閱>概述/直接許可證*選項卡輕鬆存取您的Cloud Volumes ONTAP許可證資訊。
+* 透過*管理>Licenses and subscriptions>概述/直接許可證*選項卡輕鬆存取您的Cloud Volumes ONTAP許可證資訊。
 * 按一下「概覽」標籤中 Cloud Volume ONTAP面板上的「檢視」以全面了解基於容量的授權。此高級視圖提供有關您的許可證和訂閱的詳細資訊。
 * 如果您喜歡先前的介面，您可以按一下「切換到舊視圖」按鈕按類型查看許可證詳細資訊並修改許可證的收費方式。
 
@@ -511,7 +511,7 @@ NOTE: 在標準模式下使用BlueXP時支援 AWS 本地區域。目前，在受
 
 === 不再支援磁碟區模板和標籤
 
-您無法再從範本建立磁碟區或編輯磁碟區的標籤。這些操作與BlueXP修復服務有關，但該服務現已不再可用。
+您無法再從範本建立磁碟區或編輯磁碟區的標籤。這些操作與BlueXP修復服務相關，但該服務已不再可用。
 
 
 
@@ -1463,7 +1463,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp
 
 === Google Cloud 服務帳戶的增強功能
 
-當您選擇與Cloud Volumes ONTAP一起使用的 Google Cloud 服務帳戶時， BlueXP現在會顯示與每個服務帳戶關聯的電子郵件地址。查看電子郵件地址可以更容易區分具有相同名稱的服務帳戶。
+當您選擇與Cloud Volumes ONTAP一起使用的 Google Cloud 服務帳戶時， BlueXP現在會顯示與每個服務帳戶關聯的電子郵件地址。查看電子郵件地址可以更容易區分同名的服務帳戶。
 
 image:https://raw.githubusercontent.com/NetAppDocs/bluexp-cloud-volumes-ontap/main/media/screenshot-google-cloud-service-account.png["服務帳戶欄位的螢幕截圖"]
 
@@ -1867,7 +1867,7 @@ BlueXP現在可以在其為Cloud Volumes ONTAP建立的初始儲存 VM 上啟用
 
 從 9.7 版本開始， Cloud Volumes ONTAP現在支援_通用 SSD (gp3)_ 磁碟。 gp3 磁碟是成本最低的 SSD，可在廣泛的工作負載中平衡成本和效能。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html["在 AWS 中調整系統規模"] 。
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html["在 AWS 中調整系統大小"] 。
 
 
 
@@ -1996,7 +1996,7 @@ Cloud Volumes ONTAP現在支援以下機器類型：
 
 == 2020年11月3日
 
-連接器 3.9.0 版本引入了以下更改。
+連接器 3.9.0 版本引入了以下變更。
 
 
 

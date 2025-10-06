@@ -4,7 +4,7 @@ permalink: task-manage-keystone.html
 keywords: license, licensing, install, keystone, request capacity, link subscription, add keystone subscription, keystone subscription, digital wallet, keystone flex 
 summary: 透過啟用與Cloud Volumes ONTAP一起使用的訂閱並要求更改訂閱服務等級的承諾容量來管理您的Keystone訂閱。請求服務等級的額外容量可為本機ONTAP叢集或Cloud Volumes ONTAP系統提供更多儲存空間。 
 ---
-= 透過NetApp控制台管理Cloud Volumes ONTAP 的Keystone訂閱
+= 透過NetApp Console管理Cloud Volumes ONTAP 的Keystone訂閱
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -24,7 +24,7 @@ https://www.netapp.com/services/keystone/["了解有關Keystone的更多信息"^
 
 == 授權您的帳戶
 
-在您能夠在BlueXP中使用和管理Keystone訂閱之前，您需要聯絡NetApp以授權您的BlueXP使用者帳戶使用您的Keystone訂閱。
+在您能夠在BlueXP中使用和管理Keystone訂閱之前，您需要聯絡NetApp以授權您的BlueXP使用者帳號使用Keystone訂閱。
 
 .步驟
 . 從BlueXP導覽選單中，選擇 *治理 > 數位錢包*。

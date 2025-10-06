@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-deploying-otc-azure.html 
 keywords: Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, azure, license key, serial number, tags, azure tags, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, HA pair, associate subscription, azure marketplace, marketplace subscription, cloud data sense, cloud backup 
-summary: 您可以透過在NetApp控制台中建立 Cloud Volumes Cloud Volumes ONTAP Cloud Volumes ONTAP系統。 
+summary: 您可以透過在NetApp Console中建立 Cloud Volumes Cloud Volumes ONTAP Cloud Volumes ONTAP系統。 
 ---
 = 在 Azure 中啟動Cloud Volumes ONTAP
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以透過在NetApp控制台中建立 Cloud Volumes Cloud Volumes 
 
 
 [role="lead"]
-您可以透過在NetApp控制台中建立Cloud Volumes ONTAP系統在 Azure 中啟動單節點系統或 HA 對。
+您可以透過在NetApp Console中建立Cloud Volumes ONTAP系統在 Azure 中啟動單節點系統或 HA 對。
 
 .開始之前
 開始之前您需要以下內容。
@@ -81,8 +81,8 @@ link:task-set-up-licensing-azure.html["了解如何設定許可"^] 。
 |===
 . *服務*：啟用或停用您想要或不想與Cloud Volumes ONTAP一起使用的單一服務。
 +
-** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp資料分類的更多信息"^]
-** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp備份和復原的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp Data Classification的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp Backup and Recovery的更多信息"^]
 +
 
 TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
@@ -163,7 +163,7 @@ link:concept-data-tiering.html["了解有關數據分層的更多信息"^] 。
 +
 link:concept-write-speed.html["了解有關寫入速度的更多信息"^] 。
 
-.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
+.. 如果需要，請啟動一次寫入、多次讀取 (WORM) 儲存。
 +
 此選項僅適用於某些 VM 類型。若要了解支援的 VM 類型，請參閱link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["HA 對許可證支援的配置"^]。
 
@@ -237,7 +237,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 | DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
 
 
-| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
 |===
 . *使用情況設定檔、磁碟類型和分層策略*：選擇是否要啟用儲存效率功能並變更磁碟區分層策略（如果需要）。
 +
@@ -301,8 +301,8 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 |===
 . *服務*：根據您是否要將各個服務與Cloud Volumes ONTAP一起使用來啟用或停用它們。
 +
-** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp資料分類的更多信息"^]
-** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp備份和復原的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp Data Classification的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp Backup and Recovery的更多信息"^]
 +
 
 TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
@@ -397,7 +397,7 @@ link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-config
 +
 link:concept-write-speed.html["了解有關寫入速度的更多信息"^] 。
 
-.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
+.. 如果需要，請啟動一次寫入、多次讀取 (WORM) 儲存。
 +
 此選項僅適用於某些 VM 類型。若要了解支援的 VM 類型，請參閱link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["HA 對許可證支援的配置"^]。
 
@@ -484,7 +484,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 | DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
 
 
-| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
 |===
 . *使用情況設定檔、磁碟類型和分層策略*：選擇是否要啟用儲存效率功能並變更磁碟區分層策略（如果需要）。
 +

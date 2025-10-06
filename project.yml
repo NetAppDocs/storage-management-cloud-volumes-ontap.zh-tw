@@ -76,7 +76,7 @@ sidebar:
       entries:
       - title: 了解 Azure 中的Cloud Volumes ONTAP部署選項
         url: "/concept-azure-mktplace-direct.html"
-      - title: 開始使用NetApp控制台
+      - title: NetApp Console入門
         entries:
         - title: 快速啟動
           url: "/task-getting-started-azure.html"

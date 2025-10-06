@@ -14,7 +14,7 @@ summary: 透過Cloud Volumes ONTAP聚合支援 Amazon EBS Elastic Volumes 功能
 
 
 [role="lead"]
-透過Cloud Volumes ONTAP聚合支援 Amazon EBS Elastic Volumes 功能可提供更好的效能和額外的容量，同時使NetApp控制台能夠根據需要自動增加底層磁碟容量。
+透過Cloud Volumes ONTAP聚合支援 Amazon EBS Elastic Volumes 功能可提供更好的效能和額外的容量，同時使NetApp Console能夠根據需要自動增加底層磁碟容量。
 
 
 

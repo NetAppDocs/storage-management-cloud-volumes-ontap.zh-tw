@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-volumes.html 
 keywords: volumes, managing, cloning, editing, CIFS server, edit, flexclone, snapshot copy, restore, mount, delete, cifs setup, DNS, active directory, AD, domain, NetBIOS, identify, move, capacity, action required, clone, snapshot copies, restoring, vol move, volume move, move a volume, volume move slow, volume move performance 
-summary: NetApp控制台可讓您管理磁碟區和 CIFS 伺服器。它還會提示您移動磁碟區以避免容量問題。 
+summary: NetApp Console可讓您管理磁碟區和 CIFS 伺服器。它還會提示您移動磁碟區以避免容量問題。 
 ---
 = 管理Cloud Volumes ONTAP系統上的捲
 :hardbreaks:
@@ -14,9 +14,9 @@ summary: NetApp控制台可讓您管理磁碟區和 CIFS 伺服器。它還會�
 
 
 [role="lead"]
-您可以在NetApp控制台中管理磁碟區和 CIFS 伺服器。您也可以移動磁碟區以避免容量問題。
+您可以在NetApp Console中管理磁碟區和 CIFS 伺服器。您也可以移動磁碟區以避免容量問題。
 
-您可以在NetApp控制台標準視圖中管理卷，也可以透過控制台中包含的ONTAP系統管理器管理卷，以實現高階捲管理。標準視圖提供了一組有限的選項來修改您的捲。系統管理器提供高階管理，例如複製、調整大小、更改反勒索軟體、分析、保護和活動追蹤的設定以及跨層移動磁碟區。有關信息，請參閱link:task-administer-advanced-view.html["使用系統管理員管理Cloud Volumes ONTAP"]。
+您可以在NetApp Console標準視圖中管理卷，也可以透過控制台中包含的ONTAP系統管理器來管理卷，以進行高級捲管理。標準視圖提供了一組有限的選項來修改您的捲。系統管理器提供高階管理，例如複製、調整大小、更改反勒索軟體、分析、保護和活動追蹤的設定以及跨層移動磁碟區。有關信息，請參閱link:task-administer-advanced-view.html["使用系統管理員管理Cloud Volumes ONTAP"]。
 
 
 
@@ -107,7 +107,7 @@ NOTE: 控制台將磁碟區移至使用所選磁碟類型的現有聚合，或�
 
 
 
-NOTE: 控制台將磁碟區移至使用具有分層功能的選定磁碟類型的現有聚合，或為該磁碟區建立新的聚合。
+NOTE: 控制台將磁碟區移至使用具有分層功能的所選磁碟類型的現有聚合，或為該磁碟區建立新的聚合。
 
 
 
@@ -229,7 +229,7 @@ Cloud Volumes ONTAP使用變更來更新 CIFS 伺服器。
 
 == 當控制台顯示「需要操作」訊息時移動卷
 
-控制台可能會顯示「需要採取措施」訊息，表示需要移動磁碟區以避免容量問題，但您需要自行解決問題。如果發生這種情況，您需要確定如何修正問題，然後移動一個或多個磁碟區。
+控制台可能會顯示「需要採取行動」訊息，表示需要移動磁碟區以避免容量問題，但您需要自行解決問題。如果發生這種情況，您需要確定如何修正問題，然後移動一個或多個磁碟區。
 
 
 TIP: 當聚合已達到 90% 的使用容量時，控制台會顯示這些「需要操作」訊息。如果啟用了資料分層，則當聚合已達到 80% 的已使用容量時會顯示訊息。預設情況下，保留 10% 的可用空間用於資料分層。link:task-tiering.html#changing-the-free-space-ratio-for-data-tiering["了解有關數據分層的可用空間比率的更多信息"^] 。
@@ -253,7 +253,7 @@ TIP: 當聚合已達到 90% 的使用容量時，控制台會顯示這些「需�
 .步驟
 . 查看“需要操作”訊息中的高級信息，以確定已達到其容量限制的聚合。
 +
-例如，進階資訊應該顯示類似如下內容：聚合 aggr1 已達到其容量限制。
+例如，進階資訊應該顯示類似以下內容：聚合 aggr1 已達到其容量限制。
 
 . 確定要移出聚合的一個或多個磁碟區：
 +

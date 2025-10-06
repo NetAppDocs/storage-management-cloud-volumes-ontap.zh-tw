@@ -16,9 +16,9 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 [role="lead"]
 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端提供儲存和資料服務。您可能知道這是一個_SVM_或_vserver_。  Cloud Volumes ONTAP預設為儲存虛擬機，但您可以在 Azure 中執行Cloud Volumes ONTAP時建立其他儲存虛擬機器。
 
-若要在 Azure 中建立和管理其他資料服務儲存虛擬機，您應該使用 API。這是因為 API 自動化了建立儲存虛擬機器和配置所需網路介面的過程。建立儲存虛擬機器時， NetApp控制台會配置所需的 LIF 服務，以及儲存虛擬機器出站 SMB/CIFS 通訊所需的 iSCSI LIF。
+若要在 Azure 中建立和管理其他資料服務儲存虛擬機，您應該使用 API。這是因為 API 自動化了建立儲存虛擬機器和配置所需網路介面的過程。建立儲存虛擬機器時， NetApp Console會配置所需的 LIF 服務，以及儲存虛擬機器出站 SMB/CIFS 通訊所需的 iSCSI LIF。
 
-有關執行Cloud Volumes ONTAP API 呼叫的信息，請參閱 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一個 API 呼叫"^]。
+有關執行Cloud Volumes ONTAP API 呼叫的信息，請參閱 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 呼叫"^]。
 
 
 
@@ -26,13 +26,13 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 從Cloud Volumes ONTAP 9.9.0 開始，根據您的許可證，支援具有特定配置的多個儲存虛擬機器。請參閱 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["Cloud Volumes ONTAP發行說明"^]驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。
 
-9.9.0 之前的所有版本的Cloud Volumes ONTAP都支援一個資料服務儲存虛擬機器和一個用於災難復原的目標儲存虛擬機器。如果來源儲存虛擬機器發生中斷，您可以啟動目標儲存虛擬機器進行資料存取。
+9.9.0 之前的所有Cloud Volumes ONTAP版本都支援一個資料服務儲存虛擬機器和一個用於災難復原的目標儲存虛擬機器。如果來源儲存虛擬機器發生中斷，您可以啟動目標儲存虛擬機器進行資料存取。
 
 
 
 == 建立儲存虛擬機
 
-根據您的設定和授權類型，您可以使用NetApp控制台的 API 在單節點系統或高可用性 (HA) 配置中建立多個儲存虛擬機器。
+根據您的設定和授權類型，您可以使用NetApp Console的 API 在單節點系統或高可用性 (HA) 配置中建立多個儲存虛擬機器。
 
 .關於此任務
 當您使用 API 建立儲存虛擬機器並配置所需的網路介面時，控制台也會修改 `default-data-files`透過從 NAS 資料 LIF 中刪除以下服務並將其新增至用於出站管理連線的 iSCSI 資料 LIF，可以在資料儲存虛擬機器上實施策略：
@@ -148,5 +148,5 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 * https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["準備使用 API"^]
 * https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
 * https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["取得所需的標識符"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp控制台的 REST API"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
 

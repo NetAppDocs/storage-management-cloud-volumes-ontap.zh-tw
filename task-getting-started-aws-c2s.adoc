@@ -14,7 +14,7 @@ summary: 與標準 AWS 區域類似，您可以在 AWS Secret Cloud 和 Top Secr
 
 
 [role="lead"]
-與標準 AWS 區域NetApp，您可以在link:https://aws.amazon.com/federal/secret-cloud/["AWS 秘密雲"^]並且在link:https://aws.amazon.com/federal/top-secret-cloud/["AWS 頂級機密雲"^]部署Cloud Volumes ONTAP，為您的雲端儲存提供企業級功能。  AWS Secret Cloud 和 Top Secret Cloud 是特定於美國情報界的封閉區域；本頁的說明僅適用於 AWS Secret Cloud 和 Top Secret Cloud 區域使用者。
+與標準 AWS 區域NetApp Console，您可以在link:https://aws.amazon.com/federal/secret-cloud/["AWS 秘密雲"^]並且在link:https://aws.amazon.com/federal/top-secret-cloud/["AWS 頂級機密雲"^]部署Cloud Volumes ONTAP，為您的雲端儲存提供企業級功能。  AWS Secret Cloud 和 Top Secret Cloud 是特定於美國情報界的封閉區域；本頁的說明僅適用於 AWS Secret Cloud 和 Top Secret Cloud 區域使用者。
 
 .開始之前
 在開始之前，請先查看 AWS Secret Cloud 和 Top Secret Cloud 中支援的版本，並了解控制台中的私有模式。
@@ -583,7 +583,7 @@ docker restart <docker-id>
 如果您從NetApp購買了許可證，則需要將其新增至控制台，以便在建立新的Cloud Volumes ONTAP系統時選擇該許可證。在將這些許可證與新的Cloud Volumes ONTAP系統關聯之前，它們將保持未指派狀態。
 
 .步驟
-. 從左側導覽選單中，選擇*授權和訂閱*。
+. 從左側導覽選單中，選擇*Licenses and subscriptions*。
 . 在 * Cloud Volumes ONTAP* 面板上，選擇 *檢視*。
 . 在 * Cloud Volumes ONTAP* 標籤上，選擇 *許可證>基於節點的許可證*。
 . 按一下“*未分配*”。
@@ -600,7 +600,7 @@ docker restart <docker-id>
 
 
 .結果
-控制台會將許可證新增為未指派狀態，直到您將其與新的Cloud Volumes ONTAP系統關聯。您可以在左側導覽功能表的「*授權與訂閱 > Cloud Volumes ONTAP > 檢視 > 授權*」下看到授權。
+控制台會將許可證新增為未指派狀態，直到您將其與新的Cloud Volumes ONTAP系統關聯。您可以在左側導覽功能表的 *Licenses and subscriptions> Cloud Volumes ONTAP > 檢視 > 授權* 下看到授權。
 
 
 

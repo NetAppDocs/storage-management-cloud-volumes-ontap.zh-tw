@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-overriding-cifs-locks.html 
 keywords: CIFS locks, azure maintenance, maintenance events, cifs sessions, storage failover, storage giveback, giveback 
-summary: 組織或帳戶管理員可以在NetApp控制台中啟用一項設置，以防止在 Azure 維護事件期間出現Cloud Volumes ONTAP儲存復原問題。啟用此設定後， Cloud Volumes ONTAP將否決 CIFS 鎖定並重設活動的 CIFS 會話。 
+summary: 組織或帳戶管理員可以在NetApp Console中啟用一項設置，以防止在 Azure 維護事件期間出現Cloud Volumes ONTAP儲存復原問題。啟用此設定後， Cloud Volumes ONTAP將否決 CIFS 鎖定並重設活動的 CIFS 會話。 
 ---
 = 覆寫 Azure 中Cloud Volumes ONTAP HA 對的 CIFS 鎖
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 組織或帳戶管理員可以在NetApp控制台中啟用一項設置�
 
 
 [role="lead"]
-組織或帳戶管理員可以在NetApp控制台中啟用一項設置，以防止在 Azure 維護事件期間出現Cloud Volumes ONTAP儲存復原問題。啟用此設定後， Cloud Volumes ONTAP將否決 CIFS 鎖定並重設活動的 CIFS 會話。
+組織或帳戶管理員可以在NetApp Console中啟用一項設置，以防止在 Azure 維護事件期間出現Cloud Volumes ONTAP儲存復原問題。啟用此設定後， Cloud Volumes ONTAP將否決 CIFS 鎖定並重設活動的 CIFS 會話。
 
 .關於此任務
 Microsoft Azure 會安排其虛擬機器的定期維護事件。當Cloud Volumes ONTAP HA 對上發生維護事件時，HA 對會啟動儲存接管。如果在此維護事件期間有活動的 CIFS 會話，則 CIFS 檔案上的鎖定可能會阻止儲存復原。

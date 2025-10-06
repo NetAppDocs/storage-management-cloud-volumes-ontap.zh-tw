@@ -20,7 +20,7 @@ Cloud Volumes ONTAP支援 Azure 資源組移動，但工作流程僅在 Azure �
 
 .步驟
 . 刪除Cloud Volumes ONTAP系統。請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-removing.html["刪除Cloud Volumes ONTAP系統"] 。
-. 在 Azure 控制台中執行資源群組移動。
+. 在 Azure 控制台中執行資源組移動。
 +
 若要完成移動，請參閱link:https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription["Microsoft Azure 文件中的“將資源移至新的資源群組或訂閱”"^]。
 

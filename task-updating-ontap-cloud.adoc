@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-updating-ontap-cloud.html 
 keywords: update, updating, upgrading, upgrade, software, downgrade, downgrading, FTP, HTTP, mediator, local image, revert, reverting, downgrading, cloud backup 
-summary: 從NetApp控制台升級Cloud Volumes ONTAP以取得最新的功能和增強功能。在升級軟體之前，您應該準備好Cloud Volumes ONTAP系統。 
+summary: 從NetApp Console升級Cloud Volumes ONTAP以取得最新的功能和增強功能。在升級軟體之前，您應該準備好Cloud Volumes ONTAP系統。 
 ---
 = 升級Cloud Volumes ONTAP軟體
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 從NetApp控制台升級Cloud Volumes ONTAP以取得最新的功能和�
 
 
 [role="lead"]
-從NetApp控制台升級Cloud Volumes ONTAP以取得最新的功能和增強功能。在升級軟體之前，您應該準備好Cloud Volumes ONTAP系統。
+從NetApp Console升級Cloud Volumes ONTAP以取得最新的功能和增強功能。在升級軟體之前，您應該準備好Cloud Volumes ONTAP系統。
 
 
 
@@ -234,7 +234,7 @@ link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits
 
 在許多情況下，升級 HA 對不會造成中斷，且 I/O 也不會中斷。在此無中斷升級過程中，每個節點都會同步升級，以繼續為客戶端提供 I/O 服務。
 
-面向會話的協定在升級過程中可能會對某些區域的用戶端和應用程式造成不利影響。有關詳細信息，請參閱 https://docs.netapp.com/us-en/ontap/upgrade/concept_considerations_for_session_oriented_protocols.html["ONTAP 文件"^]
+面向會話的協定在升級過程中可能會對某些區域的用戶端和應用程式造成不利影響。有關詳細信息，請參閱 https://docs.netapp.com/us-en/ontap/upgrade/concept_considerations_for_session_oriented_protocols.html["ONTAP文檔"^]
 
 
 
@@ -251,7 +251,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D
 如果Cloud Volumes ONTAP系統具有活動的SnapMirror關係，最好在更新Cloud Volumes ONTAP軟體之前暫停傳輸。暫停傳輸可防止SnapMirror故障。您必須暫停從目標系統的傳輸。
 
 
-NOTE: 儘管NetApp Backup and Recovery 使用SnapMirror的實作來建立備份檔案（稱為SnapMirror Cloud），但在系統升級時無需暫停備份。
+NOTE: 儘管NetApp Backup and Recovery使用SnapMirror的實作來建立備份檔案（稱為SnapMirror Cloud），但在系統升級時無需暫停備份。
 
 .關於此任務
 以下步驟介紹如何使用ONTAP System Manager 9.3 及更高版本。
@@ -287,7 +287,7 @@ image:screenshots_aggregate_details_state.png["螢幕截圖：查看聚合資訊
 . 如果聚合處於離線狀態，請使用ONTAP系統管理員使聚合處於連線狀態：
 +
 .. 按一下“儲存”>“聚合和磁碟”>“聚合”。
-.. 選擇聚合，然後按一下*更多動作>狀態>線上*​​。
+.. 選擇聚合，然後按一下*更多操作>狀態>線上*​​。
 
 
 

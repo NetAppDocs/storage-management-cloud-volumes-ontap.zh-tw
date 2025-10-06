@@ -30,7 +30,7 @@ image:diagram-aws-vpc-sharing.png["共享 VPC 中Cloud Volumes ONTAP HA 部署�
 
 請依照下列步驟所述，您需要與參與者帳戶共用子網，然後在 VPC 擁有者帳戶中建立 IAM 角色和安全性群組。
 
-當您建立Cloud Volumes ONTAP系統時， NetApp控制台會自動建立 IAM 角色並將其附加到中介器。此角色承擔您在 VPC 擁有者帳戶中建立的 IAM 角色，以便對與 HA 對關聯的路由表進行變更。
+當您建立Cloud Volumes ONTAP系統時， NetApp Console會自動建立 IAM 角色並將其附加到中介器。此角色承擔您在 VPC 擁有者帳戶中建立的 IAM 角色，以便對與 HA 對關聯的路由表進行變更。
 
 .步驟
 . 與參與者帳戶共用 VPC 所有者帳戶中的子網路。

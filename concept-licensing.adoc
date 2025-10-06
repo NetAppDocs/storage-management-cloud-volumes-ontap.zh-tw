@@ -42,7 +42,7 @@ NOTE: 對於未經許可而使用許可的功能，我們將不提供支援。
 基於容量的許可以_包_的形式提供。部署Cloud Volumes ONTAP系統時，您可以根據業務需求從多個授權包中進行選擇。
 
 
-NOTE: 雖然NetApp控制台中管理的產品和服務的實際使用情況和計量始終以 GiB 和 TiB 計算，但 GB/GiB 和 TB/TiB 這兩個術語可互換使用。這反映在雲端市場列表、價格報價、列表描述和其他支援文件中。
+NOTE: 雖然NetApp Console中管理的產品和服務的實際使用情況和計量始終以 GiB 和 TiB 計算，但 GB/GiB 和 TB/TiB 這兩個術語可互換使用。這反映在雲端市場列表、價格報價、列表描述和其他支援文件中。
 
 
 
@@ -110,7 +110,7 @@ endif::gcp[]
 +
 單節點或 HA，以相同的費率對主捲和輔助卷進行容量計費
 
-* 包括使用NetApp Backup and Recovery 的無限磁碟區備份，但僅適用於使用專業版軟體包的Cloud Volumes ONTAP系統。
+* 包括使用NetApp Backup and Recovery進行無限磁碟區備份，但僅適用於使用專業版軟體套件的Cloud Volumes ONTAP系統。
 +
 
 NOTE: 備份和復原需要按使用量付費 (PAYGO) 訂閱，但使用此服務不會產生任何費用。有關設定備份和恢復許可的更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-licensing-cloud-backup.html["設定備份和恢復許可"^]。

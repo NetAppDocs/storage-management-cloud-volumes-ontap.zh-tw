@@ -14,7 +14,7 @@ summary: 如果您需要對Cloud Volumes ONTAP執行高階管理，則可以使�
 
 
 [role="lead"]
-Cloud Volumes ONTAP中的高階儲存管理功能可透過ONTAP系統管理器 ( ONTAP System Manager) 使用，它是ONTAP系統提供的管理介面。您可以直接從NetApp控制台存取系統管理員。
+Cloud Volumes ONTAP中的高階儲存管理功能可透過ONTAP系統管理器 ( ONTAP System Manager) 使用，它是ONTAP系統提供的管理介面。您可以直接從NetApp Console存取系統管理員。
 
 
 
@@ -99,7 +99,7 @@ image:screenshot_advanced_view.png["顯示系統管理員按鈕的螢幕截圖�
 
 == 有關使用系統管理員的協助
 
-如果您需要使用 System Manager 和Cloud Volumes ONTAP 的協助，您可以參考 https://docs.netapp.com/us-en/ontap/index.html["ONTAP 文件"^]以獲得逐步說明。以下是一些可能有幫助的ONTAP文件連結：
+如果您需要使用 System Manager 和Cloud Volumes ONTAP 的協助，您可以參考 https://docs.netapp.com/us-en/ontap/index.html["ONTAP文檔"^]以獲得逐步說明。以下是一些可能有幫助的ONTAP文件連結：
 
 * https://docs.netapp.com/us-en/ontap/ontap-security-hardening/roles-applications-authentication.html["ONTAP角色、應用程式和身份驗證"^]
 * https://docs.netapp.com/us-en/ontap/system-admin/access-cluster-system-manager-browser-task.html["使用 System Manager 存取叢集"^] 。

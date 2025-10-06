@@ -16,10 +16,10 @@ summary:
 [role="lead"]
 您可以使用 Azure 市場直接部署來快速輕鬆地部署Cloud Volumes ONTAP。從 Azure 市場，您只需點擊幾下即可快速部署Cloud Volumes ONTAP ，並在您的環境中探索其核心特性和功能。
 
-有關該產品的更多信息，請參閱link:concept-azure-mktplace-direct.html["了解NetApp控制台和市場中的Cloud Volumes ONTAP產品"]。
+有關該產品的更多信息，請參閱link:concept-azure-mktplace-direct.html["了解NetApp Console和市場中的Cloud Volumes ONTAP產品"]。
 
 .關於此任務
-使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統具有這些屬性。請注意，透過 Azure 市場部署的獨立實例的功能在NetApp控制台中被發現時會發生變化。
+使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統具有這些屬性。請注意，透過 Azure 市場部署的獨立實例的功能在NetApp Console中被發現時會發生變化。
 
 * 最新的Cloud Volumes ONTAP版本（9.16.1 或更高版本）。
 * Cloud Volumes ONTAP的免費許可證，限制為 500 GiB 的配置容量。此許可證不包括NetApp支持，且沒有到期日期。
@@ -77,11 +77,11 @@ NOTE: 如果您已將資源提供者「Microsoft.storage」註冊到您的訂閱
 *** 在「*網路*」標籤中，新增虛擬網路和子網，或從清單中選擇它們。
 +
 
-NOTE: 為了遵守 Microsoft Azure 限制，您應該在設定新的虛擬網路時建立一個新的子網路。同樣，如果您選擇現有網絡，則應選擇現有子網。
+NOTE: 為了遵守 Microsoft Azure 限制，您應該在設定新的虛擬網路時建立一個新的子網路。同樣，如果您選擇現有網絡，則應選擇現有子網路。
 
 *** 若要選擇預先定義的網路安全群組，請選擇「是」。選擇「*否*」以指派具有必要流量規則的預先定義 Azure 網路安全性群組。有關詳細信息，請參閱link:reference-networking-azure.html#security-group-rules["Azure 的安全性群組規則"] 。
 *** 在「*進階*」標籤中確認是否已設定此部署所需的兩個 Azure 功能。參考link:task-saz-feature.html["為Cloud Volumes ONTAP單可用區部署啟用 Azure 功能"]和link:task-azure-high-availability-mode.html["在 Azure 中為Cloud Volumes ONTAP啟用高可用性模式"]。
-*** 您可以在「*標籤*」標籤中為資源或資源群組定義名稱和值對。
+*** 您可以在*標籤*標籤中為資源或資源群組定義名稱和值對。
 *** 在「*Review + create*」標籤中，查看詳細資訊並開始部署。
 
 

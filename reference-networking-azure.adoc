@@ -14,7 +14,7 @@ summary: 設定您的 Azure 網絡，以便Cloud Volumes ONTAP系統可以正常
 
 
 [role="lead"]
-NetApp控制台負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
+NetApp Console負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
 
 
 
@@ -78,9 +78,9 @@ Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
 |===
 
 
-=== NetApp Console 代理程式的網路代理程式配置
+=== NetApp Console代理程式的網路代理程式配置
 
-您可以使用NetApp控制台代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的出站網路存取。控制台支援兩種類型的代理：
+您可以使用NetApp Console代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的外部網路存取。控制台支援兩種類型的代理：
 
 * *明確代理*：來自Cloud Volumes ONTAP 的出站流量使用在控制台代理的代理配置期間指定的代理伺服器的 HTTP 位址。管理員可能還配置了使用者憑證和根 CA 憑證以進行額外的身份驗證。Cloud Volumes ONTAP顯式代理程式有可用的根 CA 證書，請確保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
 * *透明代理*：網路配置為透過控制台代理的代理程式自動路由來自Cloud Volumes ONTAP 的出站流量。設定透明代理時，管理員只需要提供用於從Cloud Volumes ONTAP進行連接的根 CA 證書，而不是代理伺服器的 HTTP 位址。確保使用以下方式取得相同的根 CA 憑證並將其上傳到您的Cloud Volumes ONTAP系統 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
@@ -440,10 +440,10 @@ NOTE: 來源是Cloud Volumes ONTAP系統上的介面（IP 位址）。
 | TCP | 3128 | 節點管理 LIF | 控制台代理 | 如果出站網路連線不可用，則透過控制台代理上的代理伺服器傳送AutoSupport訊息 
 
 
-| 配置備份 | HTTP | 80 | 節點管理 LIF | \http://<控制台代理 IP 位址>/occm/offboxconfig | 將配置備份傳送到控制台代理程式。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文件"^] 。 
+| 配置備份 | HTTP | 80 | 節點管理 LIF | \http://<控制台代理 IP 位址>/occm/offboxconfig | 將配置備份傳送到控制台代理程式。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP文檔"^] 。 
 
 
-| DHCP | 68 | UDP | 節點管理 LIF | DHCP | 首次設定的 DHCP 用戶端 
+| DHCP | 68 | UDP | 節點管理 LIF | DHCP | DHCP 用戶端首次設定 
 
 
 | DHCP服務 | 67 | UDP | 節點管理 LIF | DHCP | DHCP 伺服器 

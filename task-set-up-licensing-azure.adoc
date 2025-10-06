@@ -23,7 +23,7 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 選擇免費加值服務，免費使用Cloud Volumes ONTAP，最高可提供 500 GiB 的設定容量。link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#packages["了解有關免費增值服務的更多信息"^] 。
 
 .步驟
-. 從NetApp控制台的左側導覽功能表中，選擇「儲存」>「管理」。
+. 從NetApp Console的左側導覽功能表中，選擇「儲存」>「管理」。
 . 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
 +
 .. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 Azure 市集中的即用即付產品。
@@ -166,7 +166,7 @@ Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.h
 . NetApp授權您的帳戶後，link:task-manage-keystone.html#link-a-subscription["連結您的訂閱以用於Cloud Volumes ONTAP"] 。
 . 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
 +
-.. 當提示選擇收費方式時，選擇Keystone Subscription 收費方式。
+.. 當提示選擇充電方式時，選擇Keystone Subscription 充電方式。
 +
 image:screenshot-keystone.png["建立Cloud Volumes ONTAP系統時Keystone訂閱選項的螢幕截圖。"]
 

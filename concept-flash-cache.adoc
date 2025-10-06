@@ -36,7 +36,7 @@ ifdef::aws[]
 
 * 在 AWS 中為Cloud Volumes ONTAP 9.12.0 或更早版本配置 Flash Cache 時，必須在所有磁碟區上停用壓縮才能利用 Flash Cache 效能改進。當您部署或升級至Cloud Volumes ONTAP 9.12.1 或更高版本時，您無需停用壓縮。
 +
-從NetApp控制台建立磁碟區時跳過選擇儲存效率設置，或建立磁碟區然後 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["使用 CLI 停用資料壓縮"^]。
+從NetApp Console建立磁碟區時跳過選擇儲存效率設置，或建立磁碟區然後 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["使用 CLI 停用資料壓縮"^]。
 
 
 

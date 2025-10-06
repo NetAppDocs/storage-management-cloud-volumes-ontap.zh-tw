@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-create-aggregates.html 
 keywords: storage, provisioning, aggregates, provision, create, advanced allocation, creating aggregates, adding an aggregate, add an aggregate, create an aggregate 
-summary: 您可以自行建立聚合，也可以讓NetApp Console 在建立磁碟區時為您建立聚合。自行建立聚合的好處是您可以選擇底層磁碟大小，從而可以根據所需的容量或效能調整聚合的大小。 
+summary: 您可以自行建立聚合，也可以讓NetApp Console在建立磁碟區時為您建立聚合。自行建立聚合的好處是您可以選擇底層磁碟大小，從而可以根據所需的容量或效能調整聚合的大小。 
 ---
 = 為Cloud Volumes ONTAP系統建立聚合
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以自行建立聚合，也可以讓NetApp Console 在建立磁�
 
 
 [role="lead"]
-您可以自行建立聚合，也可以讓NetApp控制台在建立磁碟區時為您建立聚合。自行建立聚合的好處是您可以選擇底層磁碟大小，從而可以根據所需的容量或效能調整聚合的大小。
+您可以自行建立聚合，也可以讓NetApp Console在建立磁碟區時為您建立聚合。自行建立聚合的好處是您可以選擇底層磁碟大小，從而可以根據所需的容量或效能調整聚合的大小。
 
 
 CAUTION: 必須直接從控制台建立和刪除所有磁碟和聚合。您不應從其他管理工具執行這些操作。這樣做會影響系統穩定性，妨礙將來添加磁碟的能力，並可能產生冗餘的雲端供應商費用。
@@ -22,7 +22,7 @@ CAUTION: 必須直接從控制台建立和刪除所有磁碟和聚合。您不�
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
 . 在「*系統*」頁面上，雙擊要管理聚合的Cloud Volumes ONTAP系統的名稱。
-. 在“聚合”標籤上，按一下“新增聚合”，然後指定聚合的詳細資訊。
+. 在“聚合”標籤上，按一下“*新增聚合*”，然後指定聚合的詳細資訊。
 +
 [role="tabbed-block"]
 ====

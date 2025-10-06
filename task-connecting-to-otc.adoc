@@ -27,7 +27,7 @@ NOTE: 當部署在多個 AZ 中時， Cloud Volumes ONTAP HA 配置使用浮動 
 endif::aws[]
 
 .步驟
-. 在NetApp控制台中，確定叢集管理介面的 IP 位址：
+. 在NetApp Console中，確定叢集管理介面的 IP 位址：
 +
 .. 從左側導覽功能表中，選擇“儲存”>“管理”。
 .. 在*系統*頁面上，選擇Cloud Volumes ONTAP系統。

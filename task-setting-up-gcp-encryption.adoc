@@ -40,7 +40,7 @@ summary: 雖然 Google Cloud Storage 始終會在將資料寫入磁碟之前對�
 https://cloud.google.com/kms/docs/iam#granting_roles_on_a_resource["Google Cloud 文件：將 IAM 與 Cloud KMS 結合使用 - 授予資源角色"]
 
 . 透過呼叫 get 指令來取得金鑰的“id” `/gcp/vsa/metadata/gcp-encryption-keys` API 呼叫或透過在 GCP 控制台中的鍵上選擇「複製資源名稱」。
-. 如果使用客戶管理的加密金鑰並將資料分層到物件存儲， NetApp控制台會嘗試使用用於加密持久磁碟的相同金鑰。但您首先需要啟用 Google Cloud Storage 儲存桶才能使用金鑰：
+. 如果使用客戶管理的加密金鑰並將資料分層到物件存儲， NetApp Console會嘗試使用用於加密持久磁碟的相同金鑰。但您首先需要啟用 Google Cloud Storage 儲存桶才能使用金鑰：
 +
 .. 請依照下列步驟尋找 Google Cloud Storage 服務代理 https://cloud.google.com/storage/docs/getting-service-agent["Google Cloud 文件：取得雲端儲存服務代理"^]。
 .. 導覽至加密金鑰並為 Google Cloud Storage 服務代理程式指派 Cloud KMS Encrypter/Decrypter 權限。
@@ -62,4 +62,4 @@ https://cloud.google.com/kms/docs/iam#granting_roles_on_a_resource["Google Cloud
 ----
 
 
-請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]有關使用“GcpEncryption”參數的更多詳細資訊。
+請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]有關使用“GcpEncryption”參數的更多詳細資訊。

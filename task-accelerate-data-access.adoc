@@ -18,7 +18,7 @@ FlexCache卷是一種儲存卷，用於快取從原始（或來源）卷讀取�
 
 您可以使用FlexCache磁碟區來加快資料存取速度或卸載存取量大的磁碟區的流量。  FlexCache磁碟區有助於提高效能，特別是當用戶端需要重複存取相同資料時，因為可以直接提供資料而無需存取原始磁碟區。  FlexCache卷非常適合讀取密集的系統工作負載。
 
-NetApp Console 提供FlexCache磁碟區的管理link:https://docs.netapp.com/us-en/bluexp-volume-caching/index.html["NetApp磁碟區快取"^]。
+NetApp Console提供FlexCache磁碟區的管理link:https://docs.netapp.com/us-en/bluexp-volume-caching/index.html["NetApp Volume Caching"^]。
 
 您也可以使用ONTAP CLI 或ONTAP系統管理器來建立和管理FlexCache磁碟區：
 

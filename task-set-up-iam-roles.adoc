@@ -14,7 +14,7 @@ summary: 必須將具有所需權限的 IAM 角色附加到每個Cloud Volumes O
 
 
 [role="lead"]
-必須將具有所需權限的 AWS 身分和存取管理 (IAM) 角色附加到每個Cloud Volumes ONTAP節點。對於 HA 調解員也是如此。最簡單的方法是讓NetApp控制台為您建立 IAM 角色，但您也可以使用自己的角色。
+必須將具有所需權限的 AWS 身分和存取管理 (IAM) 角色附加到每個Cloud Volumes ONTAP節點。對於 HA 調解員也是如此。最簡單的方法是讓NetApp Console為您建立 IAM 角色，但您也可以使用自己的角色。
 
 此任務是可選的。建立Cloud Volumes ONTAP系統時，預設選項是讓控制台為您建立 IAM 角色。如果您企業的安全政策要求您自行建立 IAM 角色，請依照下列步驟操作。
 
@@ -149,7 +149,7 @@ NOTE: AWS Secret Cloud 需要提供您自己的 IAM 角色。link:task-getting-s
 ====
 ** Cloud Volumes ONTAP節點的備份策略
 +
-如果您打算將NetApp Backup and Recovery 與Cloud Volumes ONTAP系統一起使用，則節點的 IAM 角色必須包含下方顯示的第二個原則。
+如果您打算將NetApp Backup and Recovery與Cloud Volumes ONTAP系統一起使用，則節點的 IAM 角色必須包含下方顯示的第二個原則。
 
 +
 [role="tabbed-block"]

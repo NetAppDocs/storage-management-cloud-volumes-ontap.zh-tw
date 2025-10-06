@@ -26,7 +26,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 == 使用多個儲存虛擬機
 
-NetApp控制台支援您從ONTAP系統管理員或ONTAP CLI 建立的任何其他儲存虛擬機器。
+NetApp Console支援您從ONTAP系統管理員或ONTAP CLI 建立的任何其他儲存虛擬機器。
 
 例如，下圖顯示如何在建立磁碟區時選擇儲存虛擬機器。
 

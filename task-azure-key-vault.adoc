@@ -14,7 +14,7 @@ summary: 利用 Azure Key Vault 作為第三方金鑰管理服務。
 [role="lead"]
 您可以使用 Azure Key Vault (AKV) 來保護 Azure 部署的應用程式中ONTAP加密金鑰。請參閱link:https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts["Microsoft 文件"^]。
 
-AKV 僅可用於保護資料 SVM 的NetApp磁碟區加密 (NVE) 金鑰。欲了解更多信息，請參閱link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["ONTAP 文件"^] 。
+AKV 僅可用於保護資料 SVM 的NetApp磁碟區加密 (NVE) 金鑰。欲了解更多信息，請參閱link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["ONTAP文檔"^] 。
 
 可以使用 CLI 或ONTAP REST API 啟用 AKV 金鑰管理。
 
@@ -186,7 +186,7 @@ Category: kms_wrapped_key_status
 如果 `service_reachability`狀態不是 `OK`，SVM 無法透過所有必要的連線和權限存取 Azure Key Vault 服務。確保您的 Azure 網路策略和路由不會阻止您的私人 vNet 到達 Azure Key Vault 公共終端點。如果確實如此，請考慮使用 Azure Private 端點從 vNet 內部存取 Key Vault。您可能還需要在 SVM 上新增靜態主機條目來解析端點的私人 IP 位址。
 
 +
-這 `kms_wrapped_key_status`將報告 `UNKNOWN`在初始配置時。其狀態將變為 `OK`第一卷加密後。
+這 `kms_wrapped_key_status`將會報告 `UNKNOWN`在初始配置時。其狀態將變為 `OK`第一卷加密後。
 
 . 可選：建立測試卷以驗證 NVE 的功能。
 +

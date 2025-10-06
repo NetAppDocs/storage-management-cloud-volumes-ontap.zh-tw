@@ -40,7 +40,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 新增Cloud Volumes ONTAP系統時，系統會提示您啟用或停用 WORM 儲存：
 
-* 如果在新增系統時啟用 WORM 存儲，則從NetApp控制台建立的每個磁碟區都將啟用 WORM。但是您可以使用ONTAP系統管理員或ONTAP CLI 來建立已停用 WORM 的磁碟區。
+* 如果在新增系統時啟用 WORM 存儲，則從NetApp Console建立的每個磁碟區都將啟用 WORM。但是您可以使用ONTAP系統管理員或ONTAP CLI 來建立已停用 WORM 的磁碟區。
 * 如果在新增系統時停用 WORM 存儲，則從控制台、 ONTAP系統管理器或ONTAP CLI 建立的每個磁碟區都將停用 WORM。
 
 
@@ -91,7 +91,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 您可以使用特權刪除功能刪除保留期內的 WORM 檔案。
 
-有關說明，請參閱 https://docs.netapp.com/us-en/ontap/snaplock/delete-worm-files-concept.html["ONTAP 文件"^]。
+有關說明，請參閱 https://docs.netapp.com/us-en/ontap/snaplock/delete-worm-files-concept.html["ONTAP文檔"^]。
 
 
 

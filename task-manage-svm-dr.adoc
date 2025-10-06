@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-svm-dr.html 
 keywords: storage virtual machine, vserver, svm, storage vm, svm dr, disaster recovery, svm disaster recovery, storage vm dr 
-summary: NetApp Console 不為儲存 VM 災難復原提供任何設定或編排支援。您必須使用系統管理員或 CLI。 
+summary: NetApp Console不為儲存 VM 災難復原提供任何設定或編排支援。您必須使用系統管理員或 CLI。 
 ---
 = 為Cloud Volumes ONTAP設定儲存虛擬機器災難復原
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp Console 不為儲存 VM 災難復原提供任何設定或編排�
 
 
 [role="lead"]
-NetApp控制台不提供儲存虛擬機器 (SVM) 災難復原的設定或編排支援。若要執行這些任務，請使用ONTAP System Manager 或ONTAP CLI。
+NetApp Console不提供儲存虛擬機器 (SVM) 災難復原的設定或編排支援。若要執行這些任務，請使用ONTAP System Manager 或ONTAP CLI。
 
 如果在兩個Cloud Volumes ONTAP系統之間設定SnapMirror SVM 複製，則複製必須在兩個 HA 對系統或兩個單節點系統之間進行。您無法在 HA 對和單節點系統之間設定SnapMirror SVM 複製。
 
