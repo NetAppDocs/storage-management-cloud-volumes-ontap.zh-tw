@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: task-registering.html 
+keywords: Cloud Volumes ONTAP, register, registering, paygo, pay-as-you-go, registration, instance id, serial number, account id, support 
+summary: Cloud Volumes ONTAP PAYGO 系統包含NetApp的支持，但您必須先透過在NetApp註冊系統來啟動支援。 
+---
+= 註冊Cloud Volumes ONTAP即用即付系統
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP即用即付 (PAYGO) 系統包含NetApp的支持，但您必須先透過向NetApp註冊系統來啟動支援。
+
+需要向NetApp註冊 PAYGO 系統才能使用任何方法升級ONTAP軟體link:task-updating-ontap-cloud.html["本頁描述"]。
+
+
+TIP: 未註冊支援的系統仍會在有新版本可用時收到NetApp控制台中顯示的軟體更新通知。但您需要先註冊系統才能升級軟體。
+
+.步驟
+. 如果您尚未將NetApp支援網站帳戶新增至控制台，請前往 *帳戶設定* 並立即新增。
++
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["了解如何新增NetApp支援網站帳戶"^] 。
+
+. 在「*系統*」頁面上，雙擊要註冊的系統的名稱。
+. 在「概述」標籤上，按一下「功能」面板，然後按一下「*支援註冊*」旁邊的鉛筆圖示。
++
+image::screenshot_features_support_registration_2.png[400]
+
+. 選擇NetApp支援網站帳號並點選「*註冊*」。
+
+
+.結果
+該系統已在NetApp註冊。

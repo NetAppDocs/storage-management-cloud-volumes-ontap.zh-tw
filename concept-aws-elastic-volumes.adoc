@@ -1,0 +1,191 @@
+---
+sidebar: sidebar 
+permalink: concept-aws-elastic-volumes.html 
+keywords: elastic volumes, ev, ebs elastic volumes, ebs, amazon ebs, disk growth 
+summary: 透過Cloud Volumes ONTAP聚合支援 Amazon EBS Elastic Volumes 功能可提供更好的效能和額外的容量，同時讓您能夠根據需要自動增加底層磁碟容量。 
+---
+= 了解Cloud Volumes ONTAP對 AWS Elastic Volumes 的支持
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+透過Cloud Volumes ONTAP聚合支援 Amazon EBS Elastic Volumes 功能可提供更好的效能和額外的容量，同時使NetApp控制台能夠根據需要自動增加底層磁碟容量。
+
+
+
+== 好處
+
+* 動態磁碟成長
++
+當Cloud Volumes ONTAP正在運作且磁碟仍處於連線狀態時，控制台可以動態增加磁碟的大小。
+
+* 更好的性能
++
+啟用彈性卷的聚合最多可以擁有八個磁碟，這些磁碟在兩個 RAID 群組中平均利用。此配置可提供更高的吞吐量和穩定的效能。
+
+* 較大的骨材
++
+支援八個磁碟，最大聚合容量為 128 TiB。對於未啟用彈性磁碟區功能的聚合，這些限制高於六個磁碟限制和 96 TiB 限制。
+
++
+請注意，系統總容量限制保持不變。
+
+
+
+https://aws.amazon.com/ebs/features/["AWS 文件：了解有關 AWS 彈性磁碟區的更多信息"^]
+
+
+
+== 支援的配置
+
+特定Cloud Volumes ONTAP版本和特定 EBS 磁碟類型支援 Amazon EBS Elastic Volumes 功能。
+
+
+
+=== Cloud Volumes ONTAP版本
+
+從 9.11.0 或更高版本建立的 _new_ Cloud Volumes ONTAP系統支援彈性磁碟區功能。  9.11.0 之前部署的現有Cloud Volumes ONTAP系統不支援此功能。
+
+例如，如果您建立了Cloud Volumes ONTAP 9.9.0 系統，然後將系統升級到版本 9.11.0，則不支援彈性磁碟區功能。它必須是使用 9.11.0 或更高版本部署的新系統。
+
+
+
+=== EBS 磁碟類型
+
+使用通用 SSD（gp3）或預先設定 IOPS SSD（io1）時，彈性磁碟區功能會在聚合層級自動啟用。使用任何其他磁碟類型的聚合不支援彈性磁碟區功能。
+
+
+
+== 所需的 AWS 權限
+
+從 3.9.19 版本開始，控制台代理需要下列權限才能在Cloud Volumes ONTAP聚合上啟用和管理彈性磁碟區功能：
+
+* ec2：描述卷修改
+* ec2：修改卷
+
+
+這些權限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["NetApp提供的政策"^]
+
+
+
+== 彈性卷支援如何運作
+
+啟用了彈性磁碟區功能的聚合由一個或兩個 RAID 群組組成。每個 RAID 群組有四個相同的磁碟，容量相同。下面是一個 10 TiB 聚合的範例，該聚合包含四個磁碟，每個磁碟大小為 2.5 TiB：
+
+image:diagram-aws-elastic-volumes-one-raid-group.png["概念圖顯示了由四個大小相同的磁碟組成的聚合和 RAID 群組。"]
+
+當控制台建立聚合時，它從一個 RAID 群組開始。如果需要額外的容量，它會透過將 RAID 群組中所有磁碟的容量增加相同的量來增加聚合。容量增加至少為 256 GiB 或聚合大小的 10%。
+
+例如，如果您有一個 1 TiB 聚合，則每個磁碟為 250 GiB。聚合容量的 10% 為 100 GiB。這低於 256 GiB，因此聚合的大小增加了 256 GiB 的最小值（或每個磁碟 64 GiB）。
+
+當Cloud Volumes ONTAP系統正在運作且磁碟仍處於連線狀態時，控制台會增加磁碟的大小。該變化不會造成破壞。
+
+如果聚合達到 64 TiB（或每個磁碟 16 TiB），控制台將建立第二個 RAID 群組以提供額外的容量。第二個 RAID 群組的工作方式與第一個 RAID 群組相同：它有四個容量完全相同的磁碟，並且可以成長到 64 TiB。這意味著聚合的最大容量可以是 128 TiB。
+
+以下是具有兩個 RAID 群組的聚合的範例。第一個 RAID 群組已達到容量限制，而第二個 RAID 群組中的磁碟有足夠的可用空間。
+
+image:diagram-aws-elastic-volumes-two-raid-groups.png["概念圖顯示了一個聚合和兩個 RAID 群組，它們均由四個大小相同的磁碟組成。"]
+
+
+
+=== 建立磁碟區時會發生什麼
+
+如果您建立使用 gp3 或 io1 磁碟的捲，控制台將如下在聚合上建立該磁碟區：
+
+* 如果存在啟用了彈性磁碟區的現有 gp3 或 io1 聚合，則控制台會在該聚合上建立磁碟區。
+* 如果有多個啟用了彈性磁碟區的 gp3 或 io1 聚合，則控制台會在需要最少資源的聚合上建立磁碟區。
+* 如果系統僅具有未啟用彈性磁碟區的 gp3 或 io1 聚合，則會在該聚合上建立磁碟區。
++
+[NOTE]
+====
+雖然這種情況不太可能發生，但在兩種情況下是有可能的：
+
+** 從 API 建立聚合時，您明確停用了彈性卷功能。
+** 您從使用者介面建立了一個新的Cloud Volumes ONTAP系統，在這種情況下，初始聚合上的彈性磁碟區功能被停用。審查<<限制>>請參閱下文以了解更多資訊。
+
+
+====
+* 如果現有聚合都沒有足夠的容量，控制台將建立啟用彈性磁碟區的聚合，然後在該新聚合上建立磁碟區。
++
+聚合的大小是基於請求的磁碟區大小加上額外的 10% 容量。
+
+
+
+
+
+=== 容量管理模式
+
+控制台代理程式的容量管理模式與彈性磁碟區的工作方式類似於與其他類型的聚合的工作方式：
+
+* 啟用自動模式（這是預設）時，如果需要額外的容量，控制台會自動增加聚合的大小。
+* 如果將容量管理模式變更為手動，控制台將要求您批准購買額外容量。
+
+
+link:concept-storage-management.html#capacity-management["了解有關容量管理模式的更多信息"] 。
+
+
+
+== 限制
+
+增加聚合體的大小最多可能需要 6 小時。在此期間，控制台無法為該聚合請求任何額外容量。
+
+
+
+== 如何使用彈性卷
+
+您可以使用彈性磁碟區執行下列任務：
+
+* 使用 gp3 或 io1 磁碟時，建立一個在初始聚合上啟用彈性磁碟區的新系統
++
+link:task-deploying-otc-aws.html["了解如何建立Cloud Volumes ONTAP系統"]
+
+* 在啟用了彈性卷的聚合上建立新卷
++
+如果您建立使用 gp3 或 io1 磁碟的捲，控制台會自動在啟用了彈性卷的聚合上建立該磁碟區。有關詳細信息，請參閱<<建立磁碟區時會發生什麼>>。
+
++
+link:task-create-volumes.html["了解如何建立卷"] 。
+
+* 建立已啟用彈性磁碟區的新聚合
++
+只要Cloud Volumes ONTAP系統是從 9.11.0 或更高版本建立的，彈性磁碟區就會在使用 gp3 或 io1 磁碟的新聚合上自動啟用。
+
++
+建立聚合時，控制台會提示您輸入聚合的容量大小。這與選擇磁碟大小和磁碟數量的其他配置不同。
+
++
+以下螢幕截圖顯示了由 gp3 磁碟組成的新聚合的範例。
+
++
+image:screenshot-aggregate-size-ev.png["這是 gp3 磁碟的聚合磁碟螢幕的螢幕截圖，您可以在其中輸入聚合大小（以 TiB 為單位）。"]
+
++
+link:task-create-aggregates.html["了解如何建立聚合"] 。
+
+* 識別已啟用彈性卷的聚合
++
+當您前往「進階分配」頁面時，您可以確定聚合上是否啟用了彈性磁碟區功能。在以下範例中，aggr1 啟用了彈性磁碟區。
+
++
+image:screenshot_elastic_volume_enabled.png["螢幕截圖顯示了兩個聚合，其中一個聚合的欄位帶有文字「彈性磁碟區已啟用」。"]
+
+* 向聚合添加容量
++
+雖然控制台會根據需要自動向聚合添加容量，但您也可以手動增加容量。
+
++
+link:task-manage-aggregates.html["了解如何提高總容量"] 。
+
+* 將資料複製到已啟用彈性卷的聚合
++
+如果目標Cloud Volumes ONTAP系統支援彈性卷，則目標卷將放置在啟用了彈性卷的聚合上（只要您選擇 gp3 或 io1 磁碟）。
+
++
+https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何設定資料複製"^]
+
+

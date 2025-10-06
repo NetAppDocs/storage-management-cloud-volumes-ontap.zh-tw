@@ -1,0 +1,537 @@
+---
+sidebar: sidebar 
+permalink: reference-networking-gcp.html 
+keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, bucket, private google access, set up data requirement, gcp networking, google networking, shared vpc, host project, service project 
+summary: 設定您的 Google Cloud 網絡，以便Cloud Volumes ONTAP系統可以正常運作。 
+---
+= 為Cloud Volumes ONTAP設定 Google Cloud 網路
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp控制台負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
+
+如果你想部署 HA 對，你應該link:concept-ha-google-cloud.html["了解 HA 對在 Google Cloud 中的工作原理"]。
+
+
+
+== Cloud Volumes ONTAP的要求
+
+Google Cloud 必須滿足以下要求。
+
+
+
+=== 單節點系統的特定要求
+
+如果您要部署單節點系統，請確保您的網路符合下列要求。
+
+
+
+==== 一個 VPC
+
+單節點系統需要一個虛擬私有雲（VPC）。
+
+
+
+==== 私人 IP 位址
+
+對於 Google Cloud 中的單節點系統，控制台會將私人 IP 位址指派給下列物件：
+
+* 節點
+* 簇
+* 儲存虛擬機
+* 數據 NAS LIF
+* 資料 iSCSI LIF
+
+
+如果您使用 API 部署Cloud Volumes ONTAP並指定下列標誌，則可以跳過建立儲存虛擬機器 (SVM) 管理 LIF：
+
+`skipSvmManagementLif: true`
+
+
+NOTE: LIF 是與實體連接埠關聯的 IP 位址。  SnapCenter等管理工具需要儲存虛擬機器 (SVM) 來管理 LIF。
+
+
+
+=== HA 對的特定要求
+
+如果您要部署 HA 對，請確保您的網路符合以下要求。
+
+
+
+==== 一個或多個區域
+
+您可以透過在多個區域或單一區域中部署 HA 配置來確保資料的高可用性。建立 HA 對時，控制台會提示您選擇多個區域或單一區域。
+
+* 多區域（建議）
++
+跨三個區域部署 HA 配置可確保當一個區域內發生故障時資料仍然可用。請注意，與使用單一區域相比，寫入效能略低，但差異很小。
+
+* 單區
++
+在單一區域中部署時， Cloud Volumes ONTAP HA 配置使用分散放置策略。此策略可確保 HA 配置免受區域內單點故障的影響，而無需使用單獨的區域來實現故障隔離。
+
++
+這種部署模型確實降低了您的成本，因為區域之間沒有資料流出費用。
+
+
+
+
+
+==== 四個虛擬私有雲
+
+HA 配置需要四個虛擬私有雲 (VPC)。需要四個 VPC，因為 Google Cloud 要求每個網路介面位於單獨的 VPC 網路中。
+
+建立 HA 對時，控制台會提示您選擇四個 VPC：
+
+* VPC-0 用於資料和節點的入站連接
+* VPC-1、VPC-2 和 VPC-3 用於節點和 HA 中介之間的內部通信
+
+
+image:diagram_gcp_ha.png["概念圖展示了 Cloud Volume HA 對和配置所需的四個 VPC。"]
+
+
+
+==== 子網
+
+每個 VPC 都需要一個私有子網路。
+
+如果將控制台代理程式放置在 VPC-0 中，則需要在子網路上啟用私人 Google 存取權限以存取 API 並啟用資料分層。
+
+這些 VPC 中的子網路必須具有不同的 CIDR 範圍。它們不能有重疊的 CIDR 範圍。
+
+
+
+==== 私人 IP 位址
+
+控制台會自動為 Google Cloud 中的Cloud Volumes ONTAP指派所需數量的私有 IP 位址。您需要確保您的網路有足夠的可用私有位址。
+
+為Cloud Volumes ONTAP指派的 LIF 數量取決於您部署的是單節點系統還是 HA 對。  LIF 是與實體連接埠關聯的 IP 位址。  SnapCenter等管理工具需要 SVM 管理 LIF。
+
+* *單節點* 控制台為單節點系統指派 4 個 IP 位址：
++
+** 節點管理 LIF
+** 集群管理 LIF
+** iSCSI 資料 LIF
++
+
+NOTE: iSCSI LIF 透過 iSCSI 協定提供用戶端訪問，並被系統用於其他重要的網路工作流程。這些 LIF 是必需的，不應刪除。
+
+** NAS LIF
++
+如果您使用 API 部署Cloud Volumes ONTAP並指定下列標誌，則可以跳過建立儲存虛擬機器 (SVM) 管理 LIF：
+
++
+`skipSvmManagementLif: true`
+
+
+
+* *HA 對* 控制台為 HA 對分配 12-13 個 IP 位址：
++
+** 2 個節點管理 LIF (e0a)
+** 1 集群管理 LIF (e0a)
+** 2 個 iSCSI LIF (e0a)
++
+
+NOTE: iSCSI LIF 透過 iSCSI 協定提供用戶端訪問，並被系統用於其他重要的網路工作流程。這些 LIF 是必需的，不應刪除。
+
+** 1 或 2 個 NAS LIF (e0a)
+** 2 個集群 LIF (e0b)
+** 2 個 HA 互連 IP 位址 (e0c)
+** 2 個 RSM iSCSI IP 位址（e0d）
++
+如果您使用 API 部署Cloud Volumes ONTAP並指定下列標誌，則可以跳過建立儲存虛擬機器 (SVM) 管理 LIF：
+
++
+`skipSvmManagementLif: true`
+
+
+
+
+
+
+
+==== 內部負載平衡器
+
+控制台建立四個 Google Cloud 內部負載平衡器（TCP/UDP），用於管理傳入Cloud Volumes ONTAP HA 對的流量。您無需進行任何設定。我們將其列為一項要求只是為了告知您網路流量並減輕任何安全問題。
+
+一個負載平衡器用於叢集管理，一個用於儲存虛擬機器 (SVM) 管理，一個用於到節點 1 的 NAS 流量，最後一個用於到節點 2 的 NAS 流量。
+
+每個負載平衡器的設定如下：
+
+* 一個共享的私人 IP 位址
+* 一次全球健康檢查
++
+預設情況下，健康檢查使用的連接埠為63001、63002、63003。
+
+* 一個區域 TCP 後端服務
+* 一個區域 UDP 後端服務
+* 一條 TCP 轉送規則
+* 一條 UDP 轉送規則
+* 全域存取已禁用
++
+儘管預設情況下會停用全域訪問，但支援在部署後啟用它。我們禁用它是因為跨區域流量會有明顯更高的延遲。我們希望確保您不會因為意外的跨區域坐騎而產生負面體驗。啟用此選項是為了滿足您的業務需求。
+
+
+
+
+
+=== 共享 VPC
+
+Google Cloud 共享 VPC 和獨立 VPC 皆支援Cloud Volumes ONTAP和控制台代理。
+
+對於單節點系統，VPC 可以是共用 VPC，也可以是獨立 VPC。
+
+對於 HA 對，需要四個 VPC。每個 VPC 可以是共享的，也可以是獨立的。例如，VPC-0 可以是共用 VPC，而 VPC-1、VPC-2 和 VPC-3 可以是獨立 VPC。
+
+共用 VPC 可讓您跨多個專案配置和集中管理虛擬網路。您可以在_主機專案_中設定共用 VPC 網絡，並在_服務項目_中部署控制台代理程式和Cloud Volumes ONTAP虛擬機器實例。
+
+https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud 文件：共享 VPC 概覽"^] 。
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["查看控制台代理部署中涵蓋的所需共用 VPC 權限"^]
+
+
+
+=== VPC 中的資料包鏡像
+
+https://cloud.google.com/vpc/docs/packet-mirroring["資料包鏡像"^]必須在部署Cloud Volumes ONTAP的 Google Cloud 子網路中停用。
+
+
+
+=== 出站互聯網訪問
+
+Cloud Volumes ONTAP系統需要出站網際網路存取才能存取外部端點以實現各種功能。如果這些端點在具有嚴格安全要求的環境中被阻止， Cloud Volumes ONTAP將無法正常運作。
+
+控制台代理也會聯絡多個端點以進行日常操作。有關端點的信息，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看從控制台代理聯繫的端點"^]和 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-networking-saas-console.html["準備好使用控制台的網絡"^]。
+
+
+
+==== Cloud Volumes ONTAP端點
+
+Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
+
+[cols="5*"]
+|===
+| 端點 | 適用於 | 目的 | 部署模式 | 端點不可用時的影響 
+
+
+| \ https://netapp-cloud-account.auth0.com | 驗證 | 用於控制台中的身份驗證。 | 標準和限制模式。  a| 
+用戶身份驗證失敗，以下服務仍然不可用：
+
+* Cloud Volumes ONTAP服務
+* ONTAP服務
+* 協定和代理服務
+
+
+
+
+| \ https://api.bluexp.netapp.com/tenancy | 租賃 | 用於從控制台檢索Cloud Volumes ONTAP資源以授權資源和使用者。 | 標準和限制模式。 | Cloud Volumes ONTAP資源和使用者未獲得授權。 
+
+
+| \ https://mysupport.netapp.com/aods/asupmessage \ https://mysupport.netapp.com/asupprod/post/1.0/postAsup | AutoSupport | 用於將AutoSupport遙測資料傳送給NetApp支援。 | 標準和限制模式。 | AutoSupport資訊仍未送達。 
+
+
+| \ https://www.googleapis.com/compute/v1/projects/ \ https://cloudresourcemanager.googleapis.com/v1/projects \ https://www.googleapis.com/compute/beta \ https://storage.googleapis.com/storage/v1 \ https: https://iam.googleapis.com/v1 https://www.googleapis.com/storage/v1 https://cloudkms.googleapis.com/v1 \ https://www.googleapis.com/deploymentmanager/v2/projects \ https://compute.googleapis.com/compute/v1 | Google Cloud（商業用途）。 | 與 Google Cloud 服務通訊。 | 標準、受限和私人模式。 | Cloud Volumes ONTAP無法與 Google Cloud 服務通訊以對 Google Cloud 中的控制台執行特定操作。 
+|===
+
+
+=== 與其他網路中的ONTAP系統的連接
+
+要在 Google Cloud 中的Cloud Volumes ONTAP系統和其他網路中的ONTAP系統之間複製數據，您必須在 VPC 和其他網路（例如您的公司網路）之間建立 VPN 連線。
+
+https://cloud.google.com/vpn/docs/concepts/overview["Google Cloud 文件：Cloud VPN 概覽"^] 。
+
+
+
+=== 防火牆規則
+
+控制台建立 Google Cloud 防火牆規則，其中包含Cloud Volumes ONTAP成功運作所需的入站和出站規則。您可能想要參考連接埠以進行測試，或者您喜歡使用自己的防火牆規則。
+
+Cloud Volumes ONTAP的防火牆規則需要入站和出站規則。如果您正在部署 HA 配置，這些是 VPC-0 中Cloud Volumes ONTAP的防火牆規則。
+
+請注意，HA 配置需要兩組防火牆規則：
+
+* 針對 VPC-0 中的 HA 組件的一組規則。這些規則允許對Cloud Volumes ONTAP進行資料存取。
+* 針對 VPC-1、VPC-2 和 VPC-3 中的 HA 組件的另一組規則。這些規則對於 HA 組件之間的入站和出站通訊開放。<<rules-for-vpc,了解更多>> 。
+
+
+
+TIP: 正在尋找有關控制台代理的資訊？ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-gcp.html["查看控制台代理的防火牆規則"^]
+
+
+
+==== 入站規則
+
+新增Cloud Volumes ONTAP系統時，您可以在部署期間選擇預先定義防火牆策略的來源篩選器：
+
+* *僅限選定的 VPC*：入站流量的來源過濾器是Cloud Volumes ONTAP系統的 VPC 子網路範圍和控制台代理程式所在的 VPC 子網路範圍。這是推薦的選項。
+* *所有 VPC*：入站流量的來源過濾器是 0.0.0.0/0 IP 範圍。
+
+
+如果您使用自己的防火牆策略，請確保新增所有需要與Cloud Volumes ONTAP通訊的網絡，同時也要確保新增兩個位址範圍以允許內部 Google 負載平衡器正常運作。這些位址是 130.211.0.0/22 和 35.191.0.0/16。欲了解更多信息，請參閱 https://cloud.google.com/load-balancing/docs/tcp#firewall_rules["Google Cloud 文件：負載平衡器防火牆規則"^]。
+
+[cols="10,10,80"]
+|===
+| 協定 | 港口 | 目的 
+
+
+| 所有 ICMP | 全部 | 對執行個體執行 ping 操作 
+
+
+| HTTP | 80 | 使用叢集管理 LIF 的 IP 位址透過 HTTP 存取ONTAP System Manager Web 控制台 
+
+
+| HTTPS | 443 | 使用叢集管理 LIF 的 IP 位址與控制台代理程式建立連線並透過 HTTPS 存取ONTAP System Manager Web 控制台 
+
+
+| SSH | 22 | 透過 SSH 存取叢集管理 LIF 或節點管理 LIF 的 IP 位址 
+
+
+| TCP | 111 | NFS 的遠端過程調用 
+
+
+| TCP | 139 | CIFS 的 NetBIOS 服務會話 
+
+
+| TCP | 161-162 | 簡單網路管理協議 
+
+
+| TCP | 445 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| TCP | 635 | NFS 掛載 
+
+
+| TCP | 749 | Kerberos 
+
+
+| TCP | 2049 | NFS 伺服器守護程式 
+
+
+| TCP | 3260 | 透過 iSCSI 資料 LIF 進行 iSCSI 訪問 
+
+
+| TCP | 4045 | NFS 鎖守護程式 
+
+
+| TCP | 4046 | NFS 網路狀態監視器 
+
+
+| TCP | 10000 | 使用 NDMP 備份 
+
+
+| TCP | 11104 | SnapMirror群集間通訊會話的管理 
+
+
+| TCP | 11105 | 使用集群間 LIF 進行SnapMirror資料傳輸 
+
+
+| TCP | 63001-63050 | 負載平衡探測端口以確定哪個節點是健康的（僅 HA 對需要） 
+
+
+| UDP | 111 | NFS 的遠端過程調用 
+
+
+| UDP | 161-162 | 簡單網路管理協議 
+
+
+| UDP | 635 | NFS 掛載 
+
+
+| UDP | 2049 | NFS 伺服器守護程式 
+
+
+| UDP | 4045 | NFS 鎖守護程式 
+
+
+| UDP | 4046 | NFS 網路狀態監視器 
+
+
+| UDP | 4049 | NFS rquotad 協議 
+|===
+
+
+==== 出站規則
+
+Cloud Volumes ONTAP的預設安全群組開啟所有出站流量。如果可以接受，請遵循基本的出站規則。如果您需要更嚴格的規則，請使用進階出站規則。
+
+.基本出站規則
+Cloud Volumes ONTAP的預設安全群組包括以下出站規則。
+
+[cols="20,20,60"]
+|===
+| 協定 | 港口 | 目的 
+
+
+| 所有 ICMP | 全部 | 所有出站流量 
+
+
+| 所有 TCP | 全部 | 所有出站流量 
+
+
+| 所有 UDP | 全部 | 所有出站流量 
+|===
+.高級出站規則
+如果您需要對出站流量製定嚴格的規則，則可以使用下列資訊僅開啟Cloud Volumes ONTAP出站通訊所需的連接埠。  Cloud Volumes ONTAP叢集使用下列連接埠來調節節點流量。
+
+
+NOTE: 來源是Cloud Volumes ONTAP系統的介面（IP 位址）。
+
+[cols="10,10,6,20,20,34"]
+|===
+| 服務 | 協定 | 港口 | 來源 | 目的地 | 目的 
+
+
+.18+| 活動目錄 | TCP | 88 | 節點管理 LIF | Active Directory 林 | Kerberos V 驗證 
+
+
+| UDP | 137 | 節點管理 LIF | Active Directory 林 | NetBIOS 名稱服務 
+
+
+| UDP | 138 | 節點管理 LIF | Active Directory 林 | NetBIOS 資料封包服務 
+
+
+| TCP | 139 | 節點管理 LIF | Active Directory 林 | NetBIOS 服務會話 
+
+
+| TCP 和 UDP | 389 | 節點管理 LIF | Active Directory 林 | LDAP 
+
+
+| TCP | 445 | 節點管理 LIF | Active Directory 林 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| TCP | 464 | 節點管理 LIF | Active Directory 林 | Kerberos V 更改和設定密碼（SET_CHANGE） 
+
+
+| UDP | 464 | 節點管理 LIF | Active Directory 林 | Kerberos 金鑰管理 
+
+
+| TCP | 749 | 節點管理 LIF | Active Directory 林 | Kerberos V 更改和設定密碼（RPCSEC_GSS） 
+
+
+| TCP | 88 | 資料 LIF（NFS、CIFS、iSCSI） | Active Directory 林 | Kerberos V 驗證 
+
+
+| UDP | 137 | 資料 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 名稱服務 
+
+
+| UDP | 138 | 資料 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 資料封包服務 
+
+
+| TCP | 139 | 資料 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 服務會話 
+
+
+| TCP 和 UDP | 389 | 資料 LIF（NFS、CIFS） | Active Directory 林 | LDAP 
+
+
+| TCP | 445 | 資料 LIF（NFS、CIFS） | Active Directory 林 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| TCP | 464 | 資料 LIF（NFS、CIFS） | Active Directory 林 | Kerberos V 更改和設定密碼（SET_CHANGE） 
+
+
+| UDP | 464 | 資料 LIF（NFS、CIFS） | Active Directory 林 | Kerberos 金鑰管理 
+
+
+| TCP | 749 | 資料 LIF（NFS、CIFS） | Active Directory 林 | Kerberos V 更改和設定密碼（RPCSEC_GSS） 
+
+
+.3+| AutoSupport | HTTPS | 443 | 節點管理 LIF | mysupport.netapp.com | AutoSupport （預設為 HTTPS） 
+
+
+| HTTP | 80 | 節點管理 LIF | mysupport.netapp.com | AutoSupport （僅當傳輸協定從 HTTPS 變更為 HTTP 時） 
+
+
+| TCP | 3128 | 節點管理 LIF | 控制台代理 | 如果出站網路連線不可用，則透過控制台代理上的代理伺服器傳送AutoSupport訊息 
+
+
+| 配置備份 | HTTP | 80 | 節點管理 LIF | \http://<控制台代理 IP 位址>/occm/offboxconfig | 將配置備份傳送到控制台代理程式。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文件"^] 
+
+
+| DHCP | UDP | 68 | 節點管理 LIF | DHCP | 首次設定的 DHCP 用戶端 
+
+
+| DHCP服務 | UDP | 67 | 節點管理 LIF | DHCP | DHCP 伺服器 
+
+
+| DNS | UDP | 53 | 節點管理 LIF 和資料 LIF（NFS、CIFS） | DNS | DNS 
+
+
+| NDMP | TCP | 18600–18699 | 節點管理 LIF | 目標伺服器 | NDMP 拷貝 
+
+
+| SMTP | TCP | 25 | 節點管理 LIF | 郵件伺服器 | SMTP 警報，可用於AutoSupport 
+
+
+.4+| SNMP | TCP | 161 | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+| UDP | 161 | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+| TCP | 162 | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+| UDP | 162 | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+.2+| SnapMirror | TCP | 11104 | 集群間 LIF | ONTAP叢集間 LIF | SnapMirror群集間通訊會話的管理 
+
+
+| TCP | 11105 | 集群間 LIF | ONTAP叢集間 LIF | SnapMirror資料傳輸 
+
+
+| 系統日誌 | UDP | 514 | 節點管理 LIF | Syslog伺服器 | Syslog 轉送訊息 
+|===
+
+
+==== VPC-1、VPC-2 和 VPC-3 的規則
+
+在 Google Cloud 中，HA 配置部署在四個 VPC 中。  VPC-0 中的 HA 設定所需的防火牆規則是<<防火牆規則,以上所列的Cloud Volumes ONTAP>>。
+
+同時，為 VPC-1、VPC-2 和 VPC-3 中的執行個體所建立的預定義防火牆規則支援透過所有協定和連接埠進行入站通訊。這些規則支援 HA 節點之間的通訊。
+
+從 HA 節點到 HA 中介的通訊透過連接埠 3260（iSCSI）進行。
+
+
+NOTE: 為了讓新的 Google Cloud HA 對部署實現較高的寫入速度，VPC-1、VPC-2 和 VPC-3 需要至少 8,896 位元組的最大傳輸單元 (MTU)。如果您選擇將現有的 VPC-1、VPC-2 和 VPC-3 升級到 8,896 位元組的 MTU，則必須在設定過程中關閉使用這些 VPC 的所有現有 HA 系統。
+
+
+
+== 控制台代理的要求
+
+如果您尚未建立控制台代理，則應查看網路需求。
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["查看控制台代理程式的網路要求"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-gcp.html["Google Cloud 中的防火牆規則"^]
+
+
+
+
+=== 支援控制台代理的網路配置
+
+您可以使用為控制台代理程式設定的代理伺服器來啟用來自Cloud Volumes ONTAP存取。控制台支援兩種類型的代理：
+
+* *明確代理*：來自Cloud Volumes ONTAP 的出站流量使用控制台代理代理程式設定期間指定的代理伺服器的 HTTP 位址。控制台代理管理員可能還配置了使用者憑證和根 CA 憑證以進行額外的驗證。Cloud Volumes ONTAP顯式代理程式有可用的根 CA 證書，請確保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
+* *透明代理*：網路配置為透過控制台代理代理程式自動路由來自Cloud Volumes ONTAP 的出站流量。設定透明代理程式時，控制台代理程式管理員僅需要提供用於從Cloud Volumes ONTAP進行連接的根 CA 證書，而不是代理伺服器的 HTTP 位址。確保使用以下方式取得相同的根 CA 憑證並將其上傳到您的Cloud Volumes ONTAP系統 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
+
+
+有關為控制台代理程式配置代理伺服器的信息，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理伺服器"^]。
+
+.在 Google Cloud 中為Cloud Volumes ONTAP設定網路標籤
+在控制台代理程式的透明代理程式配置期間，管理員會為 Google Cloud 新增網路標籤。您需要取得並手動新增Cloud Volumes ONTAP配置的相同網路標籤。此標籤對於代理伺服器正常運作是必要的。
+
+. 在 Google Cloud 控制台中，找到您的Cloud Volumes ONTAP系統。
+. 前往*詳細資料>網路>網路標籤*。
+. 新增用於控制台代理的標籤並儲存配置。
+
+
+.相關主題
+* link:task-verify-autosupport.html["驗證Cloud Volumes ONTAP 的AutoSupport設置"]
+* https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP內部端口"^] 。
+

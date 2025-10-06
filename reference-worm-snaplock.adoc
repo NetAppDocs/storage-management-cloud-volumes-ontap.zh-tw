@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: reference-worm-snaplock.html 
+keywords: WORM, SnapLock, Snapshot copies, 
+summary: '您可以在Cloud Volumes ONTAP系統上建立一次寫入、多次讀取 (WORM) 檔案的防篡改 Snapshot 副本，並在特定保留期內以未修改的形式保留快照。' 
+---
+= 在Cloud Volumes ONTAP上建立 WORM 檔案的防篡改 Snapshot 副本
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在Cloud Volumes ONTAP系統上建立一次寫入、多次讀取 (WORM) 檔案的防篡改 Snapshot 副本，並在特定保留期內以未修改的形式保留快照。此功能由SnapLock技術提供支持，並提供了額外的資料保護和合規性層。
+
+.開始之前
+確保用於建立 Snapshot 副本的磁碟區是SnapLock磁碟區。有關在卷上啟用SnapLock保護的信息，請參閱 https://docs.netapp.com/us-en/ontap/snaplock/snaplock-config-overview-concept.html["ONTAP文件：設定SnapLock"^]。
+
+.步驟
+. 從SnapLock磁碟區建立 Snapshot 副本。有關使用 CLI 或系統管理員建立 Snapshot 副本的信息，請參閱 https://docs.netapp.com/us-en/ontap/data-protection/manage-local-snapshot-copies-concept.html["ONTAP文件：管理本機 Snapshot 副本概述"^]。
++
+Snapshot 副本繼承了磁碟區的 WORM 屬性，使其具有防篡改功能。底層的SnapLock技術可確保快照在指定的保留期結束之前受到保護，不會被編輯和刪除。
+
+. 如果需要編輯這些快照，您可以修改保留期。欲了解更多信息，請參閱 https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.html#set-the-default-retention-period["ONTAP文檔：設定保留時間"^]。
+
+
+
+NOTE: 即使 Snapshot 副本在特定保留期內受到保護，叢集管理員也可以刪除來源磁碟區，因為Cloud Volumes ONTAP中的 WORM 儲存在「可信任儲存管理員」模型下執行。此外，受信任的雲端管理員可以透過操作雲端儲存資源來刪除WORM資料。

@@ -1,0 +1,11 @@
+= 透過 Google Cloud 中的 API 自動建立儲存虛擬機
+:allow-uri-read: 
+
+
+
+
+=== 透過 Google Cloud 中的 API 自動建立儲存虛擬機
+
+現在您可以使用BlueXP API 在 Google Cloud 中自動建立儲存虛擬機器。您一直在Cloud Volumes ONTAP高可用性 (HA) 配置中使用此功能，現在您也可以在單節點部署中使用它。透過使用BlueXP API，您可以在 Google Cloud 環境中輕鬆建立、重新命名和刪除其他資料服務儲存虛擬機，而無需手動配置所需的網路介面、LIF 和管理 LIF。這種自動化簡化了管理儲存虛擬機器的過程。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-gcp.html["在 Google Cloud 中管理Cloud Volumes ONTAP的資料服務儲存虛擬機"^]

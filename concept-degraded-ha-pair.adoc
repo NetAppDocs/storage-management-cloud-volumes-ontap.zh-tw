@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: concept-degraded-ha-pair.html 
+keywords: storage takeover, storage giveback, degraded, degraded status, degraded state, ha pair, ha takeover, takeover, giveback 
+summary: 當 HA 對中的一個節點不可用時，另一個節點將為其夥伴提供資料以提供持續的資料服務。這稱為存儲接管。在儲存恢復完成之前，有些操作無法執行。 
+---
+= 當Cloud Volumes ONTAP HA 對中的節點處於離線狀態時，操作就無法使用
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+當 HA 對中的一個節點不可用時，另一個節點將為其夥伴提供資料以提供持續的資料服務。這被稱為_存儲接管_。在儲存恢復完成之前，有些操作無法執行。
+
+
+TIP: 當 HA 對中的某個節點不可用時， NetApp控制台中的系統狀態為「Degraded」。
+
+儲存接管後無法執行以下操作：
+
+* 支援註冊
+* 許可證變更
+* 實例或虛擬機器類型更改
+* 寫入速度變化
+* CIFS 設定
+* 變更配置備份的位置
+* 設定集群密碼
+* 管理磁碟和聚合（高級分配）
+
+
+儲存交還完成且系統狀態恢復正常後，這些操作將再次可用。

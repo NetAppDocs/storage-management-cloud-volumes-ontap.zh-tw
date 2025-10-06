@@ -1,0 +1,177 @@
+---
+sidebar: sidebar 
+permalink: task-set-up-licensing-azure.html 
+keywords: freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, digital wallet 
+summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在部署新系統時選擇該授權選項之前，需要執行幾個步驟。 
+---
+= 在 Azure 中設定Cloud Volumes ONTAP許可
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在您決定要與Cloud Volumes ONTAP一起使用哪種授權選項後，需要執行幾個步驟才能在建立新系統時選擇該授權選項。
+
+
+
+== 免費增值
+
+選擇免費加值服務，免費使用Cloud Volumes ONTAP，最高可提供 500 GiB 的設定容量。link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#packages["了解有關免費增值服務的更多信息"^] 。
+
+.步驟
+. 從NetApp控制台的左側導覽功能表中，選擇「儲存」>「管理」。
+. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
++
+.. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 Azure 市集中的即用即付產品。
++
+除非您超過 500 GiB 的預配置容量，否則您無需透過市場訂閱付費，此時系統將自動轉換為link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["基本套餐"^]。
+
++
+image:screenshot-azure-paygo-subscription.png["建立Cloud Volumes ONTAP系統時 PAYGO 訂閱選項的螢幕截圖。"]
+
+.. 返回控制台後，到達收費方式頁面時選擇「免費增值」。
++
+image:screenshot-freemium.png["建立Cloud Volumes ONTAP系統時免費加值選項的螢幕截圖。"]
+
+
+
+
+
+link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP 的逐步說明"] 。
+
+
+
+== 基於容量的許可證
+
+基於容量的許可使您能夠按 TiB 容量支付Cloud Volumes ONTAP費用。基於容量的許可以_包_的形式提供：Essentials 包或 Professional 包。
+
+Essentials 和 Professional 套餐提供以下消費模式：
+
+* 從NetApp購買的授權（自帶授權 (BYOL)）
+* Azure 市場提供的按小時付費 (PAYGO) 訂閱
+* 年度合約
+
+
+link:concept-licensing.html["了解有關基於容量的許可的更多信息"] 。
+
+以下部分介紹如何開始使用每種消費模型。
+
+
+
+=== BYOL
+
+透過從NetApp購買授權 (BYOL) 進行預付款，以便在任何雲端供應商部署Cloud Volumes ONTAP系統。
+
+
+NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。
+
+.步驟
+. https://bluexp.netapp.com/contact-cds["聯絡NetApp銷售人員以取得許可證"^]
+. https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["將您的NetApp支援網站帳戶新增至控制台"^]
++
+控制台會自動查詢 NetApp 的授權服務，以取得與您的NetApp支援網站帳戶相關的授權的詳細資訊。如果沒有錯誤，控制台會自動將許可證新增至控制台。
+
++
+您必須先從控制台取得許可證，然後才能與Cloud Volumes ONTAP一起使用。如果需要的話，你可以link:task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account["手動將許可證新增至控制台"]。
+
+. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
++
+.. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 Azure 市集中的即用即付產品。
++
+總是會先向您從NetApp購買的許可證收費，但如果您超出許可容量或許可證期限到期，則會按照市場上的小時費率向您收費。
+
++
+image:screenshot-azure-paygo-subscription.png["建立Cloud Volumes ONTAP系統時 PAYGO 訂閱選項的螢幕截圖。"]
+
+.. 返回控制台後，在到達收費方式頁面時選擇基於容量的套餐。
++
+image:screenshot-professional.png["建立Cloud Volumes ONTAP系統時專業選項的螢幕截圖。"]
+
+
+
+
+
+link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP 的逐步說明"] 。
+
+
+
+=== PAYGO 訂閱
+
+透過訂閱雲端供應商市場提供的服務按小時付費。
+
+當您建立Cloud Volumes ONTAP系統時，控制台會提示您訂閱 Azure 市場中提供的協定。然後將該訂閱與系統關聯以進行收費。您可以將同一訂閱用於其他系統。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
++
+.. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 Azure 市集中的即用即付產品。
++
+image:screenshot-azure-paygo-subscription.png["建立Cloud Volumes ONTAP系統時 PAYGO 訂閱選項的螢幕截圖。"]
+
+.. 返回控制台後，在到達收費方式頁面時選擇基於容量的套餐。
++
+image:screenshot-professional.png["建立Cloud Volumes ONTAP系統時專業選項的螢幕截圖。"]
+
+
+
+
+
+link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP 的逐步說明"] 。
+
+
+TIP: 您可以從「設定」>「憑證」頁面管理與您的 Azure 帳戶相關聯的 Azure 市集訂閱。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-azure-accounts.html["了解如何管理 Azure 帳戶和訂閱"^]
+
+
+
+=== 年度合約
+
+透過購買年度合約每年支付Cloud Volumes ONTAP 的費用。
+
+.步驟
+. 聯絡您的NetApp銷售代表購買年度合約。
++
+該合約在 Azure 市場中以私人優惠的形式提供。
+
++
+NetApp與您分享私人優惠後，您可以在系統建立期間從 Azure 市場訂閱時選擇年度方案。
+
+. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
++
+.. 在「詳細資料和憑證」頁面上，按一下「編輯憑證」>「新增訂閱」>「繼續」。
+.. 在 Azure 入口網站中，選擇與您的 Azure 帳戶共用的年度計劃，然後按一下「*訂閱*」。
+.. 返回控制台後，在到達收費方式頁面時選擇基於容量的套餐。
++
+image:screenshot-professional.png["建立Cloud Volumes ONTAP系統時專業選項的螢幕截圖。"]
+
+
+
+
+
+link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP 的逐步說明"] 。
+
+
+
+== Keystone訂閱
+
+Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.html#keystone-subscription["了解有關NetApp Keystone訂閱的更多信息"] 。
+
+.步驟
+. 如果您尚未訂閱， https://www.netapp.com/forms/keystone-sales-contact/["聯絡NetApp"^]
+. mailto:ng-keystone-success@netapp.com[聯絡NetApp] 以在控制台中授權您的使用者帳戶擁有一個或多個Keystone訂閱。
+. NetApp授權您的帳戶後，link:task-manage-keystone.html#link-a-subscription["連結您的訂閱以用於Cloud Volumes ONTAP"] 。
+. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
++
+.. 當提示選擇收費方式時，選擇Keystone Subscription 收費方式。
++
+image:screenshot-keystone.png["建立Cloud Volumes ONTAP系統時Keystone訂閱選項的螢幕截圖。"]
+
+
+
+
+
+link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP 的逐步說明"] 。

@@ -1,0 +1,248 @@
+---
+sidebar: sidebar 
+permalink: concept-ha.html 
+keywords: high availability, HA, mediator, concepts, understanding, overview, availability zones, AZs, takeover, giveback, rpo, rto, floating ip, nondisruptive, ha pairs, node, nodes, synchronous, resync, recovery point objective, recovery time objective, nas, nfs, cifs, floating ip address, route tables, iscsi, mpio, alua, failover, mount, remount, failure, data access, access, ip address, performance 
+summary: 'Cloud Volumes ONTAP高可用性 (HA) 設定提供無中斷操作和容錯功能。在AWS中，資料在兩個節點之間同步鏡像。' 
+---
+= 了解 AWS 中的Cloud Volumes ONTAP HA 對
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP高可用性 (HA) 設定提供無中斷操作和容錯功能。在AWS中，資料在兩個節點之間同步鏡像。
+
+
+
+== HA 組件
+
+在 AWS 中， Cloud Volumes ONTAP HA 配置包含以下元件：
+
+* 兩個Cloud Volumes ONTAP節點，其資料彼此同步鏡像。
+* 中介實例在節點之間提供通訊通道，以協助儲存接管和交還過程。
+
+
+
+
+=== 調解員
+
+以下是有關 AWS 中中介實例的一些關鍵細節：
+
+實例類型:: t3-micro
+磁碟:: 兩個 8 GiB 和 4 GiB 的 st1 磁碟
+作業系統:: Debian 11
++
+--
+
+NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 Debian 10。
+
+--
+升級:: 升級Cloud Volumes ONTAP時， NetApp控制台也會依需求更新中介實例。
+存取實例:: 當您從控制台建立Cloud Volumes ONTAP HA 對時，系統會提示您為中介實例提供金鑰對。您可以使用該金鑰對進行 SSH 訪問 `admin`用戶。
+第三方代理:: 中介實例不支援第三方代理或 VM 擴充。
+
+
+
+
+== 儲存接管和交還
+
+如果一個節點發生故障，另一個節點可以為其夥伴提供資料以提供持續的資料服務。客戶端可以從夥伴節點存取相同的數據，因為資料已同步鏡像到夥伴節點。
+
+節點重啟後，夥伴必須重新同步資料才能返回儲存。重新同步資料所需的時間取決於節點關閉時更改的資料量。
+
+預設情況下，儲存接管、重新同步和復原都是自動的。無需用戶操作。
+
+
+
+== RPO 和 RTO
+
+HA 配置透過以下方式維護資料的高可用性：
+
+* 恢復點目標 (RPO) 為 0 秒。您的資料在事務上是一致的，沒有資料遺失。
+* 恢復時間目標 (RTO) 為 120 秒。如果發生中斷，資料應在 120 秒或更短時間內可用。
+
+
+
+
+== HA部署模型
+
+您可以透過跨多個可用區 (AZ) 或在單一可用區 (AZ) 中部署 HA 配置來確保資料的高可用性。您應該查看有關每種配置的更多詳細信息，以選擇最適合您需求的配置。
+
+
+
+=== 多個可用區域
+
+在多個可用區 (AZ) 中部署 HA 配置可確保在 AZ 或執行Cloud Volumes ONTAP節點的執行個體發生故障時資料的高可用性。您應該了解 NAS IP 位址如何影響資料存取和儲存故障轉移。
+
+
+
+==== NFS 和 CIFS 資料訪問
+
+當 HA 設定分佈在多個可用區域時，_浮動 IP 位址_可啟用 NAS 用戶端存取。浮動 IP 位址必須位於區域內所有 VPC 的 CIDR 區塊之外，當發生故障時，浮動 IP 位址可以在節點之間遷移。  VPC 以外的客戶端無法原生存取它們，除非你link:task-setting-up-transit-gateway.html["設定 AWS 中繼網關"]。
+
+如果您無法設定傳輸網關，則可以為 VPC 外部的 NAS 用戶端提供私人 IP 位址。但是，這些 IP 位址是靜態的——它們無法在節點之間進行故障轉移。
+
+在跨多個可用區域部署 HA 設定之前，您應該查看浮動 IP 位址和路由表的要求。部署配置時必須指定浮動 IP 位址。私有 IP 位址是自動建立的。
+
+有關詳細信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^] 。
+
+
+
+==== iSCSI 資料存取
+
+由於 iSCSI 不使用浮動 IP 位址，因此跨 VPC 資料通訊不是問題。
+
+
+
+==== iSCSI 的接手與交還
+
+對於 iSCSI， Cloud Volumes ONTAP使用多路徑 I/O (MPIO) 和非對稱邏輯單元存取 (ALUA) 來管理主動最佳化路徑和非最佳化路徑之間的路徑故障轉移。
+
+
+NOTE: 有關哪些特定主機配置支援 ALUA 的信息，請參閱 http://mysupport.netapp.com/matrix["NetApp互通性表工具"^]以及 https://docs.netapp.com/us-en/ontap-sanhost/["SAN 主機和雲端客戶端指南"]適用於您的主機作業系統。
+
+
+
+==== NAS 的接管和交還
+
+當使用浮動 IP 的 NAS 配置中發生接管時，用戶端用於存取資料的節點的浮動 IP 位址將會移至另一個節點。下圖描述了使用浮動 IP 的 NAS 配置中的儲存接管。如果節點 2 發生故障，則節點 2 的浮動 IP 位址將會移至節點 1。
+
+image:diagram_takeover_giveback.png["概念圖顯示了Cloud Volumes ONTAP HA 對中的儲存接管：節點 1 中的浮動 IP 位址移至節點 2。"]
+
+用於外部 VPC 存取的 NAS 資料 IP 如果發生故障，則無法在節點之間遷移。如果某個節點離線，您必須使用另一個節點上的 IP 位址手動將磁碟區重新掛載到 VPC 外部的用戶端。
+
+故障節點恢復上線後，使用原始 IP 位址將用戶端重新掛載到磁碟區。需要執行此步驟以避免在兩個 HA 節點之間傳輸不必要的數據，這會對效能和穩定性造成嚴重影響。
+
+您可以透過選擇磁碟區並按一下「安裝命令」從控制台找到正確的 IP 位址。
+
+
+
+=== 單一可用區
+
+如果執行Cloud Volumes ONTAP節點的執行個體發生故障，在單一可用區 (AZ) 中部署 HA 配置可以確保資料的高可用性。所有資料都可以從 VPC 外部本地存取。
+
+
+NOTE: 控制台建立一個 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html["AWS 文件：AWS 分佈置放群組"^]並啟動該放置組中的兩個 HA 節點。放置組透過將實例分佈在不同的底層硬體上來降低同時發生故障的風險。此功能從計算角度而不是從磁碟故障角度提高了冗餘度。
+
+
+
+==== 資料存取
+
+由於此配置位於單一 AZ 中，因此不需要浮動 IP 位址。您可以使用相同的 IP 位址從 VPC 內部和 VPC 外部進行資料存取。
+
+下圖顯示了單一 AZ 中的 HA 配置。可以從 VPC 內部和 VPC 外部存取資料。
+
+image:diagram_single_az.png["概念圖顯示了單一可用區中的ONTAP HA 配置，允許從 VPC 外部存取資料。"]
+
+
+
+==== 接手和返還
+
+對於 iSCSI， Cloud Volumes ONTAP使用多路徑 I/O (MPIO) 和非對稱邏輯單元存取 (ALUA) 來管理主動最佳化路徑和非最佳化路徑之間的路徑故障轉移。
+
+
+NOTE: 有關哪些特定主機配置支援 ALUA 的信息，請參閱 http://mysupport.netapp.com/matrix["NetApp互通性表工具"^]以及 https://docs.netapp.com/us-en/ontap-sanhost/["SAN 主機和雲端客戶端指南"]適用於您的主機作業系統。
+
+對於 NAS 配置，如果發生故障，資料 IP 位址可以在 HA 節點之間遷移。這確保了客戶端可以存取儲存。
+
+
+
+=== AWS 本地區域
+
+AWS 本地區域是一種基礎設施部署，其中儲存、運算、資料庫和其他精選 AWS 服務位於大城市和工業區附近。借助 AWS 本地區域，您可以讓 AWS 服務更接近您，從而改善工作負載的延遲並在本地維護資料庫。在Cloud Volumes ONTAP，
+
+您可以在 AWS 本機區域中部署單一 AZ 或多個 AZ 配置。
+
+
+NOTE: 在標準和私有模式下使用控制台時，支援 AWS 本地區域。目前，AWS 本地區域不支援受限模式。
+
+
+
+==== AWS 本機區域設定範例
+
+AWS 中的Cloud Volumes ONTAP僅支援單一可用區域中的高可用性 (HA) 模式。不支援單節點部署。
+
+Cloud Volumes ONTAP不支援 AWS 本地區域中的資料分層、雲端分層和不合格實例。
+
+以下是範例配置：
+
+* 單一可用區域：叢集節點和中介器均位於同一本地區域。
+* 多重可用區 在多可用區配置中，有三個實例、兩個節點和一個中介器。三個實例中必須有一個實例位於單獨的區域。您可以選擇如何設定。
++
+以下是三個範例配置：
+
++
+** 每個叢集節點位於不同的本地區域，中介位於公共可用區域。
+** 一個叢集節點位於本機區域中，調解器位於本機區域中，第二個叢集節點位於可用區域中。
+** 每個叢集節點和中介器位於單獨的本地區域。
+
+
+
+
+
+
+==== 支援的磁碟和實例類型
+
+唯一支援的磁碟類型是 GP2。目前支援以下大小從 xlarge 到 4xlarge 的 EC2 執行個體類型系列：
+
+* M5
+* C5
+* C5d
+* R5
+* R5d
+
+
+
+NOTE: Cloud Volumes ONTAP僅支援這些配置。在 AWS 本機區域配置中選擇不受支援的磁碟類型或不合格的執行個體可能會導致部署失敗。由於缺乏連接，AWS 本地區域無法將資料分層到 AWS S3。
+
+link:https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/?nc=sn&loc=2["AWS 文件：本地區域中的 EC2 執行個體類型"^] 。
+
+
+
+== HA 對中的儲存工作原理
+
+與ONTAP叢集不同， Cloud Volumes ONTAP HA 對中的儲存不會在節點之間共用。相反，資料在節點之間同步鏡像，以便在發生故障時資料可用。
+
+
+
+=== 儲存分配
+
+當您建立新磁碟區並且需要額外的磁碟時，控制台會為兩個節點指派相同數量的磁碟，建立鏡像聚合，然後建立新磁碟區。例如，如果磁碟區需要兩個磁碟，則控制台會為每個節點分配兩個磁碟，總共四個磁碟。
+
+
+
+=== 儲存配置
+
+您可以將 HA 對用作主動-主動配置，其中兩個節點都向客戶端提供數據，或用作主動-被動配置，其中被動節點僅在接管主動節點的儲存後才會回應資料請求。
+
+
+NOTE: 只有在使用儲存系統視圖中的控制台時，您才可以設定主動-主動配置。
+
+
+
+=== 績效預期
+
+Cloud Volumes ONTAP HA 配置在節點之間同步複製數據，這會消耗網路頻寬。因此，與單節點Cloud Volumes ONTAP配置相比，您可以獲得以下效能：
+
+* 對於僅從一個節點提供資料的 HA 配置，讀取效能與單節點配置的讀​​取效能相當，而寫入效能較低。
+* 對於從兩個節點提供資料的 HA 配置，讀取效能高於單節點配置的讀​​取效能，寫入效能相同或更高。
+
+
+有關Cloud Volumes ONTAP效能的更多詳細信息，請參閱link:concept-performance.html["表現"]。
+
+
+
+=== 客戶端存取儲存
+
+用戶端應使用磁碟區所在節點的資料 IP 位址存取 NFS 和 CIFS 磁碟區。如果 NAS 用戶端使用夥伴節點的 IP 位址存取卷，則流量會在兩個節點之間流動，從而降低效能。
+
+
+TIP: 如果在 HA 對中的節點之間移動磁碟區，則應使用另一個節點的 IP 位址重新掛載該磁碟區。否則，您可能會遇到效能下降的情況。如果用戶端支援 NFSv4 引用或 CIFS 資料夾重新導向，您可以在Cloud Volumes ONTAP系統上啟用這些功能以避免重新掛載磁碟區。有關詳細信息，請參閱ONTAP文件。
+
+您可以透過管理磁碟區面板下的_Mount Command_選項輕鬆識別正確的IP位址。
+
+image::screenshot_mount_option.png[400]

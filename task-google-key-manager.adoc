@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: task-google-key-manager.html 
+keywords: google cloud, encryption, NVE, NetApp volume encryption, KMIP, GCP, GCP KMS, key manager service, encryption 
+summary: 將 Google 的金鑰管理服務用於您的第三方金鑰管理服務。 
+---
+= 使用 Google Cloud KMS 管理Cloud Volumes ONTAP加密金鑰
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用link:https://cloud.google.com/kms/docs["Google Cloud Platform 的金鑰管理服務（Cloud KMS）"^]在 Google Cloud Platform 部署的應用程式中保護您的Cloud Volumes ONTAP加密金鑰。
+
+可以使用ONTAP CLI 或ONTAP REST API 啟用 Cloud KMS 的金鑰管理。
+
+使用 Cloud KMS 時，請注意預設使用資料 SVM 的 LIF 與雲端金鑰管理端點進行通訊。節點管理網路用於與雲端提供者的身份驗證服務（oauth2.googleapis.com）進行通訊。如果叢集網路配置不正確，叢集將無法正確利用金鑰管理服務。
+
+.開始之前
+* 您的系統應該執行Cloud Volumes ONTAP 9.10.1 或更高版本
+* 您必須使用資料 SVM。  Cloud KMS 只能在資料 SVM 上配置。
+* 您必須是叢集或 SVM 管理員
+* 應在 SVM 上安裝磁碟區加密 (VE) 許可證
+* 從Cloud Volumes ONTAP 9.12.1 GA 開始，也應安裝多租用戶加密金鑰管理 (MTEKM) 許可證
+* 需要有效的 Google Cloud Platform 訂閱
+
+
+
+
+== 配置
+
+.Google雲
+. 在您的 Google Cloud 環境中，link:https://cloud.google.com/kms/docs/creating-keys["建立對稱 GCP 金鑰環和金鑰"^] 。
+. 為 Cloud KMS 金鑰和Cloud Volumes ONTAP服務帳戶指派自訂角色。
++
+.. 建立自訂角色：
++
+[listing]
+----
+gcloud iam roles create kmsCustomRole
+    --project=<project_id>
+    --title=<kms_custom_role_name>
+    --description=<custom_role_description>
+    --permissions=cloudkms.cryptoKeyVersions.get,cloudkms.cryptoKeyVersions.list,cloudkms.cryptoKeyVersions.useToDecrypt,cloudkms.cryptoKeyVersions.useToEncrypt,cloudkms.cryptoKeys.get,cloudkms.keyRings.get,cloudkms.locations.get,cloudkms.locations.list,resourcemanager.projects.get
+    --stage=GA
+----
+.. 指派您建立的自訂角色：
+`gcloud kms keys add-iam-policy-binding _key_name_ --keyring _key_ring_name_ --location _key_location_ --member serviceAccount:_service_account_Name_ --role projects/_customer_project_id_/roles/kmsCustomRole`
++
+
+NOTE: 如果您使用的是Cloud Volumes ONTAP 9.13.0 或更高版本，則無需建立自訂角色。您可以指派預定義的[`cloudkms.cryptoKeyEncrypterDecrypter`^] 角色。
+
+
+
+. 下載服務帳戶 JSON 金鑰：
+`gcloud iam service-accounts keys create key-file --iam-account=_sa-name_@_project-id_.iam.gserviceaccount.com`
+
+
+.Cloud Volumes ONTAP
+. 使用您首選的 SSH 用戶端連線到叢集管理 LIF。
+. 切換到進階權限等級：
+`set -privilege advanced`
+. 為資料 SVM 建立 DNS。
+`dns create -domains c._<project>_.internal -name-servers _server_address_ -vserver _SVM_name_`
+. 建立 CMEK 條目：
+`security key-manager external gcp enable -vserver _SVM_name_ -project-id _project_ -key-ring-name _key_ring_name_ -key-ring-location _key_ring_location_ -key-name _key_name_`
+. 出現提示時，請輸入您的 GCP 帳戶中的服務帳戶 JSON 金鑰。
+. 確認啟用流程成功：
+`security key-manager external gcp check -vserver _svm_name_`
+. 可選：建立磁碟區來測試加密 `vol create _volume_name_ -aggregate _aggregate_ -vserver _vserver_name_ -size 10G`
+
+
+
+
+== 故障排除
+
+如果需要進行故障排除，您可以在上面的最後兩個步驟中追蹤原始 REST API 日誌：
+
+. `set d`
+. `systemshell -node _node_ -command tail -f /mroot/etc/log/mlog/kmip2_client.log`
+

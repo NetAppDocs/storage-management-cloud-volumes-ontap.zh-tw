@@ -1,0 +1,305 @@
+---
+sidebar: sidebar 
+permalink: task-managing-svms-aws.html 
+keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported 
+summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端提供儲存和資料服務。您可能知道這是 SVM 或 vserver。  Cloud Volumes ONTAP預設配置一個儲存虛擬機，但某些配置支援額外的儲存虛擬機。 
+---
+= 管理 AWS 中Cloud Volumes ONTAP的資料服務儲存虛擬機
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端提供儲存和資料服務。您可能知道這是一個_SVM_或_vserver_。  Cloud Volumes ONTAP預設配置一個儲存虛擬機，但某些配置支援額外的儲存虛擬機。
+
+若要建立額外的資料服務儲存虛擬機，您需要在 AWS 中指派 IP 位址，然後根據您的Cloud Volumes ONTAP設定執行ONTAP命令。
+
+
+
+== 支援的儲存虛擬機器數量
+
+從 9.7 版本開始，特定的Cloud Volumes ONTAP配置支援多個儲存虛擬機器。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP發行說明"^]驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。
+
+所有其他Cloud Volumes ONTAP配置都支援一個資料服務儲存虛擬機器和一個用於災難復原的目標儲存虛擬機器。如果來源儲存虛擬機器發生中斷，您可以啟動目標儲存虛擬機器進行資料存取。
+
+
+
+== 驗證配置的限制
+
+每個 EC2 執行個體支援每個網路介面的最大私有 IPv4 位址數量。在 AWS 中為新的儲存虛擬機器指派 IP 位址之前，您需要驗證限制。
+
+.步驟
+. 去 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html["Cloud Volumes ONTAP發行說明中的儲存限制部分"^]。
+. 確定您的執行個體類型每個介面的最大 IP 位址數。
+. 記下這個號碼，因為在下一節中分配 AWS 中的 IP 位址時需要它。
+
+
+
+
+== 在 AWS 中分配 IP 位址
+
+在為新的儲存虛擬機器建立 LIF 之前，必須將私人 IPv4 位址指派給 AWS 中的連接埠 e0a。
+
+請注意，儲存虛擬機器的可選管理 LIF 需要單節點系統上和單一 AZ 中的 HA 對上的專用 IP 位址。此管理 LIF 提供與SnapCenter等管理工具的連線。
+
+.步驟
+. 登入AWS並開啟EC2服務。
+. 選擇Cloud Volumes ONTAP實例並點選 *網路*。
++
+如果您要在 HA 對上建立儲存虛擬機，請選擇節點 1。
+
+. 向下捲動至*網路介面*並點選連接埠 e0a 的*介面 ID*。
++
+image:screenshot_aws_e0a.gif["AWS 控制台的螢幕截圖，顯示網路介面上的連接埠 e0a。"]
+
+. 選擇網路介面並點選*操作>管理 IP 位址*。
+. 展開 e0a 的 IP 位址清單。
+. 驗證 IP 位址：
++
+.. 計算已指派的 IP 位址數量，以確認連接埠是否有空間容納額外的 IP。
++
+您應該已經在本頁的上一節中確定了每個介面支援的最大 IP 位址數量。
+
+.. 可選：前往Cloud Volumes ONTAP的ONTAP CLI 並執行 *network interface show* 以確認每個 IP 位址都在使用中。
++
+如果 IP 位址未使用，那麼您可以將其與新的儲存 VM 一起使用。
+
+
+
+. 返回 AWS 控制台，按一下「指派新 IP 位址」以根據新儲存 VM 所需的數量指派其他 IP 位址。
++
+** 單節點系統：需要一個未使用的輔助私有IP。
++
+如果您想在儲存虛擬機器上建立管理 LIF，則需要選購的輔助私人 IP。
+
+** 單一 AZ 中的 HA 對：節點 1 上需要一個未使用的輔助私有 IP。
++
+如果您想在儲存虛擬機器上建立管理 LIF，則需要選購的輔助私人 IP。
+
+** 多個可用區中的 HA 對：每個節點都需要一個未使用的輔助私有 IP。
+
+
+. 如果您要在單一 AZ 中的 HA 對上指派 IP 位址，請啟用*允許重新指派輔助私有 IPv4 位址*。
+. 點選“儲存”。
+. 如果您在多個可用區中有一個 HA 對，則需要對節點 2 重複這些步驟。
+
+
+
+
+== 在單節點系統上建立儲存虛擬機
+
+這些步驟在單節點系統上建立一個新的儲存虛擬機器。建立 NAS LIF 需要一個私人 IP 位址，如果要建立管理 LIF，則需要另一個可選的私人 IP 位址。
+
+.步驟
+. 建立儲存虛擬機器和到儲存虛擬機器的路由。
++
+[source, cli]
+----
+vserver create -rootvolume-security-style unix -rootvolume root_svm_2 -snapshot-policy default -vserver svm_2 -aggregate aggr1
+----
++
+[source, cli]
+----
+network route create -destination 0.0.0.0/0 -vserver svm_2 -gateway subnet_gateway
+----
+. 建立 NAS LIF。
++
+[source, cli]
+----
+network interface create -auto-revert true -vserver svm_2 -service-policy default-data-files -home-port e0a -address private_ip_x -netmask node1Mask -lif ip_nas_2 -home-node cvo-node
+----
++
+其中 _private_ip_x_ 是 e0a 上未使用的輔助私有 IP。
+
+. 可選：建立儲存虛擬機器管理 LIF。
++
+[source, cli]
+----
+network interface create -auto-revert true -vserver svm_2 -service-policy default-management -home-port e0a -address private_ip_y -netmask node1Mask -lif ip_svm_mgmt_2 -home-node cvo-node
+----
++
+其中 _private_ip_y_ 是 e0a 上另一個未使用的輔助私有 IP。
+
+. 將一個或多個聚合分配給儲存虛擬機器。
++
+[source, cli]
+----
+vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
+----
++
+此步驟是必需的，因為新的儲存虛擬機器需要存取至少一個聚合，然後您才能在儲存虛擬機器上建立磁碟區。
+
+
+
+
+
+== 在單一可用區內的 HA 對上建立儲存虛擬機
+
+這些步驟在單一 AZ 中的 HA 對上建立一個新的儲存虛擬機器。建立 NAS LIF 需要一個私人 IP 位址，如果要建立管理 LIF，則需要另一個可選的私人 IP 位址。
+
+這兩個 LIF 都分配在節點 1 上。如果發生故障，私人 IP 位址可以在節點之間移動。
+
+.步驟
+. 建立儲存虛擬機器和到儲存虛擬機器的路由。
++
+[source, cli]
+----
+vserver create -rootvolume-security-style unix -rootvolume root_svm_2 -snapshot-policy default -vserver svm_2 -aggregate aggr1
+----
++
+[source, cli]
+----
+network route create -destination 0.0.0.0/0 -vserver svm_2 -gateway subnet_gateway
+----
+. 在節點 1 上建立 NAS LIF。
++
+[source, cli]
+----
+network interface create -auto-revert true -vserver svm_2 -service-policy default-data-files -home-port e0a -address private_ip_x -netmask node1Mask -lif ip_nas_2 -home-node cvo-node1
+----
++
+其中 _private_ip_x_ 是 cvo-node1 的 e0a 上未使用的輔助私有 IP。在接管的情況下，該 IP 位址可以重新定位到 cvo-node2 的 e0a，因為服務策略 default-data-files 表示 IP 可以遷移到合作夥伴節點。
+
+. 選用：在節點 1 上建立儲存虛擬機器管理 LIF。
++
+[source, cli]
+----
+network interface create -auto-revert true -vserver svm_2 -service-policy default-management -home-port e0a -address private_ip_y -netmask node1Mask -lif ip_svm_mgmt_2 -home-node cvo-node1
+----
++
+其中 _private_ip_y_ 是 e0a 上另一個未使用的輔助私有 IP。
+
+. 將一個或多個聚合分配給儲存虛擬機器。
++
+[source, cli]
+----
+vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
+----
++
+此步驟是必需的，因為新的儲存虛擬機器需要存取至少一個聚合，然後您才能在儲存虛擬機器上建立磁碟區。
+
+. 如果您使用的是Cloud Volumes ONTAP 9.11.1 或更高版本，請修改儲存虛擬機器的網路服務策略。
++
+需要修改服務，因為它可以確保Cloud Volumes ONTAP可以使用 iSCSI LIF 進行出站管理連線。
+
++
+[source, cli]
+----
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-nis-client
+----
+
+
+
+
+== 在多個可用區的 HA 對上建立儲存虛擬機
+
+這些步驟在多個 AZ 中的 HA 對上建立一個新的儲存虛擬機器。
+
+對於 NAS LIF 來說，浮動 IP 位址是必需的，而對於管理 LIF 來說，浮動 IP 位址是可選的。這些浮動 IP 位址不需要您在 AWS 中指派私有 IP。相反，浮動 IP 會在 AWS 路由表中自動配置為指向相同 VPC 中特定節點的 ENI。
+
+為了使浮動 IP 與ONTAP一起運作，必須在每個節點上的每個儲存虛擬機器上配置一個私人 IP 位址。這反映在以下步驟中，其中在節點 1 和節點 2 上建立 iSCSI LIF。
+
+.步驟
+. 建立儲存虛擬機器和到儲存虛擬機器的路由。
++
+[source, cli]
+----
+vserver create -rootvolume-security-style unix -rootvolume root_svm_2 -snapshot-policy default -vserver svm_2 -aggregate aggr1
+----
++
+[source, cli]
+----
+network route create -destination 0.0.0.0/0 -vserver svm_2 -gateway subnet_gateway
+----
+. 在節點 1 上建立 NAS LIF。
++
+[source, cli]
+----
+network interface create -auto-revert true -vserver svm_2 -service-policy default-data-files -home-port e0a -address floating_ip -netmask node1Mask -lif ip_nas_floating_2 -home-node cvo-node1
+----
++
+** 浮動 IP 位址必須位於您部署 HA 配置的 AWS 區域中的所有 VPC 的 CIDR 區塊之外。 192.168.209.27 是一個範例浮動 IP 位址。link:reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["了解有關選擇浮動 IP 位址的更多信息"] 。
+** `-service-policy default-data-files`表示 IP 可以遷移到夥伴節點。
+
+
+. 選用：在節點 1 上建立儲存虛擬機器管理 LIF。
++
+[source, cli]
+----
+network interface create -auto-revert true -vserver svm_2 -service-policy default-management -home-port e0a -address floating_ip -netmask node1Mask -lif ip_svm_mgmt_2 -home-node cvo-node1
+----
+. 在節點 1 上建立 iSCSI LIF。
++
+[source, cli]
+----
+network interface create -vserver svm_2 -service-policy default-data-blocks -home-port e0a -address private_ip -netmask nodei1Mask -lif ip_node1_iscsi_2 -home-node cvo-node1
+----
++
+** 此 iSCSI LIF 需要支援儲存虛擬機器中浮動 IP 的 LIF 遷移。它不必是 iSCSI LIF，但不能配置為在節點之間遷移。
+** `-service-policy default-data-block`表示IP位址不會在節點之間遷移。
+** _private_ip_ 是 cvo_node1 的 eth0 (e0a) 上未使用的輔助私有 IP 位址。
+
+
+. 在節點 2 上建立 iSCSI LIF。
++
+[source, cli]
+----
+network interface create -vserver svm_2 -service-policy default-data-blocks -home-port e0a -address private_ip -netmaskNode2Mask -lif ip_node2_iscsi_2 -home-node cvo-node2
+----
++
+** 此 iSCSI LIF 需要支援儲存虛擬機器中浮動 IP 的 LIF 遷移。它不必是 iSCSI LIF，但不能配置為在節點之間遷移。
+** `-service-policy default-data-block`表示IP位址不會在節點之間遷移。
+** _private_ip_ 是 cvo_node2 的 eth0 (e0a) 上未使用的輔助私有 IP 位址。
+
+
+. 將一個或多個聚合分配給儲存虛擬機器。
++
+[source, cli]
+----
+vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
+----
++
+此步驟是必需的，因為新的儲存虛擬機器需要存取至少一個聚合，然後您才能在儲存虛擬機器上建立磁碟區。
+
+. 如果您使用的是Cloud Volumes ONTAP 9.11.1 或更高版本，請修改儲存虛擬機器的網路服務策略。
++
+需要修改服務，因為它可以確保Cloud Volumes ONTAP可以使用 iSCSI LIF 進行出站管理連線。
+
++
+[source, cli]
+----
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-nis-client
+----
+

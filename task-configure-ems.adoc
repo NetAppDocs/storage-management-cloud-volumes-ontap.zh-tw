@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: task-configure-ems.html 
+keywords: ems, event management system, ems notifications, notifications 
+summary: 事件管理系統收集並顯示有關ONTAP系統上發生的事件的資訊。若要接收事件通知，您可以為特定事件嚴重性設定事件目的地和事件路由。 
+---
+= 為Cloud Volumes ONTAP系統設定 EMS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+事件管理系統 (EMS) 收集並顯示有關ONTAP系統上發生的事件的資訊。若要接收事件通知，您可以為特定事件嚴重性設定事件目的地（電子郵件地址、SNMP 陷阱主機或系統日誌伺服器）和事件路由。
+
+您可以使用 CLI 設定 EMS。有關說明，請參閱 https://docs.netapp.com/us-en/ontap/error-messages/index.html["ONTAP文件：EMS 配置概述"^]。

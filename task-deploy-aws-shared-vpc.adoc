@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: task-deploy-aws-shared-vpc.html 
+keywords: shared vpc, aws shared vpc, vpc sharing, shared subnet, deploy shared vpc, assume role 
+summary: 從 9.11.1 版本開始，AWS 透過 VPC 共享支援Cloud Volumes ONTAP HA 對。 VPC 共用可讓您的組織與其他 AWS 帳戶共用子網路。若要使用此配置，您必須設定您的 AWS 環境，然後使用 API 部署 HA 對。 
+---
+= 在 AWS 共用子網路中部署Cloud Volumes ONTAP HA 對
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+從 9.11.1 版本開始，AWS 透過 VPC 共享支援Cloud Volumes ONTAP HA 對。 VPC 共用可讓您的組織與其他 AWS 帳戶共用子網路。若要使用此配置，您必須設定您的 AWS 環境，然後使用 API 部署 HA 對。
+
+和 https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-sharing-a-new-approach-to-multiple-accounts-and-vpc-management/["VPC共享"^]， Cloud Volumes ONTAP HA 配置分佈在兩個帳戶中：
+
+* VPC 擁有者帳戶，擁有網路（VPC、子網路、路由表和Cloud Volumes ONTAP安全群組）
+* 參與者帳戶，其中 EC2 執行個體部署在共用子網路中（這包括兩個 HA 節點和中介者）
+
+
+對於跨多個可用區部署的Cloud Volumes ONTAP HA 配置，HA 中介需要特定權限才能寫入 VPC 擁有者帳戶中的路由表。您需要透過設定調解員可以承擔的 IAM 角色來提供這些權限。
+
+下圖顯示了此部署所涉及的元件：
+
+image:diagram-aws-vpc-sharing.png["共享 VPC 中Cloud Volumes ONTAP HA 部署的概念圖。它顯示了 VPC 所有者帳戶和參與者帳戶可用的共用 VPC。共用 VPC 包括 IAM 角色、路由表、安全群組和三個共用子網路。參與者帳戶包括Cloud Volumes ONTAP HA 設定和附加到調解器的 IAM 角色。"]
+
+請依照下列步驟所述，您需要與參與者帳戶共用子網，然後在 VPC 擁有者帳戶中建立 IAM 角色和安全性群組。
+
+當您建立Cloud Volumes ONTAP系統時， NetApp控制台會自動建立 IAM 角色並將其附加到中介器。此角色承擔您在 VPC 擁有者帳戶中建立的 IAM 角色，以便對與 HA 對關聯的路由表進行變更。
+
+.步驟
+. 與參與者帳戶共用 VPC 所有者帳戶中的子網路。
++
+此步驟是在共用子網路中部署 HA 對所必需的。
+
++
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-sharing-share-subnet["AWS 文件：共享子網"^]
+
+. 在 VPC 擁有者帳戶中，為Cloud Volumes ONTAP建立一個安全群組。
++
+link:reference-security-groups.html["請參閱Cloud Volumes ONTAP的安全群組規則"] 。請注意，您不需要為 HA 中介建立安全群組。控制台會為您完成該操作。
+
+. 在 VPC 擁有者帳戶中，建立一個包含下列權限的 IAM 角色：
++
+[source, json]
+----
+Action": [
+                "ec2:AssignPrivateIpAddresses",
+                "ec2:CreateRoute",
+                "ec2:DeleteRoute",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeVpcs",
+                "ec2:ReplaceRoute",
+                "ec2:UnassignPrivateIpAddresses"
+----
+. 使用 API 建立新的Cloud Volumes ONTAP系統。
++
+請注意，您必須指定以下欄位：
+
++
+** “安全群組 ID”
++
+「securityGroupId」欄位應指定您在 VPC 所有者帳戶中建立的安全性群組（請參閱上面的步驟 2）。
+
+** “haParams”物件中的“assumeRoleArn”
++
+「assumeRoleArn」欄位應包含您在 VPC 擁有者帳戶中建立的 IAM 角色的 ARN（請參閱上面的步驟 3）。
+
++
+例如：
+
++
+[source, json]
+----
+"haParams": {
+     "assumeRoleArn": "arn:aws:iam::642991768967:role/mediator_role_assume_fromdev"
+}
+----
++
+https://docs.netapp.com/us-en/bluexp-automation/cm/overview.html["了解Cloud Volumes ONTAP API"^]
+
+
+
+

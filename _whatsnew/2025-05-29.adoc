@@ -1,0 +1,11 @@
+= 為Cloud Volumes ONTAP 9.15.1 啟用私有模式部署
+:allow-uri-read: 
+
+
+
+
+=== 為Cloud Volumes ONTAP 9.15.1 啟用私有模式部署
+
+現在您可以在 AWS、Azure 和 Google Cloud 中以私有模式部署Cloud Volumes ONTAP 9.15.1。  Cloud Volumes ONTAP 9.15.1 的單節點和高可用性 (HA) 部署均啟用私有模式。
+
+有關私有模式部署的更多信息，請參閱https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#restricted-mode["了解BlueXP部署模式"^]。

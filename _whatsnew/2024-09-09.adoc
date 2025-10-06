@@ -1,0 +1,22 @@
+= WORM 和 ARP 功能不再收費
+:allow-uri-read: 
+
+
+
+
+=== WORM 和 ARP 功能不再收費
+
+WORM（一次寫入多次讀取）和 ARP（自主勒索軟體保護）的內建資料保護和安全功能將透過Cloud Volumes ONTAP許可證免費提供。新的定價模式適用於 AWS、Azure 和 Google Cloud 的新舊 BYOL 和 PAYGO/市場訂閱。基於容量和基於節點的許可證都將包含所有配置的 ARP 和 WORM，包括單節點和高可用性 (HA) 對，無需額外費用。
+
+簡化的定價為您帶來以下好處：
+
+* 目前包含 WORM 和 ARP 的帳戶將不再對這些功能收取費用。今後，您的帳單將只收取容量使用費，就像此次變更之前一樣。  WORM 和 ARP 將不再包含在您未來的帳單中。
+* 如果您目前的帳戶不包含這些功能，現在可以免費選擇 WORM 和 ARP。
+* 所有針對新帳戶的Cloud Volumes ONTAP產品均不收取 WORM 和 ARP 費用。
+
+
+了解有關這些功能的更多資訊：
+
+* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-protecting-ransomware.html["為Cloud Volumes ONTAP啟用NetApp勒索軟體防護解決方案"]
+* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-worm.html["WORM儲存"]
+

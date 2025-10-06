@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: task-create-aggregates.html 
+keywords: storage, provisioning, aggregates, provision, create, advanced allocation, creating aggregates, adding an aggregate, add an aggregate, create an aggregate 
+summary: 您可以自行建立聚合，也可以讓NetApp Console 在建立磁碟區時為您建立聚合。自行建立聚合的好處是您可以選擇底層磁碟大小，從而可以根據所需的容量或效能調整聚合的大小。 
+---
+= 為Cloud Volumes ONTAP系統建立聚合
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以自行建立聚合，也可以讓NetApp控制台在建立磁碟區時為您建立聚合。自行建立聚合的好處是您可以選擇底層磁碟大小，從而可以根據所需的容量或效能調整聚合的大小。
+
+
+CAUTION: 必須直接從控制台建立和刪除所有磁碟和聚合。您不應從其他管理工具執行這些操作。這樣做會影響系統穩定性，妨礙將來添加磁碟的能力，並可能產生冗餘的雲端供應商費用。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在「*系統*」頁面上，雙擊要管理聚合的Cloud Volumes ONTAP系統的名稱。
+. 在“聚合”標籤上，按一下“新增聚合”，然後指定聚合的詳細資訊。
++
+[role="tabbed-block"]
+====
+ifdef::aws[]
+
+.AWS
+--
+** 如果系統提示您選擇磁碟類型和磁碟大小，請參閱link:task-planning-your-config.html["在 AWS 中規劃您的Cloud Volumes ONTAP配置"]。
+** 如果提示您輸入聚合的容量大小，表示您正在支援 Amazon EBS 彈性磁碟區功能的配置上建立聚合。以下螢幕截圖顯示了由 gp3 磁碟組成的新聚合的範例。
++
+image:screenshot-aggregate-size-ev.png["這是 gp3 磁碟的聚合磁碟螢幕的螢幕截圖，您可以在其中輸入聚合大小（以 TiB 為單位）。"]
+
++
+link:concept-aws-elastic-volumes.html["了解有關彈性卷支持的更多信息"] 。
+
+
+
+--
+endif::aws[]
+
+ifdef::azure[]
+
+.Azure
+--
+有關磁碟類型和磁碟大小的協助，請參閱link:task-planning-your-config-azure.html["在 Azure 中規劃您的Cloud Volumes ONTAP配置"]。
+
+--
+endif::azure[]
+
+ifdef::gcp[]
+
+.Google雲
+--
+有關磁碟類型和磁碟大小的協助，請參閱link:task-planning-your-config-gcp.html["在 Google Cloud 中規劃您的Cloud Volumes ONTAP配置"]。
+
+--
+endif::gcp[]
+
+====
+. 按一下“*新增*”，然後按一下“*核准並購買*”。
+

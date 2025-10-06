@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: task-getting-started-azure.html 
+keywords: microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, custom role, role, json, permissions, virtual machine, connectivity, internet, outbound, endpoint, connection, networks, vpn, replicating, policy, iam, setupasservice, sign up, cloud manager, BlueXP, cloud volumes ontap, cloud ontap, subscription, create 
+summary: 只需幾個步驟即可開始使用Cloud Volumes ONTAP for Azure。 
+---
+= Azure 中的Cloud Volumes ONTAP快速入門
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+只需幾個步驟即可開始使用Cloud Volumes ONTAP for Azure。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]建立控制台代理
+[role="quick-margin-para"]
+如果你沒有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要建立一個。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["了解如何在 Azure 中建立控制台代理"^]
+
+[role="quick-margin-para"]
+請注意，如果您想在沒有網路存取的子網路中部署Cloud Volumes ONTAP ，則需要手動安裝控制台代理程式並存取在該控制台代理程式上執行的NetApp控制台。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在沒有網路存取的地方手動安裝控制台代理"^]
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"]規劃您的配置
+[role="quick-margin-para"]
+控制台提供符合您的工作負載要求的預先配置包，或者您可以建立自己的配置。如果您選擇自己的配置，您應該了解可用的選項。有關信息，請參閱link:task-planning-your-config-azure.html["在 Azure 中規劃您的Cloud Volumes ONTAP配置"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]設定網路
+[role="quick-margin-list"]
+. 確保您的 VNet 和子網路將支援控制台代理程式和Cloud Volumes ONTAP之間的連線。
+. 為NetApp AutoSupport啟用從目標 VPC 的出站網際網路存取。
++
+如果您在沒有網路存取的位置部署Cloud Volumes ONTAP，則不需要執行此步驟。
+
+
+
+[role="quick-margin-para"]
+link:reference-networking-azure.html["了解有關網絡要求的更多信息"] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"]啟動Cloud Volumes ONTAP
+[role="quick-margin-para"]
+按一下“*新增系統*”，選擇您想要部署的系統類型，然後完成精靈中的步驟。link:task-deploying-otc-azure.html["閱讀逐步說明"] 。
+
+.相關連結
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["從控制台建立控制台代理"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-marketplace.html["從 Azure 市集建立控制台代理"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在 Linux 主機上安裝控制台代理軟體"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["控制台如何處理權限"^]
+

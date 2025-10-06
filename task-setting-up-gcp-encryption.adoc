@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: task-setting-up-gcp-encryption.html 
+keywords: encryption, gcp, encryption key, permissions, customer-managed, gcpencryption 
+summary: 雖然 Google Cloud Storage 始終會在將資料寫入磁碟之前對其進行加密，但您可以使用控制台 API 建立使用客戶管理加密金鑰的Cloud Volumes ONTAP系統。這些是您使用雲端金鑰管理服務在 GCP 中產生和管理的金鑰。 
+---
+= 將客戶管理的加密金鑰與Cloud Volumes ONTAP結合使用
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+雖然 Google Cloud Storage 總是會在將資料寫入磁碟之前加密，但您可以使用 API 建立使用_客戶管理加密金鑰_的Cloud Volumes ONTAP系統。這些是您使用雲端金鑰管理服務在 GCP 中產生和管理的金鑰。
+
+.步驟
+. 確保控制台代理服務帳戶在儲存金鑰的項目中具有專案層級的正確權限。
++
+權限在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["預設的服務帳戶權限"^]，但如果您使用雲端密鑰管理服務的替代項目，則可能無法套用。
+
++
+權限如下：
+
++
+[source, yaml]
+----
+- cloudkms.cryptoKeyVersions.useToEncrypt
+- cloudkms.cryptoKeys.get
+- cloudkms.cryptoKeys.list
+- cloudkms.keyRings.list
+----
+. 確保 https://cloud.google.com/iam/docs/service-agents["Google Compute Engine 服務代理"^]對金鑰具有 Cloud KMS 加密器/解密器權限。
++
+服務帳戶的名稱使用以下格式：「service-[service_project_number]@compute-system.iam.gserviceaccount.com」。
+
++
+https://cloud.google.com/kms/docs/iam#granting_roles_on_a_resource["Google Cloud 文件：將 IAM 與 Cloud KMS 結合使用 - 授予資源角色"]
+
+. 透過呼叫 get 指令來取得金鑰的“id” `/gcp/vsa/metadata/gcp-encryption-keys` API 呼叫或透過在 GCP 控制台中的鍵上選擇「複製資源名稱」。
+. 如果使用客戶管理的加密金鑰並將資料分層到物件存儲， NetApp控制台會嘗試使用用於加密持久磁碟的相同金鑰。但您首先需要啟用 Google Cloud Storage 儲存桶才能使用金鑰：
++
+.. 請依照下列步驟尋找 Google Cloud Storage 服務代理 https://cloud.google.com/storage/docs/getting-service-agent["Google Cloud 文件：取得雲端儲存服務代理"^]。
+.. 導覽至加密金鑰並為 Google Cloud Storage 服務代理程式指派 Cloud KMS Encrypter/Decrypter 權限。
+
+
++
+有關詳細信息，請參閱 https://cloud.google.com/storage/docs/encryption/using-customer-managed-keys["Google Cloud 文件：使用客戶管理的加密金鑰"^]
+
+. 建立系統時，請在 API 要求中使用「GcpEncryption」參數。
++
+*例子*
+
++
+[source, json]
+----
+"gcpEncryptionParameters": {
+    "key": "projects/project-1/locations/us-east4/keyRings/keyring-1/cryptoKeys/generatedkey1"
+  }
+----
+
+
+請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]有關使用“GcpEncryption”參數的更多詳細資訊。

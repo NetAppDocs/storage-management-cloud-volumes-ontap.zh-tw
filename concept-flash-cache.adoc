@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: concept-flash-cache.html 
+keywords: cloud volumes ontap, flash cache, read-intensive, read, random, databases, email, file services, compression, performance, nvme 
+summary: 一些Cloud Volumes ONTAP配置包括本地 NVMe 存儲， Cloud Volumes ONTAP將其用作閃存緩存以獲得更好的性能。 
+---
+= 快閃記憶體
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+一些Cloud Volumes ONTAP配置包括本地 NVMe 存儲， Cloud Volumes ONTAP將其用作_Flash Cache_ 以獲得更好的性能。
+
+
+
+== 什麼是快閃記憶體？
+
+Flash Cache 透過即時智慧型快取最近讀取的使用者資料和NetApp元資料來加快資料存取速度。它對於隨機讀取密集型工作負載（包括資料庫、電子郵件和文件服務）非常有效。
+
+
+
+== 支援的配置
+
+特定的Cloud Volumes ONTAP設定支援 Flash Cache。查看支援的配置 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP發行說明"^]
+
+
+
+== 限制
+
+ifdef::aws[]
+
+* 在 AWS 中為Cloud Volumes ONTAP 9.12.0 或更早版本配置 Flash Cache 時，必須在所有磁碟區上停用壓縮才能利用 Flash Cache 效能改進。當您部署或升級至Cloud Volumes ONTAP 9.12.1 或更高版本時，您無需停用壓縮。
++
+從NetApp控制台建立磁碟區時跳過選擇儲存效率設置，或建立磁碟區然後 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["使用 CLI 停用資料壓縮"^]。
+
+
+
+endif::aws[]
+
+* Cloud Volumes ONTAP不支援重新啟動後快取重新預熱。
+

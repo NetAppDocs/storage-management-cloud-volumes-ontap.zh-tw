@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: concept-azure-image-verification.html 
+keywords: Azure, image, VHD, image signature file, 
+summary: 驗證 Azure VHD 映像檔簽章檔。 
+---
+= 針對Cloud Volumes ONTAP 的Azure 市場映像驗證
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Azure 映像驗證符合增強的NetApp安全要求。驗證圖像檔案是一個簡單的過程。但是，Azure 映像簽署驗證需要特別注意 Azure VHD 映像文件，因為它在 Azure 市場中已更改。
+
+
+NOTE: Cloud Volumes ONTAP 9.15.0 及更高版本支援 Azure 映像驗證。
+
+
+
+== Azure 對已發布 VHD 檔案的更改
+
+VHD 檔案開頭的 1 MB（1048576 位元組）和結尾的 512 位元組已被 Azure 修改。  NetApp對剩餘的 VHD 檔案進行簽署。
+
+image:screenshot_azure_vhd_10gb.png["顯示 Azure 的 10GB VHD 檔案取代的影像"]
+
+在範例中，VHD 檔案為 10GB。  NetApp簽署的部分標示為綠色（10 GB - 1 MB - 512 位元組）。
+
+.相關連結
+* https://pagefault.blog/2019/04/22/how-to-sign-and-verify-using-openssl/["頁面錯誤部落格：如何使用 OpenSSL 進行簽署和驗證"^]
+* https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-create-virtual-machine-marketplace-image["使用 Azure Marketplace 映像為 Azure Stack Edge Pro GPU 建立 VM 映像 | Microsoft Learn"^]
+* https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/copy-managed-disks-vhd-to-storage-account["使用 Azure CLI 將託管磁碟匯出/複製到儲存帳戶 | Microsoft Learn"^]
+* https://learn.microsoft.com/en-us/azure/cloud-shell/quickstart["Azure Cloud Shell 快速入門 - Bash | Microsoft Learn"^]
+* https://learn.microsoft.com/en-us/cli/azure/install-azure-cli["如何安裝 Azure CLI | Microsoft Learn"^]
+* https://learn.microsoft.com/en-us/cli/azure/storage/blob/copy?view=azure-cli-latest#az-storage-blob-copy-start["az 儲存 blob 副本 | Microsoft Learn"^]
+* https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli["使用 Azure CLISign in— 登入與驗證 | Microsoft Learn"^]
+

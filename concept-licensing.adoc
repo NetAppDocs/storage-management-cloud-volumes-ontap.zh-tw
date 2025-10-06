@@ -1,0 +1,286 @@
+---
+sidebar: sidebar 
+permalink: concept-licensing.html 
+keywords: 'freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, cloud backup, digital wallet, bluexp license conversion for node based, license end of support (EOS) node-based, end of availability (EOA) of node-based' 
+summary: Cloud Volumes ONTAP有多種授權選項。每個選項都允許您選擇滿足您需求的配置。 
+---
+= Cloud Volumes ONTAP許可
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符合您需求的消費模式。
+
+
+
+== 許可概述
+
+新客戶可以使用以下授權選項。
+
+基於容量的許可:: 按配置容量支付NetApp帳戶中的多個Cloud Volumes ONTAP系統的費用。包括購買附加雲端資料服務的能力。有關基於容量的許可證消費模型的更多信息，請參閱link:concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"]。
+Keystone訂閱:: 一種按需付費的訂閱式服務，為高可用性 (HA) 對提供無縫的混合雲體驗。
+
+
+以下部分提供了有關每個選項的更多詳細資訊。
+
+
+NOTE: 對於未經許可而使用許可的功能，我們將不提供支援。
+
+
+
+== 基於容量的許可
+
+基於容量的許可包可讓您按 TiB 容量支付Cloud Volumes ONTAP費用。該許可證與您的NetApp帳戶相關聯，只要許可證提供足夠的容量，您就可以根據許可證為多個系統收費。
+
+例如，您可以購買單一 20 TiB 許可證，部署四個Cloud Volumes ONTAP系統，然後為每個系統指派一個 5 TiB 卷，總共 20 TiB。此容量可供該帳戶中部署的每個Cloud Volumes ONTAP系統上的磁碟區使用。
+
+基於容量的許可以_包_的形式提供。部署Cloud Volumes ONTAP系統時，您可以根據業務需求從多個授權包中進行選擇。
+
+
+NOTE: 雖然NetApp控制台中管理的產品和服務的實際使用情況和計量始終以 GiB 和 TiB 計算，但 GB/GiB 和 TB/TiB 這兩個術語可互換使用。這反映在雲端市場列表、價格報價、列表描述和其他支援文件中。
+
+
+
+=== 套餐
+
+以下基於容量的軟體包可用於Cloud Volumes ONTAP。有關基於容量的許可證包的更多信息，請參閱link:concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"]。
+
+有關以下基於容量的套件所支援的 VM 類型的列表，請參閱：
+
+ifdef::azure[]
+
+* link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中支援的配置"^]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中支援的配置"^]
+
+
+endif::gcp[]
+
+
+
+==== 免費增值
+
+免費提供NetApp提供的所有Cloud Volumes ONTAP功能（仍需支付雲端供應商費用）。免費增值套餐有以下特點：
+
+* 不需要許可證或合約。
+* 不包括來自NetApp的支援。
+* 每個Cloud Volumes ONTAP系統的設定容量限制為 500 GiB。
+* 對於任何雲端供應商，每個NetApp帳戶最多可以使用 10 個Cloud Volumes ONTAP系統和免費加值服務。
+* 如果Cloud Volumes ONTAP系統的設定容量超過 500 GiB，則控制台會將系統轉換為 Essentials 套件。
++
+一旦系統轉換為 Essentials 包，link:concept-licensing-charging.html#minimum-charge["最低收費"]適用於它。
+
++
+已轉換為 Essentials 套件的Cloud Volumes ONTAP系統無法切換回 Freemium，即使配置容量減少到 500 GiB 以下。其他預置容量少於 500 GiB 的系統仍保留在免費增值版上（只要它們是使用免費增值產品部署的）。
+
+
+
+
+
+==== 必需品
+
+您可以透過多種不同的配置按容量付費：
+
+* 選擇您的Cloud Volumes ONTAP設定：
++
+** 單節點或 HA 系統
+** 用於災難復原 (DR) 的檔案和區塊儲存或輔助數據
+
+
+* 額外付費即可新增任何 NetApp 雲端資料服務
+
+
+
+
+==== 專業的
+
+按容量支付任何類型的Cloud Volumes ONTAP配置的費用，並提供無限備份。
+
+* 為任何Cloud Volumes ONTAP配置提供許可
++
+單節點或 HA，以相同的費率對主捲和輔助卷進行容量計費
+
+* 包括使用NetApp Backup and Recovery 的無限磁碟區備份，但僅適用於使用專業版軟體包的Cloud Volumes ONTAP系統。
++
+
+NOTE: 備份和復原需要按使用量付費 (PAYGO) 訂閱，但使用此服務不會產生任何費用。有關設定備份和恢復許可的更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-licensing-cloud-backup.html["設定備份和恢復許可"^]。
+
+* 額外付費即可新增任何 NetApp 雲端資料服務
+
+
+
+
+=== 基於容量的許可證的可用性
+
+Cloud Volumes ONTAP系統的 PAYGO 和 BYOL 授權的可用性要求控制台代理程式啟動並執行。
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#impact-on-cloud-volumes-ontap["了解控制台代理"^] 。
+
+
+NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 授權可用性受限"^] 。
+
+
+
+=== 如何開始
+
+了解如何開始使用基於容量的許可：
+
+ifdef::aws[]
+
+* link:task-set-up-licensing-aws.html["在 AWS 中設定Cloud Volumes ONTAP許可"]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* link:task-set-up-licensing-azure.html["在 Azure 中設定Cloud Volumes ONTAP許可"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* link:task-set-up-licensing-google.html["在 Google Cloud 中設定Cloud Volumes ONTAP許可"]
+
+
+endif::gcp[]
+
+
+
+== Keystone訂閱
+
+一種按需付費的訂閱式服務，為那些喜歡 OpEx 消費模式而非前期資本支出或租賃的用戶提供無縫的混合雲端體驗。
+
+收費是根據Keystone訂閱中一個或多個Cloud Volumes ONTAP HA 對的承諾容量大小。
+
+每個卷的預先配置容量都會定期匯總並與您的Keystone訂閱中的承諾容量進行比較，任何超額部分都會作為Keystone訂閱中的突發容量收費。
+
+link:https://docs.netapp.com/us-en/keystone-staas/index.html["了解有關NetApp Keystone 的更多信息"^] 。
+
+
+
+=== 支援的配置
+
+Keystone訂閱支援 HA 對。目前，單節點系統不支援此許可選項。
+
+
+
+=== 容量限制
+
+在基於容量的許可模型中，每個Cloud Volumes ONTAP系統都支援分層到物件存儲，並且總分層容量可以擴展到雲端提供者的存儲桶限制。雖然許可證沒有施加容量限制，但遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳實踐"^]確保在配置和管理分層時實現最佳效能、可靠性和成本效率。
+
+有關每個雲端提供者的容量限制的信息，請參閱其文檔：
+
+* https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html["AWS 文件"^]
+* https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account["託管磁碟的 Azure 文件"^]和 https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets["Azure Blob 儲存體文檔"^]
+* https://cloud.google.com/storage/docs/buckets["Google Cloud 文件"^]
+
+
+
+
+=== 如何開始
+
+了解如何開始使用Keystone訂閱：
+
+ifdef::aws[]
+
+* link:task-set-up-licensing-aws.html["在 AWS 中設定Cloud Volumes ONTAP許可"]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* link:task-set-up-licensing-azure.html["在 Azure 中設定Cloud Volumes ONTAP許可"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* link:task-set-up-licensing-google.html["在 Google Cloud 中設定Cloud Volumes ONTAP許可"]
+
+
+endif::gcp[]
+
+
+
+== 基於節點的許可
+
+基於節點的許可是上一代許可模式，使您能夠按節點許可Cloud Volumes ONTAP 。此許可模式不適用於新客戶。按節點充電已被上述按容量充電方法所取代。
+
+NetApp已計劃終止基於節點的許可的可用性 (EOA) 和支援 (EOS)。在 EOA 和 EOS 之後，基於節點的許可證將需要轉換為基於容量的許可證。
+
+有關信息，請參閱 https://mysupport.netapp.com/info/communications/CPC-00589.html["客戶公報：CPC-00589"^]。
+
+
+
+=== 基於節點的許可證的可用性終止
+
+從 2024 年 11 月 11 日起，基於節點的許可證的有限可用性已終止。基於節點的授權支援將於 2024 年 12 月 31 日結束。
+
+如果您擁有有效的基於節點的合同，並且該合約的有效期超出了 EOA 日期，那麼您可以繼續使用該許可證，直到合約到期。一旦合約到期，就需要過渡到基於容量的許可模式。如果您沒有Cloud Volumes ONTAP節點的長期合同，則務必在 EOS 日期之前規劃您的轉換。
+
+從下表中了解有關每種許可證類型以及 EOA 對其影響的更多資訊：
+
+[cols="2*"]
+|===
+| 許可證類型 | EOA 之後的影響 
+
+
+ a| 
+透過自帶許可證 (BYOL) 購買的有效基於節點的許可證
+ a| 
+許可證有效期限至到期日。現有未使用的基於節點的許可證可用於部署新的Cloud Volumes ONTAP系統。
+
+
+
+ a| 
+透過 BYOL 購買的基於節點的許可證已過期
+ a| 
+您無權使用此授權部署新的Cloud Volumes ONTAP系統。現有系統可能會繼續運行，但在 EOS 日期之後，您將不會收到任何系統支援或更新。
+
+
+
+ a| 
+具有 PAYGO 訂閱的有效基於節點的許可證
+ a| 
+自 EOS 日期起將停止獲得NetApp支持，直到您過渡到基於容量的許可證。
+
+|===
+.除外責任
+NetApp意識到某些情況需要特殊考慮，基於節點的許可的 EOA 和 EOS 不適用於以下情況：
+
+* 美國公共部門客戶
+* 私有模式下的部署
+* AWS 中國區Cloud Volumes ONTAP部署
+
+
+對於這些特殊情況， NetApp將提供支持，以滿足符合合約義務和營運需求的獨特授權要求。
+
+
+NOTE: 即使在這些情況下，新的基於節點的許可證和許可證續訂自批准之日起最長有效期為一年。
+
+
+
+== 許可證轉換
+
+控制台可以透過許可證轉換工具將基於節點的許可證無縫轉換為基於容量的許可證。有關基於節點的許可的 EOA 的信息，請參閱link:concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"]。
+
+在轉換之前，最好先熟悉兩種授權模式之間的差異。基於節點的授權包括每個ONTAP實例的固定容量，這可能會限制靈活性。另一方面，基於容量的授權允許跨多個執行個體共用儲存池，從而提供增強的靈活性，優化資源利用率，並降低重新分配工作負載時可能產生的經濟損失。基於容量的充電可以無縫適應不斷變化的儲存需求。
+
+若要了解如何執行此轉換，請參閱link:task-convert-node-capacity.html["將Cloud Volumes ONTAP基於節點的許可證轉換為基於容量的許可證"]。
+
+
+NOTE: 不支援將系統從基於容量的許可轉換為基於節點的許可。

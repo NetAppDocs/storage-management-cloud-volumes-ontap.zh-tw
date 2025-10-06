@@ -1,0 +1,230 @@
+---
+sidebar: sidebar 
+permalink: task-manage-node-licenses.html 
+keywords: license, licensing, install, updating license, system license, add system license, adding a system license,  update byol license, nlf, license generator, extra, by-node, NetApp Console, cloud backup, cloud data sense, cloud tiering 
+summary: 在NetApp控制台中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。 
+---
+= 管理Cloud Volumes ONTAP 的基於節點的許可
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:target: _blank
+
+
+[role="lead"]
+在NetApp控制台中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。
+
+_基於節點的許可證_是上一代許可證模型（不適用於新客戶）：
+
+* 從NetApp購買自帶授權 (BYOL)
+* 從雲端供應商的市場購買按小時付費 (PAYGO) 訂閱
+
+
+您可以從NetApp控制台管理基於節點的Cloud Volumes ONTAP許可證。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["了解有關Cloud Volumes ONTAP許可證的更多信息"] 。
+
+
+
+== 管理 PAYGO 許可證
+
+透過許可證和訂閱選單，您可以查看有關每個 PAYGO Cloud Volumes ONTAP系統的詳細信息，包括序號和 PAYGO 許可證類型。
+
+.步驟
+. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 選擇“*概覽*”標籤。
+. 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
+. 從下拉式選單中選擇*基於節點的授權*。
+. 點擊*PAYGO*。
+. 在表格中查看有關每個 PAYGO 許可證的詳細資訊。
++
+image:screenshot_paygo_licenses.png["螢幕截圖顯示了許可證和訂閱頁面中含有三個 paygo 許可證的表格。每行顯示名稱、系統類型、序號、套件以及管理許可證的連結。"]
+
+. 如果需要，請按一下*管理 PAYGO 授權*來變更 PAYGO 授權或變更執行個體類型。
+
+
+
+
+== 管理 BYOL 許可證
+
+透過新增和刪除系統許可證和額外容量許可證來管理您直接從NetApp購買的許可證。
+
+
+NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。
+
+
+
+=== 新增未分配的許可證
+
+將基於節點的許可證新增至控制台，以便您在建立新的Cloud Volumes ONTAP系統時可以選擇該許可證。控制台將這些許可證標識為_未分配_。
+
+.步驟
+. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 選擇“*概覽*”標籤。
+. 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
+. 從下拉式選單中選擇*基於節點的授權*。
+. 按一下“*未分配*”。
+. 按一下「新增未指派的許可證」。
+. 輸入許可證的序號或上傳許可證文件。
++
+如果您還沒有許可證文件，請參閱下面的部分。
+
+. 按一下「新增許可證」。
+
+
+.結果
+控制台新增許可證。在您將許可證與新的Cloud Volumes ONTAP系統關聯之前，該許可證將被標識為未指派。此後，許可證將移至*許可證和訂閱*中的*BYOL*選項卡。
+
+
+
+=== 交換未分配的基於節點的許可證
+
+如果您有未指派的基於節點的Cloud Volumes ONTAP許可證且尚未使用，則可以將其轉換為NetApp備份和恢復許可證、 NetApp資料分類許可證或NetApp Cloud Tiering 許可證來交換該許可證。
+
+交換許可證將撤銷Cloud Volumes ONTAP許可證並為該服務建立等值美元的許可證：
+
+* Cloud Volumes ONTAP HA 對的授權轉換為 51 TiB 直接許可證
+* Cloud Volumes ONTAP單節點授權轉換為 32 TiB 直接許可證
+
+
+轉換後的許可證的到期日與Cloud Volumes ONTAP許可證相同。
+
+link:https://mydemo.netapp.com/player/?demoId=c96ef113-c338-4e44-9bda-81a8d252de63&showGuide=true&showGuidesToolbar=true&showHotspots=true&source=app["查看如何交換基於節點的許可證的演練。"^]
+
+.步驟
+. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 選擇“*概覽*”標籤。
+. 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
+. 從下拉式選單中選擇*基於節點的授權*。
+. 按一下“*未分配*”。
+. 按一下「*交換許可證*」。
++
+image:screenshot-exchange-license.png["未指派許可證頁面上顯示的 Exchange 許可證選項的螢幕截圖。"]
+
+. 選擇您想要交換許可證的服務。
+. 如果出現提示，請為 HA 對選擇一個額外的許可證。
+. 閱讀法律同意並點擊*同意*。
+
+
+.結果
+控制台將未指派的許可證轉換為您選擇的服務。您可以在「資料服務許可證」標籤中查看新的許可證。
+
+
+
+=== 取得系統許可證文件
+
+在大多數情況下，控制台可以使用您的NetApp支援網站帳戶自動取得您的授權文件。但如果不能，那麼您將需要手動上傳許可證文件。如果您沒有許可證文件，您可以從 netapp.com 取得。
+
+.步驟
+. 前往 https://register.netapp.com/register/getlicensefile["NetApp許可證文件產生器"^]並使用您的NetApp支援網站憑證登入。
+. 輸入您的密碼，選擇您的產品，輸入序號，確認您已閱讀並接受隱私權政策，然後按一下*提交*。
++
+*例子*
+
++
+image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品線的NetApp許可證產生器網頁範例。"]
+
+. 選擇您是否希望透過電子郵件或直接下載接收 serialnumber.NLF JSON 檔案。
+
+
+
+
+=== 更新系統許可證
+
+當您透過聯絡NetApp代表續訂 BYOL 訂閱時，控制台會自動從NetApp取得新授權並將其安裝在Cloud Volumes ONTAP系統上。如果控制台無法透過安全的網路連線存取許可證文件，您可以自行取得該文件，然後手動上傳該文件。
+
+.步驟
+. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 選擇“*概覽*”標籤。
+. 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
+. 從下拉式選單中選擇*基於節點的授權*。
+. 在 *BYOL* 標籤中，展開Cloud Volumes ONTAP系統的詳細資訊。
+. 點擊系統許可證旁邊的操作選單，然後選擇*更新許可證*。
+. 上傳許可證文件（如果您有 HA 對，則上傳多個文件）。
+. 按一下「更新許可證」。
+
+
+.結果
+控制台更新Cloud Volumes ONTAP系統上的許可證。
+
+
+
+=== 管理額外容量許可證
+
+您可以為Cloud Volumes ONTAP BYOL 系統購買額外的容量許可證，以分配超過 BYOL 系統許可證提供的 368 TiB 的容量。例如，您可以購買一個額外的許可證容量，為Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者您可以購買三個額外的容量許可證以獲得高達 1.4 PiB。
+
+您可以為單節點系統或 HA 對購買的許可證數量不受限制。
+
+
+
+==== 新增容量許可證
+
+透過控制台右下角的聊天圖示聯絡我們，購買額外容量許可證。購買許可證後，您可以將其套用至Cloud Volumes ONTAP系統。
+
+.步驟
+. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 選擇“*概覽*”標籤。
+. 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
+. 從下拉式選單中選擇*基於節點的授權*。
+. 在 *BYOL* 標籤中，展開Cloud Volumes ONTAP系統的詳細資訊。
+. 按一下「新增容量許可證」。
+. 輸入序號或上傳許可證文件（如果您有 HA 對，則上傳文件）。
+. 按一下「新增容量許可證」。
+
+
+
+
+==== 更新容量許可證
+
+如果您延長了額外容量許可證的期限，則需要在控制台中更新許可證。
+
+.步驟
+. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 選擇“*概覽*”標籤。
+. 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
+. 從下拉式選單中選擇*基於節點的授權*。
+. 在 *BYOL* 標籤中，展開Cloud Volumes ONTAP系統的詳細資訊。
+. 按一下容量許可證旁的操作選單，然後選擇*更新許可證*。
+. 上傳許可證文件（如果您有 HA 對，則上傳多個文件）。
+. 按一下「更新許可證」。
+
+
+
+
+==== 刪除容量許可證
+
+如果額外容量許可證已過期且不再使用，那麼您可以隨時將其刪除。
+
+.步驟
+. 從左側導覽窗格中，選擇*管理>授權和訂閱*。
+. 選擇“*概覽*”標籤。
+. 在Cloud Volumes ONTAP圖塊上，選擇 *檢視*。
+. 從下拉式選單中選擇*基於節點的授權*。
+. 在 *BYOL* 標籤中，展開Cloud Volumes ONTAP系統的詳細資訊。
+. 點擊容量許可證旁邊的操作選單，然後選擇*刪除許可證*。
+. 按一下“*刪除*”。
+
+
+
+
+== PAYGO 與 BYOL 之間的變化
+
+不支援將系統從 PAYGO 按節點授權轉換為 BYOL 按節點授權（反之亦然）。如果您想在按使用量付費訂閱和 BYOL 訂閱之間切換，那麼您需要部署一個新系統並將資料從現有系統複製到新系統。
+
+.步驟
+. 建立一個新的Cloud Volumes ONTAP系統。
+. 對於需要複製的每個卷，在系統之間設定一次性資料複製。
++
+https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何在系統之間複製數據"^]
+
+. 透過刪除原始系統來終止不再需要的Cloud Volumes ONTAP系統。
++
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deleting-system.html["了解如何刪除Cloud Volumes ONTAP系統"] 。
+
+
+
+.相關連結
+關聯：link:concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"] link:task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"]

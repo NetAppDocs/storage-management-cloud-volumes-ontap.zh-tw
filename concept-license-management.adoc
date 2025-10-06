@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: concept-license-management.html 
+keywords: byol, bring your own license, expiration, warning, node-based byol, node license, capacity 
+summary: 每個具有基於節點的 BYOL 的Cloud Volumes ONTAP系統都必須安裝具有有效訂閱的系統授權。控制台透過為您管理許可證並在許可證到期前顯示警告來簡化流程。 
+---
+= 基於節點的 BYOL 授權管理
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+每個具有基於節點的自帶許可證 (BYOL) 的Cloud Volumes ONTAP系統都必須安裝具有有效訂閱的系統授權。  NetApp控制台透過為您管理許可證並在許可證到期前顯示警告來簡化流程。
+
+
+NOTE: 基於節點的許可證是Cloud Volumes ONTAP的上一代許可證。基於節點的授權可以從NetApp (BYOL) 購買，並且僅在特定情況下才可以續訂授權。
+
+link:concept-licensing.html["了解有關Cloud Volumes ONTAP許可選項的更多信息"] 。
+
+link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["了解有關如何管理基於節點的許可證的更多信息"^] 。
+
+
+
+== BYOL 系統許可證
+
+可以從NetApp購買基於節點的授權。您可以為單節點系統或 HA 對購買的許可證數量不受限制。
+
+
+NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 授權可用性受限"^] 。
+
+基於節點的許可證最多可為單一節點或 HA 對提供 368 TiB 的容量。您可能已為Cloud Volumes ONTAP BYOL 系統購買了多個許可證，以分配超過 368 TiB 的容量。例如，您可能有兩個許可證，為Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者，您可能有四個許可證，以獲得最多 1.4 PiB 的容量。
+
+請注意，磁碟限制可能會阻止您僅使用磁碟就達到容量限制。您可以透過以下方式超越磁碟限制link:concept-data-tiering.html["將非活動資料分層到物件存儲"]。有關磁碟限制的信息，請參閱 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["Cloud Volumes ONTAP發行說明中的儲存限制"^]。
+
+
+
+== 新系統的許可證管理
+
+當您建立基於節點的 BYOL 系統時，控制台會提示您輸入許可證的序號和NetApp支援網站帳戶。控制台使用該帳戶從NetApp下載許可證檔案並將其安裝在Cloud Volumes ONTAP系統上。
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["了解如何將NetApp支援網站帳戶新增至控制台"^] 。
+
+如果控制台無法透過安全的網路連線存取許可證文件，您可以link:task-manage-node-licenses.html["自行取得文件，然後手動將文件上傳到控制台"]。
+
+
+
+== 許可證到期
+
+控制台會在基於節點的許可證到期前 30 天顯示警告，並在許可證到期時再次顯示警告。下圖顯示了使用者介面中出現的 30 天到期警告：
+
+image:screenshot_warning.gif["螢幕截圖：顯示包含警告圖示的Cloud Volumes ONTAP系統。該圖標表示需要採取行動。"]
+
+您可以選擇系統來查看該訊息。
+
+如果您是組織或帳戶管理員並且啟用了該選項，則控制台會在透過電子郵件傳送給您的Cloud Volumes ONTAP報告中包含許可證到期警告。透過電子郵件發送的報告包含每兩週一次的許可證到期警告。
+
+如果您不及時續約許可證， Cloud Volumes ONTAP系統將自動關閉。如果您重新啟動它，它就會再次自動關閉。
+
+
+
+== 執照續期
+
+如果您透過聯絡NetApp代表續訂基於節點的 BYOL 訂閱，控制台將自動從NetApp取得新授權並將其安裝在Cloud Volumes ONTAP系統上。
+
+如果控制台無法透過安全的網路連線存取許可證文件，您可以link:task-manage-node-licenses.html["自行取得文件，然後手動將文件上傳到控制台"]。
+
+
+
+== 許可證轉移到新系統
+
+當您刪除現有系統然後使用相同的授權建立新系統時，基於節點的 BYOL 授權可以在Cloud Volumes ONTAP系統之間轉移。
+
+例如，您可能想要刪除現有的授權系統，然後將授權與不同 VPC/VNet 或雲端提供者中的新 BYOL 系統一起使用。請注意，只有_cloud-agnostic_序號才適用於任何雲端提供者。與雲無關的序號以 _908xxxx_ 前綴開頭。
+
+值得注意的是，您的 BYOL 授權與您的公司和一組特定的NetApp支援網站憑證相關聯。

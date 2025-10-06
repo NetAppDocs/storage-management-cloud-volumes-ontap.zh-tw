@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: task-azure-download-digest-file.html 
+keywords: Azure, image, image signature, download, digest file, decompress, Linux, macOS, md5, sha256 
+summary: 您可以從NetApp支援網站下載 Azure 映像摘要檔。 
+---
+= 下載適用於Cloud Volumes ONTAP 的Azure 映像文件
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以從 https://mysupport.netapp.com/site/["NetApp支援站點"^]。
+
+_tar.gz_ 檔案包含圖像簽名驗證所需的檔案。除了 _tar.gz_ 檔案之外，您還應該下載圖像的 _checksum_ 檔案。校驗和檔案包含 `md5`和 `sha256`_tar.gz_ 檔案的校驗和。
+
+.步驟
+. 前往 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp支援網站上的Cloud Volumes ONTAP產品頁面"^]並從*下載*部分下載所需的軟體版本。
+. 在Cloud Volumes ONTAP下載頁面上，按一下 Azure 映像檔的下載檔案並下載 _tar.gz_ 檔案。
++
+image::screenshot_cloud_volumes_ontap_tar.gz.png[螢幕截圖雲卷 ontap tar.gz]
+
+. 在 Linux 上，運行 `md5sum  AZURE-<version>_PKG.TAR.GZ`。
++
+在 macOS 上，運行 `sha256sum AZURE-<version>_PKG.TAR.GZ`。
+
+. 驗證 `md5sum`和 `sha256sum`值與下載的 Azure 映像中的值相符。
+. 在 Linux 和 macOS 上，使用以下命令提取 _tar.gz_ 文件 `tar -xzf`命令。
++
+解壓縮後的 _tar.gz_ 檔案包含摘要（_.sig_）檔案、公鑰憑證（_.pem_）檔案和鏈憑證（_.pem_）檔案。
+
++
+*提取 tar.gz 檔案後的範例輸出：*
+
++
+[source, cli]
+----
+$ ls cert/ -l
+-rw-r----- 1 netapp netapp  384 May  13 13:00 9.15.0P1_azure_digest.sig
+-rw-r----- 1 netapp netapp 2365 May  13 13:00 Certificate-9.15.0P1_azure.pem
+-rw-r----- 1 netapp netapp 8537 May  13 13:00 Certificate-Chain-9.15.0P1_azure.pem
+-rw-r----- 1 netapp netapp 8537 May  13 13:00 version_readme
+----
+

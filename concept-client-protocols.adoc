@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: concept-client-protocols.html 
+keywords: client protocols, client version, smb version, nfs version, protocol versions, s3, smb, nfs, iscsi, cifs 
+summary: Cloud Volumes ONTAP支援 iSCSI、NFS、SMB、NVMe-TCP 和 S3 用戶端協定。 
+---
+= Cloud Volumes ONTAP支援的客戶端協定
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP支援 iSCSI、NFS、SMB、NVMe-TCP 和 S3 用戶端協定。
+
+
+
+== iSCSI
+
+iSCSI 是一種可以在標準乙太網路上運行的區塊協定。大多數客戶端作業系統都提供透過標準乙太網路連接埠運行的軟體啟動器。
+
+
+
+== NFS
+
+NFS是UNIX和LINUX系統的傳統文件存取協定。客戶端可以使用 NFSv3、NFSv4 和 NFSv4.1 協定存取ONTAP磁碟區中的檔案。您可以使用 UNIX 樣式權限、NTFS 樣式權限或兩者的混合來控制檔案存取。
+
+客戶端可以使用 NFS 和 SMB 協定存取相同的檔案。
+
+
+
+== 中小企業
+
+SMB是Windows系統的傳統文件存取協定。用戶端可以使用 SMB 2.0、SMB 2.1、SMB 3.0 和 SMB 3.1.1 協定存取ONTAP磁碟區中的檔案。與 NFS 一樣，支援混合的權限樣式。
+
+
+
+== S3
+
+Cloud Volumes ONTAP支援 S3 作為橫向擴充儲存的選項。  S3 協定支援可讓您設定 S3 用戶端對儲存虛擬機器 (SVM) 中儲存桶所含物件的存取。
+
+link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html#how-s3-multiprotocol-works["ONTAP文件：了解 S3 多重協定的工作原理"^] 。link:https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["ONTAP文件：了解如何在ONTAP中設定和管理 S3 物件儲存服務"^] 。
+
+
+
+== NVMe-TCP
+
+從ONTAP版本 9.12.1 開始，雲端供應商支援 NVMe-TCP。  NetApp Console 不提供任何針對 NVMe-TCP 的管理功能。
+
+有關透過ONTAP配置 NVMe 的更多信息，請參閱 https://docs.netapp.com/us-en/ontap/san-admin/configure-svm-nvme-task.html["ONTAP文件：為 NVMe 設定儲存虛擬機"^]。

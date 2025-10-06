@@ -1,0 +1,494 @@
+---
+sidebar: sidebar 
+permalink: reference-networking-azure.html 
+keywords: networking, network, requirements, connection, connections, vnet, security group, security groups, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, blob, service endpoint 
+summary: 設定您的 Azure 網絡，以便Cloud Volumes ONTAP系統可以正常運作。 
+---
+= 為Cloud Volumes ONTAP設定 Azure 網路
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp控制台負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址、網路遮罩和路由。您需要確保可以存取外部網路、有足夠的私人 IP 位址、有正確的連線等等。
+
+
+
+== Cloud Volumes ONTAP的要求
+
+Azure 中必須符合下列網路需求。
+
+
+
+=== 出站互聯網訪問
+
+Cloud Volumes ONTAP系統需要出站網際網路存取才能存取外部端點以實現各種功能。如果這些端點在具有嚴格安全要求的環境中被阻止， Cloud Volumes ONTAP將無法正常運作。
+
+控制台代理也會聯絡多個端點以進行日常操作。有關端點的信息，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看從控制台代理聯繫的端點"^]和 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-networking-saas-console.html["準備好使用控制台的網絡"^]。
+
+
+
+==== Cloud Volumes ONTAP端點
+
+Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
+
+[cols="5*"]
+|===
+| 端點 | 適用於 | 目的 | 部署模式 | 不可用時的影響 
+
+
+| \ https://netapp-cloud-account.auth0.com | 驗證  a| 
+用於控制台中的身份驗證。
+| 標準和限制模式。  a| 
+用戶身份驗證失敗，以下服務仍然不可用：
+
+* Cloud Volumes ONTAP服務
+* ONTAP服務
+* 協定和代理服務
+
+
+
+
+| https://vault.azure.net[] | 金鑰保管庫 | 用於使用客戶管理金鑰 (CMK) 時從 Azure Key Vault 擷取客戶端金鑰。 | 標準、受限和私人模式。 | Cloud Volumes ONTAP服務無法使用。 
+
+
+| \ https://api.bluexp.netapp.com/tenancy | 租賃 | 用於從控制台檢索Cloud Volumes ONTAP資源以授權資源和使用者。 | 標準和限制模式。 | Cloud Volumes ONTAP資源和使用者未獲得授權。 
+
+
+| \ https://mysupport.netapp.com/aods/asupmessage \ https://mysupport.netapp.com/asupprod/post/1.0/postAsup | AutoSupport | 用於將AutoSupport遙測資料傳送給NetApp支援。 | 標準和限制模式。 | AutoSupport資訊仍未送達。 
+
+
+| \ https://management.azure.com \ https://login.microsoftonline.com \ https://bluexpinfraprod.eastus2.data.azurecr.io \ https://core.windows.net | 公共區域 | 與 Azure 服務通訊。 | 標準、受限和私人模式。 | Cloud Volumes ONTAP無法與 Azure 服務通訊以對 Azure 中的控制台執行特定操作。 
+
+
+| \ https://management.chinacloudapi.cn \ https://login.chinacloudapi.cn \ https://blob.core.chinacloudapi.cn \ https://core.chinacloudapi.cn | 中國區 | 與 Azure 服務通訊。 | 標準、受限和私人模式。 | Cloud Volumes ONTAP無法與 Azure 服務通訊以對 Azure 中的控制台執行特定操作。 
+
+
+| \ https://management.microsoftazure.de \ https://login.microsoftonline.de \ https://blob.core.cloudapi.de \ https://core.cloudapi.de | 德國地區 | 與 Azure 服務通訊。 | 標準、受限和私人模式。 | Cloud Volumes ONTAP無法與 Azure 服務通訊以對 Azure 中的控制台執行特定操作。 
+
+
+| \ https://management.usgovcloudapi.net \ https://login.microsoftonline.us \ https://blob.core.usgovcloudapi.net \ https://core.usgovcloudapi.net | 政府區域 | 與 Azure 服務通訊。 | 標準、受限和私人模式。 | Cloud Volumes ONTAP無法與 Azure 服務通訊以對 Azure 中的控制台執行特定操作。 
+
+
+| \ https://management.azure.microsoft.scloud \ https://login.microsoftonline.microsoft.scloud \ https://blob.core.microsoft.scloud \ https://core.microsoft.scloud | 政府國防部區 | 與 Azure 服務通訊。 | 標準、受限和私人模式。 | Cloud Volumes ONTAP無法與 Azure 服務通訊以對 Azure 中的控制台執行特定操作。 
+|===
+
+
+=== NetApp Console 代理程式的網路代理程式配置
+
+您可以使用NetApp控制台代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的出站網路存取。控制台支援兩種類型的代理：
+
+* *明確代理*：來自Cloud Volumes ONTAP 的出站流量使用在控制台代理的代理配置期間指定的代理伺服器的 HTTP 位址。管理員可能還配置了使用者憑證和根 CA 憑證以進行額外的身份驗證。Cloud Volumes ONTAP顯式代理程式有可用的根 CA 證書，請確保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
+* *透明代理*：網路配置為透過控制台代理的代理程式自動路由來自Cloud Volumes ONTAP 的出站流量。設定透明代理時，管理員只需要提供用於從Cloud Volumes ONTAP進行連接的根 CA 證書，而不是代理伺服器的 HTTP 位址。確保使用以下方式取得相同的根 CA 憑證並將其上傳到您的Cloud Volumes ONTAP系統 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
+
+
+有關配置代理伺服器的信息，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理伺服器"^]。
+
+
+
+=== IP 位址
+
+控制台會自動為 Azure 中的Cloud Volumes ONTAP指派所需數量的私有 IP 位址。您需要確保您的網路有足夠的可用私人 IP 位址。
+
+為Cloud Volumes ONTAP指派的 LIF 數量取決於您部署的是單節點系統還是 HA 對。  LIF 是與實體連接埠關聯的 IP 位址。  SnapCenter等管理工具需要 SVM 管理 LIF。
+
+
+NOTE: iSCSI LIF 透過 iSCSI 協定提供用戶端訪問，並被系統用於其他重要的網路工作流程。這些 LIF 是必需的，不應刪除。
+
+
+
+==== 單節點系統的 IP 位址
+
+控制台為單節點系統分配5或6個IP位址：
+
+* 叢集管理IP
+* 節點管理IP
+* SnapMirror的群集間 IP
+* NFS/CIFS IP
+* iSCSI IP
++
+
+NOTE: iSCSI IP 透過 iSCSI 協定提供客戶端存取。系統也將其用於其他重要的網路工作流程。此 LIF 是必需的，不應刪除。
+
+* SVM 管理（可選 - 預設未配置）
+
+
+
+
+==== HA 對的 IP 位址
+
+控制台在部署期間將 IP 位址指派給 4 個 NIC（每個節點）。
+
+請注意，控制台在 HA 對上建立 SVM 管理 LIF，但不在 Azure 中的單節點系統上建立。
+
+*NIC0*
+
+* 節點管理IP
+* 群集間 IP
+* iSCSI IP
++
+
+NOTE: iSCSI IP 透過 iSCSI 協定提供客戶端存取。系統也將其用於其他重要的網路工作流程。此 LIF 是必需的，不應刪除。
+
+
+
+*NIC1*
+
+* 叢集網路IP
+
+
+*NIC2*
+
+* 叢集互連 IP (HA IC)
+
+
+*NIC3*
+
+* Pageblob NIC IP（磁碟存取）
+
+
+
+NOTE: NIC3 僅適用於使用頁 Blob 儲存的 HA 部署。
+
+上述 IP 位址在故障轉移事件中不會遷移。
+
+此外，還配置了 4 個前端 IP（FIP）以在故障轉移事件時進行遷移。這些前端 IP 位於負載平衡器中。
+
+* 叢集管理IP
+* NodeA 資料 IP (NFS/CIFS)
+* NodeB資料IP（NFS/CIFS）
+* SVM 管理 IP
+
+
+
+
+=== 與 Azure 服務的安全連線
+
+預設情況下，控制台啟用 Azure 專用鏈接，用於Cloud Volumes ONTAP和 Azure 頁 Blob 儲存帳戶之間的連接。
+
+在大多數情況下，您無需執行任何操作 - 控制台會為您管理 Azure 專用連結。但是如果您使用 Azure 私人 DNS，則需要編輯設定檔。您還應該了解 Azure 中控制台代理程式的位置需求。
+
+如果您的業務需要，您也可以停用專用連結連線。如果停用該鏈接，控制台會將Cloud Volumes ONTAP配置為使用服務端點。
+
+link:task-enabling-private-link.html["了解有關將 Azure Private Links 或服務端點與Cloud Volumes ONTAP結合使用的更多信息"] 。
+
+
+
+=== 與其他ONTAP系統的連接
+
+要在 Azure 中的Cloud Volumes ONTAP系統和其他網路中的ONTAP系統之間複製數據，您必須在 Azure VNet 和其他網路（例如您的公司網路）之間建立 VPN 連線。
+
+有關說明，請參閱 https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal["Microsoft Azure 文件：在 Azure 入口網站中建立網站到網站連接"^]。
+
+
+
+=== HA 互連埠
+
+Cloud Volumes ONTAP HA 對包含 HA 互連，這使得每個節點能夠持續檢查其夥伴節點是否正常運行，並為對方的非揮發性記憶體鏡像日誌資料。  HA 互連使用 TCP 連接埠 10006 進行通訊。
+
+預設情況下，HA 互連 LIF 之間的通訊是開放的，且此連接埠沒有安全群組規則。但是，如果您在 HA 互連 LIF 之間建立防火牆，則需要確保 TCP 流量對連接埠 10006 開放，以便 HA 對可以正常運作。
+
+
+
+=== Azure 資源組中只有一個 HA 對
+
+您必須為在 Azure 中部署的每個Cloud Volumes ONTAP HA 對使用一個專用資源群組。一個資源組中僅支援一個 HA 對。
+
+如果您嘗試在 Azure 資源組中部署第二個Cloud Volumes ONTAP HA 對，控制台會遇到連線問題。
+
+
+
+=== 安全群組規則
+
+控制台建立 Azure 安全性群組，其中包含Cloud Volumes ONTAP成功執行的入站和出站規則。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-azure.html["查看控制台代理程式的安全性群組規則"^] 。
+
+Cloud Volumes ONTAP的 Azure 安全性群組需要開啟適當的連接埠以進行節點之間的內部通訊。 https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP內部端口"^] 。
+
+我們不建議修改預先定義的安全性群組或使用自訂安全群組。但是，如果必須這樣做，請注意，部署過程要求Cloud Volumes ONTAP系統在自己的子網路內擁有完全存取權限。部署完成後，如果決定修改網路安全群組，請確保保持叢集連接埠和 HA 網路連接埠開放。這確保了Cloud Volumes ONTAP叢集內的無縫通訊（節點之間的任意通訊）。
+
+
+
+==== 單節點系統的入站規則
+
+新增Cloud Volumes ONTAP系統並選擇預先定義安全性群組時，您可以選擇允許下列其中的流量：
+
+* *僅限選定的 VNet*：入站流量的來源是Cloud Volumes ONTAP系統的 VNet 子網路範圍和控制台代理程式所在的 VNet 子網路範圍。這是推薦的選項。
+* *所有 VNets*：入站流量的來源是 0.0.0.0/0 IP 範圍。
+* *已停用*：此選項限制對您的儲存帳戶的公共網路訪問，並停用Cloud Volumes ONTAP系統的資料分層。如果由於安全法規和政策，您的私人 IP 位址即使在同一個 VNet 內也不應該暴露，那麼建議使用此選項。
+
+
+[cols="4*"]
+|===
+| 優先權和名稱 | 連接埠和協定 | 來源和目的地 | 描述 
+
+
+| 1000 入站_ssh | 22 TCP | 任意到任意 | 透過 SSH 存取叢集管理 LIF 或節點管理 LIF 的 IP 位址 
+
+
+| 1001 入站 http | 80 TCP | 任意到任意 | 使用叢集管理 LIF 的 IP 位址透過 HTTP 存取ONTAP System Manager Web 控制台 
+
+
+| 1002 inbound_111_tcp | 111 TCP | 任意到任意 | NFS 的遠端過程調用 
+
+
+| 1003 inbound_111_udp | 111 UDP | 任意到任意 | NFS 的遠端過程調用 
+
+
+| 1004 inbound_139 | 139 TCP | 任意到任意 | CIFS 的 NetBIOS 服務會話 
+
+
+| 1005 入站_161-162 _tcp | 161-162 TCP | 任意到任意 | 簡單網路管理協議 
+
+
+| 1006 入站_161-162 _udp | 161-162 UDP | 任意到任意 | 簡單網路管理協議 
+
+
+| 1007 inbound_443 | 443 TCP | 任意到任意 | 使用叢集管理 LIF 的 IP 位址與控制台代理程式建立連線並透過 HTTPS 存取ONTAP System Manager Web 控制台 
+
+
+| 1008 inbound_445 | 445 TCP | 任意到任意 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| 1009 inbound_635_tcp | 635 TCP | 任意到任意 | NFS 掛載 
+
+
+| 1010 inbound_635_udp | 635 UDP | 任意到任意 | NFS 掛載 
+
+
+| 1011 inbound_749 | 749 TCP | 任意到任意 | Kerberos 
+
+
+| 1012 inbound_2049_tcp | 2049 TCP | 任意到任意 | NFS 伺服器守護程式 
+
+
+| 1013 inbound_2049_udp | 2049 UDP | 任意到任意 | NFS 伺服器守護程式 
+
+
+| 1014 inbound_3260 | 3260 TCP | 任意到任意 | 透過 iSCSI 資料 LIF 進行 iSCSI 訪問 
+
+
+| 1015 入站_4045-4046_tcp | 4045-4046 TCP | 任意到任意 | NFS 鎖定守護程式和網路狀態監視器 
+
+
+| 1016 入站_4045-4046_udp | 4045-4046 UDP | 任意到任意 | NFS 鎖定守護程式和網路狀態監視器 
+
+
+| 1017 inbound_10000 | 10000 TCP | 任意到任意 | 使用 NDMP 備份 
+
+
+| 1018 入站_11104-11105 | 11104-11105 TCP | 任意到任意 | SnapMirror資料傳輸 
+
+
+| 3000 入站拒絕 _所有_tcp | 任意連接埠 TCP | 任意到任意 | 阻止所有其他 TCP 入站流量 
+
+
+| 3001 入站拒絕 _所有 udp | 任意連接埠 UDP | 任意到任意 | 阻止所有其他 UDP 入站流量 
+
+
+| 65000 允許 VnetInBound | 任意連接埠任意協定 | 虛擬網路到虛擬網絡 | 來自 VNet 內部的入站流量 
+
+
+| 65001 允許 Azure 負載平衡器入站 | 任意連接埠任意協定 | AzureLoadBalancer 到任意 | 來自 Azure 標準負載平衡器的資料流量 
+
+
+| 65500 拒絕所有入站 | 任意連接埠任意協定 | 任意到任意 | 阻止所有其他入站流量 
+|===
+
+
+==== HA 系統的入站規則
+
+新增Cloud Volumes ONTAP系統並選擇預先定義安全性群組時，您可以選擇允許下列其中的流量：
+
+* *僅限選定的 VNet*：入站流量的來源是Cloud Volumes ONTAP系統的 VNet 子網路範圍和控制台代理程式所在的 VNet 子網路範圍。這是推薦的選項。
+* *所有 VNets*：入站流量的來源是 0.0.0.0/0 IP 範圍。
+
+
+
+NOTE: HA 系統的入站規則比單節點系統少，因為入站資料流量會經過 Azure 標準負載平衡器。因此，來自負載平衡器的流量應該是開放的，如“AllowAzureLoadBalancerInBound”規則所示。
+
+* *已停用*：此選項限制對您的儲存帳戶的公共網路訪問，並停用Cloud Volumes ONTAP系統的資料分層。如果由於安全法規和政策，您的私人 IP 位址即使在同一個 VNet 內也不應該暴露，那麼建議使用此選項。
+
+
+[cols="4*"]
+|===
+| 優先權和名稱 | 連接埠和協定 | 來源和目的地 | 描述 
+
+
+| 100 inbound_443 | 443 任何協議 | 任意到任意 | 使用叢集管理 LIF 的 IP 位址與控制台代理程式建立連線並透過 HTTPS 存取ONTAP System Manager Web 控制台 
+
+
+| 101 inbound_111_tcp | 111 任何協議 | 任意到任意 | NFS 的遠端過程調用 
+
+
+| 102 inbound_2049_tcp | 2049 任何協議 | 任意到任意 | NFS 伺服器守護程式 
+
+
+| 111 入站_ssh | 22 任何協議 | 任意到任意 | 透過 SSH 存取叢集管理 LIF 或節點管理 LIF 的 IP 位址 
+
+
+| 121 inbound_53 | 53 任何協議 | 任意到任意 | DNS 和 CIFS 
+
+
+| 65000 允許 VnetInBound | 任意連接埠任意協定 | 虛擬網路到虛擬網絡 | 來自 VNet 內部的入站流量 
+
+
+| 65001 允許 Azure 負載平衡器入站 | 任意連接埠任意協定 | AzureLoadBalancer 到任意 | 來自 Azure 標準負載平衡器的資料流量 
+
+
+| 65500 拒絕所有入站 | 任意連接埠任意協定 | 任意到任意 | 阻止所有其他入站流量 
+|===
+
+
+==== 出站規則
+
+Cloud Volumes ONTAP的預設安全群組開啟所有出站流量。如果可以接受，請遵循基本的出站規則。如果您需要更嚴格的規則，請使用進階出站規則。
+
+
+
+===== 基本出站規則
+
+Cloud Volumes ONTAP的預設安全群組包括以下出站規則。
+
+[cols="3*"]
+|===
+| 港口 | 協定 | 目的 
+
+
+| 全部 | 所有 TCP | 所有出站流量 
+
+
+| 全部 | 所有 UDP | 所有出站流量 
+|===
+
+
+===== 高級出站規則
+
+如果您需要對出站流量製定嚴格的規則，則可以使用下列資訊僅開啟Cloud Volumes ONTAP出站通訊所需的連接埠。
+
+
+NOTE: 來源是Cloud Volumes ONTAP系統上的介面（IP 位址）。
+
+[cols="10,10,6,20,20,34"]
+|===
+| 服務 | 港口 | 協定 | 來源 | 目的地 | 目的 
+
+
+.18+| 活動目錄 | 88 | TCP | 節點管理 LIF | Active Directory 林 | Kerberos V 驗證 
+
+
+| 137 | UDP | 節點管理 LIF | Active Directory 林 | NetBIOS 名稱服務 
+
+
+| 138 | UDP | 節點管理 LIF | Active Directory 林 | NetBIOS 資料封包服務 
+
+
+| 139 | TCP | 節點管理 LIF | Active Directory 林 | NetBIOS 服務會話 
+
+
+| 389 | TCP 和 UDP | 節點管理 LIF | Active Directory 林 | LDAP 
+
+
+| 445 | TCP | 節點管理 LIF | Active Directory 林 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| 464 | TCP | 節點管理 LIF | Active Directory 林 | Kerberos V 更改和設定密碼（SET_CHANGE） 
+
+
+| 464 | UDP | 節點管理 LIF | Active Directory 林 | Kerberos 金鑰管理 
+
+
+| 749 | TCP | 節點管理 LIF | Active Directory 林 | Kerberos V 更改和設定密碼（RPCSEC_GSS） 
+
+
+| 88 | TCP | 資料 LIF（NFS、CIFS、iSCSI） | Active Directory 林 | Kerberos V 驗證 
+
+
+| 137 | UDP | 資料 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 名稱服務 
+
+
+| 138 | UDP | 資料 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 資料封包服務 
+
+
+| 139 | TCP | 資料 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 服務會話 
+
+
+| 389 | TCP 和 UDP | 資料 LIF（NFS、CIFS） | Active Directory 林 | LDAP 
+
+
+| 445 | TCP | 資料 LIF（NFS、CIFS） | Active Directory 林 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| 464 | TCP | 資料 LIF（NFS、CIFS） | Active Directory 林 | Kerberos V 更改和設定密碼（SET_CHANGE） 
+
+
+| 464 | UDP | 資料 LIF（NFS、CIFS） | Active Directory 林 | Kerberos 金鑰管理 
+
+
+| 749 | TCP | 資料 LIF（NFS、CIFS） | Active Directory 林 | Kerberos V 更改和設定密碼（RPCSEC_GSS） 
+
+
+.3+| AutoSupport | HTTPS | 443 | 節點管理 LIF | mysupport.netapp.com | AutoSupport （預設為 HTTPS） 
+
+
+| HTTP | 80 | 節點管理 LIF | mysupport.netapp.com | AutoSupport （僅當傳輸協定從 HTTPS 變更為 HTTP 時） 
+
+
+| TCP | 3128 | 節點管理 LIF | 控制台代理 | 如果出站網路連線不可用，則透過控制台代理上的代理伺服器傳送AutoSupport訊息 
+
+
+| 配置備份 | HTTP | 80 | 節點管理 LIF | \http://<控制台代理 IP 位址>/occm/offboxconfig | 將配置備份傳送到控制台代理程式。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文件"^] 。 
+
+
+| DHCP | 68 | UDP | 節點管理 LIF | DHCP | 首次設定的 DHCP 用戶端 
+
+
+| DHCP服務 | 67 | UDP | 節點管理 LIF | DHCP | DHCP 伺服器 
+
+
+| DNS | 53 | UDP | 節點管理 LIF 和資料 LIF（NFS、CIFS） | DNS | DNS 
+
+
+| NDMP | 18600–18699 | TCP | 節點管理 LIF | 目標伺服器 | NDMP 拷貝 
+
+
+| SMTP | 25 | TCP | 節點管理 LIF | 郵件伺服器 | SMTP 警報，可用於AutoSupport 
+
+
+.4+| SNMP | 161 | TCP | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+| 161 | UDP | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+| 162 | TCP | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+| 162 | UDP | 節點管理 LIF | 監控伺服器 | 透過 SNMP 陷阱進行監控 
+
+
+.2+| SnapMirror | 11104 | TCP | 集群間 LIF | ONTAP叢集間 LIF | SnapMirror群集間通訊會話的管理 
+
+
+| 11105 | TCP | 集群間 LIF | ONTAP叢集間 LIF | SnapMirror資料傳輸 
+
+
+| 系統日誌 | 514 | UDP | 節點管理 LIF | Syslog伺服器 | Syslog 轉送訊息 
+|===
+
+
+== 控制台代理的要求
+
+如果您尚未建立控制台代理，您也應該查看控制台代理的網路需求。
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["查看控制台代理程式的網路要求"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-azure.html["Azure 中的安全性群組規則"^]
+
+
+.相關主題
+* link:task-verify-autosupport.html["驗證Cloud Volumes ONTAP 的AutoSupport設置"]
+* https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP內部端口"^] 。
+

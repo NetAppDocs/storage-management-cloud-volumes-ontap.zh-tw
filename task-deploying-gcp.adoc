@@ -1,0 +1,514 @@
+---
+sidebar: sidebar 
+permalink: task-deploying-gcp.html 
+keywords: Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create,  license key, serial number, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, high-availability, google cloud ha, ha in google cloud, ha pair, cloud backup, cloud tiering 
+summary: 您可以在單一系統設定中啟動Cloud Volumes ONTAP ，也可以在 Google Cloud Platform 中以 HA 對的形式啟動 Cloud Volumes ONTAP。 
+---
+= 在 Google Cloud 啟動Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在單一節點設定中啟動Cloud Volumes ONTAP ，也可以在 Google Cloud 中以 HA 對的形式啟動 Cloud Volumes ONTAP。
+
+
+
+== 開始之前
+
+開始之前您需要以下內容。
+
+[[licensing]]
+* 已啟動並正在執行的控制台代理程式。
++
+** 你應該有一個 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["與您的系統關聯的控制台代理"^]。
+** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您應該準備好讓控制台代理程式始終處於運行狀態"^] 。
+** 與控制台代理程式關聯的服務帳戶 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["應該具有所需的權限"^]
+
+
+* 了解您想要使用的配置。
++
+您應該已經做好準備，選擇配置並從管理員處獲取 Google Cloud 網路資訊。有關詳細信息，請參閱link:task-planning-your-config-gcp.html["規劃您的Cloud Volumes ONTAP配置"]。
+
+* 了解設定Cloud Volumes ONTAP許可所需的條件。
++
+link:task-set-up-licensing-google.html["了解如何設定許可"] 。
+
+* Google Cloud API 應該 https://cloud.google.com/apis/docs/getting-started#enabling_apis["在您的專案中啟用"^]：
++
+** 雲端部署管理器 V2 API
+** 雲端日誌 API
+** 雲端資源管理器 API
+** 計算引擎 API
+** 身分識別和存取管理 (IAM) API
+
+
+
+
+
+
+== 在 Google Cloud 啟動單節點系統
+
+在NetApp控制台中建立一個系統以在 Google Cloud 中啟動Cloud Volumes ONTAP 。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. [[訂閱]]在*系統*頁面上，點擊*新增系統*並依照指示操作。
+. *選擇位置*：選擇*Google Cloud*和* Cloud Volumes ONTAP*。
+. 如果出現提示， https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["建立控制台代理"^] 。
+. *詳細資料和憑證*：選擇一個項目，指定一個群集名稱，可選地選擇一個服務帳戶，可選地新增標籤，然後指定憑證。
++
+下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Google Cloud VM 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
+
+
+| 服務帳戶名稱 | 如果你打算使用link:concept-data-tiering.html["資料分層"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp備份與復原"^]使用Cloud Volumes ONTAP，則需要啟用*服務帳戶*並選擇具有預先定義儲存管理員角色的服務帳戶。link:task-creating-gcp-service-account.html["了解如何建立服務帳號"^] 。 
+
+
+| 添加標籤 | 標籤是您的 Google Cloud 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP系統以及與該系統關聯的 Google Cloud 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文件：標記資源"^]。 
+
+
+| 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
+
+
+| 編輯項目  a| 
+選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台所在的項目。
+
+如果您在下拉清單中沒有看到任何其他項目，則表示您尚未將服務帳戶與其他項目關聯。進入Google Cloud控制台，開啟IAM服務，選擇項目。將具有用於控制台的角色的服務帳戶新增至該項目。您需要對每個項目重複此步驟。
+
+
+NOTE: 這是您為控制台設定的服務帳戶，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本頁所述"^] 。
+
+按一下「新增訂閱」將選定的憑證與訂閱關聯。
+
+若要建立按使用量付費的Cloud Volumes ONTAP系統，您需要從 Google Cloud 市場選擇與Cloud Volumes ONTAP訂閱相關聯的 Google Cloud 專案。參考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["將市場訂閱與 Google Cloud 憑證關聯"^]。
+
+|===
+. *服務*：選擇您想要在此系統上使用的服務。為了選擇備份和恢復，或使用NetApp Cloud Tiering，您必須在步驟 3 中指定服務帳戶。
++
+
+TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
+
+. *位置與連線*：選擇一個位置，選擇防火牆策略，並確認與 Google Cloud 儲存的網路連線以進行資料分層。
++
+下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 連線驗證 | 若要將冷資料分層至 Google Cloud Storage 儲存桶，必須為Cloud Volumes ONTAP所在的子網路設定私人 Google Access。有關說明，請參閱 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文件：配置私有 Google 存取權限"^]。 
+
+
+| 產生的防火牆策略  a| 
+如果您讓控制台為您產生防火牆策略，則需要選擇如何允許流量：
+
+** 如果您選擇*僅限選定的 VPC*，則入站流量的來源過濾器是選定 VPC 的子網路範圍和控制台代理程式所在 VPC 的子網路範圍。這是推薦的選項。
+** 如果您選擇*所有 VPC*，則入站流量的來源過濾器是 0.0.0.0/0 IP 範圍。
+
+
+
+
+| 使用現有的防火牆策略 | 如果您使用現有的防火牆策略，請確保它包含所需的規則：link:reference-networking-gcp.html#firewall-rules["了解Cloud Volumes ONTAP的防火牆規則"] 
+|===
+. *收費方式與 NSS 帳戶*：指定您想要在此系統中使用的收費選項，然後指定NetApp支援網站帳號：
++
+** link:concept-licensing.html["了解Cloud Volumes ONTAP的授權選項"^]
+** link:task-set-up-licensing-google.html["了解如何設定許可"^]
+
+
+. *預先配置套件*：選擇其中一個套件來快速部署Cloud Volumes ONTAP系統，或點擊*建立我自己的設定*。
++
+如果您選擇其中一個套餐，您只需指定一個卷，然後審核並批准配置。
+
+. *許可*：根據需要變更Cloud Volumes ONTAP版本並選擇機器類型。
++
+
+NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式版本，則控制台在建立系統時會將其更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.13.1 且 9.13.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 — 例如，從 9.13 到 9.14。
+
+. *底層儲存資源*：選擇初始聚合的設定：磁碟類型和每個磁碟的大小。
++
+磁碟類型適用於初始磁碟區。您可以為後續磁碟區選擇不同的磁碟類型。
+
++
+磁碟大小適用於初始聚合中的所有磁碟以及使用簡單配置選項時控制台建立的任何其他聚合。您可以使用進階分配選項建立使用不同磁碟大小的聚合。
+
++
+有關選擇磁碟類型和大小的協助，請參閱link:task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中調整系統大小"^]。
+
+. *快閃記憶體快取、寫入速度和 WORM*：
++
+.. 如果需要，請啟用*Flash Cache*。
++
+
+NOTE: 從Cloud Volumes ONTAP 9.13.1 開始，n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 實例類型支援_Flash Cache_。部署後您無法停用 Flash Cache。
+
+.. 如有需要，請選擇*正常*或*高*寫入速度。
++
+link:concept-write-speed.html["了解有關寫入速度的更多信息"] 。
+
++
+
+NOTE: 透過*高*寫入速度選項可實現高寫入速度和更高的 8,896 位元組最大傳輸單元 (MTU)。此外，8,896 的更高 MTU 要求選擇 VPC-1、VPC-2 和 VPC-3 進行部署。有關 VPC-1、VPC-2 和 VPC-3 的更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的規則"^]。
+
+.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
++
+如果為Cloud Volumes ONTAP 9.7 及更低版本啟用了資料分層，則無法啟用 WORM。啟用 WORM 和分層後，恢復或降級到Cloud Volumes ONTAP 9.8 的操作將被阻止。
+
++
+link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
+
+.. 如果您啟動 WORM 存儲，請選擇保留期限。
+
+
+. *Google Cloud Platform 中的資料分層*：選擇是否在初始聚合上啟用資料分層，為分層資料選擇儲存類，然後選擇具有預先定義儲存管理員角色的服務帳戶（ Cloud Volumes ONTAP 9.7 或更高版本所需），或選擇 Google Cloud 帳戶（ Cloud Volumes ONTAP 9.6 所需）。
++
+請注意以下事項：
+
++
+** 控制台在Cloud Volumes ONTAP實例上設定服務帳戶。此服務帳戶提供將資料分層至 Google Cloud Storage 儲存桶的權限。請確保將控制台代理服務帳戶新增為分層服務帳戶的用戶，否則，您無法從控制台中選擇它。
+** 如需新增 Google Cloud 帳戶的協助，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["使用 9.6 設定和新增 Google Cloud 帳戶以進行資料分層"^]。
+** 您可以在建立或編輯磁碟區時選擇特定的磁碟區分層策略。
+** 如果您停用資料分層，則可以在後續聚合中啟用它，但您需要關閉系統並從 Google Cloud 控制台新增服務帳戶。
++
+link:concept-data-tiering.html["了解有關數據分層的更多信息"^] 。
+
+
+
+. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
++
+link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
+
++
+此頁面中的某些欄位是不言自明的。下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 尺寸 | 您可以輸入的最大大小很大程度上取決於您是否啟用精簡配置，這使您能夠建立比目前可用的實體儲存更大的磁碟區。 
+
+
+| 存取控制（僅適用於 NFS） | 導出策略定義了子網路中可以存取磁碟區的用戶端。預設情況下，控制台輸入一個提供對子網路中所有實例的存取權限的值。 
+
+
+| 權限和使用者/群組（僅適用於 CIFS） | 這些欄位可讓您控制使用者和群組對共用的存取等級（也稱為存取控制清單或 ACL）。您可以指定本機或網域 Windows 使用者或群組，或 UNIX 使用者或群組。如果指定網域 Windows 使用者名，則必須使用網域\使用者名稱格式包含使用者的網域。 
+
+
+| 快照策略 | Snapshot 副本策略指定自動建立的NetApp Snapshot 副本的頻率和數量。NetApp Snapshot 副本是時間點檔案系統映像，它不會影響效能並且只需要最少的儲存空間。您可以選擇預設策略或無策略。對於瞬態數據，您可能會選擇無：例如，對於 Microsoft SQL Server，請選擇 tempdb。 
+
+
+| 進階選項（僅適用於 NFS） | 為磁碟區選擇一個 NFS 版本：NFSv3 或 NFSv4。 
+
+
+| 啟動器群組和 IQN（僅適用於 iSCSI） | iSCSI 儲存目標稱為 LUN（邏輯單元），並以標準區塊裝置呈現給主機。啟動器群組是 iSCSI 主機節點名稱表，用於控制哪些啟動器可以存取哪些 LUN。 iSCSI 目標透過標準乙太網路網路適配器 (NIC)、具有軟體啟動器的 TCP 卸載引擎 (TOE) 卡、融合網路適配器 (CNA) 或專用主機匯流排適配器 (HBA) 連接到網絡，並透過 iSCSI 限定名稱 (IQN) 進行識別。當您建立 iSCSI 磁碟區時，控制台會自動為您建立 LUN。我們透過為每個磁碟區建立一個 LUN 來簡化操作，因此無需進行任何管理。建立磁碟區後，link:task-connect-lun.html["使用 IQN 從主機連線到 LUN"] 。 
+|===
++
+下圖顯示了磁碟區建立精靈的第一頁：
+
++
+image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例填寫的磁碟區頁面。"]
+
+. *CIFS 設定*：如果您選擇 CIFS 協議，請設定 CIFS 伺服器。
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| DNS 主 IP 位址和輔助 IP 位址 | 為 CIFS 伺服器提供名稱解析的 DNS 伺服器的 IP 位址。所列的 DNS 伺服器必須包含定位 CIFS 伺服器將加入的網域的 Active Directory LDAP 伺服器和網域控制站所需的服務位置記錄 (SRV)。如果您正在設定 Google 管理的 Active Directory，則預設可以使用 169.254.169.254 IP 位址存取 AD。 
+
+
+| 要加入的 Active Directory 網域 | 您希望 CIFS 伺服器加入的 Active Directory (AD) 網域的 FQDN。 
+
+
+| 授權加入網域的憑證 | 具有足夠權限將電腦新增至 AD 網域內指定組織單位 (OU) 的 Windows 帳戶的名稱和密碼。 
+
+
+| CIFS 伺服器 NetBIOS 名稱 | AD 網域中唯一的 CIFS 伺服器名稱。 
+
+
+| 組織單位 | AD 網域內與 CIFS 伺服器關聯的組織單位。預設值為 CN=Computers。若要將 Google Managed Microsoft AD 設定為Cloud Volumes ONTAP的 AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=Cloud*。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文件：Google Managed Microsoft AD 中的組織單位"^] 
+
+
+| DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
+
+
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。欲了解更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+|===
+. *使用情況設定檔、磁碟類型和分層策略*：選擇是否要啟用儲存效率功能並變更磁碟區分層策略（如果需要）。
++
+更多信息，請參閱link:task-planning-your-config-gcp.html#choose-a-volume-usage-profile["選擇卷使用情況設定檔"^]，link:concept-data-tiering.html["資料分層概述"^] ， 和 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支援哪些內嵌儲存效率功能？"^]
+
+. *審核並批准*：審核並確認您的選擇。
++
+.. 查看有關配置的詳細資訊。
+.. 點擊*更多資訊*查看有關支援和控制台將購買的 Google Cloud 資源的詳細資訊。
+.. 選取*我明白...*複選框。
+.. 按一下“*開始*”。
+
+
+
+
+.結果
+控制台部署Cloud Volumes ONTAP系統。您可以在*審核*頁面上追蹤進度。
+
+如果您在部署Cloud Volumes ONTAP系統時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+
+如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
+
+.完成後
+* 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。
+* 如果要將配額套用於卷，請使用ONTAP系統管理員或ONTAP CLI。
++
+配額可讓您限製或追蹤使用者、群組或 qtree 使用的磁碟空間和檔案數量。
+
+
+
+
+
+== 在 Google Cloud 中啟動 HA 對
+
+在控制台中建立一個系統以在 Google Cloud 中啟動Cloud Volumes ONTAP 。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在*系統*頁面上，按一下*儲存>系統*並按照提示進行操作。
+. *選擇位置*：選擇*Google Cloud*和* Cloud Volumes ONTAP HA*。
+. *詳細資料和憑證*：選擇一個項目，指定一個群集名稱，可選地選擇一個服務帳戶，可選地新增標籤，然後指定憑證。
++
+下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Google Cloud VM 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
+
+
+| 服務帳戶名稱 | 如果您打算使用link:concept-data-tiering.html["NetApp雲端分層"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["備份和復原"^]服務，您需要啟用*服務帳戶*開關，然後選擇具有預先定義儲存管理員角色的服務帳戶。 
+
+
+| 添加標籤 | 標籤是您的 Google Cloud 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP系統以及與該系統關聯的 Google Cloud 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文件：標記資源"^]。 
+
+
+| 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
+
+
+| 編輯項目  a| 
+選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台的項目。
+
+如果您在下拉清單中沒有看到任何其他項目，則表示您尚未將服務帳戶與其他項目關聯。進入Google Cloud控制台，開啟IAM服務，選擇項目。將具有用於控制台的角色的服務帳戶新增至該項目。您需要對每個項目重複此步驟。
+
+
+NOTE: 這是您為控制台設定的服務帳戶，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本頁所述"^] 。
+
+按一下「新增訂閱」將選定的憑證與訂閱關聯。
+
+若要建立按使用量付費的Cloud Volumes ONTAP系統，您需要從 Google Cloud Marketplace 中選擇與Cloud Volumes ONTAP訂閱相關聯的 Google Cloud 專案。參考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["將市場訂閱與 Google Cloud 憑證關聯"^]。
+
+|===
+. *服務*：選擇您想要在此系統上使用的服務。若要選擇備份和恢復，或使用NetApp Cloud Tiering，您必須在步驟 3 中指定服務帳戶。
++
+
+TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
+
+. *HA 部署模型*：為 HA 配置選擇多個區域（建議）或單一區域。然後選擇一個地區和區域。
++
+link:concept-ha-google-cloud.html["了解有關 HA 部署模型的更多信息"^] 。
+
+. *連線性*：為 HA 設定選擇四個不同的 VPC，每個 VPC 中選擇一個子網，然後選擇一個防火牆策略。
++
+link:reference-networking-gcp.html["了解有關網絡要求的更多信息"^] 。
+
++
+下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 產生的策略  a| 
+如果您讓控制台為您產生防火牆策略，則需要選擇如何允許流量：
+
+** 如果您選擇*僅限選定的 VPC*，則入站流量的來源過濾器是選定 VPC 的子網路範圍和控制台代理程式所在 VPC 的子網路範圍。這是推薦的選項。
+** 如果您選擇*所有 VPC*，則入站流量的來源過濾器是 0.0.0.0/0 IP 範圍。
+
+
+
+
+| 使用現有的 | 如果您使用現有的防火牆策略，請確保它包含所需的規則。link:reference-networking-gcp.html#firewall-rules["了解Cloud Volumes ONTAP的防火牆規則"^] 。 
+|===
+. *收費方式和 NSS 帳戶*：指定您想要在此系統中使用的收費選項，然後指定NetApp支援網站帳戶。
++
+** link:concept-licensing.html["了解Cloud Volumes ONTAP的授權選項"^] 。
+** link:task-set-up-licensing-google.html["了解如何設定許可"^] 。
+
+
+. *預先配置套件*：選擇其中一個套件來快速部署Cloud Volumes ONTAP系統，或點擊*建立我自己的設定*。
++
+如果您選擇其中一個套餐，您只需指定一個卷，然後審核並批准配置。
+
+. *許可*：根據需要變更Cloud Volumes ONTAP版本並選擇機器類型。
++
+
+NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式版本，則控制台在建立系統時會將其更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.13.1 且 9.13.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 - 例如，從 9.13 到 9.14。
+
+. *底層儲存資源*：選擇初始聚合的設定：磁碟類型和每個磁碟的大小。
++
+磁碟類型適用於初始磁碟區。您可以為後續磁碟區選擇不同的磁碟類型。
+
++
+磁碟大小適用於初始聚合中的所有磁碟以及使用簡單配置選項時控制台建立的任何其他聚合。您可以使用進階分配選項建立使用不同磁碟大小的聚合。
+
++
+有關選擇磁碟類型和大小的協助，請參閱link:task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中調整系統大小"^]。
+
+. *快閃記憶體快取、寫入速度和 WORM*：
++
+.. 如果需要，請啟用*Flash Cache*。
++
+
+NOTE: 從Cloud Volumes ONTAP 9.13.1 開始，n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 實例類型支援_Flash Cache_。部署後您無法停用 Flash Cache。
+
+.. 如有需要，請選擇*正常*或*高*寫入速度。
++
+link:concept-write-speed.html["了解有關寫入速度的更多信息"^] 。
+
++
+
+NOTE: 透過 n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 實例類型的 *高* 寫入速度選項，可以獲得高寫入速度和更高的 8,896 位元組的最大傳輸單元 (MTU)。此外，8,896 的更高 MTU 要求選擇 VPC-1、VPC-2 和 VPC-3 進行部署。高寫入速度和 8,896 的 MTU 取決於功能，無法在配置的實例中單獨停用。有關 VPC-1、VPC-2 和 VPC-3 的更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的規則"^]。
+
+.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
++
+如果為Cloud Volumes ONTAP 9.7 及更低版本啟用了資料分層，則無法啟用 WORM。啟用 WORM 和分層後，恢復或降級到Cloud Volumes ONTAP 9.8 的操作將被阻止。
+
++
+link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
+
+.. 如果您啟動 WORM 存儲，請選擇保留期限。
+
+
+. *Google Cloud 中的資料分層*：選擇是否在初始聚合上啟用資料分層，為分層資料選擇儲存類，然後選擇具有預先定義儲存管理員角色的服務帳戶。
++
+請注意以下事項：
+
++
+** 控制台在Cloud Volumes ONTAP實例上設定服務帳戶。此服務帳戶提供將資料分層至 Google Cloud Storage 儲存桶的權限。請確保將控制台代理服務帳戶新增為分層服務帳戶的用戶，否則，您無法從控制台中選擇它。
+** 您可以在建立或編輯磁碟區時選擇特定的磁碟區分層策略。
+** 如果您停用資料分層，則可以在後續聚合中啟用它，但您需要關閉系統並從 Google Cloud 控制台新增服務帳戶。
++
+link:concept-data-tiering.html["了解有關數據分層的更多信息"^] 。
+
+
+
+. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
++
+link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
+
++
+此頁面中的某些欄位是不言自明的。下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 尺寸 | 您可以輸入的最大大小很大程度上取決於您是否啟用精簡配置，這使您能夠建立比目前可用的實體儲存更大的磁碟區。 
+
+
+| 存取控制（僅適用於 NFS） | 導出策略定義了子網路中可以存取磁碟區的用戶端。預設情況下，控制台輸入一個提供對子網路中所有實例的存取權限的值。 
+
+
+| 權限和使用者/群組（僅適用於 CIFS） | 這些欄位可讓您控制使用者和群組對共用的存取等級（也稱為存取控制清單或 ACL）。您可以指定本機或網域 Windows 使用者或群組，或 UNIX 使用者或群組。如果指定網域 Windows 使用者名，則必須使用網域\使用者名稱格式包含使用者的網域。 
+
+
+| 快照策略 | Snapshot 副本策略指定自動建立的NetApp Snapshot 副本的頻率和數量。NetApp Snapshot 副本是時間點檔案系統映像，它不會影響效能並且只需要最少的儲存空間。您可以選擇預設策略或無策略。對於瞬態數據，您可能會選擇無：例如，對於 Microsoft SQL Server，請選擇 tempdb。 
+
+
+| 進階選項（僅適用於 NFS） | 為磁碟區選擇一個 NFS 版本：NFSv3 或 NFSv4。 
+
+
+| 啟動器群組和 IQN（僅適用於 iSCSI） | iSCSI 儲存目標稱為 LUN（邏輯單元），並以標準區塊裝置呈現給主機。啟動器群組是 iSCSI 主機節點名稱表，用於控制哪些啟動器可以存取哪些 LUN。 iSCSI 目標透過標準乙太網路網路適配器 (NIC)、具有軟體啟動器的 TCP 卸載引擎 (TOE) 卡、融合網路適配器 (CNA) 或專用主機匯流排適配器 (HBA) 連接到網絡，並透過 iSCSI 限定名稱 (IQN) 進行識別。當您建立 iSCSI 磁碟區時，控制台會自動為您建立 LUN。我們透過為每個磁碟區建立一個 LUN 來簡化操作，因此無需進行任何管理。建立磁碟區後，link:task-connect-lun.html["使用 IQN 從主機連線到 LUN"] 。 
+|===
++
+下圖顯示了磁碟區建立精靈的第一頁：
+
++
+image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例填寫的磁碟區頁面。"]
+
+. *CIFS 設定*：如果您選擇 CIFS 協議，請設定 CIFS 伺服器。
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| DNS 主 IP 位址和輔助 IP 位址 | 為 CIFS 伺服器提供名稱解析的 DNS 伺服器的 IP 位址。所列的 DNS 伺服器必須包含定位 CIFS 伺服器將加入的網域的 Active Directory LDAP 伺服器和網域控制站所需的服務位置記錄 (SRV)。如果您正在設定 Google 管理的 Active Directory，則預設可以使用 169.254.169.254 IP 位址存取 AD。 
+
+
+| 要加入的 Active Directory 網域 | 您希望 CIFS 伺服器加入的 Active Directory (AD) 網域的 FQDN。 
+
+
+| 授權加入網域的憑證 | 具有足夠權限將電腦新增至 AD 網域內指定組織單位 (OU) 的 Windows 帳戶的名稱和密碼。 
+
+
+| CIFS 伺服器 NetBIOS 名稱 | AD 網域中唯一的 CIFS 伺服器名稱。 
+
+
+| 組織單位 | AD 網域內與 CIFS 伺服器關聯的組織單位。預設值為 CN=Computers。若要將 Google Managed Microsoft AD 設定為Cloud Volumes ONTAP的 AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=Cloud*。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文件：Google Managed Microsoft AD 中的組織單位"^] 
+
+
+| DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
+
+
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+|===
+. *使用情況設定檔、磁碟類型和分層策略*：選擇是否要啟用儲存效率功能並變更磁碟區分層策略（如果需要）。
++
+更多信息，請參閱link:task-planning-your-config-gcp.html#choose-a-volume-usage-profile["選擇卷使用情況設定檔"^]，link:concept-data-tiering.html["資料分層概述"^] ， 和 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支援哪些內嵌儲存效率功能？"^]
+
+. *審核並批准*：審核並確認您的選擇。
++
+.. 查看有關配置的詳細資訊。
+.. 點擊*更多資訊*查看有關支援和控制台將購買的 Google Cloud 資源的詳細資訊。
+.. 選取*我明白...*複選框。
+.. 按一下“*開始*”。
+
+
+
+
+.結果
+控制台部署Cloud Volumes ONTAP系統。您可以在*審核*頁面上追蹤進度。
+
+如果您在部署Cloud Volumes ONTAP系統時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+
+如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
+
+.完成後
+* 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。
+* 如果要將配額套用於卷，請使用ONTAP系統管理員或ONTAP CLI。
++
+配額可讓您限製或追蹤使用者、群組或 qtree 使用的磁碟空間和檔案數量。
+
+

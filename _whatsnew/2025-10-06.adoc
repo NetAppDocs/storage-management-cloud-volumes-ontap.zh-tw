@@ -1,0 +1,19 @@
+= BlueXP現在是NetApp控制台
+:allow-uri-read: 
+
+
+
+
+=== BlueXP現在是NetApp控制台
+
+NetApp控制台建立在增強和重組的BlueXP基礎之上，可在企業級內部和雲端環境中集中管理NetApp儲存和NetApp資料服務，提供即時洞察、更快的工作流程和簡化的管理，並且高度安全且合規。
+
+有關更改的詳細信息，請參閱 https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetApp控制台發行說明"^]。
+
+
+
+=== 簡化 AWS 中的Cloud Volumes ONTAP部署
+
+現在，您可以使用快速部署方法在 AWS 中部署Cloud Volumes ONTAP，適用於單一節點和高可用性 (HA) 設定。與進階方法相比，此簡化流程減少了步驟數，在單一頁面上自動設定預設值，並最大限度地減少了導航，使部署更快、更容易。
+
+有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速部署在 AWS 中部署Cloud Volumes ONTAP"^] 。

@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: task-encrypting-volumes.html 
+keywords: encrypt, encryption, data, volumes, netapp volume encryption, volume encryption, nve, key managers, kmip, key management servers, license, ssl certificates, nae, netapp aggregate encryption 
+summary: 'Cloud Volumes ONTAP透過外部金鑰管理器支援NetApp磁碟區加密 (NVE) 和NetApp聚合加密 (NAE)。如果您設定了外部金鑰管理器，則預設啟用 NVE 和 NAE。' 
+---
+= 使用NetApp加密解決方案加密Cloud Volumes ONTAP上的捲
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP支援NetApp磁碟區加密 (NVE) 和NetApp聚合加密 (NAE)。 NVE 和 NAE 是基於軟體的解決方案，可實現符合 FIPS 140-2 標準的捲靜態資料加密。link:concept-security.html["了解有關這些加密解決方案的更多信息"] 。
+
+NVE 和 NAE 均由外部金鑰管理器支援。
+
+如果def::aws[] endif::aws[] 如果def::azure[] endif::azure[] 如果def::gcp[] endif::gcp[] 如果def::aws[] endif::aws[] 如果def::azure[] endif::azure[] 如果你::gcp[] defendiffcp[]

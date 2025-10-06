@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: concept-azure-file-sig-verify.html 
+keywords: Azure, image, VHD, file signature verification, encryption, sha256, ONTAP, Cloud Volumes, CLI, 
+summary: 了解如何透過Cloud Volumes ONTAP映像摘要檔案工具驗證匯出的 VHD 檔案簽章。 
+---
+= 針對Cloud Volumes ONTAP 的Azure 市場映像簽章驗證
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Azure 映像驗證過程透過剝離 VHD 檔案的開頭 1 MB 和結尾 512 位元組，然後套用雜湊函數來產生摘要檔案。為了匹配簽章程序，使用_sha256_進行雜湊。
+
+
+
+== 文件簽章驗證工作流程摘要
+
+以下是文件簽章驗證工作流程的概述。
+
+image::graphic_azure_check_signature.png[圖形天藍色檢查簽名]
+
+* 從 https://mysupport.netapp.com/site/["NetApp支援站點"^]並提取摘要（.sig）文件、公鑰證書（.pem）文件和鏈證書（.pem）文件。請參閱link:task-azure-download-digest-file.html["下載 Azure 映像摘要文件"]了解更多。
+* 信任鏈的驗證。
+* 從公鑰憑證（.pem）中提取公鑰（.pub）。
+* 使用提取的公鑰解密摘要檔案。
+* 將結果與從圖像檔案中刪除開頭 1 MB 和結尾 512 位元組後建立的臨時檔案的新生成的摘要進行比較。此步驟透過使用 OpenSSL 命令列工具執行。  OpenSSL CLI 工具會在檔案比對成功或失敗時顯示對應的訊息。
++
+[source, cli]
+----
+openssl dgst -verify <public_key> -keyform <form> <hash_function>
+-signature <digest_file> -binary <temporary_file>
+----
+

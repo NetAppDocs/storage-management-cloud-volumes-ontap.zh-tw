@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: reference-vpc-service-controls-gcp.html 
+keywords: vpc, service controls, vpc-sc, google, psc, private service connect 
+summary: 當選擇使用 VPC 服務控制鎖定您的 Google 環境時，您應該了解NetApp控制台和Cloud Volumes ONTAP如何與 Google API 互動以及如何配置您的服務參數以部署Cloud Volumes ONTAP。 
+---
+= 設定 VPC 服務控制以在 Google Cloud 中部署Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+當選擇使用 VPC 服務控制鎖定您的 Google Cloud 環境時，您應該了解NetApp控制台和Cloud Volumes ONTAP如何與 Google Cloud API 交互，以及如何配置您的服務邊界以部署控制台和Cloud Volumes ONTAP。
+
+VPC 服務控制使您能夠控制對受信任邊界之外的 Google 管理服務的訪問，阻止來自不受信任位置的資料訪問，並降低未經授權的資料傳輸風險。 https://cloud.google.com/vpc-service-controls/docs["詳細了解 Google Cloud VPC 服務控制"^] 。
+
+
+
+== NetApp服務如何與 VPC 服務控制進行通訊
+
+控制台直接與 Google Cloud API 通訊。這可以從 Google Cloud 外部的外部 IP 位址觸發（例如，來自 api.services.cloud.netapp.com），也可以從 Google Cloud 內部指派給控制台代理程式的內部位址觸發。
+
+根據控制台代理程式的部署方式，您的服務邊界可能需要做出某些例外。
+
+
+
+== 圖片
+
+Cloud Volumes ONTAP和控制台都使用由NetApp管理的 GCP 內專案的映像。如果您的組織有阻止使用未在組織內託管的映像的策略，則這可能會影響控制台代理程式和Cloud Volumes ONTAP 的部署。
+
+您可以使用手動安裝方法手動部署控制台代理，但Cloud Volumes ONTAP也需要從NetApp專案中擷取映像。您必須提供允許清單才能部署控制台代理程式和Cloud Volumes ONTAP。
+
+
+
+=== 部署控制台代理
+
+部署控制台代理程式的使用者需要能夠引用 projectId 為 _netapp-cloudmanager_ 且專案編號為 _14190056516_ 中所託管的映像。
+
+
+
+=== 部署Cloud Volumes ONTAP
+
+* 控制台服務帳戶需要引用服務項目中託管在 projectId _netapp-cloudmanager_ 中的映像和項目編號 _14190056516_。
+* 預設 Google API 服務代理程式的服務帳戶需要引用服務項目中 projectId _netapp-cloudmanager_ 和項目編號 _14190056516_ 中託管的圖片。
+
+
+下面定義了使用 VPC 服務控制拉取這些影像所需的規則範例。
+
+
+
+== VPC 服務控制邊界策略
+
+策略允許 VPC 服務控制規則集的例外。有關政策的更多信息，請訪問 https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#policy-model["GCP VPC 服務控制政策文檔"^]。
+
+若要設定控制台所需的策略，請導覽至您組織內的 VPC 服務控制邊界並新增下列策略。這些欄位應與 VPC 服務控制策略頁面中給出的選項相符。也要注意，*所有*規則都是必需的，並且規則集中應該使用*OR*參數。
+
+
+
+=== 入口規則
+
+....
+From:
+	Identities:
+		[User Email Address]
+	Source > All sources allowed
+To:
+	Projects =
+		[Service Project]
+	Services =
+		Service name: iam.googleapis.com
+		  Service methods: All actions
+		Service name: compute.googleapis.com
+		  Service methods:All actions
+....
+或者
+
+....
+From:
+	Identities:
+		[User Email Address]
+	Source > All sources allowed
+To:
+	Projects =
+		[Host Project]
+	Services =
+		Service name: compute.googleapis.com
+		  Service methods: All actions
+....
+或者
+
+....
+From:
+	Identities:
+		[Service Project Number]@cloudservices.gserviceaccount.com
+	Source > All sources allowed
+To:
+	Projects =
+		[Service Project]
+		[Host Project]
+	Services =
+		Service name: compute.googleapis.com
+		Service methods: All actions
+....
+
+
+=== 出口規則
+
+....
+From:
+	Identities:
+		[Service Project Number]@cloudservices.gserviceaccount.com
+To:
+	Projects =
+		14190056516
+	Service =
+		Service name: compute.googleapis.com
+		Service methods: All actions
+....
+
+TIP: 上面列出的項目編號是NetApp用於儲存控制台代理程式和Cloud Volumes ONTAP 的圖像的專案 _netapp-cloudmanager_。

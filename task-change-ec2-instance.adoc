@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: task-change-ec2-instance.html 
+keywords: ec2 instance type, change ec2 instance type, change instance type, modify instance type, modify ec2 instance, amazon ec2 
+summary: 在 AWS 中啟動Cloud Volumes ONTAP時，您可以從多個執行個體或類型中進行選擇。如果您確定實例類型太小或太大，無法滿足您的需求，您可以隨時變更實例類型。 
+---
+= 修改 AWS 中Cloud Volumes ONTAP系統的 EC2 執行個體類型
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 AWS 中啟動Cloud Volumes ONTAP時，您可以從多個執行個體或類型中進行選擇。如果您確定實例類型太小或太大，無法滿足您的需求，您可以隨時變更實例類型。
+
+.關於此任務
+* 必須在Cloud Volumes ONTAP HA 對上啟用自動交還（這是預設）。如果不是，則操作將會失敗。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D01-49A5-BEFD-D529713EC1FA.html["ONTAP 9 文件：用於設定自動交還的命令"^]
+
+* 變更執行個體類型可能會影響 AWS 服務費用。
+* 此操作重新啟動Cloud Volumes ONTAP。
++
+對於單節點系統，I/O 被中斷。
+
++
+對於 HA 對來說，這種變化是無中斷的。  HA 對繼續提供數據。
+
++
+
+TIP: NetApp控制台透過啟動接管並等待返回來一次更改一個節點。 NetApp 的品質保證團隊在過程中對檔案的寫入和讀取進行了測試，並且沒有發現客戶端的任何問題。隨著連接的變化，在 I/O 層級觀察到一些重試，但應用層克服了 NFS/CIFS 連接的重新連接。
+
+
+
+.參考
+有關 AWS 支援的實例類型列表，請參閱link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html#supported-ec2-compute["支援的 EC2 實例"^]。
+
+如果您無法將實例類型從 c4、m4 或 r4 實例變更為其他類型，請參閱知識庫文章link:https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/Converting_an_AWS_Xen_CVO_instance_to_Nitro_(KVM)["將 AWS Xen CVO 執行個體轉換為 Nitro (KVM)"^]。
+
+.步驟
+. 在*系統*頁面上，選擇系統。
+. 在概覽標籤上，按一下功能面板，然後按一下*實例類型*旁邊的鉛筆圖示。
++
+image::screenshot_features_instance_type.png[400]
+
++
+如果您使用的是基於節點的即用即付 (PAYGO) 許可證，則可以透過點擊「許可證類型」旁邊的鉛筆圖示來選擇不同的許可證和實例類型。
+
+. 選擇實例類型，選取核取方塊以確認您了解變更的含義，然後按一下*變更*。
+
+
+.結果
+Cloud Volumes ONTAP使用新設定重新啟動。

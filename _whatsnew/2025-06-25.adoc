@@ -1,0 +1,13 @@
+= Cloud Volumes ONTAP的 BYOL 授權可用性受限
+:allow-uri-read: 
+
+
+
+
+=== Cloud Volumes ONTAP的 BYOL 授權可用性受限
+
+自 2025 年 6 月 25 日起， NetApp已限制Cloud Volumes ONTAP的自帶授權 (BYOL) 授權模式。此限制適用於 AWS、Azure 和 Google Cloud 中的所有客戶和Cloud Volumes ONTAP部署。唯一的例外是美國公共部門客戶和中國區域部署。
+
+NetApp支援和服務將持續到您的 BYOL 合約到期，但已過期的授權將無法續約或延長。 BYOL許可證到期後，您必須將其替換為透過雲端市場訂閱購買的基於容量的授權。透過超大規模市場購買的基於容量的授權模式可以簡化授權體驗並帶來更大的業務優勢。請聯絡您的NetApp客戶團隊或客戶成功代表，討論您的轉換方案。
+
+欲了解更多信息，請參閱此客戶公報：  https://mysupport.netapp.com/info/communications/CPC-00661.html["CPC-00661： Cloud Volumes ONTAP BYOL 政策變更"^] 。

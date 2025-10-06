@@ -1,0 +1,11 @@
+= 在BlueXP中發現透過 Azure 市場進行的部署
+:allow-uri-read: 
+
+
+
+
+=== 在BlueXP中發現透過 Azure 市場進行的部署
+
+BlueXP現在能夠發現透過 Azure 市場直接部署的Cloud Volumes ONTAP系統。這意味著您現在可以在BlueXP中將這些系統新增和管理為工作環境，就像其他Cloud Volumes ONTAP系統一樣。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploy-cvo-azure-mktplc.html["從 Azure 市場部署Cloud Volumes ONTAP"^]

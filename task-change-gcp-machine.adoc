@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: task-change-gcp-machine.html 
+keywords: change machine type, google cloud machine type, gcp machine type, modify machine type 
+summary: 在 Google Cloud 中啟動Cloud Volumes ONTAP時，您可以從多種機器類型中進行選擇。如果您確定實例或機器類型太小或太大，無法滿足您的需求，您可以隨時變更執行個體或機器類型。 
+---
+= 變更Cloud Volumes ONTAP的 Google Cloud 機器類型
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 Google Cloud 中啟動Cloud Volumes ONTAP時，您可以從多種機器類型中進行選擇。如果您確定實例或機器類型太小或太大，無法滿足您的需求，您可以隨時變更執行個體或機器類型。
+
+.關於此任務
+* 必須在Cloud Volumes ONTAP HA 對上啟用自動交還（這是預設）。如果不是，則操作將會失敗。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D01-49A5-BEFD-D529713EC1FA.html["ONTAP 9 文件：用於設定自動交還的命令"^]
+
+* 更改機器類型可能會影響 Google Cloud 服務費用。
+* 此操作重新啟動Cloud Volumes ONTAP。
++
+對於單節點系統，I/O 被中斷。
+
++
+對於 HA 對來說，這種變化是無中斷的。  HA 對繼續提供數據。
+
++
+
+TIP: NetApp控制台透過啟動接管並等待返回來一次更改一個節點。 NetApp 的品質保證團隊在過程中對檔案的寫入和讀取進行了測試，並且沒有發現客戶端的任何問題。隨著連接的變化，在 I/O 層級觀察到一些重試，但應用層克服了 NFS/CIFS 連接的重新連接。
+
+
+
+.步驟
+. 在*系統*頁面上，選擇系統。
+. 在概覽標籤上，按一下功能面板，然後按一下*機器類型*旁邊的鉛筆圖示。
++
+image:screenshot_features_machine_type.png["查看系統時，概覽頁面右上角的功能面板下顯示機器類型設定的螢幕截圖。"]
+
+
+
+如果您使用的是基於節點的即用即付 (PAYGO) 許可證，則可以透過點擊「許可證類型」旁邊的鉛筆圖示來選擇不同的許可證和機器類型。
+
+. 選擇機器類型，選取核取方塊以確認您了解變更的含義，然後按一下*變更*。
+
+
+.結果
+Cloud Volumes ONTAP使用新設定重新啟動。

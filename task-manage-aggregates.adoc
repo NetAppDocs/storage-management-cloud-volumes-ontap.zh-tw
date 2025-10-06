@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: task-manage-aggregates.html 
+keywords: aggregates, delete aggregates, add disks, view aggregates 
+summary: 透過新增磁碟、查看有關聚合的資訊以及刪除聚合來自行管理聚合。 
+---
+= 管理Cloud Volumes ONTAP叢集的聚合
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+透過新增磁碟、查看有關聚合的資訊以及刪除聚合來自行管理聚合。
+
+
+CAUTION: 所有磁碟和聚合都必須直接從NetApp控制台建立和刪除。您不應從其他管理工具執行這些操作。這樣做會影響系統穩定性，妨礙將來添加磁碟的能力，並可能產生冗餘的雲端供應商費用。
+
+.開始之前
+如果要刪除聚合，則必須先刪除聚合中的磁碟區。
+
+.關於此任務
+如果聚合空間不足，您可以使用ONTAP系統管理員將磁碟區移至另一個聚合。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在「*系統*」頁面上，雙擊要管理聚合的Cloud Volumes ONTAP系統。
+. 從系統詳細資料中，按一下「*聚合*」標籤。
+. 對於所需的聚合，按一下image:icon-action.png[""]管理操作的圖示。
++
+image:screenshot_aggr_menu_options.png["聚合選單選項的螢幕截圖。"]
+
+. 透過可用選項管理您的聚合image:icon-action.png[""]菜單。
+
+
+
+NOTE: 若要將磁碟新增至聚合，聚合中的所有磁碟必須具有相同的大小。
+
+ifdef::aws[]
+
+對於 AWS，您可以增加支援 Amazon EBS 彈性磁碟區的聚合的容量。
+
+. 根據image:icon-action.png[""]在選單上，點選*增加容量*。
+. 輸入您想要新增的額外容量，然後按一下*增加*。
+
+
+請注意，您必須將聚合的容量增加至少 256 GiB 或聚合大小的 10%。例如，如果您有 1.77 TiB 聚合，則 10% 就是 181 GiB。這低於 256 GiB，因此聚合的大小必須增加 256 GiB 的最小值。
+
+endif::aws[]

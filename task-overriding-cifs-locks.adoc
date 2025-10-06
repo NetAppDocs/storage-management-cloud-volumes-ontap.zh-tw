@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: task-overriding-cifs-locks.html 
+keywords: CIFS locks, azure maintenance, maintenance events, cifs sessions, storage failover, storage giveback, giveback 
+summary: 組織或帳戶管理員可以在NetApp控制台中啟用一項設置，以防止在 Azure 維護事件期間出現Cloud Volumes ONTAP儲存復原問題。啟用此設定後， Cloud Volumes ONTAP將否決 CIFS 鎖定並重設活動的 CIFS 會話。 
+---
+= 覆寫 Azure 中Cloud Volumes ONTAP HA 對的 CIFS 鎖
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+組織或帳戶管理員可以在NetApp控制台中啟用一項設置，以防止在 Azure 維護事件期間出現Cloud Volumes ONTAP儲存復原問題。啟用此設定後， Cloud Volumes ONTAP將否決 CIFS 鎖定並重設活動的 CIFS 會話。
+
+.關於此任務
+Microsoft Azure 會安排其虛擬機器的定期維護事件。當Cloud Volumes ONTAP HA 對上發生維護事件時，HA 對會啟動儲存接管。如果在此維護事件期間有活動的 CIFS 會話，則 CIFS 檔案上的鎖定可能會阻止儲存復原。
+
+如果啟用此設置， Cloud Volumes ONTAP將否決鎖定並重置活動的 CIFS 會話。因此，HA 對可以在這些維護事件期間完成儲存恢復。
+
+
+CAUTION: 此過程可能會對 CIFS 用戶端造成破壞。  CIFS 用戶端未提交的資料可能會遺失。
+
+.開始之前
+您需要先建立控制台代理，然後才能變更控制台設定。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#how-to-create-a-connector["學習使用"^] 。
+
+.步驟
+. 從左側導覽窗格前往*管理>代理*。
+. 點選image:icon-action.png[""]管理Cloud Volumes ONTAP系統的控制台代理的圖示。
+. 選擇* Cloud Volumes ONTAP設定*。
++
+image::screenshot-settings-cloud-volumes-ontap.png[設定圖示下的Cloud Volumes ONTAP設定選項的螢幕截圖。]
+
+. 在「Azure」下，按一下「Azure HA 系統的 Azure CIFS 鎖定」。
+. 按一下複選框以啟用該功能，然後按一下“*儲存*”。
+

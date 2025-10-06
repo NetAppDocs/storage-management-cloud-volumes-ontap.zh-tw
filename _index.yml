@@ -1,0 +1,79 @@
+---
+indexpage:
+  lead: Cloud Volumes ONTAP可讓您最佳化雲端儲存成本和效能，同時增強資料保護、安全性和合規性。
+  tiles:
+  - title: 開始
+    links:
+    - title: 了解Cloud Volumes ONTAP
+      url: concept-overview-cvo.html
+    - title: AWS 快速入門
+      url: task-getting-started-aws.html
+    - title: AWS Top Secret/Secret Cloud 區域快速入門
+      url: task-getting-started-aws-c2s.html
+      flavor: aws
+    - title: Azure 快速入門
+      url: task-getting-started-azure.html
+      flavor: azure
+    - title: Google Cloud 快速入門
+      url: task-getting-started-gcp.html
+      flavor: gcp
+  - title: 授權
+    links:
+    - title: 許可概述
+      url: concept-licensing.html
+    - title: 管理基於容量的許可證
+      url: task-manage-capacity-licenses.html
+    - title: 交換未分配的基於節點的許可證
+      url: task-manage-node-licenses.html#exchange-unassigned-node-based-licenses
+    - title: 管理Keystone訂閱
+      url: task-manage-keystone.html
+  - title: 儲存管理
+    links:
+    - title: 創建卷
+      url: task-create-volumes.html
+    - title: 將非活動資料分層到物件存儲
+      url: task-tiering.html
+    - title: 使用FlexCache加速資料存取
+      url: task-accelerate-data-access.html
+    - title: ONTAP SAN 主機配置
+      url: https://docs.netapp.com/us-en/ontap-sanhost
+  - title: 系統管理
+    links:
+    - title: 升級Cloud Volumes ONTAP
+      url: task-updating-ontap-cloud.html
+    - title: 停止並啟動Cloud Volumes ONTAP
+      url: task-managing-state.html
+  - title: 安全
+    links:
+    - title: 使用NetApp加密技術加密卷
+      url: task-encrypting-volumes.html
+    - title: 提高勒索軟體防護
+      url: task-protecting-ransomware.html
+  - title: API
+    links:
+    - title: Cloud Volumes ONTAP API 概述
+      url: https://docs.netapp.com/us-en/bluexp-automation/cm/overview.html
+    - title: 準備使用 API
+      url: https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html
+    - title: API 參考
+      url: https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html
+  - title: 故障排除
+    links:
+    - title: NetApp知識庫
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Volumes_ONTAP_(CVO)
+  - title: 參考
+    links:
+    - title: 支援的配置
+      url: https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html
+    - title: 支援的雲區域
+      url: https://www.netapp.com/console/cloud-volumes-global-regions
+    - title: 計算機
+      url: https://www.netapp.com/console/calculator-hub
+  - title: 部落格和社區
+    links:
+    - title: NetApp控制台
+      url: https://www.netapp.com/console
+    - title: NetApp資料服務
+      url: https://www.netapp.com/data-services/
+    - title: NetApp社群
+      url: https://community.netapp.com/

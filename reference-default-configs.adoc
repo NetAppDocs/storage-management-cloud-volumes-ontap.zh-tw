@@ -1,0 +1,294 @@
+---
+sidebar: sidebar 
+permalink: reference-default-configs.html 
+keywords: svm, LIF, LIFs, configuration backups, attributes, autosize, security style, space guarantee, unix permissions, NTFS, UNIX, boot, root, disks, aggr0, aggr1, svm, svms, storage virtual machine, LIF failover, failover, attributes, volume attributes, boot disk, root disk, licenses, feature licenses, default licenses, ontap licenses, ontap features 
+summary: 了解Cloud Volumes ONTAP 的預設設定方式可以幫助您設定和管理系統，特別是如果您熟悉ONTAP ，因為Cloud Volumes ONTAP的預設設定與ONTAP不同。 
+---
+= Cloud Volumes ONTAP支援的預設配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+了解Cloud Volumes ONTAP 的預設設定方式可以幫助您設定和管理系統，特別是如果您熟悉ONTAP ，因為Cloud Volumes ONTAP的預設設定與ONTAP不同。
+
+
+
+== 預設設定
+
+* NetApp控制台在部署Cloud Volumes ONTAP時會建立一個資料服務儲存虛擬機器。某些配置支援額外的儲存虛擬機器。link:task-managing-svms.html["了解有關管理儲存虛擬機的更多信息"] 。
++
+從 3.9.5 版本開始，初始儲存虛擬機器上啟用邏輯空間報告。當邏輯報告空間時， ONTAP會報告磁碟區空間，以便儲存效率功能節省的所有實體空間也被報告為已使用。有關內聯儲存效率功能的信息，請參閱知識庫文章 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支援哪些內嵌儲存效率功能？"^]
+
+* 控制台會自動在Cloud Volumes ONTAP上安裝下列ONTAP功能許可證：
++
+** CIFS
+** FlexCache
+** FlexClone
+** iSCSI
+** 多租戶加密金鑰管理 (MTEKM)，從Cloud Volumes ONTAP 9.12.1 GA 開始
+** NetApp磁碟區加密（僅適用於自帶授權 (BYOL) 或註冊的即用即付 (PAYGO) 系統）
+** NFS ifdef::aws[] endif::aws[] ifdef::azure[] endif::azure[]
+** SnapMirror
+** SnapRestore
+** SnapVault
+
+
+* 預設創建了幾個網路介面：
++
+** 集群管理 LIF
+** 集群間 LIF
+
+
+
+
+ifdef::azure[]
+
+* Azure 中 HA 系統上的 SVM 管理 LIF
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloud 中 HA 系統上的 SVM 管理 LIF
+
+
+endif::gcp[]
+
+ifdef::aws[]
+
+* AWS 中單節點系統上的 SVM 管理 LIF
+
+
+endif::aws[]
+
+* 節點管理 LIF
+
+
+ifdef::gcp[]
+
++ 在 Google Cloud 中，此 LIF 與集群間 LIF 結合在一起。
+
+endif::gcp[]
+
+* iSCSI 資料 LIF
+* CIFS 和 NFS 資料 LIF
++
+
+NOTE: 由於雲端提供者的要求， Cloud Volumes ONTAP預設為禁用 LIF 故障轉移。將 LIF 遷移到其他連接埠會破壞實例上 IP 位址和網路介面之間的外部映射，使 LIF 無法存取。
+
++
+** Cloud Volumes ONTAP使用 HTTP 將設定備份傳送到控制台代理程式。
++
+可以從 \http://ipaddress/occm/offboxconfig/ 存取備份，其中 _ipaddress_ 是控制台代理主機的 IP 位址。
+
++
+您可以使用備份重新設定您的Cloud Volumes ONTAP系統。有關配置備份的更多信息，請參閱 https://docs.netapp.com/us-en/ontap/system-admin/config-backup-file-concept.html["ONTAP 文件"^]。
+
+** 控制台設定的一些磁碟區屬性與其他管理工具（例如ONTAP系統管理員或ONTAP CLI）不同。
++
+下表列出了與預設值不同的磁碟區屬性設定：
+
++
+[cols="15,85"]
+|===
+| 屬性 | 控制台配置的值 
+
+
+| 自動調整大小模式 | 生長 
+
+
+| 最大自動調整大小  a| 
+1000%
+
+
+NOTE: 組織或帳戶管理員可以從「設定」頁面修改此值。
+
+
+
+| 安全風格 | NTFS 用於 CIFS 磁碟區 UNIX 用於 NFS 卷 
+
+
+| 空間保證風格 | 沒有任何 
+
+
+| UNIX 權限（僅限 NFS） | 777 
+|===
++
+有關這些屬性的信息，請參閱link:https://docs.netapp.com/us-en/ontap-cli-9121/volume-create.html["ONTAP磁碟區建立手冊頁"]。
+
+
+
+
+
+
+
+== 用於系統資料的內部磁碟
+
+除了用戶資料的儲存外，控制台還購買了系統資料的雲端儲存。
+
+ifdef::aws[]
+
+
+
+=== AWS
+
+* 每個節點有三個磁碟用於啟動、根和核心資料：
++
+** 47 GiB io1 磁碟用於啟動數據
+** 140 GiB gp3 磁碟用於根數據
+** 540 GiB gp2 磁碟用於核心數據
+
+
+* 對於 HA 對：
++
+** 兩個用於中介實例的 st1 EBS 卷，其中一個約 8 GiB，用作根磁碟，另一個約 4 GiB，用作資料磁碟
+** 每個節點中有一個 140 GiB gp3 磁碟，用於保存另一個節點的根資料副本
++
+
+NOTE: 在某些區域中，可用的EBS磁碟類型只能是gp2。
+
+
+
+* 每個啟動磁碟和根磁碟一個 EBS 快照
++
+
+NOTE: 重新啟動時會自動建立快照。
+
+* 當您使用金鑰管理服務 (KMS) 在 AWS 中啟用資料加密時， Cloud Volumes ONTAP的啟動磁碟和根磁碟也會被加密。這包括 HA 對中中介實例的啟動磁碟。磁碟使用您在新增Cloud Volumes ONTAP系統時選擇的 CMK 進行加密。
+
+
+
+TIP: 在 AWS 中， NVRAM位於啟動磁碟上。
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== Azure（單節點）
+
+* 三個高級 SSD 磁碟：
++
+** 一個 10 GiB 磁碟用於啟動數據
+** 一個 140 GiB 磁碟用於根數據
+** 一個 512 GiB 磁碟用於NVRAM
++
+如果您為Cloud Volumes ONTAP選擇的虛擬機器支援 Ultra SSD，則係統將使用 32 GiB Ultra SSD 作為NVRAM，而不是 Premium SSD。
+
+
+
+* 一個 1024 GiB 標準 HDD 磁碟，用於保存核心
+* 每個啟動磁碟和根磁碟對應一個 Azure 快照
+* 預設情況下，Azure 中的每個磁碟都是靜態加密的。
++
+如果您為Cloud Volumes ONTAP選擇的虛擬機器支援 Premium SSD v2 託管磁碟作為資料磁碟，系統將使用 32 GiB Premium SSD v2 託管磁碟作為NVRAM，並使用另一個磁碟作為根磁碟。
+
+
+
+
+
+=== Azure（HA 對）
+
+.HA 與頁 Blob 對
+* 兩個 10 GiB Premium SSD 磁碟用於啟動磁碟區（每個節點一個）
+* 兩個用於根卷的 140 GiB 高階儲存頁 Blob（每個節點一個）
+* 兩個 1024 GiB 標準 HDD 磁碟用於保存核心（每個節點一個）
+* 兩個 512 GiB 高級 SSD 磁碟用於NVRAM （每個節點一個）
+* 每個啟動磁碟和根磁碟對應一個 Azure 快照
++
+
+NOTE: 重新啟動時會自動建立快照。
+
+* 預設情況下，Azure 中的每個磁碟都是靜態加密的。
+
+
+.HA 與多個可用區域中的共用託管磁碟
+* 兩個 10 GiB Premium SSD 磁碟用於啟動磁碟區（每個節點一個）
+* 兩個 512 GiB 高階 SSD 磁碟用於根磁碟區（每個節點一個）
+* 兩個 1024 GiB 標準 HDD 磁碟用於保存核心（每個節點一個）
+* 兩個 512 GiB 高級 SSD 磁碟用於NVRAM （每個節點一個）
+* 每個啟動磁碟和根磁碟對應一個 Azure 快照
++
+
+NOTE: 重新啟動時會自動建立快照。
+
+* 預設情況下，Azure 中的每個磁碟都是靜態加密的。
+
+
+.單一可用區域中具有共享託管磁碟的 HA 對
+* 兩個 10 GiB Premium SSD 磁碟用於啟動磁碟區（每個節點一個）
+* 兩個 512 GiB 高級 SSD 共享託管磁碟，用於根卷（每個節點一個）
+* 兩個 1024 GiB 標準 HDD 磁碟用於保存核心（每個節點一個）
+* 兩個 512 GiB 高級 SSD 託管磁碟用於NVRAM （每個節點一個）
+
+
+如果您的虛擬機器支援高級 SSD v2 託管磁碟作為資料磁碟，它將使用 32 GiB 高級 SSD v2 託管磁碟作為NVRAM ，並使用 512 GiB 高級 SSD v2 共用託管磁碟作為根磁碟區。
+
+當滿足以下條件時，您可以在單一可用區域中部署 HA 對並使用進階 SSD v2 託管磁碟：
+
+* Cloud Volumes ONTAP的版本為 9.15.1 或更高版本。
+* 所選區域和區域支援高級 SSD v2 託管磁碟。有關受支援區域的信息，請參閱 https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/["Microsoft Azure 網站：按地區提供的產品"^]。
+* 訂閱已註冊為 Microsoftlink:task-saz-feature.html["Microsoft.Compute/VMOrchestratorZonalMultiFD 功能"] 。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== Google Cloud（單節點）
+
+* 一個 10 GiB SSD 永久磁碟，用於儲存啟動數據
+* 一個 64 GiB SSD 持久性磁碟，用於儲存根數據
+* 一個 500 GiB SSD 持久性磁碟，用於NVRAM
+* 一個 315 GiB 標準持久性磁碟，用於保存核心
+* 啟動和根資料的快照
++
+
+NOTE: 重新啟動時會自動建立快照。
+
+* 預設情況下，啟動磁碟和根磁碟是加密的。
+
+
+
+
+=== Google Cloud（高可用性對）
+
+* 兩個 10 GiB SSD 持久性磁碟用於啟動數據
+* 四個 64 GiB SSD 持久性磁碟用於根數據
+* 兩個 500 GiB SSD 持久性磁碟用於NVRAM
+* 兩個 315 GiB 標準持久性磁碟，用於保存核心
+* 一個 10 GiB 標準持久性磁碟，用於儲存中介數據
+* 一個 10 GiB 標準永久磁碟，用於中介啟動數據
+* 啟動和根資料的快照
++
+
+NOTE: 重新啟動時會自動建立快照。
+
+* 預設情況下，啟動磁碟和根磁碟是加密的。
+
+
+endif::gcp[]
+
+
+
+=== 磁碟所在位置
+
+儲存佈局：
+
+* 啟動資料駐留在連接到執行個體或虛擬機器的磁碟上。
++
+此磁碟包含啟動映像，但不適用於Cloud Volumes ONTAP。
+
+* 根資料（包含系統配置和日誌）位於 aggr0 中。
+* 儲存虛擬機器 (SVM) 根磁碟區位於 aggr1 中。
+* 資料卷也駐留在 aggr1 中。
+

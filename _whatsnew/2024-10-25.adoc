@@ -1,0 +1,22 @@
+= 已更新 Google Cloud 支援的虛擬機器列表，以符合最佳實踐
+:allow-uri-read: 
+
+
+
+
+=== 已更新 Google Cloud 支援的虛擬機器列表，以符合最佳實踐
+
+在 Google Cloud 中部署Cloud Volumes ONTAP的新執行個體時， BlueXP上不再可選擇 n1 系列機器。n1 系列機器將保留，並且僅在較舊的現有系統中支援。從 9.8 版本開始，Google Cloud 才支援Cloud Volumes ONTAP的新部署。我們建議您切換到與Cloud Volumes ONTAP 9.8 及更高版本相容的 n2 系列機器類型。然而，n1 系列機器將可用於透過 API 執行的新部署。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中支援的配置"^] 。
+
+
+
+=== 私有模式下對 Amazon Web Services 的本機區域支持
+
+BlueXP現在支援私有模式下的Cloud Volumes ONTAP高可用性 (HA) 部署的 AWS 本地區域。先前僅限於標準模式的支援現已擴展到包括私人模式。
+
+
+NOTE: 在受限模式下使用BlueXP時不支援 AWS 本地區域。
+
+有關具有 HA 部署的 AWS 本地區域的更多信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha.html#aws-local-zones["AWS 本地區域"^]。

@@ -1,0 +1,32 @@
+= 已啟用使用者身份驗證，可從BlueXP存取系統管理員
+:allow-uri-read: 
+
+
+
+
+=== 已啟用使用者身份驗證，可從BlueXP存取系統管理員
+
+身為BlueXP管理員，您現在可以為從BlueXP存取ONTAP系統管理員的ONTAP使用者啟動身分驗證。您可以透過編輯BlueXP連接器設定來啟用此選項。此選項適用於標準模式和私人模式。
+
+link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-advanced-view.html["使用系統管理員管理Cloud Volumes ONTAP"^] 。
+
+
+
+=== BlueXP Advanced View 重新命名為 System Manager
+
+透過ONTAP系統管理員從BlueXP對Cloud Volumes ONTAP進行進階管理的選項已從 *Advanced View* 重新命名為 *System Manager*。
+
+link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-advanced-view.html["使用系統管理員管理Cloud Volumes ONTAP"^] 。
+
+
+
+=== 引入使用BlueXP digital wallet管理許可證的更簡單方法
+
+現在，您可以透過使用BlueXP digital wallet中改進的導航點來體驗簡化的Cloud Volumes ONTAP授權管理：
+
+* 透過*管理>許可證和訂閱>概述/直接許可證*選項卡輕鬆存取您的Cloud Volumes ONTAP許可證資訊。
+* 按一下「概覽」標籤中 Cloud Volume ONTAP面板上的「檢視」以全面了解基於容量的授權。此高級視圖提供有關您的許可證和訂閱的詳細資訊。
+* 如果您喜歡先前的介面，您可以按一下「切換到舊視圖」按鈕按類型查看許可證詳細資訊並修改許可證的收費方式。
+
+
+link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-capacity-licenses.html["管理基於容量的許可證"^] 。

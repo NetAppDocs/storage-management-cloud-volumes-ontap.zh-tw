@@ -1,0 +1,126 @@
+---
+sidebar: sidebar 
+permalink: concept-ha-azure.html 
+keywords: high-availability, HA, concepts, understanding, overview, takeover, giveback, rpo, rto, nondisruptive, ha pairs, node, nodes, recovery point objective, recovery time objective, nas, nfs, cifs, iscsi, mpio, alua, failover, failure, azure, shared storage, active, passive, load balancer, storage accounts, page blobs 
+summary: 'Cloud Volumes ONTAP高可用性 (HA) 對可在您的雲端環境發生故障時提供企業可靠性和持續運作。在 Azure 中，儲存在兩個節點之間共用。' 
+---
+= 了解 Azure 中的Cloud Volumes ONTAP HA 對
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP高可用性 (HA) 對可在您的雲端環境發生故障時提供企業可靠性和持續運作。在 Azure 中，儲存在兩個節點之間共用。
+
+
+
+== HA 組件
+
+
+
+=== 具有頁 Blob 的 HA 單可用區配置
+
+Azure 中的Cloud Volumes ONTAP HA 頁面 blob 設定包含下列元件：
+
+image:diagram_ha_azure.png["概念圖顯示了一個負載平衡器管理來自NetApp控制台和用戶端的傳入流量、VMSS Flex 中的兩個Cloud Volumes ONTAP節點、用於啟動資料的 SSD 磁碟以及用於客戶資料的 Page Blob。"]
+
+請注意有關NetApp控制台為您部署的 Azure 元件的以下事項：
+
+Azure 標準負載平衡器:: 負載平衡器管理傳入Cloud Volumes ONTAP HA 對的流量。
+單一可用區域中的虛擬機:: 從Cloud Volumes ONTAP 9.15.1 開始，您可以在單一可用區 (AZ) 中建立和管理異質虛擬機器 (VM)。您可以在相同可用區內的不同故障域中部署高可用性 (HA) 節點，以確保最佳可用性。要了解有關實現此功能的靈活編排模式的更多信息，請參閱 https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/["Microsoft Azure 文件：虛擬機器規模集"^]。
+磁碟:: 客戶資料駐留在高級儲存頁面 blob 上。每個節點都可以存取其他節點的儲存。還需要額外的儲存空間link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["引導、根和核心數據"^]。
+儲存帳戶::
++
+--
+* 託管磁碟需要一個儲存帳戶。
+* 由於已達到每個儲存帳戶的磁碟容量限制，因此進階儲存頁面 Blob 需要一個或多個儲存帳戶。
++
+https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets["Microsoft Azure 文件：Azure 儲存空間可擴充性和儲存帳戶的效能目標"^] 。
+
+* 將資料分層到 Azure Blob 儲存體需要一個儲存帳戶。
+* 從Cloud Volumes ONTAP 9.7 開始，控制台為 HA 對建立的儲存帳戶是通用 v2 儲存帳戶。
+* 新增Cloud Volumes ONTAP系統時，您可以啟用從Cloud Volumes ONTAP 9.7 HA 對到 Azure 儲存體帳戶的 HTTPS 連線。請注意，啟用此選項可能會影響寫入效能。建立系統後，您無法變更設定。
+
+
+--
+
+
+
+NOTE: 從Cloud Volumes ONTAP 9.15.0P1 開始，Azure 頁面 blob 不再支援新的高可用性對部署。如果您目前在現有的高可用性對部署中使用 Azure 頁 Blob，則可以移轉到 Edsv4 系列 VM 和 Edsv5 系列 VM 中較新的 VM 執行個體類型。link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["詳細了解 Azure 中支援的配置"^] 。
+
+
+
+=== 具有共享託管磁碟的 HA 單可用區域配置
+
+在共用託管磁碟上執行的Cloud Volumes ONTAP HA 單可用區配置包括以下元件：
+
+image:diagram_ha_azure_saz_lrs.png["概念圖顯示了一個負載平衡器管理來自控制台和用戶端的傳入流量、VMSS Flex 中的兩個Cloud Volumes ONTAP節點、用於啟動資料的 SSD 磁碟以及用於客戶資料的 LRS 管理磁碟。"]
+
+請注意有關控制台為您部署的 Azure 元件的下列事項：
+
+Azure 標準負載平衡器:: 負載平衡器管理傳入Cloud Volumes ONTAP HA 對的流量。
+單一可用區域中的虛擬機:: 從Cloud Volumes ONTAP 9.15.1 開始，您可以在單一可用區 (AZ) 中建立和管理異質虛擬機器 (VM)。您可以在相同可用區內的不同故障域中部署高可用性 (HA) 節點，以確保最佳可用性。要了解有關實現此功能的靈活編排模式的更多信息，請參閱 https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/["Microsoft Azure 文件：虛擬機器規模集"^]。
++
+--
+當滿足以下條件時，區域部署將使用進階 SSD v2 託管磁碟：
+
+* Cloud Volumes ONTAP的版本為 9.15.1 或更高版本。
+* 所選區域和區域支援高級 SSD v2 託管磁碟。有關受支援區域的信息，請參閱 https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/["Microsoft Azure 網站：按地區提供的產品"^]。
+* 訂閱已註冊為 Microsoftlink:task-saz-feature.html["Microsoft.Compute/VMOrchestratorZonalMultiFD 功能"] 。
+
+
+--
+磁碟:: 客戶資料駐留在本地冗餘儲存 (LRS) 管理的磁碟上。每個節點都可以存取其他節點的儲存。還需要額外的儲存空間link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["啟動、根、合作夥伴根、核心和NVRAM數據"^]。
+儲存帳戶:: 儲存帳戶用於基於託管磁碟的部署，以處理診斷日誌和分層到 Blob 儲存。
+
+
+
+
+=== HA 多可用區配置
+
+Azure 中的Cloud Volumes ONTAP HA 多可用區域設定包含下列元件：
+
+image:diagram_ha_azure_maz.png["概念圖顯示了一個負載平衡器，用於管理來自控制台和用戶端的傳入流量、兩個可用區域中的兩個Cloud Volumes ONTAP節點、用於啟動資料的 SSD 磁碟以及用於客戶資料的託管磁碟。"]
+
+請注意有關控制台為您部署的 Azure 元件的下列事項：
+
+Azure 標準負載平衡器:: 負載平衡器管理傳入Cloud Volumes ONTAP HA 對的流量。
+可用區域:: HA 多可用區配置採用部署模型，其中兩個Cloud Volumes ONTAP節點部署到不同的可用區，確保節點位於不同的故障域中以提供冗餘和可用性。若要了解在靈活編排模式下的虛擬機器規模集如何使用 Azure 中的可用性區域，請參閱 https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones?tabs=cli-1%2Cportal-2["Microsoft Azure 文件：建立使用可用性區域的虛擬機器規模集"^]。
+磁碟:: 客戶資料駐留在區域冗餘儲存 (ZRS) 託管磁碟上。每個節點都可以存取其他節點的儲存。還需要額外的儲存空間link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["啟動、根、合作夥伴根和核心數據"^]。
+儲存帳戶:: 儲存帳戶用於基於託管磁碟的部署，以處理診斷日誌和分層到 Blob 儲存。
+
+
+
+
+== RPO 和 RTO
+
+HA 配置可依照以下方式維護資料的高可用性：
+
+* 恢復點目標 (RPO) 為 0 秒。您的資料在事務上是一致的，沒有資料遺失。
+* 恢復時間目標 (RTO) 為 120 秒。如果發生中斷，資料應在 120 秒或更短時間內可用。
+
+
+
+
+== 儲存接管和交還
+
+與實體ONTAP叢集類似，Azure HA 對中的儲存空間在節點之間共用。與合作夥伴儲存的連接允許每個節點在發生_接管_時存取其他節點的儲存。網路路徑故障轉移機制確保客戶端和主機繼續與倖存節點通訊。當節點重新上線時，合作夥伴將歸還儲存。
+
+對於 NAS 配置，如果發生故障，資料 IP 位址會在 HA 節點之間自動遷移。
+
+對於 iSCSI， Cloud Volumes ONTAP使用多路徑 I/O (MPIO) 和非對稱邏輯單元存取 (ALUA) 來管理主動最佳化路徑和非最佳化路徑之間的路徑故障轉移。
+
+
+NOTE: 有關哪些特定主機配置支援 ALUA 的信息，請參閱 http://mysupport.netapp.com/matrix["NetApp互通性表工具"^]以及 https://docs.netapp.com/us-en/ontap-sanhost/["SAN 主機和雲端客戶端指南"]適用於您的主機作業系統。
+
+預設情況下，儲存接管、重新同步和復原都是自動的。無需用戶操作。
+
+
+
+== 儲存配置
+
+您可以將 HA 對用作主動-主動配置，其中兩個節點都向客戶端提供數據，或用作主動-被動配置，其中被動節點僅在接管主動節點的儲存後才會回應資料請求。

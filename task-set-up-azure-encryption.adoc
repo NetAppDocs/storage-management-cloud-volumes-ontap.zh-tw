@@ -1,0 +1,298 @@
+---
+sidebar: sidebar 
+permalink: task-set-up-azure-encryption.html 
+keywords: customer-managed key, customer key, azure storage service encryption, azure encryption, encryption key, azure encryption key 
+summary: 使用具有 Microsoft 管理金鑰的 Azure 儲存服務加密，資料會在 Azure 中的Cloud Volumes ONTAP上自動加密。但是您可以按照本頁上的步驟使用您自己的加密金鑰。 
+---
+= 設定Cloud Volumes ONTAP以在 Azure 中使用客戶管理的金鑰
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用具有 Microsoft 管理金鑰的 Azure 儲存服務加密，資料會在 Azure 中的Cloud Volumes ONTAP上自動加密。但是您可以按照本頁上的步驟使用您自己的加密金鑰。
+
+
+
+== 資料加密概述
+
+Cloud Volumes ONTAP資料在 Azure 中自動使用 https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview["Azure 儲存服務加密"^]。預設實作使用 Microsoft 管理的金鑰。無需設定。
+
+如果您想將客戶管理的金鑰與Cloud Volumes ONTAP一起使用，則需要完成以下步驟：
+
+. 從 Azure 建立一個金鑰保管庫，然後在該保管庫中產生一個金鑰。
+. 從NetApp控制台，使用 API 建立使用金鑰的Cloud Volumes ONTAP系統。
+
+
+
+
+=== 資料如何加密
+
+控制台使用磁碟加密集，從而可以透過託管磁碟而不是頁面 blob 來管理加密金鑰。任何新的資料磁碟也使用相同的磁碟加密集。較低版本將使用 Microsoft 管理的金鑰，而不是客戶管理的金鑰。
+
+建立配置為使用客戶管理金鑰的Cloud Volumes ONTAP系統後， Cloud Volumes ONTAP資料將如下加密。
+
+[cols="2a,2a,2a"]
+|===
+| Cloud Volumes ONTAP配置 | 用於密鑰加密的系統磁碟 | 用於密鑰加密的資料磁碟 
+
+
+ a| 
+單節點
+ a| 
+* 引導
+* 核
+* NVRAM
+
+ a| 
+* 根
+* 數據
+
+
+
+
+ a| 
+具有頁面 Blob 的 Azure HA 單可用性區域
+ a| 
+* 引導
+* 核
+* NVRAM
+
+ a| 
+沒有任何
+
+
+
+ a| 
+具有共用託管磁碟的 Azure HA 單可用性區域
+ a| 
+* 引導
+* 核
+* NVRAM
+
+ a| 
+* 根
+* 數據
+
+
+
+
+ a| 
+具有共用託管磁碟的 Azure HA 多個可用性區域
+ a| 
+* 引導
+* 核
+* NVRAM
+
+ a| 
+* 根
+* 數據
+
+
+|===
+Cloud Volumes ONTAP的所有 Azure 儲存帳戶均使用客戶管理的金鑰加密。如果您想在建立儲存帳戶期間對其進行加密，則必須在Cloud Volumes ONTAP建立請求中建立並提供資源的 ID。這適用於所有類型的部署。如果您不提供，儲存帳戶仍將被加密，但控制台首先使用 Microsoft 管理的金鑰加密建立儲存帳戶，然後更新儲存帳戶以使用客戶管理的金鑰。
+
+
+
+== Cloud Volumes ONTAP中的金鑰輪換
+
+配置加密金鑰時，必須使用 Azure 入口網站來設定並啟用自動金鑰輪替。建立並啟用新版本的加密金鑰可確保Cloud Volumes ONTAP可以自動偵測並使用最新的金鑰版本進行加密，確保您的資料保持安全而無需人工幹預。
+
+有關配置金鑰和設定金鑰輪換的信息，請參閱以下 Microsoft Azure 文件主題：
+
+* https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation["在 Azure Key Vault 中配置加密金鑰自動輪換"^]
+* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-customer-managed-keys-powershell#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview["Azure PowerShell - 啟用客戶管理的金鑰"^]
+
+
+
+NOTE: 配置金鑰後，請確保已選擇 https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation#key-rotation-policy["_啟用自動旋轉_"^]，以便Cloud Volumes ONTAP可以在先前的金鑰過期時使用新的金鑰。如果您未在 Azure 入口網站上啟用此選項， Cloud Volumes ONTAP將無法自動偵測新金鑰，這可能會導致儲存設定問題。
+
+
+
+== 建立使用者分配的託管標識
+
+您可以選擇建立稱為使用者指派的託管識別碼的資源。這樣做可以讓您在建立Cloud Volumes ONTAP系統時加密您的儲存帳戶。我們建議在建立金鑰保管庫和產生金鑰之前建立此資源。
+
+此資源具有以下 ID： `userassignedidentity` 。
+
+.步驟
+. 在 Azure 中，前往 Azure 服務並選擇 *託管識別*。
+. 按一下“*建立*”。
+. 提供以下詳細資訊：
++
+** *訂閱*：選擇訂閱。我們建議選擇與控制台代理的訂閱相同的訂閱。
+** *資源組*：使用現有資源組或建立新的資源組。
+** *區域*：可選，選擇與控制台代理相同的區域。
+** *名稱*：輸入資源的名稱。
+
+
+. （可選）新增標籤。
+. 按一下“*建立*”。
+
+
+
+
+== 建立金鑰保管庫並產生金鑰
+
+金鑰保管庫必須位於您計劃建立Cloud Volumes ONTAP系統的相同 Azure 訂閱和區域中。
+
+如果你<<建立使用者分配的託管標識,建立了使用者分配的託管標識>>，在建立金鑰保管庫時，也應該為金鑰保管庫建立存取策略。
+
+.步驟
+. https://docs.microsoft.com/en-us/azure/key-vault/general/quick-create-portal["在 Azure 訂閱中建立金鑰保管庫"^] 。
++
+請注意密鑰保管庫的以下要求：
+
++
+** 密鑰保管庫必須與Cloud Volumes ONTAP系統位於同一區域。
+** 應啟用以下選項：
++
+*** *軟刪除*（此選項預設為啟用，但不能停用）
+*** *清除保護*
+*** *用於磁碟區加密的 Azure 磁碟加密*（適用於單節點系統、多個區域中的 HA 對以及 HA 單 AZ 部署）
++
+
+NOTE: 使用 Azure 客戶管理加密金鑰的前提是為金鑰保管庫啟用 Azure 磁碟加密。
+
+
+
+** 如果建立了使用者指派的託管標識，則應啟用下列選項：
++
+*** *保險庫存取保單*
+
+
+
+
+. 如果選擇了“保管庫存取原則”，請按一下“建立”為金鑰保管庫建立存取原則。如果沒有，請跳至步驟 3。
++
+.. 選擇以下權限：
++
+*** 得到
+*** 清單
+*** 解密
+*** 加密
+*** 解開密鑰
+*** 包裝鍵
+*** 核實
+*** 符號
+
+
+.. 選擇使用者指派的託管標識（資源）作為主體。
+.. 審查並建立存取策略。
+
+
+. https://docs.microsoft.com/en-us/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault["在金鑰保管庫中產生金鑰"^] 。
++
+請注意以下密鑰需求：
+
++
+** 金鑰類型必須是*RSA*。
+** 建議的 RSA 金鑰大小為 *2048*，但也支援其他大小。
+
+
+
+
+
+
+== 建立使用加密金鑰的系統
+
+建立金鑰保管庫並產生加密金鑰後，您可以建立配置為使用該金鑰的新Cloud Volumes ONTAP系統。這些步驟透過使用 API 來支援。
+
+.所需權限
+如果要在單節點Cloud Volumes ONTAP系統中使用客戶管理金鑰，請確保控制台代理具有下列權限：
+
+[source, json]
+----
+"Microsoft.Compute/diskEncryptionSets/read",
+"Microsoft.Compute/diskEncryptionSets/write",
+"Microsoft.Compute/diskEncryptionSets/delete"
+"Microsoft.KeyVault/vaults/deploy/action",
+"Microsoft.KeyVault/vaults/read",
+"Microsoft.KeyVault/vaults/accessPolicies/write",
+"Microsoft.ManagedIdentity/userAssignedIdentities/assign/action"
+----
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看最新的權限列表"^]
+
+.步驟
+. 使用下列 API 呼叫取得 Azure 訂閱中的金鑰保管庫清單。
++
+對於 HA 對： `GET /azure/ha/metadata/vaults`
+
++
+對於單節點： `GET /azure/vsa/metadata/vaults`
+
++
+記下*名稱*和*資源組*。您需要在下一個步驟中指定這些值。
+
++
+https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-hametadata["了解有關此 API 呼叫的更多信息"^] 。
+
+. 使用以下 API 呼叫取得保管庫中的金鑰清單。
++
+對於 HA 對： `GET /azure/ha/metadata/keys-vault`
+
++
+對於單節點： `GET /azure/vsa/metadata/keys-vault`
+
++
+記下*keyName*。您需要在下一個步驟中指定該值（以及保險庫名稱）。
+
++
+https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-hametadata["了解有關此 API 呼叫的更多信息"^] 。
+
+. 使用下列 API 呼叫建立Cloud Volumes ONTAP系統。
++
+.. 對於 HA 對：
++
+`POST /azure/ha/working-environments`
+
++
+請求主體必須包含以下欄位：
+
++
+[source, json]
+----
+"azureEncryptionParameters": {
+              "key": "keyName",
+              "vaultName": "vaultName"
+}
+----
++
+
+NOTE: 包括 `"userAssignedIdentity": " userAssignedIdentityId"`如果您建立此資源是為了用於儲存帳戶加密，則欄位。
+
++
+https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-haworking-environments["了解有關此 API 呼叫的更多信息"^] 。
+
+.. 對於單節點系統：
++
+`POST /azure/vsa/working-environments`
+
++
+請求主體必須包含以下欄位：
+
++
+[source, json]
+----
+"azureEncryptionParameters": {
+              "key": "keyName",
+              "vaultName": "vaultName"
+}
+----
++
+
+NOTE: 包括 `"userAssignedIdentity": " userAssignedIdentityId"`如果您建立此資源是為了用於儲存帳戶加密，則欄位。
+
++
+https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-vsaworking-environments["了解有關此 API 呼叫的更多信息"^] 。
+
+
+
+
+
+.結果
+您有一個新的Cloud Volumes ONTAP系統，該系統配置為使用客戶管理的金鑰進行資料加密。

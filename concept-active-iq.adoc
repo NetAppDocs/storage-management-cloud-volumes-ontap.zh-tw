@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: concept-active-iq.html 
+keywords: autosupport, digital advisor, active iq digital advisor, telemetry 
+summary: ONTAP的AutoSupport元件收集遙測資料並將其發送以進行分析。 Digital Advisor分析來自AutoSupport 的數據並提供主動護理和最佳化。利用人工智慧，Digital Advisor可以識別潛在問題並在其影響您的業務之前幫助您解決它們。 
+---
+= 了解如何將AutoSupport和Digital Advisor用於Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP的AutoSupport元件收集遙測資料並將其發送以進行分析。 Active IQ Digital Advisor （也稱為Digital Advisor）分析來自AutoSupport 的數據並提供主動護理和優化。利用人工智慧，Digital Advisor可以識別潛在問題並在其影響您的業務之前幫助您解決它們。
+
+Digital Advisor透過雲端的入口網站和行動應用程式提供可操作的預測分析和主動支持，使您能夠優化全球混合雲中的資料基礎設施。所有擁有有效SupportEdge合約的NetApp客戶均可獲得Digital Advisor的資料驅動見解和建議（功能因產品和支援層級而異）。
+
+您可以使用Digital Advisor執行以下一些操作：
+
+* 計劃升級。
++
+Digital Advisor可識別您環境中可透過升級至較新版本的ONTAP來解決的問題，而升級顧問組件可協助您規劃成功的升級。
+
+* 查看系統健康狀況。
++
+您的Digital Advisor儀表板會報告任何健康問題並幫助您糾正這些問題。監控系統容量以確保永遠不會耗盡儲存空間。查看您的系統的支援案例。
+
+* 管理績效。
++
+Digital Advisor顯示的系統效能比您在ONTAP System Manager 中看到的更長。識別影響您效能的配置和系統問題。最大限度提高效率。查看儲存效率指標並確定在更少空間內儲存更多資料的方法。
+
+* 查看庫存和配置。
++
+Digital Advisor顯示完整的庫存和軟體和硬體配置資訊。查看服務合約何時到期並進行續約以確保您繼續獲得支援。
+
+
+
+.相關連結
+* https://docs.netapp.com/us-en/active-iq/["NetApp文件：Digital Advisor"^]
+* https://aiq.netapp.com/custom-dashboard/search["啟動Digital Advisor"^]
+* https://www.netapp.com/us/services/support-edge.aspx["SupportEdge服務"^]
+

@@ -1,0 +1,367 @@
+---
+sidebar: sidebar 
+permalink: task-tiering.html 
+keywords: tier, tiering, cold data, hot data, storage tiering, data tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, blob tiering, container, inactive, tiering requirements, remove S3 bucket, delete S3 CVO bucket, tenant, multi-tenant tiering 
+summary: 您可以透過將用於熱資料的 SSD 或 HDD 效能層與用於非活動資料的物件儲存容量層結合來降低Cloud Volumes ONTAP的儲存成本。資料分層由FabricPool技術提供支援。 
+---
+= 將非活動Cloud Volumes ONTAP資料分層到低成本物件存儲
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以透過將用於熱資料的 SSD 或 HDD 效能層與用於非活動資料的物件儲存容量層結合來降低Cloud Volumes ONTAP的儲存成本。資料分層由FabricPool技術提供支援。有關進階概述，請參閱link:concept-data-tiering.html["資料分層概述"]。
+
+要設定資料分層，您需要執行以下操作：
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]選擇支援的配置
+[role="quick-margin-para"]
+大多數配置都受支援。如果您擁有執行最新版本的Cloud Volumes ONTAP系統，那麼您就可以開始了。link:task-tiering.html#configurations-that-support-data-tiering["了解更多"] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"]確保Cloud Volumes ONTAP與物件儲存之間的連接
+[role="quick-margin-list"]
+ifdef::aws[]
+
+* 對於 AWS，您需要一個 VPC Endpoint 到 S3。<<將冷資料分層到 AWS S3 的要求,了解更多>> 。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 對於 Azure，只要NetApp控制台具有所需的權限，您就不需要執行任何操作。<<將冷資料分層到 Azure Blob 儲存體的需求,了解更多>> 。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* 對於 Google Cloud，您需要設定私人 Google Access 子網路並設定服務帳戶。<<將冷資料分層到 Google Cloud Storage 儲存桶的要求,了解更多>> 。
+
+
+endif::gcp[]
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]確保您已啟用分層聚合
+[role="quick-margin-para"]
+應在聚合上啟用資料分層，以便在磁碟區上啟用它。您應該了解新捲和現有捲的要求。<<確保在聚合上啟用分層,了解更多>> 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"]建立、修改或複製磁碟區時選擇分層策略
+[role="quick-margin-para"]
+當您建立、修改或複製磁碟區時， NetApp控制台會提示您選擇分層策略。
+
+[role="quick-margin-list"]
+* link:task-tiering.html#tier-data-from-read-write-volumes["來自讀寫卷的層次數據"]
+* link:task-tiering.html#tier-data-from-data-protection-volumes["來自資料保護卷的分層數據"]
+
+
+[NOTE]
+.資料分層不需要什麼？
+====
+* 您不需要安裝功能授權來啟用資料分層。
+* 您不需要為容量層建立物件儲存。控制台會為您完成該操作。
+* 您不需要在系統層級啟用資料分層。
++
+控制台在創建系統時為冷數據創建對象存儲，<<實現要求後啟用資料分層,只要沒有連線或權限問題>> 。之後，您只需要在磁碟區上啟用資料分層（在某些情況下，<<確保在聚合上啟用分層,在聚合體上>> ）。
+
+
+
+====
+
+
+== 支援資料分層的配置
+
+您可以在使用特定配置和功能時啟用資料分層。
+
+ifdef::aws[]
+
+
+
+=== AWS 支援
+
+* 從Cloud Volumes ONTAP 9.2 開始，AWS 支援資料分層。
+* 性能層可以是通用 SSD（gp3 或 gp2）或預先配置 IOPS SSD（io1）。
++
+
+NOTE: 使用吞吐量最佳化 HDD (st1) 時，我們不建議將資料分層到物件儲存。
+
+* 非活動資料分層儲存到 Amazon S3 儲存桶。不支援分層到其他提供者。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== Azure 中的支持
+
+* Azure 支援資料分層，如下所示：
++
+** 9.4 版，附單節點系統
+** 9.6 版，配備 HA 對
+
+
+* 效能層可以是高級 SSD 託管磁碟、標準 SSD 託管磁碟或標準 HDD 託管磁碟。
+* 非活動資料分層到 Microsoft Azure Blob。不支援分層到其他提供者。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== Google Cloud 支援
+
+* 從Cloud Volumes ONTAP 9.6 開始，Google Cloud 支援資料分層。
+* 效能層可以是 SSD 持久性磁碟、平衡持久性磁碟或標準持久性磁碟。
+* 非活動資料分層儲存到 Google Cloud Storage。不支援分層到其他提供者。
+
+
+endif::gcp[]
+
+
+
+=== 功能互通性
+
+* 資料分層由加密技術支援。
+* 必須在磁碟區上啟用精簡配置。
+
+
+
+
+== 要求
+
+根據您的雲端供應商，必須設定某些連線和權限，以便Cloud Volumes ONTAP可以將冷資料分層到物件儲存。
+
+ifdef::aws[]
+
+
+
+=== 將冷資料分層到 AWS S3 的要求
+
+確保Cloud Volumes ONTAP與 S3 有連線。提供該連線的最佳方式是建立到 S3 服務的 VPC 端點。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文件：建立網關終端節點"^]。
+
+建立 VPC 端點時，請確保選擇與Cloud Volumes ONTAP實例相對應的區域、VPC 和路由表。您還必須修改安全群組以新增允許流量到 S3 端點的出站 HTTPS 規則。否則， Cloud Volumes ONTAP無法連線到 S3 服務。
+
+如果您遇到任何問題，請參閱 https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS Support 知識中心：為什麼我無法使用閘道 VPC 終端節點連接到 S3 儲存桶？"^]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== 將冷資料分層到 Azure Blob 儲存體的需求
+
+只要控制台具有所需的權限，您就不需要在效能層和容量層之間建立連線。如果控制台代理程式的自訂角色具有下列權限，則控制台將為您啟用 VNet 服務終端：
+
+[source, json]
+----
+"Microsoft.Network/virtualNetworks/subnets/write",
+"Microsoft.Network/routeTables/join/action",
+----
+自訂角色預設包含權限。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看控制台代理程式的 Azure 權限"^]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== 將冷資料分層到 Google Cloud Storage 儲存桶的要求
+
+* 必須為Cloud Volumes ONTAP所在的子網路設定私有 Google Access。有關說明，請參閱 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文件：配置私有 Google 存取權限"^]。
+* 必須將服務帳戶附加到Cloud Volumes ONTAP。
++
+link:task-creating-gcp-service-account.html["了解如何設定此服務帳號"] 。
+
++
+建立Cloud Volumes ONTAP系統時，系統會提示您選擇此服務帳戶。
+
++
+如果您在部署期間未選擇服務帳戶，則需要關閉Cloud Volumes ONTAP，前往 Google Cloud 控制台，然後將服務帳戶附加到Cloud Volumes ONTAP實例。然後，您可以按照下一節中的描述啟用資料分層。
+
+* 若要使用客戶管理的加密金鑰加密儲存桶，請啟用 Google Cloud 儲存桶以使用該金鑰。
++
+link:task-setting-up-gcp-encryption.html["了解如何將客戶管理的加密金鑰與Cloud Volumes ONTAP結合使用"] 。
+
+
+
+endif::gcp[]
+
+
+
+=== 實現要求後啟用資料分層
+
+只要沒有連線或權限問題，控制台就會在建立系統時為冷資料建立物件儲存。如果您在建立系統之後才實現上面列出的要求，那麼您將需要透過 API 或ONTAP系統管理員手動啟用分層，從而建立物件儲存。
+
+
+NOTE: 透過控制台啟用分層的功能將在未來的Cloud Volumes ONTAP版本中提供。
+
+
+
+== 確保在聚合上啟用分層
+
+必須在聚合上啟用資料分層才能在磁碟區上啟用資料分層。您應該了解新捲和現有捲的要求。
+
+* *新卷*
++
+如果您在新磁碟區上啟用資料分層，則無需擔心在聚合上啟用資料分層。控制台在已啟用分層的現有聚合上建立卷，或者如果尚不存在啟用資料分層的聚合，則為該磁碟區建立新的聚合。
+
+* *現有捲*
++
+若要在現有磁碟區上啟用資料分層，請確保在底層聚合上啟用它。如果現有聚合上未啟用資料分層，則需要使用ONTAP系統管理器將現有聚合附加到物件儲存。
+
+
+
+.確認聚合上是否啟用了分層的步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 開啟Cloud Volumes ONTAP系統。
+. 選擇“*聚合*”標籤並檢查聚合上是否啟用或停用分層。
++
+image:screenshot_aggregate_tiering_enabled.png["螢幕截圖顯示了控制台中有關聚合的信息，其中包括分層狀態。"]
+
+
+
+.在聚合上啟用分層的步驟
+. 在ONTAP系統管理員中，按一下 *儲存 > 層級*。
+. 點擊聚合的操作選單並選擇*附加雲層*。
+. 選擇要附加的雲層並點擊*儲存*。
+
+
+.下一步是什麼？
+現在您可以在新磁碟區和現有磁碟區上啟用資料分層，如下一節所述。
+
+
+
+== 來自讀寫卷的層次數據
+
+Cloud Volumes ONTAP可以將讀寫磁碟區上的非活動資料分層到經濟高效的物件儲存中，從而釋放效能層以儲存熱資料。
+
+.步驟
+. 在系統下的*Volumes*標籤中，建立一個新磁碟區或變更現有磁碟區的圖層：
++
+[cols="30,70"]
+|===
+| 任務 | 行動 
+
+
+| 建立新磁碟區 | 按一下“新增磁碟區”。 
+
+
+| 修改現有捲 | 選擇所需的捲圖塊，按一下*管理磁碟區*以存取管理磁碟區右側面板，然後按一下右側面板下的*進階操作*和*變更分層原則*。 
+|===
+. 選擇分層策略。
++
+有關這些政策的描述，請參閱link:concept-data-tiering.html["資料分層概述"]。
+
++
+*例子*
+
++
+image:screenshot_volumes_change_tiering_policy.png["螢幕截圖顯示了可用於變更磁碟區分層策略的選項。"]
+
++
+如果尚不存在啟用資料分層的聚合，則控制台會為磁碟區建立新的聚合。
+
+
+
+
+
+== 來自資料保護卷的分層數據
+
+Cloud Volumes ONTAP可以將資料從資料保護磁碟區分層到容量層。如果啟動目標卷，資料在讀取時會逐漸移動到效能層。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在 *系統* 頁面上，選擇包含來源磁碟區的Cloud Volumes ONTAP系統，然後將其拖曳到要將磁碟區複製到的系統。
+. 依照提示操作，直到到達分層頁面並啟用資料分層到物件儲存。
++
+*例子*
+
++
+image:screenshot_replication_tiering.gif["螢幕截圖顯示了複製磁碟區時的 S3 分層選項。"]
+
++
+有關複製資料的協助，請參閱 https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["將數據複製到雲端或從雲端複製數據"^]。
+
+
+
+
+
+== 變更分層資料的儲存類別
+
+部署Cloud Volumes ONTAP後，您可以透過變更 30 天未存取的非活動資料的儲存類別來降低儲存成本。如果您確實存取數據，則存取成本會更高，因此在更改儲存類別之前必須考慮到這一點。
+
+分層資料的儲存類別是系統範圍的，而不是每個磁碟區的。
+
+有關受支援的儲存類別的信息，請參閱link:concept-data-tiering.html["資料分層概述"]。
+
+.步驟
+. 在Cloud Volumes ONTAP系統上，按一下選單圖標，然後按一下 *儲存類別* 或 *Blob 儲存分層*。
+. 選擇一個儲存類，然後按一下*儲存*。
+
+
+
+
+== 變更資料分層的可用空間比率
+
+資料分層的可用空間比率定義了將資料分層到物件儲存時Cloud Volumes ONTAP SSD/HDD 上需要多少可用空間。預設設定是 10% 的可用空間，但您可以根據需要調整設定。
+
+例如，您可以選擇少於 10% 的可用空間，以確保您利用所購買的容量。當需要額外容量時，控制台可以為您購買額外的磁碟（直到達到聚合的磁碟限制）。
+
+
+CAUTION: 如果沒有足夠的空間，那麼Cloud Volumes ONTAP就無法移動數據，而且您可能會遇到效能下降的情況。任何改變都應謹慎進行。如果您不確定，請聯絡NetApp支援尋求指導。
+
+此比率對於災難復原場景很重要，因為當從物件儲存讀取資料時， Cloud Volumes ONTAP會將資料移至 SSD/HDD 以提供更好的效能。如果沒有足夠的空間，那麼Cloud Volumes ONTAP就無法移動資料。在更改比例時請考慮到這一點，以便滿足您的業務需求。
+
+.步驟
+. 從左側導覽窗格前往*管理>代理*。
+. 點選image:icon-action.png[""]管理Cloud Volumes ONTAP系統的控制台代理的圖示。
+. 選擇* Cloud Volumes ONTAP設定*。
++
+image::screenshot-settings-cloud-volumes-ontap.png[設定圖示下的Cloud Volumes ONTAP設定選項的螢幕截圖。]
+
+. 在「*容量*」下，按一下「*聚合容量閾值 - 資料分層的可用空間比率*」。
++
+image:screenshot-cvo-settings-page.png["Cloud Volumes ONTAP容量設定概述。"]
+
+. 根據您的要求更改可用空間比例，然後按一下「儲存」。
+
+
+
+
+== 更改自動分層策略的冷卻期
+
+如果您使用自動分層策略在Cloud Volumes ONTAP磁碟區上啟用了資料分層，則可以根據業務需求調整預設冷卻期。僅使用ONTAP CLI 和 API 支援此操作。
+
+冷卻期是指磁碟區中的使用者資料在被視為「冷」並移動到物件儲存之前必須保持不活動的天數。
+
+自動分層策略的預設冷卻期為 31 天。您可以如下變更冷卻時間：
+
+* 9.8 或更高版本：2 天至 183 天
+* 9.7 或更早版本：2 天至 63 天
+
+
+.步
+. 建立磁碟區或修改現有磁碟區時，請在 API 請求中使用 _minimumCoolingDays_ 參數。
+
+
+
+
+== 在系統退役時刪除 S3 儲存桶
+
+當您退役環境時，您可以刪除包含來自Cloud Volumes ONTAP系統的分層資料的 S3 儲存桶。
+
+只有在滿足以下條件時，您才可以刪除 S3 儲存桶：
+
+* Cloud Volume ONTAP系統已從控制台中刪除。
+* 所有物件都從儲存桶中刪除，並且 S3 儲存桶為空。
+
+
+當您退役Cloud Volumes ONTAP系統時，為該環境建立的 S3 儲存桶不會自動刪除。相反，它保持孤立狀態以防止任何意外的資料遺失。您可以刪除儲存桶中的對象，然後移除 S3 儲存桶本身，或保留它以供日後使用。參考 https://docs.netapp.com/us-en/ontap-cli/vserver-object-store-server-bucket-delete.html#description["ONTAP CLI：vserver object-store-server bucket 刪除"^]。

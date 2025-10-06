@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: task-manage-capacity-settings.html 
+keywords: aggregates, delete aggregates, add disks, view aggregates 
+summary: 透過新增磁碟、查看有關聚合的資訊以及刪除聚合來自行管理聚合。 
+---
+= 在控制台代理上管理Cloud Volumes ONTAP聚合容量
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+每個控制台代理程式都有設定來決定如何管理Cloud Volumes ONTAP的聚合容量。
+
+這些設定會影響控制台代理程式管理的所有Cloud Volumes ONTAP系統。如果您有另一個控制台代理，則可以進行不同的配置。
+
+.所需權限
+您需要NetApp控制台的組織或帳號管理員權限才能修改Cloud Volumes ONTAP設定。
+
+.步驟
+. 從左側導覽窗格前往*管理>代理*。
+. 點選image:icon-action.png[""]管理Cloud Volumes ONTAP系統的控制台代理的圖示。
+. 選擇* Cloud Volumes ONTAP設定*。
++
+image::screenshot-settings-cloud-volumes-ontap.png[設定圖示下的Cloud Volumes ONTAP設定選項的螢幕截圖。]
+
+. 在「*容量*」下，修改以下任意設定：
++
+image:screenshot-cvo-settings-page.png["Cloud Volumes ONTAP容量設定概述。"]
+
++
+容量管理模式:: 選擇控制台是否應通知您儲存容量決策，或是否應自動為您管理容量需求。
++
+--
+link:concept-storage-management.html#capacity-management["了解容量管理模式的工作原理"] 。
+
+--
+總容量門檻 - 可用空間比率:: 此比率是容量管理決策中的關鍵參數，無論您處於自動或手動容量管理模式，了解其影響都至關重要。建議根據您的特定儲存需求和預期成長來設定此閾值，以維持資源利用率和成本之間的平衡。
++
+--
+在手動模式下，如果聚合上的可用空間比率低於指定的閾值，則會觸發通知，提醒您應採取措施解決低可用空間比率問題。監控這些通知並手動管理總容量以避免服務中斷並確保最佳效能非常重要。
+
+可用空間比率計算如下：（聚合容量 - 聚合上的總使用容量）/聚合容量
+
+參考link:concept-storage-management.html#automatic-capacity-management["自動容量管理"]現在了解容量在Cloud Volumes ONTAP中自動管理。
+
+--
+聚合容量閾值 - 資料分層的可用空間比率:: 定義將資料分層到容量層（物件儲存）時效能層（磁碟）上需要多少可用空間。
++
+--
+此比率對於災難復原場景很重要。當從容量層讀取資料時， Cloud Volumes ONTAP會將資料移至效能層以提供更好的效能。如果沒有足夠的空間，那麼Cloud Volumes ONTAP就無法移動資料。
+
+--
+
+
+. 點選“儲存”。
+

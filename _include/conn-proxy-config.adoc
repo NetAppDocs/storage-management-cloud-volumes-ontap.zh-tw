@@ -1,0 +1,15 @@
+= NetApp Console 代理程式的網路代理程式配置
+:allow-uri-read: 
+
+
+
+
+=== NetApp Console 代理程式的網路代理程式配置
+
+您可以使用NetApp控制台代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的出站網路存取。控制台支援兩種類型的代理：
+
+* *明確代理*：來自Cloud Volumes ONTAP 的出站流量使用在控制台代理的代理配置期間指定的代理伺服器的 HTTP 位址。管理員可能還配置了使用者憑證和根 CA 憑證以進行額外的身份驗證。Cloud Volumes ONTAP顯式代理程式有可用的根 CA 證書，請確保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
+* *透明代理*：網路配置為透過控制台代理的代理程式自動路由來自Cloud Volumes ONTAP 的出站流量。設定透明代理時，管理員只需要提供用於從Cloud Volumes ONTAP進行連接的根 CA 證書，而不是代理伺服器的 HTTP 位址。確保使用以下方式取得相同的根 CA 憑證並將其上傳到您的Cloud Volumes ONTAP系統 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
+
+
+有關配置代理伺服器的信息，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理伺服器"^]。

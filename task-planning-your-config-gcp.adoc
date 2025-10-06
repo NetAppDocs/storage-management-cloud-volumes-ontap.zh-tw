@@ -1,0 +1,218 @@
+---
+sidebar: sidebar 
+permalink: task-planning-your-config-gcp.html 
+keywords: license, disk, ebs, storage, size, write speed, volume usage, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, use profile, thin provisioning, deduplication, compression, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet, limit, limits, storage limits, volume limit, aggregate limit, maximum volume size, maximum aggregate size, supported machine types, supported virtual machines, supported vms, supported instances 
+summary: 部署Cloud Volumes ONTAP時，您可以選擇符合您的工作負載需求的預先設定係統，也可以建立自己的設定。如果您選擇自己的配置，您應該了解可用的選項。 
+---
+= 在 Google Cloud 中規劃您的Cloud Volumes ONTAP配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 Google Cloud 中部署Cloud Volumes ONTAP時，您可以選擇符合您的工作負載需求的預先設定係統，也可以建立自己的設定。如果您選擇自己的配置，您應該了解可用的選項。
+
+
+
+== 選擇Cloud Volumes ONTAP許可證
+
+Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符合您需求的消費模式。
+
+* link:concept-licensing.html["了解Cloud Volumes ONTAP的授權選項"]
+* link:task-set-up-licensing-google.html["了解如何設定許可"]
+
+
+
+
+== 選擇支援的區域
+
+大多數 Google Cloud 區域支援Cloud Volumes ONTAP 。 https://bluexp.netapp.com/cloud-volumes-global-regions["查看支援區域的完整列表"^] 。
+
+
+
+== 選擇支援的機器類型
+
+Cloud Volumes ONTAP支援多種機器類型，具體取決於您選擇的授權類型。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["GCP 中Cloud Volumes ONTAP支援的配置"^]
+
+
+
+== 了解儲存限制
+
+Cloud Volumes ONTAP系統的原始容量限制與許可證相關。額外的限制會影響聚合和磁碟區的大小。在規劃配置時您應該注意這些限制。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["GCP 中Cloud Volumes ONTAP的儲存限制"^]
+
+
+
+== 在 GCP 中調整系統規模
+
+調整Cloud Volumes ONTAP系統的大小可以幫助您滿足效能和容量要求。在選擇機器類型、磁碟類型和磁碟大小時，您應該注意幾個關鍵點：
+
+機器類型:: 查看支援的機器類型 http://docs.netapp.com/cloud-volumes-ontap/us-en/index.html["Cloud Volumes ONTAP發行說明"^]然後查看 Google 提供的有關每種受支援機器類型的詳細資訊。將您的工作負載需求與機器類型的 vCPU 和記憶體數量相符。請注意，每個 CPU 核心都會提高網路效能。
++
+--
+請參閱以下內容以了解更多詳細資訊：
+
+* https://cloud.google.com/compute/docs/machine-types#n1_machine_types["Google Cloud 文件：N1 標準機器類型"^]
+* https://cloud.google.com/docs/compare/data-centers/networking#performance["Google Cloud 文件：效能"^]
+
+
+--
+GCP 磁碟類型:: 為Cloud Volumes ONTAP建立磁碟區時，您需要選擇Cloud Volumes ONTAP用於磁碟的底層雲端儲存。磁碟類型可以是以下任一種：
++
+--
+* _區域 SSD 持久性磁碟_：SSD 持久性磁碟最適合需要高隨機 IOPS 率的工作負載。
+* _區域平衡持久性磁碟_：這些 SSD 透過提供每 GB 較低的 IOPS 來平衡效能和成本。
+* _區域標準持久磁碟_：標準持久磁碟經濟實惠，可處理順序讀取/寫入作業。
++
+如欲了解更多詳情，請參閱 https://cloud.google.com/compute/docs/disks/#pdspecs["Google Cloud 文件：區域持久性磁碟（標準和 SSD）"^]。
+
+
+
+--
+GCP 磁碟大小:: 部署Cloud Volumes ONTAP系統時，您需要選擇初始磁碟大小。之後，您可以讓NetApp控制台為您管理系統的容量，但如果您想自行建立聚合，請注意以下事項：
++
+--
+* 聚合中的所有磁碟必須具有相同的大小。
+* 確定所需的空間，同時考慮性能。
+* 持久磁碟的效能會隨著磁碟大小和系統可用的 vCPU 數量自動擴展。
++
+請參閱以下內容以了解更多詳細資訊：
+
++
+** https://cloud.google.com/compute/docs/disks/#pdspecs["Google Cloud 文件：區域持久性磁碟（標準和 SSD）"^]
+** https://cloud.google.com/compute/docs/disks/performance["Google Cloud 文件：最佳化持久磁碟和本機 SSD 效能"^]
+
+
+
+
+--
+
+
+
+
+== 查看預設系統磁碟
+
+除了用戶資料的儲存之外，控制台還購買了Cloud Volumes ONTAP系統資料（啟動資料、根資料、核心資料和NVRAM）的雲端儲存。出於規劃目的，在部署Cloud Volumes ONTAP之前查看這些詳細資訊可能會有所幫助。
+
+* link:reference-default-configs.html#google-cloud-single-node["查看 Google Cloud 中Cloud Volumes ONTAP系統資料的預設磁碟"] 。
+* https://cloud.google.com/compute/quotas["Google Cloud 文件：資源配額"^]
++
+Google Cloud Compute Engine 對資源使用實施配額，因此您應確保在部署Cloud Volumes ONTAP之前尚未達到限制。
+
+
+
+
+TIP: 控制台代理還需要係統磁碟。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-connector-default-config.html["查看控制台代理預設配置的詳細信息"^] 。
+
+
+
+== 收集網路資訊
+
+在 GCP 中部署Cloud Volumes ONTAP時，您需要指定有關虛擬網路的詳細資訊。您可以使用工作表從管理員收集資訊。
+
+*單節點系統的網路資訊*
+
+[cols="30,70"]
+|===
+| GCP資訊 | 你的價值 
+
+
+| 地區 |  
+
+
+| 區 |  
+
+
+| VPC 網路 |  
+
+
+| 子網 |  
+
+
+| 防火牆策略（如果使用您自己的） |  
+|===
+*多個區域中 HA 對的網路資訊*
+
+[cols="30,70"]
+|===
+| GCP資訊 | 你的價值 
+
+
+| 地區 |  
+
+
+| 節點 1 的區域 |  
+
+
+| 節點 2 的區域 |  
+
+
+| 調解員區域 |  
+
+
+| VPC-0 和子網 |  
+
+
+| VPC-1 和子網 |  
+
+
+| VPC-2 和子網 |  
+
+
+| VPC-3 和子網 |  
+
+
+| 防火牆策略（如果使用您自己的） |  
+|===
+*單一區域中 HA 對的網路資訊*
+
+[cols="30,70"]
+|===
+| GCP資訊 | 你的價值 
+
+
+| 地區 |  
+
+
+| 區 |  
+
+
+| VPC-0 和子網 |  
+
+
+| VPC-1 和子網 |  
+
+
+| VPC-2 和子網 |  
+
+
+| VPC-3 和子網 |  
+
+
+| 防火牆策略（如果使用您自己的） |  
+|===
+
+
+== 選擇寫入速度
+
+控制台可讓您選擇Cloud Volumes ONTAP的寫入速度設置，但 Google Cloud 中的高可用性 (HA) 對除外。在選擇寫入速度之前，您應該了解正常設定和高設定之間的差異以及使用高寫入速度時的風險和建議。link:concept-write-speed.html["了解有關寫入速度的更多信息"] 。
+
+
+
+== 選擇卷使用情況設定檔
+
+ONTAP包含多種儲存效率功能，可減少您所需的總儲存量。在控制台中建立磁碟區時，您可以選擇啟用這些功能的設定檔或停用這些功能的設定檔。您應該了解有關這些功能的更多信息，以幫助您決定使用哪個配置文件。
+
+NetApp儲存效率功能有以下優勢：
+
+精簡配置:: 向主機或使用者提供比實體儲存池中實際擁有的更多的邏輯儲存。不是預先分配儲存空間，而是在寫入資料時動態地將儲存空間分配給每個磁碟區。
+重複資料刪除:: 透過定位相同的資料塊並將其替換為對單一共享區塊的引用來提高效率。該技術透過消除駐留在同一磁碟區中的冗餘資料區塊來減少儲存容量需求。
+壓縮:: 透過壓縮主儲存、輔助儲存和歸檔儲存磁碟區內的資料來減少儲存資料所需的實體容量。
+

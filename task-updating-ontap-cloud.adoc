@@ -1,0 +1,441 @@
+---
+sidebar: sidebar 
+permalink: task-updating-ontap-cloud.html 
+keywords: update, updating, upgrading, upgrade, software, downgrade, downgrading, FTP, HTTP, mediator, local image, revert, reverting, downgrading, cloud backup 
+summary: 從NetApp控制台升級Cloud Volumes ONTAP以取得最新的功能和增強功能。在升級軟體之前，您應該準備好Cloud Volumes ONTAP系統。 
+---
+= 升級Cloud Volumes ONTAP軟體
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+從NetApp控制台升級Cloud Volumes ONTAP以取得最新的功能和增強功能。在升級軟體之前，您應該準備好Cloud Volumes ONTAP系統。
+
+
+
+== 升級概述
+
+在開始Cloud Volumes ONTAP升級程序之前，您應該注意以下事項。
+
+
+
+=== 僅從控制台升級
+
+您不應使用ONTAP系統管理員或ONTAP CLI 升級Cloud Volumes ONTAP ，而應僅使用控制台升級。否則可能會影響系統穩定性。
+
+
+
+=== 如何升級
+
+控制台提供了兩種升級Cloud Volumes ONTAP 的方法：
+
+* 透過關注系統中出現的升級通知
+* 透過將升級映像放置在 HTTPS 位置，然後向控制台提供 URL
+
+
+
+
+=== 支援的升級路徑
+
+您可以升級到的Cloud Volumes ONTAP版本取決於您目前執行的Cloud Volumes ONTAP版本。
+
+[cols="2*"]
+|===
+| 目前版本 | 可直接升級到的版本 
+
+
+| 9.16.1（僅適用於 Azure 和 Google Cloud） | 9.17.1（僅適用於 Azure 和 Google Cloud） 
+
+
+| 9.15.1 | 9.16.1（僅適用於 Azure 和 Google Cloud） 
+
+
+| 9.15.0 | 9.15.1 
+
+
+.2+| 9.14.1 | 9.15.1 
+
+
+| 9.15.0 
+
+
+| 9.14.0 | 9.14.1 
+
+
+.2+| 9.13.1 | 9.14.1 
+
+
+| 9.14.0 
+
+
+| 9.13.0 | 9.13.1 
+
+
+.2+| 9.12.1 | 9.13.1 
+
+
+| 9.13.0 
+
+
+| 9.12.0 | 9.12.1 
+
+
+.2+| 9.11.1 | 9.12.1 
+
+
+| 9.12.0 
+
+
+| 9.11.0 | 9.11.1 
+
+
+.2+| 9.10.1 | 9.11.1 
+
+
+| 9.11.0 
+
+
+| 9.10.0 | 9.10.1 
+
+
+.2+| 9.9.1 | 9.10.1 
+
+
+| 9.10.0 
+
+
+| 9.9.0 | 9.9.1 
+
+
+| 9.8 | 9.9.1 
+
+
+| 9.7 | 9.8 
+
+
+| 9.6 | 9.7 
+
+
+| 9.5 | 9.6 
+
+
+| 9.4 | 9.5 
+
+
+| 9.3 | 9.4 
+
+
+| 9.2 | 9.3 
+
+
+| 9.1 | 9.2 
+
+
+| 9.0 | 9.1 
+
+
+| 8.3 | 9.0 
+|===
+請注意以下事項：
+
+* Cloud Volumes ONTAP支援的升級路徑與本機ONTAP叢集支援的升級路徑不同。
+* 如果您按照系統中出現的通知進行升級，控制台將提示您升級到遵循這些支援的升級路徑的版本。
+* 如果透過將升級映像放置在 HTTPS 位置來進行升級，請務必遵循這些支援的升級路徑。
+* 在某些情況下，您可能需要升級幾次才能達到目標版本。
++
+例如，如果您正在執行版本 9.8 並且想要升級到 9.10.1，則首先需要升級到版本 9.9.1，然後再升級到 9.10.1。
+
+
+
+
+
+=== 補丁版本
+
+從 2024 年 1 月開始，僅當Cloud Volumes ONTAP的三個最新版本發布補丁時才可進行補丁升級。當 RC 或 GA 版本無法部署時，偶爾會有修補程式版本可供部署。
+
+我們使用最新的 GA 版本來確定要在控制台中顯示的最新版本。例如，如果目前 GA 版本是 9.13.1，則控制台中會出現 9.11.1-9.13.1 的補丁。如果您想要升級到 9.11.1 或更低版本的修補程式版本，則需要使用手動升級程序<<透過 URL 上的可用影像進行升級,下載ONTAP映像>>。
+
+作為補丁 (P) 版本的一般規則，您可以從一個版本升級到您正在執行的目前版本或下一個版本的任何 P 版本。
+
+以下是幾個例子：
+
+* 9.13.0 > 9.13.1P15
+* 9.12.1 > 9.13.1P2
+
+
+
+
+=== 恢復或降級
+
+不支援將Cloud Volumes ONTAP還原或降級到先前的版本。
+
+
+
+=== 支援註冊
+
+必須在NetApp支援處註冊Cloud Volumes ONTAP才能使用本頁所述的任何方法升級軟體。這適用於現收現付（PAYGO）和自備授權（BYOL）。你需要link:task-registering.html["手動註冊PAYGO系統"]，而 BYOL 系統是預設註冊的。
+
+
+TIP: 未註冊支援的系統仍會在有新版本可用時收到控制台中出現的軟體更新通知。但您需要先註冊系統才能升級軟體。
+
+
+
+=== HA 調解器的升級
+
+控制台也會在Cloud Volumes ONTAP升級過程中根據需求更新中介實例。
+
+
+
+=== 使用 c4、m4 和 r4 EC2 執行個體類型在 AWS 中進行升級
+
+Cloud Volumes ONTAP不再支援 c4、m4 和 r4 EC2 執行個體類型。您可以使用這些實例類型將現有部署升級到Cloud Volumes ONTAP版本 9.8-9.12.1。在升級之前，我們建議您<<更改實例類型,更改實例類型>>。如果您無法變更實例類型，則需要<<啟用增強連網,啟用增強連網>>升級之前。閱讀以下部分以了解有關變更實例類型和啟用增強連網的詳細資訊。
+
+在執行 9.13.0 及更高版本的Cloud Volumes ONTAP中，您無法使用 c4、m4 和 r4 EC2 執行個體類型進行升級。在這種情況下，您需要減少磁碟數量，然後<<更改實例類型,更改實例類型>>或部署具有 c5、m5 和 r5 EC2 執行個體類型的新 HA 對配置並遷移資料。
+
+
+
+==== 更改實例類型
+
+c4、m4 和 r4 EC2 執行個體類型允許每個節點擁有比 c5、m5 和 r5 EC2 執行個體類型更多的磁碟。如果您正在執行的 c4、m4 或 r4 EC2 執行個體每個節點的磁碟數低於 c5、m5 和 r5 執行個體每個節點的最大磁碟限額，則可以將 EC2 執行個體類型變更為 c5、m5 或 r5。
+
+link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html#disk-and-tiering-limits-by-ec2-instance["檢查 EC2 執行個體的磁碟和分層限制"^] link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-change-ec2-instance.html["變更Cloud Volumes ONTAP的 EC2 執行個體類型"^]
+
+如果您無法變更實例類型，請依照<<啟用增強連網>>。
+
+
+
+==== 啟用增強連網
+
+若要升級至Cloud Volumes ONTAP 9.8 及更高版本，您必須在執行 c4、m4 或 r4 實例類型的叢集上啟用_增強網路_。若要啟用 ENA，請參閱知識庫文章link:https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/How_to_enable_Enhanced_networking_like_SR-IOV_or_ENA_on_AWS_CVO_instances["如何在 AWS Cloud Volumes ONTAP執行個體上啟用 SR-IOV 或 ENA 等增強網絡"^]。
+
+
+
+== 準備升級
+
+在執行升級之前，您必須驗證系統已準備就緒並進行任何必要的配置變更。
+
+* <<規劃停機時間>>
+* <<驗證自動交還是否仍然啟用>>
+* <<暫停SnapMirror傳輸>>
+* <<驗證聚合是否在線>>
+* <<驗證所有 LIF 是否位於主端口>>
+
+
+
+
+=== 規劃停機時間
+
+升級單節點系統時，升級過程會使系統離線最多 25 分鐘，在此期間 I/O 會中斷。
+
+在許多情況下，升級 HA 對不會造成中斷，且 I/O 也不會中斷。在此無中斷升級過程中，每個節點都會同步升級，以繼續為客戶端提供 I/O 服務。
+
+面向會話的協定在升級過程中可能會對某些區域的用戶端和應用程式造成不利影響。有關詳細信息，請參閱 https://docs.netapp.com/us-en/ontap/upgrade/concept_considerations_for_session_oriented_protocols.html["ONTAP 文件"^]
+
+
+
+=== 驗證自動交還是否仍然啟用
+
+必須在Cloud Volumes ONTAP HA 對上啟用自動交還（這是預設）。如果不是，則操作將會失敗。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D01-49A5-BEFD-D529713EC1FA.html["ONTAP文件：用於設定自動交還的命令"^]
+
+
+
+=== 暫停SnapMirror傳輸
+
+如果Cloud Volumes ONTAP系統具有活動的SnapMirror關係，最好在更新Cloud Volumes ONTAP軟體之前暫停傳輸。暫停傳輸可防止SnapMirror故障。您必須暫停從目標系統的傳輸。
+
+
+NOTE: 儘管NetApp Backup and Recovery 使用SnapMirror的實作來建立備份檔案（稱為SnapMirror Cloud），但在系統升級時無需暫停備份。
+
+.關於此任務
+以下步驟介紹如何使用ONTAP System Manager 9.3 及更高版本。
+
+.步驟
+. 從目標系統登入系統管理員。
++
+您可以透過將 Web 瀏覽器指向叢集管理 LIF 的 IP 位址來登入系統管理員。您可以在Cloud Volumes ONTAP系統中找到 IP 位址。
+
++
+
+NOTE: 您從中存取控制台的電腦必須具有與Cloud Volumes ONTAP 的網路連線。例如，您可能需要從雲端供應商網路中的跳轉主機登入控制台。
+
+. 點選*保護>關係*。
+. 選擇關係並點選*操作>靜默*。
+
+
+
+
+=== 驗證聚合是否在線
+
+在更新軟體之前， Cloud Volumes ONTAP的聚合必須處於線上狀態。在大多數配置中，聚合應該處於線上狀態，但如果沒有，則應將其置於線上狀態。
+
+.關於此任務
+以下步驟介紹如何使用ONTAP System Manager 9.3 及更高版本。
+
+.步驟
+. 在Cloud Volumes ONTAP系統上，按一下 *Aggregates* 標籤。
+. 在所需的聚合圖塊上，按一下image:icon-action.png[""]圖標，然後選擇*查看匯總詳情*。
++
+image:screenshots_aggregate_details_state.png["螢幕截圖：查看聚合資訊時顯示「狀態」欄位。"]
+
+. 如果聚合處於離線狀態，請使用ONTAP系統管理員使聚合處於連線狀態：
++
+.. 按一下“儲存”>“聚合和磁碟”>“聚合”。
+.. 選擇聚合，然後按一下*更多動作>狀態>線上*​​。
+
+
+
+
+
+
+=== 驗證所有 LIF 是否位於主端口
+
+升級前，所有 LIF 必須位於主連接埠上。請參閱ONTAP文檔link:https://docs.netapp.com/us-en/ontap/upgrade/task_enabling_and_reverting_lifs_to_home_ports_preparing_the_ontap_software_for_the_update.html["驗證所有 LIF 是否位於主端口"^]。
+
+若發生升級失敗錯誤，請查閱知識庫 (KB) 文章link:https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/CVO_upgrade_fails["Cloud Volumes ONTAP升級失敗"^]。
+
+
+
+== 升級Cloud Volumes ONTAP
+
+當有新版本可供升級時，控制台會通知您。您可以從此通知開始升級程序。有關更多信息，請參閱<<從控制台通知升級>> 。
+
+執行軟體升級的另一種方法是使用外部 URL 上的映像。如果控制台無法存取 S3 儲存桶來升級軟體或您獲得了補丁，則此選項很有用。有關更多信息，請參閱<<透過 URL 上的可用影像進行升級>> 。
+
+
+
+=== 從控制台通知升級
+
+當有新版本的Cloud Volumes ONTAP Cloud Volumes ONTAP工作環境中顯示通知：
+
+
+NOTE: 您必須擁有NetApp支援網站帳戶，然後才能透過通知升級Cloud Volumes ONTAP 。
+
+您可以從此通知開始升級過程，該通知透過從 S3 儲存桶取得軟體映像、安裝映像，然後重新啟動系統來自動執行該過程。
+
+.開始之前
+Cloud Volumes ONTAP系統上不得進行磁碟區或聚合建立等操作。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 選擇一個Cloud Volumes ONTAP系統。
++
+如果有新版本可用，概覽標籤中會出現通知：
+
++
+image:screenshot_overview_upgrade.png["顯示「概覽」標籤下「立即升級！」連結的螢幕截圖。"]
+
+. 如果要升級已安裝的Cloud Volumes ONTAP版本，請按一下“立即升級！”預設情況下，您會看到最新的、相容的升級版本。
++
+image:screenshot_upgrade_select_versions.png["升級Cloud Volumes ONTAP版本頁面的螢幕截圖。"]
+
++
+若要升級到其他版本，請點選*選擇其他版本*。您會看到所列的最新Cloud Volumes ONTAP版本也與您系統上安裝的版本相容。例如，您的系統上安裝的版本是9.12.1P3，並且有以下相容版本可用：
+
++
+** 9.12.1P4 至 9.12.1P14
+** 9.13.1 和 9.13.1P1 您會看到 9.13.1P1 是升級的預設版本，而 9.12.1P13、9.13.1P14、9.13.1 和 9.13.1P1 是其他可用版本。
+
+
+. 或者，您可以按一下「所有版本」來輸入要升級到的另一個版本（例如，已安裝版本的下一個修補程式）。有關目前Cloud Volumes ONTAP版本的相容升級路徑，請參閱link:task-updating-ontap-cloud.html#supported-upgrade-paths["支援的升級路徑"]。
+. 按一下“*儲存*”，然後按一下“*應用*”。image:screenshot_upgrade_other_versions.png["顯示可升級版本的螢幕截圖。"]
+. 在升級Cloud Volumes ONTAP頁面中，請閱讀 EULA，然後選擇 *我已閱讀並同意 EULA*。
+. 選擇*升級*。
+. 若要查看進度，請在Cloud Volumes ONTAP系統上選擇 *Audit*。
+
+
+.結果
+控制台開始軟體升級。軟體更新完成後，您可以在系統上執行操作。
+
+.完成後
+如果您暫停了SnapMirror傳輸，請使用系統管理員恢復傳輸。
+
+
+
+=== 透過 URL 上的可用影像進行升級
+
+您可以將Cloud Volumes ONTAP軟體映像放在控制台代理程式或 HTTP 伺服器上，然後從控制台啟動軟體升級。如果控制台無法存取 S3 儲存桶來升級軟體，您可以使用此選項。
+
+.開始之前
+* Cloud Volumes ONTAP系統上不得進行磁碟區或聚合建立等操作。
+* 如果您使用 HTTPS 託管ONTAP映像，則升級可能會因缺少憑證而導致的 SSL 驗證問題而失敗。解決方法是產生並安裝 CA 簽署的證書，用於ONTAP和控制台之間的身份驗證。
++
+前往NetApp知識庫查看逐步說明：
+
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_configure_Cloud_Manager_as_an_HTTPS_server_to_host_upgrade_images["NetApp KB：如何將控制台設定為 HTTPS 伺服器來託管升級映像"^]
+
+
+
+.步驟
+. 選用：設定可以託管Cloud Volumes ONTAP軟體映像的 HTTP 伺服器。
++
+如果您有與虛擬網路的 VPN 連接，則可以將Cloud Volumes ONTAP軟體映像放置在您自己網路中的 HTTP 伺服器上。否則，您必須將檔案放在雲端中的 HTTP 伺服器上。
+
+. 如果您對Cloud Volumes ONTAP使用自己的安全群組，請確保出站規則允許 HTTP 連接，以便Cloud Volumes ONTAP可以存取軟體映像。
++
+
+NOTE: 預先定義的Cloud Volumes ONTAP安全群組預設允許出站 HTTP 連線。
+
+. 從以下位置取得軟體映像 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab["NetApp支援站點"^]。
+. 將軟體映像複製到控制台代理或將提供該檔案的 HTTP 伺服器上的目錄中。
++
+有兩條路徑可用。正確的路徑取決於您的控制台代理版本。
+
++
+** `/opt/application/netapp/cloudmanager/docker_occm/data/ontap/images/`
+** `/opt/application/netapp/cloudmanager/ontap/images/`
+
+
+. 在系統上，按一下image:icon-action.png[""]圖標，然後點擊*更新Cloud Volumes ONTAP*。
+. 在更新Cloud Volumes ONTAP版本頁面上，輸入 URL，然後按一下 *變更圖片*。
++
+如果您將軟體映像複製到上面顯示的路徑中的控制台代理，則需要輸入以下 URL：
+
++
+\http://<Console_agent_private-IP-address>/ontap/images/<映像檔名>
+
++
+
+NOTE: 在 URL 中，*image-file-name* 必須遵循「cot.image.9.13.1P2.tgz」格式。
+
+. 按一下“繼續”進行確認。
+
+
+.結果
+控制台開始軟體更新。軟體更新完成後，您就可以在系統上執行操作。
+
+.完成後
+如果您暫停了SnapMirror傳輸，請使用系統管理員恢復傳輸。
+
+ifdef::gcp[]
+
+
+
+== 修復使用 Google Cloud NAT 閘道時下載失敗的問題
+
+控制台代理程式會自動下載Cloud Volumes ONTAP 的軟體更新。如果您的設定使用 Google Cloud NAT 網關，下載可能會失敗。您可以透過限制軟體映像劃分的部分數來解決此問題。您必須使用 API 來完成此步驟。
+
+.步
+. 向 `/occm/`config 提交 PUT 請求，並將以下 JSON 作為正文：
+
+
+[source]
+----
+{
+  "maxDownloadSessions": 32
+}
+----
+_maxDownloadSessions_ 的值可以是 1 或任何大於 1 的整數。如果值為1，則下載的影像不會被分割。
+
+請注意，32 是一個範例值。您應該使用的值取決於您的 NAT 配置和您可以同時擁有的會話數。
+
+https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#occmconfig["了解有關 /occm/config API 呼叫的更多信息"^] 。
+
+endif::gcp[]

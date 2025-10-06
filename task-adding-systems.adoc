@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: task-adding-systems.html 
+keywords: discover, discovering, add, adding, existing 
+summary: 您可以發現現有的Cloud Volumes ONTAP系統並將其新增至控制台。如果您部署了新系統，您可能會這樣做。 
+---
+= 將現有的Cloud Volumes ONTAP系統加入到NetApp控制台
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以發現現有的Cloud Volumes ONTAP系統並將其新增至NetApp控制台。如果您部署了新系統，您可能會這樣做。
+
+.開始之前
+您必須知道Cloud Volumes ONTAP管理員使用者帳號的密碼。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在*系統*頁面上，按一下*新增系統*。
+. 選擇系統所在的雲端提供者。
+. 選擇要新增的Cloud Volumes ONTAP系統的類型。
+. 點擊連結即可發現現有系統。
+
+
+ifdef::aws[]
+
++image:screenshot_discover_redesign.png["螢幕截圖顯示了用於發現現有Cloud Volumes ONTAP系統的連結。"]
+
+endif::aws[]
+
+. 在「區域」頁面上，選擇一個區域。您可以看到在所選區域中運作的系統。
++
+
+NOTE: Cloud Volumes ONTAP系統在此頁面中以實例形式表示。從清單中，您可以只選擇使用目前帳戶註冊的那些執行個體。
+
+. 在「憑證」頁面上，輸入Cloud Volumes ONTAP管理員使用者的密碼，然後選擇「*Go*」。
+
+
+.結果
+控制台將Cloud Volumes ONTAP系統新增至 *系統* 頁面。

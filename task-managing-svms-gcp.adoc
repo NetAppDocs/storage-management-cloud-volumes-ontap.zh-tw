@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: task-managing-svms-gcp.html 
+keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported, create svm, create storage vm, create vserver 
+summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端提供儲存和資料服務。您可能知道這是 SVM 或 vserver。  Cloud Volumes ONTAP預設配置一個儲存虛擬機，但某些配置支援額外的儲存虛擬機。 
+---
+= 在 Google Cloud 中管理Cloud Volumes ONTAP的資料服務儲存虛擬機
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端提供儲存和資料服務。您可能知道這是一個_SVM_或_vserver_。  Cloud Volumes ONTAP預設配置一個儲存虛擬機，但某些配置支援額外的儲存虛擬機。
+
+要在 Google Cloud 中建立和管理其他資料服務儲存虛擬機，您應該使用 API。這是因為 API 自動化了建立儲存虛擬機器和配置所需網路介面的過程。建立儲存虛擬機器時， NetApp控制台會配置所需的 LIF 服務，以及儲存虛擬機器出站 SMB/CIFS 通訊所需的 iSCSI LIF。
+
+有關執行Cloud Volumes ONTAP API 呼叫的信息，請參閱 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一個 API 呼叫"^]。
+
+
+
+== 支援的儲存虛擬機器數量
+
+從Cloud Volumes ONTAP 9.11.1 開始，根據您的許可證，支援具有特定配置的多個儲存虛擬機器。請參閱 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP發行說明"^]驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。
+
+9.11.1 之前的所有Cloud Volumes ONTAP版本都支援一個資料服務儲存虛擬機器和一個用於災難復原的目標儲存虛擬機器。如果來源儲存虛擬機器發生中斷，您可以啟動目標儲存虛擬機器進行資料存取。
+
+
+
+== 建立儲存虛擬機
+
+根據您的設定和授權類型，您可以使用 API 在單節點系統或高可用性 (HA) 配置中建立多個儲存虛擬機器。
+
+.關於此任務
+當您使用 API 建立儲存虛擬機器並配置所需的網路介面時，控制台也會修改 `default-data-files`透過從 NAS 資料 LIF 中刪除以下服務並將其新增至用於出站管理連線的 iSCSI 資料 LIF，可以在資料儲存虛擬機器上實施策略：
+
+* `data-fpolicy-client`
+* `management-ad-client`
+* `management-dns-client`
+* `management-ldap-client`
+* `management-nis-client`
+
+
+.開始之前
+控制台代理程式需要特定權限才能為Cloud Volumes ONTAP HA 對建立儲存虛擬機器。所需權限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^]。
+
+
+
+=== 單節點系統
+
+使用下列 API 呼叫在單節點系統上建立儲存 VM。
+
+`POST /gcp/vsa/working-environments/{workingEnvironmentId}/svm`
+
+在請求主體中包含以下參數：
+
+[source, json]
+----
+{ "svmName": "NewSvmName"
+   "svmPassword": "optional value, the API takes the cluster password if not provided"
+   "mgmtLif": "optional value, to create an additional management LIF, if you want to use the storage VM for management purposes"}
+----
+
+
+=== HA 對
+
+使用以下 API 呼叫在 HA 對上建立儲存虛擬機器：
+
+`POST /gcp/ha/working-environments/{workingEnvironmentId}/svm/`
+
+在請求主體中包含以下參數：
+
+[source, json]
+----
+{ "svmName": "NewSvmName"
+   "svmPassword": "optional value, the API takes the cluster password if not provided"
+}
+----
+
+
+== 管理儲存虛擬機
+
+使用 API，您可以重新命名和刪除單節點和 HA 配置中的儲存虛擬機器。
+
+.開始之前
+控制台代理程式需要特定權限來管理Cloud Volumes ONTAP HA 對的儲存虛擬機器。所需權限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^]。
+
+
+
+=== 重新命名儲存虛擬機
+
+若要重新命名儲存虛擬機，您應該提供現有儲存虛擬機和新儲存虛擬機的名稱作為參數。
+
+.步驟
+* 使用下列 API 呼叫在單節點系統上重新命名儲存虛擬機器：
++
+`PUT /gcp/vsa/working-environments/{workingEnvironmentId}/svm`
+
++
+在請求主體中包含以下參數：
+
++
+[source, json]
+----
+{
+  "svmNewName": "NewSvmName",
+  "svmName": "OldSvmName"
+}
+----
+* 使用以下 API 呼叫重命名 HA 對上的儲存虛擬機器：
++
+`PUT /gcp/ha/working-environments/{workingEnvironmentId}/svm`
+
++
+在請求主體中包含以下參數：
+
++
+[source, json]
+----
+{
+  "svmNewName": "NewSvmName",
+  "svmName": "OldSvmName"
+}
+----
+
+
+
+
+=== 刪除儲存虛擬機
+
+在單一節點或 HA 配置中，如果儲存虛擬機器沒有任何活動卷，則可以將其刪除。
+
+.步驟
+* 使用以下 API 呼叫刪除單節點系統上的儲存虛擬機器：
++
+`DELETE /gcp/vsa/working-environments/{workingEnvironmentId}/svm/{svmName}`
+
+* 使用以下 API 呼叫刪除 HA 對上的儲存虛擬機器：
++
+`DELETE /gcp/ha/working-environments/{workingEnvironmentId}/svm/{svmName}`
+
+
+
+.相關資訊
+* https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["準備使用 API"^]
+* https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["取得所需的標識符"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp控制台的 REST API"^]
+

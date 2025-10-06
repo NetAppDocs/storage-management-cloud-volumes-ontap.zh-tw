@@ -1,0 +1,116 @@
+---
+sidebar: sidebar 
+permalink: task-quick-deploy-aws.html 
+keywords: aws quick deploy, quick deploy, aws, single screen deployment AWS, SAZ, MAZ, single node, HA pair 
+summary: 您可以在單一系統設定中或 AWS 中以 HA 對的形式快速部署Cloud Volumes ONTAP實例。 
+---
+= 使用快速部署在 AWS 中部署Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用快速部署方法在 AWS 中部署Cloud Volumes ONTAP，適用於單一節點和高可用性 (HA) 設定。與先進的方法相比，這種簡化的流程減少了部署步驟。它還透過在單一頁面上自動設定預設值並最小化導航來提供更清晰的工作流程。
+
+.開始之前
+您需要以下內容才能從NetApp控制台在 AWS 中新增Cloud Volumes ONTAP系統。
+
+[[licensing]]
+* 已啟動並正在執行的控制台代理程式。
++
+** 你應該有一個 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["與您的專案或工作區關聯的控制台代理"^]。
+** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您應該準備好讓控制台代理程式始終處於運行狀態"^] 。
+
+
+* 了解您想要使用的配置。
++
+您應該已經做好準備，選擇配置並從管理員處獲取 AWS 網路資訊。有關詳細信息，請參閱link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"^]。
+
+* 了解設定Cloud Volumes ONTAP許可所需的條件。
++
+link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
+
+* CIFS 設定的 DNS 和 Active Directory。
++
+有關詳細信息，請參閱link:reference-networking-aws.html["AWS 中Cloud Volumes ONTAP的網路需求"^]。
+
+
+
+.關於此任務
+建立Cloud Volumes ONTAP系統後， NetApp控制台會立即在指定的 VPC 中啟動測試實例以驗證連線性。如果成功，控制台會立即終止實例，然後開始部署系統。如果控制台無法驗證連接，則系統建立失敗。測試實例可以是 `t2.nano`（對於預設 VPC 租賃）或 `m3.medium`（適用於專用 VPC 租賃）。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. [[訂閱]]在 Canvas 頁面上，按一下 *新增系統* 並依照指示進行操作。
+. 選擇 *Amazon Web Services* > * Cloud Volumes ONTAP* > *新增*。預設選擇*快速建立*選項。
+
+
+image:screenshot-aws-quick-create.png["width=800,alt=\"AWS 快速創建\""]
+
+.系統詳細信息
+. *雲端提供者帳戶*：帳戶詳細資料將根據您選擇的控制台代理自動填入。如果您有多個帳戶，請選擇要使用的帳戶。如果控制台代理程式不可用，系統將提示您 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["建立控制台代理"^]。
+. *名稱*：系統名稱。控制台使用系統（叢集）名稱來命名Cloud Volumes ONTAP系統和 Amazon EC2 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。
+. * ONTAP憑證* 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。您可以保留預設的_admin_用戶名，也可以將其變更為自訂使用者名稱。
+. *標籤* AWS 標籤是您的 AWS 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP實例以及與該執行個體關聯的每個 AWS 資源。建立Cloud Volumes ONTAP系統時，您可以從使用者介面新增最多 15 個標籤，然後可以在建立後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["AWS 文件：標記您的 Amazon EC2 資源"^]。
+
+
+.部署和配置
+. *部署類型*：選擇您想要使用的部署類型，單一節點、單一可用區 (AZ) 中的高可用性 (HA) 或多個 AZ 中的 HA。
+. *網路設定*：輸入您在 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#collect-networking-information["AWS 工作表"^]。
++
+.. *AWS 區域*：預設選擇關聯雲端帳戶的、擁有子網路資源的 VPC 所在區域。
+.. *VPC*：輸入具有子網路的 AWS 區域的 VPC。如果沒有子網，則選擇 VPC 的預設值。
+.. *子網路*：您只能為 VPC 選擇一個子網，以用於單節點部署或單 AZ 中的 HA 部署。
+
+
+
+
+.高可用性
+如果您選擇了 HA 配置，請輸入以下資訊：
+
+[role="tabbed-block"]
+====
+.單可用區高可用性
+--
+. *調解器存取*：指定調解器存取資訊。調解器是一個單獨的實例，用於監控 HA 對的健康狀況並在發生故障時提供仲裁。提供金鑰對名稱以使中介執行個體能夠連線到 AWS EC2 服務，並選擇連線方法。
+
+
+--
+.多個可用區中的高可用性
+--
+. *可用區域和中介*：選擇每個節點的可用區域 (AZ) 以及要部署Cloud Volumes ONTAP HA 對的中介和對應子網路。
+. *浮動 IP*：如果您選擇多個 AZ，請為 NFS 和 CIFS 服務以及叢集和 SVM 管理指定浮動 IP 位址。 IP 位址必須位於該區域內所有 VPC 的 CIDR 區塊之外。有關更多詳細信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^]。
+. *調解器存取*：指定調解器存取資訊。調解器是一個單獨的實例，用於監控 HA 對的健康狀況並在發生故障時提供仲裁。提供金鑰對名稱以使中介執行個體能夠連線到 AWS EC2 服務，並選擇連線方法。
+. *路由表*：如果您選擇了多個 AZ，請選擇包含到浮動 IP 位址的路由的路由表。如果您有多個路由表，則選擇正確的路由表非常重要。否則，某些用戶端可能無法存取Cloud Volumes ONTAP HA 對。有關路由表的更多信息，請參閱 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文件：路由表"^]。
+
+
+--
+====
+.充電和服務
+. *市場訂閱*：選擇您想要與此Cloud Volumes ONTAP系統一起使用的 AWS 市場訂閱。
+. *許可證*：選擇您想要與此Cloud Volumes ONTAP系統一起使用的許可證類型。您可以從專業版、基本版和高級版授權中進行選擇。有關不同許可證的信息，請參閱link:concept-licensing.html["了解Cloud Volumes ONTAP許可證"^]。
+. *資料服務與功能*：啟用服務或停用您不想與Cloud Volumes ONTAP一起使用的服務。
++
+** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp分類的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp備份和復原的更多信息"^]
+** link:concept-worm.html["了解Cloud Volumes ONTAP上的 WORM 存儲"]
++
+
+TIP: 如果您想利用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
+
+** * NetApp支援網站帳戶*：如果您有多個帳戶，請選擇要使用的帳戶。
+
+
+
+
+.總結
+檢查或編輯您輸入的詳細信息，然後點擊*建立*。
+
+.相關連結
+* link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"]
+* link:task-deploying-otc-aws.html["使用進階部署在 AWS 中部署Cloud Volumes ONTAP"]
+

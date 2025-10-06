@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: task-azure-high-availability-mode.html 
+keywords: high availability mode, EnableHighAvailabilityMode, action required, nfsv4 
+summary: 應啟用 Microsoft Azure 的高可用性模式，以減少計劃外故障轉移時間，並為Cloud Volumes ONTAP啟用 NFSv4 支援。 
+---
+= 在 Azure 中為Cloud Volumes ONTAP啟用高可用性模式
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+應啟用 Microsoft Azure 的高可用性 (HA) 模式，以減少非計畫性故障轉移時間並為Cloud Volumes ONTAP啟用 NFSv4 支援。在此模式下，您的Cloud Volumes ONTAP HA 節點可以在 CIFS 和 NFSv4 用戶端上的計劃外故障轉移期間實現較低（60 秒）的復原時間目標 (RTO)。
+
+從Cloud Volumes ONTAP 9.10.1 開始，我們減少了在 Microsoft Azure 中執行的Cloud Volumes ONTAP HA 對的非計畫性故障轉移時間，並增加了對 NFSv4 的支援。若要讓這些增強功能可用於Cloud Volumes ONTAP，您需要在 Azure 訂閱上啟用高可用性功能。
+
+當需要在 Azure 訂閱上啟用功能時， NetApp Console 會提示您提供這些詳細資訊。
+
+請注意以下事項：
+
+* 您的Cloud Volumes ONTAP HA 對的高可用性沒有問題。此 Azure 功能與ONTAP協同工作，以減少用戶端觀察到的因計劃外故障轉移事件而導致的 NFS 協定應用程式中斷時間。
+* 啟用此功能不會對Cloud Volumes ONTAP HA 造成破壞。
+* 在您的 Azure 訂閱上啟用此功能不會為其他虛擬機器帶來問題。
+* Cloud Volumes ONTAP在 CIFS 和 NFS 用戶端上的叢集和 SVM 管理 LIF 故障轉移期間使用內部 Azure 負載平衡器。
+* 啟用 HA 模式後，控制台每 12 小時掃描一次系統以更新內部 Azure 負載平衡器規則。
+
+
+具有「擁有者」權限的 Azure 使用者可以從 Azure CLI 啟用該功能。
+
+.步驟
+. https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart["從 Azure 入口網站存取 Azure Cloud Shell"^]
+. 註冊高可用性模式功能：
++
+[source, azurecli]
+----
+az account set -s AZURE_SUBSCRIPTION_NAME_OR_ID
+az feature register --name EnableHighAvailabilityMode --namespace Microsoft.Network
+az provider register -n Microsoft.Network
+----
+. （可選）驗證該功能現在是否已註冊：
++
+[source, azurecli]
+----
+az feature show --name EnableHighAvailabilityMode --namespace Microsoft.Network
+----
++
+Azure CLI 應傳回類似以下內容的結果：
+
++
+[listing]
+----
+{
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Features/providers/Microsoft.Network/features/EnableHighAvailabilityMode",
+  "name": "Microsoft.Network/EnableHighAvailabilityMode",
+  "properties": {
+    "state": "Registered"
+  },
+  "type": "Microsoft.Features/providers/features"
+}
+----
+

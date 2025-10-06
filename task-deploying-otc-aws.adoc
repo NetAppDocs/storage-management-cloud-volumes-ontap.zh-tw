@@ -1,0 +1,537 @@
+---
+sidebar: sidebar 
+permalink: task-deploying-otc-aws.html 
+keywords: Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, aws, serial number, license key, byol, test instance, aws tags, tags, location, vpc, encryption, security group, aws-managed encryption, disk size, disk type, write speed, licensing, IAM role, preconfigured package, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, high-availability, subscription, cloud data sense, cloud backup 
+summary: 您可以在單一系統設定中或作為 AWS 中的 HA 對啟動Cloud Volumes ONTAP實例。 
+---
+= 在 AWS 啟動Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在單一系統設定中啟動Cloud Volumes ONTAP ，也可以在 AWS 中以 HA 對的形式啟動 Cloud Volumes ONTAP。此方法提供了進階部署體驗，與快速部署方法相比，它提供了更多的配置選項和靈活性。
+
+
+
+== 開始之前
+
+開始之前您需要以下內容。
+
+[[licensing]]
+* 已啟動並正在執行的控制台代理程式。
++
+** 你應該有一個 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["與您的系統關聯的控制台代理"^]。
+** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您應該準備好讓控制台代理程式始終處於運行狀態"^] 。
+
+
+* 了解您想要使用的配置。
++
+您應該已經做好準備，選擇配置並從管理員處獲取 AWS 網路資訊。有關詳細信息，請參閱link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"^]。
+
+* 了解設定Cloud Volumes ONTAP許可所需的條件。
++
+link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
+
+* CIFS 設定的 DNS 和 Active Directory。
++
+有關詳細信息，請參閱link:reference-networking-aws.html["AWS 中Cloud Volumes ONTAP的網路需求"^]。
+
+
+
+
+
+== 在 AWS 中啟動單節點Cloud Volumes ONTAP系統
+
+如果您想要在 AWS 中啟動Cloud Volumes ONTAP ，則需要在NetApp控制台中建立新系統。
+
+.關於此任務
+建立系統後，控制台會立即在指定的 VPC 中啟動測試執行個體以驗證連線性。如果成功，控制台將立即終止實例，然後開始部署Cloud Volumes ONTAP系統。如果無法驗證連接，系統建立將失敗。測試實例可以是 `t2.nano`（對於預設 VPC 租賃）或 `m3.medium`（適用於專用 VPC 租賃）。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. [[訂閱]]在*系統*頁面上，點擊*新增系統*並依照指示操作。
+. 選擇 *Amazon Web Services* 和 * Cloud Volumes ONTAP單節點*。
+. 選擇*進階建立*。由於預設選擇了*快速建立*模式，您可能會看到一條有關預設值的訊息。按一下“繼續”。
+. 如果出現提示， https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["建立控制台代理"^] 。
+. *詳細資料和憑證*：可選擇變更 AWS 憑證和訂閱，輸入系統名稱，根據需要新增標籤，然後輸入密碼。
++
+此頁面中的某些欄位是不言自明的。下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Amazon EC2 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
+
+
+| 添加標籤 | AWS 標籤是您的 AWS 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP實例以及與該執行個體關聯的每個 AWS 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["AWS 文件：標記您的 Amazon EC2 資源"^]。 
+
+
+| 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
+
+
+| 編輯憑證 | 選擇與您要部署此系統的帳戶關聯的 AWS 憑證。您也可以將 AWS 市場訂閱與此Cloud Volumes ONTAP系統關聯起來使用。點擊「新增訂閱」將所選憑證與新的 AWS 市場訂閱關聯。訂閱可以是年度合同，也可以是按小時付費的Cloud Volumes ONTAP 。https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html["了解如何在NetApp主控台新增其他 AWS 憑證"^] 。 
+|===
++
+
+TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使用者都需要訂閱。第一個用戶訂閱後，AWS 市場會通知後續用戶他們已經訂閱，如下圖所示。當 AWS 帳戶有訂閱時，每個 IAM 使用者都需要將自己與該訂閱關聯起來。如果您看到下面顯示的訊息，請點擊「*點擊這裡*」連結前往控制台網站並完成該過程。image:screenshot_aws_marketplace.gif["當 AWS 帳戶已有訂閱但特定 IAM 使用者可能沒有時，顯示Cloud Volumes ONTAP控制台的訂閱頁面的螢幕截圖。"]
+
+. *服務*：啟用服務啟用或停用您不想與Cloud Volumes ONTAP一起使用的單一服務。
++
+** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp資料分類的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp備份和復原的更多信息"^]
++
+
+TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
+
+
+
+. *位置和連接*：輸入您在 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#collect-networking-information["AWS 工作表"^]。
++
+下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 專有網絡 | 如果您有 AWS Outpost，則可以透過選擇 Outpost VPC 在該 Outpost 中部署單節點Cloud Volumes ONTAP系統。體驗與駐留在 AWS 中的任何其他 VPC 相同。 
+
+
+| 產生的安全群組  a| 
+如果您讓控制台為您產生安全性群組，則需要選擇如何允許流量：
+
+** 如果您選擇*僅限選定的 VPC*，則入站流量的來源是選定 VPC 的子網路範圍和控制台代理程式所在 VPC 的子網路範圍。這是推薦的選項。
+** 如果您選擇*所有 VPC*，則入站流量的來源為 0.0.0.0/0 IP 範圍。
+
+
+
+
+| 使用現有的安全群組 | 如果您使用現有的防火牆策略，請確保它包含所需的規則。link:reference-security-groups.html["了解Cloud Volumes ONTAP的防火牆規則"^] 。 
+|===
+. *資料加密*：選擇無資料加密或 AWS 管理加密。
++
+對於 AWS 管理的加密，您可以從您的帳戶或其他 AWS 帳戶中選擇不同的客戶主金鑰 (CMK)。
+
++
+
+TIP: 建立Cloud Volumes ONTAP系統後，您無法變更 AWS 資料加密方法。
+
++
+link:task-setting-up-kms.html["了解如何為Cloud Volumes ONTAP設定 AWS KMS"^] 。
+
++
+link:concept-security.html#encryption-of-data-at-rest["了解有關受支援的加密技術的更多信息"^] 。
+
+. *收費方式和 NSS 帳戶*：指定您想要在此系統中使用的收費選項，然後指定NetApp支援網站帳戶。
++
+** link:concept-licensing.html["了解Cloud Volumes ONTAP的授權選項"^] 。
+** link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
+
+
+. * Cloud Volumes ONTAP配置*（僅限年度 AWS 市場合約）：查看預設配置並點擊*繼續*或點擊*更改配置*以選擇您自己的配置。
++
+如果保留預設配置，則只需要指定一個卷，然後審核並批准該配置。
+
+. *預先配置套件*：選擇其中一個套件以快速啟動Cloud Volumes ONTAP，或點擊*變更配置*以選擇您自己的配置。
++
+如果您選擇其中一個包，那麼您只需要指定一個卷，然後審核並批准配置。
+
+. *IAM 角色*：最好保留預設選項，讓控制台為您建立角色。
++
+如果您希望使用自己的政策，則必須滿足link:task-set-up-iam-roles.html["Cloud Volumes ONTAP節點的策略需求"^]。
+
+. *許可*：根據需要變更Cloud Volumes ONTAP版本並選擇實例類型和實例租賃。
++
+
+NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式版本，則控制台在建立系統時會將系統更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.13.1 且 9.13.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 - 例如，從 9.13 到 9.14。
+
+. *底層儲存資源*：選擇磁碟類型，配置底層存儲，並選擇是否保持資料分層啟用。
++
+請注意以下事項：
+
++
+** 磁碟類型適用於初始磁碟區（和聚合）。您可以為後續磁碟區（和聚合）選擇不同的磁碟類型。
+** 如果您選擇 gp3 或 io1 磁碟，控制台將使用 AWS 中的彈性磁碟區功能根據需要自動增加底層儲存磁碟容量。您可以根據您的儲存需求選擇初始容量，並在部署Cloud Volumes ONTAP後進行修改。link:concept-aws-elastic-volumes.html["了解有關 AWS 彈性卷支援的更多信息"^] 。
+** 如果您選擇 gp2 或 st1 磁碟，則可以為初始聚合中的所有磁碟以及使用簡單設定選項時控制台建立的任何其他聚合選擇磁碟大小。您可以使用進階分配選項建立使用不同磁碟大小的聚合。
+** 您可以在建立或編輯磁碟區時選擇特定的磁碟區分層策略。
+** 如果您停用資料分層，則可以在後續聚合上啟用它。
++
+link:concept-data-tiering.html["了解資料分層的工作原理"^] 。
+
+
+
+. *寫入速度與 WORM*：
++
+.. 如有需要，請選擇*正常*或*高*寫入速度。
++
+link:concept-write-speed.html["了解有關寫入速度的更多信息"^] 。
+
+.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
++
+如果為Cloud Volumes ONTAP 9.7 及更低版本啟用了資料分層，則無法啟用 WORM。啟用 WORM 和分層後，恢復或降級到Cloud Volumes ONTAP 9.8 的操作將被阻止。
+
++
+link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
+
+.. 如果您啟動 WORM 存儲，請選擇保留期限。
+
+
+. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
++
+link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
+
++
+此頁面中的某些欄位是不言自明的。下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 尺寸 | 您可以輸入的最大大小很大程度上取決於您是否啟用精簡配置，這使您能夠建立比目前可用的實體儲存更大的磁碟區。 
+
+
+| 存取控制（僅適用於 NFS） | 導出策略定義了子網路中可以存取磁碟區的用戶端。預設情況下，控制台輸入一個提供對子網路中所有實例的存取權限的值。 
+
+
+| 權限和使用者/群組（僅適用於 CIFS） | 這些欄位可讓您控制使用者和群組對共用的存取等級（也稱為存取控制清單或 ACL）。您可以指定本機或網域 Windows 使用者或群組，或 UNIX 使用者或群組。如果指定網域 Windows 使用者名，則必須使用網域\使用者名稱格式包含使用者的網域。 
+
+
+| 快照策略 | Snapshot 副本策略指定自動建立的NetApp Snapshot 副本的頻率和數量。NetApp Snapshot 副本是時間點檔案系統映像，它不會影響效能並且只需要最少的儲存空間。您可以選擇預設策略或無策略。對於瞬態數據，您可能會選擇無：例如，對於 Microsoft SQL Server，請選擇 tempdb。 
+
+
+| 進階選項（僅適用於 NFS） | 為磁碟區選擇一個 NFS 版本：NFSv3 或 NFSv4。 
+
+
+| 啟動器群組和 IQN（僅適用於 iSCSI） | iSCSI 儲存目標稱為 LUN（邏輯單元），並以標準區塊裝置呈現給主機。啟動器群組是 iSCSI 主機節點名稱表，用於控制哪些啟動器可以存取哪些 LUN。 iSCSI 目標透過標準乙太網路網路適配器 (NIC)、具有軟體啟動器的 TCP 卸載引擎 (TOE) 卡、融合網路適配器 (CNA) 或專用主機匯流排適配器 (HBA) 連接到網絡，並透過 iSCSI 限定名稱 (IQN) 進行識別。當您建立 iSCSI 磁碟區時，控制台會自動為您建立 LUN。我們透過為每個磁碟區建立一個 LUN 來簡化操作，因此無需進行任何管理。建立磁碟區後，link:task-connect-lun.html["使用 IQN 從主機連線到 LUN"] 。 
+|===
++
+下圖顯示了磁碟區建立精靈的第一頁：
+
++
+image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例填寫的磁碟區頁面。"]
+
+. *CIFS 設定*：如果您選擇 CIFS 協議，請設定 CIFS 伺服器。
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| DNS 主 IP 位址和輔助 IP 位址 | 為 CIFS 伺服器提供名稱解析的 DNS 伺服器的 IP 位址。所列的 DNS 伺服器必須包含定位 CIFS 伺服器將加入的網域的 Active Directory LDAP 伺服器和網域控制站所需的服務位置記錄 (SRV)。 
+
+
+| 要加入的 Active Directory 網域 | 您希望 CIFS 伺服器加入的 Active Directory (AD) 網域的 FQDN。 
+
+
+| 授權加入網域的憑證 | 具有足夠權限將電腦新增至 AD 網域內指定組織單位 (OU) 的 Windows 帳戶的名稱和密碼。 
+
+
+| CIFS 伺服器 NetBIOS 名稱 | AD 網域中唯一的 CIFS 伺服器名稱。 
+
+
+| 組織單位 | AD 網域內與 CIFS 伺服器關聯的組織單位。預設值為 CN=Computers。如果將 AWS Managed Microsoft AD 配置為Cloud Volumes ONTAP 的AD 伺服器，則應在此欄位中輸入 *OU=Computers,OU=corp*。 
+
+
+| DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
+
+
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+|===
+. *使用情況設定檔、磁碟類型和分層原則*：選擇是否要啟用儲存效率功能，並在需要時編輯磁碟區分層策略。
++
+更多信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#choose-a-volume-usage-profile["了解卷使用情況"^]，link:concept-data-tiering.html["資料分層概述"^] ， 和 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支援哪些內嵌儲存效率功能？"^]
+
+. *審核並批准*：審核並確認您的選擇。
++
+.. 查看有關配置的詳細資訊。
+.. 按一下「更多資訊」以查看有關支援和控制台將購買的 AWS 資源的詳細資訊。
+.. 選取*我明白...*複選框。
+.. 按一下“*開始*”。
+
+
+
+
+.結果
+控制台啟動Cloud Volumes ONTAP實例。您可以在*審計*頁面上追蹤進度。
+
+如果您在啟動Cloud Volumes ONTAP實例時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+
+如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
+
+.完成後
+* 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。
+* 如果要將配額套用於卷，請使用ONTAP系統管理員或ONTAP CLI。
++
+配額可讓您限製或追蹤使用者、群組或 qtree 使用的磁碟空間和檔案數量。
+
+
+
+
+
+== 在 AWS 中啟動Cloud Volumes ONTAP HA 對
+
+如果您想要在 AWS 中啟動Cloud Volumes ONTAP HA 對，則需要在控制台中建立 HA 系統。
+
+.限制
+目前，AWS Outposts 不支援 HA 對。
+
+.關於此任務
+建立Cloud Volumes ONTAP系統後，控制台會立即在指定的 VPC 中啟動測試實例以驗證連線性。如果成功，控制台將立即終止實例，然後開始部署Cloud Volumes ONTAP系統。如果無法驗證連接，系統建立將失敗。測試實例可以是 `t2.nano`（對於預設 VPC 租賃）或 `m3.medium`（適用於專用 VPC 租賃）。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在*系統*頁面上，按一下*新增系統*並依照指示操作。
+. 選擇 *Amazon Web Services* 和 * Cloud Volumes ONTAP HA*。
++
+一些 AWS 本地區域可用。
+
++
+您必須先啟用本機區域並在 AWS 帳戶的本機區域中建立子網，然後才能使用 AWS 本地區域。按照*選擇加入 AWS 本機區域*和*將您的 Amazon VPC 擴展到本機區域*中的步驟操作link:https://aws.amazon.com/tutorials/deploying-low-latency-applications-with-aws-local-zones/["AWS 教學課程「開始使用 AWS 本地區域部署低延遲應用程式"^]。
+
++
+如果您執行的是控制台代理 3.9.36 或更低版本，則需要新增 `DescribeAvailabilityZones`AWS EC2 控制台中 AWS 角色的權限。
+
+. *詳細資料和憑證*：可選擇變更 AWS 憑證和訂閱，輸入系統名稱，根據需要新增標籤，然後輸入密碼。
++
+此頁面中的某些欄位是不言自明的。下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Amazon EC2 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
+
+
+| 添加標籤 | AWS 標籤是您的 AWS 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP實例以及與該執行個體關聯的每個 AWS 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["AWS 文件：標記您的 Amazon EC2 資源"^]。 
+
+
+| 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
+
+
+| 編輯憑證 | 選擇要用於此Cloud Volumes ONTAP系統的 AWS 憑證和市場訂閱。點擊「新增訂閱」將所選憑證與新的 AWS 市場訂閱關聯。訂閱可以是年度合同，也可以是按小時付費的Cloud Volumes ONTAP 。如果您直接從NetApp購買了授權（自帶授權 (BYOL)），則無需 AWS 訂閱。 NetApp已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html["了解如何在控制台中新增其他 AWS 憑證"^] 。 
+|===
++
+
+TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使用者都需要訂閱。第一個用戶訂閱後，AWS 市場會通知後續用戶他們已經訂閱，如下圖所示。當 AWS 帳戶有訂閱時，每個 IAM 使用者都需要將自己與該訂閱關聯起來。如果您看到下面顯示的訊息，請點擊「*點擊這裡*」連結前往控制台網站並完成該過程。image:screenshot_aws_marketplace.gif["當 AWS 帳戶已有訂閱但特定 IAM 使用者可能沒有時，顯示Cloud Volumes ONTAP控制台的訂閱頁面的螢幕截圖。"]
+
+. *服務*：啟用服務啟用或停用您不想在此Cloud Volumes ONTAP系統中使用的單一服務。
++
+** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp資料分類的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["了解有關備份和恢復的更多信息"^]
++
+
+TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
+
+
+
+. *HA 部署模型*：選擇 HA 配置。
++
+有關部署模型的概述，請參閱link:concept-ha.html["適用於 AWS 的Cloud Volumes ONTAP HA"^]。
+
+. *位置和連線*（單一可用區 (AZ)）或*區域和 VPC*（多個 AZ）：輸入您在 AWS 工作表中記錄的網路資訊。
++
+下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 產生的安全群組  a| 
+如果您讓控制台為您產生安全性群組，則需要選擇如何允許流量：
+
+** 如果您選擇*僅限選定的 VPC*，則入站流量的來源是選定 VPC 的子網路範圍和控制台代理程式所在 VPC 的子網路範圍。這是推薦的選項。
+** 如果您選擇*所有 VPC*，則入站流量的來源為 0.0.0.0/0 IP 範圍。
+
+
+
+
+| 使用現有的安全群組 | 如果您使用現有的防火牆策略，請確保它包含所需的規則。link:reference-security-groups.html["了解Cloud Volumes ONTAP的防火牆規則"^] 。 
+|===
+. *連線和 SSH 驗證*：選擇 HA 對和中介的連線方法。
+. *浮動 IP*：如果您選擇多個 AZ，請指定浮動 IP 位址。
++
+IP 位址必須位於該區域內所有 VPC 的 CIDR 區塊之外。有關更多詳細信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^]。
+
+. *路由表*：如果您選擇了多個 AZ，請選擇應包含到浮動 IP 位址的路由的路由表。
++
+如果您有多個路由表，那麼選擇正確的路由表非常重要。否則，某些用戶端可能無法存取Cloud Volumes ONTAP HA 對。有關路由表的更多信息，請參閱 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文件：路由表"^]。
+
+. *資料加密*：選擇無資料加密或 AWS 管理加密。
++
+對於 AWS 管理的加密，您可以從您的帳戶或其他 AWS 帳戶中選擇不同的客戶主金鑰 (CMK)。
+
++
+
+TIP: 建立Cloud Volumes ONTAP系統後，您無法變更 AWS 資料加密方法。
+
++
+link:task-setting-up-kms.html["了解如何為Cloud Volumes ONTAP設定 AWS KMS"^] 。
+
++
+link:concept-security.html#encryption-of-data-at-rest["了解有關受支援的加密技術的更多信息"^] 。
+
+. *收費方式和 NSS 帳戶*：指定您想要在此系統中使用的收費選項，然後指定NetApp支援網站帳戶。
++
+** link:concept-licensing.html["了解Cloud Volumes ONTAP的授權選項"^] 。
+** link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
+
+
+. * Cloud Volumes ONTAP配置*（僅限年度 AWS Marketplace 合約）：查看預設配置並點擊*繼續*或點擊*更改配置*以選擇您自己的配置。
++
+如果保留預設配置，則只需要指定一個卷，然後審核並批准該配置。
+
+. *預先配置套件*（按小時或僅限 BYOL）：選擇其中一個套件以快速啟動Cloud Volumes ONTAP，或點擊*變更配置*以選擇您自己的配置。
++
+如果您選擇其中一個包，那麼您只需要指定一個卷，然後審核並批准配置。
+
+. *IAM 角色*：最好保留預設選項，讓控制台為您建立角色。
++
+如果您希望使用自己的政策，則必須滿足link:task-set-up-iam-roles.html["Cloud Volumes ONTAP節點和 HA 調解器的策略需求"^]。
+
+. *許可*：根據需要變更Cloud Volumes ONTAP版本並選擇實例類型和實例租賃。
++
+
+NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式版本，則控制台在建立系統時會將系統更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.13.1 且 9.13.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 - 例如，從 9.13 到 9.14。
+
+. *底層儲存資源*：選擇磁碟類型，配置底層存儲，並選擇是否保持資料分層啟用。
++
+請注意以下事項：
+
++
+** 磁碟類型適用於初始磁碟區（和聚合）。您可以為後續磁碟區（和聚合）選擇不同的磁碟類型。
+** 如果您選擇 gp3 或 io1 磁碟，控制台將使用 AWS 中的彈性磁碟區功能根據需要自動增加底層儲存磁碟容量。您可以根據您的儲存需求選擇初始容量，並在部署Cloud Volumes ONTAP後進行修改。link:concept-aws-elastic-volumes.html["了解有關 AWS 彈性卷支援的更多信息"^] 。
+** 如果您選擇 gp2 或 st1 磁碟，則可以為初始聚合中的所有磁碟以及使用簡單設定選項時控制台建立的任何其他聚合選擇磁碟大小。您可以使用進階分配選項建立使用不同磁碟大小的聚合。
+** 您可以在建立或編輯磁碟區時選擇特定的磁碟區分層策略。
+** 如果您停用資料分層，則可以在後續聚合上啟用它。
++
+link:concept-data-tiering.html["了解資料分層的工作原理"^] 。
+
+
+
+. *寫入速度與 WORM*：
++
+.. 如有需要，請選擇*正常*或*高*寫入速度。
++
+link:concept-write-speed.html["了解有關寫入速度的更多信息"^] 。
+
+.. 如果需要，請啟動一次寫入，多次讀取 (WORM) 儲存。
++
+如果為Cloud Volumes ONTAP 9.7 及更低版本啟用了資料分層，則無法啟用 WORM。啟用 WORM 和分層後，恢復或降級到Cloud Volumes ONTAP 9.8 的操作將被阻止。
+
++
+link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
+
+.. 如果您啟動 WORM 存儲，請選擇保留期限。
+
+
+. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
++
+link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
+
++
+此頁面中的某些欄位是不言自明的。下表描述了您可能需要指導的欄位：
+
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| 尺寸 | 您可以輸入的最大大小很大程度上取決於您是否啟用精簡配置，這使您能夠建立比目前可用的實體儲存更大的磁碟區。 
+
+
+| 存取控制（僅適用於 NFS） | 導出策略定義了子網路中可以存取磁碟區的用戶端。預設情況下，控制台輸入一個提供對子網路中所有實例的存取權限的值。 
+
+
+| 權限和使用者/群組（僅適用於 CIFS） | 這些欄位可讓您控制使用者和群組對共用的存取等級（也稱為存取控制清單或 ACL）。您可以指定本機或網域 Windows 使用者或群組，或 UNIX 使用者或群組。如果指定網域 Windows 使用者名，則必須使用網域\使用者名稱格式包含使用者的網域。 
+
+
+| 快照策略 | Snapshot 副本策略指定自動建立的NetApp Snapshot 副本的頻率和數量。NetApp Snapshot 副本是時間點檔案系統映像，它不會影響效能並且只需要最少的儲存空間。您可以選擇預設策略或無策略。對於瞬態數據，您可能會選擇無：例如，對於 Microsoft SQL Server，請選擇 tempdb。 
+
+
+| 進階選項（僅適用於 NFS） | 為磁碟區選擇一個 NFS 版本：NFSv3 或 NFSv4。 
+
+
+| 啟動器群組和 IQN（僅適用於 iSCSI） | iSCSI 儲存目標稱為 LUN（邏輯單元），並以標準區塊裝置呈現給主機。啟動器群組是 iSCSI 主機節點名稱表，用於控制哪些啟動器可以存取哪些 LUN。 iSCSI 目標透過標準乙太網路網路適配器 (NIC)、具有軟體啟動器的 TCP 卸載引擎 (TOE) 卡、融合網路適配器 (CNA) 或專用主機匯流排適配器 (HBA) 連接到網絡，並透過 iSCSI 限定名稱 (IQN) 進行識別。當您建立 iSCSI 磁碟區時，控制台會自動為您建立 LUN。我們透過為每個磁碟區建立一個 LUN 來簡化操作，因此無需進行任何管理。建立磁碟區後，link:task-connect-lun.html["使用 IQN 從主機連線到 LUN"] 。 
+|===
++
+下圖顯示了磁碟區建立精靈的第一頁：
+
++
+image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例填寫的磁碟區頁面。"]
+
+. *CIFS 設定*：如果您選擇了 CIFS 協議，請設定 CIFS 伺服器。
++
+[cols="25,75"]
+|===
+| 場地 | 描述 
+
+
+| DNS 主 IP 位址和輔助 IP 位址 | 為 CIFS 伺服器提供名稱解析的 DNS 伺服器的 IP 位址。所列的 DNS 伺服器必須包含定位 CIFS 伺服器將加入的網域的 Active Directory LDAP 伺服器和網域控制站所需的服務位置記錄 (SRV)。 
+
+
+| 要加入的 Active Directory 網域 | 您希望 CIFS 伺服器加入的 Active Directory (AD) 網域的 FQDN。 
+
+
+| 授權加入網域的憑證 | 具有足夠權限將電腦新增至 AD 網域內指定組織單位 (OU) 的 Windows 帳戶的名稱和密碼。 
+
+
+| CIFS 伺服器 NetBIOS 名稱 | AD 網域中唯一的 CIFS 伺服器名稱。 
+
+
+| 組織單位 | AD 網域內與 CIFS 伺服器關聯的組織單位。預設值為 CN=Computers。如果將 AWS Managed Microsoft AD 配置為Cloud Volumes ONTAP 的AD 伺服器，則應在此欄位中輸入 *OU=Computers,OU=corp*。 
+
+
+| DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
+
+
+| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+|===
+. *使用情況設定檔、磁碟類型和分層原則*：選擇是否要啟用儲存效率功能，並在需要時編輯磁碟區分層策略。
++
+更多信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#choose-a-volume-usage-profile["選擇卷使用情況設定檔"^]和link:concept-data-tiering.html["資料分層概述"^]。
+
+. *審核並批准*：審核並確認您的選擇。
++
+.. 查看有關配置的詳細資訊。
+.. 按一下「更多資訊」以查看有關支援和控制台將購買的 AWS 資源的詳細資訊。
+.. 選取*我明白...*複選框。
+.. 按一下“*開始*”。
+
+
+
+
+.結果
+控制台啟動Cloud Volumes ONTAP HA 對。您可以在*審核*頁面上追蹤進度。
+
+如果您在啟動 HA 對時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊重新建立環境。
+
+如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
+
+.完成後
+* 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。
+* 如果要將配額套用於卷，請使用ONTAP系統管理員或ONTAP CLI。
++
+配額可讓您限製或追蹤使用者、群組或 qtree 使用的磁碟空間和檔案數量。
+
+
+
+.相關連結
+* link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"]
+* link:task-quick-deploy-aws.html["使用快速部署在 AWS 中部署Cloud Volumes ONTAP"]
+

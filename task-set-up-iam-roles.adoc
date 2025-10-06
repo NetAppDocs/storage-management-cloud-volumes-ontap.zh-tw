@@ -1,0 +1,340 @@
+---
+sidebar: sidebar 
+permalink: task-set-up-iam-roles.html 
+keywords: iam role, mediator role, cloud volumes ontap role, policy, iam policy, permissions, cloud backup 
+summary: 必須將具有所需權限的 IAM 角色附加到每個Cloud Volumes ONTAP節點。對於 HA 調解員也是如此。最簡單的方法是讓控制台為您建立 IAM 角色，但您也可以使用自己的角色。 
+---
+= 為Cloud Volumes ONTAP節點設定 AWS IAM 角色
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+必須將具有所需權限的 AWS 身分和存取管理 (IAM) 角色附加到每個Cloud Volumes ONTAP節點。對於 HA 調解員也是如此。最簡單的方法是讓NetApp控制台為您建立 IAM 角色，但您也可以使用自己的角色。
+
+此任務是可選的。建立Cloud Volumes ONTAP系統時，預設選項是讓控制台為您建立 IAM 角色。如果您企業的安全政策要求您自行建立 IAM 角色，請依照下列步驟操作。
+
+
+NOTE: AWS Secret Cloud 需要提供您自己的 IAM 角色。link:task-getting-started-aws-c2s.html["了解如何在 C2S 中部署Cloud Volumes ONTAP"] 。
+
+.步驟
+. 前往 AWS IAM 主控台。
+. 建立包含下列權限的 IAM 原則：
++
+** Cloud Volumes ONTAP節點的基本策略
++
+[role="tabbed-block"]
+====
+.標準區域
+--
+[source, json]
+----
+{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Action": "s3:ListAllMyBuckets",
+			"Resource": "arn:aws:s3:::*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:ListBucket",
+				"s3:GetBucketLocation"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:GetObject",
+				"s3:PutObject",
+				"s3:DeleteObject"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}
+	]
+}
+----
+--
+.GovCloud（美國）區域
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-us-gov:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}
+----
+--
+.絕密地區
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-iso:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}
+----
+--
+.秘密區域
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-iso-b:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-iso-b:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-iso-b:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}
+----
+--
+====
+** Cloud Volumes ONTAP節點的備份策略
++
+如果您打算將NetApp Backup and Recovery 與Cloud Volumes ONTAP系統一起使用，則節點的 IAM 角色必須包含下方顯示的第二個原則。
+
++
+[role="tabbed-block"]
+====
+.標準區域
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging",
+                "s3:RestoreObject",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectRetention",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*/*",
+            "Effect": "Allow"
+        }
+    ]
+}
+----
+--
+.GovCloud（美國）區域
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws-us-gov:s3:::netapp-backup*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging",
+                "s3:RestoreObject",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectRetention",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws-us-gov:s3:::netapp-backup*/*",
+            "Effect": "Allow"
+        }
+    ]
+}
+----
+--
+.絕密地區
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws-iso:s3:::netapp-backup*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging",
+                "s3:RestoreObject",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectRetention",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws-iso:s3:::netapp-backup*/*",
+            "Effect": "Allow"
+        }
+    ]
+}
+----
+--
+.秘密區域
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws-iso-b:s3:::netapp-backup*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging",
+                "s3:RestoreObject",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectRetention",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws-iso-b:s3:::netapp-backup*/*",
+            "Effect": "Allow"
+        }
+    ]
+}
+----
+--
+====
+** HA介導者
++
+--
+[source, json]
+----
+{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AssignPrivateIpAddresses",
+				"ec2:CreateRoute",
+				"ec2:DeleteRoute",
+				"ec2:DescribeNetworkInterfaces",
+				"ec2:DescribeRouteTables",
+				"ec2:DescribeVpcs",
+				"ec2:ReplaceRoute",
+				"ec2:UnassignPrivateIpAddresses",
+                "sts:AssumeRole",
+                "ec2:DescribeSubnets"
+			],
+			"Resource": "*"
+		}
+	]
+}
+----
+--
+
+
+. 建立一個 IAM 角色並將您建立的策略附加到該角色。
+
+
+.結果
+現在，您擁有可以在建立新的Cloud Volumes ONTAP系統時選擇的 IAM 角色。
+
+.更多資訊
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["AWS 文件：建立 IAM 原則"^]
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html["AWS 文件：建立 IAM 角色"^]
+

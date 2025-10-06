@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: concept-cvo-aiq-digital-advisor.html 
+keywords: concepts, digital advisor, cloud volumes ontap, cloud manager, BlueXP, NetApp Console 
+summary: Digital Advisor整合到NetApp控制台中，以便您可以在單一管理平台中最佳化ONTAP叢集的操作、安全性和效能。 
+---
+= 使用Digital Advisor優化您的Cloud Volumes ONTAP系統
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+https://www.netapp.com/services/support/active-iq/["Active IQDigital Advisor"]（也稱為Digital Advisor）整合到NetApp控制台中，以便您可以在單一管理平台中最佳化Cloud Volumes ONTAP系統的操作、安全性和效能。
+
+
+
+== 特徵
+
+您可以使用Digital Advisor查看儲存系統的整體狀態、有關係統健康狀況的高級資訊、庫存、計劃以及監視清單層級的寶貴見解。
+
+* 分析並優化儲存系統的健康狀況
+* 深入了解儲存系統的所有風險以及降低風險的措施
+* 透過查看效能資料的圖形格式來分析儲存設備的效能
+* 獲取有關容量超過 90% 或接近 90% 的系統的詳細信息
+
+
+
+
+== 支援的ONTAP系統
+
+Digital Advisor提供您 NSS 帳戶內所有本地ONTAP系統和Cloud Volumes ONTAP系統的資訊。
+
+
+
+== 成本
+
+透過控制台使用此服務是免費的。
+
+
+
+== Digital Advisor如何與NetApp Console 搭配使用
+
+Digital Advisor使用者介面完全整合在控制台中。
+
+在左側面板中，按一下「健康」> “Digital Advisor”。
+
+* 如果您已經在控制台中註冊了一個現有的 NSS 帳戶，則Digital Advisor UI 的顯示方式與您在獨立實施中看到的一樣 https://activeiq.netapp.com/[]。
++
+image:screenshot_aiq_digital_advisor.png["控制台中Digital Advisor使用者介面的螢幕截圖。"]
+
+* 如果您尚未在控制台中註冊 NSS 帳戶，請立即註冊 NSS 帳戶，然後就會出現Digital Advisor UI。參考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["管理與組織或帳戶關聯的 NSS 憑證"]以取得說明。
+
+
+
+NOTE: 自 2021 年 12 月 3 日起， NetApp已改用註冊 NSS 帳戶憑證的新方法。有關更多信息，請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["此常見問題解答"] 。如果您的 NSS 帳戶使用舊的憑證集，您將需要將帳戶更新為新的憑證。
+
+
+
+== 下一步
+
+請參閱 https://docs.netapp.com/us-en/active-iq/index.html["Digital Advisor文檔"]了解詳情。

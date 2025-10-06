@@ -1,0 +1,282 @@
+---
+sidebar: sidebar 
+permalink: task-segregate-snapmirror-azure.html 
+keywords: segregate, SnapMirror, SnapMirror traffic, SnapMirror replication, add, additional NIC, new NIC, intercluster LIF, non-routable subnet, subnet 
+summary: 透過 Azure 中的Cloud Volumes ONTAP ，您可以使用不同的網路隔離SnapMirror複製流量，以增強資料的安全性和效能。 
+---
+= 在 Azure 中隔離SnapMirror流量
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用 Azure 中的Cloud Volumes ONTAP ，您可以將SnapMirror複製流量與資料和管理流量分開。為了將SnapMirror複製流量與資料流量隔離，您需要新增一個新的網路介面卡 (NIC)、一個相關的群集間 LIF 和一個不可路由的子網路。
+
+
+
+== 關於 Azure 中的SnapMirror流量隔離
+
+預設情況下， NetApp控制台會在相同子網路上設定Cloud Volumes ONTAP部署中的所有 NIC 和 LIF。在這樣的設定中， SnapMirror複製流量和資料和管理流量使用相同的子網路。隔離SnapMirror流量利用了無法路由到用於資料和管理流量的現有子網路的額外子網路。
+
+.圖 1
+下圖顯示了在單一節點部署中，使用附加 NIC、關聯的群集間 LIF 和不可路由子網路對SnapMirror複製流量進行隔離。  HA 對部署略有不同。
+
+image:diagram-segregate-snapmirror-traffic.png["此圖展示了單節點配置中SnapMirror複製流量的隔離"]
+
+.開始之前
+回顧以下注意事項：
+
+* 您只能向Cloud Volumes ONTAP單節點或 HA 對部署（VM 實例）新增單一 NIC 以實現SnapMirror流量隔離。
+* 若要新增新的 NIC，您部署的 VM 實例類型必須具有未使用的 NIC。
+* 來源叢集和目標叢集應該可以存取同一個虛擬網路 (VNet)。目標叢集是 Azure 中的Cloud Volumes ONTAP系統。來源叢集可以是 Azure 中的Cloud Volumes ONTAP系統或ONTAP系統。
+
+
+
+
+== 步驟 1：建立額外的 NIC 並連接到目標 VM
+
+本節提供有關如何建立附加 NIC 並將其附加到目標 VM 的說明。目標 VM 是 Azure 中Cloud Volumes ONTAP中的單節點或 HA 對系統，您要設定額外的 NIC。
+
+.步驟
+. 在ONTAP CLI 中，停止該節點。
++
+[source, cli]
+----
+dest::> halt -node <dest_node-vm>
+----
+. 在 Azure 入口網站中，檢查 VM（節點）狀態是否已停止。
++
+[source, cli]
+----
+az vm get-instance-view --resource-group <dest-rg> --name <dest-vm> --query instanceView.statuses[1].displayStatus
+----
+. 使用 Azure Cloud Shell 中的 Bash 環境停止節點。
++
+.. 停止節點。
++
+[source, cli]
+----
+az vm stop --resource-group <dest_node-rg> --name <dest_node-vm>
+----
+.. 解除分配節點。
++
+[source, cli]
+----
+az vm deallocate --resource-group <dest_node-rg> --name <dest_node-vm>
+----
+
+
+. 設定網路安全群組規則，讓兩個子網路（來源叢集子網路和目標叢集子網路）互不可達。
++
+.. 在目標虛擬機器上建立新的 NIC。
+.. 尋找來源叢集子網路的子網路 ID。
++
+[source, cli]
+----
+az network vnet subnet show -g <src_vnet-rg> -n <src_subnet> --vnet-name <vnet> --query id
+----
+.. 使用來源叢集子網路的子網路 ID 在目標虛擬機器上建立新的 NIC。在這裡輸入新 NIC 的名稱。
++
+[source, cli]
+----
+az network nic create -g <dest_node-rg> -n <dest_node-vm-nic-new> --subnet <id_from_prev_command> --accelerated-networking true
+----
+.. 保存私有IP位址。此 IP 位址 <new_added_nic_primary_addr> 用於在<<Step 2: Create a new IPspace,廣播域，新 NIC 的群集間 LIF>>。
+
+
+. 將新的 NIC 附加到 VM。
++
+[source, cli]
+----
+az vm nic add -g <dest_node-rg> --vm-name <dest_node-vm> --nics <dest_node-vm-nic-new>
+----
+. 啟動虛擬機器（節點）。
++
+[source, cli]
+----
+az vm start --resource-group <dest_node-rg>  --name <dest_node-vm>
+----
+. 在 Azure 入口網站中，前往 *網路* 並確認新的 NIC（例如 nic-new）存在並且加速網路已啟用。
++
+[source, cli]
+----
+az network nic list --resource-group azure-59806175-60147103-azure-rg --query "[].{NIC: name, VM: virtualMachine.id}"
+----
+
+
+對於 HA 對部署，請對合作夥伴節點重複這些步驟。
+
+
+
+== 步驟 2：為新 NIC 建立新的 IP 空間、廣播域和群集間 LIF
+
+群集間 LIF 的單獨 IP 空間為群集間複製的網路功能提供了邏輯分離。
+
+使用ONTAP CLI 執行以下步驟。
+
+.步驟
+. 建立新的 IP 空間（new_ipspace）。
++
+[source, cli]
+----
+dest::> network ipspace create -ipspace <new_ipspace>
+----
+. 在新的 IP 空間（new_ipspace）上建立廣播網域並新增 nic-new 連接埠。
++
+[source, cli]
+----
+dest::> network port show
+----
+. 對於單節點系統，新加入的連接埠是_e0b_。對於具有託管磁碟的 HA 對部署，新新增的連接埠是 _e0d_。對於具有頁 Blob 的 HA 對部署，新新增的連接埠是 _e0e_。使用節點名稱而不是虛擬機器名稱。透過運行查找節點名稱 `node show`。
++
+[source, cli]
+----
+dest::> broadcast-domain create -broadcast-domain <new_bd> -mtu 1500 -ipspace <new_ipspace> -ports <dest_node-cot-vm:e0b>
+----
+. 在新的廣播域 (new_bd) 和新的 NIC (nic-new) 上建立叢集間 LIF。
++
+[source, cli]
+----
+dest::> net int create -vserver <new_ipspace> -lif <new_dest_node-ic-lif> -service-policy default-intercluster -address <new_added_nic_primary_addr> -home-port <e0b> -home-node <node> -netmask <new_netmask_ip> -broadcast-domain <new_bd>
+----
+. 驗證新的集群間 LIF 的建立。
++
+[source, cli]
+----
+dest::> net int show
+----
+
+
+對於 HA 對部署，請對合作夥伴節點重複這些步驟。
+
+
+
+== 步驟 3：驗證來源系統和目標系統之間的叢集對等連接
+
+本節提供有關如何驗證來源系統和目標系統之間的對等關係的說明。
+
+使用ONTAP CLI 執行以下步驟。
+
+.步驟
+. 驗證目標群集的群集間 LIF 是否可以對來源群集的群集間 LIF 執行 ping 操作。由於目標群集執行此命令，因此目標 IP 位址是來源上的群集間 LIF IP 位址。
++
+[source, cli]
+----
+dest::> ping -lif <new_dest_node-ic-lif> -vserver <new_ipspace> -destination <10.161.189.6>
+----
+. 驗證來源集群的集群間 LIF 是否可以 ping 通目標集群的集群間 LIF。目標是在目標上建立的新 NIC 的 IP 位址。
++
+[source, cli]
+----
+src::> ping -lif <src_node-ic-lif> -vserver <src_svm> -destination <10.161.189.18>
+----
+
+
+對於 HA 對部署，請對合作夥伴節點重複這些步驟。
+
+
+
+== 步驟 4：在來源系統和目標系統之間建立 SVM 對等連接
+
+本節提供如何在來源系統和目標系統之間建立 SVM 對等的說明。
+
+使用ONTAP CLI 執行以下步驟。
+
+.步驟
+. 使用來源集群間 LIF IP 位址作為目標在目標上建立集群對等 `-peer-addrs`。對於 HA 對，列出兩個節點的來源群集間 LIF IP 位址作為 `-peer-addrs`。
++
+[source, cli]
+----
+dest::> cluster peer create -peer-addrs <10.161.189.6> -ipspace <new_ipspace>
+----
+. 輸入並確認密碼。
+. 使用目標群集 LIF IP 位址作為來源群集的 IP 位址，在來源上建立群集對等連接 `peer-addrs`。對於 HA 對，列出兩個節點的目標群集間 LIF IP 位址作為 `-peer-addrs`。
++
+[source, cli]
+----
+src::> cluster peer create -peer-addrs <10.161.189.18>
+----
+. 輸入並確認密碼。
+. 檢查集群是否對等。
++
+[source, cli]
+----
+src::> cluster peer show
+----
++
+成功的對等連線在可用性欄位中顯示 *可用*。
+
+. 在目標上建立 SVM 對等連線。來源 SVM 和目標 SVM 都應該是資料 SVM。
++
+[source, cli]
+----
+dest::> vserver peer create -vserver <dest_svm> -peer-vserver <src_svm> -peer-cluster <src_cluster> -applications snapmirror``
+----
+. 接受 SVM 對等連線。
++
+[source, cli]
+----
+src::> vserver peer accept -vserver <src_svm> -peer-vserver <dest_svm>
+----
+. 檢查 SVM 是否對等。
++
+[source, cli]
+----
+dest::> vserver peer show
+----
++
+同行國家顯示*`peered`* 和對等應用程式顯示*`snapmirror`*.
+
+
+
+
+
+== 步驟 5：在來源系統和目標系統之間建立SnapMirror複製關係
+
+本節提供如何在來源系統和目標系統之間建立SnapMirror複製關係的說明。
+
+要移動現有的SnapMirror複製關係，必須先中斷現有的SnapMirror複製關係，然後再建立新的SnapMirror複製關係。
+
+使用ONTAP CLI 執行以下步驟。
+
+.步驟
+. 在目標 SVM 上建立資料保護磁碟區。
++
+[source, cli]
+----
+dest::> vol create -volume <new_dest_vol> -vserver <dest_svm> -type DP -size <10GB> -aggregate <aggr1>
+----
+. 在目標上建立SnapMirror複製關係，其中包括複製的SnapMirror策略和計劃。
++
+[source, cli]
+----
+dest::> snapmirror create -source-path src_svm:src_vol  -destination-path  dest_svm:new_dest_vol -vserver dest_svm -policy MirrorAllSnapshots -schedule 5min
+----
+. 在目標上初始化SnapMirror複製關係。
++
+[source, cli]
+----
+dest::> snapmirror initialize -destination-path  <dest_svm:new_dest_vol>
+----
+. 在ONTAP CLI 中，透過執行以下命令驗證SnapMirror關係狀態：
++
+[source, cli]
+----
+dest::> snapmirror show
+----
++
+關係狀態是 `Snapmirrored`關係的健康是 `true`。
+
+. 可選：在ONTAP CLI 中，執行以下命令查看SnapMirror關係的操作記錄。
++
+[source, cli]
+----
+dest::> snapmirror show-history
+----
+
+
+或者，您可以掛載來源磁碟區和目標卷，將檔案寫入來源卷，並驗證磁碟區是否複製到目標磁碟區。

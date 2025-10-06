@@ -1,0 +1,15 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: index.html 
+summary: Cloud Volumes ONTAP可讓您最佳化雲端儲存成本和效能，同時增強資料保護、安全性和合規性。 
+---
+= Cloud Volumes ONTAP文檔
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

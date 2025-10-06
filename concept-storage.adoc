@@ -1,0 +1,142 @@
+---
+sidebar: sidebar 
+permalink: concept-storage.html 
+keywords: storage, capacity, volumes, aggregates, raw capacity, usable capacity 
+summary: 了解Cloud Volumes ONTAP如何使用雲端儲存可以幫助您了解儲存成本。 
+---
+= 用於Cloud Volumes ONTAP叢集的磁碟和聚合
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+了解Cloud Volumes ONTAP如何使用雲端儲存可以幫助您了解儲存成本。
+
+
+CAUTION: 您必須從NetApp控制台建立和刪除所有磁碟和聚合。您不應從其他管理工具執行這些操作。這樣做會影響系統穩定性，妨礙將來添加磁碟的能力，並可能產生冗餘的雲端供應商費用。
+
+
+
+== 概況
+
+Cloud Cloud Volumes ONTAP供應商儲存作為磁碟並將它們分組為一個或多個聚合。聚合為一個或多個磁碟區提供儲存。
+
+image:diagram_storage.png["此圖顯示了由磁碟組成的聚合以及Cloud Volumes ONTAP向主機提供的資料磁碟區。"]
+
+支援多種類型的雲端盤。建立磁碟區時選擇磁碟類型，部署Cloud Volumes ONTAP時選擇預設磁碟大小。
+
+
+TIP: 從雲端提供者購買的儲存總量是_原始容量_。 _可用容量_較少，因為大約 12% 到 14% 是為Cloud Volumes ONTAP使用保留的開銷。例如，如果控制台建立 500 GiB 聚合，則可用容量為 442.94 GiB。
+
+ifdef::aws[]
+
+
+
+== AWS 儲存
+
+在 AWS 中， Cloud Volumes ONTAP使用 EBS 儲存來儲存使用者數據，並在某些 EC2 執行個體類型上使用本機 NVMe 儲存作為快閃記憶體快取。
+
+EBS 儲存:: 在 AWS 中，一個聚合最多可以包含 6 個大小相同的磁碟。但是，如果您的配置支援 Amazon EBS 彈性磁碟區功能，則聚合最多可以包含 8 個磁碟。link:concept-aws-elastic-volumes.html["了解有關彈性卷支持的更多信息"] 。
++
+--
+最大磁碟大小為 16 TiB。
+
+底層 EBS 磁碟類型可以是通用 SSD（gp3 或 gp2）、預先設定 IOPS SSD（io1）或吞吐量最佳化 HDD（st1）。您可以將 EBS 磁碟與 Amazon S3 配對，以link:concept-data-tiering.html["低成本物件存儲"]。
+
+
+NOTE: 使用吞吐量最佳化 HDD (st1) 時，不建議將資料分層到物件儲存。
+
+--
+本地 NVMe 存儲:: 一些 EC2 執行個體類型包括本地 NVMe 存儲， Cloud Volumes ONTAP將其用作link:concept-flash-cache.html["快閃記憶體"]。
+
+
+相關連結
+
+* http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["AWS 文件：EBS 磁碟區類型"^]
+* link:task-planning-your-config.html["了解如何為 AWS 中的系統選擇磁碟類型和磁碟大小"]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html["查看 AWS 中Cloud Volumes ONTAP的儲存限制"^]
+* http://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["查看 AWS 中Cloud Volumes ONTAP支援的配置"^]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+== Azure 儲存
+
+在 Azure 中，聚合最多可以包含 12 個大小相同的磁碟。磁碟類型和最大磁碟大小取決於您使用單節點系統還是 HA 對：
+
+單節點系統:: 單節點系統可以使用下列類型的 Azure 託管磁碟：
++
+--
+* _進階 SSD 託管磁碟_ 以更高的成本為 I/O 密集型工作負載提供高效能。
+* 與高級 SSD 託管磁碟相比，_高級 SSD v2 託管磁碟_ 為單節點和 HA 對提供了更高的效能和更低的延遲，並且成本更低。
+* _標準 SSD 託管磁碟_為需要低 IOPS 的工作負載提供一致的效能。
+* 如果您不需要高 IOPS 並且想要降低成本，那麼「標準 HDD 託管磁碟」是一個不錯的選擇。
++
+每種託管磁碟類型的最大磁碟大小為 32 TiB。
+
++
+您可以將託管磁碟與 Azure Blob 儲存空間配對，以link:concept-data-tiering.html["低成本物件存儲"]。
+
+
+
+--
+HA 對:: HA 對使用兩種類型的磁碟，它們以更高的成本為 I/O 密集型工作負載提供高效能：
++
+--
+* _Premium page blob_，最大磁碟大小為 8 TiB
+* _託管磁碟_，最大磁碟大小為 32 TiB
+
+
+--
+
+
+相關連結
+
+* link:task-planning-your-config-azure.html["了解如何為 Azure 中的系統選擇磁碟類型和磁碟大小"]
+* link:task-deploying-otc-azure.html#launching-a-cloud-volumes-ontap-ha-pair-in-azure["在 Azure 中啟動Cloud Volumes ONTAP HA 對"]
+* https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types["Microsoft Azure 文件：Azure 託管磁碟類型"^]
+* https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-pageblob-overview["Microsoft Azure 文件：Azure 頁 Blob 概述"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["查看 Azure 中Cloud Volumes ONTAP的儲存限制"^]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+== Google 雲端儲存
+
+在 Google Cloud 中，聚合最多可以包含 6 個大小相同的磁碟。最大磁碟大小為 64 TiB。
+
+磁碟類型可以是_區域 SSD 持久性磁碟_、_區域平衡持久性磁碟_或_區域標準持久磁碟_。您可以將永久性磁碟與 Google 儲存桶配對，以link:concept-data-tiering.html["低成本物件存儲"]。
+
+相關連結
+
+* https://cloud.google.com/compute/docs/disks/["Google Cloud 文件：儲存選項"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["查看 Google Cloud 中Cloud Volumes ONTAP 的儲存限制"^]
+
+
+endif::gcp[]
+
+
+
+== RAID 類型
+
+每個Cloud Volumes ONTAP聚合的 RAID 類型是 RAID0（條帶化）。 Cloud Volumes ONTAP依賴雲端供應商來實現磁碟的可用性和耐用性。不支援其他 RAID 類型。
+
+
+
+=== 熱備品
+
+RAID0 不支援使用熱備件實現冗餘。
+
+建立連接到Cloud Volumes ONTAP實例的未使用磁碟（熱備用）是不必要的開支，並且可能會阻止根據需要配置額外的空間。因此，不建議這麼做。

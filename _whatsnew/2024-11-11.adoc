@@ -1,0 +1,53 @@
+= 基於節點的許可證的可用性終止
+:allow-uri-read: 
+
+
+
+
+=== 基於節點的許可證的可用性終止
+
+NetApp已計劃終止提供 (EOA) 和終止支援 (EOS) Cloud Volumes ONTAP基於節點的授權。從 2024 年 11 月 11 日起，基於節點的許可證的有限可用性已終止。基於節點的授權支援將於 2024 年 12 月 31 日結束。在基於節點的許可證 EOA 之後，您應該使用BlueXP許可證轉換工具過渡到基於容量的許可證。
+
+對於年度或長期承諾， NetApp建議您在 EOA 日期或授權到期日之前聯絡您的NetApp代表，以確保過渡的先決條件到位。如果您沒有Cloud Volumes ONTAP節點的長期合同，並且根據按需付費 (PAYGO) 訂閱運行您的系統，那麼在 EOS 日期之前規劃您的轉換非常重要。對於長期合約和 PAYGO 訂閱，您都可以使用BlueXP授權轉換工具進行無縫轉換。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^] https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-convert-node-capacity.html["將Cloud Volumes ONTAP基於節點的許可證轉換為基於容量的許可證"^]
+
+
+
+=== 從BlueXP中刪除基於節點的部署
+
+使用基於節點的許可證部署Cloud Volumes ONTAP系統的選項在BlueXP上已棄用。除少數特殊情況外，您不能對任何雲端提供者的Cloud Volumes ONTAP部署使用基於節點的授權。
+
+NetApp認識到符合合約義務和營運需求的以下獨特授權要求，並將在這些情況下繼續支援基於節點的授權：
+
+* 美國公共部門客戶
+* 私有模式下的部署
+* AWS 中國區Cloud Volumes ONTAP部署
+* 如果您擁有有效、未過期的按節點自帶授權（BYOL 授權）
+
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^]
+
+
+
+=== 在 Azure Blob 儲存體上為Cloud Volumes ONTAP資料新增冷層
+
+BlueXP現在可讓您選擇冷層來儲存 Azure Blob 儲存體上的非活動容量層資料。在現有的熱層和冷層中添加冷層可為您提供更實惠的儲存選項並提高成本效率。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html#data-tiering-in-azure["Azure 中的資料分層"^]
+
+
+
+=== 限制 Azure 儲存帳戶公共存取的選項
+
+現在您可以選擇限制對 Azure 中Cloud Volumes ONTAP系統的儲存帳戶的公共存取。透過停用訪問，您可以保護您的私人 IP 位址不被洩露，即使在同一個 VNet 內，也需要遵守您組織的安全策略。此選項也會停用Cloud Volumes ONTAP系統的資料分層，並且適用於單節點和高可用性對。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-azure.html#security-group-rules["安全群組規則"^] 。
+
+
+
+=== 部署Cloud Volumes ONTAP後啟用 WORM
+
+現在，您可以使用BlueXP在現有的Cloud Volumes ONTAP系統上啟動一次寫入、多次讀取 (WORM) 儲存。此功能為您提供了在工作環境中啟用 WORM 的靈活性，即使在建立期間未啟用 WORM。一旦啟用，您就無法停用 WORM。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-worm.html#enabling-worm-on-a-cloud-volumes-ontap-working-environment["在Cloud Volumes ONTAP工作環境中啟用 WORM"^]

@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: task-administer-advanced-view.html 
+keywords: system manager, advanced view, access system manager, load system manager, use system manager, cloud tiering 
+summary: 如果您需要對Cloud Volumes ONTAP執行高階管理，則可以使用ONTAP System Manager（它是ONTAP系統提供的管理介面）來執行此操作。我們已將系統管理員介面直接包含在控制台內，以便您無需離開控制台即可進行高階管理。 
+---
+= 使用系統管理員管理Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP中的高階儲存管理功能可透過ONTAP系統管理器 ( ONTAP System Manager) 使用，它是ONTAP系統提供的管理介面。您可以直接從NetApp控制台存取系統管理員。
+
+
+
+== 特徵
+
+您可以使用控制台中的ONTAP系統管理員執行各種儲存管理功能。以下列表包含其中一些功能，但並不詳盡：
+
+* 進階儲存管理：管理一致性群組、共用、qtree、配額和儲存虛擬機器。
+* 成交量變動： link:task-manage-volumes.html#move-a-volume["將磁碟區移動到不同的聚合。"]
+* 網路管理：管理 IP 空間、網路介面、連接埠集和乙太網路連接埠。
+* 管理FlexGroup磁碟區：您只能透過系統管理員建立和管理FlexGroup磁碟區。 BlueXP控制台不支援FlexGroup磁碟區建立。
+* 事件和作業：查看事件日誌、系統警報、作業和稽核日誌。
+* 進階資料保護：保護儲存虛擬機器、LUN 和一致性群組。
+* 主機管理：設定 SAN 啟動器群組和 NFS 用戶端。
+* S3 物件儲存管理： Cloud Volumes ONTAP中的 S3 儲存管理功能僅在系統管理員中可用，而不在控制台中可用。
+
+
+
+
+== 支援的配置
+
+* 標準雲端區域中的Cloud Volumes ONTAP 9.10.0 及更高版本可透過ONTAP System Manager 進行進階儲存管理。
+* GovCloud 區域或沒有出站網路存取的區域不支援系統管理員整合。
+
+
+
+
+== 限制
+
+Cloud Volumes ONTAP不支援系統管理器介面中顯示的一些功能：
+
+* NetApp Cloud Tiering： Cloud Volumes ONTAP不支援 Cloud Tiering。建立磁碟區時，您應該直接從標準視圖設定資料分層到物件儲存。
+* 層級：系統管理員不支援聚合管理（包括本機層級和雲端層級）。您必須直接從標準視圖管理聚合。
+* 韌體升級： Cloud Volumes ONTAP不支援從系統管理員的 *叢集 > 設定* 頁面進行自動韌體更新。
+* 基於角色的存取控制：系統管理員不支援基於角色的存取控制。
+* SMB 持續可用性 (CA)： Cloud Volumes ONTAP不支援 https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/What_are_SMB_Continuous_Availability_CA_Shares["持續可用的 SMB 共享"^]實現無中斷運作。
+
+
+
+
+== 配置存取系統管理員的身份驗證
+
+身為管理員，您可以為從控制台存取ONTAP系統管理員的使用者啟動身份驗證。您可以根據ONTAP使用者角色確定正確的存取權限級別，並根據需要啟用或停用身份驗證。如果啟用身份驗證，則使用者每次從控制台存取系統管理員或重新載入頁面時都需要輸入其ONTAP使用者憑證，因為控制台不會在內部儲存憑證。如果您停用身份驗證，使用者可以使用管理員憑證存取系統管理員。
+
+
+NOTE: 此設定適用於您組織或帳戶中的ONTAP使用者的每個控制台代理，無論Cloud Volumes ONTAP系統為何。
+
+.所需權限
+您需要指派組織或帳戶管理員權限才能修改Cloud Volumes ONTAP使用者驗證的控制台代理設定。
+
+.步驟
+. 從左側導覽窗格前往*管理>代理*。
+. 點選image:icon-action.png[""]所需控制台代理的圖示並選擇*編輯控制台代理*。
+. 在*強制使用者憑證*下，選取*啟用/停用*複選框。預設情況下，身份驗證是禁用的。
++
+
+NOTE: 如果將此值設為*啟用*，則身份驗證將會重置，並且您必須修改任何現有工作流程以適應此變更。
+
+. 點選“儲存”。
+
+
+
+
+== 開始使用系統管理員
+
+您可以從Cloud Volumes ONTAP系統存取ONTAP System Manager。
+
+.步驟
+. 從左側導覽功能表中，選擇“儲存”>“管理”。
+. 在*系統*頁面上，雙擊所需的Cloud Volumes ONTAP系統。
+. 按一下“*系統管理員*”。
++
+image:screenshot_advanced_view.png["顯示系統管理員按鈕的螢幕截圖。"]
+
+. 如果出現提示，請輸入您的ONTAP使用者憑證並點擊 *登入*。
+. 如果出現確認訊息，請仔細閱讀並按一下「*關閉*」。
+
+
+使用系統管理員來管理您的Cloud Volumes ONTAP系統。您可以按一下「*返回*」返回控制台。
+
+
+
+== 有關使用系統管理員的協助
+
+如果您需要使用 System Manager 和Cloud Volumes ONTAP 的協助，您可以參考 https://docs.netapp.com/us-en/ontap/index.html["ONTAP 文件"^]以獲得逐步說明。以下是一些可能有幫助的ONTAP文件連結：
+
+* https://docs.netapp.com/us-en/ontap/ontap-security-hardening/roles-applications-authentication.html["ONTAP角色、應用程式和身份驗證"^]
+* https://docs.netapp.com/us-en/ontap/system-admin/access-cluster-system-manager-browser-task.html["使用 System Manager 存取叢集"^] 。
+* https://docs.netapp.com/us-en/ontap/volume-admin-overview-concept.html["捲和 LUN 管理"^]
+* https://docs.netapp.com/us-en/ontap/network-manage-overview-concept.html["網管"^]
+* https://docs.netapp.com/us-en/ontap/concept_dp_overview.html["資料保護"^]
+* https://docs.netapp.com/us-en/ontap/smb-hyper-v-sql/create-continuously-available-shares-task.html["建立持續可用的 SMB 共享"^]
+

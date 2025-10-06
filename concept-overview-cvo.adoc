@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: concept-overview-cvo.html 
+keywords: what is cloud volumes ontap, cloud volumes ontap features, features, cloud volumes ontap overview, overview of cloud volumes ontap, cloud backup, cloud data sense 
+summary: Cloud Volumes ONTAP可讓您最佳化雲端儲存成本和效能，同時增強資料保護、安全性和合規性。 
+---
+= 了解Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP可讓您最佳化雲端儲存成本和效能，同時增強資料保護、安全性和合規性。
+
+Cloud Volumes ONTAP是一款純軟體儲存設備，可在雲端運行ONTAP資料管理軟體。它提供具有以下主要功能的企業級儲存：
+
+* 儲存效率
++
+利用內建資料重複資料刪除、資料壓縮、精簡配置和複製來最大限度地降低儲存成本。
+
+* 高可用性
++
+確保雲端環境故障時企業的可靠性和持續運作。
+
+* 資料保護
++
+Cloud Volumes ONTAP利用 NetApp 業界領先的複製技術SnapMirror將本機資料複製到雲端，以便輕鬆取得可用於多種用例的輔助副本。
+
++
+Cloud Volumes ONTAP還與NetApp Backup and Recovery 集成，提供備份和恢復功能，以保護和長期存檔您的雲端資料。
+
++
+link:https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關備份和恢復的更多信息"^]
+
+* 資料分層
++
+按需在高效能和低效能儲存池之間切換，無需使應用程式離線。
+
+* 應用程式一致性
++
+使用NetApp SnapCenter確保NetApp Snapshot 副本的一致性。
+
++
+https://docs.netapp.com/us-en/snapcenter/get-started/concept_snapcenter_overview.html["了解有關SnapCenter的更多信息"^]
+
+* 資料安全
++
+Cloud Volumes ONTAP支援資料加密並提供防毒和勒索軟體的保護。
+
+* 隱私合規控制
++
+與NetApp資料分類整合可協助您了解資料環境並識別敏感資料。
+
++
+https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關數據分類的更多信息"^]
+
+
+
+
+NOTE: Cloud Volumes ONTAP中包含ONTAP功能的授權。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["查看支援的Cloud Volumes ONTAP配置"^]
+
+https://bluexp.netapp.com/ontap-cloud["了解有關Cloud Volumes ONTAP 的更多信息"^]

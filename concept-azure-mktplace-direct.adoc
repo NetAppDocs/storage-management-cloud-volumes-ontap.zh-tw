@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: concept-azure-mktplace-direct.html 
+keywords: azure marketplace direct, cvo in azure marketplace 
+summary:  
+---
+= 了解 Azure 中的Cloud Volumes ONTAP部署選項
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp提供了兩種在 Azure 上部署Cloud Volumes ONTAP 的選項。 Cloud Volumes ONTAP傳統上依賴NetApp控制台進行部署和編排。從Cloud Volumes ONTAP 9.16.1 開始，您可以利用 Azure 市場直接部署，這是一個簡化的過程，可以存取有限但仍然強大的Cloud Volumes ONTAP功能和選項。
+
+當您直接從 Azure 市場部署Cloud Volumes ONTAP時，您無需設定控制台代理程式或符合透過控制台部署Cloud Volumes ONTAP所需的其他安全性和入職標準。從 Azure 市場，您只需點擊幾下即可快速部署Cloud Volumes ONTAP ，並在您的環境中探索其核心特性和功能。
+
+在 Azure 市集完成部署後，您可以在控制台中發現這些系統。發現後，您可以將它們作為Cloud Volumes ONTAP系統進行管理，並利用所有控制台功能。請參閱link:task-deploy-cvo-azure-mktplc.html["在控制台中發現已部署的系統"] 。
+
+以下是兩個選項之間的功能比較。請注意，透過 Azure 市場部署的獨立執行個體的功能在控制台中被發現時會發生變化。
+
+[cols="3*"]
+|===
+|  | Azure 市場 | NetApp控制台 
+
+
+| *入職訓練* | 更短、更簡單，直接部署所需的準備工作最少 | 更長的入職流程，包括控制台代理的安裝 
+
+
+| *支援的虛擬機器 (VM) 類型*  a| 
+Eds_v5 和 Ls_v3 實例類型
+| 全方位的 VM 類型。https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中支援的配置"^] 
+
+
+| *執照* | 免費許可證 | 任何基於容量的許可證。link:concept-licensing.html["Cloud Volumes ONTAP許可"] 
+
+
+| * NetApp支援* | 不包括 | 根據許可證類型可用 
+
+
+| *容量* | 最多 500 GiB | 可透過配置擴展 
+
+
+| 部署模型 | 單可用區（AZ）高可用（HA）模式部署 | 所有支援的配置，包括單節點和 HA 模式、單 AZ 和多 AZ 部署 
+
+
+| *支援的磁碟類型* | 高級 SSD v2 託管磁碟 | 更廣泛的支持。link:concept-storage.html#azure-storage["Cloud Volumes ONTAP的預設配置"] 
+
+
+| *寫入速度（快速寫入模式）* | 不支援 | 根據您的配置，支援。link:concept-write-speed.html["了解Cloud Volumes ONTAP中的寫入速度"] 。 
+
+
+| *編排功能* | 無法使用 | 根據許可證類型，可透過NetApp控制台取得 
+
+
+| *支援的儲存虛擬機器數量* | 每個部署一個 | 根據您的配置，多個儲存虛擬機器。link:task-managing-svms-azure.html#supported-number-of-storage-vms["支援的儲存虛擬機器數量"] 
+
+
+| 更改實例類型 | 不支援 | 支援 
+
+
+| * FabricPool分層* | 不支援 | 支援 
+|===
+.相關連結
+* Azure 市場直接部署：link:task-deploy-cvo-azure-mktplc.html["從 Azure 市場部署Cloud Volumes ONTAP"]
+* 透過控制台部署：link:task-getting-started-azure.html["Azure 中的Cloud Volumes ONTAP快速入門"]
+* https://docs.netapp.com/us-en/bluexp-family/index.html["NetApp控制台文檔"^]
+
