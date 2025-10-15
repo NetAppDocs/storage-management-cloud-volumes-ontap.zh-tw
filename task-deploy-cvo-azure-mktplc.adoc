@@ -138,6 +138,9 @@ NOTE: 為了遵守 Microsoft Azure 限制，您應該在設定新的虛擬網路
 .步驟
 在控制台中，您可以按照標準程序來發現現有系統。請參閱link:task-adding-systems.html["將現有的Cloud Volumes ONTAP系統新增至控制台"] 。
 
+
+CAUTION: 在發現過程中，您可能會看到失敗訊息，但您可以忽略它們，直到發現過程完成。在發現期間，請勿修改 Azure 市場入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外的系統行為。
+
 .完成後
 發現完成後，您可以在控制台的「*系統*」頁面上查看列出的系統。您可以執行各種管理任務，例如link:task-manage-aggregates.html["擴大總量"]，link:task-create-volumes.html["添加卷"] ，link:task-managing-svms-azure.html["配置額外的儲存虛擬機"] ， 和link:task-change-azure-vm.html["更改實例類型"]。
 

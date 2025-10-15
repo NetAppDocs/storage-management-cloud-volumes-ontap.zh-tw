@@ -14,7 +14,7 @@ summary: 透過啟用與Cloud Volumes ONTAP一起使用的訂閱並要求更改�
 
 
 [role="lead lead"]
-透過啟用與Cloud Volumes ONTAP一起使用的訂閱並要求變更訂閱服務等級的承諾容量，從BlueXP digital wallet管理您的Keystone訂閱。請求服務等級的額外容量可為本機ONTAP叢集或Cloud Volumes ONTAP系統提供更多儲存空間。
+透過啟用與Cloud Volumes ONTAP一起使用的訂閱並要求變更訂閱服務等級的承諾容量，在NetApp Console中管理您的Keystone訂閱。請求服務等級的額外容量可為Cloud Volumes ONTAP系統提供更多儲存空間。
 
 NetApp Keystone是一種靈活的隨選付費訂閱服務，可為喜歡 OpEx 而非 CapEx 或租賃的客戶提供混合雲體驗。
 
@@ -24,19 +24,16 @@ https://www.netapp.com/services/keystone/["了解有關Keystone的更多信息"^
 
 == 授權您的帳戶
 
-在您能夠在BlueXP中使用和管理Keystone訂閱之前，您需要聯絡NetApp以授權您的BlueXP使用者帳號使用Keystone訂閱。
+您需要先聯絡NetApp授權您的控制台帳號使用Keystone訂閱，然後才能在控制台中使用和管理Keystone訂閱。
 
 .步驟
-. 從BlueXP導覽選單中，選擇 *治理 > 數位錢包*。
+. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
 . 選擇* Keystone訂閱*。
 . 如果您看到「歡迎使用NetApp Keystone」頁面，請向頁面上列出的地址發送電子郵件。
 +
-NetApp代表將透過授權您的使用者帳戶存取訂閱來處理您的要求。
+NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 
 . 返回“Keystone訂閱”選項卡查看您的訂閱。
-+
-image:screenshot-keystone-overview.png["顯示Keystone訂閱清單的螢幕截圖。"]
-
 
 
 
@@ -46,31 +43,25 @@ image:screenshot-keystone-overview.png["顯示Keystone訂閱清單的螢幕截�
 在NetApp授權您的帳戶後，您可以連結Keystone訂閱以用於Cloud Volumes ONTAP。此操作使用戶能夠選擇訂閱作為新Cloud Volumes ONTAP系統的收費方式。
 
 .步驟
-. 從BlueXP導覽選單中，選擇 *治理 > 數位錢包*。
+. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
 . 選擇* Keystone訂閱*。
 . 對於您想要連結的訂閱，請點擊image:icon-action.png["三個並排的點組成的圖標"]並選擇*連結*。
-+
-image:screenshot-keystone-link.png["顯示訂閱連結選項的螢幕截圖。"]
-
 
 
 .結果
-此訂閱現已連結至您的BlueXP組織或帳戶，並可在建立Cloud Volumes ONTAP工作環境時進行選擇。
+訂閱現已連結至您的控制台組織或帳戶，並可在建立Cloud Volumes ONTAP工作環境時進行選擇。
 
 
 
 == 請求更多或更少的承諾容量
 
-如果您想要變更訂閱服務等級的承諾容量，您可以直接從BlueXP向NetApp傳送請求。請求服務等級的額外容量可為本機叢集或Cloud Volumes ONTAP系統提供更多儲存空間。
+如果您想要變更訂閱服務等級的承諾容量，您可以直接從控制台向NetApp傳送請求。請求服務等級的額外容量可為Cloud Volumes ONTAP系統提供更多儲存空間。
 
 .步驟
-. 從BlueXP導覽選單中，選擇 *治理 > 數位錢包*。
+. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
 . 選擇* Keystone訂閱*。
-. 對於您想要調整容量的訂閱，請按一下image:icon-action.png["三個並排的點組成的圖標"]並選擇*查看詳細資訊和編輯*。
+. 對於要調整容量的訂閱，請按一下 image:icon-action.png["三個並排的點組成的圖標"] 並選擇*查看詳細資訊和編輯*。
 . 輸入一個或多個訂閱所請求的承諾容量。
-+
-image:screenshot-keystone-request.png["螢幕截圖顯示了請求更改訂閱的承諾容量的能力。"]
-
 . 向下滾動，輸入請求的任何其他詳細信息，然後點擊“*提交*”。
 
 
@@ -81,7 +72,7 @@ image:screenshot-keystone-request.png["螢幕截圖顯示了請求更改訂閱�
 
 == 監控使用情況
 
-BlueXP digital advisor儀表板可讓您監控Keystone訂閱使用情況並產生報告。
+Digital Advisor儀表板可讓您監控Keystone訂閱使用情況並產生報告。
 
 https://docs.netapp.com/us-en/keystone-staas/integrations/aiq-keystone-details.html["了解有關監控訂閱使用情況的更多信息"^]
 
@@ -89,13 +80,13 @@ https://docs.netapp.com/us-en/keystone-staas/integrations/aiq-keystone-details.h
 
 == 取消訂閱鏈接
 
-如果您不再想使用Keystone訂閱和BlueXP，您可以取消訂閱連結。請注意，您只能取消連結未附加至現有Cloud Volumes ONTAP訂閱的訂閱。
+如果您不再想將Keystone訂閱與控制台一起使用，您可以取消訂閱連結。請注意，您只能取消連結未附加至現有Cloud Volumes ONTAP訂閱的訂閱。
 
 .步驟
-. 從BlueXP導覽選單中，選擇 *治理 > 數位錢包*。
+. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
 . 選擇* Keystone*。
 . 對於要取消連結的訂閱，點擊image:icon-action.png["三個並排的點組成的圖標"]並選擇*取消連結*。
 
 
 .結果
-該訂閱已與您的BlueXP組織或帳戶取消鏈接，並且在建立Cloud Volumes ONTAP工作環境時不再可供選擇。
+該訂閱已與您的控制台組織或帳戶取消鏈接，並且在創建Cloud Volumes ONTAP工作環境時不再可供選擇。

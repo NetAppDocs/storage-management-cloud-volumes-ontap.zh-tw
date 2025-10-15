@@ -260,6 +260,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 
 如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
 
+
+CAUTION: 部署程序完成後，請勿修改 Azure 入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外行為或資料遺失。
+
 .完成後
 * 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。
 * 如果要將配額套用於卷，請使用ONTAP系統管理員或ONTAP CLI。
@@ -514,3 +517,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 配額可讓您限製或追蹤使用者、群組或 qtree 使用的磁碟空間和檔案數量。
 
 
+
+
+CAUTION: 部署程序完成後，請勿修改 Azure 入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外行為或資料遺失。
+
+.相關連結
+*link:task-planning-your-config-azure.html["在 Azure 中規劃Cloud Volumes ONTAP配置"^] *link:task-deploy-cvo-azure-mktplc.html["從 Azure 市場在 Azure 中部署Cloud Volumes ONTAP"^]
