@@ -2019,11 +2019,6 @@
   <block id="556696d309aaf81ce29c6a76f8f8a503" category="list-text">HA 對</block>
   <block id="ae76d7929a27ed322b88161e71bfa161" category="list-text">9.17.1 RC1</block>
   <block id="97c2102867c5b54db1b773f42a540c16" category="list-text">9.16.1 正式版</block>
-  <block id="592862851dd12d3c1919101b087e511e" category="list-text">9.10.1 P3</block>
-  <block id="8198b6447184bf52b73a4e25d8850ed0" category="list-text">9.9.1 P8</block>
-  <block id="e752d3074b911c222830c7f61cf640f3" category="list-text">9.9.1 P7</block>
-  <block id="91e09743e1f25ab741e5f94a5852dfc4" category="list-text">9.8 P10</block>
-  <block id="19d6e3f3d60f0c83123cd6e040378404" category="list-text">9.7 P6</block>
   <block id="1b636e5dd7d104ae9efd572a823a9227" category="summary">當選擇使用 VPC 服務控制鎖定您的 Google 環境時，您應該了解NetApp Console和Cloud Volumes ONTAP如何與 Google API 互動以及如何配置您的服務參數以部署Cloud Volumes ONTAP。</block>
   <block id="03b6a8927e57dee9e13ce3e743433f8c" category="doc">設定 VPC 服務控制以在 Google Cloud 中部署Cloud Volumes ONTAP</block>
   <block id="a7b34a1b61cc62dbb7e5736e41d0dbca" category="paragraph">當選擇使用 VPC 服務控制鎖定您的 Google Cloud 環境時，您應該了解NetApp Console和Cloud Volumes ONTAP如何與 Google Cloud API 交互，以及如何配置您的服務邊界以部署控制台和Cloud Volumes ONTAP。</block>
@@ -3064,7 +3059,6 @@
   <block id="6594bb18196ee5d1d6c4b71b099070f5" category="inline-link">了解有關NetApp Backup and Recovery的更多信息</block>
   <block id="221ae32e4b926c195e4bfe10427d4c4c" category="list-text"><block ref="221ae32e4b926c195e4bfe10427d4c4c" category="inline-link-rx"></block></block>
   <block id="5d3c5438b45c093fa442e485741acbb6" category="list-text">*位置*：選擇區域、可用區域、VNet 和子網，然後選取核取方塊以確認控制台代理程式和目標位置之間的網路連線。</block>
-  <block id="1c3093638c74eef35618192ff8049216" category="admonition">對於中國區域，僅Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA 支援單節點部署。您可以將這些版本升級到Cloud Volumes ONTAP的更高修補程式和版本。如果您想在中國地區部署更高版本的Cloud Volumes ONTAP ，請聯絡NetApp支援。中國地區僅支援直接從NetApp購買的許可證，不提供市場訂閱。</block>
   <block id="de908965dc022756e01253bb2ab070dc" category="list-text">*連線*：選擇新的或現有的資源群組，然後選擇是否使用預先定義的安全群組或使用您自己的安全群組。</block>
   <block id="dd23acac46f17cbfd4d5541f8ee3c7a1" category="cell">資源組</block>
   <block id="2d6e88c43d1b87d3d042cce1773371b7" category="paragraph">為Cloud Volumes ONTAP建立新的資源組或使用現有的資源組。最佳做法是為Cloud Volumes ONTAP使用新的專用資源群組。雖然可以在現有的共享資源組中部署Cloud Volumes ONTAP ，但由於資料遺失的風險，因此不建議這樣做。請參閱上面的警告以了解更多詳細資訊。</block>
@@ -4958,11 +4952,7 @@
   <block id="677ee5101eb2acd8a357643d03784fa7" category="section-title">補丁版本</block>
   <block id="62ae53bd919f1657ba6545513b2e3199" category="paragraph">從 2024 年 1 月開始，僅當Cloud Volumes ONTAP的三個最新版本發布補丁時才可進行補丁升級。當 RC 或 GA 版本無法部署時，偶爾會有修補程式版本可供部署。</block>
   <block id="25163e975710186a452c0f2fefe81448" category="inline-xref">下載ONTAP映像</block>
-  <block id="8833215073f8a04b66c837c0d0e34161" category="paragraph">我們使用最新的 GA 版本來確定要在控制台中顯示的最新版本。例如，如果目前 GA 版本是 9.13.1，則控制台中會出現 9.11.1-9.13.1 的補丁。如果您想要升級到 9.11.1 或更低版本的修補程式版本，則需要使用手動升級程序<block ref="741f5e59386960528e5ac58506855727" category="inline-xref-macro-rx"></block>。</block>
-  <block id="b0b450f5a78908e6b78f5c13bf6b0da4" category="paragraph">作為補丁 (P) 版本的一般規則，您可以從一個版本升級到您正在執行的目前版本或下一個版本的任何 P 版本。</block>
   <block id="473579de7dd820e9afa2d1deba8066a3" category="paragraph">以下是幾個例子：</block>
-  <block id="1893a0478b381d08866888a1c7f8607a" category="list-text">9.13.0 &gt; 9.13.1P15</block>
-  <block id="4ae2d614cc725ba442c80c740c08f75f" category="list-text">9.12.1 &gt; 9.13.1P2</block>
   <block id="ac07e79360f18c4b3fc951c45c21a6ed" category="section-title">恢復或降級</block>
   <block id="2383344da5e27a7119b263bf26937e0b" category="paragraph">不支援將Cloud Volumes ONTAP還原或降級到先前的版本。</block>
   <block id="1d4a4bd5e79a1d078c7cb5902a3481e8" category="inline-link-macro">手動註冊PAYGO系統</block>
@@ -5999,4 +5989,28 @@
   <block id="0f9e6273eeca8972509b0aa49385189a" category="section-title">2021年3月8日</block>
   <block id="47c670fdbd357ec4b6b3895f473eae3c" category="section-title">2021年1月4日</block>
   <block id="6337732b75aa62e45d9707965f327458" category="section-title">2020年11月3日</block>
+  <block id="7b6830c2d647bfeae537b084a1bc4c97" category="doc">Azure 中的Cloud Volumes ONTAP現已僅限於最新支援版本</block>
+  <block id="3dd7b623eed29152e13ab227af7f1473" category="paragraph">現在，透過NetApp Console在 Azure 中部署和升級Cloud Volumes ONTAP僅限於最新支援的版本。此變更可確保您的系統運行具有最新功能和安全性增強功能的完全受支援的版本。控制台將提示您僅升級到受支援的版本。</block>
+  <block id="9ca9f40464321b098a9b31a750f1e5ce" category="paragraph">更多詳細信息，請參閱：</block>
+  <block id="c17919ed5cc121684523f6b5d0e3c307" category="list-text">部署：<block ref="b80b2163c394b4ea1470a648426a0279" category="inline-link-rx"></block></block>
+  <block id="f5463bd04e048650140d7f8d20c78c07" category="list-text">升級：<block ref="005f568bce2936777e72fec03fb4642d" category="inline-link-rx"></block></block>
+  <block id="cde3a9d223695dc89e87d7de8e6788ea" category="list-text">9.16.1 P3</block>
+  <block id="0ef0eaca71746d202f974fc1a455472d" category="list-text">9.15.1 P10</block>
+  <block id="5d8dbd1afe3d89f326c0884aff9fb268" category="list-text">9.14.1 P13</block>
+  <block id="aa5aea219834bc476b285b1236830524" category="list-text">9.13.1 P16</block>
+  <block id="1fe428516837eeacfb2efcf589684031" category="list-text">9.12.1 P18</block>
+  <block id="60712fb4ddcab7f940097cec71789c95" category="inline-link-macro">Azure 中支援</block>
+  <block id="5b4234e88e699bcad5cf3cb47499cc7a" category="admonition">對於中國區域，僅Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA 支援單節點部署。您可以將這些版本升級到Cloud Volumes ONTAP的更高補丁和版本，如下所示<block ref="49fae7188ea01a36257ae97784b414e8" category="inline-link-macro-rx"></block>。如果您想在中國地區部署更高版本的Cloud Volumes ONTAP ，請聯絡NetApp支援。中國地區僅支援直接從NetApp購買的許可證，不提供市場訂閱。</block>
+  <block id="cde8893afeb44f6e80f8c28b3d91be6f" category="admonition">如果所選版本有較新的候選版本、通用版本或修補程式版本，則BlueXP會在建立工作環境時將系統更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.16.1 P3 並且 9.16.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 - 例如，從 9.15 到 9.16。</block>
+  <block id="bfac3fe9125d6e450e2abe9717a99a20" category="cell">9.11.1 P20</block>
+  <block id="14875de99eeeb97599f38dd52d96437b" category="paragraph">如果您在 Azure 中擁有較低版本的Cloud Volumes ONTAP ，則必須先升級到下一個版本，然後按照支援的升級路徑達到目標版本。例如，如果您有Cloud Volumes ONTAP 9.7 P7，請遵循下列升級路徑：</block>
+  <block id="765914ebc72765a6e31ff30ff9088e9c" category="list-text">9.7 P7 -&gt; 9.8 P18</block>
+  <block id="5c076d0399da9edcb1edf40cc09dcef3" category="list-text">9.8 P18 -&gt; 9.9.1 P15</block>
+  <block id="bc79a3f15997ab5a2e7fc09059a29063" category="list-text">9.9.1 P15 -&gt; 9.10.1 P12</block>
+  <block id="76a47c552e13574cd485f336a9781fca" category="list-text">9.10.1 P12 -&gt; 9.11.1 P20</block>
+  <block id="3bac6516573dcda631a2711ec5a49463" category="paragraph">我們使用最新的 GA 版本來確定要在控制台中顯示的最新版本。例如，如果目前 GA 版本是 9.13.1，則控制台中會出現 9.11.1-9.13.1 的補丁。</block>
+  <block id="c72497d8fd823cdbac209ebf7276f802" category="paragraph">對於補丁版本 9.11.1 或更低版本，您需要使用手動升級程序<block ref="741f5e59386960528e5ac58506855727" category="inline-xref-macro-rx"></block>。</block>
+  <block id="b519bdccd361fdbdef0db125787188be" category="paragraph">作為補丁版本的一般規則，您可以從較低的補丁版本升級到相同或下一個Cloud Volumes ONTAP版本中的任何較高補丁版本。</block>
+  <block id="c4b21c5ec90f72f3862370831523b7c6" category="list-text">9.13.0 -&gt; 9.13.1 P15</block>
+  <block id="143e9e868bde298af3781d33560b0714" category="list-text">9.12.1 -&gt; 9.13.1 P2</block>
 </blocks>

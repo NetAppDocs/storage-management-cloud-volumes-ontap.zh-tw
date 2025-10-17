@@ -92,7 +92,7 @@ TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並
 . *位置*：選擇區域、可用區域、VNet 和子網，然後選取核取方塊以確認控制台代理程式和目標位置之間的網路連線。
 +
 
-NOTE: 對於中國區域，僅Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA 支援單節點部署。您可以將這些版本升級到Cloud Volumes ONTAP的更高修補程式和版本。如果您想在中國地區部署更高版本的Cloud Volumes ONTAP ，請聯絡NetApp支援。中國地區僅支援直接從NetApp購買的許可證，不提供市場訂閱。
+NOTE: 對於中國區域，僅Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA 支援單節點部署。您可以將這些版本升級到Cloud Volumes ONTAP的更高補丁和版本，如下所示link:task-updating-ontap-cloud.html["Azure 中支援"]。如果您想在中國地區部署更高版本的Cloud Volumes ONTAP ，請聯絡NetApp支援。中國地區僅支援直接從NetApp購買的許可證，不提供市場訂閱。
 
 . *連線*：選擇新的或現有的資源群組，然後選擇是否使用預先定義的安全群組或使用您自己的安全群組。
 +
@@ -136,7 +136,7 @@ TIP: 如果您使用的 Azure 帳戶具有 https://docs.netapp.com/us-en/bluexp-
 . *許可*：如果需要，請變更Cloud Volumes ONTAP版本，並選擇虛擬機器類型。
 +
 
-NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式版本，則控制台在建立系統時會將其更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.13.1 且 9.13.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 - 例如，從 9.13 到 9.14。
+NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式版本，則BlueXP會在建立工作環境時將系統更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.16.1 P3 並且 9.16.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 - 例如，從 9.15 到 9.16。
 
 . *從 Azure 市集訂閱*：如果控制台無法啟用Cloud Volumes ONTAP的程式部署，您將看到此頁面。請依照螢幕上所列的步驟操作。請參閱 https://learn.microsoft.com/en-us/marketplace/programmatic-deploy-of-marketplace-products["以程式設計方式部署 Marketplace 產品"^]了解更多。
 . *底層儲存資源*：選擇初始聚合的設定：磁碟類型、每個磁碟的大小以及是否應啟用資料分層到 Blob 儲存。
