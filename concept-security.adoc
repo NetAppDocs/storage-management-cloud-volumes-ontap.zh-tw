@@ -58,7 +58,7 @@ Cloud Volumes ONTAP支持 https://www.netapp.com/pdf.html?item=/media/17070-ds-3
 * NAE 是 NVE 的擴展——它對每個磁碟區的資料進行加密，並且磁碟區在聚合體中共用一個金鑰。  NAE 還允許對聚合中所有磁碟區的公共區塊進行重複資料刪除。
 
 
-Cloud Volumes ONTAP透過 AWS、Azure 和 Google Cloud 提供的外部金鑰管理服務 (EKM) 支援 NVE 和 NAE，包括第三方解決方案，例如 Fortanix。與ONTAP不同，對於Cloud Volumes ONTAP，加密金鑰是在雲端提供者端產生的，而不是在ONTAP中產生的。
+Cloud Volumes ONTAP透過 AWS、Azure 和 Google Cloud 提供的外部金鑰管理服務 (EKM) 支援 NVE 和 NAE，包括第三方解決方案，例如 Fortanix。與ONTAP不同，對於Cloud Volumes ONTAP，加密金鑰是在雲端提供者端產生的，而不是在ONTAP中產生的。Cloud Volumes ONTAP不支援 https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-onboard-key-management-96-later-nve-task.html["板載密鑰管理器"^]。
 
 Cloud Volumes ONTAP使用ONTAP所使用的標準金鑰管理互通性協定 (KMIP) 服務。有關支援服務的更多信息，請參閱 https://imt.netapp.com/imt/#welcome["互通性矩陣工具"^]。
 

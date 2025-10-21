@@ -1005,7 +1005,6 @@
   <block id="8d85a6720847d90489976db4cc2c4e48" category="paragraph">Cloud Volumes ONTAP支持<block ref="09aecd5417a289ba24f2f00949971fbc" category="inline-link-rx"></block>。  NVE 和 NAE 是基於軟體的解決方案，可實現符合 (FIPS) 140-2 標準的磁碟區靜態資料加密。  NVE 和 NAE 都使用 AES 256 位元加密。</block>
   <block id="0bf3330853877ab4b76b4f1e00d3ace2" category="list-text">NVE 每次都會對一個磁碟區的靜態資料進行加密。每個資料卷都有自己獨特的加密金鑰。</block>
   <block id="988d5e992ea371904581e6f8ad13bac7" category="list-text">NAE 是 NVE 的擴展——它對每個磁碟區的資料進行加密，並且磁碟區在聚合體中共用一個金鑰。  NAE 還允許對聚合中所有磁碟區的公共區塊進行重複資料刪除。</block>
-  <block id="3d9f78a1ff8b79063296498224874e6c" category="paragraph">Cloud Volumes ONTAP透過 AWS、Azure 和 Google Cloud 提供的外部金鑰管理服務 (EKM) 支援 NVE 和 NAE，包括第三方解決方案，例如 Fortanix。與ONTAP不同，對於Cloud Volumes ONTAP，加密金鑰是在雲端提供者端產生的，而不是在ONTAP中產生的。</block>
   <block id="918d32b75f0ab883abba3a8dc0c3ae8d" category="inline-link">互通性矩陣工具</block>
   <block id="fc018227cf021b5cfd4d7696a41f346a" category="paragraph">Cloud Volumes ONTAP使用ONTAP所使用的標準金鑰管理互通性協定 (KMIP) 服務。有關支援服務的更多信息，請參閱<block ref="728e4ee339d5763542973002d2a82dc7" category="inline-link-rx"></block>。</block>
   <block id="37368004332f325820087f73466f8e6c" category="paragraph">如果您使用 NVE，則可以選擇使用雲端提供者的金鑰保管庫來保護ONTAP加密金鑰：</block>
@@ -6013,4 +6012,6 @@
   <block id="b519bdccd361fdbdef0db125787188be" category="paragraph">作為補丁版本的一般規則，您可以從較低的補丁版本升級到相同或下一個Cloud Volumes ONTAP版本中的任何較高補丁版本。</block>
   <block id="c4b21c5ec90f72f3862370831523b7c6" category="list-text">9.13.0 -&gt; 9.13.1 P15</block>
   <block id="143e9e868bde298af3781d33560b0714" category="list-text">9.12.1 -&gt; 9.13.1 P2</block>
+  <block id="a32dd2ca79d8d8a0056821cb37fed7f4" category="inline-link">板載密鑰管理器</block>
+  <block id="e9de5ac62057662306f1f8a15d6e95b6" category="paragraph">Cloud Volumes ONTAP透過 AWS、Azure 和 Google Cloud 提供的外部金鑰管理服務 (EKM) 支援 NVE 和 NAE，包括第三方解決方案，例如 Fortanix。與ONTAP不同，對於Cloud Volumes ONTAP，加密金鑰是在雲端提供者端產生的，而不是在ONTAP中產生的。Cloud Volumes ONTAP不支援<block ref="1c285d24d1bbc96912aa67bf9ee64f22" category="inline-link-rx"></block>。</block>
 </blocks>
