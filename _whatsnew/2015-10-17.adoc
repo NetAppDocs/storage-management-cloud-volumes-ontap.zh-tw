@@ -1,0 +1,15 @@
+= Azure 中的Cloud Volumes ONTAP現已僅限於最新支援版本
+:allow-uri-read: 
+
+
+
+
+=== Azure 中的Cloud Volumes ONTAP現已僅限於最新支援版本
+
+現在，透過NetApp Console在 Azure 中部署和升級Cloud Volumes ONTAP僅限於最新支援的版本。這確保了與 Microsoft 支援的最新一代硬體的兼容性，並提供最新的功能和安全性增強功能。控制台將提示您升級到支援的版本。
+
+更多詳細信息，請參閱：
+
+* 部署： https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-versions.html#azure["Cloud Volumes ONTAP部署支援的ONTAP版本"^]
+* 升級： https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-updating-ontap-cloud.html#supported-upgrade-paths["Azure 支援的升級路徑"^]
+

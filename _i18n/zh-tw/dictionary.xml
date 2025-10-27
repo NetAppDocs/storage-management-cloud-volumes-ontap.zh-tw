@@ -5989,10 +5989,7 @@
   <block id="47c670fdbd357ec4b6b3895f473eae3c" category="section-title">2021年1月4日</block>
   <block id="6337732b75aa62e45d9707965f327458" category="section-title">2020年11月3日</block>
   <block id="7b6830c2d647bfeae537b084a1bc4c97" category="doc">Azure 中的Cloud Volumes ONTAP現已僅限於最新支援版本</block>
-  <block id="3dd7b623eed29152e13ab227af7f1473" category="paragraph">現在，透過NetApp Console在 Azure 中部署和升級Cloud Volumes ONTAP僅限於最新支援的版本。此變更可確保您的系統運行具有最新功能和安全性增強功能的完全受支援的版本。控制台將提示您僅升級到受支援的版本。</block>
   <block id="9ca9f40464321b098a9b31a750f1e5ce" category="paragraph">更多詳細信息，請參閱：</block>
-  <block id="c17919ed5cc121684523f6b5d0e3c307" category="list-text">部署：<block ref="b80b2163c394b4ea1470a648426a0279" category="inline-link-rx"></block></block>
-  <block id="f5463bd04e048650140d7f8d20c78c07" category="list-text">升級：<block ref="005f568bce2936777e72fec03fb4642d" category="inline-link-rx"></block></block>
   <block id="cde3a9d223695dc89e87d7de8e6788ea" category="list-text">9.16.1 P3</block>
   <block id="0ef0eaca71746d202f974fc1a455472d" category="list-text">9.15.1 P10</block>
   <block id="5d8dbd1afe3d89f326c0884aff9fb268" category="list-text">9.14.1 P13</block>
@@ -6014,4 +6011,9 @@
   <block id="143e9e868bde298af3781d33560b0714" category="list-text">9.12.1 -&gt; 9.13.1 P2</block>
   <block id="a32dd2ca79d8d8a0056821cb37fed7f4" category="inline-link">板載密鑰管理器</block>
   <block id="e9de5ac62057662306f1f8a15d6e95b6" category="paragraph">Cloud Volumes ONTAP透過 AWS、Azure 和 Google Cloud 提供的外部金鑰管理服務 (EKM) 支援 NVE 和 NAE，包括第三方解決方案，例如 Fortanix。與ONTAP不同，對於Cloud Volumes ONTAP，加密金鑰是在雲端提供者端產生的，而不是在ONTAP中產生的。Cloud Volumes ONTAP不支援<block ref="1c285d24d1bbc96912aa67bf9ee64f22" category="inline-link-rx"></block>。</block>
+  <block id="0e627d1b98c5809f132bf109fa4041d3" category="paragraph">現在，透過NetApp Console在 Azure 中部署和升級Cloud Volumes ONTAP僅限於最新支援的版本。這確保了與 Microsoft 支援的最新一代硬體的兼容性，並提供最新的功能和安全性增強功能。控制台將提示您升級到支援的版本。</block>
+  <block id="8a79801dc6892f83b39904d935baeea6" category="list-text">部署：<block ref="defc681ae2012fb7f8f998224eac55e5" category="inline-link-rx"></block></block>
+  <block id="b2f564ccc8dab8d25ce5727e3ac0f553" category="inline-link">Azure 支援的升級路徑</block>
+  <block id="cd28d8af5b4308747357925ae313e125" category="list-text">升級：<block ref="9fd9abde9fac7cd4edc5e352cd251056" category="inline-link-rx"></block></block>
+  <block id="810ddecf604478d8ee317e1ac69d7971" category="section-title">2025年10月17日</block>
 </blocks>
