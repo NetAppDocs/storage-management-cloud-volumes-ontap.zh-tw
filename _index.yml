@@ -66,7 +66,7 @@ indexpage:
     - title: 支援的配置
       url: https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html
     - title: 支援的雲區域
-      url: https://www.netapp.com/console/cloud-volumes-global-regions
+      url: https://bluexp.netapp.com/cloud-volumes-global-regions
     - title: 計算機
       url: https://www.netapp.com/console/calculator-hub
   - title: 部落格和社區
