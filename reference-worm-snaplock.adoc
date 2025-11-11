@@ -29,3 +29,8 @@ Snapshot 副本繼承了磁碟區的 WORM 屬性，使其具有防篡改功能�
 
 
 NOTE: 即使 Snapshot 副本在特定保留期內受到保護，叢集管理員也可以刪除來源磁碟區，因為Cloud Volumes ONTAP中的 WORM 儲存在「可信任儲存管理員」模型下執行。此外，受信任的雲端管理員可以透過操作雲端儲存資源來刪除WORM資料。
+
+.相關連結
+* 有關 WORM 的更多信息，請參閱link:concept-worm.html["了解Cloud Volumes ONTAP上的 WORM 存儲"]。
+* 有關SnapLock卷的充電信息，請參閱link:concept-licensing-charging.html["Cloud Volumes ONTAP中的授權和計費"]。
+

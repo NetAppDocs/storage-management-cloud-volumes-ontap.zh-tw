@@ -1,9 +1,9 @@
 ---
 settings:
   name: Cloud Volumes ONTAP
-  harmony_integration: maestro
   release_notes_autogen:
     release_notes_repo: console-relnotes
+  harmony_integration: maestro
   internal:
     pdf_enabled: true
   prod:

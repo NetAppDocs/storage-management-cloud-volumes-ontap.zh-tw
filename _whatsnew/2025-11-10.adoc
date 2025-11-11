@@ -1,0 +1,13 @@
+= 增強的 NVMe-TCP 支持
+:allow-uri-read: 
+
+
+
+
+=== 增強的 NVMe-TCP 支持
+
+先前，在 NVMe-TCP 上部署Cloud Volumes ONTAP實例時，您必須在部署之前手動取得和套用 NVMe 授權。透過此更新， Cloud Volumes ONTAP現在會在部署期間自動安裝所需的 NVMe 許可證，從而簡化設定流程。
+
+對於缺少許可證的現有 NVMe-TCP 部署， Cloud Volumes ONTAP會自動套用授權。您必須重新啟動系統才能使許可證生效。
+
+更多資訊請參見 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-client-protocols.html#nvme-tcp["Cloud Volumes ONTAP支援的客戶端協定：NVMe-TCP"^]。
