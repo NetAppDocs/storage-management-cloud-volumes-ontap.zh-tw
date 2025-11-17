@@ -27,7 +27,7 @@ https://www.netapp.com/services/keystone/["了解有關Keystone的更多信息"^
 您需要先聯絡NetApp授權您的控制台帳號使用Keystone訂閱，然後才能在控制台中使用和管理Keystone訂閱。
 
 .步驟
-. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
+. 從NetApp Console選單中，選擇「管理 >Licenses and subscriptions」。
 . 選擇* Keystone訂閱*。
 . 如果您看到「歡迎使用NetApp Keystone」頁面，請向頁面上列出的地址發送電子郵件。
 +
@@ -43,7 +43,7 @@ NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 在NetApp授權您的帳戶後，您可以連結Keystone訂閱以用於Cloud Volumes ONTAP。此操作使用戶能夠選擇訂閱作為新Cloud Volumes ONTAP系統的收費方式。
 
 .步驟
-. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
+. 從NetApp Console選單中，選擇「管理 >Licenses and subscriptions」。
 . 選擇* Keystone訂閱*。
 . 對於您想要連結的訂閱，請點擊image:icon-action.png["三個並排的點組成的圖標"]並選擇*連結*。
 
@@ -58,7 +58,7 @@ NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 如果您想要變更訂閱服務等級的承諾容量，您可以直接從控制台向NetApp傳送請求。請求服務等級的額外容量可為Cloud Volumes ONTAP系統提供更多儲存空間。
 
 .步驟
-. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
+. 從NetApp Console選單中，選擇「管理 >Licenses and subscriptions」。
 . 選擇* Keystone訂閱*。
 . 對於要調整容量的訂閱，請按一下 image:icon-action.png["三個並排的點組成的圖標"] 並選擇*查看詳細資訊和編輯*。
 . 輸入一個或多個訂閱所請求的承諾容量。
@@ -83,7 +83,7 @@ https://docs.netapp.com/us-en/keystone-staas/integrations/aiq-keystone-details.h
 如果您不再想將Keystone訂閱與控制台一起使用，您可以取消訂閱連結。請注意，您只能取消連結未附加至現有Cloud Volumes ONTAP訂閱的訂閱。
 
 .步驟
-. 從NetApp Console選單中，選擇 *治理 >Licenses and subscriptions*。
+. 從NetApp Console選單中，選擇「管理 >Licenses and subscriptions」。
 . 選擇* Keystone*。
 . 對於要取消連結的訂閱，點擊image:icon-action.png["三個並排的點組成的圖標"]並選擇*取消連結*。
 
