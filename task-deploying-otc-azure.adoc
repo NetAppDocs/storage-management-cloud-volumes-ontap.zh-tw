@@ -71,7 +71,7 @@ link:task-set-up-licensing-azure.html["了解如何設定許可"^] 。
 | 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Azure 虛擬機器。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
 
 
-| 資源組標籤 | 標籤是 Azure 資源的元資料。當您在此欄位中輸入標籤時，控制台會將它們新增至與Cloud Volumes ONTAP系統關聯的資源群組。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://azure.microsoft.com/documentation/articles/resource-group-using-tags/["Microsoft Azure 文件：使用標籤來組織您的 Azure 資源"^]。 
+| 資源組標籤 | 標籤是 Azure 資源的元資料。當您在此欄位中輸入標籤時，控制台會將它們新增至與Cloud Volumes ONTAP系統關聯的資源群組。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources["Microsoft Azure 文件：使用標籤來組織您的 Azure 資源"^]。 
 
 
 | 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
@@ -294,7 +294,7 @@ CAUTION: 部署程序完成後，請勿修改 Azure 入口網站中系統產生�
 | 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Azure 虛擬機器。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
 
 
-| 資源組標籤 | 標籤是 Azure 資源的元資料。當您在此欄位中輸入標籤時，控制台會將它們新增至與Cloud Volumes ONTAP系統關聯的資源群組。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://azure.microsoft.com/documentation/articles/resource-group-using-tags/["Microsoft Azure 文件：使用標籤來組織您的 Azure 資源"^]。 
+| 資源組標籤 | 標籤是 Azure 資源的元資料。當您在此欄位中輸入標籤時，控制台會將它們新增至與Cloud Volumes ONTAP系統關聯的資源群組。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources["Microsoft Azure 文件：使用標籤來組織您的 Azure 資源"^]。 
 
 
 | 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 

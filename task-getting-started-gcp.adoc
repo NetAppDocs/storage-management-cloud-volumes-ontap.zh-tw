@@ -18,7 +18,7 @@ summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTA
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]建立控制台代理
 [role="quick-margin-para"]
-如果你沒有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要建立一個。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["了解如何在 Google Cloud 中建立控制台代理"^]
+如果你沒有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，你需要創建一個。 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["了解如何在 Google Cloud 中建立控制台代理"^]
 
 [role="quick-margin-para"]
 請注意，如果您想在沒有網路存取的子網路中部署Cloud Volumes ONTAP ，則需要手動安裝控制台代理程式並存取在該控制台代理程式上執行的NetApp Console。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在沒有網路存取的地方手動安裝控制台代理"^]
@@ -74,5 +74,5 @@ https://cloud.google.com/apis/docs/getting-started#enabling_apis["在您的專�
 .相關連結
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["建立控制台代理"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在 Linux 主機上安裝控制台代理軟體"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["控制台如何處理 Google Cloud 權限"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["控制台代理的 Google Cloud 權限"^]
 

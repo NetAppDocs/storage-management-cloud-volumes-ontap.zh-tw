@@ -68,7 +68,7 @@ indexpage:
     - title: 支援的雲區域
       url: https://bluexp.netapp.com/cloud-volumes-global-regions
     - title: 計算機
-      url: https://www.netapp.com/console/calculator-hub
+      url: https://www.netapp.com/ontap-cloud/pricing/
   - title: 部落格和社區
     links:
     - title: NetApp Console

@@ -67,7 +67,7 @@ link:concept-licensing.html#capacity-based-licensing["了解有關基於容量�
 NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。
 
 .步驟
-. https://bluexp.netapp.com/contact-cds["聯絡NetApp銷售人員以取得許可證"^]
+. https://www.netapp.com/forms/sales-contact/["聯絡NetApp銷售人員以取得許可證"^]
 . https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["將您的NetApp支援網站帳號新增至NetApp Console"^]
 +
 控制台會自動查詢 NetApp 的授權服務，以取得與您的NetApp支援網站帳戶相關的授權的詳細資訊。如果沒有錯誤，控制台將新增許可證。

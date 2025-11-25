@@ -45,7 +45,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 .開始之前
-控制台代理程式需要特定權限才能為Cloud Volumes ONTAP HA 對建立儲存虛擬機器。所需權限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^]。
+控制台代理程式需要特定權限才能為Cloud Volumes ONTAP HA 對建立儲存虛擬機器。所需的權限包含在… https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^] 。
 
 
 
@@ -86,7 +86,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 使用 API，您可以重新命名和刪除單節點和 HA 配置中的儲存虛擬機器。
 
 .開始之前
-控制台代理程式需要特定權限來管理Cloud Volumes ONTAP HA 對的儲存虛擬機器。所需權限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^]。
+控制台代理程式需要特定權限來管理Cloud Volumes ONTAP HA 對的儲存虛擬機器。所需的權限包含在… https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^] 。
 
 
 
