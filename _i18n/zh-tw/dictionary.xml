@@ -772,9 +772,6 @@
   <block id="577b267f9988dbdc61738174a3158ab9" category="paragraph">值得注意的是，您的 BYOL 授權與您的公司和一組特定的NetApp支援網站憑證相關聯。</block>
   <block id="2316a1561b1b51c9eb0f231cb338cf48" category="summary">熟悉基於容量的許可證的收費、消費模式、定價和配置。</block>
   <block id="e9e29c9db65cd5278aaf851dd73ff92f" category="doc">了解有關Cloud Volumes ONTAP基於容量的許可證的更多信息</block>
-  <block id="24382072604813ac4ccf773eac088de7" category="paragraph">您應該熟悉基於容量的許可證的收費和容量使用情況</block>
-  <block id="26e0cffca193fe47b1c5c8f73ea3c3e1" category="section-title">消費模式</block>
-  <block id="728fd439c2abdc887c4a5e678d7c8708" category="paragraph">基於容量的許可包適用於以下消費模式：</block>
   <block id="14f508f0826944b504efb176670357e8" category="list-text">*BYOL*：自備授權（BYOL）。從NetApp購買的許可證，可用於在任何雲端供應商中部署Cloud Volumes ONTAP 。</block>
   <block id="ceb2294714463ec73c3bb76a991ef103" category="admonition">已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱<block ref="73dc1b5468c2405a47da63a28335f079" category="inline-link-rx"></block> 。</block>
   <block id="3c7a90227f7481790a6d7eb5b1a274ea" category="list-text">*PAYGO*：即用即付 (PAYGO) 訂閱是從雲端供應商市場按小時訂閱的。</block>
@@ -786,7 +783,6 @@
   <block id="fdde7a7f3783aa0ce1e585f8be9c2def" category="list-text">如果您的許可證期限已到期</block>
   <block id="36e4d5ff70cec517180ae18f1c34d2fd" category="list-text">如果您與市場簽訂了年度合同，則您部署的所有Cloud Volumes ONTAP系統都將根據該合約收費。您不能將年度市場合約與 BYOL 混合搭配。</block>
   <block id="3492eb16df3715b7fba9675a44852d3e" category="list-text">中國區域僅支援支援 BYOL 的單節點系統。中國區域部署不受 BYOL 授權限制。</block>
-  <block id="69ab7c49a4285d04bdc7e75b51a4a476" category="section-title">更換包裹</block>
   <block id="5bdd4028830bea76f4939d67baa460ff" category="paragraph">部署後，您可以變更使用基於容量的許可的Cloud Volumes ONTAP系統的軟體包。例如，如果您使用 Essentials 套件部署了Cloud Volumes ONTAP系統，則可以在業務需求變更時將其變更為 Professional 套件。</block>
   <block id="63b54c0d3b4fb8e35270bfdf7b2bdcbb" category="inline-link-macro">了解如何更改充電方式</block>
   <block id="ec3e25d80cfc0e5561493729eadecef7" category="paragraph"><block ref="ea19fa0e06a6047bcaabb9af62b066c3" category="inline-link-macro-rx"></block> 。</block>
@@ -822,14 +818,10 @@
   <block id="67850a8a97f903485494427b0d760819" category="paragraph">系統計為三個系統：一個用於 HA 對，兩個用於附加儲存虛擬機器。</block>
   <block id="a0aa07133f0223d64ee6522e4e293e43" category="inline-link">了解 AWS、Azure 和 Google Cloud 的儲存限制</block>
   <block id="9f909224987b48cbe22536ad43c7ca22" category="paragraph"><block ref="1d60a77806a2b83c9b2383a4fa2b7908" category="inline-link-rx"></block> 。</block>
-  <block id="25827e83a178b9b140976a356e0ea48a" category="section-title">充電注意事項</block>
-  <block id="e26935ad375965079b7681b616fa96eb" category="paragraph">以下詳細資訊可以幫助您了解基於容量的許可的收費方式。</block>
   <block id="10297bdbea13a5f039ea0c228d352388" category="section-title">最低收費</block>
   <block id="add696878e9cc9c7c77f84e34520ca29" category="paragraph">對於每個具有至少一個主（讀寫）卷的提供資料的儲存虛擬機，最低收費為 4 TiB。如果主磁碟區的總和小於 4 TiB，則控制台將對該儲存虛擬機器套用 4 TiB 的最低費用。</block>
   <block id="2f3cbf00c1fc3c4ac211dcbe5883292c" category="paragraph">如果您尚未配置任何卷，則不適用最低費用。</block>
   <block id="c8801b0c6482a893a4d0f8e56ed92a42" category="paragraph">對於 Essentials 包，4 TiB 最低容量費用不適用於僅包含輔助（資料保護）磁碟區的儲存虛擬機器。例如，如果您有一個包含 1 TiB 二級資料的儲存虛擬機，那麼您只需為該 1 TiB 資料付費。對於專業套餐類型，無論卷類型如何，最低容量收費均為 4 TiB。</block>
-  <block id="bec8a1d5f2dd848ffc437304b7f6557d" category="section-title">超額</block>
-  <block id="145dc431f070d09fef788d43a0448ec2" category="paragraph">如果您超出了 BYOL 容量，我們將根據您的市場訂閱按小時費率向您收取超額費用。超額部分將按市場費率收費，並優先使用其他許可證中的可用容量。如果您的 BYOL 授權到期，您需要透過雲端市場過渡到基於容量的授權模式。</block>
   <block id="27d0a1d0fc95280fbaf78c65ff6b37fb" category="section-title">基本套餐</block>
   <block id="0453ee72b46bdca9dc63a814dd0c856a" category="paragraph">使用 Essentials 套件時，您需要根據部署類型（HA 或單節點）和磁碟區類型（主磁碟區或輔助磁碟區）付費。價格由高至低的順序如下：_Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。或者，當您購買市場合約或接受私人優惠時，任何部署或卷類型的容量費用都是相同的。</block>
   <block id="53e6fd574dbf70e62183a00bd6dce317" category="paragraph">許可證完全基於Cloud Volumes ONTAP系統內建立的磁碟區類型：</block>
@@ -839,7 +831,6 @@
   <block id="89cf82a148a67087f3ede3a7b6ba7a93" category="admonition">如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數據，並且收費成本將根據磁碟區處於讀取/寫入模式的時間來計算。當磁碟區再次變為唯讀/DP 時，它會再次將該磁碟區視為輔助數據，並使用控制台中最匹配的授權進行相應的收費。</block>
   <block id="7e634413e3c77c89dba2562f5b7c1937" category="list-text">基本輔助 HA：在Cloud Volumes ONTAP系統上使用兩個可以相互故障轉移以實現無中斷資料存取的ONTAP節點建立的資料保護 (DP) 類型磁碟區（通常是唯讀的SnapMirror或SnapVault目標磁碟區）。</block>
   <block id="b650b6a0e30782e5c59c3db6f2644347" category="paragraph-title">BYOL</block>
-  <block id="435943a920f0e56cf354a63a87e0d55c" category="paragraph">如果您從NetApp (BYOL) 購買了 Essentials 許可證，並且超出了該部署和卷類型的許可容量，則控制台將根據價格更高的 Essentials 許可證（如果您擁有該許可證並且有可用容量）收取超額費用。發生這種情況的原因是，在向市場收費之前，我們首先使用您已購買的可用容量作為預付費容量。如果您的 BYOL 授權沒有可用容量，則超出的容量將按市場按需小時費率 (PAYGO) 收費，並將費用添加到您的每月帳單中。</block>
   <block id="ecc429e82f6e54d1b5ef6c8bb4a49308" category="paragraph">這是一個例子。假設您擁有 Essentials 套件的以下許可證：</block>
   <block id="afac41d47fd5a7a0fff54c7d4dcc9ac8" category="list-text">具有 500 TiB 承諾容量的 500 TiB _Essentials Secondary HA_ 許可證</block>
   <block id="1ce6ab2d6dbcea26717506a031dde30c" category="list-text">500 TiB 的「Essentials 單節點」許可證，僅具有 100 TiB 的承諾容量</block>
@@ -848,16 +839,12 @@
   <block id="63ed6cabd3493279be97114b0d2d21f5" category="paragraph">這是另一個例子。假設您擁有 Essentials 套件的以下許可證：</block>
   <block id="79e457d19dd228dcb61825c92ce8eb7f" category="paragraph">另外 100 TiB 在具有主磁碟區的 HA 對上進行設定。您購買的許可證沒有_Essentials Primary HA_承諾容量。  _Essentials Primary HA_ 授權的價格高於 _Essentials Primary Single Node_ 和 _Essentials Secondary HA_ 授權。</block>
   <block id="8d52067c2658e09240a3a645e46377b6" category="paragraph">在此範例中，控制台會依照市場價格對額外的 100 TiB 收取超額費用。超額費用將出現在您的每月帳單上。</block>
-  <block id="cb012953ce0037bbd6089c0cf714fef9" category="paragraph-title">市場合約或私人優惠</block>
-  <block id="63e7dad437ffdf90e141f5642e1654d2" category="paragraph">如果您作為市場合約或私人優惠的一部分購買了 Essentials 許可證，則 BYOL 邏輯不適用，並且您必須擁有與使用完全相同的授權類型。許可證類型包括磁碟區類型（主或輔助）和部署類型（HA 或單節點）。</block>
-  <block id="b5131f07b7cc2d9ac372dcfc0789c727" category="paragraph">例如，假設您使用 Essentials 授權部署Cloud Volumes ONTAP實例。然後，您可以設定讀寫卷（主單節點）和唯讀卷（輔助單節點）。您的市場合約或私人優惠必須包含_Essentials Single Node_和_Essentials Secondary Single Node_的容量，以覆蓋預先配置的容量。任何不屬於您的市場合約或私人優惠的預配置容量都將按按需小時費率（PAYGO）收費，並將費用添加到您的每月帳單中。</block>
   <block id="e70747c71702cdc100bd5f592ed452be" category="summary">Cloud Volumes ONTAP有多種授權選項。每個選項都允許您選擇滿足您需求的配置。</block>
   <block id="6b32e99bddf60938239aabe092cb4c16" category="paragraph">Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符合您需求的消費模式。</block>
   <block id="8efc36afc2e7202a9c9bda00b8e8a75d" category="section-title">許可概述</block>
   <block id="f008ecd5469e24eee31eb4e2e4a1e23f" category="paragraph">新客戶可以使用以下授權選項。</block>
   <block id="771f877f73ed39c1ce2849efb746d509" category="list-text">基於容量的許可</block>
   <block id="4bbac1ba6da1fae98898078ee927d707" category="inline-link-macro">了解有關基於容量的許可證的更多信息</block>
-  <block id="95b5ae6b0af18840a3741634cd325668" category="list-text">按配置容量支付NetApp帳戶中的多個Cloud Volumes ONTAP系統的費用。包括購買附加雲端資料服務的能力。有關基於容量的許可證消費模型的更多信息，請參閱<block ref="800c64ac20219346d421e96b28656701" category="inline-link-macro-rx"></block>。</block>
   <block id="fc860be5f135f0d58f6a4cc1a552d57f" category="list-text">Keystone訂閱</block>
   <block id="a02d03fc43afe508f920c7ac72a54af6" category="list-text">一種按需付費的訂閱式服務，為高可用性 (HA) 對提供無縫的混合雲體驗。</block>
   <block id="08598187312665a33ac3ebb5fc060c00" category="paragraph">以下部分提供了有關每個選項的更多詳細資訊。</block>
@@ -4524,7 +4511,6 @@
   <block id="0edc861f43ae2d52eefa8472c74d97aa" category="paragraph"><block ref="8f923c51f4899eedd8d1162f766d9a16" category="inline-link-macro-rx"></block> 。</block>
   <block id="376c581ebe9ec9aa8853377f8538ebbd" category="section-title">基於容量的許可證</block>
   <block id="f63eded59a08a3b3bd8dd4b30f5cd2d8" category="paragraph">基於容量的許可使您能夠按 TiB 容量支付Cloud Volumes ONTAP費用。基於容量的許可以_包_的形式提供：Essentials 包或 Professional 包。</block>
-  <block id="3cc132ecf0523f86195d2baf263bfdba" category="paragraph">Essentials 和 Professional 套餐提供以下消費模式：</block>
   <block id="07e88f0b5e8f468010f124459e470871" category="list-text">從NetApp購買的授權（自帶授權 (BYOL)）</block>
   <block id="eec65f69842672d685e503dd18c77ae2" category="list-text">AWS Marketplace 的按小時付費 (PAYGO) 訂閱</block>
   <block id="13ee5322ed02b78a2cf2a6b4a802fef9" category="list-text">來自 AWS Marketplace 的年度合約</block>
@@ -6000,12 +5986,10 @@
   <block id="bb688477c24b42186c3751ddefb728f4" category="paragraph">NetApp Console不提供任何針對 NVMe-TCP 的管理功能。</block>
   <block id="8c340dc334134096f68b880b42a8692c" category="paragraph-title">複製</block>
   <block id="6c6851f26dd089ac8e2cd4699f9f3ceb" category="paragraph">複製磁碟區時，您可以選擇是否將資料分層到物件儲存。如果這樣做，控制台會將*備份*政策套用至資料保護磁碟區。從Cloud Volumes ONTAP 9.6 開始，*全部*分層策略取代了備份策略。刪除複製關係時，目標磁碟區將保留複製期間生效的分層策略。</block>
-  <block id="09438e246bb1f06dffcb0bf379d85c2d" category="section-title">基於容量的許可證中的計費和支援的配置</block>
   <block id="42c1e1bd55f7468cc1c1f67bd3b2e55e" category="paragraph">Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。Cloud Volumes ONTAP 9.7 及更高版本提供基於容量的授權包。</block>
   <block id="d52f05c9c9a1d28edf0a8c353fa4005c" category="paragraph">採用基於容量的許可方式，每個NetApp Console組織最多可擁有 24 個Cloud Volumes ONTAP系統。_系統_ 是Cloud Volumes ONTAP HA 對、 Cloud Volumes ONTAP單節點系統或您建立的任何其他儲存虛擬機器。預設儲存虛擬機器不計入限制。此限制適用於所有許可模式。</block>
   <block id="f06bb25c94e6b1aa8710c80dd3586a02" category="paragraph">總共有六個系統。這樣一來，您的組織中就可以再容納 14 個系統。</block>
   <block id="39f86900550d222b0169a7f96cfef9a1" category="paragraph">如果您需要部署超過 24 台系統，請聯絡您的客戶代表或銷售團隊。</block>
-  <block id="a8fb53b4243112b2693e2c613f675091" category="section-title">讀寫卷收費</block>
   <block id="84bd415e73410ff40bbdb14fc761f16b" category="paragraph">如果您建立或使用可寫入（讀取/寫入）卷，則該磁碟區將被視為主卷，並按每個儲存虛擬機器 (SVM) 的最低費用收取已配置容量的費用。例如FlexVol讀/寫卷、 SnapLock審計捲和 CIFS/NFS 審計卷。所有用戶創建的數據量均按您的訂閱和套餐類型收費。  ONTAP內部自動建立且無法儲存資料的磁碟區（例如 SVM 根磁碟區）不收費。</block>
   <block id="1c7cc97d04b2c06b7aed1dbd999a1224" category="inline-link-macro">Cloud Volumes ONTAP中的授權和計費</block>
   <block id="fbba812442fbd9038d179b574eadad39" category="list-text"><block ref="fbba812442fbd9038d179b574eadad39" category="inline-link-macro-rx"></block></block>
@@ -6031,4 +6015,72 @@
   <block id="6920fd41cd14b48105100b96e3d5d510" category="list-text"><block ref="6920fd41cd14b48105100b96e3d5d510" category="inline-link-rx"></block></block>
   <block id="d2a3fb07a2adcb8cca2382c6d3d5d7a6" category="list-text"><block ref="d2a3fb07a2adcb8cca2382c6d3d5d7a6" category="inline-link-rx"></block></block>
   <block id="5ef66ec02fde350f8efc4a0010bc6510" category="paragraph">權限已在以下文件中提供：<block ref="a04e88f94f3a5bdf7ad6d93ac83509bb" category="inline-link-rx"></block>但如果您使用其他項目來管理雲端金鑰服務，則可能無法套用此功能。</block>
+  <block id="0b7a28160bc4a7ca924f1baa6abb1a57" category="doc">Cloud Volumes ONTAP的首選計費方式</block>
+  <block id="626a12ed9517ef0e6c0a2613974c12ed" category="paragraph">現在您可以選擇您喜歡的計費方式來計算您的使用量和超額費用。自 2025 年 6 月 25 日起，BYOL 授權將不再提供， NetApp在NetApp Console的「授權和訂閱」部分中提供了首選的收費方式。您可以選擇使用年度市場訂閱進行計費和超額費用結算，或使用現有的許可（自備許可）模式。這樣，您可以靈活選擇最適合您組織財務策略和使用模式的充電方式。</block>
+  <block id="4c5b742acce759a08023728b244eccc6" category="inline-link">帳單和超額費用</block>
+  <block id="ff7ec6876f38e21f4dcfd0621fca9672" category="paragraph">更多資訊請參閱<block ref="f6335a1e309ef0a8646001c6937b8852" category="inline-link-rx"></block>。</block>
+  <block id="d32b213fea432905e2b711d0a46055b7" category="doc">提升 Azure 中 Premium SSD v2 磁碟效能的能力</block>
+  <block id="a5af0d9c3442b63737366fdab958ae5e" category="paragraph">現在，您可以透過修改 IOPS 和吞吐量參數來提高 Azure 中 Premium SSD v2 託管磁碟的效能。利用此功能，您可以根據工作負載需求最佳化系統的儲存效能。</block>
+  <block id="77a633073c35402d0ca7d710756aa8bd" category="inline-link">在 Azure 中管理Cloud Volumes ONTAP的 Premium SSD v2 磁碟效能</block>
+  <block id="3c82d0e014001e766d893c187798e716" category="paragraph"><block ref="15057e5abc429ba1e00c3e98b4d7cd18" category="inline-link-rx"></block>。</block>
+  <block id="b6dcfe88cad643a44fa48a9db752d75f" category="section-title">Essentials 授權超額收費簡化</block>
+  <block id="6390802a077a2b3bba05ed8efad40476" category="paragraph">對於Cloud Volumes ONTAP市場年度合約/私有報價，Essentials 授權的超額使用運算現在與自帶授權 (BYOL) 套餐保持一致。此前，超出部分按基本套餐的每小時市場價格計費。現在，如果您的市場年度合約包含多個 Essentials 套餐， NetApp Console會將 Essentials 套餐的超額費用計入您訂閱中價格較高的 Essentials 套餐的可用容量。這簡化了 Essentials 套餐的超額費用計算，並確保從 BYOL 授權模式平穩過渡到訂閱模式。</block>
+  <block id="bf18ec316bd23e84a5bc7f6dfac16e84" category="inline-link">Essentials許可證超額費用如何收取</block>
+  <block id="6aeac3ae6d2c3b06189e7344aee5b1ba" category="paragraph"><block ref="6aeac3ae6d2c3b06189e7344aee5b1ba" category="inline-link-rx"></block></block>
+  <block id="f9af9ade73262337fa8408b3b263a181" category="section-title">支援 Azure Edsv6 尺寸系列</block>
+  <block id="d8beaaedd77c0be2c1275fe4d8a5685b" category="paragraph">從Cloud Volumes ONTAP 9.17.1 開始，您可以透過NetApp Console為新的Cloud Volumes ONTAP執行個體部署 Azure Edsv6 系列虛擬機器。 Cloud Volumes ONTAP 9.17.1 及更高版本將僅支援新部署的第二代虛擬機器。這些第二代機器與最新技術相容，例如統一可擴充韌體介面 (UEFI)、Azure Boost 系統和 NVMe。它們非常適合記憶體密集系統和需要快速本地儲存的應用，例如資料庫伺服器和分析引擎。</block>
+  <block id="500f1b766be55ca965db592552bfe05e" category="paragraph"><block ref="500f1b766be55ca965db592552bfe05e" category="inline-link-rx"></block></block>
+  <block id="1d9a2b0e98ea59223e290b5d69ae81cd" category="admonition">如果您為符合上述條件的環境選擇進階 SSD 管理磁碟，控制台將自動部署進階 SSD v2 管理磁碟。您無法切換到進階 SSD v1 管理磁碟。</block>
+  <block id="2ebd8d06479f6a5919ef9e6d9b125f3f" category="paragraph">您應該熟悉基於容量的許可證的收費方式和容量使用。</block>
+  <block id="99f169da039253de4b8b77823b7b2730" category="section-title">消費模式或許可購買選項</block>
+  <block id="ee43329712c7443a5efef32eb0577263" category="paragraph">我們提供基於容量的授權套餐，並有以下幾種消費模式或購買選項：</block>
+  <block id="d4b8d93ac28539662a9275ca269ade23" category="section-title">更改許可證包</block>
+  <block id="e6a8d76f7ac5f49e90189cfe4455d4e4" category="section-title">支援的儲存類型和套餐如何收費</block>
+  <block id="63ee287e4781cb7e5a0adfbb20804951" category="section-title">讀/寫卷</block>
+  <block id="d78465374b1f7f89632c372083bbbc62" category="section-title">基本套裝</block>
+  <block id="106c459686a2334ced39e36ecc1f5a85" category="section-title">超額費用如何收取</block>
+  <block id="bffa04fc04bde1f2ea115e1319f61392" category="paragraph">如果您超出了 BYOL 容量，我們將根據您的市場訂閱按小時費率向您收取超額費用。超額部分將按市場費率收費，並優先使用其他許可證中的可用容量。如果您的 BYOL 授權到期，您需要透過雲端市場過渡到基於容量的授權模式。更多資訊請參閱<block ref="a101549c18dbba8710a5a21aeb92aab2" category="inline-link-macro-rx"></block>。</block>
+  <block id="74aeda44df056e5fd0eca11bd34eb09a" category="paragraph">如果您從NetApp購買 Essentials 授權（自帶授權），並且超出了特定 Essentials 軟體套件的授權容量，則控制台會將超出部分的費用計入價格較高的 Essentials 授權（如果您有可用容量的授權）。遊戲主機會先使用您已付費的可用容量，然後再向市場收費。如果您的 BYOL 授權沒有可用容量，超出容量的部分將按市場按需小時費率 (PAYGO) 收費，並添加到您的月帳單中。</block>
+  <block id="d46781540a5d2b1bbc7ee50b176ba949" category="paragraph">同樣，如果您簽訂了年度市場合約或包含多個 Essentials 套餐的私人優惠，並且您的使用量超過了特定套餐的部署和容量類型的承諾容量，則控制台會根據可用容量，向價格更高的 Essentials 套餐收取超額費用。當該容量耗盡後，剩餘的超額容量將以市場按需（PAYGO）小時費率計費，並添加到您的月帳單中。</block>
+  <block id="9c8ca891d820b8b5bca4cc935cbe92b6" category="paragraph">有關 Essentials 許可證收費的信息，請參閱<block ref="4aae516683045621e37d35ff99bcf345" category="inline-link-macro-rx"></block>。</block>
+  <block id="4d1af5a51fc15c594d4a19365d4d9188" category="list-text">按配置容量支付NetApp帳戶中的多個Cloud Volumes ONTAP系統的費用。包括購買附加雲端資料服務的能力。有關基於容量的許可證的消費模式或購買選項的更多信息，請參閱：<block ref="800c64ac20219346d421e96b28656701" category="inline-link-macro-rx"></block> 。</block>
+  <block id="6deca4a1d979c8ea20c592217d19700b" category="summary">在 Azure 中設定 Premium SSD v2 磁碟的效能參數。</block>
+  <block id="6acc57795bcf211f85e4f11859aeb6f6" category="paragraph">您可以透過設定 Premium SSD v2 磁碟的 IOPS 和吞吐量參數來最佳化 Azure 中的Cloud Volumes ONTAP效能。此功能僅在Cloud Volumes ONTAP已部署 Azure Premium SSD v2 磁碟類型時可用，在初始部署期間無法使用。透過提升效能，您可以充分利用 Azure Premium SSD v2 磁碟的靈活性和高效能功能。</block>
+  <block id="7fe3b534350edd4d8d98e545959c6ef1" category="inline-link">部署進階 SSD v2 磁碟</block>
+  <block id="9c9b49c3bdaf37afb1410c16df54e431" category="paragraph">Premium SSD v2 磁碟支援需要快速、可靠性能、低延遲、高 IOPS 和高吞吐量的工作負載。透過調整 IOPS 和吞吐量設置，您可以自訂部署中聚合的效能。有關 Premium SSD v2 磁碟的更多信息，請參閱<block ref="bfe1e13f87e2500dd859cceb9b8a8935" category="inline-link-rx"></block>。</block>
+  <block id="9c2b38d1dc4b46a46507c58705261359" category="paragraph">使用 API 實作修改 Premium SSD v2 磁碟設定的自動化流程。有關執行Cloud Volumes ONTAP API 呼叫的信息，請參閱<block ref="223f03c05da3694b6a47cd85e6e8e71c" category="inline-link-rx"></block>。</block>
+  <block id="60139b14a34db0d792554512204ffe30" category="list-text">此功能適用於 Azure 單一可用性區域中的Cloud Volumes ONTAP部署。</block>
+  <block id="e712b18e5f72b0a6daa42aa99a1cd42e" category="list-text">更改磁碟設定會統一改變 RAID 群組或聚合的效能。為了確保整個叢集效能的一致性，叢集中所有磁碟的效能都調整到同一水平。</block>
+  <block id="903372aee9abd461930f730f20f6bcc7" category="list-text">這些變更僅影響單一聚合體，不會影響群組內的其他聚合體。</block>
+  <block id="c05e392bb298102d976c299e0e643081" category="list-text">在NetApp Console中部署Cloud Volumes ONTAP或進行容量最佳化時自動配置的高級 SSD v2 磁碟，或透過 API 新增的高級 SSD v2 磁碟，均可進行修改。</block>
+  <block id="0e5d6b0ce264a50e5aa8602f78f68421" category="list-text">不支援磁碟調整大小（更改磁碟容量）。</block>
+  <block id="0642736deaef2854373ea0b38858ab7d" category="paragraph">在配置 Premium SSD v2 磁碟的 IOPS 和吞吐量參數之前，請注意以下幾點：</block>
+  <block id="7ac958bb64fcf62ea9f38beb6a379bac" category="list-text">請確保您僅選擇了進階 SSD v2 資料磁碟。  Premium SSD v1 磁碟或根磁碟和啟動磁碟不符合此變更條件。</block>
+  <block id="24a8a23ee9a62b614ec1dc1ee9a76524" category="list-text">使用Cloud Volumes ONTAP在部署期間建立的預先配置基線設定作為對應磁碟大小的最小 IOPS 和吞吐量值。這些基準設定與 Premium SSD v1 的效能特點相符。</block>
+  <block id="38aedcc556841d0fe587e5a35f91a1bd" category="list-text">將 IOPS 和吞吐量值設定為等於或高於磁碟大小的最低基準值。例如，對於 1TB 的磁碟大小，將最小 IOPS 值設為 5,000，將最小吞吐量值設為 200 MBps。您可以設定高於這些最小值的值，但不能低於這些最小值。</block>
+  <block id="c4affd427b62b1295f07f639247644d0" category="list-text">在支援的 Premium SSD v2 範圍內配置值：IOPS 在 3000 到 80000 之間，吞吐量在 125 到 1200 MBps 之間。</block>
+  <block id="549ec8350d63f36a5332fb61e86e64ca" category="list-text">請確保您的 Premium SSD v2 磁碟大小在 Azure Cloud Volumes ONTAP支援的 500GB 到 32TB 範圍內。請注意，這些大小限制與 Azure 為進階 SSD v2 磁碟提供的最小值和最大值不同。</block>
+  <block id="7972aa63782146c4ea1909f075129f54" category="list-text">使用下列 API 呼叫來變更 IOPS 和吞吐量的屬性值：</block>
+  <block id="2e0c96e4249323394ab735d311fc434f" category="admonition">在 24 小時內，您最多可以呼叫此 API 四次。</block>
+  <block id="d1c67f74566f9bb28b8d2b72f469006b" category="paragraph"><block ref="09c7fcc0d11cd28f83b2b258a97d02d7" prefix="" category="inline-code"></block></block>
+  <block id="0ba10d00a2af9e07271ba2a8ba812bc7" category="paragraph">API 回傳回應表示操作成功後，請在 Azure 入口網站中檢查Cloud Volumes ONTAP系統的磁碟詳細信息，以驗證修改後的參數。</block>
+  <block id="ed1ed8b50325425c6fb9485b22ea85e1" category="inline-link">使用 REST API 存取Cloud Volumes ONTAP</block>
+  <block id="8fd1e0ddbec92fd998769ffde1dfc5a5" category="list-text"><block ref="8fd1e0ddbec92fd998769ffde1dfc5a5" category="inline-link-rx"></block></block>
+  <block id="0beb6e6b5783f7e693c26b74aeb22743" category="inline-link">在可用性集中將 Premium SSD v2 與虛擬機器一起使用</block>
+  <block id="4a081f0723b1f6be2ab9d8d2de717598" category="list-text"><block ref="4a081f0723b1f6be2ab9d8d2de717598" category="inline-link-rx"></block></block>
+  <block id="d5b4b1a0f15ba3581310df99b70c1d13" category="paragraph">Essentials 和 Professional 套餐提供以下幾種消費模式或購買選項：</block>
+  <block id="c88983af55424e5528378f20e3ec805a" category="section-title">基於節點的許可證</block>
+  <block id="5e822c2fa88da33d7fe81d6789ca5c9d" category="paragraph">基於節點的許可證是Cloud Volumes ONTAP的上一代許可證。基於節點的授權可以從NetApp (BYOL) 購買，並且僅在特定情況下才可以續訂授權。有關信息，請參閱：</block>
+  <block id="8d1d357ad25de917e92aad3ed9710f82" category="list-text"><block ref="8d1d357ad25de917e92aad3ed9710f82" category="inline-link-rx"></block></block>
+  <block id="891135e9b9da3df96fe5c02cfac5295d" category="list-text"><block ref="891135e9b9da3df96fe5c02cfac5295d" category="inline-link-rx"></block></block>
+  <block id="784bc9a7ffab44ec683cc1531095963c" category="inline-link">將基於節點的許可證轉換為基於容量的許可證</block>
+  <block id="2009ef496fb66450bfe41de409221443" category="list-text"><block ref="2009ef496fb66450bfe41de409221443" category="inline-link-rx"></block></block>
+  <block id="517e0808f26a9b41dd03b24bae4c07de" category="list-text"><block ref="517e0808f26a9b41dd03b24bae4c07de" category="inline-link-macro-rx"></block></block>
+  <block id="412590af9448ac66459e9c3d686de880" category="inline-link-macro">Azure 中Cloud Volumes ONTAP的網路需求</block>
+  <block id="15507d6acbdbec8686d3fae6366f4141" category="list-text"><block ref="15507d6acbdbec8686d3fae6366f4141" category="inline-link-macro-rx"></block></block>
+  <block id="b2a93ab6944b01da98f77474158de584" category="inline-link-macro">Google Cloud 中Cloud Volumes ONTAP的網路需求</block>
+  <block id="7dcf169bce66df3174a7d8b5c540d3f6" category="list-text"><block ref="7dcf169bce66df3174a7d8b5c540d3f6" category="inline-link-macro-rx"></block></block>
+  <block id="174dd97dd1f160583ac76fa482fa6a5e" category="section-title">2025年12月10日</block>
+  <block id="1760c97f466ea374318a8c0bedcb2aff" category="section-title">2025年11月11日</block>
+  <block id="291909ca7f153a0249c5e8ab37e16843" category="sidebar">在 Azure 中管理 Premium SSD v2 磁碟效能</block>
 </blocks>

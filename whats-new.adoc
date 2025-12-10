@@ -20,6 +20,34 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2025年12月10日
+
+
+
+=== 提升 Azure 中 Premium SSD v2 磁碟效能的能力
+
+現在，您可以透過修改 IOPS 和吞吐量參數來提高 Azure 中 Premium SSD v2 託管磁碟的效能。利用此功能，您可以根據工作負載需求最佳化系統的儲存效能。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-perf-params-azure.html["在 Azure 中管理Cloud Volumes ONTAP的 Premium SSD v2 磁碟效能"^]。
+
+
+
+=== Essentials 授權超額收費簡化
+
+對於Cloud Volumes ONTAP市場年度合約/私有報價，Essentials 授權的超額使用運算現在與自帶授權 (BYOL) 套餐保持一致。此前，超出部分按基本套餐的每小時市場價格計費。現在，如果您的市場年度合約包含多個 Essentials 套餐， NetApp Console會將 Essentials 套餐的超額費用計入您訂閱中價格較高的 Essentials 套餐的可用容量。這簡化了 Essentials 套餐的超額費用計算，並確保從 BYOL 授權模式平穩過渡到訂閱模式。
+
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing-charging.html#how-overages-are-charged-for-essentials-licenses["Essentials許可證超額費用如何收取"^]
+
+
+
+=== 支援 Azure Edsv6 尺寸系列
+
+從Cloud Volumes ONTAP 9.17.1 開始，您可以透過NetApp Console為新的Cloud Volumes ONTAP執行個體部署 Azure Edsv6 系列虛擬機器。 Cloud Volumes ONTAP 9.17.1 及更高版本將僅支援新部署的第二代虛擬機器。這些第二代機器與最新技術相容，例如統一可擴充韌體介面 (UEFI)、Azure Boost 系統和 NVMe。它們非常適合記憶體密集系統和需要快速本地儲存的應用，例如資料庫伺服器和分析引擎。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#supported-configurations-by-license["Azure 中Cloud Volumes ONTAP支援的配置"^]
+
+
+
 == 2025年11月10日
 
 
@@ -47,6 +75,18 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 * 部署： https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-versions.html#azure["Cloud Volumes ONTAP部署支援的ONTAP版本"^]
 * 升級： https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-updating-ontap-cloud.html#supported-upgrade-paths["Azure 支援的升級路徑"^]
 
+
+
+
+== 2025年11月11日
+
+
+
+=== Cloud Volumes ONTAP的首選計費方式
+
+現在您可以選擇您喜歡的計費方式來計算您的使用量和超額費用。自 2025 年 6 月 25 日起，BYOL 授權將不再提供， NetApp在NetApp Console的「授權和訂閱」部分中提供了首選的收費方式。您可以選擇使用年度市場訂閱進行計費和超額費用結算，或使用現有的許可（自備許可）模式。這樣，您可以靈活選擇最適合您組織財務策略和使用模式的充電方式。
+
+更多資訊請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing-charging.html#minimum-charge["帳單和超額費用"^]。
 
 
 

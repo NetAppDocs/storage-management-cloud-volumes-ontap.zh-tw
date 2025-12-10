@@ -14,13 +14,13 @@ summary: 熟悉基於容量的許可證的收費、消費模式、定價和配�
 
 
 [role="lead"]
-您應該熟悉基於容量的許可證的收費和容量使用情況
+您應該熟悉基於容量的許可證的收費方式和容量使用。
 
 
 
-== 消費模式
+== 消費模式或許可購買選項
 
-基於容量的許可包適用於以下消費模式：
+我們提供基於容量的授權套餐，並有以下幾種消費模式或購買選項：
 
 * *BYOL*：自備授權（BYOL）。從NetApp購買的許可證，可用於在任何雲端供應商中部署Cloud Volumes ONTAP 。
 +
@@ -54,7 +54,7 @@ endif::azure[]
 
 
 
-== 更換包裹
+== 更改許可證包
 
 部署後，您可以變更使用基於容量的許可的Cloud Volumes ONTAP系統的軟體包。例如，如果您使用 Essentials 套件部署了Cloud Volumes ONTAP系統，則可以在業務需求變更時將其變更為 Professional 套件。
 
@@ -64,7 +64,7 @@ link:task-manage-capacity-licenses.html["了解如何更改充電方式"] 。
 
 
 
-== 基於容量的許可證中的計費和支援的配置
+== 支援的儲存類型和套餐如何收費
 
 Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。Cloud Volumes ONTAP 9.7 及更高版本提供基於容量的授權包。
 
@@ -90,6 +90,30 @@ Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。C
 
 * 您無需為FlexClone磁碟區所使用的容量付費。
 * 來源和目標FlexCache磁碟區被視為主數據，並根據配置的空間收費。
+
+
+
+
+=== 讀/寫卷
+
+如果您建立或使用可寫入（讀取/寫入）卷，則該磁碟區將被視為主卷，並按每個儲存虛擬機器 (SVM) 的最低費用收取已配置容量的費用。例如FlexVol讀/寫卷、 SnapLock審計捲和 CIFS/NFS 審計卷。所有用戶創建的數據量均按您的訂閱和套餐類型收費。  ONTAP內部自動建立且無法儲存資料的磁碟區（例如 SVM 根磁碟區）不收費。
+
+
+
+=== 基本套裝
+
+使用 Essentials 套件時，您需要根據部署類型（HA 或單節點）和磁碟區類型（主磁碟區或輔助磁碟區）付費。價格由高至低的順序如下：_Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。或者，當您購買市場合約或接受私人優惠時，任何部署或卷類型的容量費用都是相同的。
+
+許可證完全基於Cloud Volumes ONTAP系統內建立的磁碟區類型：
+
+* 基本單節點：僅使用一個ONTAP節點在Cloud Volumes ONTAP系統上建立的讀取/寫入磁碟區。
+* Essentials HA：使用兩個ONTAP節點讀取/寫入卷，這兩個節點可以相互故障轉移，以實現無中斷資料存取。
+* 基本輔助單節點：僅使用一個ONTAP節點在Cloud Volumes ONTAP系統上建立的資料保護 (DP) 類型磁碟區（通常是唯讀的SnapMirror或SnapVault目標磁碟區）。
++
+
+NOTE: 如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數據，並且收費成本將根據磁碟區處於讀取/寫入模式的時間來計算。當磁碟區再次變為唯讀/DP 時，它會再次將該磁碟區視為輔助數據，並使用控制台中最匹配的授權進行相應的收費。
+
+* 基本輔助 HA：在Cloud Volumes ONTAP系統上使用兩個可以相互故障轉移以實現無中斷資料存取的ONTAP節點建立的資料保護 (DP) 類型磁碟區（通常是唯讀的SnapMirror或SnapVault目標磁碟區）。
 
 
 
@@ -135,19 +159,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
-== 讀寫卷收費
-
-如果您建立或使用可寫入（讀取/寫入）卷，則該磁碟區將被視為主卷，並按每個儲存虛擬機器 (SVM) 的最低費用收取已配置容量的費用。例如FlexVol讀/寫卷、 SnapLock審計捲和 CIFS/NFS 審計卷。所有用戶創建的數據量均按您的訂閱和套餐類型收費。  ONTAP內部自動建立且無法儲存資料的磁碟區（例如 SVM 根磁碟區）不收費。
-
-
-
-== 充電注意事項
-
-以下詳細資訊可以幫助您了解基於容量的許可的收費方式。
-
-
-
-=== 最低收費
+== 最低收費
 
 對於每個具有至少一個主（讀寫）卷的提供資料的儲存虛擬機，最低收費為 4 TiB。如果主磁碟區的總和小於 4 TiB，則控制台將對該儲存虛擬機器套用 4 TiB 的最低費用。
 
@@ -157,30 +169,19 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
-=== 超額
+== 超額費用如何收取
 
-如果您超出了 BYOL 容量，我們將根據您的市場訂閱按小時費率向您收取超額費用。超額部分將按市場費率收費，並優先使用其他許可證中的可用容量。如果您的 BYOL 授權到期，您需要透過雲端市場過渡到基於容量的授權模式。
-
-
-
-=== 基本套餐
-
-使用 Essentials 套件時，您需要根據部署類型（HA 或單節點）和磁碟區類型（主磁碟區或輔助磁碟區）付費。價格由高至低的順序如下：_Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。或者，當您購買市場合約或接受私人優惠時，任何部署或卷類型的容量費用都是相同的。
-
-許可證完全基於Cloud Volumes ONTAP系統內建立的磁碟區類型：
-
-* 基本單節點：僅使用一個ONTAP節點在Cloud Volumes ONTAP系統上建立的讀取/寫入磁碟區。
-* Essentials HA：使用兩個ONTAP節點讀取/寫入卷，這兩個節點可以相互故障轉移，以實現無中斷資料存取。
-* 基本輔助單節點：僅使用一個ONTAP節點在Cloud Volumes ONTAP系統上建立的資料保護 (DP) 類型磁碟區（通常是唯讀的SnapMirror或SnapVault目標磁碟區）。
-+
-
-NOTE: 如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數據，並且收費成本將根據磁碟區處於讀取/寫入模式的時間來計算。當磁碟區再次變為唯讀/DP 時，它會再次將該磁碟區視為輔助數據，並使用控制台中最匹配的授權進行相應的收費。
-
-* 基本輔助 HA：在Cloud Volumes ONTAP系統上使用兩個可以相互故障轉移以實現無中斷資料存取的ONTAP節點建立的資料保護 (DP) 類型磁碟區（通常是唯讀的SnapMirror或SnapVault目標磁碟區）。
+如果您超出了 BYOL 容量，我們將根據您的市場訂閱按小時費率向您收取超額費用。超額部分將按市場費率收費，並優先使用其他許可證中的可用容量。如果您的 BYOL 授權到期，您需要透過雲端市場過渡到基於容量的授權模式。更多資訊請參閱link:task-convert-node-capacity.html["將Cloud Volumes ONTAP基於節點的許可證轉換為基於容量的許可證"]。
 
 
-.BYOL
-如果您從NetApp (BYOL) 購買了 Essentials 許可證，並且超出了該部署和卷類型的許可容量，則控制台將根據價格更高的 Essentials 許可證（如果您擁有該許可證並且有可用容量）收取超額費用。發生這種情況的原因是，在向市場收費之前，我們首先使用您已購買的可用容量作為預付費容量。如果您的 BYOL 授權沒有可用容量，則超出的容量將按市場按需小時費率 (PAYGO) 收費，並將費用添加到您的每月帳單中。
+
+=== Essentials許可證超額費用如何收取
+
+如果您從NetApp購買 Essentials 授權（自帶授權），並且超出了特定 Essentials 軟體套件的授權容量，則控制台會將超出部分的費用計入價格較高的 Essentials 授權（如果您有可用容量的授權）。遊戲主機會先使用您已付費的可用容量，然後再向市場收費。如果您的 BYOL 授權沒有可用容量，超出容量的部分將按市場按需小時費率 (PAYGO) 收費，並添加到您的月帳單中。
+
+同樣，如果您簽訂了年度市場合約或包含多個 Essentials 套餐的私人優惠，並且您的使用量超過了特定套餐的部署和容量類型的承諾容量，則控制台會根據可用容量，向價格更高的 Essentials 套餐收取超額費用。當該容量耗盡後，剩餘的超額容量將以市場按需（PAYGO）小時費率計費，並添加到您的月帳單中。
+
+有關 Essentials 許可證收費的信息，請參閱link:concept-licensing-charging.html#essentialscharging["基本套裝"]。
 
 這是一個例子。假設您擁有 Essentials 套件的以下許可證：
 
@@ -201,8 +202,3 @@ NOTE: 如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數�
 另外 100 TiB 在具有主磁碟區的 HA 對上進行設定。您購買的許可證沒有_Essentials Primary HA_承諾容量。  _Essentials Primary HA_ 授權的價格高於 _Essentials Primary Single Node_ 和 _Essentials Secondary HA_ 授權。
 
 在此範例中，控制台會依照市場價格對額外的 100 TiB 收取超額費用。超額費用將出現在您的每月帳單上。
-
-.市場合約或私人優惠
-如果您作為市場合約或私人優惠的一部分購買了 Essentials 許可證，則 BYOL 邏輯不適用，並且您必須擁有與使用完全相同的授權類型。許可證類型包括磁碟區類型（主或輔助）和部署類型（HA 或單節點）。
-
-例如，假設您使用 Essentials 授權部署Cloud Volumes ONTAP實例。然後，您可以設定讀寫卷（主單節點）和唯讀卷（輔助單節點）。您的市場合約或私人優惠必須包含_Essentials Single Node_和_Essentials Secondary Single Node_的容量，以覆蓋預先配置的容量。任何不屬於您的市場合約或私人優惠的預配置容量都將按按需小時費率（PAYGO）收費，並將費用添加到您的每月帳單中。

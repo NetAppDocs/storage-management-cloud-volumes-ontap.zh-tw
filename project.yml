@@ -175,6 +175,9 @@ sidebar:
         url: "/task-manage-aggregates.html"
       - title: 管理容量設定
         url: "/task-manage-capacity-settings.html"
+      - title: 在 Azure 中管理 Premium SSD v2 磁碟效能
+        flavor: azure
+        url: "/task-manage-perf-params-azure.html"
     - title: 儲存虛擬機器管理
       entries:
       - title: 使用儲存虛擬機

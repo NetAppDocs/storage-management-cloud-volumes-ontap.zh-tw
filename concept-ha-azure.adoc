@@ -74,6 +74,11 @@ Azure 標準負載平衡器:: 負載平衡器管理傳入Cloud Volumes ONTAP HA 
 
 
 --
+
+
+
+NOTE: 如果您為符合上述條件的環境選擇進階 SSD 管理磁碟，控制台將自動部署進階 SSD v2 管理磁碟。您無法切換到進階 SSD v1 管理磁碟。
+
 磁碟:: 客戶資料駐留在本地冗餘儲存 (LRS) 管理的磁碟上。每個節點都可以存取其他節點的儲存。還需要額外的儲存空間link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["啟動、根、合作夥伴根、核心和NVRAM數據"^]。
 儲存帳戶:: 儲存帳戶用於基於託管磁碟的部署，以處理診斷日誌和分層到 Blob 儲存。
 
