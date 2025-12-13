@@ -6083,4 +6083,38 @@
   <block id="174dd97dd1f160583ac76fa482fa6a5e" category="section-title">2025年12月10日</block>
   <block id="1760c97f466ea374318a8c0bedcb2aff" category="section-title">2025年11月11日</block>
   <block id="291909ca7f153a0249c5e8ab37e16843" category="sidebar">在 Azure 中管理 Premium SSD v2 磁碟效能</block>
+  <block id="0494190504419ddec15209e57cb422e1" category="doc">在 Azure Cloud Volumes ONTAP中變更進階 SSD 磁碟的效能層級</block>
+  <block id="953d65863cd6da0e48671f2a30151ae4" category="paragraph">您可以使用 Azure 入口網站升級 Azure Cloud Volumes ONTAP高階 SSD 託管磁碟的效能層級。這是一個手動過程，涉及將每個高級 SSD 磁碟的磁碟層級變更為更高效能的層級。更改NVRAM磁碟的效能層級可以透過提供更高的 IOPS 和吞吐量能力來幫助緩解效能瓶頸並提高Cloud Volumes ONTAP系統的效率。</block>
+  <block id="39264f9aea8b7bf4280c732e8f7fcce0" category="list-text">預設情況下，Azure 中的Cloud Volumes ONTAP在 P20 層部署高階 SSD 磁碟作為NVRAM 。P20 層級提供平衡的效能，適合大多數工作負載。但是，如果您的工作負載需要更高的效能，您可以將NVRAM磁碟升級到更高的級別，例如 P30。</block>
+  <block id="5984acab069d2008cdff0ddd10ef35a8" category="admonition">目前，您只能透過 Azure 入口網站將NVRAM磁碟從 P20 層升級至 P30 層。</block>
+  <block id="686adea694e622fed8c665723cc0407f" category="list-text">您無需更改磁碟大小。容量仍然是 512 GB。此操作只會改變磁碟的效能等級。</block>
+  <block id="60148540e7bc47a2a5cb3aa5c6669625" category="list-text">您的Cloud Volumes ONTAP版本必須為 9.11.1 或更高版本。對於較低版本，您可以升級到 9.11.1 或更高版本，或向NetApp支援部門提出功能策略變更請求 (FPVR)。</block>
+  <block id="a779e934fd58bae998629bc70c905a6e" category="list-text">請務必與NetApp支援團隊合作，確定您環境中遇到的瓶頸是由於NVRAM磁碟引起的，升級該層級可以解決該問題。</block>
+  <block id="d7cdcc7698a8a9000d22166d03400c69" category="admonition">將NVRAM磁碟升級到更高效能等級會產生額外的成本，因此仔細評估此變更的必要性非常重要。</block>
+  <block id="9d0625da71c4c34eb7b785d5b10361f5" category="paragraph">此場景假設有兩個節點<block ref="705cc8c4aab2c0dfb3a3f280da16760d" prefix=" " category="inline-code"></block> 和<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block> 在Cloud Volumes ONTAP高可用性 (HA) 部署中。使用 Azure 入口網站升級層級。</block>
+  <block id="1e723d832b26dbdada01d30484af1ea6" category="list-text">運行此命令以進行<block ref="164546f60261c7e4be0c5f5f9aaeec86" prefix=" " category="inline-code"></block> 活動節點。手動故障轉移<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block>。</block>
+  <block id="e4a4efef44785c5db0774c22b88b3301" category="paragraph"><block ref="be0eb3f3fba241dc79337017002bd31a" prefix="" category="inline-code"></block></block>
+  <block id="58c59ab4d5d488609913efa7b1daaa31" category="list-text">Sign inAzure 入口網站。</block>
+  <block id="5f941e16410c688a40f0976c92426378" category="list-text">接管完成後，請前往虛擬機器實例。<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block>然後點擊“停止”按鈕將其關閉。</block>
+  <block id="08ef635e7ab7c2978a8da0246a2bef1e" category="list-text">導航至資源組<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block> 從磁碟清單中選擇NVRAM磁碟以變更層級。</block>
+  <block id="19780f0029ed99e7c8b502886df9f61f" category="list-text">選擇*尺寸+性能*。</block>
+  <block id="114a05fccf6c6aacd4de79acbf15dce2" category="list-text">在「效能等級」下拉式選單中，選擇<block ref="28c0b52834e0a18e7e32e03630f485b8" prefix=" " category="inline-code"></block>。</block>
+  <block id="90767910461b8d70bc912f880d198275" category="list-text">打開<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block> 實例。</block>
+  <block id="cab445d1f093cc47b00fe708d24a08b6" category="list-text">檢查 Azure 序列控制台，直到看到以下訊息：<block ref="cbd30655d53ec6ae9cc96680b3199b33" prefix=" " category="inline-code"></block>。</block>
+  <block id="37080afbc9c16d84a8b0dcf8d15e364a" category="list-text">執行此命令即可回饋<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block>：</block>
+  <block id="d7291565eea042b359c1236f8e4b7fa0" category="paragraph"><block ref="bed89ee1fbafd66cbd4bcbc687800764" prefix="" category="inline-code"></block></block>
+  <block id="5a3ba098de21fbfe363af698dbd7dc32" category="list-text">重複這些步驟<block ref="705cc8c4aab2c0dfb3a3f280da16760d" prefix=" " category="inline-code"></block> 製作<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block> 接管<block ref="705cc8c4aab2c0dfb3a3f280da16760d" prefix=" " category="inline-code"></block>這樣您就可以升級NVRAM磁碟層。<block ref="705cc8c4aab2c0dfb3a3f280da16760d" prefix=" " category="inline-code"></block>。</block>
+  <block id="5e26e33ae428b86d29f0358799b6806e" category="paragraph">當您啟動兩個節點後，請在 Azure 入口網站中檢查Cloud Volumes ONTAP系統的磁碟詳細信息，以驗證修改後的參數。</block>
+  <block id="8861a5a41e4ab66de05c91c8f19bf580" category="inline-link">無需停機即可更改性能等級</block>
+  <block id="232bf8b7532401540b643eaaae491221" category="list-text">Azure 文件：<block ref="4f2764b3c371428c87b46ab0450bdc24" category="inline-link-rx"></block></block>
+  <block id="8fa53b2742d3629d12d18aa0dbdee700" category="inline-link">如何在 Azure CVO 升級NVRAM磁碟的效能層</block>
+  <block id="e82a97ebfb4ba5f5409423bac3464112" category="list-text">支援團隊知識庫：<block ref="aaedf48f4606cb96bd6bd11286951eb0" category="inline-link-rx"></block></block>
+  <block id="a34f75833ce4fc9abef409835960230b" category="inline-link-macro">升級Cloud Volumes ONTAP軟體版本</block>
+  <block id="0a92e86070d4977bdb2b95640510156c" category="list-text"><block ref="0a92e86070d4977bdb2b95640510156c" category="inline-link-macro-rx"></block></block>
+  <block id="038989a859c1ace454721be15bd0d6dd" category="section-title">AWS IAM 策略中為 HA 中介器新增了新權限</block>
+  <block id="d107a81761877e65b1d111ef64cd3c2a" category="paragraph">這些新的 AWS 權限已新增至Cloud Volumes ONTAP高可用性 (HA) 環境中 HA 中介器的 IAM 策略：</block>
+  <block id="60cfe31830d467874bb430da1683504e" category="list-text">sts：AssumeRole</block>
+  <block id="fa70443be85a3feec8a5eb9d46413a96" category="list-text">ec2:描述子網</block>
+  <block id="48f3ff89d323f3866cd390a624301cc2" category="sidebar">在 Azure 中管理磁碟效能</block>
+  <block id="3cf9ca795dbee25a8b72a8475b07c0fc" category="sidebar">在 Azure 中升級磁碟效能層</block>
 </blocks>

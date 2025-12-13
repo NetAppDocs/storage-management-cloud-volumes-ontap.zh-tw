@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: task-upgrade-disk-perf-azure.html 
+keywords: azure, premium ssd v2, Premium SSDv2, performance parameters, cloud volumes ontap 
+summary: 在 Azure 中設定 Premium SSD v2 磁碟的效能參數。 
+---
+= 在 Azure Cloud Volumes ONTAP中變更進階 SSD 磁碟的效能層級
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用 Azure 入口網站升級 Azure Cloud Volumes ONTAP高階 SSD 託管磁碟的效能層級。這是一個手動過程，涉及將每個高級 SSD 磁碟的磁碟層級變更為更高效能的層級。更改NVRAM磁碟的效能層級可以透過提供更高的 IOPS 和吞吐量能力來幫助緩解效能瓶頸並提高Cloud Volumes ONTAP系統的效率。
+
+.關於此任務
+* 預設情況下，Azure 中的Cloud Volumes ONTAP在 P20 層部署高階 SSD 磁碟作為NVRAM 。P20 層級提供平衡的效能，適合大多數工作負載。但是，如果您的工作負載需要更高的效能，您可以將NVRAM磁碟升級到更高的級別，例如 P30。
++
+
+TIP: 目前，您只能透過 Azure 入口網站將NVRAM磁碟從 P20 層升級至 P30 層。
+
+* 您無需更改磁碟大小。容量仍然是 512 GB。此操作只會改變磁碟的效能等級。
+
+
+.開始之前
+* 您的Cloud Volumes ONTAP版本必須為 9.11.1 或更高版本。對於較低版本，您可以升級到 9.11.1 或更高版本，或向NetApp支援部門提出功能策略變更請求 (FPVR)。
+* 請務必與NetApp支援團隊合作，確定您環境中遇到的瓶頸是由於NVRAM磁碟引起的，升級該層級可以解決該問題。
++
+
+NOTE: 將NVRAM磁碟升級到更高效能等級會產生額外的成本，因此仔細評估此變更的必要性非常重要。
+
+
+
+.步驟
+此場景假設有兩個節點 `node01` 和 `node02` 在Cloud Volumes ONTAP高可用性 (HA) 部署中。使用 Azure 入口網站升級層級。
+
+. 運行此命令以進行 `node1` 活動節點。手動故障轉移 `node02`。
++
+`storage failover takeover -ofnode <Node02>`
+
+. Sign inAzure 入口網站。
+. 接管完成後，請前往虛擬機器實例。 `node02`然後點擊“停止”按鈕將其關閉。
+. 導航至資源組 `node02` 從磁碟清單中選擇NVRAM磁碟以變更層級。
+. 選擇*尺寸+性能*。
+. 在「效能等級」下拉式選單中，選擇 `P30 - 5000 IOPS, 200MB/s`。
+. 選擇*調整大小*。
+. 打開 `node02` 實例。
+. 檢查 Azure 序列控制台，直到看到以下訊息： `waiting for giveback`。
+. 執行此命令即可回饋 `node02`：
++
+`storage failover giveback -ofnode <Node02>`
+
+. 重複這些步驟 `node01` 製作 `node02` 接管 `node01`這樣您就可以升級NVRAM磁碟層。 `node01`。
+
+
+.完成後
+當您啟動兩個節點後，請在 Azure 入口網站中檢查Cloud Volumes ONTAP系統的磁碟詳細信息，以驗證修改後的參數。
+
+.相關資訊
+* Azure 文件： https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers?tabs=portal["無需停機即可更改性能等級"^]
+* 支援團隊知識庫： https://kb.netapp.com/Cloud/Azure_NetApp_Files/How_to_upgrade_performance_tier_of_NVRAM_disk_in_Azure_CVO["如何在 Azure CVO 升級NVRAM磁碟的效能層"^]
+* link:task-updating-ontap-cloud.html["升級Cloud Volumes ONTAP軟體版本"]
+

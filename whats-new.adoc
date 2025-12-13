@@ -951,6 +951,16 @@ Azure 中的澳洲東部區域現在支援Cloud Volumes ONTAP 9.12.1 GA 及更�
 
 
 
+=== AWS IAM 策略中為 HA 中介器新增了新權限
+
+這些新的 AWS 權限已新增至Cloud Volumes ONTAP高可用性 (HA) 環境中 HA 中介器的 IAM 策略：
+
+* sts：AssumeRole
+* ec2:描述子網
+
+
+
+
 == 2023年4月4日
 
 
