@@ -4883,8 +4883,6 @@
   <block id="60fa402d7162faa0faac952aacc0cc45" category="paragraph">您可以升級到的Cloud Volumes ONTAP版本取決於您目前執行的Cloud Volumes ONTAP版本。</block>
   <block id="011fedf4050817b8826f95a53d9555b2" category="cell">目前版本</block>
   <block id="03d03c99e963327d79f9c5e388192eec" category="cell">可直接升級到的版本</block>
-  <block id="401117ae72e5a93172e8ce8c23c7676d" category="cell">9.16.1（僅適用於 Azure 和 Google Cloud）</block>
-  <block id="36991a14fecff3acb300e7240e20124a" category="cell">9.17.1（僅適用於 Azure 和 Google Cloud）</block>
   <block id="d544ab02530940d46c43ea00a73d59d3" category="cell">9.14.1</block>
   <block id="f316f0dfd566f9d842d2d368b7e3ecbb" category="cell">9.14.0</block>
   <block id="57a3061930625af99195891e9e561fb2" category="cell">9.13.1</block>
@@ -5041,37 +5039,17 @@
   <block id="3fa85a72fa6129f493f73fd51c5d3577" category="inline-link">ONTAP文檔：設定AutoSupport</block>
   <block id="624816c9fe7ea9b487697f42ef1d812e" category="paragraph">驗證出站網路存取可用後，您可以測試AutoSupport以確保它可以發送訊息。有關說明，請參閱<block ref="0ec547f9fa42cb2a8601b4546d54623e" category="inline-link-rx"></block>。</block>
   <block id="295477dc121353b83198c98d83f89695" category="section-title">排除AutoSupport配置故障</block>
-  <block id="a1946ab3756444f706cea53791b48a79" category="paragraph">如果出站連線不可用，且控制台無法將您的Cloud Volumes ONTAP系統設定為使用控制台代理程式作為代理伺服器，您將收到來自控制台的通知，標題為「&lt;系統名稱&gt; 無法傳送AutoSupport訊息」。</block>
-  <block id="db5287528bed608802655c082c0e89b3" category="paragraph">您收到此訊息很可能是因為網路問題。</block>
-  <block id="dde3c8b1dec7c8e74a01b666f1bf5eb8" category="paragraph">請依照以下步驟解決此問題。</block>
-  <block id="81dc37ad7d24f55bbc43818904c3ff08" category="list-text">透過 SSH 連接到Cloud Volumes ONTAP系統，以便您可以從ONTAP CLI 管理系統。</block>
   <block id="aaacc29944816e45aadf00dcf2b06295" category="inline-link-macro">了解如何透過 SSH 連線到Cloud Volumes ONTAP</block>
   <block id="16ed58a43f5928920b01b4d3f2ffe1e7" category="paragraph"><block ref="881a093612fe18cf624d7327d89e776b" category="inline-link-macro-rx"></block> 。</block>
-  <block id="cbd751aef187f8ce08c4f421fa7a69b0" category="list-text">顯示AutoSupport子系統的詳細狀態：</block>
   <block id="c107ec2f22978848d28bc9ad31ef0dfb" category="paragraph"><block ref="81c21a9dd47f4497ecc9a94b1e8e1b68" prefix="" category="inline-code"></block></block>
-  <block id="c104f1b6e67db66325fd6e3b3c15d6df" category="paragraph">響應應類似於以下內容：</block>
-  <block id="ed81107a25dc0eeca0e3233e60698b7a" category="paragraph">如果 http-https 類別的狀態為“ok”，表示AutoSupport配置正確，可以傳送訊息。</block>
-  <block id="9f59ad83e7de9eb9a77d34e134c77c4e" category="list-text">如果狀態不正常，請驗證每個Cloud Volumes ONTAP節點的代理 URL：</block>
   <block id="f19476ab2e2055c09d74472c7f8de866" category="paragraph"><block ref="12da01faa8d30c6943c1117f98b0a34e" prefix="" category="inline-code"></block></block>
   <block id="d189be7e0d55d37168f7a5b7576db1c5" category="list-text">如果代理 URL 參數為空，請設定Cloud Volumes ONTAP以使用控制台代理作為代理：</block>
   <block id="5edd12b5d04ceb05f6e5ed6adbc3a66a" category="paragraph"><block ref="21216b677a71216288c68360dba0adef" prefix="" category="inline-code"></block></block>
-  <block id="eb137357f3d5b1a66652db0bfbe38072" category="list-text">再次驗證AutoSupport狀態：</block>
-  <block id="fa43ae0497f481c84938feada17cb1bf" category="list-text">如果狀態仍然失敗，請驗證Cloud Volumes ONTAP和控制台代理之間是否透過連接埠 3128 建立連線。</block>
-  <block id="b30985c63680dd18c933ffcbb85fde7b" category="list-text">如果驗證連線後狀態 ID 仍然失敗，則透過 SSH 連線到控制台代理程式。</block>
   <block id="edb7bad4815e112a09251c5a6fc89fa9" category="inline-link">了解有關控制台代理連接到 Linux VM 的更多信息</block>
   <block id="f77472ae668c39afdddc839efba6e05f" category="paragraph"><block ref="f77472ae668c39afdddc839efba6e05f" category="inline-link-rx"></block></block>
-  <block id="6663d276bb03698e23e1c8571b15a0ec" category="list-text">前往<block ref="0c515e6cdaab1ae82012a17e1bec1dee" prefix=" " category="inline-code"></block></block>
-  <block id="82d78a22685306ed68bbf81d14a33e4d" category="list-text">開啟代理設定檔<block ref="623da9488a3da93e7eefb08dd3bccb0f" prefix=" " category="inline-code"></block></block>
-  <block id="a6b5e6b211bf426f61152c5d404a1ccd" category="paragraph">該文件的基本結構如下：</block>
-  <block id="7e886757743abb700fa9af0ded4353cc" category="paragraph">localnet src 值是Cloud Volumes ONTAP系統的 CIDR。</block>
-  <block id="ba11a8c68a86c1c549117e7fed736b67" category="list-text">如果Cloud Volumes ONTAP系統的 CIDR 區塊不在檔案中指定的範圍內，請更新值或新增條目，如下所示：</block>
   <block id="e53e86f49fbf31d6404a832e79d30758" category="paragraph"><block ref="40711ab114935e86a3ba41c4b5994cb2" prefix="" category="inline-code"></block></block>
-  <block id="56fb36ada37785127def214dd30a1607" category="paragraph">如果您新增此新條目，請不要忘記新增允許條目：</block>
   <block id="3e454df771adc9ead6632eefa975b41b" category="paragraph"><block ref="06a7153e7f90941a4abd483a38e2283b" prefix="" category="inline-code"></block></block>
   <block id="4d947fe0b5c4693f487f4fd1a4295c99" category="paragraph">以下是一個例子：</block>
-  <block id="bb1d35cbbb58724ffea0d2f36a9f993a" category="list-text">編輯設定檔後，以 sudo 身分重新啟動代理容器：</block>
-  <block id="5bec21ecbe2e3a86d7d4ed6908def9b1" category="paragraph"><block ref="b1831e4c01f17e88347609d404d308c0" prefix="" category="inline-code"></block></block>
-  <block id="ea92910b55077f3c4e27aa9df66efbf8" category="list-text">傳回Cloud Volumes ONTAP CLI 並驗證Cloud Volumes ONTAP是否可以傳送AutoSupport訊息：</block>
   <block id="44579e142f1f753a153dbb19dac8125c" category="summary">使用 OpenSSL 驗證 Google Cloud 下載的 disk.raw 檔案是否與摘要文件內容一致。</block>
   <block id="bd915a4eab5328d0dbd80804cc09ee0a" category="doc">使用 OpenSSL 驗證Cloud Volumes ONTAP的 Google Cloud 映像 disk.raw 文件</block>
   <block id="9790936d7b09c3cf187b770347ee60d1" category="paragraph">您可以透過以下方式驗證 Google Cloud 下載的 disk.raw 檔案與摘要檔案內容<block ref="4af4717946461f54169780875a3b5a98" category="inline-link-rx"></block>使用 OpenSSL。</block>
@@ -6090,7 +6068,6 @@
   <block id="686adea694e622fed8c665723cc0407f" category="list-text">您無需更改磁碟大小。容量仍然是 512 GB。此操作只會改變磁碟的效能等級。</block>
   <block id="60148540e7bc47a2a5cb3aa5c6669625" category="list-text">您的Cloud Volumes ONTAP版本必須為 9.11.1 或更高版本。對於較低版本，您可以升級到 9.11.1 或更高版本，或向NetApp支援部門提出功能策略變更請求 (FPVR)。</block>
   <block id="a779e934fd58bae998629bc70c905a6e" category="list-text">請務必與NetApp支援團隊合作，確定您環境中遇到的瓶頸是由於NVRAM磁碟引起的，升級該層級可以解決該問題。</block>
-  <block id="d7cdcc7698a8a9000d22166d03400c69" category="admonition">將NVRAM磁碟升級到更高效能等級會產生額外的成本，因此仔細評估此變更的必要性非常重要。</block>
   <block id="9d0625da71c4c34eb7b785d5b10361f5" category="paragraph">此場景假設有兩個節點<block ref="705cc8c4aab2c0dfb3a3f280da16760d" prefix=" " category="inline-code"></block> 和<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block> 在Cloud Volumes ONTAP高可用性 (HA) 部署中。使用 Azure 入口網站升級層級。</block>
   <block id="1e723d832b26dbdada01d30484af1ea6" category="list-text">運行此命令以進行<block ref="164546f60261c7e4be0c5f5f9aaeec86" prefix=" " category="inline-code"></block> 活動節點。手動故障轉移<block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block>。</block>
   <block id="e4a4efef44785c5db0774c22b88b3301" category="paragraph"><block ref="be0eb3f3fba241dc79337017002bd31a" prefix="" category="inline-code"></block></block>
@@ -6117,4 +6094,22 @@
   <block id="fa70443be85a3feec8a5eb9d46413a96" category="list-text">ec2:描述子網</block>
   <block id="48f3ff89d323f3866cd390a624301cc2" category="sidebar">在 Azure 中管理磁碟效能</block>
   <block id="3cf9ca795dbee25a8b72a8475b07c0fc" category="sidebar">在 Azure 中升級磁碟效能層</block>
+  <block id="81e76ca235a16e1d875f94529d326de0" category="cell">9.17.1</block>
+  <block id="66d3aa0db1db25a4a906a01992596e27" category="list-text">仔細評估是否有必要進行此項更改，因為將NVRAM磁碟升級到更高效能等級會產生額外的成本。</block>
+  <block id="648d6475bce5354b3cd3c893b2df49f3" category="paragraph">如果出站連線不可用，且控制台無法設定您的Cloud Volumes ONTAP系統以使用控制台代理程式作為代理伺服器，您將收到來自控制台的通知，提示您的系統無法傳送AutoSupport訊息。請依照以下步驟解決此問題。</block>
+  <block id="80d895fadacc0310355c1c423023695b" category="list-text">使用 SSH 安全地連接到Cloud Volumes ONTAP系統，以使用ONTAP CLI。</block>
+  <block id="aa97e0e01499260ff0be40e0c5ee6b4d" category="list-text">查看AutoSupport子系統的詳細狀態：</block>
+  <block id="cb6394a3f752e613867a44c85f05b77d" category="paragraph">回覆內容如下：</block>
+  <block id="afd20e04ccfacda1e34669053f15614a" category="paragraph">如果 http-https 類別的狀態是<block ref="e0aa021e21dddbd6d8cecec71e9cf564" prefix=" " category="inline-code"></block> 這表示AutoSupport已正確配置，可以發送訊息。</block>
+  <block id="d70d97bee2a0c0c4bc9b6d26a5db69af" category="list-text">否則，請驗證每個Cloud Volumes ONTAP節點的代理 URL：</block>
+  <block id="3504ac7be9d6451718f66224c379031d" category="list-text">再次確認AutoSupport狀態：</block>
+  <block id="57035e3c80e6846d3837833d5c8f2544" category="list-text">如果狀態仍然失敗，請驗證Cloud Volumes ONTAP和控制台代理之間是否透過連接埠建立連線。<block ref="dff8e9c2ac33381546d96deea9922999" prefix=" " category="inline-code"></block>。</block>
+  <block id="084efc5dfc334f60fa8895df5bfc0151" category="list-text">如果驗證後狀態仍然失敗，請透過 SSH 連線至控制台代理程式。</block>
+  <block id="cc4964154dd0a9e876973c53ffd0fbf7" category="list-text">前往<block ref="0c515e6cdaab1ae82012a17e1bec1dee" prefix=" " category="inline-code"></block>。</block>
+  <block id="c0b1a66c4164f93e913b95a49dc7cca5" category="list-text">開啟代理設定檔<block ref="623da9488a3da93e7eefb08dd3bccb0f" prefix=" " category="inline-code"></block>。這是文件的結構：</block>
+  <block id="31e2a17e75e2111770329974bd621551" category="list-text">如果您的檔案中沒有Cloud Volumes ONTAP系統的 CIDR 區塊條目，請新增條目並允許存取：</block>
+  <block id="e508adf8c3b9c47ed0e44cc8e99325b5" category="list-text">編輯設定檔後，重啟代理容器。<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block>。然後，根據您使用的是 Docker 還是 Podman，執行以下命令：</block>
+  <block id="980dfdd6fab780885793f0ec42399ae0" category="paragraph">對於 Docker，請運行<block ref="b1831e4c01f17e88347609d404d308c0" prefix=" " category="inline-code"></block>。</block>
+  <block id="007b7067c04893459ac324df1874eb1e" category="paragraph">如果您使用的是 Podman，請執行<block ref="db80c2b4c5690b79ed051a59a7bb3556" prefix=" " category="inline-code"></block>。</block>
+  <block id="1432f9e7501db8840fbc871624751a97" category="list-text">傳回ONTAP CLI 並驗證Cloud Volumes ONTAP是否可以傳送AutoSupport訊息：</block>
 </blocks>
