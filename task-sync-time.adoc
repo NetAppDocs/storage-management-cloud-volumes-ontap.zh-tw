@@ -14,6 +14,21 @@ summary: 指定 NTP 伺服器可同步網路中系統之間的時間，這有助
 
 
 [role="lead"]
-指定 NTP 伺服器可同步網路中系統之間的時間，這有助於防止因時間差異而導致的問題。
+為確保準確的時間同步，您必須為Cloud Volumes ONTAP系統設定網路時間協定 (NTP) 伺服器。請確保在所有雲端供應商上為Cloud Volumes ONTAP系統設定 NTP 伺服器，以保持網路內時間同步的一致性。
 
-使用指定 NTP 伺服器 https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html["NetApp ConsoleAPI"^]或從使用者介面link:task-create-volumes.html#create-a-volume["建立 CIFS 伺服器"]。
+
+NOTE: 如果您未設定 NTP 伺服器，可能會遇到服務中斷和時間同步不準確的情況。
+
+您可以使用以下命令指定 NTP 伺服器：
+
+* https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html["NetApp ConsoleAPI"^]。
+* ONTAP CLI 指令 https://docs.netapp.com/us-en/ontap-cli//cluster-time-service-ntp-server-create.html["建立叢集時間服務 NTP 伺服器"^]。
+
+
+.相關連結
+* 知識庫（KB）文章： https://kb.netapp.com/Cloud/ncds/nds/cvo/cvo_kbs/How_does_a_CVO_cluster_use_NTP["CVO叢集如何使用NTP？"]
+* https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["準備使用 API"^]
+* https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["取得所需的標識符"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
+

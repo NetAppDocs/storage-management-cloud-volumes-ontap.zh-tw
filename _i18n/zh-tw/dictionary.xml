@@ -4742,9 +4742,6 @@
   <block id="b14d512a3c64fb5df16f6721b0603c63" category="paragraph">使用此選項會提示您再次登入。請注意，這些帳戶的令牌將在 90 天後過期。我們將發布通知來提醒您此事。</block>
   <block id="29e5950813e59366056c85a091ad2206" category="summary">指定 NTP 伺服器可同步網路中系統之間的時間，這有助於防止因時間差異而導致的問題。</block>
   <block id="b50f1f0d50a2ec5cb27990e7dcd7bc5a" category="doc">使用 NTP 伺服器同步Cloud Volumes ONTAP系統時間</block>
-  <block id="ebf12fa39becba02eecf5cb8886fab60" category="inline-link-macro">建立 CIFS 伺服器</block>
-  <block id="360104bf3231cd79990fa62b469a3981" category="inline-link">NetApp ConsoleAPI</block>
-  <block id="7ff31e38d13b7813d7a074235b820e43" category="paragraph">使用指定 NTP 伺服器<block ref="fa6731927386c9d49581436398e9c4cc" category="inline-link-rx"></block>或從使用者介面<block ref="f63e013edf4f3da2f43cd797b99d909b" category="inline-link-macro-rx"></block>。</block>
   <block id="b6f2459d07813a329f10d1f5ef7babc2" category="summary">您可以透過將用於熱資料的 SSD 或 HDD 效能層與用於非活動資料的物件儲存容量層結合來降低Cloud Volumes ONTAP的儲存成本。資料分層由FabricPool技術提供支援。</block>
   <block id="dc856ecc0acf613e6f450c313f378cfd" category="doc">將非活動Cloud Volumes ONTAP資料分層到低成本物件存儲</block>
   <block id="caf4154dd66e202bf9f092a3b5b9f070" category="paragraph">您可以透過將用於熱資料的 SSD 或 HDD 效能層與用於非活動資料的物件儲存容量層結合來降低Cloud Volumes ONTAP的儲存成本。資料分層由FabricPool技術提供支援。有關進階概述，請參閱<block ref="69d3706831f999336fb27703356dae22" category="inline-link-macro-rx"></block>。</block>
@@ -6112,4 +6109,13 @@
   <block id="980dfdd6fab780885793f0ec42399ae0" category="paragraph">對於 Docker，請運行<block ref="b1831e4c01f17e88347609d404d308c0" prefix=" " category="inline-code"></block>。</block>
   <block id="007b7067c04893459ac324df1874eb1e" category="paragraph">如果您使用的是 Podman，請執行<block ref="db80c2b4c5690b79ed051a59a7bb3556" prefix=" " category="inline-code"></block>。</block>
   <block id="1432f9e7501db8840fbc871624751a97" category="list-text">傳回ONTAP CLI 並驗證Cloud Volumes ONTAP是否可以傳送AutoSupport訊息：</block>
+  <block id="64a4db9697928f2dbd10d78715e195e9" category="paragraph">為確保準確的時間同步，您必須為Cloud Volumes ONTAP系統設定網路時間協定 (NTP) 伺服器。請確保在所有雲端供應商上為Cloud Volumes ONTAP系統設定 NTP 伺服器，以保持網路內時間同步的一致性。</block>
+  <block id="f1b0d7a969d501d016a0fd481082d0c1" category="admonition">如果您未設定 NTP 伺服器，可能會遇到服務中斷和時間同步不準確的情況。</block>
+  <block id="3d2f72d3a57dc2978e458a4280c76291" category="paragraph">您可以使用以下命令指定 NTP 伺服器：</block>
+  <block id="29cb192badbe18daa5e6987be7d6ee48" category="inline-link">NetApp ConsoleAPI</block>
+  <block id="c469bf183e0ed4757464e13ff9d88b30" category="list-text"><block ref="44a005bb7629cee544dcbf8810a935c4" category="inline-link-rx"></block>。</block>
+  <block id="2e5b00a7734f4716b08d44d8793d1795" category="inline-link">建立叢集時間服務 NTP 伺服器</block>
+  <block id="3710ce76a11b1e405952396fc26f3b70" category="list-text">ONTAP CLI 指令<block ref="c7c9a5780d764460cfc24460dd9925c7" category="inline-link-rx"></block>。</block>
+  <block id="3978bd36e4baf3e39f68ed4d2e55c90c" category="inline-link">CVO叢集如何使用NTP？</block>
+  <block id="f1ee234257665a0acbef24f24801a1c2" category="list-text">知識庫（KB）文章：<block ref="8599f7093d610d16c082becd99a24134" category="inline-link-rx"></block></block>
 </blocks>
