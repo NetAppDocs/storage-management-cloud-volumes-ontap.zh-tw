@@ -4707,9 +4707,7 @@
   <block id="e9b1f53d6cabb3394833a4e102eb6a69" category="section-title">NetApp全新產品</block>
   <block id="c20c107d0d4eef6351660f3590324232" category="paragraph">如果您是NetApp新使用者且沒有 NSS 帳戶，請依照下列步驟操作。</block>
   <block id="b50f0a46135bcb7083b1f2f82032fc26" category="inline-image-macro">幫助選單的螢幕截圖，其中支援是第一個選項</block>
-  <block id="e8d4092baef6680c6a35d5228ae31de2" category="paragraph"><block ref="e8d4092baef6680c6a35d5228ae31de2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2974170a8b1b5b4a2ac69aacd4c1c9c3" category="list-text">從支援註冊頁面找到您的帳戶 ID 序號。</block>
-  <block id="379f9cd57d97013f3f7fdd24f692a0b1" category="paragraph"><block ref="379f9cd57d97013f3f7fdd24f692a0b1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dd50e314c18933734174c1156dd9237f" category="inline-link">NetApp 的支援註冊網站</block>
   <block id="78f94e749b89d69dcbf3baff21ccb958" category="list-text">導航至<block ref="e1c4be66250fd76d5c52bfe2cb7daee2" category="inline-link-rx"></block>並選擇*我不是註冊的NetApp客戶*。</block>
   <block id="d4f633ef130727b2776fa7f45024ca7d" category="list-text">填寫必填欄位（帶有紅色星號的欄位）。</block>
@@ -4737,8 +4735,6 @@
   <block id="a04a3a5322782e8c18d0d64be7e1ccbc" category="paragraph">如果您已有客戶級 NSS 帳戶並嘗試新增合作夥伴級帳戶，情況也是如此。</block>
   <block id="1afe8a81cfddc9fa9559e272bb6b9496" category="list-text">成功登入後， NetApp將儲存 NSS 使用者名稱。</block>
   <block id="1dcb63fd55c4d22e87cb32275b8cc808" category="inline-image-macro">三個水平點的圖標</block>
-  <block id="0dfcbbbe02d3e96f8ad78782e8772587" category="paragraph">這是系統產生的映射到您的電子郵件的 ID。在*NSS 管理*頁面上，您可以顯示來自<block ref="5151db0ded96d46f40ae09b5e5b167a1" category="inline-image-macro-rx" type="image"></block>菜單。</block>
-  <block id="fc79de85a483938f72fbcb9822ec0ae3" category="list-text">如果您需要刷新登入憑證令牌，還有一個*更新憑證*選項<block ref="5151db0ded96d46f40ae09b5e5b167a1" category="inline-image-macro-rx" type="image"></block>菜單。</block>
   <block id="b14d512a3c64fb5df16f6721b0603c63" category="paragraph">使用此選項會提示您再次登入。請注意，這些帳戶的令牌將在 90 天後過期。我們將發布通知來提醒您此事。</block>
   <block id="29e5950813e59366056c85a091ad2206" category="summary">指定 NTP 伺服器可同步網路中系統之間的時間，這有助於防止因時間差異而導致的問題。</block>
   <block id="b50f1f0d50a2ec5cb27990e7dcd7bc5a" category="doc">使用 NTP 伺服器同步Cloud Volumes ONTAP系統時間</block>
@@ -5991,9 +5987,6 @@
   <block id="d2a3fb07a2adcb8cca2382c6d3d5d7a6" category="list-text"><block ref="d2a3fb07a2adcb8cca2382c6d3d5d7a6" category="inline-link-rx"></block></block>
   <block id="5ef66ec02fde350f8efc4a0010bc6510" category="paragraph">權限已在以下文件中提供：<block ref="a04e88f94f3a5bdf7ad6d93ac83509bb" category="inline-link-rx"></block>但如果您使用其他項目來管理雲端金鑰服務，則可能無法套用此功能。</block>
   <block id="0b7a28160bc4a7ca924f1baa6abb1a57" category="doc">Cloud Volumes ONTAP的首選計費方式</block>
-  <block id="626a12ed9517ef0e6c0a2613974c12ed" category="paragraph">現在您可以選擇您喜歡的計費方式來計算您的使用量和超額費用。自 2025 年 6 月 25 日起，BYOL 授權將不再提供， NetApp在NetApp Console的「授權和訂閱」部分中提供了首選的收費方式。您可以選擇使用年度市場訂閱進行計費和超額費用結算，或使用現有的許可（自備許可）模式。這樣，您可以靈活選擇最適合您組織財務策略和使用模式的充電方式。</block>
-  <block id="4c5b742acce759a08023728b244eccc6" category="inline-link">帳單和超額費用</block>
-  <block id="ff7ec6876f38e21f4dcfd0621fca9672" category="paragraph">更多資訊請參閱<block ref="f6335a1e309ef0a8646001c6937b8852" category="inline-link-rx"></block>。</block>
   <block id="d32b213fea432905e2b711d0a46055b7" category="doc">提升 Azure 中 Premium SSD v2 磁碟效能的能力</block>
   <block id="a5af0d9c3442b63737366fdab958ae5e" category="paragraph">現在，您可以透過修改 IOPS 和吞吐量參數來提高 Azure 中 Premium SSD v2 託管磁碟的效能。利用此功能，您可以根據工作負載需求最佳化系統的儲存效能。</block>
   <block id="77a633073c35402d0ca7d710756aa8bd" category="inline-link">在 Azure 中管理Cloud Volumes ONTAP的 Premium SSD v2 磁碟效能</block>
@@ -6013,8 +6006,6 @@
   <block id="e6a8d76f7ac5f49e90189cfe4455d4e4" category="section-title">支援的儲存類型和套餐如何收費</block>
   <block id="63ee287e4781cb7e5a0adfbb20804951" category="section-title">讀/寫卷</block>
   <block id="d78465374b1f7f89632c372083bbbc62" category="section-title">基本套裝</block>
-  <block id="106c459686a2334ced39e36ecc1f5a85" category="section-title">超額費用如何收取</block>
-  <block id="bffa04fc04bde1f2ea115e1319f61392" category="paragraph">如果您超出了 BYOL 容量，我們將根據您的市場訂閱按小時費率向您收取超額費用。超額部分將按市場費率收費，並優先使用其他許可證中的可用容量。如果您的 BYOL 授權到期，您需要透過雲端市場過渡到基於容量的授權模式。更多資訊請參閱<block ref="a101549c18dbba8710a5a21aeb92aab2" category="inline-link-macro-rx"></block>。</block>
   <block id="74aeda44df056e5fd0eca11bd34eb09a" category="paragraph">如果您從NetApp購買 Essentials 授權（自帶授權），並且超出了特定 Essentials 軟體套件的授權容量，則控制台會將超出部分的費用計入價格較高的 Essentials 授權（如果您有可用容量的授權）。遊戲主機會先使用您已付費的可用容量，然後再向市場收費。如果您的 BYOL 授權沒有可用容量，超出容量的部分將按市場按需小時費率 (PAYGO) 收費，並添加到您的月帳單中。</block>
   <block id="d46781540a5d2b1bbc7ee50b176ba949" category="paragraph">同樣，如果您簽訂了年度市場合約或包含多個 Essentials 套餐的私人優惠，並且您的使用量超過了特定套餐的部署和容量類型的承諾容量，則控制台會根據可用容量，向價格更高的 Essentials 套餐收取超額費用。當該容量耗盡後，剩餘的超額容量將以市場按需（PAYGO）小時費率計費，並添加到您的月帳單中。</block>
   <block id="9c8ca891d820b8b5bca4cc935cbe92b6" category="paragraph">有關 Essentials 許可證收費的信息，請參閱<block ref="4aae516683045621e37d35ff99bcf345" category="inline-link-macro-rx"></block>。</block>
@@ -6056,7 +6047,6 @@
   <block id="b2a93ab6944b01da98f77474158de584" category="inline-link-macro">Google Cloud 中Cloud Volumes ONTAP的網路需求</block>
   <block id="7dcf169bce66df3174a7d8b5c540d3f6" category="list-text"><block ref="7dcf169bce66df3174a7d8b5c540d3f6" category="inline-link-macro-rx"></block></block>
   <block id="174dd97dd1f160583ac76fa482fa6a5e" category="section-title">2025年12月10日</block>
-  <block id="1760c97f466ea374318a8c0bedcb2aff" category="section-title">2025年11月11日</block>
   <block id="291909ca7f153a0249c5e8ab37e16843" category="sidebar">在 Azure 中管理 Premium SSD v2 磁碟效能</block>
   <block id="0494190504419ddec15209e57cb422e1" category="doc">在 Azure Cloud Volumes ONTAP中變更進階 SSD 磁碟的效能層級</block>
   <block id="953d65863cd6da0e48671f2a30151ae4" category="paragraph">您可以使用 Azure 入口網站升級 Azure Cloud Volumes ONTAP高階 SSD 託管磁碟的效能層級。這是一個手動過程，涉及將每個高級 SSD 磁碟的磁碟層級變更為更高效能的層級。更改NVRAM磁碟的效能層級可以透過提供更高的 IOPS 和吞吐量能力來幫助緩解效能瓶頸並提高Cloud Volumes ONTAP系統的效率。</block>
@@ -6118,4 +6108,17 @@
   <block id="3710ce76a11b1e405952396fc26f3b70" category="list-text">ONTAP CLI 指令<block ref="c7c9a5780d764460cfc24460dd9925c7" category="inline-link-rx"></block>。</block>
   <block id="3978bd36e4baf3e39f68ed4d2e55c90c" category="inline-link">CVO叢集如何使用NTP？</block>
   <block id="f1ee234257665a0acbef24f24801a1c2" category="list-text">知識庫（KB）文章：<block ref="8599f7093d610d16c082becd99a24134" category="inline-link-rx"></block></block>
+  <block id="13e1e540c5d0fb4cabfadd886c98b1ee" category="paragraph">現在您可以選擇首選的計費方式來計算您的Cloud Volumes ONTAP使用量和超額費用。自 2025 年 6 月 25 日起，自帶許可證 (BYOL) 授權模式將不再提供， NetApp已在NetApp Console的「授權和訂閱」部分中添加了首選的計費方式。您可以選擇使用年度市場訂閱進行計費和超額費用結算，或選擇現有的 BYOL 模式作為首選方案。這樣，您可以靈活選擇最適合您組織財務策略和使用模式的充電方式。</block>
+  <block id="5b52ed0566b981ecb59362875a8260d9" category="inline-link">計費偏好和超額費用</block>
+  <block id="566784414055fc000fcabfbdbb65d626" category="paragraph"><block ref="308d91214afb4193d1f3387ad8901dcd" category="inline-link-rx"></block>。</block>
+  <block id="bb651ce87263dbae38d46a12a8b64fee" category="paragraph">您可以在控制台的“*Licenses and subscriptions*”部分選擇您的收費方式。當您的使用量超過許可證套餐或年度訂閱中規定的容量時，就會產生超額費用。</block>
+  <block id="1740204bb9509361a3747972b3711cd1" category="list-text">* NetApp優先授權*：在此模式下，您的使用量首先會根據您的許可證包（自帶許可證）的容量進行計費。如果您超出授權容量，超出部分將根據您的年度市場訂閱或市場按需小時費率（PAYGO）收取費用。如果您的 BYOL 授權到期，您必須透過雲端市場過渡到基於容量的授權模式。更多資訊請參閱 <block ref="a101549c18dbba8710a5a21aeb92aab2" category="inline-link-macro-rx"></block>。</block>
+  <block id="e7a270462c8420134738505bc0866ce8" category="list-text">*僅限市場訂閱用戶*：在此模式下，您的使用費用將首先計入您的年度市場訂閱費用。任何額外使用均按市場按需小時費率（PAYGO）收費。任何未使用的許可證容量在計費時均不予考慮。</block>
+  <block id="f94c83bcf4a8ed377dfb56f9bda7f82c" category="inline-link">了解授權和訂閱的計費方式</block>
+  <block id="38f53d053ce0f3ed0f13a8cdb220d30c" category="paragraph">有關帳單偏好設定的更多信息，請參閱<block ref="9a51e16e4e2251fd842a860cb6941933" category="inline-link-rx"></block>。</block>
+  <block id="38fc1b337c0ea26463916fc2913205c1" category="paragraph"><block ref="38fc1b337c0ea26463916fc2913205c1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7019a39846e9a2c7f7a80eaba91e4a41" category="paragraph"><block ref="7019a39846e9a2c7f7a80eaba91e4a41" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1d593c3f7480ada9580d93cd753c3f93" category="paragraph">這是系統產生的映射到您的電子郵件的 ID。在*NSS 管理*頁面上，您可以顯示來自<block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block>菜單。</block>
+  <block id="872eaae7deb6035c20f9bfe6deefd03d" category="list-text">如果您需要刷新登入憑證令牌，還有一個*更新憑證*選項<block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block>菜單。</block>
+  <block id="667dffcf5676fe0bd645082d2a512fef" category="section-title">2026年1月12日</block>
 </blocks>
