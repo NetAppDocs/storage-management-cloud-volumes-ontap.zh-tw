@@ -6121,4 +6121,6 @@
   <block id="1d593c3f7480ada9580d93cd753c3f93" category="paragraph">這是系統產生的映射到您的電子郵件的 ID。在*NSS 管理*頁面上，您可以顯示來自<block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block>菜單。</block>
   <block id="872eaae7deb6035c20f9bfe6deefd03d" category="list-text">如果您需要刷新登入憑證令牌，還有一個*更新憑證*選項<block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block>菜單。</block>
   <block id="667dffcf5676fe0bd645082d2a512fef" category="section-title">2026年1月12日</block>
+  <block id="96401f578ab9670c6924f2e5ad91441b" category="section-title">AWS 支援的升級路徑</block>
+  <block id="070381386d1bf4bdb6bab9bb39eef15d" category="section-title">Google Cloud 支援的升級路徑</block>
 </blocks>
