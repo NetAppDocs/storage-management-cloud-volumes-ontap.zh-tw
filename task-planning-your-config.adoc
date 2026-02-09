@@ -101,7 +101,7 @@ EBS 磁碟類型:: 從高層次來看，EBS 磁碟類型之間的差異如下。
 * _吞吐量最佳化 HDD (st1)_ 磁碟適用於需要以較低價格實現快速、一致吞吐量的頻繁存取的工作負載。
 +
 
-NOTE: 由於缺乏連接，AWS 本地區域無法將資料分層到 AWS S3。
+NOTE: 如果您的 Cloud Volumes ONTAP 系統位於 AWS Local Zone，則不支援將資料分層儲存到 Amazon Simple Storage Service（Amazon S3），因為在 Local Zone 之外存取 Amazon S3 儲存貯體會造成更高的延遲，並影響 Cloud Volumes ONTAP 活動。
 
 
 

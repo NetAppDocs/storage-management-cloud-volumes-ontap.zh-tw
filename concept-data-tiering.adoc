@@ -26,7 +26,7 @@ ifdef::aws[]
 
 == AWS 中的資料分層
 
-當您在 AWS 中啟用資料分層時， Cloud Volumes ONTAP會使用 EBS 作為熱資料的效能層，並使用 AWS S3 作為非活動資料的容量層。
+在 AWS 中啟用資料分層時，Cloud Volumes ONTAP 使用 EBS 作為熱資料的效能層，並使用 Amazon Simple Storage Service（Amazon S3）作為非作用中資料的容量層。
 
 性能層:: 性能層可以是通用 SSD（gp3 或 gp2）或預先配置 IOPS SSD（io1）。
 +

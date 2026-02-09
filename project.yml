@@ -265,6 +265,8 @@ sidebar:
         entries:
         - title: 更改機器類型
           url: "/task-change-gcp-machine.html"
+        - title: 將現有部署轉換為 Infrastructure Manager
+          url: "/task-gcp-dm-im-conv.html"
       - title: 透過系統管理器進行管理
         url: "/task-administer-advanced-view.html"
       - title: 從 CLI 進行管理

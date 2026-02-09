@@ -49,7 +49,7 @@ https://cloud.google.com/kms/docs/iam#granting_roles_on_a_resource["Google Cloud
 +
 有關詳細信息，請參閱 https://cloud.google.com/storage/docs/encryption/using-customer-managed-keys["Google Cloud 文件：使用客戶管理的加密金鑰"^]
 
-. 建立系統時，請在 API 要求中使用「GcpEncryption」參數。
+. 建立系統時，請在 API 請求中使用「gcpEncryption」參數。
 +
 *例子*
 

@@ -65,7 +65,7 @@ Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
 * 身分和存取管理 (IAM)
 * 金鑰管理服務（KMS）
 * 安全性令牌服務 (STS)
-* 簡單儲存服務（S3）
+* Amazon Simple Storage Service（S3）
 
 | 與 AWS 服務通訊。 | 標準和私人模式。 | Cloud Volumes ONTAP無法與 AWS 服務通訊以在 AWS 中執行特定操作。 
 
@@ -222,7 +222,7 @@ TIP: 正在尋找有關控制台代理的資訊？ https://docs.netapp.com/us-en
 
 === 資料分層連接
 
-如果您想要將 EBS 用作效能層，將 AWS S3 用作容量層，則必須確保Cloud Volumes ONTAP與 S3 有連接。提供該連線的最佳方式是建立到 S3 服務的 VPC 端點。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文件：建立網關終端節點"^]。
+如果您想要將 EBS 用作效能層，將 Amazon S3 用作容量層，則必須確保 Cloud Volumes ONTAP 與 S3 建立連線。提供此連線的最佳方法是建立指向 S3 服務的 VPC 端點。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文件：建立網關終端節點"^]。
 
 建立 VPC 端點時，請確保選擇與Cloud Volumes ONTAP實例相對應的區域、VPC 和路由表。您還必須修改安全群組以新增允許流量到 S3 端點的出站 HTTPS 規則。否則， Cloud Volumes ONTAP無法連線到 S3 服務。
 

@@ -409,7 +409,6 @@
   <block id="3d3b4afad1ee8976c0e2861a36e95c05" category="paragraph"><block ref="3d3b4afad1ee8976c0e2861a36e95c05" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ed6589af51fe478933944c16eab4377f" category="paragraph">資料分層由FabricPool技術提供支援。 Cloud Volumes ONTAP為所有Cloud Volumes ONTAP叢集提供資料分層，無需額外的授權。當您啟用資料分層時，分層到物件儲存的資料會產生費用。有關對象儲存成本的詳細信息，請參閱雲端提供者的文檔。</block>
   <block id="e452e8c25e7bc8d94f88ce5a25cbbf4a" category="section-title">AWS 中的資料分層</block>
-  <block id="d6a11de1ddf26c52daac1219f9ab237d" category="paragraph">當您在 AWS 中啟用資料分層時， Cloud Volumes ONTAP會使用 EBS 作為熱資料的效能層，並使用 AWS S3 作為非活動資料的容量層。</block>
   <block id="9a817efc11f456e69cd659f0afd9447b" category="list-text">性能層</block>
   <block id="aaf6f41e4241a55e6a363b9c414d4feb" category="list-text">性能層可以是通用 SSD（gp3 或 gp2）或預先配置 IOPS SSD（io1）。</block>
   <block id="907c78338365697be8fd8d4a130503c8" category="paragraph">使用吞吐量最佳化 HDD (st1) 時，不建議將資料分層到物件儲存。</block>
@@ -633,7 +632,6 @@
   <block id="240f9686efc9548a1d556d924c143924" category="list-text">升級</block>
   <block id="f0020d65188c251e7939f1c1847fad4e" category="list-text">升級Cloud Volumes ONTAP時， NetApp Console也會根據需求更新中介實例。</block>
   <block id="8bcaded06cfd7f8ab3638578b913fb51" category="list-text">存取實例</block>
-  <block id="48c4b347a69acc97f71ef6775bf6260d" category="list-text">對於 Debian，預設雲端用戶是<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block>。 Google Cloud 為<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block>當透過 Google Cloud 控制台或 gcloud 命令列請求 SSH 存取時的使用者。您可以指定<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block>取得root權限。</block>
   <block id="474d4b99cb8aebe220e70e0abb5f037d" category="list-text">第三方代理</block>
   <block id="03ebadec827b1e9772bca75c78438be2" category="list-text">中介實例不支援第三方代理或 VM 擴充。</block>
   <block id="3817a9574884aed9f0b3c675344f4cc5" category="paragraph">如果一個節點發生故障，另一個節點可以為其夥伴提供資料以提供持續的資料服務。客戶端可以從夥伴節點存取相同的數據，因為資料已同步鏡像到夥伴節點。</block>
@@ -726,7 +724,6 @@
   <block id="82bce2d16d12d889961dbfbfac9b0015" category="list-text">C5d</block>
   <block id="e1b8054c9cdd622c9eeecfe71f26054a" category="list-text">R5</block>
   <block id="513e8fcb60809102e57ea96961daab7c" category="list-text">R5d</block>
-  <block id="02648096bf738946ffc4d338cb4e9d59" category="admonition">Cloud Volumes ONTAP僅支援這些配置。在 AWS 本機區域配置中選擇不受支援的磁碟類型或不合格的執行個體可能會導致部署失敗。由於缺乏連接，AWS 本地區域無法將資料分層到 AWS S3。</block>
   <block id="86a51cf4972711c5446e99e4b2c11833" category="inline-link-macro">AWS 文件：本地區域中的 EC2 執行個體類型</block>
   <block id="671c12c958592255257ba4e4d8298cec" category="paragraph"><block ref="a26b1323c095461019edf21935f6a169" category="inline-link-macro-rx"></block> 。</block>
   <block id="5981b27e3ef7455de64560652783a737" category="paragraph">與ONTAP叢集不同， Cloud Volumes ONTAP HA 對中的儲存不會在節點之間共用。相反，資料在節點之間同步鏡像，以便在發生故障時資料可用。</block>
@@ -1086,7 +1083,6 @@
   <block id="1cbde96d4494f1d0a0cc701b14f4979e" category="list-text">在 AWS 中，一個聚合最多可以包含 6 個大小相同的磁碟。但是，如果您的配置支援 Amazon EBS 彈性磁碟區功能，則聚合最多可以包含 8 個磁碟。<block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block> 。</block>
   <block id="b8dd8c06193176beb2ad15367f7a1a0d" category="paragraph">最大磁碟大小為 16 TiB。</block>
   <block id="137a4f9c2770404d0739c4ea093147a2" category="inline-link-macro">低成本物件存儲</block>
-  <block id="197b31f211e5bcf8a6c50c64a00209b0" category="paragraph">底層 EBS 磁碟類型可以是通用 SSD（gp3 或 gp2）、預先設定 IOPS SSD（io1）或吞吐量最佳化 HDD（st1）。您可以將 EBS 磁碟與 Amazon S3 配對，以<block ref="8ea89944316dc5317d2fdef703995c09" category="inline-link-macro-rx"></block>。</block>
   <block id="97329aff812b28715c211efe44a78032" category="list-text">本地 NVMe 存儲</block>
   <block id="d972474de88f813a7a04eb9b78f672ee" category="list-text">一些 EC2 執行個體類型包括本地 NVMe 存儲， Cloud Volumes ONTAP將其用作<block ref="453179a92f33277aeed8bea1597d5257" category="inline-link-macro-rx"></block>。</block>
   <block id="338e0e62b3ed08d62699895c11d29a14" category="paragraph">相關連結</block>
@@ -1377,10 +1373,6 @@
   <block id="36e65cc6fe6b3547cf9b7396631f7367" category="paragraph">雖然Cloud Volumes ONTAP支援FlexGroup卷，但控制台目前不支援建立FlexGroup卷。如果您從ONTAP系統管理員或ONTAP CLI 建立FlexGroup卷，則應將控制台中的容量管理模式設為<block ref="e1ba155a9f2e8c3be94020eef32a0301" prefix=" " category="inline-code"></block>。<block ref="086247a9b57fde6eefee2a0c4752242d" prefix=" " category="inline-code"></block>模式可能無法與FlexGroup磁碟區正常搭配使用。</block>
   <block id="4eb542d6930b1a0eae1e891a8bd8ec57" category="admonition">我們計劃在未來的版本中提供在控制台中建立FlexGroup磁碟區的功能。</block>
   <block id="a8f834bfd69e7c4c03f881ba01ff3db8" category="section-title">控制台不支援帶有Cloud Volumes ONTAP 的S3</block>
-  <block id="53a519b7a61b6af057f2717112606b16" category="inline-link">S3 設定電源指南</block>
-  <block id="59c16c2c86e3eea8a22e808cf160f264" category="paragraph">雖然Cloud Volumes ONTAP支援 S3 作為橫向擴充儲存的選項，但控制台不提供此功能的任何管理功能。使用 CLI 是從Cloud Volumes ONTAP設定 S3 用戶端存取的最佳實務。有關詳細信息，請參閱<block ref="49e8fee748cd4c8d6f01bdb03113fc2a" category="inline-link-rx"></block>。</block>
-  <block id="aa73f4eb582c3e0e9bca433f741e8a12" category="inline-link-macro">了解有關Cloud Volumes ONTAP對 S3 和其他客戶端協定的支援的更多信息</block>
-  <block id="b19dcb5d79169da5722547be25d81a05" category="paragraph"><block ref="2b5ab7e81cd6465f0e4fd342fda67520" category="inline-link-macro-rx"></block> 。</block>
   <block id="810f9fccb96a80e297e51b87448790cb" category="section-title">控制台不支援儲存虛擬機器的災難復原</block>
   <block id="83ff2bfb2ceab96a6e6f6d1ef39137dd" category="paragraph">控制台不提供儲存虛擬機器 (SVM) 災難復原的任何設定或編排支援。您必須使用ONTAP系統管理員或ONTAP CLI。</block>
   <block id="9c6c0a63729c2c1bc8388b9ccd4e4155" category="inline-link-macro">了解有關 SVM 災難復原的更多信息</block>
@@ -1486,7 +1478,6 @@
   <block id="f36fc02b3ad98ba0f8264e2cbf734e4a" category="admonition">正在尋找有關控制台代理的資訊？<block ref="b7d7c3653bdcc7d34cae76f41a345d50" category="inline-link-rx"></block></block>
   <block id="a83fb1ff36ceed286841d6eef8f99b92" category="section-title">資料分層連接</block>
   <block id="8b783a3453cf42b2c5afd74fef3b7e07" category="inline-link">AWS 文件：建立網關終端節點</block>
-  <block id="3682b5297c42545380ea5b654c6bdf51" category="paragraph">如果您想要將 EBS 用作效能層，將 AWS S3 用作容量層，則必須確保Cloud Volumes ONTAP與 S3 有連接。提供該連線的最佳方式是建立到 S3 服務的 VPC 端點。有關說明，請參閱<block ref="739944581ddd86bd6d09f3841372a69b" category="inline-link-rx"></block>。</block>
   <block id="e3f443ff9bde7acbc118b80782ddcca4" category="paragraph">建立 VPC 端點時，請確保選擇與Cloud Volumes ONTAP實例相對應的區域、VPC 和路由表。您還必須修改安全群組以新增允許流量到 S3 端點的出站 HTTPS 規則。否則， Cloud Volumes ONTAP無法連線到 S3 服務。</block>
   <block id="3e8a22c9458be9392b33d4c1a68e03cc" category="inline-link">AWS Support 知識中心：為什麼我無法使用閘道 VPC 終端節點連接到 S3 儲存桶？</block>
   <block id="95cf784150417dd3ea0813f10381aa4f" category="paragraph">如果您遇到任何問題，請參閱<block ref="133eaae00ad88e811386070963e01d00" category="inline-link-rx"></block></block>
@@ -1866,7 +1857,6 @@
   <block id="941288a863ad97154034dd3c71f32245" category="paragraph"><block ref="581f54bac504640f66f842676676be03" category="inline-link-rx"></block>必須在部署Cloud Volumes ONTAP的 Google Cloud 子網路中停用。</block>
   <block id="0bf4ff4271913670a6b654840746e03d" category="paragraph">控制台代理也會聯絡多個端點以進行日常操作。有關端點的信息，請參閱<block ref="e553aa98dbd6de43170bbf57fd2de45c" category="inline-link-rx"></block>和<block ref="3b443e9dd660f6a0a57c859f2ddcc1c3" category="inline-link-rx"></block>。</block>
   <block id="6949300ff5b5cf6bb192114a06c923bb" category="cell">部署模式</block>
-  <block id="f235e1a740b92e59100dda0cf4e3d76b" category="cell">\ https://www.googleapis.com/compute/v1/projects/ \ https://cloudresourcemanager.googleapis.com/v1/projects \ https://www.googleapis.com/compute/beta \ https://storage.googleapis.com/storage/v1 \ https: https://iam.googleapis.com/v1 https://www.googleapis.com/storage/v1 https://cloudkms.googleapis.com/v1 \ https://www.googleapis.com/deploymentmanager/v2/projects \ https://compute.googleapis.com/compute/v1</block>
   <block id="342804fdcc569427f0c6f21b0757653d" category="cell">Google Cloud（商業用途）。</block>
   <block id="bec523fb694fd6fe80736494c1a45a30" category="cell">與 Google Cloud 服務通訊。</block>
   <block id="204ed3efd9825aae7544540ef4ed212f" category="cell">Cloud Volumes ONTAP無法與 Google Cloud 服務通訊以對 Google Cloud 中的控制台執行特定操作。</block>
@@ -1927,7 +1917,6 @@
   <block id="e3ff68f36a97170df931248879489aa6" category="paragraph">有關為控制台代理程式配置代理伺服器的信息，請參閱<block ref="ed1d254983f768b27a40e1ebeff4b8df" category="inline-link-rx"></block>。</block>
   <block id="07bb5df713985e089cc7b42eb0e0f7fa" category="paragraph-title">在 Google Cloud 中為Cloud Volumes ONTAP設定網路標籤</block>
   <block id="8b65b019f0e99a6779da31cc1d003f24" category="paragraph">在控制台代理程式的透明代理程式配置期間，管理員會為 Google Cloud 新增網路標籤。您需要取得並手動新增Cloud Volumes ONTAP配置的相同網路標籤。此標籤對於代理伺服器正常運作是必要的。</block>
-  <block id="ecbf9a9117dd5b59c8cb3678f128175a" category="list-text">在 Google Cloud 控制台中，找到您的Cloud Volumes ONTAP系統。</block>
   <block id="c54cc2a3649745490397c1485da258bc" category="list-text">前往*詳細資料&gt;網路&gt;網路標籤*。</block>
   <block id="a551198f057ae01a6873c5e1853e4d02" category="list-text">新增用於控制台代理的標籤並儲存配置。</block>
   <block id="9c7871cefdac5cad3bd5c3e177b2ef16" category="summary">NetApp Console建立 AWS 安全性群組，其中包含Cloud Volumes ONTAP成功運作所需的入站和出站規則。您可能希望參考連接埠以進行測試，或者您喜歡使用自己的安全群組。</block>
@@ -2004,7 +1993,6 @@
   <block id="297a67d78120f97f7f0070c499c6b662" category="paragraph">控制台直接與 Google Cloud API 通訊。這可以從 Google Cloud 外部的外部 IP 位址觸發（例如，來自 api.services.cloud.netapp.com），也可以從 Google Cloud 內部指派給控制台代理程式的內部位址觸發。</block>
   <block id="25f6cf82964ea704bf9b22194fa8eeaa" category="paragraph">根據控制台代理程式的部署方式，您的服務邊界可能需要做出某些例外。</block>
   <block id="fff0d600f8a0b5e19e88bfb821dd1157" category="section-title">圖片</block>
-  <block id="a83aefd3e7dcfde79a9ba2f30b02f7e8" category="paragraph">Cloud Volumes ONTAP和控制台都使用由NetApp管理的 GCP 內專案的映像。如果您的組織有阻止使用未在組織內託管的映像的策略，則這可能會影響控制台代理程式和Cloud Volumes ONTAP 的部署。</block>
   <block id="8b5c62ae07ed7799d663bf6cc6e021cf" category="paragraph">您可以使用手動安裝方法手動部署控制台代理，但Cloud Volumes ONTAP也需要從NetApp專案中擷取映像。您必須提供允許清單才能部署控制台代理程式和Cloud Volumes ONTAP。</block>
   <block id="8ab8210e90b1f409f7b295ebde55a36c" category="section-title">部署控制台代理</block>
   <block id="eb7161bcb78c0c52d7b38a01dc0833e7" category="paragraph">部署控制台代理程式的使用者需要能夠引用 projectId 為 _netapp-cloudmanager_ 且專案編號為 _14190056516_ 中所託管的映像。</block>
@@ -2013,8 +2001,6 @@
   <block id="5f482d21551e8d5fe96e6b825292efa2" category="list-text">預設 Google API 服務代理程式的服務帳戶需要引用服務項目中 projectId _netapp-cloudmanager_ 和項目編號 _14190056516_ 中託管的圖片。</block>
   <block id="386016e1fc595e09fea4ffd7e1b9c37a" category="paragraph">下面定義了使用 VPC 服務控制拉取這些影像所需的規則範例。</block>
   <block id="b31886bca9e200409879551b81d64df4" category="section-title">VPC 服務控制邊界策略</block>
-  <block id="43733a0f98cc509e48d8a196e1e7d156" category="inline-link">GCP VPC 服務控制政策文檔</block>
-  <block id="7412e0d29035198eda9890cbe427309f" category="paragraph">策略允許 VPC 服務控制規則集的例外。有關政策的更多信息，請訪問<block ref="fb7f74377472d4fa7be5b47cdd4baaf0" category="inline-link-rx"></block>。</block>
   <block id="75dd8d6c70b36b7f20686d8e455e498f" category="paragraph">若要設定控制台所需的策略，請導覽至您組織內的 VPC 服務控制邊界並新增下列策略。這些欄位應與 VPC 服務控制策略頁面中給出的選項相符。也要注意，*所有*規則都是必需的，並且規則集中應該使用*OR*參數。</block>
   <block id="035711c70259cf945ceff083825d7678" category="section-title">入口規則</block>
   <block id="1d00e7dce692e8dc3f6877f035e3a616" category="paragraph">或者</block>
@@ -2084,7 +2070,6 @@
   <block id="d14fd727d6676081518cbc2777f71510" category="list-text">事件和作業：查看事件日誌、系統警報、作業和稽核日誌。</block>
   <block id="8eb43cfa74c50eb1e03cd9fca36f1feb" category="list-text">進階資料保護：保護儲存虛擬機器、LUN 和一致性群組。</block>
   <block id="18fb111bc25b1d08182b3aaab28b1107" category="list-text">主機管理：設定 SAN 啟動器群組和 NFS 用戶端。</block>
-  <block id="130cd9bfe8beae8de2446572850b4ac8" category="list-text">S3 物件儲存管理： Cloud Volumes ONTAP中的 S3 儲存管理功能僅在系統管理員中可用，而不在控制台中可用。</block>
   <block id="d3353d9a07f8e3de719e409e616a3382" category="list-text">標準雲端區域中的Cloud Volumes ONTAP 9.10.0 及更高版本可透過ONTAP System Manager 進行進階儲存管理。</block>
   <block id="0f1ca4e2133610fdc8b23e4db3f7cb0c" category="list-text">GovCloud 區域或沒有出站網路存取的區域不支援系統管理員整合。</block>
   <block id="b03c3f1292327857639de1cd1434567b" category="paragraph">Cloud Volumes ONTAP不支援系統管理器介面中顯示的一些功能：</block>
@@ -2599,7 +2584,6 @@
   <block id="5632566b6a310163e5233af96d1f233d" category="paragraph">Cloud Volumes ONTAP使用服務帳戶來存取和管理一個用於分層資料的儲存桶以及另一個用於備份的儲存桶。</block>
   <block id="f360198b818590ebb72ceaca972eb5b6" category="paragraph">您可以設定一個服務帳戶並將其用於兩種用途。服務帳戶必須具有*儲存管理員*角色。</block>
   <block id="ab6fcc124e86604f6bab5da13aaea51a" category="inline-link">前往服務帳戶頁面</block>
-  <block id="7dc4b63dc4834aecd751b91ed3de3d39" category="list-text">在 Google Cloud 控制台中，<block ref="72863ecd427c906452e0c3d21111bdac" category="inline-link-rx"></block> 。</block>
   <block id="48ce4b015469f877847f852907eafd00" category="list-text">選擇您的項目。</block>
   <block id="4e13dc0d32baece976c716e87801b711" category="list-text">點擊*建立服務帳戶*並提供所需資訊。</block>
   <block id="7804f90af05e35898d30a79bf21e0c6f" category="list-text">*服務帳戶詳細資料*：輸入名稱和描述。</block>
@@ -2608,8 +2592,6 @@
   <block id="3d9c95c023158831b0c56e1e3a55d884" category="paragraph"><block ref="3d9c95c023158831b0c56e1e3a55d884" category="inline-image-macro-rx" type="image"></block></block>
   <block id="97ea2925eb07006a388a6db4e1edbdd3" category="list-text">*授予使用者存取此服務帳戶的權限*：將控制台代理服務帳戶作為_服務帳戶使用者_新增至此新服務帳戶。</block>
   <block id="5e09a635c5058aa03ef7f238aa333dd7" category="paragraph">此步驟僅對於資料分層是必需的。備份和還原不需要它。</block>
-  <block id="461b938b03fed2966c999067c7037177" category="inline-image-macro">這是 Google Cloud 控制台的螢幕截圖，您可以在建立期間向使用者授予服務帳戶的存取權限。</block>
-  <block id="a96ac63cbe288934ca570c3b1beec47f" category="paragraph"><block ref="a96ac63cbe288934ca570c3b1beec47f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">下一步是什麼？</block>
   <block id="f63ce07313e293d0b9b9cad6b8b8d528" category="paragraph">稍後建立Cloud Volumes ONTAP系統時，您需要選擇服務帳戶。</block>
   <block id="280ee264bbde91d0e35a15c5c017570d" category="inline-image-macro">詳細資訊和憑證頁面的螢幕截圖，您可以在其中為Cloud Volumes ONTAP啟用服務帳戶。</block>
@@ -2792,7 +2774,6 @@
   <block id="3e8ebc7d3f455586c6e59178eb618762" category="cell">這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。</block>
   <block id="c9dac17a844d646dfb54058f973d40a5" category="cell">編輯項目</block>
   <block id="c5f9e4a0319da77fb1e8628a15d62378" category="paragraph">選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台所在的項目。</block>
-  <block id="b40f267ac1ab384c8c1af15de8a2c85d" category="paragraph">如果您在下拉清單中沒有看到任何其他項目，則表示您尚未將服務帳戶與其他項目關聯。進入Google Cloud控制台，開啟IAM服務，選擇項目。將具有用於控制台的角色的服務帳戶新增至該項目。您需要對每個項目重複此步驟。</block>
   <block id="380bfdc134190af310ad2f9812d7569f" category="inline-link-macro">如本頁所述</block>
   <block id="ebb24ec6b758fc463dacdf7c1c7a9845" category="admonition">這是您為控制台設定的服務帳戶，<block ref="d8e8dd577fee44652d34a1d1f4c2ce4b" category="inline-link-macro-rx"></block> 。</block>
   <block id="27d9b3c82bd8da92f73b89a66c20ba04" category="paragraph">按一下「新增訂閱」將選定的憑證與訂閱關聯。</block>
@@ -2800,7 +2781,6 @@
   <block id="d18e83d73544a6c270cacf5047fa7b17" category="paragraph">若要建立按使用量付費的Cloud Volumes ONTAP系統，您需要從 Google Cloud 市場選擇與Cloud Volumes ONTAP訂閱相關聯的 Google Cloud 專案。參考<block ref="26858d2411615dac691c2981d5338917" category="inline-link-rx"></block>。</block>
   <block id="96079e83b3a5665d74ee359353e1ad0b" category="list-text">*服務*：選擇您想要在此系統上使用的服務。為了選擇備份和恢復，或使用NetApp Cloud Tiering，您必須在步驟 3 中指定服務帳戶。</block>
   <block id="ca43ab61d02d95bbbf25d3c1643eebd1" category="admonition">如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。</block>
-  <block id="1adb02ac235ed181f81480b00aa116f6" category="list-text">*位置與連線*：選擇一個位置，選擇防火牆策略，並確認與 Google Cloud 儲存的網路連線以進行資料分層。</block>
   <block id="3450bc9327f985ff43682b683cb1eee9" category="cell">連線驗證</block>
   <block id="2e5f3aa65f18453c5c51b5ffcf2214d5" category="inline-link">Google Cloud 文件：配置私有 Google 存取權限</block>
   <block id="13b0618617ce48b8c5ef64094a5be02f" category="cell">若要將冷資料分層至 Google Cloud Storage 儲存桶，必須為Cloud Volumes ONTAP所在的子網路設定私人 Google Access。有關說明，請參閱<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
@@ -2841,7 +2821,6 @@
   <block id="bb74d89743a44b4a44d7b815ee74a08e" category="inline-link">使用 9.6 設定和新增 Google Cloud 帳戶以進行資料分層</block>
   <block id="029f8920d36eb65c171c6c21ac843b04" category="list-text">如需新增 Google Cloud 帳戶的協助，請參閱<block ref="434f9c6247e5841006dab0119a511de9" category="inline-link-rx"></block>。</block>
   <block id="10f24cbf4f99f2a58468f5eddcb58a10" category="list-text">您可以在建立或編輯磁碟區時選擇特定的磁碟區分層策略。</block>
-  <block id="cd6afa4ed61f071f47165012e4286043" category="list-text">如果您停用資料分層，則可以在後續聚合中啟用它，但您需要關閉系統並從 Google Cloud 控制台新增服務帳戶。</block>
   <block id="40be323df7265fed128da31c2235f802" category="inline-link-macro">了解有關數據分層的更多信息</block>
   <block id="42e33ca80e00148658496cf0df242c83" category="paragraph"><block ref="c991217783edcd004ecaae62c8f53317" category="inline-link-macro-rx"></block> 。</block>
   <block id="7fd530af1ffbe88c56d08b069efeba9e" category="list-text">*建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。</block>
@@ -2881,7 +2860,6 @@
   <block id="7abaa657d7581473fa6d07195eefca45" category="paragraph">選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台的項目。</block>
   <block id="0f1a2ace875803b14883046cfdd65e11" category="paragraph">若要建立按使用量付費的Cloud Volumes ONTAP系統，您需要從 Google Cloud Marketplace 中選擇與Cloud Volumes ONTAP訂閱相關聯的 Google Cloud 專案。參考<block ref="26858d2411615dac691c2981d5338917" category="inline-link-rx"></block>。</block>
   <block id="6d233fc45c5eb7c0016f5de64af78ac2" category="list-text">*服務*：選擇您想要在此系統上使用的服務。若要選擇備份和恢復，或使用NetApp Cloud Tiering，您必須在步驟 3 中指定服務帳戶。</block>
-  <block id="166a4b640ff9a34dd7447ebf0e16518b" category="list-text">*HA 部署模型*：為 HA 配置選擇多個區域（建議）或單一區域。然後選擇一個地區和區域。</block>
   <block id="96c883d1fa1e7ebdc724bb5cec521bbd" category="inline-link-macro">了解有關 HA 部署模型的更多信息</block>
   <block id="65a1b420f9d8cf92d6a805f641764e75" category="paragraph"><block ref="810b7c24efd4e50a858cf2ac93f8cde8" category="inline-link-macro-rx"></block> 。</block>
   <block id="74c223c0ac10d19fc933bf44bdfae707" category="list-text">*連線性*：為 HA 設定選擇四個不同的 VPC，每個 VPC 中選擇一個子網，然後選擇一個防火牆策略。</block>
@@ -2986,8 +2964,6 @@
   <block id="4d10b292fbd4e7b4daad483b36f81fe3" category="cell">選擇要用於此Cloud Volumes ONTAP系統的 AWS 憑證和市場訂閱。點擊「新增訂閱」將所選憑證與新的 AWS 市場訂閱關聯。訂閱可以是年度合同，也可以是按小時付費的Cloud Volumes ONTAP 。如果您直接從NetApp購買了授權（自帶授權 (BYOL)），則無需 AWS 訂閱。 NetApp已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱<block ref="73dc1b5468c2405a47da63a28335f079" category="inline-link-rx"></block> 。<block ref="4d61765c5a57d3e748562e7808144a43" category="inline-link-rx"></block> 。</block>
   <block id="c38a20e959e669ec93ecff42fbba0220" category="admonition">如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使用者都需要訂閱。第一個用戶訂閱後，AWS 市場會通知後續用戶他們已經訂閱，如下圖所示。當 AWS 帳戶有訂閱時，每個 IAM 使用者都需要將自己與該訂閱關聯起來。如果您看到下面顯示的訊息，請點擊「*點擊這裡*」連結前往控制台網站並完成該過程。<block ref="9f3ecfd4d8b093799ed148b984f9b546" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f99d3ff891644fe10f4d30e423d81b2e" category="list-text">*服務*：啟用服務啟用或停用您不想在此Cloud Volumes ONTAP系統中使用的單一服務。</block>
-  <block id="2778487e9ef3c14d988e2ef29ef1a280" category="inline-link">了解有關備份和恢復的更多信息</block>
-  <block id="ebb56598b78dff32d520c49862c1a403" category="list-text"><block ref="ebb56598b78dff32d520c49862c1a403" category="inline-link-rx"></block></block>
   <block id="3dc0546ee23c197fd25bc3ef988c8a30" category="list-text">*HA 部署模型*：選擇 HA 配置。</block>
   <block id="9e31e4f9e8f37fa86acefdb611c2e044" category="inline-link-macro">適用於 AWS 的Cloud Volumes ONTAP HA</block>
   <block id="66962b0e026c08cab80e01e87da346a8" category="paragraph">有關部署模型的概述，請參閱<block ref="ac890ff87988e1f4fe9ed78d7a128a29" category="inline-link-macro-rx"></block>。</block>
@@ -3233,7 +3209,6 @@
   <block id="7c5d8bf27092bf15632098a9cc75b95e" category="paragraph">設定您的 AWS 網絡，以便Cloud Volumes ONTAP可以正常運作。</block>
   <block id="3edf566806db93c358dc35a79cdb050e" category="list-text">選擇要啟動控制台代理實例和Cloud Volumes ONTAP實例的 VPC 和子網路。</block>
   <block id="f2b0ab307794a8dc0961eb05056e86ea" category="list-text">確保您的 VPC 和子網路將支援控制台代理和Cloud Volumes ONTAP之間的連線。</block>
-  <block id="c1540e16429791c7515c0322aad07fcf" category="list-text">設定到 S3 服務的 VPC 端點。</block>
   <block id="4274b83eccea8c2453ce00d6c7cde54e" category="paragraph">如果您想將冷資料從Cloud Volumes ONTAP到低成本物件存儲，則需要 VPC 端點。</block>
   <block id="e7f011d8b0cdfad4e5a7cfc96be6f8a8" category="section-title">步驟 2：設定權限</block>
   <block id="a0f59a54b06324c6099e8ebf3139657e" category="paragraph">設定 IAM 策略和角色，為控制台代理程式和Cloud Volumes ONTAP提供在 AWS Secret Cloud 或 Top Secret Cloud 中執行操作所需的權限。</block>
@@ -4093,11 +4068,6 @@
   <block id="c24e9fc1263121db1bb6501931efe09c" category="paragraph">大多數 Google Cloud 區域支援Cloud Volumes ONTAP 。<block ref="0de6b81e82e22001f2c59ffd34a8aeac" category="inline-link-rx"></block> 。</block>
   <block id="18ff4ec9e6259918d45028a5d6040d91" category="section-title">選擇支援的機器類型</block>
   <block id="64efea6517490623e51052b533085d96" category="paragraph">Cloud Volumes ONTAP支援多種機器類型，具體取決於您選擇的授權類型。</block>
-  <block id="9ee8a2504ba9f03aae4b30973ea35ad4" category="inline-link">GCP 中Cloud Volumes ONTAP支援的配置</block>
-  <block id="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="paragraph"><block ref="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="inline-link-rx"></block></block>
-  <block id="9265447fe548064ca54a98dd4a111bc0" category="inline-link">GCP 中Cloud Volumes ONTAP的儲存限制</block>
-  <block id="2dcb300e9b01e5d98962a7e0c6eee87e" category="paragraph"><block ref="2dcb300e9b01e5d98962a7e0c6eee87e" category="inline-link-rx"></block></block>
-  <block id="0d705fad98d8ea6c4ffe75e2508e2f92" category="section-title">在 GCP 中調整系統規模</block>
   <block id="d1d964d1db8731b3b8174fa845b85de0" category="paragraph">調整Cloud Volumes ONTAP系統的大小可以幫助您滿足效能和容量要求。在選擇機器類型、磁碟類型和磁碟大小時，您應該注意幾個關鍵點：</block>
   <block id="3ea4bf9da7622edeeae1bf80e9c5cded" category="list-text">機器類型</block>
   <block id="33163c406a5fa4e618c360f9d6a2cf33" category="paragraph">請參閱以下內容以了解更多詳細資訊：</block>
@@ -4105,14 +4075,12 @@
   <block id="4a8c0d1957b124297f183a32fe967b94" category="list-text"><block ref="4a8c0d1957b124297f183a32fe967b94" category="inline-link-rx"></block></block>
   <block id="e95081e0ce4cd8b52aae7f4c51df0e38" category="inline-link">Google Cloud 文件：效能</block>
   <block id="7f1833e3cac2f73326c69cb528100505" category="list-text"><block ref="7f1833e3cac2f73326c69cb528100505" category="inline-link-rx"></block></block>
-  <block id="1e1128744744b7137df3c14d7297a0d9" category="list-text">GCP 磁碟類型</block>
   <block id="81aeb0f42709dc6b02c7b6a3dc77c5fc" category="list-text">為Cloud Volumes ONTAP建立磁碟區時，您需要選擇Cloud Volumes ONTAP用於磁碟的底層雲端儲存。磁碟類型可以是以下任一種：</block>
   <block id="c9f5fb49e1accd9e04bbc9f8698a138d" category="list-text">_區域 SSD 持久性磁碟_：SSD 持久性磁碟最適合需要高隨機 IOPS 率的工作負載。</block>
   <block id="04cc1a164487ea3f644d6e322c5bb9ad" category="list-text">_區域平衡持久性磁碟_：這些 SSD 透過提供每 GB 較低的 IOPS 來平衡效能和成本。</block>
   <block id="8547d86d311be29912c3a5776b5c6d37" category="list-text">_區域標準持久磁碟_：標準持久磁碟經濟實惠，可處理順序讀取/寫入作業。</block>
   <block id="95613450e4eb651fdb31145ab9ad324d" category="inline-link">Google Cloud 文件：區域持久性磁碟（標準和 SSD）</block>
   <block id="c091d52d01449012f33f4f993b41417d" category="paragraph">如欲了解更多詳情，請參閱<block ref="61c2f059d82ddc0e246df7b9944d49f4" category="inline-link-rx"></block>。</block>
-  <block id="23427a152f8d98d474812d41d01526d9" category="list-text">GCP 磁碟大小</block>
   <block id="11d38a7256d0d4fd2244af8df450a246" category="list-text">部署Cloud Volumes ONTAP系統時，您需要選擇初始磁碟大小。之後，您可以讓NetApp Console為您管理系統的容量，但如果您想自行建立聚合，請注意以下事項：</block>
   <block id="e09827c232da4088f2ed4f8d307efa73" category="list-text">確定所需的空間，同時考慮性能。</block>
   <block id="3971baa53a59408437ace32571214622" category="list-text">持久磁碟的效能會隨著磁碟大小和系統可用的 vCPU 數量自動擴展。</block>
@@ -4122,9 +4090,7 @@
   <block id="355d42a7e00bcba864628f034b15cddb" category="inline-link-macro">查看 Google Cloud 中Cloud Volumes ONTAP系統資料的預設磁碟</block>
   <block id="b40468f6a6f2e8fcdc8714311aa1ef49" category="list-text"><block ref="009f20ff08fc44a35d564f14d4f86898" category="inline-link-macro-rx"></block> 。</block>
   <block id="a4f07a5384bf6c0ff50811b7cfdaf1a5" category="paragraph">Google Cloud Compute Engine 對資源使用實施配額，因此您應確保在部署Cloud Volumes ONTAP之前尚未達到限制。</block>
-  <block id="24cf7e4ba799cb013c8978351f09a675" category="paragraph">在 GCP 中部署Cloud Volumes ONTAP時，您需要指定有關虛擬網路的詳細資訊。您可以使用工作表從管理員收集資訊。</block>
   <block id="0708e6ef30240c1f7018e5cefe7026d8" category="paragraph">*單節點系統的網路資訊*</block>
-  <block id="4ad8eab08ba97cad000a26933a94c309" category="cell">GCP資訊</block>
   <block id="b3ff996fe5c77610359114835baf9b38" category="cell">區</block>
   <block id="db2c433819a1360bb1c3610a9817cabc" category="cell">VPC 網路</block>
   <block id="15053fe82c0cfa99c0dd5722f3c5a2fd" category="cell">防火牆策略（如果使用您自己的）</block>
@@ -4177,7 +4143,6 @@
   <block id="95d8da7b19238cf835ee8f03b98b04ab" category="list-text">_Provisioned IOPS SSD (io1)_ 磁碟適用於需要以較高成本獲得最高效能的關鍵應用程式。</block>
   <block id="3b45d0097165753cbe807b39e8e38550" category="paragraph">請注意， Cloud Volumes ONTAP支援具有 io1 磁碟的 Amazon EBS Elastic Volumes 功能。<block ref="2f34fac6c8e3e7a84b963b75a5591f20" category="inline-link-macro-rx"></block> 。</block>
   <block id="42774f56e2ae4256cc8d123f6d4fe958" category="list-text">_吞吐量最佳化 HDD (st1)_ 磁碟適用於需要以較低價格實現快速、一致吞吐量的頻繁存取的工作負載。</block>
-  <block id="d7a299bbe372f280000198df797460f2" category="admonition">由於缺乏連接，AWS 本地區域無法將資料分層到 AWS S3。</block>
   <block id="321914d0fbcf9c45a3ea6a27f4c01ca0" category="list-text">EBS 磁碟大小</block>
   <block id="44bacb29285bcdcf27b752d7b6c9e182" category="inline-link-macro">Amazon EBS 彈性卷功能</block>
   <block id="133354f4da6d01dbafb64d522788b589" category="inline-link-macro">讓控制台為您管理系統容量</block>
@@ -4608,7 +4573,6 @@
   <block id="202d3fe18abdfd3bccd5bcb7712beaa9" category="list-text">導覽至加密金鑰並為 Google Cloud Storage 服務代理程式指派 Cloud KMS Encrypter/Decrypter 權限。</block>
   <block id="92d6097e791c2b01c7cc0104f3a00d02" category="inline-link">Google Cloud 文件：使用客戶管理的加密金鑰</block>
   <block id="8d6456bdd46775a0bde58d79fa727b86" category="paragraph">有關詳細信息，請參閱<block ref="0d1fec14af342ac3f0970d5f69f9ea12" category="inline-link-rx"></block></block>
-  <block id="8bfa194adf007027d43cc1a7563e03fa" category="list-text">建立系統時，請在 API 要求中使用「GcpEncryption」參數。</block>
   <block id="b8bed80dbd79102cbf54b5efe00489c3" category="paragraph">請參閱<block ref="ad561d482c49648a0d36f6a86e379ff3" category="inline-link-rx"></block>有關使用“GcpEncryption”參數的更多詳細資訊。</block>
   <block id="b10aaff78dfb34e8e7e4c718d4519219" category="summary">如果您想要將 Amazon 加密與Cloud Volumes ONTAP一起使用，則需要設定 AWS 金鑰管理服務。</block>
   <block id="24558fa2d9e2dec026acbaef1270de6f" category="doc">設定Cloud Volumes ONTAP以在 AWS 中使用客戶管理的金鑰</block>
@@ -4639,7 +4603,6 @@
   <block id="c2a34cad77f0451e7d0f58a7e0e6e450" category="inline-link">AWS 文件：允許其他帳戶中的使用者使用 KMS 金鑰</block>
   <block id="802482a11bca72c205b3a1d95ff61b0a" category="paragraph">有關此過程的更多詳細信息，請參閱<block ref="9601f431d0df2b9877da4b65b53342b6" category="inline-link-rx"></block>。</block>
   <block id="c81afb1b84ded76b91ff7f71834201df" category="list-text">如果您使用的是客戶管理的 CMK，請透過將Cloud Volumes ONTAP IAM 角色新增為_密鑰使用者_來修改 CMK 的密鑰原則。</block>
-  <block id="0384244b4a5a8a089d8df0c3da87ddc5" category="paragraph">如果您在Cloud Volumes ONTAP上啟用了資料分層並想要加密儲存在 S3 儲存桶中的數據，則需要執行此步驟。</block>
   <block id="c13f89355236652e9c75af1eec63418d" category="paragraph">您需要在部署Cloud Volumes ONTAP之後執行此步驟，因為 IAM 角色是在建立Cloud Volumes ONTAP系統時建立的。  （當然，您可以選擇使用現有的Cloud Volumes ONTAP IAM 角色，因此可以先執行此步驟。）</block>
   <block id="f71bca1a74e3009d7cff4912558ab628" category="summary">設定 AWS 傳輸網關，以允許 NAS 用戶端從Cloud Volumes ONTAP所在的 VPC 外部存取浮動 IP 位址。這是有益的，因為當發生故障時，浮動 IP 會在節點之間自動遷移。</block>
   <block id="88f49ea08cc48c12826d7601b30c9af6" category="doc">為Cloud Volumes ONTAP HA 設定 AWS 傳輸網關</block>
@@ -4745,7 +4708,6 @@
   <block id="d39421b26d8f96d6b63ba8583d57f734" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block>選擇支援的配置</block>
   <block id="d2a95dd3692cce58be8541add2bc6897" category="paragraph">大多數配置都受支援。如果您擁有執行最新版本的Cloud Volumes ONTAP系統，那麼您就可以開始了。<block ref="f2e6a88e181ee9519c72412b23fc6e17" category="inline-link-macro-rx"></block> 。</block>
   <block id="793656833776421d4fb1944ba40b1677" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block>確保Cloud Volumes ONTAP與物件儲存之間的連接</block>
-  <block id="dfa5ec33cd56c8ec3ba7043cbe7164b5" category="list-text">對於 AWS，您需要一個 VPC Endpoint 到 S3。<block ref="8bf18368a4d50e7d264c6ce0821cc35b" category="inline-xref-macro-rx"></block> 。</block>
   <block id="ee00eb1699dc1b8b1326aaf18fd4c862" category="list-text">對於 Azure，只要NetApp Console具有所需的權限，您就不需要執行任何操作。<block ref="b95ed179d0a0b66246f2db10d9eda033" category="inline-xref-macro-rx"></block> 。</block>
   <block id="c64a8243194a73e3972f291aa54a6a53" category="list-text">對於 Google Cloud，您需要設定私人 Google Access 子網路並設定服務帳戶。<block ref="ae7c1d949803baa5d291fbd909b9d2e1" category="inline-xref-macro-rx"></block> 。</block>
   <block id="a4c1999be8e0538c77be98752e1c50d8" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block>確保您已啟用分層聚合</block>
@@ -4783,8 +4745,6 @@
   <block id="957637726d55a9a54b3163fb3c7e8f1b" category="list-text">必須在磁碟區上啟用精簡配置。</block>
   <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="section-title">要求</block>
   <block id="c52cfa8d2e8ba7443d63ecc4fb1b831d" category="paragraph">根據您的雲端供應商，必須設定某些連線和權限，以便Cloud Volumes ONTAP可以將冷資料分層到物件儲存。</block>
-  <block id="8392903bca29cf2376b54aee919836fa" category="section-title">將冷資料分層到 AWS S3 的要求</block>
-  <block id="b60a4a79179ba02b8f00b6834e8d980f" category="paragraph">確保Cloud Volumes ONTAP與 S3 有連線。提供該連線的最佳方式是建立到 S3 服務的 VPC 端點。有關說明，請參閱<block ref="739944581ddd86bd6d09f3841372a69b" category="inline-link-rx"></block>。</block>
   <block id="a4c517861a247b6f98966b7fdc44aec2" category="paragraph">如果您遇到任何問題，請參閱<block ref="133eaae00ad88e811386070963e01d00" category="inline-link-rx"></block>。</block>
   <block id="9937c497b7ba5b93c4e025e7034a6ab2" category="section-title">將冷資料分層到 Azure Blob 儲存體的需求</block>
   <block id="0d7b4676ee4aa84d26a16b123a63ecea" category="paragraph">只要控制台具有所需的權限，您就不需要在效能層和容量層之間建立連線。如果控制台代理程式的自訂角色具有下列權限，則控制台將為您啟用 VNet 服務終端：</block>
@@ -4796,7 +4756,6 @@
   <block id="3416d6997f78d0ffe7261725d24751ca" category="inline-link-macro">了解如何設定此服務帳號</block>
   <block id="1599759c277422fbe5e683ed93eafe5f" category="paragraph"><block ref="5a9b347c50656bd207fa757a3eb4fa66" category="inline-link-macro-rx"></block> 。</block>
   <block id="2842a888f7806072223340b92c6b46b7" category="paragraph">建立Cloud Volumes ONTAP系統時，系統會提示您選擇此服務帳戶。</block>
-  <block id="4094070de63eb60a22dafb42ecab40fb" category="paragraph">如果您在部署期間未選擇服務帳戶，則需要關閉Cloud Volumes ONTAP，前往 Google Cloud 控制台，然後將服務帳戶附加到Cloud Volumes ONTAP實例。然後，您可以按照下一節中的描述啟用資料分層。</block>
   <block id="afe7022770dc53fd2a2de81727d4343a" category="list-text">若要使用客戶管理的加密金鑰加密儲存桶，請啟用 Google Cloud 儲存桶以使用該金鑰。</block>
   <block id="030b67ae86ab61438eb6b00a3ade8e7a" category="inline-link-macro">了解如何將客戶管理的加密金鑰與Cloud Volumes ONTAP結合使用</block>
   <block id="d9c32a88801cedef2b665ed828d3ec26" category="paragraph"><block ref="c6d38e0757454a32ebb960ce7a42b88f" category="inline-link-macro-rx"></block> 。</block>
@@ -5449,7 +5408,6 @@
   <block id="ba089edca33f314482ad946ae680f1eb" category="inline-link">了解有關許可的更多信息</block>
   <block id="73f030bd359abb41dc1089c470531542" category="paragraph"><block ref="37698926d26a2683d3b5c90c9b2406a6" category="inline-link-rx"></block> 。</block>
   <block id="57ae56f77d278076fb394799067eb3ef" category="section-title">S3 Glacier 即時檢索</block>
-  <block id="465771d8890531f2527e09ef3f1b4f68" category="paragraph">現在您可以將分層資料儲存在 Amazon S3 Glacier 即時檢索儲存類別中。</block>
   <block id="6d4822148bad6fb79e6d92864dde8771" category="inline-link">了解如何變更分層資料的儲存類別</block>
   <block id="2e56aeba3c1fc24d42b0f15df12a08f9" category="paragraph"><block ref="5d4901194aa2380bf45bcc72c63f2763" category="inline-link-rx"></block> 。</block>
   <block id="ef8e1d8f242a7ee4d109deb44db1b252" category="section-title">連接器所需的新 AWS 權限</block>
@@ -5598,8 +5556,6 @@
   <block id="ce99c539d64a13ad8b53af078887ad2a" category="section-title">Google Cloud 不再支援 custom-4-16384</block>
   <block id="46e869bc0f7a5fcdc09df010e1f48b25" category="paragraph">新的Cloud Volumes ONTAP系統不再支援 custom-4-16384 機器類型。</block>
   <block id="0e3cb01898d99d0091e2a6f5a7572390" category="paragraph">如果您現有的系統正在此機器類型上運行，您可以繼續使用它，但我們建議切換到 n2-standard-4 機器類型。</block>
-  <block id="346b156b62b438feb8aca3c528a7173c" category="inline-link">查看 GCP 中Cloud Volumes ONTAP支援的配置</block>
-  <block id="cd46020b2ca09f66f5c79bd35fe2da2e" category="paragraph"><block ref="4107f790de2a45bc9a00a9b75db49bc5" category="inline-link-rx"></block> 。</block>
   <block id="84e52d98abcbe81e8699e5833406f2e8" category="section-title">2021年5月30日</block>
   <block id="356b234ec5c21cc28a1a5ae1dd7d3d5f" category="paragraph">連接器 3.9.7 版本引入了以下更改。</block>
   <block id="29edc853696ed1638805579b54eb4028" category="section-title">AWS 中的新專業套餐</block>
@@ -5671,8 +5627,6 @@
   <block id="cefe13e88d67962401889e239b718814" category="inline-image-macro">選擇區域後可用的可用區域下拉清單的螢幕截圖。</block>
   <block id="57831ce128ea817f6507e4e9d32b2371" category="paragraph"><block ref="57831ce128ea817f6507e4e9d32b2371" category="inline-image-macro-rx" type="image"></block></block>
   <block id="089dd3c79ae56f1da7a6b2c50edab075" category="section-title">Google Cloud 中的更大磁碟</block>
-  <block id="5d674fa98625cfb73188d278b59fdf31" category="paragraph">Cloud Volumes ONTAP現在在 GCP 中支援 64 TB 磁碟。</block>
-  <block id="38c7433640fdc249a223728de5e9c481" category="admonition">由於 GCP 限制，僅磁碟的系統最大容量仍為 256 TB。</block>
   <block id="cbddd29e855faaf713258fb82116edf0" category="section-title">Google Cloud 中的新機器類型</block>
   <block id="cc43ac2c3e66d6d0b58d982ca8a50a38" category="paragraph">Cloud Volumes ONTAP現在支援以下機器類型：</block>
   <block id="1ac4c5bf1cc05cf3d4aa859843ec87b4" category="list-text">n2-standard-4 附有 Explore 授權和 BYOL</block>
@@ -5819,7 +5773,6 @@
   <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
   <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
   <block id="f99b3d89987ba6dd6d51c370eaeea8f2" category="admonition">在發現過程中，您可能會看到失敗訊息，但您可以忽略它們，直到發現過程完成。在發現期間，請勿修改 Azure 市場入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外的系統行為。</block>
-  <block id="bd8fc35f01f5d1ff5b0cec1a099bfb1d" category="admonition">部署程序完成後，請勿修改 Google Cloud 入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外行為或資料遺失。</block>
   <block id="950e7e695356602272f63f5a229978c6" category="inline-link-macro">在 Google Cloud 規劃Cloud Volumes ONTAP配置</block>
   <block id="b64ce252b77116ca032fd6f285079df7" category="list-text"><block ref="b64ce252b77116ca032fd6f285079df7" category="inline-link-macro-rx"></block></block>
   <block id="306ce3f6735e643338e201f2701d07a8" category="admonition">部署程序完成後，請勿修改 AWS 雲端入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外行為或資料遺失。</block>
@@ -6123,4 +6076,155 @@
   <block id="667dffcf5676fe0bd645082d2a512fef" category="section-title">2026年1月12日</block>
   <block id="96401f578ab9670c6924f2e5ad91441b" category="section-title">AWS 支援的升級路徑</block>
   <block id="070381386d1bf4bdb6bab9bb39eef15d" category="section-title">Google Cloud 支援的升級路徑</block>
+  <block id="dfcd07d4790b963532ec4f8f70f184cd" category="doc">支援 Google Cloud Infrastructure Manager</block>
+  <block id="ed5b5006125f27aac08e98fe5c365d46" category="inline-link">Google Cloud Infrastructure Manager</block>
+  <block id="221dc7db98837c8091cba0d42f55b28d" category="inline-link">Cloud Deployment Manager</block>
+  <block id="055d81bf5e86c650f524ba8578595b0e" category="paragraph">Cloud Volumes ONTAP 9.16.1 及更高版本現在支援使用<block ref="d6072c82cbcda01fbac85ce6d2b2ba66" category="inline-link-rx"></block>（IM）而非<block ref="15f2e159f639573aa2393f20aa6d5e11" category="inline-link-rx"></block>（DM）來部署 Google Cloud 中的新部署。Google 將在不久的將來棄用 Deployment Manager 作為基礎架構服務，轉而使用更進階的基礎架構管理器。</block>
+  <block id="66243a4b72870642e35fa6b52e50a63b" category="inline-link">為 Google Cloud Infrastructure Manager 設定現有的 Cloud Volumes ONTAP 部署</block>
+  <block id="aa51ff66cac4f14d899d7f563f8f476a" category="paragraph">現在，自動部署 Cloud Volumes ONTAP 以使用 Infrastructure Manager，或執行轉換工具將 Deployment Manager 中的現有部署切換到 Infrastructure Manager。轉換是一次性的過程，之後您的系統將自動開始使用 Infrastructure Manager。有關執行轉換工具的說明，請參閱<block ref="5621b7ac255bff00b9e8610ec0606935" category="inline-link-rx"></block>。</block>
+  <block id="492eb9196f4c5211832a66df9ce6230b" category="paragraph">使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系統會使用 Google Cloud Storage 儲存桶來儲存資料和記錄，這些儲存桶位於首次部署的區域中，用於儲存部署記錄，這些記錄可供後續部署重複使用。這些儲存桶可能會產生額外費用，但請勿編輯或刪除儲存桶及其內容：</block>
+  <block id="c63b3118890326f42e936277c83db3b6" category="list-text"><block ref="9d4c46381bcc7ebe4bf02a7fd0ac5b6f" prefix="" category="inline-code"></block>：用於儲存 Cloud Volumes ONTAP Terraform 文件</block>
+  <block id="aaa460fe2e0e39c5d509b26ad876baf8" category="list-text"><block ref="6ec9e5b046607d57923aee80f990225d" prefix="" category="inline-code"></block>：用於儲存 Google Cloud Terraform 工件</block>
+  <block id="73c696c58c9e62731e855a0bf47853e1" category="inline-link">開始在 Google Cloud 中使用 Cloud Volumes ONTAP</block>
+  <block id="f80ae1b8de03cd56e51dbe8e44bf284f" category="list-text"><block ref="f80ae1b8de03cd56e51dbe8e44bf284f" category="inline-link-rx"></block></block>
+  <block id="ccc8cedaac96382fa4e8c01b8e53646d" category="inline-link">NetApp Console Agent 4.2.0 發行說明</block>
+  <block id="9039c72d9261ecd88329c5e8d1a4172d" category="list-text"><block ref="9039c72d9261ecd88329c5e8d1a4172d" category="inline-link-rx"></block></block>
+  <block id="6e6cddfac74a82983c3905af5c6e5b98" category="inline-link">Google Cloud Infrastructure Manager 所需的權限</block>
+  <block id="98244417f1eb666b345ad436d51edece" category="list-text"><block ref="98244417f1eb666b345ad436d51edece" category="inline-link-rx"></block></block>
+  <block id="4d914b9be892a8c739cd84bed897acab" category="paragraph">在 AWS 中啟用資料分層時，Cloud Volumes ONTAP 使用 EBS 作為熱資料的效能層，並使用 Amazon Simple Storage Service（Amazon S3）作為非作用中資料的容量層。</block>
+  <block id="45a36a92a557cc28ab6c1c8e325b13bf" category="list-text">對於 Debian 系統，預設雲端使用者是<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block>。當透過 Google Cloud Console 或 gcloud 命令列請求 SSH 存取時，Google Cloud 會為<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block>使用者建立並新增憑證。您可以指定<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block>來取得 root 權限。</block>
+  <block id="73f9765d804facf9c2c8b9cfb9d0cf04" category="admonition">Cloud Volumes ONTAP 僅支援這些配置。在 AWS Local Zone 配置中選擇不支援的磁碟類型或不符合要求的執行個體可能會導致部署失敗。如果您的 Cloud Volumes ONTAP 系統位於 AWS Local Zone 中，則不支援將資料分層至 Amazon Simple Storage Service（Amazon S3），因為存取 Local Zone 以外的 Amazon S3 儲存貯體會產生更高的延遲，並影響 Cloud Volumes ONTAP 活動。</block>
+  <block id="eb8a4f49c1c7aee51387d22d6c0f97a0" category="paragraph">底層 EBS 磁碟類型可以是 General Purpose SSD（gp3 或 gp2）、Provisioned IOPS SSD（io1）或 Throughput Optimized HDD（st1）。您可以將 EBS 磁碟與 Amazon Simple Storage Service（Amazon S3）配對<block ref="8ea89944316dc5317d2fdef703995c09" category="inline-link-macro-rx"></block>。</block>
+  <block id="5432e88d98c0a8fd7b4211ea2e034c3f" category="inline-link">ONTAP S3 組態電源指南</block>
+  <block id="b2495993f98fecdf11c080a96b80c753" category="paragraph">雖然 Cloud Volumes ONTAP 支援 S3 作為橫向擴充儲存選項，但 Console 不提供任何此功能的管理功能。使用 CLI 是從 Cloud Volumes ONTAP 設定 S3 用戶端存取的最佳實踐做法。如需詳細資訊，請參閱<block ref="df74e648e4436609bf57368501b15603" category="inline-link-rx"></block>。</block>
+  <block id="4225842c9a17b34dd7979347a7f8bd2d" category="inline-link-macro">深入瞭解 Cloud Volumes ONTAP 對 ONTAP S3 和其他用戶端通訊協定的支援</block>
+  <block id="fe7d439276bff1dbe63b78681d9feeda" category="paragraph"><block ref="5cc0a16305f001c036ac1b79ba2f1f1a" category="inline-link-macro-rx"></block>。</block>
+  <block id="df346128c45efa43efc29607224fc716" category="list-text">Amazon Simple Storage Service（S3）</block>
+  <block id="983921313d1412e0f488af3c94398f7e" category="paragraph">如果您想要將 EBS 用作效能層，將 Amazon S3 用作容量層，則必須確保 Cloud Volumes ONTAP 與 S3 建立連線。提供此連線的最佳方法是建立指向 S3 服務的 VPC 端點。有關說明，請參閱<block ref="739944581ddd86bd6d09f3841372a69b" category="inline-link-rx"></block>。</block>
+  <block id="228a93ddd45e166bd8a6bf813f304a3d" category="cell">https://cloudbuild.googleapis.com/v1（僅適用於私有模式部署）https://cloudkms.googleapis.com/v1 https://cloudresourcemanager.googleapis.com/v1/projects https://compute.googleapis.com/compute/v1 https://www.googleapis.com/compute/beta https://www.googleapis.com/compute/v1/projects/ https://www.googleapis.com/deploymentmanager/v2/projects https://www.googleapis.com/storage/v1 https://www.googleapis.com/upload/storage/v1 https://config.googleapis.com/v1 https://iam.googleapis.com/v1 https://storage.googleapis.com/storage/v1</block>
+  <block id="6ef02565d31510cc34e7660eb2aca0c9" category="list-text">在 Google Cloud Console 中、找到您的 Cloud Volumes ONTAP 系統。</block>
+  <block id="8f20c63d5ca054e7039d682c76172710" category="paragraph">Cloud Volumes ONTAP 和 Console 都使用來自 Google Cloud 內由 NetApp 管理的專案中的映像。如果您的組織有政策阻止使用非組織內部託管的映像，這可能會影響 Console 代理程式和 Cloud Volumes ONTAP 的部署。</block>
+  <block id="fc2c17f2e03b7fb56fb6a7336e3420d6" category="inline-link">Google Cloud VPC Service Controls 政策文件</block>
+  <block id="70c1857154ecb80d0e26bb2adb500400" category="paragraph">策略允許對 VPC Service Controls 規則集設定例外。有關策略的更多資訊，請造訪<block ref="1102e6c189182e9689e4f9e8a511c69b" category="inline-link-rx"></block>。</block>
+  <block id="67c74c57451bc3ff6825155f479c900f" category="list-text">ONTAP S3 物件儲存管理：Cloud Volumes ONTAP 中的 ONTAP S3 儲存管理功能僅在 System Manager 中可用，而不在 Console 中可用。</block>
+  <block id="d095caae3f5689cf9c9b65295bd92c58" category="list-text">在 Google Cloud Console 中<block ref="72863ecd427c906452e0c3d21111bdac" category="inline-link-rx"></block>。</block>
+  <block id="9f1560122eda1096bf170e34cefbc785" category="inline-image-macro">Google Cloud Console 的螢幕截圖，您可以在建立服務帳號時授予使用者存取權限。</block>
+  <block id="68444ac221996e39a765b790e31bf7cb" category="paragraph"><block ref="68444ac221996e39a765b790e31bf7cb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a5c59a421862c80cce1a3031f4a025fa" category="list-text">已啟動並執行的 NetApp Console 代理程式。</block>
+  <block id="2a8e7e8a1a546118aafd3b4726f68cd2" category="paragraph">如果下拉清單中沒有顯示其他專案，則表示您尚未將服務帳戶與其他專案建立關聯。請前往 Google Cloud Console，開啟 IAM 服務，然後選擇專案。將服務帳戶與您用於 Console 的角色新增至該專案。您需要為每個專案重複此步驟。</block>
+  <block id="ee315b90b56cac454504030332e26f7d" category="list-text">*位置與連線*：選擇系統所在的 Google Cloud 區域和區域、選擇防火牆原則，並確認與 Google Cloud 儲存設備的網路連線以進行資料分層。</block>
+  <block id="432f238e2167c79f023d25fc94cf7068" category="list-text">如果停用資料分層、則可以在後續 Aggregate 上啟用、但您需要關閉系統、並從 Google Cloud Console 新增服務帳戶。</block>
+  <block id="ae02630a597278f3ffd84e28ca4d3fbd" category="admonition">部署程序完成後，請勿在 Google Cloud 入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，例如系統標記和 Google Cloud 資源中設定的標籤。對這些配置進行任何更改都可能導致意外行為或資料遺失。</block>
+  <block id="39d5d0f207458db1d58a115ab0447cc8" category="list-text">*HA 部署模型*：為 HA 配置選擇多個區域（建議）或單一區域。然後選擇區域和分區。</block>
+  <block id="31bd3ca8f6cd8f37f69e226cb1afe75b" category="list-text"><block ref="31bd3ca8f6cd8f37f69e226cb1afe75b" category="inline-link-rx"></block></block>
+  <block id="233af50e7ac5078d6cabb58ab95095b9" category="summary">對於您在 Google Cloud 中的現有部署，您需要將系統升級至 Cloud Volumes ONTAP 9.16.1 或更高版本，然後手動執行轉換工具，將 Google Cloud Deployment Manager 轉換為 Cloud Infrastructure Manager。</block>
+  <block id="b9e5aa43ec2007eccaf097117438e531" category="doc">將現有的 Cloud Volumes ONTAP 部署轉換為 Infrastructure Manager</block>
+  <block id="4f199c7ad20d0a908dda3d1603ff73d7" category="paragraph">自 2026 年 1 月 12 日起，Google Cloud 中新的 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 即將棄用 Google Cloud Deployment Manager，改用 Infrastructure Manager。因此，您需要手動執行遷移工具，將現有的 Cloud Volumes ONTAP 部署從 Deployment Manager 遷移到 Infrastructure Manager。此程序只需執行一次，之後您的系統將自動開始使用 Infrastructure Manager。</block>
+  <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link">NetApp 支援網站</block>
+  <block id="416146100ffb7fc54fb8a24ca7b63ae8" category="paragraph">過渡工具可在<block ref="33e3c3ba324846178fad333329821dd2" category="inline-link-rx"></block>中使用，並建立下列工件：</block>
+  <block id="fe91a45b95e89e219ea69631edff8521" category="list-text">Terraform 工件，儲存於<block ref="b1042b7d7203a022c297b13679f7d1f8" prefix=" " category="inline-code"></block>。</block>
+  <block id="47a96ec9ac683fac8aa8ebbddbfb79ff" category="list-text">轉換結果摘要已儲存在<block ref="8f66602548a59e22c821de29517d7dff" prefix=" " category="inline-code"></block>中。</block>
+  <block id="787ab3bb526ace3e3d9f5b857facafbf" category="list-text">偵錯記錄儲存在 <block ref="abecaca0429ea0c44adcba537eb94f89" prefix=" " category="inline-code"></block> 目錄中。您需要這些記錄進行疑難排解。<block ref="6ec9e5b046607d57923aee80f990225d" prefix=" " category="inline-code"></block> 儲存貯體儲存 Terraform 記錄。</block>
+  <block id="07f770dff2ab3ed070b0fafe70eae22a" category="paragraph">使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系統會將資料和記錄儲存在 Google Cloud Storage 儲存桶中。這些儲存桶可能會產生額外費用，但請勿編輯或刪除儲存桶及其內容：</block>
+  <block id="adf9ac4ef674ca575662deb880fc460c" category="list-text">請確保您的 Cloud Volumes ONTAP 系統版本為 9.16.1 或更高版本。</block>
+  <block id="0cd228edd9649cf2f97b2b3bdd4bc95e" category="list-text">確保沒有透過 Google Cloud Console 手動編輯過任何 Cloud Volumes ONTAP 資源或其屬性。</block>
+  <block id="3824876226172edfe0f17e8022b60fda" category="inline-link">啟用 Google Cloud API</block>
+  <block id="1054acecf75a1c2af16bf467b87f005c" category="list-text">請確保已啟用 Google Cloud API。請參閱<block ref="284597b9b55c9d9b3851ec2830376fdc" category="inline-link-rx"></block>。請確保除了其他 API 之外，還啟用了 Google Cloud Quotas API。</block>
+  <block id="5c84f3cedadf0b84881afc44baff3b4f" category="list-text">請確認 NetApp Console agent 的服務帳戶擁有所有必要的權限。請參閱<block ref="818358be64a80b49936bc9250a957044" category="inline-link-rx"></block>。</block>
+  <block id="67b8178ba8bc905f8855216664e74b2d" category="list-text">轉換工具使用以下網域。在您的網路中於連接埠 443 上啟用它們：</block>
+  <block id="eae639a70006feff484a39363c977e24" category="cell">網域</block>
+  <block id="02674a4ef33e11c879283629996c8ff8" category="cell">方向</block>
+  <block id="b63dfe8b3bd29e14bcbb174cdab39de5" category="cell">cloudresourcemanager.googleapis.com</block>
+  <block id="5ba463f336572a8840e1e782bb0be238" category="cell">外傳</block>
+  <block id="c75bfc2410c8aa457bb22b5670270cca" category="cell">專案驗證</block>
+  <block id="0f9dff7b72e495dccfd8b1e2c6626c7a" category="cell">deploymentmanager.googleapis.com</block>
+  <block id="67d02a8b90f76f0c7bf3ba7d345bbebb" category="cell">部署探索</block>
+  <block id="010adc11b6d7bf2baa318c419f7d2e56" category="cell">config.googleapis.com</block>
+  <block id="3eb1e4fc40e276fb86e6b6d734f32b86" category="cell">Infrastructure Manager API</block>
+  <block id="3f4ca1d8ed90e1a3c0451eb42e58e5ef" category="cell">storage.googleapis.com</block>
+  <block id="b36029eb9647c29c445a9b17dae870a7" category="cell">GCS 儲存貯體作業</block>
+  <block id="13e0f6e33777e2aaca86d60a3dc08fa6" category="cell">iam.googleapis.com</block>
+  <block id="cfde1d97dda8f0e9952ffb9be9d2c14f" category="cell">服務帳戶驗證</block>
+  <block id="afa779048d66bb66331343a3b654afc4" category="cell">compute.googleapis.com</block>
+  <block id="cfa7b3a5c52457471d6c14ee165e7e28" category="cell">Google Cloud 和 Terraform Import 與 Plan 使用的運算 API 呼叫</block>
+  <block id="a821fc37e9a8c6b3142dde56c69b1bb6" category="cell">openidconnect.googleapis.com</block>
+  <block id="b35468dc3fd697b16778381ff55f499f" category="cell">oauth2.googleapis.com</block>
+  <block id="964fe5de0b28ec675cdb16182d18018c" category="cell">OAuth2 權杖交換</block>
+  <block id="2180f96de4691cad74a98108c71af69b" category="cell">registry.terraform.io</block>
+  <block id="3aaa63af09260a456f3bfd836d8bcf14" category="cell">Terraform 提供者登錄</block>
+  <block id="3065a4c1643d2ac18136113cfff57f2f" category="cell">releases.hashicorp.com</block>
+  <block id="0051616037cea686c4e215525655f3f0" category="cell">Terraform 二進位下載</block>
+  <block id="f17590a8b9fe66b7c6a6c8c312352fbd" category="cell">apt.releases.hashicorp.com</block>
+  <block id="a6a87b61f00bb146c7629d95ebff6934" category="cell">HashiCorp APT 存儲庫</block>
+  <block id="fbb8107abcb4bc163bdcaf21f48798ab" category="cell">us-central1-docker.pkg.dev</block>
+  <block id="2bd8637c8a8b8e2d07319cc6e191fa43" category="cell">GCP Artifact Registry</block>
+  <block id="fb4479839b891ed9122fdadf7bbfe16a" category="cell">metadata.google.internal</block>
+  <block id="afbf0897a5a83fdd873dfb032ec695d3" category="cell">內部</block>
+  <block id="964a9f95d3fda0f78f13dd7cd49fe137" category="cell">VM 元資料和驗證權杖</block>
+  <block id="2ebcfc415db0f53ee976c65188ec85ef" category="paragraph">請依照下列步驟從 Deployment Manager 過渡到 Infrastructure Manager，並為現有的 Cloud Volumes ONTAP 部署執行該工具。</block>
+  <block id="cc8a2ca4c8f7a6693635c0db1616e216" category="list-text">建立角色並將其附加到服務帳戶：</block>
+  <block id="960ea426544a50e48bbb44091a8b5e5a" category="list-text">建立具有下列權限的 YAML 檔案：</block>
+  <block id="1d18879deca373fd3c960377615e653b" category="inline-link">建立和管理自訂角色</block>
+  <block id="869c76d4b80ed5f9cf0e8d2f4eb512e0" category="list-text">在 Google Cloud 中建立自訂角色，並賦予其 YAML 檔案中定義的權限。<block ref="6da58a565048c2e2729af1e6e86faa69" prefix=" " category="inline-code"></block>如需詳細資訊，請參閱<block ref="501c40914d64ab1d645ef6b122f85e83" category="inline-link-rx"></block>。</block>
+  <block id="b32773154a8c5568c16bd0ac076b2038" category="list-text">將自訂角色附加到您將用於建立 VM 的服務帳戶。</block>
+  <block id="a3b3d7065fff3323321a80503eca1bba" category="inline-link">服務帳戶概覽</block>
+  <block id="4249c331d2620d2cd9780ca6679f30af" category="list-text">將<block ref="27a953ce0cbb51d4876b439aee2cbec1" prefix=" " category="inline-code"></block>角色新增至此服務帳戶。請參閱<block ref="88a1fe1ad7367a70a7d6fa5c7d98a110" category="inline-link-rx"></block>。</block>
+  <block id="809402001bcefea16f2b81f207ddb62e" category="list-text">[[create-vm]]建立一個具有以下組態的 VM 。您可以在此 VM 上執行此工具。</block>
+  <block id="bfe0b77c61bbcf5b827b09fb810318bd" category="list-text">機器類型：Google Compute Engine 機器類型 e2-medium</block>
+  <block id="80dc4d9bb42c64d10e1e74253c1379ed" category="list-text">作業系統：Ubuntu 25.10 AMD64 Minimal （映像：ubuntu-minimal-2510-amd64）</block>
+  <block id="96a6ec9a15c7eb577293b9d570bbae05" category="list-text">網路：防火牆允許 HTTP 和 HTTPs</block>
+  <block id="7dbcc5c811addb725c58af9582fb0b39" category="list-text">磁碟大小：20GB</block>
+  <block id="c9edc2d9baf5e2843ff19a9486021651" category="list-text">安全性：服務帳戶：您建立的服務帳戶</block>
+  <block id="e18331415f4ef655c4d8b5bcbcd3f187" category="list-text">安全性：存取範圍 - 為每個 API 設定存取權限：</block>
+  <block id="f440e287fd0b6b0e887d02b9c4fc9f27" category="list-text">雲端平台：已啟用</block>
+  <block id="81e3821b87f6a8b6f96f42982925444c" category="list-text">Compute Engine ：唯讀</block>
+  <block id="e5ae5f75e4fff8c1f082716bc19f12ce" category="list-text">儲存：唯讀 （預設）</block>
+  <block id="8f16960397b8607d6bd01d84490886bd" category="list-text">Google Cloud Logging（以前稱為 Stackdriver Logging）API：僅寫入（預設）</block>
+  <block id="85a7af562cba94208f68b56756fed0ae" category="list-text">Stackdriver Monitoring（現為 Google Cloud Operations 的一部分）API：僅寫入（預設）</block>
+  <block id="66461fff66e5daa418aa6aa529501655" category="list-text">服務管理：唯讀 （預設）</block>
+  <block id="d0f860b4876ce7d6519dd4fd5cdc1aca" category="list-text">服務控制：已啟用 （預設）</block>
+  <block id="72371168b81dc49ed84ccc2826b33285" category="list-text">Google Cloud Trace（以前稱為 Stackdriver Trace）：僅寫入（預設）</block>
+  <block id="771d5634625da9bdf9383284e6876fe8" category="list-text">使用 SSH 連線至新建立的 VM：<block ref="d66edda9356fa84b13bc561b5cdc06d2" prefix=" " category="inline-code"></block></block>
+  <block id="ca3b8cdca327664a13e57f221634b9cd" category="list-text">使用您的 NSS 憑證從<block ref="33e3c3ba324846178fad333329821dd2" category="inline-link-rx"></block>下載轉換工具：<block ref="351cb02cba717c786694e4b04b17a03c" prefix=" " category="inline-code"></block></block>
+  <block id="f3f4a9f0374e3aaf79b22eaa6f11e24b" category="list-text">解壓縮下載的 TAR 檔：<block ref="80c87050897af12083ff007ec59b29ae" prefix=" " category="inline-code"></block></block>
+  <block id="893f19f5842942626647ba8f53e27731" category="list-text">下載並安裝以下必備套件：</block>
+  <block id="3195b86062bb29c6228b3987373aba5c" category="list-text">Docker：28.2.2 build 28.2.2-0ubuntu1 或更新版本</block>
+  <block id="83bedc7f0caf9a0b296313249895e235" category="list-text">Terraform：1.14.1 或更高版本</block>
+  <block id="81c4b6c47011f9ce59f129143159d1fe" category="list-text">Python：3.13.7、python3-pip、python3 venv</block>
+  <block id="72bf4709239892caed1dccb8f15e92ac" category="paragraph">Google Cloud CLI<block ref="7f22bf39aaf5ce5980111c3587bef5b5" prefix=" " category="inline-code"></block> 已預先安裝在虛擬機器上。</block>
+  <block id="1487c093a7318b6ffd9ca29b782a4241" category="list-text">將目前使用者新增至 Docker 群組，以便工具無需 <block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> 權限即可使用 Docker。</block>
+  <block id="112bd884072fb29f1500b74cd73b3297" category="list-text">安裝轉換工具：</block>
+  <block id="d69c37ca8e01cb5f4902c8685cb0bea5" category="paragraph">這會將工具安裝在隔離的環境中<block ref="082f8ac35787f61aa4ec011c462e68a4" prefix=" " category="inline-code"></block>，並驗證是否已安裝所有必要的軟體套件。</block>
+  <block id="4253cd62d3506adae113f0c0ed35a026" category="list-text">輸入工具的安裝環境：<block ref="c7fe96d8e92d9922385f327806aa5ef6" prefix=" " category="inline-code"></block></block>
+  <block id="b6645c19cd405763183f19c38c1f7cad" category="inline-link">Google Cloud Infrastructure Manager 所需的權限</block>
+  <block id="82fc86d16c204fd1047896be7797f7b4" category="list-text">以<block ref="3a2e7e59491b74e35b36d9d724fd0584" prefix=" " category="inline-code"></block>使用者身分執行轉換工具。確保使用與 Console 代理的服務帳戶相同的服務帳戶，並且該服務帳戶擁有所有<block ref="5d3ef0c339df1f2a110bf7d6a45b4e45" category="inline-link-rx"></block>。</block>
+  <block id="cacad0cdf4b0fdce4156938c4ed3c9e5" category="paragraph">此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。運行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _&lt;converted system name-imdeploy&gt;_ 格式顯示在 Google Console 的 Infrastructure Manager 下，表示 Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。</block>
+  <block id="9da6711274c63c22ce751c1ffdb9517c" category="admonition">轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment Manager 的部署物件。此部署物件包含 Infrastructure Manager 用於管理 Cloud Volumes ONTAP 系統的元資料。</block>
+  <block id="d6c5cad15e9fe911e15bbd9f138172e5" category="paragraph">如果需要回滾轉換，則必須使用同一台虛擬機器。如果已轉換所有系統且無需回滾到 Deployment Manager，則可以刪除該虛擬機器。</block>
+  <block id="c77014ed2ed0c6a090666526f334c0b4" category="section-title">復原轉換</block>
+  <block id="9e24a1a0370c9ae26c8cda42c2031983" category="paragraph">如果您不想繼續轉換，可以按照以下步驟回溯到 Deployment Manager：</block>
+  <block id="34bbb182a618f51208d8b10061968580" category="inline-xref">您為執行該工具而建立的 VM</block>
+  <block id="923a695e65c6787f1a2a582d0ec4a99a" category="list-text">在同一個 <block ref="b4c21f77b0da7fc73749691dcfb5fea3" category="inline-xref-macro-rx"></block> 上，執行以下命令：</block>
+  <block id="d0e509b9cc7fc0448b8015e0d29c001f" category="list-text">請等待復原完成。</block>
+  <block id="79529c7464359255c6840b443beae055" category="list-text">設定到 Amazon Simple Storage Service（Amazon S3）服務的 VPC 端點。</block>
+  <block id="8f4e28604a8893d6adb6f9b81569d19b" category="inline-link">Google Cloud 中 Cloud Volumes ONTAP 支援的組態</block>
+  <block id="db3426db4f167ca50d1c89272aefdbe9" category="paragraph"><block ref="db3426db4f167ca50d1c89272aefdbe9" category="inline-link-rx"></block></block>
+  <block id="f2642484d82ac71ab617437045e56b35" category="inline-link">Google Cloud 中 Cloud Volumes ONTAP 的儲存限制</block>
+  <block id="618db9ac890d7eb5b4e35d0356489a92" category="paragraph"><block ref="618db9ac890d7eb5b4e35d0356489a92" category="inline-link-rx"></block></block>
+  <block id="e6183cd9db63bded8d0884a52c0f7fbf" category="list-text">磁碟類型</block>
+  <block id="aa2c306f61d5fb7c3d74909dd892a134" category="paragraph">在 Google Cloud 中部署 Cloud Volumes ONTAP 時，您需要指定虛擬網路的詳細資訊。您可以使用工作表從管理員收集這些資訊。</block>
+  <block id="9bdf94b25b3f8ba7bb03a42f48691647" category="cell">Google Cloud 資訊</block>
+  <block id="b2fe6e8e5b070e72b892f6e209852031" category="admonition">如果您的 Cloud Volumes ONTAP 系統位於 AWS Local Zone，則不支援將資料分層儲存到 Amazon Simple Storage Service（Amazon S3），因為在 Local Zone 之外存取 Amazon S3 儲存貯體會造成更高的延遲，並影響 Cloud Volumes ONTAP 活動。</block>
+  <block id="d9a38c751a133d3cc1d6d336083fca10" category="list-text">建立系統時，請在 API 請求中使用「gcpEncryption」參數。</block>
+  <block id="02d14173028105a436e6e5dab6a4b14f" category="paragraph">如果您在 Cloud Volumes ONTAP 上啟用了資料分層，並且想要加密儲存在 Amazon Simple Storage Service（Amazon S3）儲存貯體中的資料，則需要執行此步驟。</block>
+  <block id="4fe6c7577974d296eafe073a58b28cd0" category="list-text">對於 AWS，您需要一個指向 Amazon Simple Storage Service （Amazon S3）的 VPC 終端節點。<block ref="8bf18368a4d50e7d264c6ce0821cc35b" category="inline-xref-macro-rx"></block>.</block>
+  <block id="5a608055757169c6aba0a0f0941983c0" category="section-title">將冷資料分層至 Amazon S3 的要求</block>
+  <block id="c7a88ab28024271a86ee9c37f4e572db" category="paragraph">確保 Cloud Volumes ONTAP 已連線至 Amazon S3。提供此連線的最佳方法是建立指向 S3 服務的 VPC 端點。有關說明，請參閱<block ref="739944581ddd86bd6d09f3841372a69b" category="inline-link-rx"></block>。</block>
+  <block id="6d5ed654459191a895ae4c39011f55c5" category="paragraph">如果在部署過程中未選擇服務帳號，則需要關閉 Cloud Volumes ONTAP，前往 Google Cloud Console，然後將服務帳號附加到 Cloud Volumes ONTAP 執行個體。之後，您可以按照下一節中的說明啟用資料分層。</block>
+  <block id="fe02c2ec1dc2e0c55e4125b9b9d5db79" category="section-title">2026 年 2 月 9 日</block>
+  <block id="23beab4ecc83af94de1118d8322ea13b" category="paragraph">現在您可以將分層資料儲存在 Amazon Simple Storage Service（Amazon S3）Glacier Instant Retrieval 儲存類別中。</block>
+  <block id="dcb830d6aa0047437007b06daac1d119" category="paragraph"><block ref="528aaaafbacf255285f844e94403a43f" category="inline-link-rx"></block>。</block>
+  <block id="584dfcd628606b8f1bed519dd4baabce" category="paragraph">Cloud Volumes ONTAP 現在支援 Google Cloud 中的 64 TB 磁碟。</block>
+  <block id="f0e98a8e50d3b58af9ff1c04e5b74e1c" category="admonition">由於 Google Cloud 限制，僅使用磁碟的最大系統容量仍為 256 TB。</block>
+  <block id="76cbac4940f2698f4ebff7e15e3f58d3" category="sidebar">將現有部署轉換為 Infrastructure Manager</block>
 </blocks>

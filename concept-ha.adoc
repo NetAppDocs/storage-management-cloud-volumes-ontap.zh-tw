@@ -197,7 +197,7 @@ Cloud Volumes ONTAP不支援 AWS 本地區域中的資料分層、雲端分層�
 
 
 
-NOTE: Cloud Volumes ONTAP僅支援這些配置。在 AWS 本機區域配置中選擇不受支援的磁碟類型或不合格的執行個體可能會導致部署失敗。由於缺乏連接，AWS 本地區域無法將資料分層到 AWS S3。
+NOTE: Cloud Volumes ONTAP 僅支援這些配置。在 AWS Local Zone 配置中選擇不支援的磁碟類型或不符合要求的執行個體可能會導致部署失敗。如果您的 Cloud Volumes ONTAP 系統位於 AWS Local Zone 中，則不支援將資料分層至 Amazon Simple Storage Service（Amazon S3），因為存取 Local Zone 以外的 Amazon S3 儲存貯體會產生更高的延遲，並影響 Cloud Volumes ONTAP 活動。
 
 link:https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/?nc=sn&loc=2["AWS 文件：本地區域中的 EC2 執行個體類型"^] 。
 

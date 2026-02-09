@@ -34,7 +34,7 @@ summary: 只需幾個步驟即可開始使用Cloud Volumes ONTAP for AWS。
 +
 如果您在沒有網路存取的位置部署Cloud Volumes ONTAP，則不需要執行此步驟。
 
-. 設定到 S3 服務的 VPC 端點。
+. 設定到 Amazon Simple Storage Service（Amazon S3）服務的 VPC 端點。
 +
 如果您想將冷資料從Cloud Volumes ONTAP到低成本物件存儲，則需要 VPC 端點。
 

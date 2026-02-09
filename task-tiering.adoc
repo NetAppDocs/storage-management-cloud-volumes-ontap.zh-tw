@@ -26,7 +26,7 @@ summary: 您可以透過將用於熱資料的 SSD 或 HDD 效能層與用於非�
 [role="quick-margin-list"]
 ifdef::aws[]
 
-* 對於 AWS，您需要一個 VPC Endpoint 到 S3。<<將冷資料分層到 AWS S3 的要求,了解更多>> 。
+* 對於 AWS，您需要一個指向 Amazon Simple Storage Service （Amazon S3）的 VPC 終端節點。<<Requirements to tier cold data to AWS S3,了解更多>>.
 
 
 endif::aws[]
@@ -142,9 +142,9 @@ ifdef::aws[]
 
 
 
-=== 將冷資料分層到 AWS S3 的要求
+=== 將冷資料分層至 Amazon S3 的要求
 
-確保Cloud Volumes ONTAP與 S3 有連線。提供該連線的最佳方式是建立到 S3 服務的 VPC 端點。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文件：建立網關終端節點"^]。
+確保 Cloud Volumes ONTAP 已連線至 Amazon S3。提供此連線的最佳方法是建立指向 S3 服務的 VPC 端點。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文件：建立網關終端節點"^]。
 
 建立 VPC 端點時，請確保選擇與Cloud Volumes ONTAP實例相對應的區域、VPC 和路由表。您還必須修改安全群組以新增允許流量到 S3 端點的出站 HTTPS 規則。否則， Cloud Volumes ONTAP無法連線到 S3 服務。
 
@@ -184,7 +184,7 @@ link:task-creating-gcp-service-account.html["了解如何設定此服務帳號"]
 建立Cloud Volumes ONTAP系統時，系統會提示您選擇此服務帳戶。
 
 +
-如果您在部署期間未選擇服務帳戶，則需要關閉Cloud Volumes ONTAP，前往 Google Cloud 控制台，然後將服務帳戶附加到Cloud Volumes ONTAP實例。然後，您可以按照下一節中的描述啟用資料分層。
+如果在部署過程中未選擇服務帳號，則需要關閉 Cloud Volumes ONTAP，前往 Google Cloud Console，然後將服務帳號附加到 Cloud Volumes ONTAP 執行個體。之後，您可以按照下一節中的說明啟用資料分層。
 
 * 若要使用客戶管理的加密金鑰加密儲存桶，請啟用 Google Cloud 儲存桶以使用該金鑰。
 +

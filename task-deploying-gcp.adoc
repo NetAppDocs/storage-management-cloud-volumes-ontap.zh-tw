@@ -23,7 +23,7 @@ summary: 您可以在單一系統設定中啟動Cloud Volumes ONTAP ，也可以
 開始之前您需要以下內容。
 
 [[licensing]]
-* 已啟動並正在執行的控制台代理程式。
+* 已啟動並執行的 NetApp Console 代理程式。
 +
 ** 你應該有一個 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["與您的系統關聯的控制台代理"^]。
 ** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您應該準備好讓控制台代理程式始終處於運行狀態"^] 。
@@ -85,7 +85,7 @@ link:task-set-up-licensing-google.html["了解如何設定許可"] 。
 | 編輯項目  a| 
 選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台所在的項目。
 
-如果您在下拉清單中沒有看到任何其他項目，則表示您尚未將服務帳戶與其他項目關聯。進入Google Cloud控制台，開啟IAM服務，選擇項目。將具有用於控制台的角色的服務帳戶新增至該項目。您需要對每個項目重複此步驟。
+如果下拉清單中沒有顯示其他專案，則表示您尚未將服務帳戶與其他專案建立關聯。請前往 Google Cloud Console，開啟 IAM 服務，然後選擇專案。將服務帳戶與您用於 Console 的角色新增至該專案。您需要為每個專案重複此步驟。
 
 
 NOTE: 這是您為控制台設定的服務帳戶，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本頁所述"^] 。
@@ -100,7 +100,7 @@ NOTE: 這是您為控制台設定的服務帳戶，link:https://docs.netapp.com/
 
 TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
 
-. *位置與連線*：選擇一個位置，選擇防火牆策略，並確認與 Google Cloud 儲存的網路連線以進行資料分層。
+. *位置與連線*：選擇系統所在的 Google Cloud 區域和區域、選擇防火牆原則，並確認與 Google Cloud 儲存設備的網路連線以進行資料分層。
 +
 下表描述了您可能需要指導的欄位：
 
@@ -182,7 +182,7 @@ link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
 ** 控制台在Cloud Volumes ONTAP實例上設定服務帳戶。此服務帳戶提供將資料分層至 Google Cloud Storage 儲存桶的權限。請確保將控制台代理服務帳戶新增為分層服務帳戶的用戶，否則，您無法從控制台中選擇它。
 ** 如需新增 Google Cloud 帳戶的協助，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["使用 9.6 設定和新增 Google Cloud 帳戶以進行資料分層"^]。
 ** 您可以在建立或編輯磁碟區時選擇特定的磁碟區分層策略。
-** 如果您停用資料分層，則可以在後續聚合中啟用它，但您需要關閉系統並從 Google Cloud 控制台新增服務帳戶。
+** 如果停用資料分層、則可以在後續 Aggregate 上啟用、但您需要關閉系統、並從 Google Cloud Console 新增服務帳戶。
 +
 link:concept-data-tiering.html["了解有關數據分層的更多信息"^] 。
 
@@ -272,9 +272,6 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 
 如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
 
-
-CAUTION: 部署程序完成後，請勿修改 Google Cloud 入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外行為或資料遺失。
-
 .完成後
 * 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。
 * 如果要將配額套用於卷，請使用ONTAP系統管理員或ONTAP CLI。
@@ -282,6 +279,9 @@ CAUTION: 部署程序完成後，請勿修改 Google Cloud 入口網站中系統
 配額可讓您限製或追蹤使用者、群組或 qtree 使用的磁碟空間和檔案數量。
 
 
+
+
+CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，例如系統標記和 Google Cloud 資源中設定的標籤。對這些配置進行任何更改都可能導致意外行為或資料遺失。
 
 
 
@@ -318,7 +318,7 @@ CAUTION: 部署程序完成後，請勿修改 Google Cloud 入口網站中系統
 | 編輯項目  a| 
 選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台的項目。
 
-如果您在下拉清單中沒有看到任何其他項目，則表示您尚未將服務帳戶與其他項目關聯。進入Google Cloud控制台，開啟IAM服務，選擇項目。將具有用於控制台的角色的服務帳戶新增至該項目。您需要對每個項目重複此步驟。
+如果下拉清單中沒有顯示其他專案，則表示您尚未將服務帳戶與其他專案建立關聯。請前往 Google Cloud Console，開啟 IAM 服務，然後選擇專案。將服務帳戶與您用於 Console 的角色新增至該專案。您需要為每個專案重複此步驟。
 
 
 NOTE: 這是您為控制台設定的服務帳戶，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本頁所述"^] 。
@@ -333,7 +333,7 @@ NOTE: 這是您為控制台設定的服務帳戶，link:https://docs.netapp.com/
 
 TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
 
-. *HA 部署模型*：為 HA 配置選擇多個區域（建議）或單一區域。然後選擇一個地區和區域。
+. *HA 部署模型*：為 HA 配置選擇多個區域（建議）或單一區域。然後選擇區域和分區。
 +
 link:concept-ha-google-cloud.html["了解有關 HA 部署模型的更多信息"^] 。
 
@@ -418,7 +418,7 @@ link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
 +
 ** 控制台在Cloud Volumes ONTAP實例上設定服務帳戶。此服務帳戶提供將資料分層至 Google Cloud Storage 儲存桶的權限。請確保將控制台代理服務帳戶新增為分層服務帳戶的用戶，否則，您無法從控制台中選擇它。
 ** 您可以在建立或編輯磁碟區時選擇特定的磁碟區分層策略。
-** 如果您停用資料分層，則可以在後續聚合中啟用它，但您需要關閉系統並從 Google Cloud 控制台新增服務帳戶。
+** 如果停用資料分層、則可以在後續 Aggregate 上啟用、但您需要關閉系統、並從 Google Cloud Console 新增服務帳戶。
 +
 link:concept-data-tiering.html["了解有關數據分層的更多信息"^] 。
 
@@ -517,7 +517,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 
 
 
-CAUTION: 部署程序完成後，請勿修改 Google Cloud 入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外行為或資料遺失。
+CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，例如系統標記和 Google Cloud 資源中設定的標籤。對這些配置進行任何更改都可能導致意外行為或資料遺失。
 
 .相關連結
 * link:task-planning-your-config-gcp.html["在 Google Cloud 規劃Cloud Volumes ONTAP配置"]

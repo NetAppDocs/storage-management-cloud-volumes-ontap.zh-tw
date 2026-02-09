@@ -57,7 +57,7 @@ NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 D
 
 --
 升級:: 升級Cloud Volumes ONTAP時， NetApp Console也會根據需求更新中介實例。
-存取實例:: 對於 Debian，預設雲端用戶是 `admin`。 Google Cloud 為 `admin`當透過 Google Cloud 控制台或 gcloud 命令列請求 SSH 存取時的使用者。您可以指定 `sudo`取得root權限。
+存取實例:: 對於 Debian 系統，預設雲端使用者是 `admin`。當透過 Google Cloud Console 或 gcloud 命令列請求 SSH 存取時，Google Cloud 會為 `admin`使用者建立並新增憑證。您可以指定 `sudo`來取得 root 權限。
 第三方代理:: 中介實例不支援第三方代理或 VM 擴充。
 
 

@@ -102,7 +102,7 @@ image:screenshot_cmk_add_accounts_dialog.gif["此螢幕截圖顯示了 AWS KMS �
 
 . 如果您使用的是客戶管理的 CMK，請透過將Cloud Volumes ONTAP IAM 角色新增為_密鑰使用者_來修改 CMK 的密鑰原則。
 +
-如果您在Cloud Volumes ONTAP上啟用了資料分層並想要加密儲存在 S3 儲存桶中的數據，則需要執行此步驟。
+如果您在 Cloud Volumes ONTAP 上啟用了資料分層，並且想要加密儲存在 Amazon Simple Storage Service（Amazon S3）儲存貯體中的資料，則需要執行此步驟。
 
 
 
