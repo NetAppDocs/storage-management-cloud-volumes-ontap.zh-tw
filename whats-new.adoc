@@ -20,6 +20,18 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2026 年 2 月 10 日
+
+
+
+=== Cloud Volumes ONTAP 9.18.1 GA
+
+現在您可以使用 NetApp Console 在 AWS 和 Azure 中部署和管理 Cloud Volumes ONTAP 9.18.1 正式版。此版本尚不支援在 Google Cloud 中部署和升級。
+
+link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有關此版本Cloud Volumes ONTAP的更多信息"^] 。
+
+
+
 == 2026 年 2 月 9 日
 
 
@@ -142,7 +154,7 @@ NetApp Console建立在增強和重組的BlueXP基礎之上，可在企業級內
 
 現在您可以使用BlueXP在 Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.17.1 的候選版本 1。但此版本尚不支援在AWS中部署和升級。
 
-link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有關此版本Cloud Volumes ONTAP的更多信息"^] 。
+link:https://docs.netapp.com/us-en/cloud-volumes-ontap-9171-relnotes/["了解有關此版本Cloud Volumes ONTAP的更多信息"^]。
 
 
 

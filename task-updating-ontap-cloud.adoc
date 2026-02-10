@@ -28,13 +28,9 @@ summary: 從NetApp Console升級Cloud Volumes ONTAP以取得最新的功能和�
 
 您不應使用ONTAP系統管理員或ONTAP CLI 升級Cloud Volumes ONTAP ，而應僅使用控制台升級。否則可能會影響系統穩定性。
 
-
-
-=== 如何升級
-
 控制台提供了兩種升級Cloud Volumes ONTAP 的方法：
 
-* 透過關注系統中出現的升級通知
+* 透過關注系統上出現的升級通知
 * 透過將升級映像放置在 HTTPS 位置，然後向控制台提供 URL
 
 
@@ -42,7 +38,7 @@ summary: 從NetApp Console升級Cloud Volumes ONTAP以取得最新的功能和�
 
 === 支援的升級路徑
 
-您可以升級到的Cloud Volumes ONTAP版本取決於您目前執行的Cloud Volumes ONTAP版本。
+您可以升級到的 Cloud Volumes ONTAP 版本取決於您目前正在執行的版本。下表中每個發行版本的通用版本或修補程式版本代表可供升級的基本版本。有關可用修補程式的詳細資訊，請參閱每個發行版本的 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["版本化發行說明"^]。
 
 ifdef::aws[]
 
@@ -53,6 +49,9 @@ ifdef::aws[]
 [cols="2*"]
 |===
 | 目前版本 | 可直接升級到的版本 
+
+
+| 9.17.1 P1 | 9.18.1 
 
 
 | 9.16.1 | 9.17.1 P1 
@@ -160,7 +159,10 @@ ifdef::azure[]
 | 目前版本 | 可直接升級到的版本 
 
 
-| 9.16.1 P3 | 9.17.1 RC1 
+| 9.17.1 P1 | 9.18.1 
+
+
+| 9.16.1 P3 | 9.17.1 P1 
 
 
 | 9.15.1 P10 | 9.16.1 P3 
@@ -198,7 +200,7 @@ ifdef::gcp[]
 | 目前版本 | 可直接升級到的版本 
 
 
-| 9.16.1 | 9.17.1 
+| 9.16.1 | 9.17.1 P1 
 
 
 | 9.15.1 | 9.16.1 

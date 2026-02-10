@@ -1964,16 +1964,8 @@
   <block id="c7c36710c319ba2646765acbeed52820" category="doc">Cloud Volumes ONTAP部署支援的ONTAP版本</block>
   <block id="670373451a48ebb0eca6cf2d843ce921" category="paragraph">當您新增Cloud Volumes ONTAP系統時， NetApp Console可讓您從多個不同的ONTAP版本中進行選擇。</block>
   <block id="eccc8325175b53fdef9a1846222d4161" category="inline-link-macro">支援的升級路徑</block>
-  <block id="60c74fca932643a72ec9d1ed478cb2dd" category="paragraph">除此處列出的版本之外的Cloud Volumes ONTAP版本不適用於新部署。有關升級的信息，請參閱<block ref="edc516954278e6b04bf6c1ef0d737956" category="inline-link-macro-rx"></block>。</block>
   <block id="5aabc9069557be7e4aeff466605cbc75" category="list-text">單節點</block>
-  <block id="8988458abbc31ee6cea74e936e77a27d" category="list-text">9.15.1 正式版</block>
   <block id="e6e83b7fc493536990c5a90ed0363355" category="list-text">9.15.0 P1</block>
-  <block id="f8a262ce588acd29f7f91c585af357ea" category="list-text">9.14.1 正式版</block>
-  <block id="cfa3976fbec6c6f7dfd434e6d66eb83a" category="list-text">9.14.1 RC1</block>
-  <block id="c9abaf2f2285d7432a5d5112e315cb83" category="list-text">9.14.0 正式版</block>
-  <block id="2377946c9c25fcd231e57aa213ff496d" category="list-text">9.13.1 正式版</block>
-  <block id="384f4196da40ab94e0b11dc3977e8611" category="list-text">9.12.1 正式版</block>
-  <block id="94a06e39ad7d8a5f30a29ceb12e0cf9d" category="list-text">9.12.1 RC1</block>
   <block id="b783301cf6b68b7d026b486472da6add" category="list-text">9.12.0 P1</block>
   <block id="3c1b6c5437336ba57e79705c297e33dc" category="list-text">9.11.1 P3</block>
   <block id="ea2aca94e5b174a1b84f2c3891379526" category="list-text">9.10.1</block>
@@ -1982,8 +1974,6 @@
   <block id="76ff5e2b756f473531665fb4019d3573" category="list-text">9.7 P5</block>
   <block id="0de55206c94834c678768dfaf359fb98" category="list-text">9.5 P6</block>
   <block id="556696d309aaf81ce29c6a76f8f8a503" category="list-text">HA 對</block>
-  <block id="ae76d7929a27ed322b88161e71bfa161" category="list-text">9.17.1 RC1</block>
-  <block id="97c2102867c5b54db1b773f42a540c16" category="list-text">9.16.1 正式版</block>
   <block id="1b636e5dd7d104ae9efd572a823a9227" category="summary">當選擇使用 VPC 服務控制鎖定您的 Google 環境時，您應該了解NetApp Console和Cloud Volumes ONTAP如何與 Google API 互動以及如何配置您的服務參數以部署Cloud Volumes ONTAP。</block>
   <block id="03b6a8927e57dee9e13ce3e743433f8c" category="doc">設定 VPC 服務控制以在 Google Cloud 中部署Cloud Volumes ONTAP</block>
   <block id="a7b34a1b61cc62dbb7e5736e41d0dbca" category="paragraph">當選擇使用 VPC 服務控制鎖定您的 Google Cloud 環境時，您應該了解NetApp Console和Cloud Volumes ONTAP如何與 Google Cloud API 交互，以及如何配置您的服務邊界以部署控制台和Cloud Volumes ONTAP。</block>
@@ -4828,11 +4818,8 @@
   <block id="36e1cde384256637e4c63bd5d588bf07" category="paragraph">在開始Cloud Volumes ONTAP升級程序之前，您應該注意以下事項。</block>
   <block id="bf58b012779398bc9552ade06d70635d" category="section-title">僅從控制台升級</block>
   <block id="73cfa9eabcebd0304c05d97a4743cd80" category="paragraph">您不應使用ONTAP系統管理員或ONTAP CLI 升級Cloud Volumes ONTAP ，而應僅使用控制台升級。否則可能會影響系統穩定性。</block>
-  <block id="b78b1188c7979365981f7c88049f9366" category="section-title">如何升級</block>
   <block id="7925bb9649a3298190c5d02c4b481f52" category="paragraph">控制台提供了兩種升級Cloud Volumes ONTAP 的方法：</block>
-  <block id="622751435b48a60770af726a56c30199" category="list-text">透過關注系統中出現的升級通知</block>
   <block id="31ca3c31d71508c9ab60a741b54cb14c" category="list-text">透過將升級映像放置在 HTTPS 位置，然後向控制台提供 URL</block>
-  <block id="60fa402d7162faa0faac952aacc0cc45" category="paragraph">您可以升級到的Cloud Volumes ONTAP版本取決於您目前執行的Cloud Volumes ONTAP版本。</block>
   <block id="011fedf4050817b8826f95a53d9555b2" category="cell">目前版本</block>
   <block id="03d03c99e963327d79f9c5e388192eec" category="cell">可直接升級到的版本</block>
   <block id="d544ab02530940d46c43ea00a73d59d3" category="cell">9.14.1</block>
@@ -6034,7 +6021,6 @@
   <block id="fa70443be85a3feec8a5eb9d46413a96" category="list-text">ec2:描述子網</block>
   <block id="48f3ff89d323f3866cd390a624301cc2" category="sidebar">在 Azure 中管理磁碟效能</block>
   <block id="3cf9ca795dbee25a8b72a8475b07c0fc" category="sidebar">在 Azure 中升級磁碟效能層</block>
-  <block id="81e76ca235a16e1d875f94529d326de0" category="cell">9.17.1</block>
   <block id="66d3aa0db1db25a4a906a01992596e27" category="list-text">仔細評估是否有必要進行此項更改，因為將NVRAM磁碟升級到更高效能等級會產生額外的成本。</block>
   <block id="648d6475bce5354b3cd3c893b2df49f3" category="paragraph">如果出站連線不可用，且控制台無法設定您的Cloud Volumes ONTAP系統以使用控制台代理程式作為代理伺服器，您將收到來自控制台的通知，提示您的系統無法傳送AutoSupport訊息。請依照以下步驟解決此問題。</block>
   <block id="80d895fadacc0310355c1c423023695b" category="list-text">使用 SSH 安全地連接到Cloud Volumes ONTAP系統，以使用ONTAP CLI。</block>
@@ -6227,4 +6213,14 @@
   <block id="584dfcd628606b8f1bed519dd4baabce" category="paragraph">Cloud Volumes ONTAP 現在支援 Google Cloud 中的 64 TB 磁碟。</block>
   <block id="f0e98a8e50d3b58af9ff1c04e5b74e1c" category="admonition">由於 Google Cloud 限制，僅使用磁碟的最大系統容量仍為 256 TB。</block>
   <block id="76cbac4940f2698f4ebff7e15e3f58d3" category="sidebar">將現有部署轉換為 Infrastructure Manager</block>
+  <block id="f2fb1415fe6f0897322288a65d13cbe6" category="paragraph"><block ref="898c710561b0ef0c4b53a21f017ccedb" category="inline-link-macro-rx"></block>。</block>
+  <block id="58c2e5e5a047673f65b81d644b2c2212" category="doc">Cloud Volumes ONTAP 9.18.1 GA</block>
+  <block id="8e81597f054e81e7a100572a5b085cc4" category="paragraph">現在您可以使用 NetApp Console 在 AWS 和 Azure 中部署和管理 Cloud Volumes ONTAP 9.18.1 正式版。此版本尚不支援在 Google Cloud 中部署和升級。</block>
+  <block id="91ad01180cc40d6b3d3543999846bc67" category="inline-link">版本化發行說明</block>
+  <block id="a5706ddb4dd0758395027c729169ae81" category="paragraph">此處列出的 Cloud Volumes ONTAP 版本以外的版本無法用於新部署。此處版本中的修補程式或通用（正式發行）版本代表可用於部署的基礎版本。有關可用修補程式的詳細資訊，請參閱各版本的<block ref="673899d074c44dd34154296773a3ae8d" category="inline-link-rx"></block>。</block>
+  <block id="ffffe244c116c915298c78778fcab40f" category="paragraph">有關升級的資訊，請參閱 <block ref="edc516954278e6b04bf6c1ef0d737956" category="inline-link-macro-rx"></block>。</block>
+  <block id="34990c3d25631954a8d320c3b887702d" category="list-text">9.18.1</block>
+  <block id="58495bede215f014e8621e607e5c54a8" category="list-text">透過關注系統上出現的升級通知</block>
+  <block id="228fd8db6dfd431af5b0174c34940d4a" category="paragraph">您可以升級到的 Cloud Volumes ONTAP 版本取決於您目前正在執行的版本。下表中每個發行版本的通用版本或修補程式版本代表可供升級的基本版本。有關可用修補程式的詳細資訊，請參閱每個發行版本的<block ref="673899d074c44dd34154296773a3ae8d" category="inline-link-rx"></block>。</block>
+  <block id="a08e77bc6002bfa158787d93c342bf4b" category="section-title">2026 年 2 月 10 日</block>
 </blocks>
