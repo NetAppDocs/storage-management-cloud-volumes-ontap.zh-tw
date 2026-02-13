@@ -62,7 +62,7 @@ endif::gcp[]
 
 ifdef::aws[]
 
-* AWS 中單節點系統上的 SVM 管理 LIF
+* AWS 單節點系統上的 SVM 管理 LIF
 
 
 endif::aws[]

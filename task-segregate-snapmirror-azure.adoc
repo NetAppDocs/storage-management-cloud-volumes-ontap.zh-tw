@@ -131,7 +131,7 @@ dest::> network ipspace create -ipspace <new_ipspace>
 ----
 dest::> network port show
 ----
-. 對於單節點系統，新加入的連接埠是_e0b_。對於具有託管磁碟的 HA 對部署，新新增的連接埠是 _e0d_。對於具有頁 Blob 的 HA 對部署，新新增的連接埠是 _e0e_。使用節點名稱而不是虛擬機器名稱。透過運行查找節點名稱 `node show`。
+. 對於單節點系統，新增連接埠為 _e0b_。對於使用託管磁碟的 HA 配對部署，新增連接埠為 _e0d_。對於使用分頁 Blob 的 HA 配對部署，新增連接埠為 _e0e_。請使用節點名稱，而非 VM 名稱。執行 `node show`以尋找節點名稱。
 +
 [source, cli]
 ----

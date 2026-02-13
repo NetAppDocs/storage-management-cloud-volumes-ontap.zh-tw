@@ -27,7 +27,7 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-l
 
 == BYOL 系統許可證
 
-可以從NetApp購買基於節點的授權。您可以為單節點系統或 HA 對購買的許可證數量不受限制。
+可以從 NetApp 購買基於節點的授權。您可以為單節點系統或 HA 配對購買的授權數量沒有限制。
 
 
 NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 授權可用性受限"^] 。

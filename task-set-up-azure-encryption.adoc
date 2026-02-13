@@ -153,7 +153,7 @@ NOTE: 配置金鑰後，請確保已選擇 https://learn.microsoft.com/en-us/azu
 +
 *** *軟刪除*（此選項預設為啟用，但不能停用）
 *** *清除保護*
-*** *用於磁碟區加密的 Azure 磁碟加密*（適用於單節點系統、多個區域中的 HA 對以及 HA 單 AZ 部署）
+*** *Azure Disk Encryption 磁碟區加密*（適用於單節點系統、多個區域中的 HA 配對以及 HA 單一 AZ 部署）
 +
 
 NOTE: 使用 Azure 客戶管理加密金鑰的前提是為金鑰保管庫啟用 Azure 磁碟加密。

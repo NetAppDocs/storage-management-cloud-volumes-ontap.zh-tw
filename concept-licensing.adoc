@@ -172,7 +172,7 @@ link:https://docs.netapp.com/us-en/keystone-staas/index.html["了解有關NetApp
 
 === 支援的配置
 
-Keystone訂閱支援 HA 對。目前，單節點系統不支援此許可選項。
+Keystone 訂閱支援 HA 配對。目前單節點系統不支援此授權選項。
 
 
 

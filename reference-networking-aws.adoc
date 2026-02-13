@@ -106,13 +106,13 @@ HA 中介執行個體必須具有與 AWS EC2 服務的出站連接，以便它�
 
 控制台會自動為Cloud Volumes ONTAP指派所需數量的私人 IP 位址。您需要確保您的網路有足夠的可用私人 IP 位址。
 
-控制台為Cloud Volumes ONTAP分配的 LIF 數量取決於您部署的是單節點系統還是 HA 對。  LIF 是與實體連接埠關聯的 IP 位址。
+Console 為 Cloud Volumes ONTAP 分配的 LIF 數量取決於您部署的是單節點系統還是 HA 配對。LIF 是與實體連接埠關聯的 IP 位址。
 
 
 
 ==== 單節點系統的 IP 位址
 
-控制台為單節點系統分配6個IP位址。
+NetApp Console 為單節點系統指派 6 個 IP 位址。
 
 下表提供了與每個私人 IP 位址關聯的 LIF 的詳細資訊。
 
@@ -142,7 +142,7 @@ HA 中介執行個體必須具有與 AWS EC2 服務的出站連接，以便它�
 
 ==== HA 對的 IP 位址
 
-HA 對需要比單節點系統更多的 IP 位址。這些 IP 位址分佈在不同的乙太網路介面上，如下圖所示：
+HA 配對需要的 IP 位址比單節點系統多。這些 IP 位址分佈在不同的乙太網路介面上，如下圖所示：
 
 image:diagram_cvo_aws_networking_ha.png["此圖表顯示了 AWS 中Cloud Volumes ONTAP HA 配置上的 eth0、eth1、eth2。"]
 

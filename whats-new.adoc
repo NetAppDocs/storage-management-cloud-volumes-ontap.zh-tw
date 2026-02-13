@@ -20,6 +20,24 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2026 年 2 月 12 日
+
+
+
+== Azure 中對 Ebdsv5 和 E104ids_v5 VM 的支援
+
+從 Cloud Volumes ONTAP 9.18.1 開始，您可以部署 Ebdsv5 和 E104ids_v5 VM，用於單節點和高可用性（HA）部署和升級。
+
+Azure 虛擬機器 Eb 系列中的 Ebdsv5 VM 針對更高的遠端儲存效能進行了最佳化。您可以將這些 VM 用於記憶體密集型和 I/O 密集型的企業級工作負載，例如關聯式資料庫、記憶體內分析和其他要求嚴格的關鍵業務應用程式。
+
+E104ids_v5 是一個獨立的 VM 執行個體，可協助您更妥善地處理排程的維護時段。與 E80ids_v4 相比，它提供更高的磁碟輸送量和 IOPS，以及更佳的整體網路效能。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支援的配置"^]
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/memory-optimized/edsv5-series?tabs=sizebasic["Azure 文件：Edsv5 大小系列"^]
+
+
+
 == 2026 年 2 月 10 日
 
 
@@ -1477,7 +1495,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-enabling-private-l
 - compute.instanceGroups.get
 - compute.addresses.get
 ----
-請注意，您必須使用ONTAP CLI 或系統管理員在單節點系統上建立儲存虛擬機器。
+請注意、您必須使用 ONTAP CLI 或 System Manager 在單節點系統上建立儲存 VM。
 
 * https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html#storage-vm-limits["詳細了解 Google Cloud 中的儲存虛擬機器限制"^]
 * https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-gcp.html["了解如何在 Google Cloud 中為Cloud Volumes ONTAP建立資料服務儲存虛擬機"]
@@ -1572,7 +1590,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp
 +
 以前， BlueXP不會顯示 VPC-1、VPC-2 或 VPC-3 中沒有目標標籤的任何政策。
 
-* 在 Google Cloud 中建立Cloud Volumes ONTAP單節點系統時，您現在可以選擇是否想要預先定義的防火牆策略僅允許所選 VPC 內的流量（建議）或所有 VPC 內的流量。
+* 在 Google Cloud 中建立 Cloud Volumes ONTAP 單節點系統時，現在可以選擇預先定義的防火牆原則是僅允許選定 VPC 內的流量（建議）還是允許所有 VPC 內的流量。
 
 
 
@@ -1767,7 +1785,7 @@ Cloud Volumes ONTAP現已在 AWS 亞太地區（大阪）區域（ap-northeast-3
 
 === 連接埠減少
 
-Azure 中的Cloud Volumes ONTAP系統上的連接埠 8023 和 49000 不再針對單節點系統和 HA 對開放。
+Azure 中的 Cloud Volumes ONTAP 系統（包括單節點系統和 HA 配對）不再開放連接埠 8023 和 49000。
 
 此變更適用於從 Connector 3.9.13 版本開始的_new_ Cloud Volumes ONTAP系統。
 
@@ -2076,7 +2094,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gc
 
 === 支援的 Azure 區域中的 Ultra SSD VNVRAM
 
-當您將 E32s_v3 VM 類型與單節點系統一起使用時， Cloud Volumes ONTAP現在可以使用 Ultra SSD 作為 VNVRAM https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd["在任何受支援的 Azure 區域中"^] 。
+當您在單節點系統中使用 E32s_v3 VM 類型時，Cloud Volumes ONTAP 現在可以使用 Ultra SSD 作為 VNVRAM https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd["在任何受支援的 Azure 區域中"^]。
 
 VNVRAM 提供更好的寫入效能。
 

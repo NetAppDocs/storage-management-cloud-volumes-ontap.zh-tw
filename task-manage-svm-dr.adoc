@@ -16,7 +16,7 @@ summary: NetApp Console不為儲存 VM 災難復原提供任何設定或編排�
 [role="lead"]
 NetApp Console不提供儲存虛擬機器 (SVM) 災難復原的設定或編排支援。若要執行這些任務，請使用ONTAP System Manager 或ONTAP CLI。
 
-如果在兩個Cloud Volumes ONTAP系統之間設定SnapMirror SVM 複製，則複製必須在兩個 HA 對系統或兩個單節點系統之間進行。您無法在 HA 對和單節點系統之間設定SnapMirror SVM 複製。
+如果要在兩個 Cloud Volumes ONTAP 系統之間設定 SnapMirror SVM 複製，則複製必須在兩個 HA 配對系統或兩個單節點系統之間進行。您無法在 HA 配對系統和單節點系統之間設定 SnapMirror SVM 複製。
 
 有關ONTAP CLI 說明，請參閱以下文件。
 

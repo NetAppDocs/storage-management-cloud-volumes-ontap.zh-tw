@@ -24,7 +24,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D
 * 更改機器類型可能會影響 Google Cloud 服務費用。
 * 此操作重新啟動Cloud Volumes ONTAP。
 +
-對於單節點系統，I/O 被中斷。
+對於單節點系統， I/O 會中斷。
 
 +
 對於 HA 對來說，這種變化是無中斷的。  HA 對繼續提供數據。

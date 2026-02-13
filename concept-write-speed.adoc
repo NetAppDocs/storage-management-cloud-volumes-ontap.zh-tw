@@ -68,7 +68,7 @@ ifdef::aws[]
 
 ==== AWS
 
-如果您使用單節點系統， Cloud Volumes ONTAP支援所有執行個體類型的高寫入速度。
+如果您使用單節點系統，Cloud Volumes ONTAP 支援所有執行個體類型的高寫入速度。
 
 從 9.8 版本開始， Cloud Volumes ONTAP在使用幾乎所有受支援的 EC2 執行個體類型（m5.xlarge 和 r5.xlarge 除外）時都支援具有 HA 對的高寫入速度。
 
@@ -82,7 +82,7 @@ ifdef::azure[]
 
 ==== Azure
 
-如果您使用單節點系統， Cloud Volumes ONTAP支援所有 VM 類型的高寫入速度。
+如果您使用單節點系統，Cloud Volumes ONTAP 支援所有 VM 類型的高寫入速度。
 
 如果您使用 HA 對，從 9.8 版本開始， Cloud Volumes ONTAP支援多種 VM 類型的高寫入速度。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Cloud Volumes ONTAP發行說明"^]查看支援高寫入速度的虛擬機器類型。
 
@@ -94,7 +94,7 @@ ifdef::gcp[]
 
 ==== Google雲
 
-如果您使用單節點系統， Cloud Volumes ONTAP支援所有機器類型的高寫入速度。
+如果您使用單節點系統，Cloud Volumes ONTAP 支援所有機器類型的高寫入速度。
 
 如果您使用 HA 對，從 9.13.0 版本開始， Cloud Volumes ONTAP支援多種 VM 類型的高寫入速度。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html#supported-configurations-by-license["Cloud Volumes ONTAP發行說明"^]查看支援高寫入速度的虛擬機器類型。
 

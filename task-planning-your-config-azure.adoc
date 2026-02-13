@@ -62,7 +62,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azur
 
 
 --
-具有單節點系統的 Azure 磁碟類型:: 為Cloud Volumes ONTAP建立磁碟區時，您需要選擇Cloud Volumes ONTAP用作磁碟的底層雲端儲存。
+Azure 磁碟類型（單節點系統）:: 為Cloud Volumes ONTAP建立磁碟區時，您需要選擇Cloud Volumes ONTAP用作磁碟的底層雲端儲存。
 +
 --
 單節點系統可以使用下列類型的 Azure 託管磁碟：

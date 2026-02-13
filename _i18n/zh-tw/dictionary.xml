@@ -741,7 +741,6 @@
   <block id="c6a56bb8eca094c529c75a2c22c92bcc" category="inline-link-macro">了解有關如何管理基於節點的許可證的更多信息</block>
   <block id="af13749595f5960a363d1c58fc759656" category="paragraph"><block ref="4610c02b1fca3398eed82ad29d834f6a" category="inline-link-macro-rx"></block> 。</block>
   <block id="fef06ca11f3dec6f0be51962fd93388c" category="section-title">BYOL 系統許可證</block>
-  <block id="13bc5b36f2853d26966d43f29d5709ae" category="paragraph">可以從NetApp購買基於節點的授權。您可以為單節點系統或 HA 對購買的許可證數量不受限制。</block>
   <block id="4c8074825211e5f0b13a055b38d5253c" category="inline-link">Cloud Volumes ONTAPP的 BYOL 授權可用性受限</block>
   <block id="1a601f71075caa78fa676a54aaa4509e" category="admonition">已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱<block ref="9772ad4d3eb9076586a06f6039d490f0" category="inline-link-rx"></block> 。</block>
   <block id="0e0d96905201a406bbeb8592f92f311c" category="paragraph">基於節點的許可證最多可為單一節點或 HA 對提供 368 TiB 的容量。您可能已為Cloud Volumes ONTAP BYOL 系統購買了多個許可證，以分配超過 368 TiB 的容量。例如，您可能有兩個許可證，為Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者，您可能有四個許可證，以獲得最多 1.4 PiB 的容量。</block>
@@ -779,7 +778,6 @@
   <block id="6246af80c9ea9c857c70d2c643fcb249" category="list-text">如果您超出許可容量</block>
   <block id="fdde7a7f3783aa0ce1e585f8be9c2def" category="list-text">如果您的許可證期限已到期</block>
   <block id="36e4d5ff70cec517180ae18f1c34d2fd" category="list-text">如果您與市場簽訂了年度合同，則您部署的所有Cloud Volumes ONTAP系統都將根據該合約收費。您不能將年度市場合約與 BYOL 混合搭配。</block>
-  <block id="3492eb16df3715b7fba9675a44852d3e" category="list-text">中國區域僅支援支援 BYOL 的單節點系統。中國區域部署不受 BYOL 授權限制。</block>
   <block id="5bdd4028830bea76f4939d67baa460ff" category="paragraph">部署後，您可以變更使用基於容量的許可的Cloud Volumes ONTAP系統的軟體包。例如，如果您使用 Essentials 套件部署了Cloud Volumes ONTAP系統，則可以在業務需求變更時將其變更為 Professional 套件。</block>
   <block id="63b54c0d3b4fb8e35270bfdf7b2bdcbb" category="inline-link-macro">了解如何更改充電方式</block>
   <block id="ec3e25d80cfc0e5561493729eadecef7" category="paragraph"><block ref="ea19fa0e06a6047bcaabb9af62b066c3" category="inline-link-macro-rx"></block> 。</block>
@@ -810,7 +808,6 @@
   <block id="35851ad4214e2cb5358ee8d010fd31e9" category="list-text">具有一個儲存虛擬機器的單節點Cloud Volumes ONTAP系統（這是部署Cloud Volumes ONTAP時所建立的預設儲存虛擬機器）</block>
   <block id="8cff626e0f3fb63bbf88dedb4fd98712" category="paragraph">該系統算一個系統。</block>
   <block id="9dcf3eb2c417aa53d6bc0d88eef77b49" category="list-text">具有兩個儲存虛擬機（預設儲存虛擬機，加上您建立的一個額外的儲存虛擬機）的單節點Cloud Volumes ONTAP系統</block>
-  <block id="f37d86fef13241720dc9ebcc64539e54" category="paragraph">系統算是兩個系統：一個用於單節點系統，一個用於附加儲存 VM。</block>
   <block id="4c41d499b08fed91769d6d2c3b51157a" category="list-text">具有三個儲存虛擬機（預設儲存虛擬機，以及您建立的兩個額外的儲存虛擬機）的Cloud Volumes ONTAP HA 對</block>
   <block id="67850a8a97f903485494427b0d760819" category="paragraph">系統計為三個系統：一個用於 HA 對，兩個用於附加儲存虛擬機器。</block>
   <block id="a0aa07133f0223d64ee6522e4e293e43" category="inline-link">了解 AWS、Azure 和 Google Cloud 的儲存限制</block>
@@ -895,7 +892,6 @@
   <block id="46b39bb522bc6ece1b6bf75e81db3cbf" category="paragraph">每個卷的預先配置容量都會定期匯總並與您的Keystone訂閱中的承諾容量進行比較，任何超額部分都會作為Keystone訂閱中的突發容量收費。</block>
   <block id="d9b8cca0e5a3840c29a71a4c6f13a917" category="inline-link-macro">了解有關NetApp Keystone 的更多信息</block>
   <block id="9eecbfaf12c4b441b4b80b15e69b1763" category="paragraph"><block ref="861512b606f6337e516b8d3562c115c3" category="inline-link-macro-rx"></block> 。</block>
-  <block id="73511701791994e2ed3cc40c68089746" category="paragraph">Keystone訂閱支援 HA 對。目前，單節點系統不支援此許可選項。</block>
   <block id="9a762a1c55d92068610f4f2bc3e42d91" category="paragraph">了解如何開始使用Keystone訂閱：</block>
   <block id="a2f6a3e98ea1849ed1ab07d821bf6a18" category="section-title">基於節點的許可</block>
   <block id="ea4ba4158f6b2b895b0418072f2ba06d" category="paragraph">基於節點的許可是上一代許可模式，使您能夠按節點許可Cloud Volumes ONTAP 。此許可模式不適用於新客戶。按節點充電已被上述按容量充電方法所取代。</block>
@@ -1095,9 +1091,6 @@
   <block id="4cb081c6302f68531ee29c8a8f6984e5" category="inline-link">查看 AWS 中Cloud Volumes ONTAP支援的配置</block>
   <block id="ff9c48728746d281c6db8cc1fcc3bbc0" category="list-text"><block ref="ff9c48728746d281c6db8cc1fcc3bbc0" category="inline-link-rx"></block></block>
   <block id="f590584761ef1824250681bcc6312099" category="section-title">Azure 儲存</block>
-  <block id="0ff787698f3679f43f5b00772fb3fe70" category="paragraph">在 Azure 中，聚合最多可以包含 12 個大小相同的磁碟。磁碟類型和最大磁碟大小取決於您使用單節點系統還是 HA 對：</block>
-  <block id="078325cc35a9c8c9290e445f32bd1855" category="list-text">單節點系統</block>
-  <block id="f9a29c4f12d918677aac4f08102edf1b" category="list-text">單節點系統可以使用下列類型的 Azure 託管磁碟：</block>
   <block id="81051201caf41e5e0650e52621884bfc" category="list-text">_進階 SSD 託管磁碟_ 以更高的成本為 I/O 密集型工作負載提供高效能。</block>
   <block id="747d4ec445455d90b072fa27bca4895a" category="list-text">與高級 SSD 託管磁碟相比，_高級 SSD v2 託管磁碟_ 為單節點和 HA 對提供了更高的效能和更低的延遲，並且成本更低。</block>
   <block id="cc9198979434b483c842956cafd0f2b9" category="list-text">_標準 SSD 託管磁碟_為需要低 IOPS 的工作負載提供一致的效能。</block>
@@ -1198,15 +1191,12 @@
   <block id="ffa0b3f1336c5af7f182a50049dd44e1" category="section-title">支援高寫入速度的配置</block>
   <block id="45802e8e05d9f48b4caa135041dde30a" category="paragraph">並非所有Cloud Volumes ONTAP配置都支援高寫入速度。這些配置預設使用正常的寫入速度。</block>
   <block id="4847e034bb0a55fcbc8a3380d6a3ab80" category="section-title">AWS</block>
-  <block id="a8acc7de0893c2c2f8404c6e10839d65" category="paragraph">如果您使用單節點系統， Cloud Volumes ONTAP支援所有執行個體類型的高寫入速度。</block>
   <block id="4d000cb814de0483d25aa949e7104787" category="paragraph">從 9.8 版本開始， Cloud Volumes ONTAP在使用幾乎所有受支援的 EC2 執行個體類型（m5.xlarge 和 r5.xlarge 除外）時都支援具有 HA 對的高寫入速度。</block>
   <block id="d483e21ce7d44495d45b5b10d0a92f33" category="inline-link">了解有關Cloud Volumes ONTAP支援的 Amazon EC2 執行個體的更多信息</block>
   <block id="21793edfa155319a271d33a5dc984cb2" category="paragraph"><block ref="a158a044b7464112e4aeefe5eeacf9f9" category="inline-link-rx"></block> 。</block>
   <block id="3a580f142203677f1f0bc30898f63f53" category="section-title">Azure</block>
-  <block id="89347e425902e735637e8fa0c5aaea49" category="paragraph">如果您使用單節點系統， Cloud Volumes ONTAP支援所有 VM 類型的高寫入速度。</block>
   <block id="19efe5a9cd2387e8587c05321062a095" category="paragraph">如果您使用 HA 對，從 9.8 版本開始， Cloud Volumes ONTAP支援多種 VM 類型的高寫入速度。前往<block ref="2c91cb4d7bbd40d1a3efe8602ebb4273" category="inline-link-rx"></block>查看支援高寫入速度的虛擬機器類型。</block>
   <block id="56ef2682280ac110060b881925a87b80" category="section-title">Google雲</block>
-  <block id="543bcb76d6487a8515a8a34178160fca" category="paragraph">如果您使用單節點系統， Cloud Volumes ONTAP支援所有機器類型的高寫入速度。</block>
   <block id="c616f204302ed58d4618e3ded77f1858" category="paragraph">如果您使用 HA 對，從 9.13.0 版本開始， Cloud Volumes ONTAP支援多種 VM 類型的高寫入速度。前往<block ref="44033d1307c0997839bd6a3cb420c3fd" category="inline-link-rx"></block>查看支援高寫入速度的虛擬機器類型。</block>
   <block id="e4e959caff2c6b1635b2a3bea64b35f7" category="inline-link">詳細了解Cloud Volumes ONTAP支援的 Google Cloud 機器類型</block>
   <block id="f3e658b45576241d792ccaccc236fc48" category="paragraph"><block ref="a8ee7ccc97f8f155aa3297d287b2257a" category="inline-link-rx"></block> 。</block>
@@ -1281,7 +1271,6 @@
   <block id="24b9f71baa2900d2012ac1aae73c5b0a" category="list-text">集群間 LIF</block>
   <block id="aa98b7df0a0a0f2af69cbff3dcbe620e" category="list-text">Azure 中 HA 系統上的 SVM 管理 LIF</block>
   <block id="97c3d7abfc75b002edd7cf58c0502788" category="list-text">Google Cloud 中 HA 系統上的 SVM 管理 LIF</block>
-  <block id="11ec0bb07b34b28693ac7788a1724c9a" category="list-text">AWS 中單節點系統上的 SVM 管理 LIF</block>
   <block id="381853e687018dffdeac4977fce24c2f" category="list-text">節點管理 LIF</block>
   <block id="2095bd4fb8c9a4c7b89de9f25bf6d2eb" category="paragraph">+ 在 Google Cloud 中，此 LIF 與集群間 LIF 結合在一起。</block>
   <block id="a7bc162978ef4e3f1dc9043f2f3e0ae5" category="list-text">iSCSI 資料 LIF</block>
@@ -1430,9 +1419,6 @@
   <block id="d7920d37aa6ff40b322ef50a40844b21" category="paragraph">手動選項可以是 NAT 閘道或從目標子網路到 AWS EC2 服務的介面 VPC 端點。有關 VPC 終端節點的詳細信息，請參閱<block ref="ba25197f61698aac8f5883c92983c6fe" category="inline-link-rx"></block>。</block>
   <block id="af5123aa908861af9755bea4400d279c" category="section-title">私人 IP 位址</block>
   <block id="da4158c89ba6931cb8b401a7789d7e4e" category="paragraph">控制台會自動為Cloud Volumes ONTAP指派所需數量的私人 IP 位址。您需要確保您的網路有足夠的可用私人 IP 位址。</block>
-  <block id="2fe7abe9b3034da37aaab57195253d35" category="paragraph">控制台為Cloud Volumes ONTAP分配的 LIF 數量取決於您部署的是單節點系統還是 HA 對。  LIF 是與實體連接埠關聯的 IP 位址。</block>
-  <block id="80c103dec1da91d2850236e737249870" category="section-title">單節點系統的 IP 位址</block>
-  <block id="b810b6cdd9a4a59e14a5dcf3b202b1c0" category="paragraph">控制台為單節點系統分配6個IP位址。</block>
   <block id="b4f6a6268e9ed79637c765266075ab8c" category="paragraph">下表提供了與每個私人 IP 位址關聯的 LIF 的詳細資訊。</block>
   <block id="95416f2c916dabe21f738406546ebc53" category="cell">雷射誘導螢光</block>
   <block id="1eb5ae63609e68a11106494d272615bf" category="cell">叢集管理</block>
@@ -1448,7 +1434,6 @@
   <block id="c3c3a9cabe89fd2f00daf39d11c934e0" category="cell">儲存虛擬機器管理</block>
   <block id="f7fb4679628db57f6d5d8a1ad673e5d9" category="cell">儲存虛擬機器管理 LIF 與S ​​SnapCenter等管理工具一起使用。</block>
   <block id="754851680a34e87fae0aca5083f7dbfe" category="section-title">HA 對的 IP 位址</block>
-  <block id="e438a6efe5f9ab56c9230159070485aa" category="paragraph">HA 對需要比單節點系統更多的 IP 位址。這些 IP 位址分佈在不同的乙太網路介面上，如下圖所示：</block>
   <block id="b1ffdf627a3899d601bec66c834754cf" category="inline-image-macro">此圖表顯示了 AWS 中Cloud Volumes ONTAP HA 配置上的 eth0、eth1、eth2。</block>
   <block id="df47a11ce6c17c82716b888fb22a8fdc" category="paragraph"><block ref="df47a11ce6c17c82716b888fb22a8fdc" category="inline-image-macro-rx" type="image"></block></block>
   <block id="311bb2a509cb1b719973430da8bab55f" category="paragraph">HA 對所需的私人 IP 位址數量取決於您選擇的部署模型。在單一 AWS 可用區 (AZ) 中部署的 HA 對需要 15 個私人 IP 位址，而在多個 AZ 中部署的 HA 對需要 13 個私人 IP 位址。</block>
@@ -1563,9 +1548,7 @@
   <block id="08c0a2896fee0160c8083277678851f6" category="cell">政府國防部區</block>
   <block id="1d9e509ddb93a176b7d369a91ad7deaf" category="section-title">IP 位址</block>
   <block id="981c07ec261beb1bf77f2be566734475" category="paragraph">控制台會自動為 Azure 中的Cloud Volumes ONTAP指派所需數量的私有 IP 位址。您需要確保您的網路有足夠的可用私人 IP 位址。</block>
-  <block id="866336d6018a34316f8c805183535aeb" category="paragraph">為Cloud Volumes ONTAP指派的 LIF 數量取決於您部署的是單節點系統還是 HA 對。  LIF 是與實體連接埠關聯的 IP 位址。  SnapCenter等管理工具需要 SVM 管理 LIF。</block>
   <block id="99b06d2510cf563a2d5a3bb1e854c0be" category="admonition">iSCSI LIF 透過 iSCSI 協定提供用戶端訪問，並被系統用於其他重要的網路工作流程。這些 LIF 是必需的，不應刪除。</block>
-  <block id="bb5a17a234c886af3a27b429eef480fb" category="paragraph">控制台為單節點系統分配5或6個IP位址：</block>
   <block id="40800f2ceb1fadf0fb67562c1b95ca89" category="list-text">叢集管理IP</block>
   <block id="a3dd4b9ad2ee69945d1ea9864c0769d4" category="list-text">節點管理IP</block>
   <block id="863bdf16cb9d771a0a419b57d8c86dee" category="list-text">SnapMirror的群集間 IP</block>
@@ -1574,7 +1557,6 @@
   <block id="95c154df02c50293c8e187a13129c52e" category="admonition">iSCSI IP 透過 iSCSI 協定提供客戶端存取。系統也將其用於其他重要的網路工作流程。此 LIF 是必需的，不應刪除。</block>
   <block id="d8d7417bbebf0251ff6676bd41195a47" category="list-text">SVM 管理（可選 - 預設未配置）</block>
   <block id="b21010bf815253d4c8f09044c40bdb63" category="paragraph">控制台在部署期間將 IP 位址指派給 4 個 NIC（每個節點）。</block>
-  <block id="77092de052018a7f39cfca1d29511eb6" category="paragraph">請注意，控制台在 HA 對上建立 SVM 管理 LIF，但不在 Azure 中的單節點系統上建立。</block>
   <block id="7967db50e031806cc903e7667990fa6e" category="paragraph">*NIC0*</block>
   <block id="f78bf4ed8c0f2dd904a8bd30215d4b0d" category="list-text">群集間 IP</block>
   <block id="f667468015bc083421f7d4ce95ec9f32" category="paragraph">*NIC1*</block>
@@ -1608,7 +1590,6 @@
   <block id="cf7b729735d2cc35e0f6084427e869b5" category="paragraph">控制台建立 Azure 安全性群組，其中包含Cloud Volumes ONTAP成功執行的入站和出站規則。<block ref="ed3f4fc272c739bb0d2caf8df211a918" category="inline-link-rx"></block> 。</block>
   <block id="72cb359256f1b923869ffe5643075163" category="paragraph">Cloud Volumes ONTAP的 Azure 安全性群組需要開啟適當的連接埠以進行節點之間的內部通訊。<block ref="9235b6a724dccf5c41be51f4736123ae" category="inline-link-rx"></block> 。</block>
   <block id="e3f7f3a3bb47d39a7fd58de8d5070b2b" category="paragraph">我們不建議修改預先定義的安全性群組或使用自訂安全群組。但是，如果必須這樣做，請注意，部署過程要求Cloud Volumes ONTAP系統在自己的子網路內擁有完全存取權限。部署完成後，如果決定修改網路安全群組，請確保保持叢集連接埠和 HA 網路連接埠開放。這確保了Cloud Volumes ONTAP叢集內的無縫通訊（節點之間的任意通訊）。</block>
-  <block id="4d6ace52affbdd48b9198aac825d4a2c" category="section-title">單節點系統的入站規則</block>
   <block id="302d2301b273d2d6c222fdca1f337988" category="paragraph">新增Cloud Volumes ONTAP系統並選擇預先定義安全性群組時，您可以選擇允許下列其中的流量：</block>
   <block id="3ed4080616d1d3c88deef90096108130" category="list-text">*僅限選定的 VNet*：入站流量的來源是Cloud Volumes ONTAP系統的 VNet 子網路範圍和控制台代理程式所在的 VNet 子網路範圍。這是推薦的選項。</block>
   <block id="cd8b82367babbe39683e8fb9f0c22ed5" category="list-text">*所有 VNets*：入站流量的來源是 0.0.0.0/0 IP 範圍。</block>
@@ -1685,7 +1666,6 @@
   <block id="f13dc81ff6686c567bc9cd81f1705a01" category="cell">65500 拒絕所有入站</block>
   <block id="23d79435900ea920cd046b66b4a82ad6" category="cell">阻止所有其他入站流量</block>
   <block id="65c62bad4ba63ac91ba2e85d37c31509" category="section-title">HA 系統的入站規則</block>
-  <block id="26bcfda25a06a4967c61d9fe062eb2f4" category="admonition">HA 系統的入站規則比單節點系統少，因為入站資料流量會經過 Azure 標準負載平衡器。因此，來自負載平衡器的流量應該是開放的，如“AllowAzureLoadBalancerInBound”規則所示。</block>
   <block id="005253b174acff63249a92d1bafe61b6" category="cell">100 inbound_443</block>
   <block id="ef6d98134446f807883c2235ef5a8ae6" category="cell">443 任何協議</block>
   <block id="853bf4038002c3f535649db948ff5e60" category="cell">101 inbound_111_tcp</block>
@@ -1790,11 +1770,7 @@
   <block id="589257f6242e3a6232a5f72f7867c4b6" category="inline-link-macro">了解 HA 對在 Google Cloud 中的工作原理</block>
   <block id="c8e39b92d04aae2c3a6d3e6f428d480e" category="paragraph">如果你想部署 HA 對，你應該<block ref="135d51832239d75e9eff2c1e7574765f" category="inline-link-macro-rx"></block>。</block>
   <block id="26cc43b1e094bf317e2d9013491cb9af" category="paragraph">Google Cloud 必須滿足以下要求。</block>
-  <block id="cd28e0a76ff845ef2e9e5eeced367a01" category="section-title">單節點系統的特定要求</block>
-  <block id="d9358a4b713f2c5cc37fadb9fef3c574" category="paragraph">如果您要部署單節點系統，請確保您的網路符合下列要求。</block>
   <block id="1ec1df3337524963212c8e27b42ab3cc" category="section-title">一個 VPC</block>
-  <block id="5bd17b13142e93319e9f09e96063763a" category="paragraph">單節點系統需要一個虛擬私有雲（VPC）。</block>
-  <block id="aa03aa54374eb89768ecb4c4f7b40df6" category="paragraph">對於 Google Cloud 中的單節點系統，控制台會將私人 IP 位址指派給下列物件：</block>
   <block id="249694a485fc5d3289c38986b4f8e887" category="list-text">簇</block>
   <block id="541b6c1ab6b503c34fc7cd5ed7105896" category="list-text">儲存虛擬機</block>
   <block id="d73a4e3f4b2f5ab8664e4921cf616d56" category="list-text">數據 NAS LIF</block>
@@ -1818,7 +1794,6 @@
   <block id="158bfb217f00205e8445c28dcf0fc857" category="paragraph">如果將控制台代理程式放置在 VPC-0 中，則需要在子網路上啟用私人 Google 存取權限以存取 API 並啟用資料分層。</block>
   <block id="879d9e5531b71e6c91d2bb1771c06d40" category="paragraph">這些 VPC 中的子網路必須具有不同的 CIDR 範圍。它們不能有重疊的 CIDR 範圍。</block>
   <block id="fe3eb5178f8af6d17269d6d49ad32edb" category="paragraph">控制台會自動為 Google Cloud 中的Cloud Volumes ONTAP指派所需數量的私有 IP 位址。您需要確保您的網路有足夠的可用私有位址。</block>
-  <block id="e57aed3ea4b400bd581ab695d196aff8" category="list-text">*單節點* 控制台為單節點系統指派 4 個 IP 位址：</block>
   <block id="15a4d902a9e2eeb56724bdb94f9d1977" category="list-text">集群管理 LIF</block>
   <block id="e837515a89200e7cd1bddfc96747979e" category="list-text">iSCSI 資料 LIF</block>
   <block id="a28292fa77dc234022cd48bc08becd01" category="list-text">NAS LIF</block>
@@ -1845,7 +1820,6 @@
   <block id="83d4ff33554cb62b1f10057bae8d85ce" category="paragraph">儘管預設情況下會停用全域訪問，但支援在部署後啟用它。我們禁用它是因為跨區域流量會有明顯更高的延遲。我們希望確保您不會因為意外的跨區域坐騎而產生負面體驗。啟用此選項是為了滿足您的業務需求。</block>
   <block id="b9ea9f76a11191d80f8fe1abc9437eb6" category="section-title">共享 VPC</block>
   <block id="c241e752f74b4f0a49d3bef9094a54c4" category="paragraph">Google Cloud 共享 VPC 和獨立 VPC 皆支援Cloud Volumes ONTAP和控制台代理。</block>
-  <block id="d3a2a7fdaa8373f4a0dca1f16e49c9c1" category="paragraph">對於單節點系統，VPC 可以是共用 VPC，也可以是獨立 VPC。</block>
   <block id="dedaa6a395c33cf8c6b506c83163ed74" category="paragraph">對於 HA 對，需要四個 VPC。每個 VPC 可以是共享的，也可以是獨立的。例如，VPC-0 可以是共用 VPC，而 VPC-1、VPC-2 和 VPC-3 可以是獨立 VPC。</block>
   <block id="300d87b8001da3a5be5d54eb19fb6ea4" category="paragraph">共用 VPC 可讓您跨多個專案配置和集中管理虛擬網路。您可以在_主機專案_中設定共用 VPC 網絡，並在_服務項目_中部署控制台代理程式和Cloud Volumes ONTAP虛擬機器實例。</block>
   <block id="e7654a639cfe016ac3f5047f52f87c75" category="inline-link">Google Cloud 文件：共享 VPC 概覽</block>
@@ -2316,7 +2290,6 @@
   <block id="55c1a5d402853088f42720624bfb58bb" category="paragraph"><block ref="55c1a5d402853088f42720624bfb58bb" category="inline-link-rx"></block></block>
   <block id="9f257b11a56fb0990bae90687da210c7" category="list-text">變更 VM 類型可能會影響 Microsoft Azure 服務費用。</block>
   <block id="c8d8c076494c2c4a46c774a2f999d907" category="list-text">此操作重新啟動Cloud Volumes ONTAP。</block>
-  <block id="e8fafc5515dbe922c9cd7f7101d3a661" category="paragraph">對於單節點系統，I/O 被中斷。</block>
   <block id="0da5cbb23a0a7d13b0f40ce06d29d3b4" category="paragraph">對於 HA 對來說，這種變化是無中斷的。  HA 對繼續提供數據。</block>
   <block id="3fd4713360582ecef88ecfa8f1c8a05b" category="admonition">NetApp Console透過啟動接管並等待返回來一次更改一個節點。 NetApp 的品質保證團隊在過程中對檔案的寫入和讀取進行了測試，並且沒有發現客戶端的任何問題。隨著連接的變化，在 I/O 層級觀察到一些重試，但應用層克服了 NFS/CIFS 連接的重新連接。</block>
   <block id="fe73ef8c13b3b61938fc7d9aa96fec5f" category="list-text">在*系統*頁面上，選擇系統。</block>
@@ -2975,7 +2948,6 @@
   <block id="6390591b27e881b05ba32426d12f2b17" category="list-text"><block ref="6390591b27e881b05ba32426d12f2b17" category="inline-link-macro-rx"></block></block>
   <block id="0f703b696e22955e2930127e854c1e29" category="summary">您可以透過在NetApp Console中建立 Cloud Volumes Cloud Volumes ONTAP Cloud Volumes ONTAP系統。</block>
   <block id="70c84621a7336f391b4b7df86b5f1396" category="doc">在 Azure 中啟動Cloud Volumes ONTAP</block>
-  <block id="52f40df3897ad7ddce812ff274006d4d" category="paragraph">您可以透過在NetApp Console中建立Cloud Volumes ONTAP系統在 Azure 中啟動單節點系統或 HA 對。</block>
   <block id="0473d750e2a3daca568511b768f19dad" category="list-text">你應該有一個<block ref="21b9e54d07d93b52dd801e203dadcd2a" category="inline-link-rx"></block>。</block>
   <block id="1942ca6a74b110784dab141845e32ec9" category="paragraph">您應該有一個配置計劃，並且從管理員那裡獲得必要的 Azure 網路詳細資訊。有關詳細信息，請參閱<block ref="342e106d00de7bc2efc5fca274754fe1" category="inline-link-macro-rx"></block> 。</block>
   <block id="4a990655560c303b19831e9bf63722cf" category="paragraph"><block ref="a19594f8ac35f50a09725bf53aa8cda6" category="inline-link-macro-rx"></block> 。</block>
@@ -2984,7 +2956,6 @@
   <block id="72cd91c0deb59fc4b814e6cafc8ff514" category="paragraph">最佳做法是為每個Cloud Volumes ONTAP系統使用新的專用資源群組。</block>
   <block id="334025c832b730a2d652f0f65a7d50ef" category="paragraph">由於資料遺失的風險，不建議在現有的共用資源組中部署Cloud Volumes ONTAP 。雖然控制台可以在部署失敗或刪除的情況下從共用資源群組中刪除Cloud Volumes ONTAP資源，但 Azure 使用者可能會意外從共用資源群組中刪除Cloud Volumes ONTAP資源。</block>
   <block id="253f14f70b008cf9e9d1e6143593db65" category="section-title">在 Azure 中啟動單節點Cloud Volumes ONTAP系統</block>
-  <block id="43078bef4570bbcb7b76e9c51a5c935b" category="paragraph">如果您想在 Azure 中啟動單節點Cloud Volumes ONTAP系統，則需要在控制台中建立單節點系統。</block>
   <block id="5e65ccaa7b0cffc728e485801bdd8092" category="list-text">*選擇位置*：選擇*Microsoft Azure*和* Cloud Volumes ONTAP單一節點*。</block>
   <block id="3d5c594aecd40a1f5184970be0e65330" category="list-text">如果出現提示，<block ref="3467f3015b64964d3499f1d2348876b6" category="inline-link-rx"></block> 。</block>
   <block id="ceca015ffa0918205a91a8cc0268611c" category="list-text">*詳細資料和憑證*：可選擇變更 Azure 憑證和訂閱，指定群集名稱，根據需要新增標籤，然後指定憑證。</block>
@@ -3619,7 +3590,6 @@
   <block id="825a0cb9a8312e85f3aa745487c0dbe9" category="paragraph">控制台更新Cloud Volumes ONTAP系統上的許可證。</block>
   <block id="2c2e7695734e076306fc8ba50ca70c1b" category="section-title">管理額外容量許可證</block>
   <block id="d452bdec5cf94a61fe23690b513f4a71" category="paragraph">您可以為Cloud Volumes ONTAP BYOL 系統購買額外的容量許可證，以分配超過 BYOL 系統許可證提供的 368 TiB 的容量。例如，您可以購買一個額外的許可證容量，為Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者您可以購買三個額外的容量許可證以獲得高達 1.4 PiB。</block>
-  <block id="5e26587c8f074cc4f0455ff005cb744c" category="paragraph">您可以為單節點系統或 HA 對購買的許可證數量不受限制。</block>
   <block id="6e869ff6c9fd5eb76baa394c52e2ef18" category="section-title">新增容量許可證</block>
   <block id="41a0a4fe38c3f00a9fae3056955c9f80" category="paragraph">透過控制台右下角的聊天圖示聯絡我們，購買額外容量許可證。購買許可證後，您可以將其套用至Cloud Volumes ONTAP系統。</block>
   <block id="423cdc57679399d47229e2f74dfc102b" category="list-text">按一下「新增容量許可證」。</block>
@@ -3645,7 +3615,6 @@
   <block id="bd0ed9183db9306d8ce58c50abb4a96b" category="summary">NetApp Console不為儲存 VM 災難復原提供任何設定或編排支援。您必須使用系統管理員或 CLI。</block>
   <block id="76872305ddb703eedd7fbe3e66263d83" category="doc">為Cloud Volumes ONTAP設定儲存虛擬機器災難復原</block>
   <block id="d25bf5fb042a0cc652d82492e5410fb6" category="paragraph">NetApp Console不提供儲存虛擬機器 (SVM) 災難復原的設定或編排支援。若要執行這些任務，請使用ONTAP System Manager 或ONTAP CLI。</block>
-  <block id="f01867033c75f2410ea82d8cbf4634d7" category="paragraph">如果在兩個Cloud Volumes ONTAP系統之間設定SnapMirror SVM 複製，則複製必須在兩個 HA 對系統或兩個單節點系統之間進行。您無法在 HA 對和單節點系統之間設定SnapMirror SVM 複製。</block>
   <block id="5b5068830882d3d6b54d331cdd743e62" category="paragraph">有關ONTAP CLI 說明，請參閱以下文件。</block>
   <block id="412af2a2404a4e920b18be59197204b0" category="inline-link">SVM 災難復原準備快速指南</block>
   <block id="c15bb50c43eaf0ceb1bc0ce3d7503ebd" category="list-text"><block ref="c15bb50c43eaf0ceb1bc0ce3d7503ebd" category="inline-link-rx"></block></block>
@@ -3838,7 +3807,6 @@
   <block id="8dd4560f4596618815de91dd18e711e1" category="list-text">記下這個號碼，因為在下一節中分配 AWS 中的 IP 位址時需要它。</block>
   <block id="935712c749bf1c78e33ff9015ecebf46" category="section-title">在 AWS 中分配 IP 位址</block>
   <block id="87be313262150c685084e6e44ac07990" category="paragraph">在為新的儲存虛擬機器建立 LIF 之前，必須將私人 IPv4 位址指派給 AWS 中的連接埠 e0a。</block>
-  <block id="9929ecc2c86c1ad1e4c78d1244d3554d" category="paragraph">請注意，儲存虛擬機器的可選管理 LIF 需要單節點系統上和單一 AZ 中的 HA 對上的專用 IP 位址。此管理 LIF 提供與SnapCenter等管理工具的連線。</block>
   <block id="6ae090a4433735cf598985f60d5a68ff" category="list-text">登入AWS並開啟EC2服務。</block>
   <block id="da3a869e3a7837d5ff3412e6315aca73" category="list-text">選擇Cloud Volumes ONTAP實例並點選 *網路*。</block>
   <block id="6d5c5ef8a89ed4f5a6c4ad9cae9e8460" category="paragraph">如果您要在 HA 對上建立儲存虛擬機，請選擇節點 1。</block>
@@ -3853,14 +3821,11 @@
   <block id="704ce057086edc7f390e72f33febfb03" category="list-text">可選：前往Cloud Volumes ONTAP的ONTAP CLI 並執行 *network interface show* 以確認每個 IP 位址都在使用中。</block>
   <block id="8a57c7cace7bf01166e984c4aeffc68f" category="paragraph">如果 IP 位址未使用，那麼您可以將其與新的儲存 VM 一起使用。</block>
   <block id="ed97acbe270bb0841ef8a242f58309f6" category="list-text">返回 AWS 控制台，按一下「指派新 IP 位址」以根據新儲存 VM 所需的數量指派其他 IP 位址。</block>
-  <block id="c853bdf1bd2777df35bc3b5d4af6b9ea" category="list-text">單節點系統：需要一個未使用的輔助私有IP。</block>
   <block id="5e50d00d975ec8703bc22324c7265b66" category="paragraph">如果您想在儲存虛擬機器上建立管理 LIF，則需要選購的輔助私人 IP。</block>
   <block id="82c4266b10c1848bb195ebfd317a081b" category="list-text">單一 AZ 中的 HA 對：節點 1 上需要一個未使用的輔助私有 IP。</block>
   <block id="34cd8238b52f27b1bb4e98ded05d02b2" category="list-text">多個可用區中的 HA 對：每個節點都需要一個未使用的輔助私有 IP。</block>
   <block id="cc16cfddda9904c2894330364425d501" category="list-text">如果您要在單一 AZ 中的 HA 對上指派 IP 位址，請啟用*允許重新指派輔助私有 IPv4 位址*。</block>
   <block id="f9b48f58c3e703111f23614cc791b0e9" category="list-text">如果您在多個可用區中有一個 HA 對，則需要對節點 2 重複這些步驟。</block>
-  <block id="6ea52a1fa173ce5420e093b9e27ec284" category="section-title">在單節點系統上建立儲存虛擬機</block>
-  <block id="cc0a30537e715f13eb8e645bc570985a" category="paragraph">這些步驟在單節點系統上建立一個新的儲存虛擬機器。建立 NAS LIF 需要一個私人 IP 位址，如果要建立管理 LIF，則需要另一個可選的私人 IP 位址。</block>
   <block id="9b08db40ecf3304d34c7dadb34a6d2c2" category="list-text">建立儲存虛擬機器和到儲存虛擬機器的路由。</block>
   <block id="efc1b32fd1eda24b66896348ad6fd78d" category="list-text">建立 NAS LIF。</block>
   <block id="933829c2bc0d5e884fc83d159a503169" category="paragraph">其中 _private_ip_x_ 是 e0a 上未使用的輔助私有 IP。</block>
@@ -3896,7 +3861,6 @@
   <block id="7147a143d2af533e058f535a19e1223d" category="paragraph">從Cloud Volumes ONTAP 9.9.0 開始，根據您的許可證，支援具有特定配置的多個儲存虛擬機器。請參閱<block ref="17601f6b0c4702ab7b2568d76b48bf40" category="inline-link-rx"></block>驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。</block>
   <block id="c0bc1a321126780ce6dd98fe7445b54b" category="paragraph">9.9.0 之前的所有Cloud Volumes ONTAP版本都支援一個資料服務儲存虛擬機器和一個用於災難復原的目標儲存虛擬機器。如果來源儲存虛擬機器發生中斷，您可以啟動目標儲存虛擬機器進行資料存取。</block>
   <block id="8272f5b23e79d0ee33bd5151dcddc454" category="section-title">建立儲存虛擬機</block>
-  <block id="aba0a98a938b046da2d941095cf90aca" category="paragraph">根據您的設定和授權類型，您可以使用NetApp Console的 API 在單節點系統或高可用性 (HA) 配置中建立多個儲存虛擬機器。</block>
   <block id="ac403fbb0bdfb5870f7ea56d934efde6" category="paragraph">當您使用 API 建立儲存虛擬機器並配置所需的網路介面時，控制台也會修改<block ref="891e111023ee3cccd4407be6ddd24c21" prefix=" " category="inline-code"></block>透過從 NAS 資料 LIF 中刪除以下服務並將其新增至用於出站管理連線的 iSCSI 資料 LIF，可以在資料儲存虛擬機器上實施策略：</block>
   <block id="e522a238c22a673b40cfb6b6b240f37b" category="list-text"><block ref="2548ff9e63092532a81a79e1ceebe91e" prefix="" category="inline-code"></block></block>
   <block id="9c3ffe3e739ef0b406e2216de2c403b7" category="list-text"><block ref="c33d2f2401cef76503005b2317a0870d" prefix="" category="inline-code"></block></block>
@@ -3904,24 +3868,19 @@
   <block id="58a7b8379178f95002ceeceb82feb029" category="list-text"><block ref="0d409a8ed03d0fa3e161460f3f21e0b4" prefix="" category="inline-code"></block></block>
   <block id="3c1cec80e048088b9c829a18b7d5111b" category="list-text"><block ref="8e6e205a8b8f4f22cf306f9b85bd6c2c" prefix="" category="inline-code"></block></block>
   <block id="5609a622328efe9876da2be3ff181ffa" category="paragraph">控制台代理程式需要特定權限才能為Cloud Volumes ONTAP建立儲存虛擬機器。所需權限包含在<block ref="7dc648b1297c419be8c55b589146f4e1" category="inline-link-rx"></block>。</block>
-  <block id="0ecbfe2cb5b1df888639e1751cec905a" category="section-title">單節點系統</block>
-  <block id="8706f6ead181f6948eb97f37a1eb2445" category="paragraph">使用下列 API 呼叫在單節點系統上建立儲存 VM。</block>
   <block id="3fdacbfd71cad923423d9367166e8e10" category="paragraph"><block ref="c9cca6b9ba2558d529f121eb1e013395" prefix="" category="inline-code"></block></block>
   <block id="e3c9171d657ac0e66f63823d74cfbcf2" category="paragraph">在請求主體中包含以下參數：</block>
   <block id="063ae5e353016345999dc0a39f9aa45a" category="paragraph">使用以下 API 呼叫在 HA 對上建立儲存虛擬機器：</block>
   <block id="ffed8e594be63a1704331cda026451ec" category="paragraph"><block ref="332a159c5eb24709f786ad048b2b2fc8" prefix="" category="inline-code"></block></block>
-  <block id="546e719c658c5e1549c21e8288af2461" category="section-title">管理單節點系統和 HA 對上的儲存虛擬機</block>
   <block id="41459d7c36118b05a54bceb8e26ba523" category="paragraph">使用 API，您可以重新命名和刪除單節點和 HA 配置中的儲存虛擬機器。</block>
   <block id="8d45e131d35caf69fb22ef97f4efcd27" category="paragraph">控制台代理程式需要特定權限來管理Cloud Volumes ONTAP 的儲存虛擬機器。所需權限包含在<block ref="7dc648b1297c419be8c55b589146f4e1" category="inline-link-rx"></block>。</block>
   <block id="c97c5ffc330239a3245482bb4881877a" category="section-title">重新命名儲存虛擬機</block>
   <block id="d8e62504370dd392011aab69bc975d8d" category="paragraph">若要重新命名儲存虛擬機，您應該提供現有儲存虛擬機和新儲存虛擬機的名稱作為參數。</block>
-  <block id="e313c8cca3b79dbc79cbcfe63c3d6efb" category="list-text">使用下列 API 呼叫在單節點系統上重新命名儲存虛擬機器：</block>
   <block id="163713240b16088767c6e8dd70caefde" category="paragraph"><block ref="d3fe545ac501d33a61917e447e4f0069" prefix="" category="inline-code"></block></block>
   <block id="ee677feb3cbaca080cdf86bc9ba32d6c" category="list-text">使用以下 API 呼叫重命名 HA 對上的儲存虛擬機器：</block>
   <block id="f80f88eb929c0d4cd5386633be23cf21" category="paragraph"><block ref="d138335618e0186622605f96b9b3b0d1" prefix="" category="inline-code"></block></block>
   <block id="ce9c0fa786ae9e9debeb029c1c0a4c92" category="section-title">刪除儲存虛擬機</block>
   <block id="c92f0160e249d6660e4b4262409aea6c" category="paragraph">在單一節點或 HA 配置中，如果儲存虛擬機器沒有任何活動卷，則可以將其刪除。</block>
-  <block id="a3590d03d962ac5b789854576b314e57" category="list-text">使用以下 API 呼叫刪除單節點系統上的儲存虛擬機器：</block>
   <block id="eba2f559f6f185c3ecb4fd32a7acf4c8" category="paragraph"><block ref="f72e53a28ab0632263c72933e322d2a6" prefix="" category="inline-code"></block></block>
   <block id="e3105c7c013656277a67973d1d384642" category="list-text">使用以下 API 呼叫刪除 HA 對上的儲存虛擬機器：</block>
   <block id="ab5ee533b7c08abc987c74ffd54477b9" category="paragraph"><block ref="4bd28f76ace2927734ae3d3abcca1009" prefix="" category="inline-code"></block></block>
@@ -3937,7 +3896,6 @@
   <block id="015cca4b60c0784eec4fd7f9e6e5f8d1" category="paragraph">要在 Google Cloud 中建立和管理其他資料服務儲存虛擬機，您應該使用 API。這是因為 API 自動化了建立儲存虛擬機器和配置所需網路介面的過程。建立儲存虛擬機器時， NetApp Console會配置所需的 LIF 服務，以及儲存虛擬機器出站 SMB/CIFS 通訊所需的 iSCSI LIF。</block>
   <block id="a0d106b3df91a5c40e846d04e0e0b072" category="paragraph">從Cloud Volumes ONTAP 9.11.1 開始，根據您的許可證，支援具有特定配置的多個儲存虛擬機器。請參閱<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block>驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。</block>
   <block id="ff1d242daadf495829811b6d2313264b" category="paragraph">9.11.1 之前的所有Cloud Volumes ONTAP版本都支援一個資料服務儲存虛擬機器和一個用於災難復原的目標儲存虛擬機器。如果來源儲存虛擬機器發生中斷，您可以啟動目標儲存虛擬機器進行資料存取。</block>
-  <block id="9fb17f61d770951d327021f3fa633d3a" category="paragraph">根據您的設定和授權類型，您可以使用 API 在單節點系統或高可用性 (HA) 配置中建立多個儲存虛擬機器。</block>
   <block id="e977b05b15a8ef8166d6f1b02e35c6b2" category="paragraph"><block ref="6e37cda7be8f481fee7b895bd6ef924b" prefix="" category="inline-code"></block></block>
   <block id="3fab6f26ccc1354a7fda62c947fe176d" category="paragraph"><block ref="4ae3965c67ec8b00b8c07c6aa50d0d55" prefix="" category="inline-code"></block></block>
   <block id="2ee20619a771993544eaaa7e388816d1" category="section-title">管理儲存虛擬機</block>
@@ -3962,7 +3920,6 @@
   <block id="8ec18a80b08142a9ee538b8ce4350b54" category="summary">隨著儲存需求的變化，您可能需要變更Cloud Volumes ONTAP系統的配置。例如，您可以在即用即付配置之間進行變更、變更實例或虛擬機器類型等等。</block>
   <block id="c2c088d1045cc3d76d132b248c4445c1" category="doc">修改系統寫入速度</block>
   <block id="1d73ea704b43bd681b98458f046b25a9" category="paragraph">您可以在NetApp Console中為Cloud Volumes ONTAP選擇正常或高寫入速度。預設寫入速度正常。如果您的工作負載需要快速寫入效能，您可以變更為高寫入速度。</block>
-  <block id="2bae3f4058e112cc703c4dc74dc72501" category="paragraph">所有類型的單節點系統和一些 HA 對配置都支援高寫入速度。查看支援的配置<block ref="d080347ff89205e9b3e508b1fee0c025" category="inline-link-rx"></block></block>
   <block id="8334ca2b5f457a41a987d1633cb5c214" category="inline-link-macro">了解正常設定和高設定之間的差異</block>
   <block id="69e28a1ba6bc5233cc60dd248c362636" category="paragraph">在更改寫入速度之前，您應該<block ref="eb987e41d6a04bba64a9af2bb235fccb" category="inline-link-macro-rx"></block>。</block>
   <block id="d9072539538ac46d98e04043ff27fe64" category="list-text">確保磁碟區或聚合建立等操作尚未進行。</block>
@@ -4015,7 +3972,6 @@
   <block id="03cd53d9a632404d9be539683276c7a2" category="list-text"><block ref="03cd53d9a632404d9be539683276c7a2" category="inline-link-rx"></block></block>
   <block id="6fd456d71c345eb38fe1c0337056dc63" category="inline-link">Azure 文件：記憶體最佳化虛擬機器大小</block>
   <block id="05bb9e686e11b905d394fe43829e10b1" category="list-text"><block ref="05bb9e686e11b905d394fe43829e10b1" category="inline-link-rx"></block></block>
-  <block id="26107ad7eb2db3c2d4b832701061add4" category="list-text">具有單節點系統的 Azure 磁碟類型</block>
   <block id="4a9c0738bb69f1a7ecfd0fa8da86cc4a" category="list-text">為Cloud Volumes ONTAP建立磁碟區時，您需要選擇Cloud Volumes ONTAP用作磁碟的底層雲端儲存。</block>
   <block id="876b7b2bfe7f51f31d3ade24031d8d87" category="list-text">與高級 SSD 託管磁碟相比，_高級 SSD v2 託管磁碟_ 以更低的成本提供更高的效能和更低的延遲。</block>
   <block id="f75e49a7eddde4f8a0eff68169f61019" category="inline-link">Microsoft Azure 文件：Azure 中有哪些磁碟類型？</block>
@@ -4304,7 +4260,6 @@
   <block id="bf5db4b0d890ae0f47f0666b4786c11e" category="paragraph">使用ONTAP CLI 執行以下步驟。</block>
   <block id="5caa556e7511fbc031e556f35273b4b5" category="list-text">建立新的 IP 空間（new_ipspace）。</block>
   <block id="c3e846d4c68310f0bbaebfe81b1b016c" category="list-text">在新的 IP 空間（new_ipspace）上建立廣播網域並新增 nic-new 連接埠。</block>
-  <block id="ec7cd635bbff7496ce854419fbac424d" category="list-text">對於單節點系統，新加入的連接埠是_e0b_。對於具有託管磁碟的 HA 對部署，新新增的連接埠是 _e0d_。對於具有頁 Blob 的 HA 對部署，新新增的連接埠是 _e0e_。使用節點名稱而不是虛擬機器名稱。透過運行查找節點名稱<block ref="9cd5e832790132a87592f2958fc2b1a6" prefix=" " category="inline-code"></block>。</block>
   <block id="9defaa4e7d0a35e22135ad0e2f58e852" category="list-text">在新的廣播域 (new_bd) 和新的 NIC (nic-new) 上建立叢集間 LIF。</block>
   <block id="be0a702fb4057bb2e91bdd1cc96da2e4" category="list-text">驗證新的集群間 LIF 的建立。</block>
   <block id="2aea6959bcbac1fa4b42120415127f49" category="section-title">步驟 3：驗證來源系統和目標系統之間的叢集對等連接</block>
@@ -4383,7 +4338,6 @@
   <block id="1be48617ce5825c4bd54ef885eef8a65" category="list-text">應啟用以下選項：</block>
   <block id="ba6db2df53167b0fe62e3b5c762cbbf1" category="list-text">*軟刪除*（此選項預設為啟用，但不能停用）</block>
   <block id="fd08f80d1ec5aa4440248321eace716f" category="list-text">*清除保護*</block>
-  <block id="312fcba055a7ab6b8314cb541c1f1b4f" category="list-text">*用於磁碟區加密的 Azure 磁碟加密*（適用於單節點系統、多個區域中的 HA 對以及 HA 單 AZ 部署）</block>
   <block id="4b63d3239df3134d1faedabb0e8eb859" category="admonition">使用 Azure 客戶管理加密金鑰的前提是為金鑰保管庫啟用 Azure 磁碟加密。</block>
   <block id="4fe37dc4f545dffb56459397b5344d4c" category="list-text">如果建立了使用者指派的託管標識，則應啟用下列選項：</block>
   <block id="7761893631ec0e57ca5b1847392a89d1" category="list-text">*保險庫存取保單*</block>
@@ -4425,7 +4379,6 @@
   <block id="0b026614551113ad09fa76895c5dd5ce" category="paragraph">請求主體必須包含以下欄位：</block>
   <block id="1f8370f663ec71e8fac7dc386794543c" category="admonition">包括<block ref="d740baa07e4af19d0de1f45650cf4bc0" prefix=" " category="inline-code"></block>如果您建立此資源是為了用於儲存帳戶加密，則欄位。</block>
   <block id="2ffa17dd74caa90edaf33636b3e374b1" category="paragraph"><block ref="792ba555e1629fb9b0b5e00711256a74" category="inline-link-rx"></block> 。</block>
-  <block id="777cd3d610cae6ea63c19c799e3b0b51" category="list-text">對於單節點系統：</block>
   <block id="6507ffa8d8b9388092f62e253e32e85d" category="paragraph"><block ref="d1a53319a230158b10e72e4bd96c5bbc" prefix="" category="inline-code"></block></block>
   <block id="7881621c3d4c91216ebe58ee1cdc87e0" category="paragraph"><block ref="52c47b6a301b0fb242044f1b14c5f663" category="inline-link-rx"></block> 。</block>
   <block id="c9a9b22c97e2474e63fdb09a6f5f4a75" category="paragraph">您有一個新的Cloud Volumes ONTAP系統，該系統配置為使用客戶管理的金鑰進行資料加密。</block>
@@ -4723,7 +4676,6 @@
   <block id="0baa9fabb663d0426d677bdef48cab76" category="list-text">非活動資料分層儲存到 Amazon S3 儲存桶。不支援分層到其他提供者。</block>
   <block id="049a56718afb4bc754cebf8a5567c3c8" category="section-title">Azure 中的支持</block>
   <block id="f16872b2bf28c8dcda252e8197cc1a5e" category="list-text">Azure 支援資料分層，如下所示：</block>
-  <block id="c7f6ec5d95cafd0132e2322cbdca7f47" category="list-text">9.4 版，附單節點系統</block>
   <block id="146aae59b5e422bc518402fc01301883" category="list-text">9.6 版，配備 HA 對</block>
   <block id="c22e6c8e140bb405c574c67bff9bd946" category="list-text">效能層可以是高級 SSD 託管磁碟、標準 SSD 託管磁碟或標準 HDD 託管磁碟。</block>
   <block id="9d04d4aae5bc77b320eddf498e3e1a4c" category="list-text">非活動資料分層到 Microsoft Azure Blob。不支援分層到其他提供者。</block>
@@ -5192,7 +5144,6 @@
   <block id="5cc1493ad28334fdb28f7ed57f0e1d41" category="paragraph">現在，只要您在沒有市場訂閱的情況下存取BlueXP中的Cloud Volumes ONTAP，就會顯示一則通知。通知指出“此工作環境的市場訂閱必須符合Cloud Volumes ONTAP條款和條件。”</block>
   <block id="7e05b6b897bc796c472e8ff108657518" category="section-title">對 AWS 中國區域的支持</block>
   <block id="ebef32c1ba0aec7a39eb2ce8370a97d5" category="paragraph">從Cloud Volumes ONTAP 9.12.1 GA 開始，AWS 現在支援中國地區，如下所示。</block>
-  <block id="fcf30aaa0348521d4d4752992c9db378" category="list-text">支援單節點系統。</block>
   <block id="80a79e3e92d4834ae8746d205e83c105" category="list-text">支援直接從NetApp購買的授權。</block>
   <block id="13615a82d1149a992b363c411914d3b8" category="inline-link">Cloud Volumes ONTAP的全球區域地圖</block>
   <block id="cec47fe41efdc9b07523c56da6796d2e" category="paragraph">有關區域可用性，請參閱<block ref="7511e65336251f569b4c4f44ab1468f7" category="inline-link-rx"></block>。</block>
@@ -5376,7 +5327,6 @@
   <block id="aace3e8a265fffb87e8d7fbd81d6adb9" category="section-title">支援在 Google Cloud 中建立儲存虛擬機</block>
   <block id="f161f6edfaf6d911de2566d694781369" category="paragraph">從 9.11.1 版本開始，Google Cloud 中的Cloud Volumes ONTAP現在支援多個儲存虛擬機器。從此版本的連接器開始， BlueXP可讓您使用 API 在 Google Cloud 中的Cloud Volumes ONTAP HA 對上建立儲存虛擬機器。</block>
   <block id="33fdc8eb46b228d804c2bf216d7ab788" category="paragraph">若要支援建立儲存虛擬機，需要為連接器授予新的 Google Cloud 權限：</block>
-  <block id="1639fb8b97b722c837cf68d599ffe1c4" category="paragraph">請注意，您必須使用ONTAP CLI 或系統管理員在單節點系統上建立儲存虛擬機器。</block>
   <block id="ab9d588372f30d162e50dbbed45980eb" category="inline-link">詳細了解 Google Cloud 中的儲存虛擬機器限制</block>
   <block id="7859fc06f13ff8714740aa72213f86e7" category="list-text"><block ref="7859fc06f13ff8714740aa72213f86e7" category="inline-link-rx"></block></block>
   <block id="3a7eebf972f838daafe4ea7948002b3d" category="inline-link">了解如何在 Google Cloud 中為Cloud Volumes ONTAP建立資料服務儲存虛擬機</block>
@@ -5413,7 +5363,6 @@
   <block id="291a5c22c8cb78fe8ec363d61830f63e" category="section-title">Google Cloud 防火牆政策的增強功能</block>
   <block id="1fcd17a990e75722697d64df5dd2ffde" category="list-text">當您在 Google Cloud 中建立Cloud Volumes ONTAP HA 對時， BlueXP現在將顯示 VPC 中所有現有的防火牆策略。</block>
   <block id="46fc311e1b8dc6670926551c44511f90" category="paragraph">以前， BlueXP不會顯示 VPC-1、VPC-2 或 VPC-3 中沒有目標標籤的任何政策。</block>
-  <block id="880f67f103405f29628ff848182ca330" category="list-text">在 Google Cloud 中建立Cloud Volumes ONTAP單節點系統時，您現在可以選擇是否想要預先定義的防火牆策略僅允許所選 VPC 內的流量（建議）或所有 VPC 內的流量。</block>
   <block id="5c4a95a56d4b5bfef734aeab388618c0" category="section-title">Google Cloud 服務帳戶的增強功能</block>
   <block id="31c37a13f49d295537e1ac22f321633d" category="paragraph">當您選擇與Cloud Volumes ONTAP一起使用的 Google Cloud 服務帳戶時， BlueXP現在會顯示與每個服務帳戶關聯的電子郵件地址。查看電子郵件地址可以更容易區分同名的服務帳戶。</block>
   <block id="898d465c80c6b6783418f6fa71db0946" category="inline-image-macro">服務帳戶欄位的螢幕截圖</block>
@@ -5493,7 +5442,6 @@
   <block id="a83e9f7623076b623810b57914d36eed" category="section-title">新的 AWS 區域支持</block>
   <block id="3e5209edda1f6ec8458a9fe55feb2ee1" category="paragraph">Cloud Volumes ONTAP現已在 AWS 亞太地區（大阪）區域（ap-northeast-3）獲得支援。</block>
   <block id="81e5e1bf62f444795eff3721d2872fb5" category="section-title">連接埠減少</block>
-  <block id="0cc520b9133a409c63dec80a3107fdda" category="paragraph">Azure 中的Cloud Volumes ONTAP系統上的連接埠 8023 和 49000 不再針對單節點系統和 HA 對開放。</block>
   <block id="524d299ea985e3a42c95b0980478eba1" category="paragraph">此變更適用於從 Connector 3.9.13 版本開始的_new_ Cloud Volumes ONTAP系統。</block>
   <block id="190323ddb2d35098aa0adb62b3b4fb4c" category="paragraph">連接器 3.9.11 版本引入了以下更改。</block>
   <block id="1217a2d42a5d039798ff2ec7be351708" category="section-title">Cloud Volumes ONTAP 9.10.0</block>
@@ -5607,7 +5555,6 @@
   <block id="996af92ade7f6e5af3be3c265f31fd2c" category="paragraph">如果您有 AWS Outpost，則可以透過在工作環境精靈中選擇 Outpost VPC 在該 Outpost 中部署Cloud Volumes ONTAP 。體驗與駐留在 AWS 中的任何其他 VPC 相同。請注意，您需要先在 AWS Outpost 中部署連接器。</block>
   <block id="e2d2ccc5b8f9228c27b5cfc63167746e" category="section-title">支援的 Azure 區域中的 Ultra SSD VNVRAM</block>
   <block id="f8a42568c2b4bf9c5b298939c3d3871b" category="inline-link">在任何受支援的 Azure 區域中</block>
-  <block id="8bbfb89818fc2c99ca40fa43dabf7e4e" category="paragraph">當您將 E32s_v3 VM 類型與單節點系統一起使用時， Cloud Volumes ONTAP現在可以使用 Ultra SSD 作為 VNVRAM<block ref="6f5d8baab146de724d052d505bbe4745" category="inline-link-rx"></block> 。</block>
   <block id="2753e515b9dcd4f5f0c9d76d668e69c8" category="paragraph">VNVRAM 提供更好的寫入效能。</block>
   <block id="e2961711376db6240fe174274a4c49ac" category="section-title">在 Azure 中選擇一個可用性區域</block>
   <block id="bada065bfea7e34e9203e33edc44d46a" category="paragraph">現在您可以選擇要部署單節點Cloud Volumes ONTAP系統的可用區域。如果您不選擇 AZ， BlueXP將為您選擇一個。</block>
@@ -5898,7 +5845,6 @@
   <block id="8c340dc334134096f68b880b42a8692c" category="paragraph-title">複製</block>
   <block id="6c6851f26dd089ac8e2cd4699f9f3ceb" category="paragraph">複製磁碟區時，您可以選擇是否將資料分層到物件儲存。如果這樣做，控制台會將*備份*政策套用至資料保護磁碟區。從Cloud Volumes ONTAP 9.6 開始，*全部*分層策略取代了備份策略。刪除複製關係時，目標磁碟區將保留複製期間生效的分層策略。</block>
   <block id="42c1e1bd55f7468cc1c1f67bd3b2e55e" category="paragraph">Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。Cloud Volumes ONTAP 9.7 及更高版本提供基於容量的授權包。</block>
-  <block id="d52f05c9c9a1d28edf0a8c353fa4005c" category="paragraph">採用基於容量的許可方式，每個NetApp Console組織最多可擁有 24 個Cloud Volumes ONTAP系統。_系統_ 是Cloud Volumes ONTAP HA 對、 Cloud Volumes ONTAP單節點系統或您建立的任何其他儲存虛擬機器。預設儲存虛擬機器不計入限制。此限制適用於所有許可模式。</block>
   <block id="f06bb25c94e6b1aa8710c80dd3586a02" category="paragraph">總共有六個系統。這樣一來，您的組織中就可以再容納 14 個系統。</block>
   <block id="39f86900550d222b0169a7f96cfef9a1" category="paragraph">如果您需要部署超過 24 台系統，請聯絡您的客戶代表或銷售團隊。</block>
   <block id="84bd415e73410ff40bbdb14fc761f16b" category="paragraph">如果您建立或使用可寫入（讀取/寫入）卷，則該磁碟區將被視為主卷，並按每個儲存虛擬機器 (SVM) 的最低費用收取已配置容量的費用。例如FlexVol讀/寫卷、 SnapLock審計捲和 CIFS/NFS 審計卷。所有用戶創建的數據量均按您的訂閱和套餐類型收費。  ONTAP內部自動建立且無法儲存資料的磁碟區（例如 SVM 根磁碟區）不收費。</block>
@@ -6223,4 +6169,65 @@
   <block id="58495bede215f014e8621e607e5c54a8" category="list-text">透過關注系統上出現的升級通知</block>
   <block id="228fd8db6dfd431af5b0174c34940d4a" category="paragraph">您可以升級到的 Cloud Volumes ONTAP 版本取決於您目前正在執行的版本。下表中每個發行版本的通用版本或修補程式版本代表可供升級的基本版本。有關可用修補程式的詳細資訊，請參閱每個發行版本的<block ref="673899d074c44dd34154296773a3ae8d" category="inline-link-rx"></block>。</block>
   <block id="a08e77bc6002bfa158787d93c342bf4b" category="section-title">2026 年 2 月 10 日</block>
+  <block id="dbf7cd788b00dca3348b80d3d3473bf6" category="doc">Azure 中對 Ebdsv5 和 E104ids_v5 VM 的支援</block>
+  <block id="4324be09b704ac1f5d63ff496d7ef1f4" category="paragraph">從 Cloud Volumes ONTAP 9.18.1 開始，您可以部署 Ebdsv5 和 E104ids_v5 VM，用於單節點和高可用性（HA）部署和升級。</block>
+  <block id="9aa187942e09002cf25de4088980c393" category="paragraph">Azure 虛擬機器 Eb 系列中的 Ebdsv5 VM 針對更高的遠端儲存效能進行了最佳化。您可以將這些 VM 用於記憶體密集型和 I/O 密集型的企業級工作負載，例如關聯式資料庫、記憶體內分析和其他要求嚴格的關鍵業務應用程式。</block>
+  <block id="3be6e88b099667951f102a7e72ef6b7e" category="paragraph">E104ids_v5 是一個獨立的 VM 執行個體，可協助您更妥善地處理排程的維護時段。與 E80ids_v4 相比，它提供更高的磁碟輸送量和 IOPS，以及更佳的整體網路效能。</block>
+  <block id="12c608fc3ddf39360237ef081ed21d2f" category="inline-link">Azure 文件：Edsv5 大小系列</block>
+  <block id="2751c20dbb46ac4854ad2a690d71db85" category="paragraph"><block ref="2751c20dbb46ac4854ad2a690d71db85" category="inline-link-rx"></block></block>
+  <block id="067b1794b9314bbe65909dcac0733c38" category="paragraph">可以從 NetApp 購買基於節點的授權。您可以為單節點系統或 HA 配對購買的授權數量沒有限制。</block>
+  <block id="5874c47f3a74b4281eee8d6ac23a91e6" category="list-text">中國大陸地區僅支援採用 BYOL 的單節點系統。中國大陸地區的部署不受 BYOL 授權限制。</block>
+  <block id="7c0bb4ee3cc998a0131e28f7fcd50e94" category="paragraph">採用基於容量的授權模式時，每個 NetApp Console 組織最多只能建立 24 個 Cloud Volumes ONTAP 系統。一個「系統」指的是 Cloud Volumes ONTAP HA 配對、Cloud Volumes ONTAP 單節點系統，或您建立的任何其他儲存 VM。預設儲存 VM 不計入此限制。此限制適用於所有授權模式。</block>
+  <block id="5e25fc232292638c853b01bb2cc446ba" category="paragraph">此系統計為兩個系統：一個用於單節點系統，一個用於額外的儲存 VM。</block>
+  <block id="bb26250bc478ebfa47a8a3fcf9c9bb06" category="paragraph">Keystone 訂閱支援 HA 配對。目前單節點系統不支援此授權選項。</block>
+  <block id="37fdf37599add201cacc01f65bd7205e" category="paragraph">在 Azure 中，一個 Aggregate 最多可以包含 12 個大小相同的磁碟。磁碟類型和最大磁碟大小取決於您使用的是單節點系統還是 HA 配對：</block>
+  <block id="1df33292a2fca2da6ee337f54fc40930" category="list-text">單節點系統</block>
+  <block id="81474a3dec093d198c9c6ba07e1a3a61" category="list-text">單節點系統可以使用下列類型的 Azure 託管磁碟：</block>
+  <block id="07780be0f84fd8b1ddc76cbd33c02957" category="paragraph">如果您使用單節點系統，Cloud Volumes ONTAP 支援所有執行個體類型的高寫入速度。</block>
+  <block id="fd2ef223e01ef83558ae5990e639290b" category="paragraph">如果您使用單節點系統，Cloud Volumes ONTAP 支援所有 VM 類型的高寫入速度。</block>
+  <block id="4ecfc70d8abe31fa7f4a0dcfd7a81ade" category="paragraph">如果您使用單節點系統，Cloud Volumes ONTAP 支援所有機器類型的高寫入速度。</block>
+  <block id="ae800a6585d99ea0c81403d0e0051f48" category="list-text">AWS 單節點系統上的 SVM 管理 LIF</block>
+  <block id="0b494b4ded41116b8121a50e073e5a03" category="paragraph">Console 為 Cloud Volumes ONTAP 分配的 LIF 數量取決於您部署的是單節點系統還是 HA 配對。LIF 是與實體連接埠關聯的 IP 位址。</block>
+  <block id="e14638a5078e85478a656075abcd5d1a" category="section-title">單節點系統的 IP 位址</block>
+  <block id="36e301bb2b13887fb360986278f4fd09" category="paragraph">NetApp Console 為單節點系統指派 6 個 IP 位址。</block>
+  <block id="c32f65e0370b4206c865cea23bda1d6f" category="paragraph">HA 配對需要的 IP 位址比單節點系統多。這些 IP 位址分佈在不同的乙太網路介面上，如下圖所示：</block>
+  <block id="b5a7a2502a538994268f262add340d21" category="paragraph">分配給 Cloud Volumes ONTAP 的 LIF 數量取決於您部署的是單節點系統還是 HA 配對。LIF 是與實體連接埠相關聯的 IP 位址。管理工具（例如 SnapCenter）需要 SVM 管理 LIF。</block>
+  <block id="8190ede349be7eeb41ccc962c3a97ec8" category="paragraph">Console 會為單節點系統指派 5 或 6 個 IP 位址：</block>
+  <block id="c3b48f7a8c917989634bdf6884dad884" category="paragraph">請注意，NetApp Console 會在 HA 配對上建立 SVM 管理 LIF，但不會在 Azure 中的單節點系統上建立。</block>
+  <block id="ce43fec7e95155bf53e826e9f351d6a1" category="section-title">單節點系統的入站規則</block>
+  <block id="f57bcdbcce023af53bd4b2400c32f7db" category="admonition">HA 系統的入站規則比單節點系統少，因為入站資料流量會經過 Azure Standard Load Balancer。因此，來自 Load Balancer 的流量應該保持開放狀態，如「AllowAzureLoadBalancerInBound」規則所示。</block>
+  <block id="aad5753ed1e0a3b14b5f172f430603c9" category="section-title">單節點系統的特定要求</block>
+  <block id="9fc5e0be02a739b4e76e634a05f94c52" category="paragraph">如果要部署單節點系統、請確保您的網路符合下列要求。</block>
+  <block id="90d1495ccf5fa8d76fc3b868d16d1113" category="paragraph">單節點系統需要一個虛擬私有雲（VPC）。</block>
+  <block id="2cd1cc54f14638df4da02dde0f9b82c0" category="paragraph">對於 Google Cloud 中的單節點系統，Console 會將私人 IP 位址指派給下列各項：</block>
+  <block id="c133063cd75dd6ca5183749735982997" category="list-text">*單節點* Console 會為單節點系統指派 4 個 IP 位址：</block>
+  <block id="755afbf924e866a67b306682c4deb200" category="paragraph">對於單節點系統，VPC 可以是共用 VPC 或獨立 VPC。</block>
+  <block id="4bd0b8ab4e553e751aa93406b40d5560" category="paragraph">對於單節點系統， I/O 會中斷。</block>
+  <block id="62fac2021144c76cdcd096ecd3c82eb4" category="paragraph">您可以透過在 NetApp Console 中建立 Cloud Volumes ONTAP 系統，在 Azure 中啟動單節點系統或 HA 配對。</block>
+  <block id="3b8ca986ea730316924e61b984071d11" category="paragraph">如果要在 Azure 中啟動單節點 Cloud Volumes ONTAP 系統，則需要在 Console 中建立單節點系統。</block>
+  <block id="691e9010d46bcb06693d90df5c955334" category="paragraph">您可以為單節點系統或 HA 配對購買的授權數量沒有限制。</block>
+  <block id="cdd566a2953665ed7135ca03058a8014" category="paragraph">如果要在兩個 Cloud Volumes ONTAP 系統之間設定 SnapMirror SVM 複製，則複製必須在兩個 HA 配對系統或兩個單節點系統之間進行。您無法在 HA 配對系統和單節點系統之間設定 SnapMirror SVM 複製。</block>
+  <block id="0af39724f1af28211a653a39e57d0598" category="paragraph">請注意，儲存虛擬機器的選用管理 LIF 需要在單節點系統和單一可用區（AZ）中的高可用性（HA）對上指派私人 IP 位址。此管理 LIF 提供與管理工具（例如 SnapCenter）的連結。</block>
+  <block id="2ec479bb11cd13a599380572acb1c0ce" category="list-text">單節點系統：需要一個未使用的次要私有 IP。</block>
+  <block id="1eee4678eb4e1cadd4e212ce0bba084d" category="section-title">在單節點系統上建立儲存 VM</block>
+  <block id="a547059e96288e55a3cd3b932e2c4157" category="paragraph">這些步驟會在單節點系統上建立新的儲存 VM。建立 NAS LIF 需要一個私有 IP 位址，如果您要建立管理 LIF，則需要另一個選用的私有 IP 位址。</block>
+  <block id="cc7c35c7684e4d7f8bffed328fc1b629" category="paragraph">根據您的設定和授權類型，您可以透過 NetApp Console 的 API，在單一節點系統或高可用性（HA）組態中建立多個儲存 VM。</block>
+  <block id="9f0e6a06ff24050ef4f1a71b2eb1d838" category="section-title">單節點系統</block>
+  <block id="070c7339120bbab9748136420da7e629" category="paragraph">使用下列 API 呼叫在單節點系統上建立儲存 VM。</block>
+  <block id="dda2b753a17e4e4abcca100288667de4" category="section-title">管理單節點系統和 HA 配對上的儲存 VM</block>
+  <block id="d05761c1dc243186f9c42f463199d5a9" category="list-text">使用下列 API 呼叫重新命名單節點系統上的儲存 VM：</block>
+  <block id="9a765f7d9f40e906e523b804f34c34e6" category="list-text">使用以下 API 呼叫刪除單節點系統上的儲存 VM ：</block>
+  <block id="4c0ca543d73dce2195a43dfc56c6ee3a" category="paragraph">根據您的組態和授權類型，您可以使用 API 在單節點系統或高可用性 （HA） 組態中建立多個儲存 VM。</block>
+  <block id="feb863b6f836fe3885d50e26e80e6469" category="paragraph">所有類型的單節點系統和部分 HA 配對配置均支援高寫入速度。在<block ref="d080347ff89205e9b3e508b1fee0c025" category="inline-link-rx"></block>中查看支援的配置</block>
+  <block id="f3d300c94dc8da268fd71f595a4b1c36" category="list-text">Azure 磁碟類型（單節點系統）</block>
+  <block id="3c283478e1082153da1a28f6cae2070a" category="list-text">對於單節點系統，新增連接埠為 _e0b_。對於使用託管磁碟的 HA 配對部署，新增連接埠為 _e0d_。對於使用分頁 Blob 的 HA 配對部署，新增連接埠為 _e0e_。請使用節點名稱，而非 VM 名稱。執行<block ref="9cd5e832790132a87592f2958fc2b1a6" prefix=" " category="inline-code"></block>以尋找節點名稱。</block>
+  <block id="e22a8b8a02dd778a344b734bd97fdc83" category="list-text">*Azure Disk Encryption 磁碟區加密*（適用於單節點系統、多個區域中的 HA 配對以及 HA 單一 AZ 部署）</block>
+  <block id="41fc554ff7fbcb7b9ef31dbfe008e047" category="list-text">對於單節點系統：</block>
+  <block id="929a94de085a28985069e5a8fe181ffa" category="list-text">版本 9.4 適用於單節點系統</block>
+  <block id="70d92c1e2419b7500249e84f56bfda5d" category="section-title">2026 年 2 月 12 日</block>
+  <block id="4da572800ccc44d02dab68a24d7ba671" category="list-text">支援單節點系統。</block>
+  <block id="147c1afd96a4841032c424a232a89df1" category="paragraph">請注意、您必須使用 ONTAP CLI 或 System Manager 在單節點系統上建立儲存 VM。</block>
+  <block id="11fea9e356efb178182b5bba66bbe697" category="list-text">在 Google Cloud 中建立 Cloud Volumes ONTAP 單節點系統時，現在可以選擇預先定義的防火牆原則是僅允許選定 VPC 內的流量（建議）還是允許所有 VPC 內的流量。</block>
+  <block id="44b22df2c7850da4e8deb57e1d017983" category="paragraph">Azure 中的 Cloud Volumes ONTAP 系統（包括單節點系統和 HA 配對）不再開放連接埠 8023 和 49000。</block>
+  <block id="d245f28751732b176b91cfbee0179905" category="paragraph">當您在單節點系統中使用 E32s_v3 VM 類型時，Cloud Volumes ONTAP 現在可以使用 Ultra SSD 作為 VNVRAM<block ref="6f5d8baab146de724d052d505bbe4745" category="inline-link-rx"></block>。</block>
 </blocks>

@@ -14,7 +14,7 @@ summary: 您可以透過在NetApp Console中建立 Cloud Volumes Cloud Volumes O
 
 
 [role="lead"]
-您可以透過在NetApp Console中建立Cloud Volumes ONTAP系統在 Azure 中啟動單節點系統或 HA 對。
+您可以透過在 NetApp Console 中建立 Cloud Volumes ONTAP 系統，在 Azure 中啟動單節點系統或 HA 配對。
 
 .開始之前
 開始之前您需要以下內容。
@@ -51,7 +51,7 @@ link:task-set-up-licensing-azure.html["了解如何設定許可"^] 。
 
 == 在 Azure 中啟動單節點Cloud Volumes ONTAP系統
 
-如果您想在 Azure 中啟動單節點Cloud Volumes ONTAP系統，則需要在控制台中建立單節點系統。
+如果要在 Azure 中啟動單節點 Cloud Volumes ONTAP 系統，則需要在 Console 中建立單節點系統。
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。

@@ -94,7 +94,7 @@ Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
 
 控制台會自動為 Azure 中的Cloud Volumes ONTAP指派所需數量的私有 IP 位址。您需要確保您的網路有足夠的可用私人 IP 位址。
 
-為Cloud Volumes ONTAP指派的 LIF 數量取決於您部署的是單節點系統還是 HA 對。  LIF 是與實體連接埠關聯的 IP 位址。  SnapCenter等管理工具需要 SVM 管理 LIF。
+分配給 Cloud Volumes ONTAP 的 LIF 數量取決於您部署的是單節點系統還是 HA 配對。LIF 是與實體連接埠相關聯的 IP 位址。管理工具（例如 SnapCenter）需要 SVM 管理 LIF。
 
 
 NOTE: iSCSI LIF 透過 iSCSI 協定提供用戶端訪問，並被系統用於其他重要的網路工作流程。這些 LIF 是必需的，不應刪除。
@@ -103,7 +103,7 @@ NOTE: iSCSI LIF 透過 iSCSI 協定提供用戶端訪問，並被系統用於其
 
 ==== 單節點系統的 IP 位址
 
-控制台為單節點系統分配5或6個IP位址：
+Console 會為單節點系統指派 5 或 6 個 IP 位址：
 
 * 叢集管理IP
 * 節點管理IP
@@ -123,7 +123,7 @@ NOTE: iSCSI IP 透過 iSCSI 協定提供客戶端存取。系統也將其用於�
 
 控制台在部署期間將 IP 位址指派給 4 個 NIC（每個節點）。
 
-請注意，控制台在 HA 對上建立 SVM 管理 LIF，但不在 Azure 中的單節點系統上建立。
+請注意，NetApp Console 會在 HA 配對上建立 SVM 管理 LIF，但不會在 Azure 中的單節點系統上建立。
 
 *NIC0*
 
@@ -308,7 +308,7 @@ Cloud Volumes ONTAP的 Azure 安全性群組需要開啟適當的連接埠以進
 
 
 
-NOTE: HA 系統的入站規則比單節點系統少，因為入站資料流量會經過 Azure 標準負載平衡器。因此，來自負載平衡器的流量應該是開放的，如“AllowAzureLoadBalancerInBound”規則所示。
+NOTE: HA 系統的入站規則比單節點系統少，因為入站資料流量會經過 Azure Standard Load Balancer。因此，來自 Load Balancer 的流量應該保持開放狀態，如「AllowAzureLoadBalancerInBound」規則所示。
 
 * *已停用*：此選項限制對您的儲存帳戶的公共網路訪問，並停用Cloud Volumes ONTAP系統的資料分層。如果由於安全法規和政策，您的私人 IP 位址即使在同一個 VNet 內也不應該暴露，那麼建議使用此選項。
 
