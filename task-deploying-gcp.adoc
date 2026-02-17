@@ -130,7 +130,7 @@ TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並
 ** link:task-set-up-licensing-google.html["了解如何設定許可"^]
 
 
-. *預先配置套件*：選擇其中一個套件來快速部署Cloud Volumes ONTAP系統，或點擊*建立我自己的設定*。
+. *預先配置套件*：選擇其中一個套件以快速部署 Cloud Volumes ONTAP 系統，或按一下*建立我自己的組態*。預先配置套件會因所選的 Cloud Volumes ONTAP 版本而異。例如，對於 Cloud Volumes ONTAP 9.18.1 及更新版本，NetApp Console 會顯示包含 C3 VM 的套件，包括 Hyperdisk Balanced 磁碟。您可以根據工作負載需求修改組態，例如 IOPS 和處理量參數。
 +
 如果您選擇其中一個套餐，您只需指定一個卷，然後審核並批准配置。
 
@@ -151,14 +151,9 @@ NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式�
 
 . *快閃記憶體快取、寫入速度和 WORM*：
 +
-.. 如果需要，請啟用*Flash Cache*。
+.. 如有需要，請啟用 *Flash Cache* 或選擇 *Normal* 或 *High* 寫入速度。
 +
-
-NOTE: 從Cloud Volumes ONTAP 9.13.1 開始，n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 實例類型支援_Flash Cache_。部署後您無法停用 Flash Cache。
-
-.. 如有需要，請選擇*正常*或*高*寫入速度。
-+
-link:concept-write-speed.html["了解有關寫入速度的更多信息"] 。
+了解更多關於 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html#flash-cache-support["快閃記憶體"^]和link:concept-write-speed.html["寫入速度"]的信息。
 
 +
 
@@ -388,14 +383,9 @@ NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式�
 
 . *快閃記憶體快取、寫入速度和 WORM*：
 +
-.. 如果需要，請啟用*Flash Cache*。
+.. 如有需要，請啟用 *Flash Cache* 或選擇 *Normal* 或 *High* 寫入速度。
 +
-
-NOTE: 從Cloud Volumes ONTAP 9.13.1 開始，n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 實例類型支援_Flash Cache_。部署後您無法停用 Flash Cache。
-
-.. 如有需要，請選擇*正常*或*高*寫入速度。
-+
-link:concept-write-speed.html["了解有關寫入速度的更多信息"^] 。
+了解更多關於 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html#flash-cache-support["快閃記憶體"^]和link:concept-write-speed.html["寫入速度"]的信息。
 
 +
 

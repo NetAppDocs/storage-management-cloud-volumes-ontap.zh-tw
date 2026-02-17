@@ -6,6 +6,6 @@
 
 === Cloud Volumes ONTAP 9.18.1 GA
 
-現在您可以使用 NetApp Console 在 AWS 和 Azure 中部署和管理 Cloud Volumes ONTAP 9.18.1 正式版。此版本尚不支援在 Google Cloud 中部署和升級。
+現在您可以使用 NetApp Console 在 AWS、Azure 和 Google Cloud 中部署和管理 Cloud Volumes ONTAP 9.18.1 的正式版（GA）。
 
 link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有關此版本Cloud Volumes ONTAP的更多信息"^] 。

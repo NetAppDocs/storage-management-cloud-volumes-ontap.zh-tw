@@ -44,3 +44,9 @@ endif::aws[]
 
 * Cloud Volumes ONTAP不支援重新啟動後快取重新預熱。
 
+
+.相關主題
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支援的配置"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支援的配置"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支援的組態"^]
+

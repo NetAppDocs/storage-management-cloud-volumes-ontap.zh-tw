@@ -178,6 +178,16 @@ link:task-enabling-private-link.html["了解有關將 Azure Private Links 或服
 
 
 
+=== Azure VNet 加密的網路
+
+Cloud Volumes ONTAP 支援 https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview["Azure Virtual Network（VNet）加密"^]加密 VNet 內或對等 VNet 之間的 VM 對 VM 流量。此功能在 Azure VNet 層配置，與 Cloud Volumes ONTAP 拓撲（單節點或 HA）無關。
+
+您只需確保虛擬機器網路卡已啟用加速網路，並在啟用功能之前查看 Azure VNet 加密需求和限制。您不應修改 NetApp 託管負載平衡器物件。
+
+https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview?tabs=NetworkManager["Azure 文件：VNet 加密與 Accelerated Networking"^]。
+
+
+
 === 與其他ONTAP系統的連接
 
 要在 Azure 中的Cloud Volumes ONTAP系統和其他網路中的ONTAP系統之間複製數據，您必須在 Azure VNet 和其他網路（例如您的公司網路）之間建立 VPN 連線。
