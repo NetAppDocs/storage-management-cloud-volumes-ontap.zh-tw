@@ -5846,8 +5846,6 @@
   <block id="fbba812442fbd9038d179b574eadad39" category="list-text"><block ref="fbba812442fbd9038d179b574eadad39" category="inline-link-macro-rx"></block></block>
   <block id="d6719354559c5d34c9043df89f6f5853" category="list-text">有關 WORM 的更多信息，請參閱<block ref="ff3d1f58a19f3b8e0bab491b41acecc3" category="inline-link-macro-rx"></block>。</block>
   <block id="faacd8dd11a17b7255f09589dcbcd3eb" category="list-text">有關SnapLock卷的充電信息，請參閱<block ref="fbba812442fbd9038d179b574eadad39" category="inline-link-macro-rx"></block>。</block>
-  <block id="d3a90b06c127d63ce537a10a93397d85" category="paragraph">您可以將現有的Cloud Volumes ONTAP系統新增至NetApp Console。如果您部署了新系統，您可能會這樣做。</block>
-  <block id="b478e45f14d8c22f3f75f65edd503adc" category="admonition">您只能新增已註冊到您登入控制台所用帳戶的系統。如果您有多個帳戶或組織，請確保在新增系統之前已登入正確的帳戶。您無法發現、檢視或管理已註冊到其他帳戶或組織的系統。</block>
   <block id="77750efa6f5ff153acdc42067058017f" category="section-title">2025年11月10日</block>
   <block id="02fd9216d7e373ffe2ab6061c04d9957" category="list-text">9.17.1 P1</block>
   <block id="9ef810f213faea9695f8494f68387049" category="list-text">從NetApp Console選單中，選擇「管理 &gt;Licenses and subscriptions」。</block>
@@ -6252,4 +6250,10 @@
   <block id="bb41ea5660ecddc241b709d8fb56bd32" category="inline-link-macro">寫入速度</block>
   <block id="4c7d5b651d61ce6cb278c3d6a67d053f" category="paragraph">了解更多關於<block ref="5fded6a6cbe6874c2576d554c91aa019" category="inline-link-rx"></block>和<block ref="534bf928908b00c855f51b75d262cee7" category="inline-link-macro-rx"></block>的信息。</block>
   <block id="d71e7e243c134c41083284d79bb58c37" category="section-title">2026 年 2 月 17 日</block>
+  <block id="ef8436a4447e0d3f8eea6f08056a2a75" category="list-text">日本西部 (japanwest)</block>
+  <block id="ca5a8f45e6c8349c7fe815e66ba5c4dd" category="list-text">印尼中部 (indonesiacentral)</block>
+  <block id="f905c83bfccd031791e4c6385b2e313d" category="paragraph">您可以探索現有的 Cloud Volumes ONTAP 系統並將其新增至 NetApp Console 以進行集中管理。當您使用帳戶上線系統時，該系統會註冊到該帳戶。在具有多個帳戶或組織的環境中，您只能探索和管理已註冊到您的 Console 登入帳戶的系統。</block>
+  <block id="24b287efb87a1453e16ea920079d5795" category="paragraph">在進行系統註冊時，請確保所有操作均在系統最初註冊的同一組織和帳戶內執行。例如，您可以將 Cloud Volumes ONTAP 系統遷移到新的 Console 代理，但遷移過程必須在同一組織內進行。</block>
+  <block id="64d9da3b00c4fef3501584e739a33d23" category="admonition">您無法探索、檢視或管理已註冊到其他帳戶或組織的系統。</block>
+  <block id="29759b568048f604f84457c1e384b4a3" category="section-title">2026 年 2 月 19 日</block>
 </blocks>
