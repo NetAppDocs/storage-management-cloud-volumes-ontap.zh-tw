@@ -311,7 +311,7 @@ CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系
 
 
 | 編輯項目  a| 
-選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台的項目。
+選擇您希望 Cloud Volumes ONTAP 所在的專案。
 
 如果下拉清單中沒有顯示其他專案，則表示您尚未將服務帳戶與其他專案建立關聯。請前往 Google Cloud Console，開啟 IAM 服務，然後選擇專案。將服務帳戶與您用於 Console 的角色新增至該專案。您需要為每個專案重複此步驟。
 

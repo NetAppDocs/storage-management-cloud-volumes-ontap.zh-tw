@@ -1,0 +1,50 @@
+= 支援私有模式部署的 Google Infrastructure Manager
+:allow-uri-read: 
+
+
+
+
+=== 支援私有模式部署的 Google Infrastructure Manager
+
+Cloud Volumes ONTAP 9.16.1 及更高版本現在支援 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^]（IM），而非 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^]（DM），用於 Google Cloud 中的新私有模式部署。Google 將在不久的將來棄用 Deployment Manager 作為基礎架構服務，改用更進階的 Infrastructure Manager。
+
+自 2026 年 2 月 25 日起，Cloud Volumes ONTAP 使用 Infrastructure Manager 進行新的和現有的私有模式部署。此表說明了基本工作流程：
+
+[cols="1,4,1,1,1,1"]
+|===
+| 情境 | 行動 | 代理程式的新 API | 代理程式的新權限 | 適用於 Cloud Volumes ONTAP 的全新 Google Cloud API | 文件資源 
+
+
+| 現有代理程式和私有模式中的現有部署 | 從 NetApp 支援網站下載安裝程式，將 NetApp Console 代理程式升級至最新版本，然後手動將代理程式安裝到主機上，以便其能夠使用 Infrastructure Manager API。之後，將現有的 Cloud Volumes ONTAP 系統轉換為使用 Infrastructure Manager。  a| 
+* Cloud Infrastructure Manager API
+* 雲端配額 API
+* Cloud Build API
+
+ a| 
+Console 版本的所有權限如下：
+
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#08-december-2025["2025 年 12 月 8 日"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#09-february-2026["2026 年 2 月 09 日"^]
+* cloudbuild.workerpools.get
+* cloudbuild.workerpools.get
+
+ a| 
+* \https://cloudbuild.googleapis.com/v1
+* \https://www.googleapis.com/upload/storage/v1
+* \https://config.googleapis.com/v1
+
+| https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-gcp-dm-im-conv.html["為 Google Cloud Infrastructure Manager 設定現有的 Cloud Volumes ONTAP 部署"^] 
+
+
+| 新代理程式和新部署 | 建立一個新代理，並在私有模式下部署一個新的 Cloud Volumes ONTAP 系統。 |  |  |   a| 
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["從 Google Cloud 建立 Console 代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["私有模式部署快速入門"^]
+
+
+|===
+在私有模式部署中，您需要進行一些組態變更，Cloud Volumes ONTAP 才能開始使用 Infrastructure Manager。請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["私有模式部署的 Infrastructure Manager 組態"^]。
+
+.相關連結
+* https://docs.netapp.com/us-en/console-setup-admin/whats-new.html#console-agent-4-2-0["NetApp Console Agent 4.2.0 發行說明"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#gcp-permissions-change-log["Google Cloud Infrastructure Manager 所需的權限"^]
+

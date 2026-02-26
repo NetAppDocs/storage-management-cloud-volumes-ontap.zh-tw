@@ -2814,7 +2814,6 @@
   <block id="f05ea9e0c9ccffc58a546b5b7a0d8608" category="inline-link">備份和復原</block>
   <block id="35abd03d33619ce4669db81554e2c6f4" category="cell">如果您打算使用<block ref="cb60f169b2f5c9214a2b89c79d285191" category="inline-link-macro-rx"></block>或者<block ref="44267bb69e0507dfc0e4ac670835a65c" category="inline-link-rx"></block>服務，您需要啟用*服務帳戶*開關，然後選擇具有預先定義儲存管理員角色的服務帳戶。</block>
   <block id="50c8825a081a6324d106fb453c29e690" category="cell">標籤是您的 Google Cloud 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP系統以及與該系統關聯的 Google Cloud 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱<block ref="fa397f5b6985fa16ac695ba7d4f7a5a5" category="inline-link-rx"></block>。</block>
-  <block id="7abaa657d7581473fa6d07195eefca45" category="paragraph">選擇您希望Cloud Volumes ONTAP駐留的項目。預設項目是控制台的項目。</block>
   <block id="0f1a2ace875803b14883046cfdd65e11" category="paragraph">若要建立按使用量付費的Cloud Volumes ONTAP系統，您需要從 Google Cloud Marketplace 中選擇與Cloud Volumes ONTAP訂閱相關聯的 Google Cloud 專案。參考<block ref="26858d2411615dac691c2981d5338917" category="inline-link-rx"></block>。</block>
   <block id="6d233fc45c5eb7c0016f5de64af78ac2" category="list-text">*服務*：選擇您想要在此系統上使用的服務。若要選擇備份和恢復，或使用NetApp Cloud Tiering，您必須在步驟 3 中指定服務帳戶。</block>
   <block id="96c883d1fa1e7ebdc724bb5cec521bbd" category="inline-link-macro">了解有關 HA 部署模型的更多信息</block>
@@ -3353,8 +3352,6 @@
   <block id="ce307cd0ec17360c89f4cee135813d3a" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block>設定服務帳戶</block>
   <block id="5337ecb9fc5a808e9812ea4cd428ebfe" category="paragraph"><block ref="55d152079aa637ec597e09245025de50" category="inline-link-macro-rx"></block> 。</block>
   <block id="91f5721735e87c3888022376ff4ee935" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block>啟用 Google Cloud API</block>
-  <block id="e478bf49f8034f2197e96520fa338da6" category="inline-link">在您的專案中啟用以下 Google Cloud API</block>
-  <block id="5236955cb529e7ce9ead7785420019e3" category="paragraph"><block ref="dc5737502524148f78bf03ba18318700" category="inline-link-rx"></block> 。部署控制台代理程式和Cloud Volumes ONTAP需要這些 API。</block>
   <block id="e6fbc0b9673f8c86726688d7607fc8f5" category="inline-image-macro">六</block>
   <block id="f8494ad8ab0b53f5b10e615479658440" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block>使用控制台啟動Cloud Volumes ONTAP</block>
   <block id="7da2790af32ce3a63a33070eb62bb34c" category="paragraph">按一下“*新增系統*”，選擇您想要部署的系統類型，然後完成精靈中的步驟。<block ref="e7b659d6e9cf4401150cabbf78e23874" category="inline-link-macro-rx"></block> 。</block>
@@ -6005,10 +6002,7 @@
   <block id="221dc7db98837c8091cba0d42f55b28d" category="inline-link">Cloud Deployment Manager</block>
   <block id="055d81bf5e86c650f524ba8578595b0e" category="paragraph">Cloud Volumes ONTAP 9.16.1 及更高版本現在支援使用<block ref="d6072c82cbcda01fbac85ce6d2b2ba66" category="inline-link-rx"></block>（IM）而非<block ref="15f2e159f639573aa2393f20aa6d5e11" category="inline-link-rx"></block>（DM）來部署 Google Cloud 中的新部署。Google 將在不久的將來棄用 Deployment Manager 作為基礎架構服務，轉而使用更進階的基礎架構管理器。</block>
   <block id="66243a4b72870642e35fa6b52e50a63b" category="inline-link">為 Google Cloud Infrastructure Manager 設定現有的 Cloud Volumes ONTAP 部署</block>
-  <block id="aa51ff66cac4f14d899d7f563f8f476a" category="paragraph">現在，自動部署 Cloud Volumes ONTAP 以使用 Infrastructure Manager，或執行轉換工具將 Deployment Manager 中的現有部署切換到 Infrastructure Manager。轉換是一次性的過程，之後您的系統將自動開始使用 Infrastructure Manager。有關執行轉換工具的說明，請參閱<block ref="5621b7ac255bff00b9e8610ec0606935" category="inline-link-rx"></block>。</block>
   <block id="492eb9196f4c5211832a66df9ce6230b" category="paragraph">使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系統會使用 Google Cloud Storage 儲存桶來儲存資料和記錄，這些儲存桶位於首次部署的區域中，用於儲存部署記錄，這些記錄可供後續部署重複使用。這些儲存桶可能會產生額外費用，但請勿編輯或刪除儲存桶及其內容：</block>
-  <block id="c63b3118890326f42e936277c83db3b6" category="list-text"><block ref="9d4c46381bcc7ebe4bf02a7fd0ac5b6f" prefix="" category="inline-code"></block>：用於儲存 Cloud Volumes ONTAP Terraform 文件</block>
-  <block id="aaa460fe2e0e39c5d509b26ad876baf8" category="list-text"><block ref="6ec9e5b046607d57923aee80f990225d" prefix="" category="inline-code"></block>：用於儲存 Google Cloud Terraform 工件</block>
   <block id="73c696c58c9e62731e855a0bf47853e1" category="inline-link">開始在 Google Cloud 中使用 Cloud Volumes ONTAP</block>
   <block id="f80ae1b8de03cd56e51dbe8e44bf284f" category="list-text"><block ref="f80ae1b8de03cd56e51dbe8e44bf284f" category="inline-link-rx"></block></block>
   <block id="ccc8cedaac96382fa4e8c01b8e53646d" category="inline-link">NetApp Console Agent 4.2.0 發行說明</block>
@@ -6043,11 +6037,9 @@
   <block id="31bd3ca8f6cd8f37f69e226cb1afe75b" category="list-text"><block ref="31bd3ca8f6cd8f37f69e226cb1afe75b" category="inline-link-rx"></block></block>
   <block id="233af50e7ac5078d6cabb58ab95095b9" category="summary">對於您在 Google Cloud 中的現有部署，您需要將系統升級至 Cloud Volumes ONTAP 9.16.1 或更高版本，然後手動執行轉換工具，將 Google Cloud Deployment Manager 轉換為 Cloud Infrastructure Manager。</block>
   <block id="b9e5aa43ec2007eccaf097117438e531" category="doc">將現有的 Cloud Volumes ONTAP 部署轉換為 Infrastructure Manager</block>
-  <block id="4f199c7ad20d0a908dda3d1603ff73d7" category="paragraph">自 2026 年 1 月 12 日起，Google Cloud 中新的 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 即將棄用 Google Cloud Deployment Manager，改用 Infrastructure Manager。因此，您需要手動執行遷移工具，將現有的 Cloud Volumes ONTAP 部署從 Deployment Manager 遷移到 Infrastructure Manager。此程序只需執行一次，之後您的系統將自動開始使用 Infrastructure Manager。</block>
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link">NetApp 支援網站</block>
   <block id="416146100ffb7fc54fb8a24ca7b63ae8" category="paragraph">過渡工具可在<block ref="33e3c3ba324846178fad333329821dd2" category="inline-link-rx"></block>中使用，並建立下列工件：</block>
   <block id="fe91a45b95e89e219ea69631edff8521" category="list-text">Terraform 工件，儲存於<block ref="b1042b7d7203a022c297b13679f7d1f8" prefix=" " category="inline-code"></block>。</block>
-  <block id="47a96ec9ac683fac8aa8ebbddbfb79ff" category="list-text">轉換結果摘要已儲存在<block ref="8f66602548a59e22c821de29517d7dff" prefix=" " category="inline-code"></block>中。</block>
   <block id="787ab3bb526ace3e3d9f5b857facafbf" category="list-text">偵錯記錄儲存在 <block ref="abecaca0429ea0c44adcba537eb94f89" prefix=" " category="inline-code"></block> 目錄中。您需要這些記錄進行疑難排解。<block ref="6ec9e5b046607d57923aee80f990225d" prefix=" " category="inline-code"></block> 儲存貯體儲存 Terraform 記錄。</block>
   <block id="07f770dff2ab3ed070b0fafe70eae22a" category="paragraph">使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系統會將資料和記錄儲存在 Google Cloud Storage 儲存桶中。這些儲存桶可能會產生額外費用，但請勿編輯或刪除儲存桶及其內容：</block>
   <block id="adf9ac4ef674ca575662deb880fc460c" category="list-text">請確保您的 Cloud Volumes ONTAP 系統版本為 9.16.1 或更高版本。</block>
@@ -6085,7 +6077,6 @@
   <block id="fb4479839b891ed9122fdadf7bbfe16a" category="cell">metadata.google.internal</block>
   <block id="afbf0897a5a83fdd873dfb032ec695d3" category="cell">內部</block>
   <block id="964a9f95d3fda0f78f13dd7cd49fe137" category="cell">VM 元資料和驗證權杖</block>
-  <block id="2ebcfc415db0f53ee976c65188ec85ef" category="paragraph">請依照下列步驟從 Deployment Manager 過渡到 Infrastructure Manager，並為現有的 Cloud Volumes ONTAP 部署執行該工具。</block>
   <block id="cc8a2ca4c8f7a6693635c0db1616e216" category="list-text">建立角色並將其附加到服務帳戶：</block>
   <block id="960ea426544a50e48bbb44091a8b5e5a" category="list-text">建立具有下列權限的 YAML 檔案：</block>
   <block id="1d18879deca373fd3c960377615e653b" category="inline-link">建立和管理自訂角色</block>
@@ -6095,7 +6086,6 @@
   <block id="4249c331d2620d2cd9780ca6679f30af" category="list-text">將<block ref="27a953ce0cbb51d4876b439aee2cbec1" prefix=" " category="inline-code"></block>角色新增至此服務帳戶。請參閱<block ref="88a1fe1ad7367a70a7d6fa5c7d98a110" category="inline-link-rx"></block>。</block>
   <block id="809402001bcefea16f2b81f207ddb62e" category="list-text">[[create-vm]]建立一個具有以下組態的 VM 。您可以在此 VM 上執行此工具。</block>
   <block id="bfe0b77c61bbcf5b827b09fb810318bd" category="list-text">機器類型：Google Compute Engine 機器類型 e2-medium</block>
-  <block id="80dc4d9bb42c64d10e1e74253c1379ed" category="list-text">作業系統：Ubuntu 25.10 AMD64 Minimal （映像：ubuntu-minimal-2510-amd64）</block>
   <block id="96a6ec9a15c7eb577293b9d570bbae05" category="list-text">網路：防火牆允許 HTTP 和 HTTPs</block>
   <block id="7dbcc5c811addb725c58af9582fb0b39" category="list-text">磁碟大小：20GB</block>
   <block id="c9edc2d9baf5e2843ff19a9486021651" category="list-text">安全性：服務帳戶：您建立的服務帳戶</block>
@@ -6109,8 +6099,6 @@
   <block id="d0f860b4876ce7d6519dd4fd5cdc1aca" category="list-text">服務控制：已啟用 （預設）</block>
   <block id="72371168b81dc49ed84ccc2826b33285" category="list-text">Google Cloud Trace（以前稱為 Stackdriver Trace）：僅寫入（預設）</block>
   <block id="771d5634625da9bdf9383284e6876fe8" category="list-text">使用 SSH 連線至新建立的 VM：<block ref="d66edda9356fa84b13bc561b5cdc06d2" prefix=" " category="inline-code"></block></block>
-  <block id="ca3b8cdca327664a13e57f221634b9cd" category="list-text">使用您的 NSS 憑證從<block ref="33e3c3ba324846178fad333329821dd2" category="inline-link-rx"></block>下載轉換工具：<block ref="351cb02cba717c786694e4b04b17a03c" prefix=" " category="inline-code"></block></block>
-  <block id="f3f4a9f0374e3aaf79b22eaa6f11e24b" category="list-text">解壓縮下載的 TAR 檔：<block ref="80c87050897af12083ff007ec59b29ae" prefix=" " category="inline-code"></block></block>
   <block id="893f19f5842942626647ba8f53e27731" category="list-text">下載並安裝以下必備套件：</block>
   <block id="3195b86062bb29c6228b3987373aba5c" category="list-text">Docker：28.2.2 build 28.2.2-0ubuntu1 或更新版本</block>
   <block id="83bedc7f0caf9a0b296313249895e235" category="list-text">Terraform：1.14.1 或更高版本</block>
@@ -6122,8 +6110,6 @@
   <block id="4253cd62d3506adae113f0c0ed35a026" category="list-text">輸入工具的安裝環境：<block ref="c7fe96d8e92d9922385f327806aa5ef6" prefix=" " category="inline-code"></block></block>
   <block id="b6645c19cd405763183f19c38c1f7cad" category="inline-link">Google Cloud Infrastructure Manager 所需的權限</block>
   <block id="82fc86d16c204fd1047896be7797f7b4" category="list-text">以<block ref="3a2e7e59491b74e35b36d9d724fd0584" prefix=" " category="inline-code"></block>使用者身分執行轉換工具。確保使用與 Console 代理的服務帳戶相同的服務帳戶，並且該服務帳戶擁有所有<block ref="5d3ef0c339df1f2a110bf7d6a45b4e45" category="inline-link-rx"></block>。</block>
-  <block id="cacad0cdf4b0fdce4156938c4ed3c9e5" category="paragraph">此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。運行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _&lt;converted system name-imdeploy&gt;_ 格式顯示在 Google Console 的 Infrastructure Manager 下，表示 Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。</block>
-  <block id="9da6711274c63c22ce751c1ffdb9517c" category="admonition">轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment Manager 的部署物件。此部署物件包含 Infrastructure Manager 用於管理 Cloud Volumes ONTAP 系統的元資料。</block>
   <block id="d6c5cad15e9fe911e15bbd9f138172e5" category="paragraph">如果需要回滾轉換，則必須使用同一台虛擬機器。如果已轉換所有系統且無需回滾到 Deployment Manager，則可以刪除該虛擬機器。</block>
   <block id="c77014ed2ed0c6a090666526f334c0b4" category="section-title">復原轉換</block>
   <block id="9e24a1a0370c9ae26c8cda42c2031983" category="paragraph">如果您不想繼續轉換，可以按照以下步驟回溯到 Deployment Manager：</block>
@@ -6256,4 +6242,117 @@
   <block id="24b287efb87a1453e16ea920079d5795" category="paragraph">在進行系統註冊時，請確保所有操作均在系統最初註冊的同一組織和帳戶內執行。例如，您可以將 Cloud Volumes ONTAP 系統遷移到新的 Console 代理，但遷移過程必須在同一組織內進行。</block>
   <block id="64d9da3b00c4fef3501584e739a33d23" category="admonition">您無法探索、檢視或管理已註冊到其他帳戶或組織的系統。</block>
   <block id="29759b568048f604f84457c1e384b4a3" category="section-title">2026 年 2 月 19 日</block>
+  <block id="d370e8740a6b64fd386955e0e780b888" category="paragraph">自 2026 年 2 月 9 日起，Cloud Volumes ONTAP 使用 Infrastructure Manager 進行新的和現有的部署。此表為您說明了一些工作流程：</block>
+  <block id="54861efdd06fc309e1c9a420feff98eb" category="cell">情境</block>
+  <block id="7227af91d597be9f306654b7f9570871" category="cell">代理程式的新 API</block>
+  <block id="060f2406e35d76018851fe48ca94d582" category="cell">代理程式的新權限</block>
+  <block id="7fcf37c89982b3db8f710c7c0a78df3f" category="cell">適用於 Cloud Volumes ONTAP 的全新 Google Cloud API</block>
+  <block id="12f8aec1aacb26c22265d9eeef4f1a7a" category="cell">文件資源</block>
+  <block id="ffcce4c7137f38bc7e8f7abd968a2416" category="cell">現有代理程式和現有 Cloud Volumes ONTAP 部署</block>
+  <block id="8ca4609018726707802acec01ea088c8" category="cell">為現有代理程式新增新的 API 和權限，並轉換現有的 Cloud Volumes ONTAP 系統。</block>
+  <block id="15b890fd729e8bd42b01f29b115cdada" category="list-text">Cloud Infrastructure Manager API</block>
+  <block id="a4c710688b0bce1852460a0da5685192" category="list-text">雲端配額 API</block>
+  <block id="6ecd6a8715f3b8584b0a166952141ee0" category="paragraph">Console 版本的所有權限如下：</block>
+  <block id="a578c7a2817a7adad288f8984659cad5" category="inline-link">2025 年 12 月 8 日</block>
+  <block id="d3fe1173fb4a2d7b6cb7fc5d5e93b435" category="list-text"><block ref="d3fe1173fb4a2d7b6cb7fc5d5e93b435" category="inline-link-rx"></block></block>
+  <block id="c9d872b23d54864ab58551a55106a3db" category="inline-link">2026 年 2 月 09 日</block>
+  <block id="e9239b2f6f0e207f03cce4b6a5a9d9bf" category="list-text"><block ref="e9239b2f6f0e207f03cce4b6a5a9d9bf" category="inline-link-rx"></block></block>
+  <block id="d0afacc44f5837356184459eb1b8fb68" category="cell">\https://www.googleapis.com/upload/storage/v1 \https://config.googleapis.com/v1</block>
+  <block id="78b63d509629d2b46ecd06bdf9d90717" category="paragraph"><block ref="78b63d509629d2b46ecd06bdf9d90717" category="inline-link-rx"></block></block>
+  <block id="32524c76b6297a63bd4c44a66fb638cb" category="cell">現有代理程式和新的 Cloud Volumes ONTAP 部署</block>
+  <block id="cd116d29376c1e626e005f853f310ae1" category="cell">為現有代理程式新增新的 API 和權限，並部署新的 Cloud Volumes ONTAP 系統。</block>
+  <block id="599a622e9d52b5b54a2b589d25b12d7f" category="cell">新部署的所有步驟</block>
+  <block id="af766153ec7c24e4d448b02bfd0e1ec3" category="cell">新代理程式和新部署</block>
+  <block id="252390de9c128281e1354046c39015db" category="cell">建立新代理並部署新的 Cloud Volumes ONTAP 系統。</block>
+  <block id="133f87cfee7691c59e4aceff51289761" category="inline-link">從 Google Cloud 建立 Console 代理</block>
+  <block id="cfdaf06139b734f8230b05e534421bc4" category="list-text"><block ref="cfdaf06139b734f8230b05e534421bc4" category="inline-link-rx"></block></block>
+  <block id="dfa41bd12b34b1bd351e47cb755d553f" category="paragraph">現在，您可以部署 Cloud Volumes ONTAP 以自動使用 Infrastructure Manager，或執行轉換工具將 Deployment Manager 中的現有部署切換到 Infrastructure Manager。轉換過程只需一次，之後您的系統將開始使用 Infrastructure Manager。有關執行轉換工具的說明，請參閱<block ref="5621b7ac255bff00b9e8610ec0606935" category="inline-link-rx"></block>。</block>
+  <block id="0841cdab6957a4878161d52555ce3f69" category="list-text"><block ref="459888dc95116b3e1800e611d3502102" prefix="" category="inline-code"></block>：用於新的 Cloud Volumes ONTAP 部署的 ONTAP 版本和 SVM Terraform 範本。在此內，<block ref="141f3ccee25f2d3a39df4d9471e4bb21" prefix=" " category="inline-code"></block> 儲存桶包含 Cloud Volumes ONTAP Terraform 檔案。</block>
+  <block id="a11251d028e85bf55e217f7b75894bca" category="list-text"><block ref="6ec9e5b046607d57923aee80f990225d" prefix="" category="inline-code"></block>：用於儲存 Google Cloud Terraform 工件。</block>
+  <block id="eefb06bb963974fa756fd69b5da77f3d" category="doc">支援私有模式部署的 Google Infrastructure Manager</block>
+  <block id="8a1d72441a291104845776a8cb5ca0b8" category="paragraph">Cloud Volumes ONTAP 9.16.1 及更高版本現在支援<block ref="d6072c82cbcda01fbac85ce6d2b2ba66" category="inline-link-rx"></block>（IM），而非<block ref="15f2e159f639573aa2393f20aa6d5e11" category="inline-link-rx"></block>（DM），用於 Google Cloud 中的新私有模式部署。Google 將在不久的將來棄用 Deployment Manager 作為基礎架構服務，改用更進階的 Infrastructure Manager。</block>
+  <block id="ec39823b2cb6731c93e31551324e6ed7" category="paragraph">自 2026 年 2 月 25 日起，Cloud Volumes ONTAP 使用 Infrastructure Manager 進行新的和現有的私有模式部署。此表說明了基本工作流程：</block>
+  <block id="d8848c7dd607d8a63767f8dcc10bcfc7" category="cell">現有代理程式和私有模式中的現有部署</block>
+  <block id="be72cda1fd0978b223bf1c72cd3470fe" category="cell">從 NetApp 支援網站下載安裝程式，將 NetApp Console 代理程式升級至最新版本，然後手動將代理程式安裝到主機上，以便其能夠使用 Infrastructure Manager API。之後，將現有的 Cloud Volumes ONTAP 系統轉換為使用 Infrastructure Manager。</block>
+  <block id="1b4969e94a4b9494c07d1a3d15d990de" category="list-text">Cloud Build API</block>
+  <block id="b366c1901726ed94faabaca293b342ab" category="list-text">cloudbuild.workerpools.get</block>
+  <block id="a1594604ead4ac9e883fb7f2565b2dff" category="list-text">\https://cloudbuild.googleapis.com/v1</block>
+  <block id="255359407033996c52ff32fb9e9dedfd" category="list-text">\https://www.googleapis.com/upload/storage/v1</block>
+  <block id="f2be3a212e6f5bb332096881441fa881" category="list-text">\https://config.googleapis.com/v1</block>
+  <block id="887fafea4cfb163759637ed2efcec691" category="cell">建立一個新代理，並在私有模式下部署一個新的 Cloud Volumes ONTAP 系統。</block>
+  <block id="2977507bb7188d1e96246a14057a3902" category="inline-link">私有模式部署快速入門</block>
+  <block id="2d0e6ad25589f8f4affb38c55f4f325f" category="list-text"><block ref="2d0e6ad25589f8f4affb38c55f4f325f" category="inline-link-rx"></block></block>
+  <block id="4caab03d94f5f056dee76ac3abd4066d" category="inline-link">私有模式部署的 Infrastructure Manager 組態</block>
+  <block id="d79d7aeb01a8087d8ac3417a9437a457" category="paragraph">在私有模式部署中，您需要進行一些組態變更，Cloud Volumes ONTAP 才能開始使用 Infrastructure Manager。請參閱<block ref="a3ca45cd087005e24df23da60619241b" category="inline-link-rx"></block>。</block>
+  <block id="72f140aadeef542ffaaccb8f92bb751b" category="paragraph">如果您想要以私有模式部署 Cloud Volumes ONTAP 9.16.1 或更高版本，則需要進行一些設定變更，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作為部署服務，而不是 Google 最終將棄用的 Deployment Manager。</block>
+  <block id="d8ded2f209878a774abc9ec32f535df0" category="list-text">請確保您的 Cloud Volumes ONTAP 系統版本為 9.16.1 或更高版本。如果不是，請升級您的系統。有關說明，請參閱<block ref="2bd5b2c5d36e72902dcf55c00d490964" category="inline-link-rx"></block>。</block>
+  <block id="d65cea469279b26fd96aefa9946737d3" category="list-text">請確保已啟用 Google Cloud API。請參閱<block ref="284597b9b55c9d9b3851ec2830376fdc" category="inline-link-rx"></block>。</block>
+  <block id="c1a7d01779c80df928434b55a0985909" category="inline-link">在此處啟用 Cloud Build API</block>
+  <block id="b1e7119f70e00ffd9c8e1fa9fda7970c" category="list-text">請確保已啟用 Cloud Build API。請參閱 <block ref="fa797d3d1c2c6a35d496e72e95485a1f" category="inline-link-rx"></block>。</block>
+  <block id="b62c03b308f3e880573f89ca750ec806" category="list-text">確認 Console 代理程式的服務帳戶擁有所有標準權限。此外，請確保該服務帳戶擁有<block ref="b366c1901726ed94faabaca293b342ab" prefix=" " category="inline-code"></block>和<block ref="a5bb5562c6a74b17ab2426705833048f" prefix=" " category="inline-code"></block>權限。請參閱<block ref="818358be64a80b49936bc9250a957044" category="inline-link-rx"></block>。</block>
+  <block id="fb5afcb60feed225e2eddbcec73f8baa" category="inline-link">Google Cloud 文件：建立和管理私有資源池</block>
+  <block id="ca543bcb74bbda4033559b744191de30" category="inline-link">Google Cloud Build 定價</block>
+  <block id="9f3ba99a8a6610d877d41cfd0712da8e" category="list-text">使用此配置在與 Cloud Volumes ONTAP 部署相同的區域中建立私有工作池。有關建立私有工作池的資訊，請參閱<block ref="24f6f9425e53d4871201c692b03c2576" category="inline-link-rx"></block>和<block ref="0b65d90cf6452a6f3a215b5f548b34fc" category="inline-link-rx"></block>。</block>
+  <block id="f1a0dd5f9c1e3a35d2ceaa55d5ddc7a0" category="paragraph">工作池必須具有以下配置：</block>
+  <block id="b5785ebe961e54037c8e88333d89cdfb" category="list-text">機器類型：e2-medium</block>
+  <block id="81886430867de94e8c64a4d6ee03885f" category="list-text">磁碟大小：100 GB</block>
+  <block id="4f78751a4c59d02232a84cf0f75f106b" category="list-text">指派外部 IP：False</block>
+  <block id="1ce82e3f1abec4157983f159c2519b6e" category="list-text">網路：預設或專用網路。</block>
+  <block id="f6ab2d5d47935ec62410c5a522057350" category="inline-link">Google API</block>
+  <block id="31ee5d7a195dd642f2dd5c5892f66a66" category="list-text">已配置子網路以存取<block ref="3a79aa9a9ac20e9b7507d4a67f3c5626" category="inline-link-rx"></block>。請執行以下步驟以確保子網路可以存取 Google API：</block>
+  <block id="4e778f784bb81e3fa2540f16b2e516f1" category="list-text">請確保已為子網路啟用「Private Google Access」。</block>
+  <block id="3ddc338aacbdc94d99095f1bc9dc5e9f" category="list-text">前往 *VPC Network 層級 &gt; Private Service Access 標籤 &gt; Allocated IP ranges for services*。</block>
+  <block id="d67cbfbd26657ae0f146b4f91df6172e" category="list-text">選擇 *Allocate IP range* 並為與 Google Compute Service 的私有連線分配內部 IP 範圍。</block>
+  <block id="a886bf060d000589a384bbf702d2d46c" category="list-text">在 *Private connection to services* 中，選擇 *Create Connection*。</block>
+  <block id="bb03b10924dadb99652bb9ecfd1e8ce1" category="list-text">選擇 *Connected service producer = Google Cloud Platform*。</block>
+  <block id="a4f8cf180bd6d1216c603260377fab0b" category="list-text">為上一個步驟中建立的私人連線 IP 範圍指派配置。</block>
+  <block id="2fc774da70207cbd9c3f7f4cb2b882ce" category="list-text">部署此工作池並保持其運行，以進行 Cloud Volumes ONTAP 管理。Google Cloud 使用此工作池在隔離環境中執行所有 Terraform 操作。</block>
+  <block id="e76afdbea65b310b371ae0744e22156a" category="list-text">以私有模式部署 Cloud Volumes ONTAP 時，請在 *GCP Worker Pool* 欄位中選擇此工作池的名稱。請參閱 <block ref="06a62ff106957757a2928a7c710d7365" category="inline-link-macro-rx"></block> 以取得相關說明。</block>
+  <block id="5aee1781451135693253ccb12d7c445b" category="paragraph">選擇您希望 Cloud Volumes ONTAP 所在的專案。</block>
+  <block id="29c10f28e9441020f79943c2c89621d8" category="paragraph">自 2026 年 2 月 9 日起，Google Cloud 中新的 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 即將棄用 Google Cloud Deployment Manager，改用 Infrastructure Manager。因此，您需要手動執行遷移工具，將現有的 Cloud Volumes ONTAP 部署從 Deployment Manager 遷移到 Infrastructure Manager。此程序只需執行一次，之後您的系統將自動開始使用 Infrastructure Manager。</block>
+  <block id="5e2a323cd6d7faff6d94fff36d28f7aa" category="list-text">轉換摘要，已儲存於<block ref="f80ad7d1c557c653b7c3e1f9d76587b2" prefix=" " category="inline-code"></block></block>
+  <block id="a55abb3f1f891995d70f70a7d8476b90" category="example-title">對於私有模式部署，請確保滿足下列附加前提條件：</block>
+  <block id="043abbc7d82ea8f85b4eb2cfc1ed8c1a" category="list-text">請確保您已安裝最新版本的 Console 代理程式。從 NetApp Support Site 下載產品安裝程式，然後手動將代理程式安裝到您的主機上，以便代理程式可以使用 Infrastructure Manager API。</block>
+  <block id="25dde09ff44d3749c7c30e9d6de5ea84" category="list-text">如果您以私有模式執行該工具，請確保除了其他 API 之外，還啟用了 Cloud Build API<block ref="284597b9b55c9d9b3851ec2830376fdc" category="inline-link-rx"></block>。</block>
+  <block id="61396513f8cad4235cc6230c5b5bd890" category="list-text">請確保您已完成網路配置並為私有模式部署建立了工作池。請參閱 <block ref="394ae5ca2623ff2541a3ab80e68c7904" category="inline-link-macro-rx"></block>。</block>
+  <block id="cee17a2118e2f87df1ef45ab60919d83" category="cell">cloudbuild.googleapis.com</block>
+  <block id="e61855b4554dd4f867078342b0fe3ed9" category="cell">僅私有模式需要建置操作</block>
+  <block id="77ef2eaf8c2a9596bf70daf2be42abe2" category="cell">pypi.org</block>
+  <block id="0a837cd57db3481995c1d0997aae27ae" category="cell">Python 套件索引</block>
+  <block id="6594103004c2bc59c4fb5a91392b8465" category="cell">files.pythonhosted.org</block>
+  <block id="d1c13320cf2e8da01f31926ba2086b3f" category="cell">Python 套件下載</block>
+  <block id="7815013af3602cfeabf604b40b0243ab" category="cell">checkpoint-api.hashicorp.com</block>
+  <block id="06aadd241c0be8803fdac80e00020154" category="cell">Terraform 版本檢查</block>
+  <block id="00977613eb3121985c5ef92a3b047a2f" category="cell">download.docker.com</block>
+  <block id="519d41a4bf864a38b5c2c30d0b7ee9e2" category="cell">Docker APT 儲存庫</block>
+  <block id="97561d366538d5b777d32fdea196c4f1" category="cell">security.ubuntu.com</block>
+  <block id="c59814c5745505a7a040fa82a314dad7" category="cell">80/443</block>
+  <block id="119c09112d85866a566eabcb7d844fb1" category="cell">Ubuntu 安全更新</block>
+  <block id="6649579c086a0b87b5608e9e15a9eba0" category="cell">*.gce.archive.ubuntu.com</block>
+  <block id="8204b6d5cc30339f744f46d8037d7fdd" category="cell">Ubuntu 軟體包鏡像</block>
+  <block id="23475ffaa5c62a61c9fd9936da1b2d17" category="section-title">準備執行工具的環境</block>
+  <block id="235ad64d4d44f422462a6f13a9ebdb24" category="paragraph">執行工具之前，請先執行這些步驟。</block>
+  <block id="4bee4ab4be906bd67870e2d76cbe2d72" category="example-title">為私有模式部署新增額外權限</block>
+  <block id="95b7e315a27c85fa86a577df97656d5b" category="paragraph">如果您以私有模式執行該工具，請同時將 <block ref="b366c1901726ed94faabaca293b342ab" prefix=" " category="inline-code"></block> 權限新增至 YAML 檔案。</block>
+  <block id="25099748affaf06175b1716317124072" category="list-text">作業系統：根據您的需求、選擇以下任一映像：</block>
+  <block id="c4815cf0c0f871d5ff5c1ad7c1270c4d" category="list-text">Ubuntu 25.10 AMD64 Minimal（映像：ubuntu-minimal-2510-amd64）</block>
+  <block id="53b4fb6fd5c954dbf179dba99b662501" category="list-text">SUSE Linux Enterprise Server 15 SP7 x86_64</block>
+  <block id="6b71f098730cc9eb4a17b15f0fde4f4f" category="list-text">使用您的 NSS 憑證從<block ref="2b34f2fd14a473003c4bec1d639c99ed" category="inline-link-rx"></block>下載轉換工具：<block ref="351cb02cba717c786694e4b04b17a03c" prefix=" " category="inline-code"></block></block>
+  <block id="c4c52ae6b59db725eb370608587a87ac" category="list-text">解壓縮下載的 TAR 檔：<block ref="555b90a4c7bdb6bc696ca4ddf5851d9d" prefix=" " category="inline-code"></block></block>
+  <block id="3d945423f8e9496c429a5d8c65b4604f" category="list-title">Ubuntu</block>
+  <block id="4ae0b3e9c82d7212e106b8d937d888f9" category="list-title">SUSE Linux Enterprise Server</block>
+  <block id="60deaa50ef5cb5075b022cf8b7e2aa9b" category="list-text">設定 Python：<block ref="cf4dfc540c38d1d6ba007027e57f8ad9" prefix=" " category="inline-code"></block></block>
+  <block id="65cd321eaaee0b3388777984c4c6eee5" category="list-text">安裝 pip3 以安裝套件：<block ref="7e0697d280b7e6ee823c16cf6063e8a1" prefix=" " category="inline-code"></block></block>
+  <block id="322703fda01f6eb40f244f64f885a8e7" category="list-text">安裝 Terraform：</block>
+  <block id="e1a2af96135fd402f4eeb590d1d083f4" category="list-text">安裝 Google Cloud SDK（gcloud）</block>
+  <block id="56fe813ce089ce40cf0ddd7a34baa41d" category="section-title">執行轉換工具</block>
+  <block id="127f0169d9159483efb1bf11269a83d6" category="paragraph">這些步驟適用於 Ubuntu 和 SUSE Linux Enterprise Server 上執行轉換工具。</block>
+  <block id="582f01440b1fe8b3b54fbaaa3e0ae2a5" category="example-title">在私有模式部署中執行該工具</block>
+  <block id="e3e9593585f6673afa2b7fc51d4207a1" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 參數以在私有模式部署中執行該工具。有關工作池配置，請參閱 <block ref="394ae5ca2623ff2541a3ab80e68c7904" category="inline-link-macro-rx"></block>。</block>
+  <block id="c6e9d79a05da6fd3036f2ce45e30d798" category="paragraph">此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。運行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _&lt;system-name-imdeploy&gt;_ 格式顯示在 Google Console 的 Infrastructure Manager 下，表示 Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。</block>
+  <block id="73f8b632600f6bf7d4edd2fb31ec35be" category="admonition">轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment Manager 的部署物件。此部署物件包含您可能需要用來回滾已轉換系統的資訊。</block>
+  <block id="7e5509f4bf6f560ecb7a52d0a6083b0c" category="inline-link">在您的專案中啟用 Google Cloud API</block>
+  <block id="fbf12f5b0c848baad453322be1474e53" category="inline-link">這些 API</block>
+  <block id="d6c639979f19e4b6ee894da109e92143" category="paragraph"><block ref="72d9b6cdd2035c34510a674b3e79e7cf" category="inline-link-rx"></block>.<block ref="274a8d4ce254fa7ad9c059c75fad96a6" category="inline-link-rx"></block>，您可能已經在建立 Console 代理時啟用了它們，這些是在 Google Cloud 中部署 Cloud Volumes ONTAP 所必需的。</block>
+  <block id="56a5c925d77740ea69d50272863f3f75" category="section-title">2026 年 2 月 26 日</block>
 </blocks>

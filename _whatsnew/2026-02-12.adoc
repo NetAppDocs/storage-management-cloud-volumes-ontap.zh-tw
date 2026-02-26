@@ -4,7 +4,7 @@
 
 
 
-== Azure 中對 Ebdsv5 和 E104ids_v5 VM 的支援
+=== Azure 中對 Ebdsv5 和 E104ids_v5 VM 的支援
 
 從 Cloud Volumes ONTAP 9.18.1 開始，您可以部署 Ebdsv5 和 E104ids_v5 VM，用於單節點和高可用性（HA）部署和升級。
 

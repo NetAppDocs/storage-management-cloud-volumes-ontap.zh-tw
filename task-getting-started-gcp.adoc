@@ -57,15 +57,7 @@ link:task-creating-gcp-service-account.html["閱讀逐步說明"] 。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]啟用 Google Cloud API
 [role="quick-margin-para"]
-https://cloud.google.com/apis/docs/getting-started#enabling_apis["在您的專案中啟用以下 Google Cloud API"^] 。部署控制台代理程式和Cloud Volumes ONTAP需要這些 API。
-
-[role="quick-margin-list"]
-* 雲端部署管理器 V2 API
-* 雲端日誌 API
-* 雲端資源管理器 API
-* 計算引擎 API
-* 身分識別和存取管理 (IAM) API
-
+https://cloud.google.com/apis/docs/getting-started#enabling_apis["在您的專案中啟用 Google Cloud API"^]. https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["這些 API"^]，您可能已經在建立 Console 代理時啟用了它們，這些是在 Google Cloud 中部署 Cloud Volumes ONTAP 所必需的。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"]使用控制台啟動Cloud Volumes ONTAP
 [role="quick-margin-para"]

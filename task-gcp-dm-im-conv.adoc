@@ -14,13 +14,13 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 
 
 [role="lead"]
-自 2026 年 1 月 12 日起，Google Cloud 中新的 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 即將棄用 Google Cloud Deployment Manager，改用 Infrastructure Manager。因此，您需要手動執行遷移工具，將現有的 Cloud Volumes ONTAP 部署從 Deployment Manager 遷移到 Infrastructure Manager。此程序只需執行一次，之後您的系統將自動開始使用 Infrastructure Manager。
+自 2026 年 2 月 9 日起，Google Cloud 中新的 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 即將棄用 Google Cloud Deployment Manager，改用 Infrastructure Manager。因此，您需要手動執行遷移工具，將現有的 Cloud Volumes ONTAP 部署從 Deployment Manager 遷移到 Infrastructure Manager。此程序只需執行一次，之後您的系統將自動開始使用 Infrastructure Manager。
 
 .關於此任務
 過渡工具可在 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab["NetApp 支援網站"^]中使用，並建立下列工件：
 
 * Terraform 工件，儲存於 `conversion_output/deployment_name`。
-* 轉換結果摘要已儲存在 `conversion_output/batch_summary_<deployment_name>_<timestamp>.json`中。
+* 轉換摘要，已儲存於 `conversion_output/batch_summary_<deployment_name>_<timestamp>.json.`
 * 偵錯記錄儲存在  `<gcp project number>-<region>-blueprint-config/<cvo name>` 目錄中。您需要這些記錄進行疑難排解。 `<gcp project number>-<region>-blueprint-config` 儲存貯體儲存 Terraform 記錄。
 
 
@@ -28,8 +28,8 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 ====
 使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系統會將資料和記錄儲存在 Google Cloud Storage 儲存桶中。這些儲存桶可能會產生額外費用，但請勿編輯或刪除儲存桶及其內容：
 
-* `gs://netapp-cvo-infrastructure-manager-<project id>/dm-to-im-convert`：用於儲存 Cloud Volumes ONTAP Terraform 文件
-* `<gcp project number>-<region>-blueprint-config`：用於儲存 Google Cloud Terraform 工件
+* `gs://netapp-cvo-infrastructure-manager-<project id>`：用於新的 Cloud Volumes ONTAP 部署的 ONTAP 版本和 SVM Terraform 範本。在此內， `dm-to-im-convert` 儲存桶包含 Cloud Volumes ONTAP Terraform 檔案。
+* `<gcp project number>-<region>-blueprint-config`：用於儲存 Google Cloud Terraform 工件。
 
 
 ====
@@ -38,6 +38,16 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 * 確保沒有透過 Google Cloud Console 手動編輯過任何 Cloud Volumes ONTAP 資源或其屬性。
 * 請確保已啟用 Google Cloud API。請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["啟用 Google Cloud API"^]。請確保除了其他 API 之外，還啟用了 Google Cloud Quotas API。
 * 請確認 NetApp Console agent 的服務帳戶擁有所有必要的權限。請參閱 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 權限"^]。
++
+.對於私有模式部署，請確保滿足下列附加前提條件：
+[%collapsible]
+====
+** 請確保您已安裝最新版本的 Console 代理程式。從 NetApp Support Site 下載產品安裝程式，然後手動將代理程式安裝到您的主機上，以便代理程式可以使用 Infrastructure Manager API。
+** 如果您以私有模式執行該工具，請確保除了其他 API 之外，還啟用了 Cloud Build API https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["啟用 Google Cloud API"^]。
+** 請確保您已完成網路配置並為私有模式部署建立了工作池。請參閱 link:reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["私有模式部署的 Infrastructure Manager 組態"]。
+
+
+====
 * 轉換工具使用以下網域。在您的網路中於連接埠 443 上啟用它們：
 +
 [cols="1,1,1,1,2"]
@@ -63,6 +73,9 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 | compute.googleapis.com | 443 | TCP | 外傳 | Google Cloud 和 Terraform Import 與 Plan 使用的運算 API 呼叫 
 
 
+| cloudbuild.googleapis.com | 443 | TCP | 外傳 | 僅私有模式需要建置操作 
+
+
 | openidconnect.googleapis.com | 443 | TCP | 外傳 | 驗證 
 
 
@@ -82,12 +95,34 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 
 
 | metadata.google.internal | 80 | HTTP | 內部 | VM 元資料和驗證權杖 
+
+
+| pypi.org | 443 | TCP | 外傳 | Python 套件索引 
+
+
+| files.pythonhosted.org | 443 | TCP | 外傳 | Python 套件下載 
+
+
+| checkpoint-api.hashicorp.com | 443 | TCP | 外傳 | Terraform 版本檢查 
+
+
+| download.docker.com | 443 | TCP | 外傳 | Docker APT 儲存庫 
+
+
+| security.ubuntu.com | 80/443 | TCP | 外傳 | Ubuntu 安全更新 
+
+
+| *.gce.archive.ubuntu.com | 80 | TCP | 外傳 | Ubuntu 軟體包鏡像 
 |===
 
 
-.步驟
-請依照下列步驟從 Deployment Manager 過渡到 Infrastructure Manager，並為現有的 Cloud Volumes ONTAP 部署執行該工具。
 
+
+== 準備執行工具的環境
+
+執行工具之前，請先執行這些步驟。
+
+.步驟
 . 建立角色並將其附加到服務帳戶：
 +
 .. 建立具有下列權限的 YAML 檔案：
@@ -124,6 +159,13 @@ includedPermissions:
 - storage.objects.get
 - storage.objects.list
 ----
++
+.為私有模式部署新增額外權限
+[%collapsible]
+====
+如果您以私有模式執行該工具，請同時將  `cloudbuild.workerpools.get` 權限新增至 YAML 檔案。
+
+====
 .. 在 Google Cloud 中建立自訂角色，並賦予其 YAML 檔案中定義的權限。
 `gcloud iam roles create dmtoim_convert_tool_role --project=PROJECT_ID \
     --file=YAML_FILE_PATH`如需詳細資訊，請參閱 https://cloud.google.com/iam/docs/creating-custom-roles["建立和管理自訂角色"^]。
@@ -134,7 +176,12 @@ includedPermissions:
 . [[create-vm]]建立一個具有以下組態的 VM 。您可以在此 VM 上執行此工具。
 +
 ** 機器類型：Google Compute Engine 機器類型 e2-medium
-** 作業系統：Ubuntu 25.10 AMD64 Minimal （映像：ubuntu-minimal-2510-amd64）
+** 作業系統：根據您的需求、選擇以下任一映像：
++
+*** Ubuntu 25.10 AMD64 Minimal（映像：ubuntu-minimal-2510-amd64）
+*** SUSE Linux Enterprise Server 15 SP7 x86_64
+
+
 ** 網路：防火牆允許 HTTP 和 HTTPs
 ** 磁碟大小：20GB
 ** 安全性：服務帳戶：您建立的服務帳戶
@@ -153,8 +200,13 @@ includedPermissions:
 
 
 . 使用 SSH 連線至新建立的 VM： `gcloud compute ssh dmtoim-convert-executor-vm --zone _<region where VM is deployed>_`
-. 使用您的 NSS 憑證從 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab["NetApp 支援網站"^]下載轉換工具： `wget <download link from NetApp Support site>`
-. 解壓縮下載的 TAR 檔： `tar -xvf <downloaded file name>`
+. 使用您的 NSS 憑證從 https://mysupport.netapp.com/site/tools/tool-eula/gcp-cvo-dm-to-im-convert-tool/download["NetApp 支援網站"^]下載轉換工具： `wget <download link from NetApp Support site>`
+. 解壓縮下載的 TAR 檔： `unzip <downloaded file name>`
+
+
+[role="tabbed-block"]
+====
+.Ubuntu
 . 下載並安裝以下必備套件：
 +
 ** Docker：28.2.2 build 28.2.2-0ubuntu1 或更新版本
@@ -176,6 +228,37 @@ Google Cloud CLI `gcloud` 已預先安裝在虛擬機器上。
 
 
 
+
+
+.SUSE Linux Enterprise Server
+. 設定 Python： `sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 2`
+. 安裝 pip3 以安裝套件： `python3.11 -m ensurepip --upgrade`
+. 安裝 Terraform：
++
+[source, cli]
+----
+wget https://releases.hashicorp.com/terraform/1.7.4/terraform_1.7.4_linux_amd64.zip
+unzip terraform_1.7.4_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+rm terraform_1.7.4_linux_amd64.zip
+----
+. 安裝 Google Cloud SDK（gcloud）
++
+[source, cli]
+----
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+----
+
+
+====
+
+
+== 執行轉換工具
+
+這些步驟適用於 Ubuntu 和 SUSE Linux Enterprise Server 上執行轉換工具。
+
+.步驟
 . 將目前使用者新增至 Docker 群組，以便工具無需  `sudo` 權限即可使用 Docker。
 +
 [source, cli]
@@ -204,14 +287,27 @@ dmconvert \
 --service-account=<the service account attached to the Console agent>
 ----
 +
+.在私有模式部署中執行該工具
+[%collapsible]
+====
+指定  `--worker-pool` 參數以在私有模式部署中執行該工具。有關工作池配置，請參閱 link:reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["私有模式部署的 Infrastructure Manager 組態"]。
+
+[source, cli]
+----
+dmconvert \
+--project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
+--cvo-name=<Cloud Volumes ONTAP system name> \
+--service-account=<the service account attached to the Console agent> \
+--worker-pool=<worker pool name>
+----
+====
+
+
 .完成後
-此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。運行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _<converted system name-imdeploy>_ 格式顯示在 Google Console 的 Infrastructure Manager 下，表示 Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。
-
-+
-
-CAUTION: 轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment Manager 的部署物件。此部署物件包含 Infrastructure Manager 用於管理 Cloud Volumes ONTAP 系統的元資料。
+此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。運行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _<system-name-imdeploy>_ 格式顯示在 Google Console 的 Infrastructure Manager 下，表示 Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。
 
 
+CAUTION: 轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment Manager 的部署物件。此部署物件包含您可能需要用來回滾已轉換系統的資訊。
 
 如果需要回滾轉換，則必須使用同一台虛擬機器。如果已轉換所有系統且無需回滾到 Deployment Manager，則可以刪除該虛擬機器。
 

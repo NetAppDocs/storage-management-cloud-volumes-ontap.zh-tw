@@ -503,6 +503,45 @@ NOTE: 為了讓新的 Google Cloud HA 對部署實現較高的寫入速度，VPC
 
 
 
+=== 私有模式部署的 Infrastructure Manager 組態
+
+如果您想要以私有模式部署 Cloud Volumes ONTAP 9.16.1 或更高版本，則需要進行一些設定變更，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作為部署服務，而不是 Google 最終將棄用的 Deployment Manager。
+
+.開始之前
+* 請確保您的 Cloud Volumes ONTAP 系統版本為 9.16.1 或更高版本。如果不是，請升級您的系統。有關說明，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-updating-ontap-cloud.html["升級Cloud Volumes ONTAP"]。
+* 請確保已啟用 Google Cloud API。請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["啟用 Google Cloud API"^]。
+* 請確保已啟用 Cloud Build API。請參閱  https://console.cloud.google.com/flows/enableapi?apiid=cloudbuild.googleapis.com&redirect=https://console.cloud.google.com/build/docs/private-pools/set-up-private-pool-environment["在此處啟用 Cloud Build API"^]。
+* 確認 Console 代理程式的服務帳戶擁有所有標準權限。此外，請確保該服務帳戶擁有 `cloudbuild.workerpools.get`和 `cloudbuild.workerpools.list`權限。請參閱 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 權限"^]。
+
+
+.步驟
+. 使用此配置在與 Cloud Volumes ONTAP 部署相同的區域中建立私有工作池。有關建立私有工作池的資訊，請參閱 https://docs.cloud.google.com/build/docs/private-pools/create-manage-private-pools#creating_a_new_private_pool["Google Cloud 文件：建立和管理私有資源池"^]和 https://cloud.google.com/build/pricing["Google Cloud Build 定價"^]。
++
+工作池必須具有以下配置：
+
++
+** 機器類型：e2-medium
+** 磁碟大小：100 GB
+** 指派外部 IP：False
+** 網路：預設或專用網路。
+** 已配置子網路以存取 http://googleapis.com/["Google API"]。請執行以下步驟以確保子網路可以存取 Google API：
++
+... 請確保已為子網路啟用「Private Google Access」。
+... 前往 *VPC Network 層級 > Private Service Access 標籤 > Allocated IP ranges for services*。
+... 選擇 *Allocate IP range* 並為與 Google Compute Service 的私有連線分配內部 IP 範圍。
+... 在 *Private connection to services* 中，選擇 *Create Connection*。
+... 選擇 *Connected service producer = Google Cloud Platform*。
+... 為上一個步驟中建立的私人連線 IP 範圍指派配置。
+
+
+
+
+. 部署此工作池並保持其運行，以進行 Cloud Volumes ONTAP 管理。Google Cloud 使用此工作池在隔離環境中執行所有 Terraform 操作。
+. 以私有模式部署 Cloud Volumes ONTAP 時，請在 *GCP Worker Pool* 欄位中選擇此工作池的名稱。請參閱 link:task-deploying-gcp.html["在 Google Cloud 啟動Cloud Volumes ONTAP"] 以取得相關說明。
+
+
+
+
 == 控制台代理的要求
 
 如果您尚未建立控制台代理，則應查看網路需求。
