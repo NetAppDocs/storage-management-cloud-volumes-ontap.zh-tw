@@ -4,7 +4,7 @@ permalink: task-sync-time.html
 keywords: set up, setting up, ntp, time, synch 
 summary: 指定 NTP 伺服器可同步網路中系統之間的時間，這有助於防止因時間差異而導致的問題。 
 ---
-= 使用 NTP 伺服器同步Cloud Volumes ONTAP系統時間
+= 使用 NTP 伺服器同步 Cloud Volumes ONTAP 系統時間
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,16 +14,16 @@ summary: 指定 NTP 伺服器可同步網路中系統之間的時間，這有助
 
 
 [role="lead"]
-為確保準確的時間同步，您必須為Cloud Volumes ONTAP系統設定網路時間協定 (NTP) 伺服器。請確保在所有雲端供應商上為Cloud Volumes ONTAP系統設定 NTP 伺服器，以保持網路內時間同步的一致性。
-
-
-NOTE: 如果您未設定 NTP 伺服器，可能會遇到服務中斷和時間同步不準確的情況。
+為 Cloud Volumes ONTAP 叢集設定網路時間協定（NTP）伺服器，可確保叢集時間與網路中的其他系統和外部伺服器的時間精確同步。將叢集時間與外部 NTP 伺服器同步有助於維護基礎架構的一致性。NetApp 預設情況下會為新 Cloud Volumes ONTAP 部署設定 NTP 伺服器。但是，如果現有 Cloud Volumes ONTAP 叢集未配置 NTP 伺服器，則必須設定 NTP 伺服器，以確保網路內外時間的精確同步。
 
 您可以使用以下命令指定 NTP 伺服器：
 
 * https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html["NetApp ConsoleAPI"^]。
 * ONTAP CLI 指令 https://docs.netapp.com/us-en/ontap-cli//cluster-time-service-ntp-server-create.html["建立叢集時間服務 NTP 伺服器"^]。
 
+
+
+NOTE: 如果您未設定 NTP 伺服器，可能會遇到服務中斷和時間同步不準確的情況。
 
 .相關連結
 * 知識庫（KB）文章： https://kb.netapp.com/Cloud/ncds/nds/cvo/cvo_kbs/How_does_a_CVO_cluster_use_NTP["CVO叢集如何使用NTP？"]
