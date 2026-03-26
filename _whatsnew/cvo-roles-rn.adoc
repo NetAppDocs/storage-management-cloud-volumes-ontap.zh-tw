@@ -1,0 +1,105 @@
+= 依索引標籤顯示您無法執行的活動
+:allow-uri-read: 
+
+
+
+
+=== 您無法執行的活動（依索引標籤）
+
+下表依索引標籤摘要說明受限活動。
+
+[cols="1,4"]
+|===
+| 標籤頁 | 您無法執行的活動 
+
+
+| 概況  a| 
+* 新增磁碟區
+* 新增 Aggregate
+* 開啟 System Manager
+* 使用開 / 關按鈕
+* 設定密碼
+* 更新 ONTAP 版本
+* 從工作區移除系統
+* 刪除系統
+* 使用 *立即升級*
+* 從所有功能的鉛筆選單中編輯 *System tags*
+* 從所有功能鉛筆選單編輯 *Scheduled downtime*
+* 從所有功能鉛筆選單中編輯 *Storage classes*
+* 從所有功能鉛筆選單中編輯 *Instance type*
+* 從所有功能鉛筆選單編輯 *Charging method*
+* 從所有功能鉛筆選單編輯 *License type*
+* 從所有功能的鉛筆選單中編輯 *Write speed*
+* 從所有功能鉛筆選單編輯 *勒索軟體保護*
+* 從所有功能鉛筆選單中編輯 *Support registration*
+* 從所有功能的鉛筆選單中編輯 *WORM*
+* 從所有功能鉛筆選單中編輯 *Data tiering*
+* 從所有功能的鉛筆選單中編輯 *CIFS setup*
+* 從所有功能鉛筆選單編輯 *Route tables*
+
+
+
+
+| 磁碟區  a| 
+此索引標籤中不允許進行磁碟區更新，也無法新增磁碟區。
+
+* 複製卷
+* 編輯磁碟區設定
+* 刪除卷
+* 建立 Snapshot 複本
+* 從 Snapshot 複本還原
+* 變更磁碟類型（進階選項）
+* 變更分層原則（進階選項）
+
+
+
+
+| Aggregate  a| 
+* 新增 Aggregate
+* 新增磁碟區
+* 增加容量
+* 刪除 Aggregate
+
+
+
+
+| 複製  a| 
+* 中斷複寫
+* 重新同步複寫
+* 反向重新同步複寫
+* 編輯排程
+* 編輯最大傳輸速率
+* 更新複寫
+* 刪除複寫
+
+
+
+
+| 主畫布  a| 
+* 新增系統
+* 探索系統（適用於所有操作員）
+* 使用拖放功能進行 *Copy and sync*
+* 使用拖放功能進行 *Volume caching*
+* 使用拖放功能進行 *Replication*
+* 新增磁碟區
+* 存取*最佳化成本與效能*
+* 開啟 System Manager
+* 僅當擁有所需的 CVO 權限時才可將 *複製* 用於 Cloud Volumes ONTAP（不適用於 FSx for ONTAP 或內部部署系統）
+* 只有在擁有所需的 CVO 權限時，才對 Cloud Volumes ONTAP 使用 *Volume caching*（不適用於 FSx for ONTAP 或內部部署系統）
+* 輸入系統
+* 使用 AVS 管理按鈕
+
+
+
+
+| 沒有角色  a| 
+如果未指派角色，則會停用所有動作。
+
+* 存取工作環境
+* 存取複寫
+* 使用 Cloud Volumes ONTAP 建立精靈
+* 使用複寫建立精靈
+* 探索 Cloud Volumes ONTAP
+
+
+|===
