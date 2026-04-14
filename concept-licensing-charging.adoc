@@ -48,7 +48,7 @@ endif::azure[]
 ** 如果您的許可證期限已到期
 
 
-* 如果您與市場簽訂了年度合同，則您部署的所有Cloud Volumes ONTAP系統都將根據該合約收費。您不能將年度市場合約與 BYOL 混合搭配。
+* 如果您擁有 BYOL 授權並透過市集簽訂了年度合約，您的使用量和超額使用量將根據您設定的計費偏好收取費用。若要了解您的收費方式，請參閱 link:concept-licensing-charging.html#concept-licensing-charging.html#billing-preferences-and-overages["計費偏好和超額費用"]。
 * 中國大陸地區僅支援採用 BYOL 的單節點系統。中國大陸地區的部署不受 BYOL 授權限制。
 
 

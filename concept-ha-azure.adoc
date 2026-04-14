@@ -129,3 +129,9 @@ NOTE: 有關哪些特定主機配置支援 ALUA 的信息，請參閱 http://mys
 == 儲存配置
 
 您可以將 HA 對用作主動-主動配置，其中兩個節點都向客戶端提供數據，或用作主動-被動配置，其中被動節點僅在接管主動節點的儲存後才會回應資料請求。
+
+
+NOTE: Cloud Volumes ONTAP 使用負載平衡器以主備模式進行偵測。在 Azure 中，只有活動節點會回應探測。備用節點可能會顯示為非活動狀態，並帶有 X 標記。這是預期行為，無需擔心。
+
+.相關連結
+link:task-azure-high-availability-mode.html["在 Azure 中為Cloud Volumes ONTAP啟用高可用性模式"^]

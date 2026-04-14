@@ -20,6 +20,32 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2026 年 4 月 13 日
+
+
+
+=== 改進了 Cloud Volumes ONTAP 對 Google Cloud C3 VMs 的支援
+
+Cloud Volumes ONTAP 現在增強了對 Google Cloud C3 系列 VM 的支援，從而實現了以下附加功能：
+
+* 在 Cloud Volumes ONTAP 部署中，您可以在 C3 系列的不同變體之間切換執行個體類型。
+* 變更執行個體類型時，如果您選擇 c3-standard-44 或 c3-standard-88 及其 LSSD 變體作為目標 VM，則會自動套用 Google 網路服務出口網路層級 Tier-1。如果您切換到任何其他 C3 變體，則出口網路層級將設定為 Standard。
++
+
+NOTE: 將出口網路層級變更為 Tier-1 會產生額外成本。請據此規劃部署和升級。
+
+* 如果您選擇 C3 的本機 SSD (LSSD) 版本，則預設會啟用 Flash Cache。即使目標版本支援 Flash Cache，您也無法在 Cloud Volumes ONTAP 部署中切換 C3 LSSD 版本。
+* 現在，您可以在 C3 VM 上為新的和現有的 Aggregate 新增 Volume。
+* 您可以透過 NetApp Console 或使用 `PUT /gcp/vsa/aggregates/{workingEnvironmentId}/{aggregateName}` API 在新增磁碟區時變更 IOPS 和吞吐量設定。
+
+
+.相關連結
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支援的組態"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#cloud-volumes-ontap-support-for-next-generation-google-cloud-vms["Cloud Volumes ONTAP 支援下一代 Google Cloud VM"^]
+
+
+
+
 == 2026 年 3 月 10 日
 
 
