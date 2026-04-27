@@ -45,7 +45,7 @@ NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 .步驟
 . 從NetApp Console選單中，選擇「管理 >Licenses and subscriptions」。
 . 選擇* Keystone訂閱*。
-. 對於您想要連結的訂閱，請點擊image:icon-action.png["三個並排的點組成的圖標"]並選擇*連結*。
+. 對於要關聯的訂閱，請選擇 image:icon-action.png["三個並排的點組成的圖標"] 並選擇 *Link* 。
 
 
 .結果
@@ -60,9 +60,9 @@ NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 .步驟
 . 從NetApp Console選單中，選擇「管理 >Licenses and subscriptions」。
 . 選擇* Keystone訂閱*。
-. 對於要調整容量的訂閱，請按一下 image:icon-action.png["三個並排的點組成的圖標"] 並選擇*查看詳細資訊和編輯*。
+. 對於要調整容量的訂閱，請選擇 image:icon-action.png["三個並排的點組成的圖標"] 並選擇 *View detail and edit* 。
 . 輸入一個或多個訂閱所請求的承諾容量。
-. 向下滾動，輸入請求的任何其他詳細信息，然後點擊“*提交*”。
+. 向下捲動，輸入請求的任何其他詳細資訊，然後選擇 *Submit* 。
 
 
 .結果
@@ -85,7 +85,7 @@ https://docs.netapp.com/us-en/keystone-staas/integrations/aiq-keystone-details.h
 .步驟
 . 從NetApp Console選單中，選擇「管理 >Licenses and subscriptions」。
 . 選擇* Keystone*。
-. 對於要取消連結的訂閱，點擊image:icon-action.png["三個並排的點組成的圖標"]並選擇*取消連結*。
+. 對於您要取消連結的訂閱，請選取 image:icon-action.png["三個並排的點組成的圖標"] 並選取 *Unlink*。
 
 
 .結果

@@ -3518,17 +3518,14 @@
   <block id="06f358c39bc3b4633cefd78beb67e671" category="section-title">連結訂閱</block>
   <block id="8afaab6946e4a914b70539d7502e26ac" category="paragraph">在NetApp授權您的帳戶後，您可以連結Keystone訂閱以用於Cloud Volumes ONTAP。此操作使用戶能夠選擇訂閱作為新Cloud Volumes ONTAP系統的收費方式。</block>
   <block id="b0afff19aa3343a6f86619d833dbd316" category="inline-image-macro">三個並排的點組成的圖標</block>
-  <block id="fc6ada65ff8f08c80e7d6167f68c89c2" category="list-text">對於您想要連結的訂閱，請點擊<block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block>並選擇*連結*。</block>
   <block id="1b02ed65c5ea56c85fffa6b88378d762" category="section-title">請求更多或更少的承諾容量</block>
   <block id="56ecf988dec174f4d23028e78eeed82c" category="list-text">輸入一個或多個訂閱所請求的承諾容量。</block>
-  <block id="dbae9df22f08344d5508b91cb73c6d15" category="list-text">向下滾動，輸入請求的任何其他詳細信息，然後點擊“*提交*”。</block>
   <block id="8f140d9c4d508c36e3d4c57102f117eb" category="paragraph">您的請求將在 NetApp 系統中建立一張票以供處理。</block>
   <block id="ec6e0d1bd46f010ced65478c609b1636" category="section-title">監控使用情況</block>
   <block id="20ea4c62f4c9e4254314fe7fbbef0319" category="inline-link">了解有關監控訂閱使用情況的更多信息</block>
   <block id="d7105dd212dc96a8b292b6b48f84916f" category="paragraph"><block ref="d7105dd212dc96a8b292b6b48f84916f" category="inline-link-rx"></block></block>
   <block id="0c0401d1e9169d6dd38462b1e0d04126" category="section-title">取消訂閱鏈接</block>
   <block id="492847bcbc9ec0bd3075b612aa43e4a7" category="list-text">選擇* Keystone*。</block>
-  <block id="a666a430e484ea214384aefaa30da852" category="list-text">對於要取消連結的訂閱，點擊<block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block>並選擇*取消連結*。</block>
   <block id="6e1a9790b199742bec95dea2070e2f3f" category="summary">在NetApp Console中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。</block>
   <block id="160221c1e99e53b72af8a65c2440852b" category="doc">管理Cloud Volumes ONTAP 的基於節點的許可</block>
   <block id="63e5ea33dc9b9a10458ac73abae91075" category="paragraph">在NetApp Console中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。</block>
@@ -3600,7 +3597,6 @@
   <block id="f979ec1d84a4416797fae20cc61f839b" category="inline-link">了解如何刪除Cloud Volumes ONTAP系統</block>
   <block id="0d0947c9b1ebe3ee650df057f8192855" category="paragraph"><block ref="87175a08736eca79154ad91c69792fcd" category="inline-link-rx"></block> 。</block>
   <block id="342dcce6bda294bb4b60fc9333bcafbe" category="inline-link-macro">將基於節點的許可證轉換為基於容量的許可證</block>
-  <block id="cb90b48918ed9cd8ea355c04c171177b" category="paragraph">關聯：<block ref="7f9a8649ca2d86db235ba56502d14f92" category="inline-link-macro-rx"></block> <block ref="431f655d5a9ac309b561fc62a4c619ea" category="inline-link-macro-rx"></block></block>
   <block id="bd0ed9183db9306d8ce58c50abb4a96b" category="summary">NetApp Console不為儲存 VM 災難復原提供任何設定或編排支援。您必須使用系統管理員或 CLI。</block>
   <block id="76872305ddb703eedd7fbe3e66263d83" category="doc">為Cloud Volumes ONTAP設定儲存虛擬機器災難復原</block>
   <block id="d25bf5fb042a0cc652d82492e5410fb6" category="paragraph">NetApp Console不提供儲存虛擬機器 (SVM) 災難復原的設定或編排支援。若要執行這些任務，請使用ONTAP System Manager 或ONTAP CLI。</block>
@@ -5731,7 +5727,6 @@
   <block id="a53c428d90f592127da49a8d5a558130" category="paragraph">NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。</block>
   <block id="9c2f6d6e4376237ad065b1baa0ad822d" category="paragraph">訂閱現已連結至您的控制台組織或帳戶，並可在建立Cloud Volumes ONTAP工作環境時進行選擇。</block>
   <block id="10d2905ee5dfcb309d64e3633fb774c1" category="paragraph">如果您想要變更訂閱服務等級的承諾容量，您可以直接從控制台向NetApp傳送請求。請求服務等級的額外容量可為Cloud Volumes ONTAP系統提供更多儲存空間。</block>
-  <block id="e45b542fbde799582edd5059bc1991a9" category="list-text">對於要調整容量的訂閱，請按一下 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 並選擇*查看詳細資訊和編輯*。</block>
   <block id="a3a13a09504a7f25eb72dede89db4f24" category="paragraph">Digital Advisor儀表板可讓您監控Keystone訂閱使用情況並產生報告。</block>
   <block id="e29343f0ee1c0051a367e02b49c1c5ff" category="paragraph">如果您不再想將Keystone訂閱與控制台一起使用，您可以取消訂閱連結。請注意，您只能取消連結未附加至現有Cloud Volumes ONTAP訂閱的訂閱。</block>
   <block id="0e1096776546966fb22c4752766d55a9" category="paragraph">該訂閱已與您的控制台組織或帳戶取消鏈接，並且在創建Cloud Volumes ONTAP工作環境時不再可供選擇。</block>
@@ -6438,4 +6433,9 @@
   <block id="fe4b627e339ef56fd051464a11d7b4aa" category="paragraph"><block ref="fe4b627e339ef56fd051464a11d7b4aa" category="inline-link-macro-rx"></block></block>
   <block id="9472db468c3c681023f3ca03b59df38b" category="list-text">如果您擁有 BYOL 授權並透過市集簽訂了年度合約，您的使用量和超額使用量將根據您設定的計費偏好收取費用。若要了解您的收費方式，請參閱 <block ref="0b707007d6575618559747cfb2737b16" category="inline-link-macro-rx"></block>。</block>
   <block id="403f4a170e2d1c03d329e0f0dd8d1b84" category="section-title">2026 年 4 月 13 日</block>
+  <block id="b3590df4b69c4ddf7017e6977baebe49" category="list-text">對於要關聯的訂閱，請選擇 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 並選擇 *Link* 。</block>
+  <block id="665103db45058514d7e3b032c990783d" category="list-text">對於要調整容量的訂閱，請選擇 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 並選擇 *View detail and edit* 。</block>
+  <block id="f638b98047aa1e2c9642d2de1bcdd0d0" category="list-text">向下捲動，輸入請求的任何其他詳細資訊，然後選擇 *Submit* 。</block>
+  <block id="dc96e19fba7ac18b79e69398a4792825" category="list-text">對於您要取消連結的訂閱，請選取 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 並選取 *Unlink*。</block>
+  <block id="5e5b6fbbd6a3b4edf3913541e4fecf17" category="list-text"><block ref="5e5b6fbbd6a3b4edf3913541e4fecf17" category="inline-link-rx"></block></block>
 </blocks>
