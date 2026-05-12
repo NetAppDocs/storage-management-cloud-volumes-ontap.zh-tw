@@ -220,33 +220,27 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 .步驟
 . 使用下列 API 呼叫取得 Azure 訂閱中的金鑰保管庫清單。
 +
-對於 HA 對： `GET /azure/ha/metadata/vaults`
+https://docs.netapp.com/us-en/console-automation/cvo/get-azure-ha-metadata-keys-vault.html["對於 HA 配對"^]: `GET /azure/ha/metadata/vaults`
 
 +
-對於單節點： `GET /azure/vsa/metadata/vaults`
+https://docs.netapp.com/us-en/console-automation/cvo/get-azure-vsa-metadata-keys-vault.html["對於單一節點"^]: `GET /azure/vsa/metadata/vaults`
 
 +
 記下*名稱*和*資源組*。您需要在下一個步驟中指定這些值。
 
-+
-https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-hametadata["了解有關此 API 呼叫的更多信息"^] 。
-
 . 使用以下 API 呼叫取得保管庫中的金鑰清單。
 +
-對於 HA 對： `GET /azure/ha/metadata/keys-vault`
+對於 HA 配對： `GET /azure/ha/metadata/keys-vault?resourceGroupName=KeyVaultResourceGroup&vaultName=KeyVault`
 
 +
-對於單節點： `GET /azure/vsa/metadata/keys-vault`
+對於單一節點： `GET /azure/vsa/metadata/keys-vault?resourceGroupName=KeyVaultResourceGroup&vaultName=KeyVault`
 
 +
 記下*keyName*。您需要在下一個步驟中指定該值（以及保險庫名稱）。
 
-+
-https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-hametadata["了解有關此 API 呼叫的更多信息"^] 。
-
 . 使用下列 API 呼叫建立Cloud Volumes ONTAP系統。
 +
-.. 對於 HA 對：
+.. 對於 HA 配對，請使用 https://docs.netapp.com/us-en/console-automation/cvo/post-azure-ha-working-environments.html["此 API 呼叫"^]：
 +
 `POST /azure/ha/working-environments`
 
@@ -265,10 +259,7 @@ https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-
 
 NOTE: 包括 `"userAssignedIdentity": " userAssignedIdentityId"`如果您建立此資源是為了用於儲存帳戶加密，則欄位。
 
-+
-https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-haworking-environments["了解有關此 API 呼叫的更多信息"^] 。
-
-.. 對於單節點系統：
+.. 對於單節點系統，請使用  https://docs.netapp.com/us-en/console-automation/cvo/post-azure-vsa-working-environments.html["此 API 呼叫"^]：
 +
 `POST /azure/vsa/working-environments`
 
@@ -287,12 +278,14 @@ https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-
 
 NOTE: 包括 `"userAssignedIdentity": " userAssignedIdentityId"`如果您建立此資源是為了用於儲存帳戶加密，則欄位。
 
-+
-https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-vsaworking-environments["了解有關此 API 呼叫的更多信息"^] 。
-
 
 
 
 
 .結果
 您有一個新的Cloud Volumes ONTAP系統，該系統配置為使用客戶管理的金鑰進行資料加密。
+
+.相關連結
+* https://docs.netapp.com/us-en/console-automation/cm/wf_cvo_before.html["準備使用 Cloud Volumes ONTAP API 工作流程"^]。
+* https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-haworking-environments["了解 ONTAP 管理 REST API"^]。
+
