@@ -1,16 +1,5 @@
----
-sidebar: sidebar 
-permalink: task-quick-deploy-aws.html 
-keywords: aws quick deploy, quick deploy, aws, single screen deployment AWS, SAZ, MAZ, single node, HA pair 
-summary: 您可以在單一系統設定中或 AWS 中以 HA 對的形式快速部署Cloud Volumes ONTAP實例。 
----
-= 使用快速建立部署 Cloud Volumes ONTAP
-:hardbreaks:
+= 
 :allow-uri-read: 
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ./media/
 
 
 [role="lead"]
@@ -176,6 +165,18 @@ TIP: 如果您想利用 WORM 和資料分層，則必須停用備份和還原並
 . 檢查或編輯您輸入的詳細信息，然後點擊*建立*。
 
 
+ifdef::azure[]
+
+在 _Azure_ 中，*概述* 部分顯示部署程序完成後將指派的資源。
+
+endif::azure[]
+
+ifdef::aws[]
+
+在 _AWS_ 中，建立 Cloud Volumes ONTAP 系統後，NetApp Console 會立即在指定的 VPC 中啟動測試執行個體來驗證連線性。如果連線成功，Console 會立即終止該執行個體，然後開始部署系統。如果 Console 無法驗證連線性，則系統建立失敗。測試執行個體可以是 `t2.nano`（適用於預設 VPC 租用）或 `m3.medium`（適用於專用 VPC 租用）。
+
+endif::aws[]
+
 .完成後
 控制台部署Cloud Volumes ONTAP系統。您可以在審核頁面上追蹤進度。
 
@@ -183,8 +184,3 @@ TIP: 如果您想利用 WORM 和資料分層，則必須停用備份和還原並
 
 
 CAUTION: 部署程序完成後，請勿在 AWS 或 Azure 雲端入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，尤其是系統標籤。對這些配置進行的任何變更都可能導致意外行為或資料遺失。
-
-.相關連結
-* link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"] *
-* link:task-deploying-otc-aws.html["使用進階部署在 AWS 中部署Cloud Volumes ONTAP"]
-

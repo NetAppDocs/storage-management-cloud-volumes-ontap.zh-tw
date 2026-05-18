@@ -5,7 +5,7 @@ settings:
     release_notes_repo: console-relnotes
   harmony_integration: maestro
   internal:
-    pdf_enabled: true
+    pdf_enabled: false
   prod:
     pdf_enabled: true
     harmony_enabled: false
@@ -67,9 +67,9 @@ sidebar:
         url: "/task-set-up-iam-roles.html"
       - title: 設定許可
         url: "/task-set-up-licensing-aws.html"
-      - title: 在 AWS 中使用Cloud Volumes ONTAP 的快速部署方法
+      - title: 在 AWS 中使用預設值部署 Cloud Volumes ONTAP
         url: "/task-quick-deploy-aws.html"
-      - title: 在 AWS 中使用Cloud Volumes ONTAP的進階部署方法
+      - title: 在 AWS 中部署具有進階選項的 Cloud Volumes ONTAP
         url: "/task-deploying-otc-aws.html"
       - title: 在 AWS Secret 區域部署Cloud Volumes ONTAP
         url: "/task-getting-started-aws-c2s.html"
@@ -94,7 +94,9 @@ sidebar:
           url: "/task-azure-high-availability-mode.html"
         - title: 為單一可用區域啟用 VMOrchestratorZonalMultiFD
           url: "/task-saz-feature.html"
-        - title: 在 Azure 中啟動Cloud Volumes ONTAP
+        - title: 在 Azure 中使用預設值部署 Cloud Volumes ONTAP
+          url: "/task-quick-deploy-azure.html"
+        - title: 在 Azure 中部署具有進階選項的 Cloud Volumes ONTAP
           url: "/task-deploying-otc-azure.html"
         - title: 驗證 Azure 平台映像
           entries:
