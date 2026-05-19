@@ -194,11 +194,11 @@ network interface service-policy remove-service -vserver <svm-name> -policy defa
 network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-dns-client
 network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ldap-client
 network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-nis-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service data-fpolicy-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ad-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-dns-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ldap-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-nis-client
 network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
 network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
 network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
@@ -250,7 +250,7 @@ network interface create -auto-revert true -vserver svm_2 -service-policy defaul
 +
 [source, cli]
 ----
-network interface create -vserver svm_2 -service-policy default-data-blocks -home-port e0a -address private_ip -netmask nodei1Mask -lif ip_node1_iscsi_2 -home-node cvo-node1
+network interface create -vserver svm_2 -service-policy default-data-iscsi -home-port e0a -address private_ip -netmask nodei1Mask -lif ip_node1_iscsi_2 -home-node cvo-node1
 ----
 +
 ** 此 iSCSI LIF 需要支援儲存虛擬機器中浮動 IP 的 LIF 遷移。它不必是 iSCSI LIF，但不能配置為在節點之間遷移。
@@ -262,7 +262,7 @@ network interface create -vserver svm_2 -service-policy default-data-blocks -hom
 +
 [source, cli]
 ----
-network interface create -vserver svm_2 -service-policy default-data-blocks -home-port e0a -address private_ip -netmaskNode2Mask -lif ip_node2_iscsi_2 -home-node cvo-node2
+network interface create -vserver svm_2 -service-policy default-data-iscsi -home-port e0a -address private_ip -netmaskNode2Mask -lif ip_node2_iscsi_2 -home-node cvo-node2
 ----
 +
 ** 此 iSCSI LIF 需要支援儲存虛擬機器中浮動 IP 的 LIF 遷移。它不必是 iSCSI LIF，但不能配置為在節點之間遷移。
@@ -291,11 +291,11 @@ network interface service-policy remove-service -vserver <svm-name> -policy defa
 network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-dns-client
 network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ldap-client
 network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-nis-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service data-fpolicy-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ad-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-dns-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ldap-client
-network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-nis-client
 network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
 network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
 network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client

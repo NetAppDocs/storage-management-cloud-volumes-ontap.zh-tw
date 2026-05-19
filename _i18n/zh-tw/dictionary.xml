@@ -6524,4 +6524,6 @@
   <block id="690f86e0be68ddfe1eb22f837c53e53c" category="sidebar">在 AWS 中部署具有進階選項的 Cloud Volumes ONTAP</block>
   <block id="7fa0d9a7585aaeb29c655dac03f5e3d6" category="sidebar">在 Azure 中使用預設值部署 Cloud Volumes ONTAP</block>
   <block id="75903a04d1a65d3e18c839c67b54316d" category="sidebar">在 Azure 中部署具有進階選項的 Cloud Volumes ONTAP</block>
+  <block id="8af1ad3469dad38ef46da37595e3b758" category="inline-link-macro">了解 NetApp Console 的 Licenses and subscriptions 角色</block>
+  <block id="1ccb85040042290f711464fbb5e06609" category="paragraph">*所需 Console 角色* 要執行此任務，您需要 Licenses and subscriptions 管理員角色<block ref="f7bfd1d1e66654a9d76ee2fffeede42a" category="inline-link-macro-rx"></block>。</block>
 </blocks>
