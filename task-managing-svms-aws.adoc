@@ -254,7 +254,7 @@ network interface create -vserver svm_2 -service-policy default-data-iscsi -home
 ----
 +
 ** 此 iSCSI LIF 需要支援儲存虛擬機器中浮動 IP 的 LIF 遷移。它不必是 iSCSI LIF，但不能配置為在節點之間遷移。
-** `-service-policy default-data-block`表示IP位址不會在節點之間遷移。
+** `-service-policy default-data-iscsi` 表示 IP 位址不會在節點之間遷移。
 ** _private_ip_ 是 cvo_node1 的 eth0 (e0a) 上未使用的輔助私有 IP 位址。
 
 
@@ -266,7 +266,7 @@ network interface create -vserver svm_2 -service-policy default-data-iscsi -home
 ----
 +
 ** 此 iSCSI LIF 需要支援儲存虛擬機器中浮動 IP 的 LIF 遷移。它不必是 iSCSI LIF，但不能配置為在節點之間遷移。
-** `-service-policy default-data-block`表示IP位址不會在節點之間遷移。
+** `-service-policy default-data-iscsi` 表示 IP 位址不會在節點之間遷移。
 ** _private_ip_ 是 cvo_node2 的 eth0 (e0a) 上未使用的輔助私有 IP 位址。
 
 

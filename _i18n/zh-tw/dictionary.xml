@@ -3833,7 +3833,6 @@
   <block id="f2feb7d422d422c2517d2196d66d00bc" category="list-text"><block ref="7746ebc5fdfe5251edf41796732ea010" prefix="" category="inline-code"></block>表示 IP 可以遷移到夥伴節點。</block>
   <block id="05bdf9757241650a006a0bd9021d3169" category="list-text">在節點 1 上建立 iSCSI LIF。</block>
   <block id="849dd632a2c28933451bca01b48c3973" category="list-text">此 iSCSI LIF 需要支援儲存虛擬機器中浮動 IP 的 LIF 遷移。它不必是 iSCSI LIF，但不能配置為在節點之間遷移。</block>
-  <block id="d68a88edd93f0fd2099f8bff543a11a3" category="list-text"><block ref="0e101bbae12005006f38a776a7e27d49" prefix="" category="inline-code"></block>表示IP位址不會在節點之間遷移。</block>
   <block id="111daac7647573990b5b56876902380e" category="list-text">_private_ip_ 是 cvo_node1 的 eth0 (e0a) 上未使用的輔助私有 IP 位址。</block>
   <block id="5414bcb74ffdbf70d2afb028e1eb0d0b" category="list-text">在節點 2 上建立 iSCSI LIF。</block>
   <block id="0a2292629d42074cb011142b9cd8f433" category="list-text">_private_ip_ 是 cvo_node2 的 eth0 (e0a) 上未使用的輔助私有 IP 位址。</block>
@@ -6526,4 +6525,5 @@
   <block id="75903a04d1a65d3e18c839c67b54316d" category="sidebar">在 Azure 中部署具有進階選項的 Cloud Volumes ONTAP</block>
   <block id="8af1ad3469dad38ef46da37595e3b758" category="inline-link-macro">了解 NetApp Console 的 Licenses and subscriptions 角色</block>
   <block id="1ccb85040042290f711464fbb5e06609" category="paragraph">*所需 Console 角色* 要執行此任務，您需要 Licenses and subscriptions 管理員角色<block ref="f7bfd1d1e66654a9d76ee2fffeede42a" category="inline-link-macro-rx"></block>。</block>
+  <block id="1c568211164221a5a183fa65ce0d8ad7" category="list-text"><block ref="f5fb311c04d189ade108ad02dc187c52" prefix="" category="inline-code"></block> 表示 IP 位址不會在節點之間遷移。</block>
 </blocks>
