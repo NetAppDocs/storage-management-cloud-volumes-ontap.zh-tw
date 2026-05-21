@@ -6,7 +6,7 @@
 
 === AWS 中 Cloud Volumes ONTAP 和資料服務的彈性計費
 
-NetApp 為您的 AWS Cloud Volumes ONTAP 訂閱提供增強的計費選項,讓您更能控制 Cloud Volumes ONTAP 容量和 NetApp 資料服務(例如 BlueXP backup and recovery)的付費方式。在此之前,所有 Cloud Volumes ONTAP 和資料服務的使用量都透過 AWS Marketplace 中的 NetApp Intelligent Services(NIS)清單一起計費。
+NetApp 在 AWS 中為您的 Cloud Volumes ONTAP 訂閱提供了更進階的計費選項，讓您能更靈活地控制 Cloud Volumes ONTAP 容量與 NetApp 資料服務（例如 NetApp Backup and Recovery）的付款方式。過去，所有 Cloud Volumes ONTAP 及資料服務的使用情形，都是透過 AWS marketplace 中的 NetApp Intelligent Services（NIS）條目一起計費。
 
 由於 AWS 企業折扣方案（EDP）的變更，NetApp 在 AWS Marketplace 中推出了獨立的 Cloud Volumes ONTAP 訂閱，讓您可以將 Cloud Volumes ONTAP 容量的計費與資料服務的計費分開。這種分離方式讓您更靈活地管理 EDP 抵扣額度和成本。NetApp 建議您使用獨立訂閱來更好地管理 Cloud Volumes ONTAP 的使用成本，同時在 2026 年 7 月 31 日 EDP 要求生效後，繼續使用 NIS 訂閱來支付資料服務的計費。
 

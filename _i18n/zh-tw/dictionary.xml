@@ -5759,7 +5759,6 @@
   <block id="1fe428516837eeacfb2efcf589684031" category="list-text">9.12.1 P18</block>
   <block id="60712fb4ddcab7f940097cec71789c95" category="inline-link-macro">Azure 中支援</block>
   <block id="5b4234e88e699bcad5cf3cb47499cc7a" category="admonition">對於中國區域，僅Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA 支援單節點部署。您可以將這些版本升級到Cloud Volumes ONTAP的更高補丁和版本，如下所示<block ref="49fae7188ea01a36257ae97784b414e8" category="inline-link-macro-rx"></block>。如果您想在中國地區部署更高版本的Cloud Volumes ONTAP ，請聯絡NetApp支援。中國地區僅支援直接從NetApp購買的許可證，不提供市場訂閱。</block>
-  <block id="cde8893afeb44f6e80f8c28b3d91be6f" category="admonition">如果所選版本有較新的候選版本、通用版本或修補程式版本，則BlueXP會在建立工作環境時將系統更新至該版本。例如，如果您選擇Cloud Volumes ONTAP 9.16.1 P3 並且 9.16.1 P4 可用，則會發生更新。更新不會從一個版本發生到另一個版本 - 例如，從 9.15 到 9.16。</block>
   <block id="bfac3fe9125d6e450e2abe9717a99a20" category="cell">9.11.1 P20</block>
   <block id="14875de99eeeb97599f38dd52d96437b" category="paragraph">如果您在 Azure 中擁有較低版本的Cloud Volumes ONTAP ，則必須先升級到下一個版本，然後按照支援的升級路徑達到目標版本。例如，如果您有Cloud Volumes ONTAP 9.7 P7，請遵循下列升級路徑：</block>
   <block id="765914ebc72765a6e31ff30ff9088e9c" category="list-text">9.7 P7 -&gt; 9.8 P18</block>
@@ -6396,7 +6395,6 @@
   <block id="dc96e19fba7ac18b79e69398a4792825" category="list-text">對於您要取消連結的訂閱，請選取 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 並選取 *Unlink*。</block>
   <block id="5e5b6fbbd6a3b4edf3913541e4fecf17" category="list-text"><block ref="5e5b6fbbd6a3b4edf3913541e4fecf17" category="inline-link-rx"></block></block>
   <block id="66f0f207e553b92ff141bcd4fe27ad0f" category="doc">AWS 中 Cloud Volumes ONTAP 和資料服務的彈性計費</block>
-  <block id="55abafc1dd088c3ce83eae8e4a747314" category="paragraph">NetApp 為您的 AWS Cloud Volumes ONTAP 訂閱提供增強的計費選項,讓您更能控制 Cloud Volumes ONTAP 容量和 NetApp 資料服務(例如 BlueXP backup and recovery)的付費方式。在此之前,所有 Cloud Volumes ONTAP 和資料服務的使用量都透過 AWS Marketplace 中的 NetApp Intelligent Services(NIS)清單一起計費。</block>
   <block id="c6527bb2f1b87269be16603057b53a2c" category="paragraph">由於 AWS 企業折扣方案（EDP）的變更，NetApp 在 AWS Marketplace 中推出了獨立的 Cloud Volumes ONTAP 訂閱，讓您可以將 Cloud Volumes ONTAP 容量的計費與資料服務的計費分開。這種分離方式讓您更靈活地管理 EDP 抵扣額度和成本。NetApp 建議您使用獨立訂閱來更好地管理 Cloud Volumes ONTAP 的使用成本，同時在 2026 年 7 月 31 日 EDP 要求生效後，繼續使用 NIS 訂閱來支付資料服務的計費。</block>
   <block id="bc5abfb3f56ed8d61846aead3435d204" category="paragraph">AWS 中的獨立 Cloud Volumes ONTAP 訂閱僅支援有效的基於容量的 Essentials 或 Freemium 許可套餐。Professional 套餐不支援。您可以選擇最適合您需求的計費方式：</block>
   <block id="620ae1035cf673b2bf4915b820a55641" category="list-text">*獨立 Cloud Volumes ONTAP 訂閱（建議）*：您可以透過 AWS Marketplace 中的獨立訂閱支付 Cloud Volumes ONTAP 的使用費用，同時繼續透過 NIS 訂閱支付資料服務費用。對於大多數在 NetApp Console 中同時擁有獨立訂閱和 NIS 訂閱並與其 AWS 帳戶相關聯的客戶，這是建議的選擇。</block>
@@ -6526,4 +6524,6 @@
   <block id="8af1ad3469dad38ef46da37595e3b758" category="inline-link-macro">了解 NetApp Console 的 Licenses and subscriptions 角色</block>
   <block id="1ccb85040042290f711464fbb5e06609" category="paragraph">*所需 Console 角色* 要執行此任務，您需要 Licenses and subscriptions 管理員角色<block ref="f7bfd1d1e66654a9d76ee2fffeede42a" category="inline-link-macro-rx"></block>。</block>
   <block id="1c568211164221a5a183fa65ce0d8ad7" category="list-text"><block ref="f5fb311c04d189ade108ad02dc187c52" prefix="" category="inline-code"></block> 表示 IP 位址不會在節點之間遷移。</block>
+  <block id="090499247beb18776ed4674afbd7c45d" category="paragraph">NetApp 在 AWS 中為您的 Cloud Volumes ONTAP 訂閱提供了更進階的計費選項，讓您能更靈活地控制 Cloud Volumes ONTAP 容量與 NetApp 資料服務（例如 NetApp Backup and Recovery）的付款方式。過去，所有 Cloud Volumes ONTAP 及資料服務的使用情形，都是透過 AWS marketplace 中的 NetApp Intelligent Services（NIS）條目一起計費。</block>
+  <block id="3ac842cf432c6d2ce6346cfe9dea6126" category="admonition">如果所選版本有更新的候選版本、正式版或修補程式版本可用，則在建立工作環境時，Console 會將系統更新至該版本。例如，如果您選擇 Cloud Volumes ONTAP 9.16.1 P3，而 9.16.1 P4 可用，則會進行更新。更新不會從一個版本升級到另一個版本，例如，不會從 9.15 升級到 9.16。</block>
 </blocks>
