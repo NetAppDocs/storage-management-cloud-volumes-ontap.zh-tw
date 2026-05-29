@@ -5988,7 +5988,6 @@
   <block id="233af50e7ac5078d6cabb58ab95095b9" category="summary">對於您在 Google Cloud 中的現有部署，您需要將系統升級至 Cloud Volumes ONTAP 9.16.1 或更高版本，然後手動執行轉換工具，將 Google Cloud Deployment Manager 轉換為 Cloud Infrastructure Manager。</block>
   <block id="b9e5aa43ec2007eccaf097117438e531" category="doc">將現有的 Cloud Volumes ONTAP 部署轉換為 Infrastructure Manager</block>
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link">NetApp 支援網站</block>
-  <block id="416146100ffb7fc54fb8a24ca7b63ae8" category="paragraph">過渡工具可在<block ref="33e3c3ba324846178fad333329821dd2" category="inline-link-rx"></block>中使用，並建立下列工件：</block>
   <block id="fe91a45b95e89e219ea69631edff8521" category="list-text">Terraform 工件，儲存於<block ref="b1042b7d7203a022c297b13679f7d1f8" prefix=" " category="inline-code"></block>。</block>
   <block id="787ab3bb526ace3e3d9f5b857facafbf" category="list-text">偵錯記錄儲存在 <block ref="abecaca0429ea0c44adcba537eb94f89" prefix=" " category="inline-code"></block> 目錄中。您需要這些記錄進行疑難排解。<block ref="6ec9e5b046607d57923aee80f990225d" prefix=" " category="inline-code"></block> 儲存貯體儲存 Terraform 記錄。</block>
   <block id="07f770dff2ab3ed070b0fafe70eae22a" category="paragraph">使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系統會將資料和記錄儲存在 Google Cloud Storage 儲存桶中。這些儲存桶可能會產生額外費用，但請勿編輯或刪除儲存桶及其內容：</block>
@@ -6139,7 +6138,6 @@
   <block id="1eee4678eb4e1cadd4e212ce0bba084d" category="section-title">在單節點系統上建立儲存 VM</block>
   <block id="a547059e96288e55a3cd3b932e2c4157" category="paragraph">這些步驟會在單節點系統上建立新的儲存 VM。建立 NAS LIF 需要一個私有 IP 位址，如果您要建立管理 LIF，則需要另一個選用的私有 IP 位址。</block>
   <block id="cc7c35c7684e4d7f8bffed328fc1b629" category="paragraph">根據您的設定和授權類型，您可以透過 NetApp Console 的 API，在單一節點系統或高可用性（HA）組態中建立多個儲存 VM。</block>
-  <block id="9f0e6a06ff24050ef4f1a71b2eb1d838" category="section-title">單節點系統</block>
   <block id="070c7339120bbab9748136420da7e629" category="paragraph">使用下列 API 呼叫在單節點系統上建立儲存 VM。</block>
   <block id="dda2b753a17e4e4abcca100288667de4" category="section-title">管理單節點系統和 HA 配對上的儲存 VM</block>
   <block id="d05761c1dc243186f9c42f463199d5a9" category="list-text">使用下列 API 呼叫重新命名單節點系統上的儲存 VM：</block>
@@ -6526,4 +6524,6 @@
   <block id="1c568211164221a5a183fa65ce0d8ad7" category="list-text"><block ref="f5fb311c04d189ade108ad02dc187c52" prefix="" category="inline-code"></block> 表示 IP 位址不會在節點之間遷移。</block>
   <block id="090499247beb18776ed4674afbd7c45d" category="paragraph">NetApp 在 AWS 中為您的 Cloud Volumes ONTAP 訂閱提供了更進階的計費選項，讓您能更靈活地控制 Cloud Volumes ONTAP 容量與 NetApp 資料服務（例如 NetApp Backup and Recovery）的付款方式。過去，所有 Cloud Volumes ONTAP 及資料服務的使用情形，都是透過 AWS marketplace 中的 NetApp Intelligent Services（NIS）條目一起計費。</block>
   <block id="3ac842cf432c6d2ce6346cfe9dea6126" category="admonition">如果所選版本有更新的候選版本、正式版或修補程式版本可用，則在建立工作環境時，Console 會將系統更新至該版本。例如，如果您選擇 Cloud Volumes ONTAP 9.16.1 P3，而 9.16.1 P4 可用，則會進行更新。更新不會從一個版本升級到另一個版本，例如，不會從 9.15 升級到 9.16。</block>
+  <block id="120dc003edb30e1d44fc4426ef7b9e3d" category="paragraph">過渡工具可在 NetApp 支援網站中找到，它會產生以下文件：</block>
+  <block id="f669698de3cebd29244fce6e24b7e95d" category="section-title">單節點系統</block>
 </blocks>

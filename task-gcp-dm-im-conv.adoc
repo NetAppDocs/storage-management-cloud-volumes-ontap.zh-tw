@@ -17,7 +17,7 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 自 2026 年 2 月 9 日起，Google Cloud 中新的 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 即將棄用 Google Cloud Deployment Manager，改用 Infrastructure Manager。因此，您需要手動執行遷移工具，將現有的 Cloud Volumes ONTAP 部署從 Deployment Manager 遷移到 Infrastructure Manager。此程序只需執行一次，之後您的系統將自動開始使用 Infrastructure Manager。
 
 .關於此任務
-過渡工具可在 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab["NetApp 支援網站"^]中使用，並建立下列工件：
+過渡工具可在 NetApp 支援網站中找到，它會產生以下文件：
 
 * Terraform 工件，儲存於 `conversion_output/deployment_name`。
 * 轉換摘要，已儲存於 `conversion_output/batch_summary_<deployment_name>_<timestamp>.json.`
