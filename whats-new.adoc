@@ -228,7 +228,7 @@ https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series["G
 
 Cloud Volumes ONTAP 9.18.1 及更高版本在 Azure 單可用區和多可用區中的部署支援 Azure 虛擬網路（VNet）加密，作為其分層安全性策略的一部分，用於保護傳輸中的資料。Cloud Volumes ONTAP 利用 Azure 原生資料封包傳輸層安全性（DTLS）協定來保護 ONTAP 節點、管理介面和其他 Azure 服務之間的通訊，防止攔截和未經授權的存取。這種網路級加密與 ONTAP 內建的儲存和靜態資料保護機制相輔相成，為您的資料提供端對端的安全保障。
 
-https://review.docs.netapp.com/us-en/storage-management-cloud-volumes-ontap_gcp-sn-c3-support/reference-networking-azure.html#networking-for-azure-vnet-encryption["Azure VNet 加密的網路"^]
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-azure.html#networking-for-azure-vnet-encryption["Azure VNet 加密的網路"]
 
 
 

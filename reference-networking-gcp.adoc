@@ -524,7 +524,7 @@ NOTE: 為了讓新的 Google Cloud HA 對部署實現較高的寫入速度，VPC
 ** 磁碟大小：100 GB
 ** 指派外部 IP：False
 ** 網路：預設或專用網路。
-** 已配置子網路以存取 http://googleapis.com/["Google API"]。請執行以下步驟以確保子網路可以存取 Google API：
+** 已配置子網路以存取 https://cloud.google.com/apis["Google Cloud API"^]。請執行以下步驟以確保子網路可以存取 Google API：
 +
 ... 請確保已為子網路啟用「Private Google Access」。
 ... 前往 *VPC Network 層級 > Private Service Access 標籤 > Allocated IP ranges for services*。

@@ -142,7 +142,7 @@ PS /home/user1> Get-AzureStorageBlobCopyState –Container $containerName –Con
 wget <URL of filename/Containers/vm-images/9150.01000024.05090105.vhd>
 ----
 +
-URL 遵循標準格式。為了實現自動化，您可以獲得如下所示的 URL 字串。或者，您可以使用 Azure CLI `az`命令來取得 URL。範例 URL：https://examplesaname.bluexpinfraprod.eastus2.data.azurecr.io/vm-images/9150.01000024.05090105.vhd[]
+URL 遵循標準格式。為了實現自動化，您可以如下所示匯出 URL 字串。或者，您可以使用 Azure CLI `az` 命令來取得 URL。範例 URL：+https://examplesaname.bluexpinfraprod.eastus2.data.azurecr.io/vm-images/9150.01000024.05090105.vhd+
 
 . 清理託管磁碟
 +
@@ -256,7 +256,7 @@ PS /home/user1> Remove-AzDisk -ResourceGroupName $diskRG -DiskName $diskName
 wget <URL of file examplesaname/Containers/vm-images/9150.01000024.05090105.vhd>
 ----
 +
-URL 遵循標準格式。為了實現自動化，您可以獲得如下所示的 URL 字串。或者，您可以使用 Azure CLI `az`命令來取得 URL。範例 URL：https://examplesaname.bluexpinfraprod.eastus2.data.azurecr.io/vm-images/9150.01000024.05090105.vhd[]
+URL 遵循標準格式。為了實現自動化，您可以如下所示匯出 URL 字串。或者，您可以使用 Azure CLI `az` 命令來取得 URL。範例 URL：+https://examplesaname.bluexpinfraprod.eastus2.data.azurecr.io/vm-images/9150.01000024.05090105.vhd+
 
 . 清理託管磁碟
 +
