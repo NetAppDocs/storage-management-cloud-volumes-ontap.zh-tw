@@ -1,10 +1,10 @@
-= AWS 中 Cloud Volumes ONTAP 支援新的 EC2 執行個體
+= AWS 中 Cloud Volumes ONTAP 的新 EC2 執行個體支援
 :allow-uri-read: 
 
 
 
 
-=== AWS 中 Cloud Volumes ONTAP 支援新的 EC2 執行個體
+=== AWS 中 Cloud Volumes ONTAP 的新 EC2 執行個體支援
 
 Cloud Volumes ONTAP 9.16.1 及更高版本支援 M6id 和 M6idn EC2 執行個體系列，適用於 AWS 中新建和現有的單節點及高可用性（HA）配對部署。與第五代通用系統相比，這些第六代執行個體提供更快的處理能力、更強大的網路功能和更高的效能。
 
