@@ -6493,7 +6493,6 @@
   <block id="edbf603043ea71af5a3f46821ad9d4a3" category="admonition">部署程序完成後，請勿在 AWS 或 Azure 雲端入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，尤其是系統標籤。對這些配置進行的任何變更都可能導致意外行為或資料遺失。</block>
   <block id="a4ad56ab8baa8582d6dba6091a9bd877" category="doc">簡化 Azure 中的 Cloud Volumes ONTAP 部署</block>
   <block id="8bfd035a33aa401829a9de89b5e0c246" category="paragraph">現在，您可以使用快速建立功能在 Azure 中部署 Cloud Volumes ONTAP，支援單一節點和高可用性 (HA) 設定。與進階方法相比，此簡化流程減少了步驟，在單一頁面上自動設定預設值，並最大限度地減少了導覽，從而使部署更快、更輕鬆。</block>
-  <block id="22f179b38b6aab375d21adc5216a57da" category="admonition">如果您使用快速建立在 Azure 中部署新的 Cloud Volumes ONTAP 系統，NetApp Console 預設會選擇 Azure 憑證。您可以使用初始 Azure 憑證部署所有 Cloud Volumes ONTAP 系統。如果您想使用其他訂閱和/或憑證，則需要切換到進階模式部署。此限制將在未來的版本中解決。</block>
   <block id="da7aee176a6e0989fc4edf2b02e0af34" category="inline-link">使用快速建立在 Azure 中部署 Cloud Volumes ONTAP</block>
   <block id="8928e512cc17b6dd2c97fcb7dff5a06a" category="list-text"><block ref="8928e512cc17b6dd2c97fcb7dff5a06a" category="inline-link-rx"></block></block>
   <block id="6d1c2cdb212ea73452146a3edb82fe12" category="inline-link">使用 Azure 中的進階選項部署 Cloud Volumes ONTAP</block>
@@ -6526,4 +6525,11 @@
   <block id="bc076a99113847f4719da894c77ecddb" category="inline-xref">廣播網域，以及新 NIC 的叢集間 LIF</block>
   <block id="f1d926658b88d28bd7f5b0cf55a6dd7a" category="list-text">儲存 privateIPAddress。此 IP 位址 &lt;new_added_nic_primary_addr&gt; 用於在 <block ref="dad33d52d8c169ff9af931bc22cbdf4c" category="inline-xref-macro-rx"></block> 中建立叢集間 LIF。</block>
   <block id="e8ffd3ffeea761edd5ebf0cfb97c0bb0" category="section-title">[[step-second]]步驟 2：為新 NIC 建立新的 IPspace、廣播網域和叢集間 LIF</block>
+  <block id="f73d059120d4b302e53d6f7bec91ff6d" category="doc">AWS 中 Cloud Volumes ONTAP 支援新的 EC2 執行個體</block>
+  <block id="957b7705b307b4f695a7cdb201c42bcb" category="paragraph">Cloud Volumes ONTAP 9.16.1 及更高版本支援 M6id 和 M6idn EC2 執行個體系列，適用於 AWS 中新建和現有的單節點及高可用性（HA）配對部署。與第五代通用系統相比，這些第六代執行個體提供更快的處理能力、更強大的網路功能和更高的效能。</block>
+  <block id="fa4aff7e4e5120dec944acc145df3c1a" category="list-text">*M6id 實例*：兼具運算和記憶體容量，並配備高速、低延遲的本地 NVMe 儲存。所有 M6id 實例規格均支援 Flash Cache。這些實例非常適合資料記錄和媒體處理等工作負載。</block>
+  <block id="bfe5730fc311788c5b5e63755351140c" category="list-text">*M6idn 執行個體*：提供與 M6id 執行個體相同的本機 NVMe 儲存功能。所有 M6idn 執行個體大小均支援 Flash Cache。</block>
+  <block id="15172b1a76b99972ddc77977722e7eda" category="paragraph">我們不建議將較小尺寸的 m6id.xlarge、m6id.2xlarge、m6idn.xlarge 和 m6idn.2xlarge 執行個體類型用於高效能或記憶體密集型工作負載。對於這些工作負載，請使用具有更高核心數和更大記憶體的執行個體類型。</block>
+  <block id="2723587cecc87d757adc3d7f42677613" category="paragraph">如需詳細資訊，請參閱<block ref="5facb34de99943f35a6951018b8a6bef" category="inline-link-rx"></block>。</block>
+  <block id="3e323562bd488e4cbd90a025b9424181" category="section-title">2026 年 6 月 08 日</block>
 </blocks>
