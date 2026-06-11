@@ -6532,4 +6532,7 @@
   <block id="2723587cecc87d757adc3d7f42677613" category="paragraph">如需詳細資訊，請參閱<block ref="5facb34de99943f35a6951018b8a6bef" category="inline-link-rx"></block>。</block>
   <block id="3e323562bd488e4cbd90a025b9424181" category="section-title">2026 年 6 月 08 日</block>
   <block id="ee679c5a83450dd8f0c139cea8a1cc40" category="doc">AWS 中 Cloud Volumes ONTAP 的新 EC2 執行個體支援</block>
+  <block id="f1e8426ee8789bca46b26081b788d901" category="doc">Cloud Volumes ONTAP 支援新的 Azure 區域</block>
+  <block id="58c64fbe360d29edfbfa0f1e30f23980" category="paragraph">現在您可以在馬來西亞西部（malaysiawest）區域的 Azure 中，在單一和多個可用區部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。這包括對單節點和高可用性（HA）部署的支援。</block>
+  <block id="13a1b8a317b4b6dbe05a3757a911ea12" category="section-title">2026 年 6 月 11 日</block>
 </blocks>
