@@ -452,7 +452,6 @@
   <block id="8b35709cd044db5067d3521df2dcaf1e" category="paragraph">您可以在新增Cloud Volumes ONTAP系統時選擇一個儲存層，之後可以隨時變更它。有關更改儲存層的詳細信息，請參閱<block ref="689d305972679ec3d62f87ce158f78a1" category="inline-link-macro-rx"></block>。</block>
   <block id="a38b9b490932e9d5b5db3e24784ec656" category="paragraph">資料分層的儲存存取層是系統範圍的，而不是每個磁碟區的。</block>
   <block id="3844834e9306a66948e49d6149c5a299" category="section-title">Google Cloud 中的資料分層</block>
-  <block id="f6535844f45781691afa19e3fe67a627" category="paragraph">當您在 Google Cloud 中啟用資料分層時， Cloud Volumes ONTAP會使用持久磁碟作為熱資料的效能層，並使用 Google Cloud Storage 儲存桶作為非活動資料的容量層。</block>
   <block id="3b8940895816a07ee6f7b4cd2d7353e3" category="list-text">效能層可以是 SSD 持久性磁碟、平衡持久性磁碟或標準持久性磁碟。</block>
   <block id="f2bc66356d174d95b97b4e9b8b873540" category="list-text">Cloud Volumes ONTAP系統將非活動資料分層到單一 Google Cloud Storage 儲存桶。</block>
   <block id="c70455c0571fb32b900ce3ff0f662cbf" category="paragraph">控制台為每個系統建立一個儲存桶並將其命名為 fabric-pool-_cluster unique identifier_。不會為每個磁碟區建立不同的儲存桶。</block>
@@ -462,11 +461,6 @@
   <block id="ed2bfa2a7df130888132e9df08fe91a7" category="list-text">存取控制：細粒度</block>
   <block id="59ec9a96a05b9ff668ebee36565638b7" category="list-text">保護：無</block>
   <block id="77d680745644d1c19a022cc0a306f88b" category="list-text">資料加密：Google 管理的金鑰</block>
-  <block id="1a09137ca087e36b72504f4276c7cd08" category="list-text">分層資料的預設儲存類別是「標準儲存」類別。如果資料不經常訪問，您可以透過變更為_Nearline Storage_或_Coldline Storage_來降低儲存成本。當您變更儲存類別時，後續非活動資料將直接移至您選擇的類別。</block>
-  <block id="0d79695d01dd236a00fcb17dec14227f" category="admonition">當您變更儲存類別時，任何現有的非活動資料都將保持預設儲存類別。若要變更現有非活動資料的儲存類別，您必須手動執行指定。</block>
-  <block id="2071f090de049a0bafd6e8e9ebc886a4" category="inline-link">Google Cloud 文件：儲存類別</block>
-  <block id="5cb074dc9cd7d3ff4cc8d81685f4cf8b" category="paragraph">如果您確實存取數據，存取成本會更高，因此在更改儲存類別之前請考慮這一點。要了解更多信息，請參閱<block ref="3f6491f63b376fc9e505b3fd50e825aa" category="inline-link-rx"></block>。</block>
-  <block id="f24b126c7812ed3265acaed1b04b6cd4" category="paragraph">您可以在建立系統時選擇一個儲存層，之後可以隨時變更它。有關更改存儲類別的詳細信息，請參閱<block ref="689d305972679ec3d62f87ce158f78a1" category="inline-link-macro-rx"></block>。</block>
   <block id="238d935e644053bb35c58e2b34583131" category="section-title">資料分層和容量限制</block>
   <block id="2646e089c806882f23bac38369cf85f4" category="paragraph">如果啟用資料分層，系統的容量限制將保持不變。此限制分佈在性能層和容量層。</block>
   <block id="837170b3ba6314929f53008e61dfc57b" category="section-title">卷分層策略</block>
@@ -6535,4 +6529,8 @@
   <block id="f1e8426ee8789bca46b26081b788d901" category="doc">Cloud Volumes ONTAP 支援新的 Azure 區域</block>
   <block id="58c64fbe360d29edfbfa0f1e30f23980" category="paragraph">現在您可以在馬來西亞西部（malaysiawest）區域的 Azure 中，在單一和多個可用區部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。這包括對單節點和高可用性（HA）部署的支援。</block>
   <block id="13a1b8a317b4b6dbe05a3757a911ea12" category="section-title">2026 年 6 月 11 日</block>
+  <block id="7cf6c49769b974e82419eeccae1b1712" category="paragraph">在 Google Cloud 中啟用資料分層後，Cloud Volumes ONTAP 會使用持久磁碟作為熱資料的效能層，並使用 Google Cloud Storage 儲存桶作為非使用中資料的容量層。您可以在建立系統時選擇儲存層，並可隨時變更。有關變更儲存類別的資訊，請參閱 <block ref="689d305972679ec3d62f87ce158f78a1" category="inline-link-macro-rx"></block>。</block>
+  <block id="c3d731221ec9d09a910395abd309640a" category="inline-link">儲存類別</block>
+  <block id="40377bff33838260be995513a1e2c8e6" category="inline-link">Google Cloud 文件：管理物件生命週期</block>
+  <block id="0a69db980802dac8e0b54038dc2364d0" category="list-text">Google Cloud 使用<block ref="ec8949881e2dffa4d0e8750c51cd0497" category="inline-link-rx"></block>來管理成本和資料可用性。我們建議您根據預期的資料存取頻率選擇儲存類別，因為存取資料會產生較高的成本。分層資料的預設儲存類別為 _Standard Storage_。除非手動變更，所有非使用中的資料都將維持預設儲存類別。若要變更非使用中資料的儲存類別，請參閱<block ref="9f653ab672497f99d3217a50d3927264" category="inline-link-rx"></block>。</block>
 </blocks>

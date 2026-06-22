@@ -118,7 +118,7 @@ ifdef::gcp[]
 
 == Google Cloud 中的資料分層
 
-當您在 Google Cloud 中啟用資料分層時， Cloud Volumes ONTAP會使用持久磁碟作為熱資料的效能層，並使用 Google Cloud Storage 儲存桶作為非活動資料的容量層。
+在 Google Cloud 中啟用資料分層後，Cloud Volumes ONTAP 會使用持久磁碟作為熱資料的效能層，並使用 Google Cloud Storage 儲存桶作為非使用中資料的容量層。您可以在建立系統時選擇儲存層，並可隨時變更。有關變更儲存類別的資訊，請參閱 link:task-tiering.html["將非活動資料分層到低成本物件存儲"]。
 
 性能層:: 效能層可以是 SSD 持久性磁碟、平衡持久性磁碟或標準持久性磁碟。
 容量層:: Cloud Volumes ONTAP系統將非活動資料分層到單一 Google Cloud Storage 儲存桶。
@@ -137,16 +137,9 @@ ifdef::gcp[]
 
 
 --
-儲存類別:: 分層資料的預設儲存類別是「標準儲存」類別。如果資料不經常訪問，您可以透過變更為_Nearline Storage_或_Coldline Storage_來降低儲存成本。當您變更儲存類別時，後續非活動資料將直接移至您選擇的類別。
+儲存類別:: Google Cloud 使用 https://cloud.google.com/storage/docs/storage-classes["儲存類別"^]來管理成本和資料可用性。我們建議您根據預期的資料存取頻率選擇儲存類別，因為存取資料會產生較高的成本。分層資料的預設儲存類別為 _Standard Storage_。除非手動變更，所有非使用中的資料都將維持預設儲存類別。若要變更非使用中資料的儲存類別，請參閱 https://docs.cloud.google.com/storage/docs/managing-lifecycles["Google Cloud 文件：管理物件生命週期"^]。
 +
 --
-
-NOTE: 當您變更儲存類別時，任何現有的非活動資料都將保持預設儲存類別。若要變更現有非活動資料的儲存類別，您必須手動執行指定。
-
-如果您確實存取數據，存取成本會更高，因此在更改儲存類別之前請考慮這一點。要了解更多信息，請參閱 https://cloud.google.com/storage/docs/storage-classes["Google Cloud 文件：儲存類別"^]。
-
-您可以在建立系統時選擇一個儲存層，之後可以隨時變更它。有關更改存儲類別的詳細信息，請參閱link:task-tiering.html["將非活動資料分層到低成本物件存儲"]。
-
 資料分層的儲存類別是系統範圍的 - 而不是每個磁碟區的。
 
 --
