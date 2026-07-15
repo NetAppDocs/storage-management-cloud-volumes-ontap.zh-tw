@@ -72,6 +72,7 @@ endif::gcp[]
 ====
 
 
+[[configurations-that-support-data-tiering]]
 == 支援資料分層的配置
 
 您可以在使用特定配置和功能時啟用資料分層。
@@ -80,6 +81,7 @@ ifdef::aws[]
 
 
 
+[[support-in-aws]]
 === AWS 支援
 
 * 從Cloud Volumes ONTAP 9.2 開始，AWS 支援資料分層。
@@ -97,6 +99,7 @@ ifdef::azure[]
 
 
 
+[[support-in-azure]]
 === Azure 中的支持
 
 * Azure 支援資料分層，如下所示：
@@ -115,6 +118,7 @@ ifdef::gcp[]
 
 
 
+[[support-in-google-cloud]]
 === Google Cloud 支援
 
 * 從Cloud Volumes ONTAP 9.6 開始，Google Cloud 支援資料分層。
@@ -126,6 +130,7 @@ endif::gcp[]
 
 
 
+[[feature-interoperability]]
 === 功能互通性
 
 * 資料分層由加密技術支援。
@@ -134,6 +139,7 @@ endif::gcp[]
 
 
 
+[[requirements]]
 == 要求
 
 根據您的雲端供應商，必須設定某些連線和權限，以便Cloud Volumes ONTAP可以將冷資料分層到物件儲存。
@@ -142,6 +148,7 @@ ifdef::aws[]
 
 
 
+[[requirements-to-tier-cold-data-to-amazon-s3]]
 === 將冷資料分層至 Amazon S3 的要求
 
 確保 Cloud Volumes ONTAP 已連線至 Amazon S3。提供此連線的最佳方法是建立指向 S3 服務的 VPC 端點。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文件：建立網關終端節點"^]。
@@ -156,6 +163,7 @@ ifdef::azure[]
 
 
 
+[[requirements-to-tier-cold-data-to-azure-blob-storage]]
 === 將冷資料分層到 Azure Blob 儲存體的需求
 
 只要控制台具有所需的權限，您就不需要在效能層和容量層之間建立連線。如果控制台代理程式的自訂角色具有下列權限，則控制台將為您啟用 VNet 服務終端：
@@ -173,6 +181,7 @@ ifdef::gcp[]
 
 
 
+[[requirements-to-tier-cold-data-to-a-google-cloud-storage-bucket]]
 === 將冷資料分層到 Google Cloud Storage 儲存桶的要求
 
 * 必須為Cloud Volumes ONTAP所在的子網路設定私有 Google Access。有關說明，請參閱 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文件：配置私有 Google 存取權限"^]。
@@ -196,6 +205,7 @@ endif::gcp[]
 
 
 
+[[enable-data-tiering-after-implementing-the-requirements]]
 === 實現要求後啟用資料分層
 
 只要沒有連線或權限問題，控制台就會在建立系統時為冷資料建立物件儲存。如果您在建立系統之後才實現上面列出的要求，那麼您將需要透過 API 或ONTAP系統管理員手動啟用分層，從而建立物件儲存。
@@ -205,6 +215,7 @@ NOTE: 透過控制台啟用分層的功能將在未來的Cloud Volumes ONTAP版�
 
 
 
+[[ensure-that-tiering-is-enabled-on-aggregates]]
 == 確保在聚合上啟用分層
 
 必須在聚合上啟用資料分層才能在磁碟區上啟用資料分層。您應該了解新捲和現有捲的要求。
@@ -239,6 +250,7 @@ image:screenshot_aggregate_tiering_enabled.png["螢幕截圖顯示了控制台�
 
 
 
+[[tier-data-from-read-write-volumes]]
 == 來自讀寫卷的層次數據
 
 Cloud Volumes ONTAP可以將讀寫磁碟區上的非活動資料分層到經濟高效的物件儲存中，從而釋放效能層以儲存熱資料。
@@ -273,6 +285,7 @@ image:screenshot_volumes_change_tiering_policy.png["螢幕截圖顯示了可用�
 
 
 
+[[tier-data-from-data-protection-volumes]]
 == 來自資料保護卷的分層數據
 
 Cloud Volumes ONTAP可以將資料從資料保護磁碟區分層到容量層。如果啟動目標卷，資料在讀取時會逐漸移動到效能層。
@@ -294,6 +307,7 @@ image:screenshot_replication_tiering.gif["螢幕截圖顯示了複製磁碟區�
 
 
 
+[[change-the-storage-class-for-tiered-data]]
 == 變更分層資料的儲存類別
 
 部署Cloud Volumes ONTAP後，您可以透過變更 30 天未存取的非活動資料的儲存類別來降低儲存成本。如果您確實存取數據，則存取成本會更高，因此在更改儲存類別之前必須考慮到這一點。
@@ -309,6 +323,7 @@ image:screenshot_replication_tiering.gif["螢幕截圖顯示了複製磁碟區�
 
 
 
+[[change-the-free-space-ratio-for-data-tiering]]
 == 變更資料分層的可用空間比率
 
 資料分層的可用空間比率定義了將資料分層到物件儲存時Cloud Volumes ONTAP SSD/HDD 上需要多少可用空間。預設設定是 10% 的可用空間，但您可以根據需要調整設定。
@@ -336,6 +351,7 @@ image:screenshot-cvo-settings-page.png["Cloud Volumes ONTAP容量設定概述。
 
 
 
+[[change-the-cooling-period-for-the-auto-tiering-policy]]
 == 更改自動分層策略的冷卻期
 
 如果您使用自動分層策略在Cloud Volumes ONTAP磁碟區上啟用了資料分層，則可以根據業務需求調整預設冷卻期。僅使用ONTAP CLI 和 API 支援此操作。
@@ -354,6 +370,7 @@ image:screenshot-cvo-settings-page.png["Cloud Volumes ONTAP容量設定概述。
 
 
 
+[[remove-an-s3-bucket-on-decommissioning-a-system]]
 == 在系統退役時刪除 S3 儲存桶
 
 當您退役環境時，您可以刪除包含來自Cloud Volumes ONTAP系統的分層資料的 S3 儲存桶。

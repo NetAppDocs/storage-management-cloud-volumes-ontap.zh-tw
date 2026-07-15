@@ -82,6 +82,7 @@ TIP: 如果您的Cloud Volumes ONTAP系統已按容量收費，或任何要求�
 
 
 
+[[pricing-in-different-hyperscalars]]
 == 不同超標量中的定價
 
 有關定價的詳細信息，請訪問 https://bluexp.netapp.com/pricing/["NetApp Console網站"^]。

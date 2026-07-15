@@ -18,6 +18,7 @@ summary: 勒索軟體攻擊會浪費企業的時間、資源和聲譽。控制�
 
 
 
+[[protection-from-common-ransomware-file-extensions]]
 == 防禦常見勒索軟體檔案副檔名
 
 控制台上的勒索軟體防護設定可讓您利用ONTAP FPolicy 功能來防禦常見的勒索軟體檔案擴充類型。
@@ -57,6 +58,7 @@ image:screenshot_ransomware_protection.gif["螢幕截圖顯示了系統內部可
 
 
 
+[[autonomous-ransomware-protection]]
 == 自主勒索軟體防護
 
 Cloud Volumes ONTAP支援自主勒索軟體防護 (ARP) 功能，可對工作負載進行分析，以主動偵測並警告可能表明勒索軟體攻擊的異常活動。

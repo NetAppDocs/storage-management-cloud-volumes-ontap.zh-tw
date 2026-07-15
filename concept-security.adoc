@@ -18,6 +18,7 @@ Cloud Volumes ONTAP支援資料加密並提供防毒和勒索軟體的保護。
 
 
 
+[[encryption-of-data-at-rest]]
 == 靜態資料加密
 
 Cloud Volumes ONTAP支援以下加密技術：
@@ -50,6 +51,7 @@ endif::gcp[]
 
 
 
+[[netapp-encryption-solutions-nve-and-nae]]
 === NetApp加密解決方案（NVE 和 NAE）
 
 Cloud Volumes ONTAP支持 https://www.netapp.com/pdf.html?item=/media/17070-ds-3899.pdf["NetApp磁碟區加密 (NVE) 與NetApp聚合加密 (NAE)"^]。  NVE 和 NAE 是基於軟體的解決方案，可實現符合 (FIPS) 140-2 標準的磁碟區靜態資料加密。  NVE 和 NAE 都使用 AES 256 位元加密。
@@ -93,6 +95,7 @@ ifdef::aws[]
 
 
 
+[[aws-key-management-service]]
 === AWS 金鑰管理服務
 
 在 AWS 中啟動Cloud Volumes ONTAP系統時，您可以使用 http://docs.aws.amazon.com/kms/latest/developerguide/overview.html["AWS 金鑰管理服務 (KMS)"^]。  NetApp Console使用客戶主金鑰 (CMK) 請求資料金鑰。
@@ -108,6 +111,7 @@ ifdef::azure[]
 
 
 
+[[azure-storage-service-encryption]]
 === Azure 儲存服務加密
 
 使用以下方式在 Azure 中的Cloud Volumes ONTAP上自動加密數據 https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview["Azure 儲存服務加密"^]使用 Microsoft 管理的金鑰。
@@ -120,6 +124,7 @@ ifdef::gcp[]
 
 
 
+[[google-cloud-platform-default-encryption]]
 === Google Cloud Platform 預設加密
 
 https://cloud.google.com/security/encryption-at-rest/["Google Cloud Platform 靜態資料加密"^]對於Cloud Volumes ONTAP ，預設為啟用。無需設定。
@@ -130,6 +135,7 @@ endif::gcp[]
 
 
 
+[[ontap-virus-scanning]]
 == ONTAP病毒掃描
 
 您可以使用ONTAP系統上的整合防毒功能來保護資料免受病毒或其他惡意程式碼的侵害。
@@ -142,6 +148,7 @@ ONTAP病毒掃描（稱為「Vscan」）將一流的第三方防毒軟體與ONTA
 
 
 
+[[ransomware-protection]]
 == 勒索軟體防護
 
 勒索軟體攻擊會浪費企業的時間、資源和聲譽。控制台使您能夠實施針對勒索軟體的NetApp解決方案，該解決方案提供了有效的可見性、檢測和補救工具。

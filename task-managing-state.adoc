@@ -18,6 +18,7 @@ summary: 您可以從NetApp Console停止並啟動Cloud Volumes ONTAP來管理�
 
 
 
+[[scheduling-automatic-shutdowns-of-cloud-volumes-ontap]]
 == 安排Cloud Volumes ONTAP自動關閉
 
 您可能想要在特定時間間隔內關閉Cloud Volumes ONTAP以降低運算成本。您無需手動執行此操作，而是可以將控制台配置為在特定時間自動關閉然後重新啟動系統。
@@ -63,6 +64,7 @@ image:screenshot_schedule_downtime_window.png["螢幕截圖：顯示計劃停機
 
 
 
+[[stopping-cloud-volumes-ontap]]
 == 停止Cloud Volumes ONTAP
 
 停止Cloud Volumes ONTAP可節省計算成本並建立根磁碟和啟動磁碟的快照，這有助於排除故障。

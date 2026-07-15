@@ -4,6 +4,7 @@
 
 
 
+[[private-mode-deployments-enabled-for-cloud-volumes-ontap-9-14-1]]
 === 為Cloud Volumes ONTAP 9.14.1 啟用私有模式部署
 
 現在您可以在 AWS、Azure 和 Google Cloud 中以私有模式部署Cloud Volumes ONTAP 9.14.1。  Cloud Volumes ONTAP 9.14.1 的單節點和高可用性 (HA) 部署均啟用私有模式。

@@ -18,18 +18,21 @@ summary: 一些Cloud Volumes ONTAP配置包括本地 NVMe 存儲， Cloud Volume
 
 
 
+[[whats-flash-cache]]
 == 什麼是快閃記憶體？
 
 Flash Cache 透過即時智慧型快取最近讀取的使用者資料和NetApp元資料來加快資料存取速度。它對於隨機讀取密集型工作負載（包括資料庫、電子郵件和文件服務）非常有效。
 
 
 
+[[supported-configurations]]
 == 支援的配置
 
 特定的Cloud Volumes ONTAP設定支援 Flash Cache。查看支援的配置 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP發行說明"^]
 
 
 
+[[limitations]]
 == 限制
 
 ifdef::aws[]

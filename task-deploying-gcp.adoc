@@ -18,6 +18,7 @@ summary: 您可以在單一系統設定中啟動Cloud Volumes ONTAP ，也可以
 
 
 
+[[before-you-begin]]
 == 開始之前
 
 開始之前您需要以下內容。
@@ -27,7 +28,7 @@ summary: 您可以在單一系統設定中啟動Cloud Volumes ONTAP ，也可以
 +
 ** 你應該有一個 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["與您的系統關聯的控制台代理"^]。
 ** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您應該準備好讓控制台代理程式始終處於運行狀態"^] 。
-** 與控制台代理程式關聯的服務帳戶 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["應該具有所需的權限"^]
+** 與 Console 代理程式關聯的服務帳戶 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["應該具有所需的權限"^]。
 
 
 * 了解您想要使用的配置。
@@ -51,6 +52,7 @@ link:task-set-up-licensing-google.html["了解如何設定許可"] 。
 
 
 
+[[launch-a-single-node-system-in-google-cloud]]
 == 在 Google Cloud 啟動單節點系統
 
 在NetApp Console中建立一個系統以在 Google Cloud 中啟動Cloud Volumes ONTAP 。
@@ -280,6 +282,7 @@ CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系
 
 
 
+[[launch-an-ha-pair-in-google-cloud]]
 == 在 Google Cloud 中啟動 HA 對
 
 在控制台中建立一個系統以在 Google Cloud 中啟動Cloud Volumes ONTAP 。
@@ -288,7 +291,7 @@ CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
 . 在*系統*頁面上，按一下*儲存>系統*並按照提示進行操作。
 . *選擇位置*：選擇*Google Cloud*和* Cloud Volumes ONTAP HA*。
-. *詳細資料和憑證*：選擇一個項目，指定一個群集名稱，可選地選擇一個服務帳戶，可選地新增標籤，然後指定憑證。
+. *系統詳情*：選擇一個專案，指定叢集名稱，可選擇服務帳戶，可選擇新增標籤，然後指定憑證。
 +
 下表描述了您可能需要指導的欄位：
 
@@ -298,41 +301,40 @@ CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系
 | 場地 | 描述 
 
 
+| Google Cloud 專案和 Marketplace 訂閱  a| 
+選擇要用於此系統的 Google 專案和訂閱。這是您為 Console 設定的服務帳號。如需相關資訊，請參閱 link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["主控台設定文件"^]。Console 使用專案建立 Cloud Volumes ONTAP 系統，並使用訂閱確定計費和使用情況。如果在下拉清單中看不到任何其他專案，則表示您尚未將該服務帳號與其他專案建立關聯。請前往 Google Cloud Console，開啟 IAM 服務，然後選擇專案。將用於 Console 的角色所對應的服務帳號新增至該專案。您需要為每個專案重複此步驟。
+
+按一下「新增訂閱」將選定的憑證與訂閱關聯。
+
+若要建立隨用隨付的 Cloud Volumes ONTAP 系統，您需要從 Google Cloud Marketplace 中選擇一個與 Cloud Volumes ONTAP 訂閱關聯的 Google Cloud 專案。請參閱 Console 設定文件： https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["將市場訂閱與 Google Cloud 憑證關聯"^]。
+
+
+
 | 系統名稱 | 控制台使用系統名稱來命名Cloud Volumes ONTAP系統和 Google Cloud VM 執行個體。如果您選擇該選項，它也會使用該名稱作為預先定義安全性群組的前綴。 
 
 
 | 服務帳戶名稱 | 如果您打算使用link:concept-data-tiering.html["NetApp Cloud Tiering"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["備份和復原"^]服務，您需要啟用*服務帳戶*開關，然後選擇具有預先定義儲存管理員角色的服務帳戶。 
 
 
-| 添加標籤 | 標籤是您的 Google Cloud 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP系統以及與該系統關聯的 Google Cloud 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文件：標記資源"^]。 
+| 標籤 | 標籤是您的 Google Cloud 資源的元資料。控制台將標籤新增至Cloud Volumes ONTAP系統以及與該系統關聯的 Google Cloud 資源。建立系統時，您可以從使用者介面新增多達四個標籤，然後可以在建立系統後新增更多標籤。請注意，在建立系統時，API 不會將您限制為四個標籤。有關標籤的信息，請參閱 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文件：標記資源"^]。 
 
 
-| 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
-
-
-| 編輯項目  a| 
-選擇您希望 Cloud Volumes ONTAP 所在的專案。
-
-如果下拉清單中沒有顯示其他專案，則表示您尚未將服務帳戶與其他專案建立關聯。請前往 Google Cloud Console，開啟 IAM 服務，然後選擇專案。將服務帳戶與您用於 Console 的角色新增至該專案。您需要為每個專案重複此步驟。
-
-
-NOTE: 這是您為控制台設定的服務帳戶，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本頁所述"^] 。
-
-按一下「新增訂閱」將選定的憑證與訂閱關聯。
-
-若要建立按使用量付費的Cloud Volumes ONTAP系統，您需要從 Google Cloud Marketplace 中選擇與Cloud Volumes ONTAP訂閱相關聯的 Google Cloud 專案。參考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["將市場訂閱與 Google Cloud 憑證關聯"^]。
-
+| ONTAP 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
 |===
 . *服務*：選擇您想要在此系統上使用的服務。若要選擇備份和恢復，或使用NetApp Cloud Tiering，您必須在步驟 3 中指定服務帳戶。
 +
 
 TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
 
-. *HA 部署模型*：為 HA 配置選擇多個區域（建議）或單一區域。然後選擇區域和分區。
+. *部署拓樸*：HA 設定可以選擇多個可用區 (AZ)（建議）或單一 AZ。
 +
 link:concept-ha-google-cloud.html["了解有關 HA 部署模型的更多信息"^] 。
 
-. *連線性*：為 HA 設定選擇四個不同的 VPC，每個 VPC 中選擇一個子網，然後選擇一個防火牆策略。
+. *網路配置和連線*：選擇相關的區域和可用區。為 HA 配置選擇四個不同的 VPC，每個 VPC 中選擇一個子網路，然後選擇防火牆原則。
++
+
+NOTE: Cloud Volumes ONTAP 9.19.1 及更高版本支援link:concept-ha-google-cloud.html["用於單一可用區高可用性配置的共用磁碟"]，使中介器執行個體成為選用項目。在此配置中，您無需輸入中介器區域、對應的 VPC 和子網路即可進行資料複製。
+
 +
 link:reference-networking-gcp.html["了解有關網絡要求的更多信息"^] 。
 
@@ -364,7 +366,7 @@ link:reference-networking-gcp.html["了解有關網絡要求的更多信息"^] �
 
 . *預先配置套件*：選擇其中一個套件來快速部署Cloud Volumes ONTAP系統，或點擊*建立我自己的設定*。
 +
-如果您選擇其中一個套餐，您只需指定一個卷，然後審核並批准配置。
+如果您選擇其中一個套件，只需指定一個磁碟區，然後審核並核准組態即可。預先配置套件會根據所選的 Cloud Volumes ONTAP 版本和組態類型而有所不同。例如，如果您選擇 Cloud Volumes ONTAP 9.19.1 或更新版本的單一 AZ 部署，則可以看到包含 C3 系列機器和 Hyperdisk Balanced 磁碟的預先配置套件。對於舊版和多個 AZ，您仍然可以選擇 n2-standard 機器和 Persistent Disks。您可以根據工作負載需求修改組態，例如 IOPS 和輸送量參數。
 
 . *許可*：根據需要變更Cloud Volumes ONTAP版本並選擇機器類型。
 +

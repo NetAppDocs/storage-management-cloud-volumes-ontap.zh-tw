@@ -18,6 +18,7 @@ summary: 您可以在單一系統設定中或作為 AWS 中的 HA 對啟動Cloud
 
 
 
+[[before-you-begin]]
 == 開始之前
 
 開始之前您需要以下內容。
@@ -45,6 +46,7 @@ link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
 
 
 
+[[launch-a-single-node-cloud-volumes-ontap-system-in-aws]]
 == 在 AWS 中啟動單節點Cloud Volumes ONTAP系統
 
 如果您想要在 AWS 中啟動Cloud Volumes ONTAP ，則需要在NetApp Console中建立新系統。
@@ -282,6 +284,7 @@ CAUTION: 部署程序完成後，請勿修改 AWS 雲端入口網站中系統產
 
 
 
+[[launch-a-cloud-volumes-ontap-ha-pair-in-aws]]
 == 在 AWS 中啟動Cloud Volumes ONTAP HA 對
 
 如果您想要在 AWS 中啟動Cloud Volumes ONTAP HA 對，則需要在控制台中建立 HA 系統。

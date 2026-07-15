@@ -133,7 +133,9 @@ sidebar:
         url: "/task-setting-up-gcp-encryption.html"
       - title: 設定許可
         url: "/task-set-up-licensing-google.html"
-      - title: 在 Google Cloud 啟動Cloud Volumes ONTAP
+      - title: 在 Google Cloud 中使用預設值部署 Cloud Volumes ONTAP
+        url: "/task-quick-deploy-gcp.html"
+      - title: 使用 Google Cloud 中的進階選項部署 Cloud Volumes ONTAP
         url: "/task-deploying-gcp.html"
       - title: Google Cloud Platform 圖像驗證
         entries:

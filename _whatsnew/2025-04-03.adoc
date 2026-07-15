@@ -4,6 +4,7 @@
 
 
 
+[[support-for-china-regions-for-cloud-volumes-ontap-9-13-1-in-aws]]
 === AWS 中Cloud Volumes ONTAP 9.13.1 對中國區域的支持
 
 現在您可以在中國區域的 AWS 中部署Cloud Volumes ONTAP 9.13.1。這包括對單節點和高可用性 (HA) 部署的支援。僅支援直接從NetApp購買的授權。

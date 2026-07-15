@@ -18,10 +18,12 @@ Cloud Volumes ONTAP高可用性 (HA) 對可在您的雲端環境發生故障時�
 
 
 
+[[ha-components]]
 == HA 組件
 
 
 
+[[ha-single-availability-zone-configuration-with-page-blobs]]
 === 具有頁 Blob 的 HA 單可用區配置
 
 Azure 中的Cloud Volumes ONTAP HA 頁面 blob 設定包含下列元件：
@@ -54,6 +56,7 @@ NOTE: 從Cloud Volumes ONTAP 9.15.0P1 開始，Azure 頁面 blob 不再支援新
 
 
 
+[[ha-single-availability-zone-configuration-with-shared-managed-disks]]
 === 具有共享託管磁碟的 HA 單可用區域配置
 
 在共用託管磁碟上執行的Cloud Volumes ONTAP HA 單可用區配置包括以下元件：
@@ -85,6 +88,7 @@ NOTE: 如果您為符合上述條件的環境選擇進階 SSD 管理磁碟，控
 
 
 
+[[ha-multiple-availability-zone-configuration]]
 === HA 多可用區配置
 
 Azure 中的Cloud Volumes ONTAP HA 多可用區域設定包含下列元件：
@@ -101,6 +105,7 @@ Azure 標準負載平衡器:: 負載平衡器管理傳入Cloud Volumes ONTAP HA 
 
 
 
+[[rpo-and-rto]]
 == RPO 和 RTO
 
 HA 配置可依照以下方式維護資料的高可用性：
@@ -111,6 +116,7 @@ HA 配置可依照以下方式維護資料的高可用性：
 
 
 
+[[storage-takeover-and-giveback]]
 == 儲存接管和交還
 
 與實體ONTAP叢集類似，Azure HA 對中的儲存空間在節點之間共用。與合作夥伴儲存的連接允許每個節點在發生_接管_時存取其他節點的儲存。網路路徑故障轉移機制確保客戶端和主機繼續與倖存節點通訊。當節點重新上線時，合作夥伴將歸還儲存。
@@ -126,6 +132,7 @@ NOTE: 有關哪些特定主機配置支援 ALUA 的信息，請參閱 http://mys
 
 
 
+[[storage-configurations]]
 == 儲存配置
 
 您可以將 HA 對用作主動-主動配置，其中兩個節點都向客戶端提供數據，或用作主動-被動配置，其中被動節點僅在接管主動節點的儲存後才會回應資料請求。

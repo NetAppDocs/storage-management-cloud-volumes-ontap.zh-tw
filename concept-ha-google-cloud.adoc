@@ -18,13 +18,14 @@ Cloud Volumes ONTAP高可用性 (HA) 設定提供無中斷操作和容錯功能�
 
 
 
+[[ha-components]]
 == HA 組件
 
 Google Cloud 中的Cloud Volumes ONTAP HA 設定包含以下元件：
 
 * 兩個Cloud Volumes ONTAP節點，其資料彼此同步鏡像。
 * 中介實例在節點之間提供通訊通道，以協助儲存接管和交還過程。
-* 一個區域或三個區域（建議）。
+* 單一可用區（AZ）或多個可用區/三個可用區（建議）。
 +
 如果您選擇三個區域，則兩個節點和中介器位於單獨的 Google Cloud 區域。
 
@@ -43,7 +44,10 @@ image:diagram_gcp_ha.png["Cloud Volumes ONTAP HA 對及其組件的概念圖。"
 
 
 
+[[mediator]]
 === 調解員
+
+傳統上，Google Cloud 中的 Cloud Volumes ONTAP 高可用性配置採用非共享模型，其中使用中介實例來管理容錯移轉操作或監控節點健康狀況。這需要在 Google Cloud 中建立額外的 VM，並為每個節點配置兩組磁碟。
 
 以下是 Google Cloud 中介實例的一些關鍵細節：
 
@@ -63,6 +67,14 @@ NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 D
 
 
 
+[[shared-disks-for-single-az-ha-configurations]]
+=== 用於單一可用區高可用性配置的共用磁碟
+
+Cloud Volumes ONTAP 9.19.1 及更高版本支援單一 AZ 的共享 HA 配置。在共享 HA 架構中，兩個節點可以共享一個磁碟，因此聚合的建立方式有所不同。不再為兩個 VM 建立兩個磁碟，而是建立一個磁碟並將其附加至 VM。共享 HA 不需要磁碟鏡像。
+
+
+
+[[storage-takeover-and-giveback]]
 == 儲存接管和交還
 
 如果一個節點發生故障，另一個節點可以為其夥伴提供資料以提供持續的資料服務。客戶端可以從夥伴節點存取相同的數據，因為資料已同步鏡像到夥伴節點。
@@ -73,6 +85,7 @@ NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 D
 
 
 
+[[rpo-and-rto]]
 == RPO 和 RTO
 
 HA 配置可依照以下方式維護資料的高可用性：
@@ -89,39 +102,41 @@ HA 配置可依照以下方式維護資料的高可用性：
 
 
 
+[[ha-deployment-models]]
 == HA部署模型
 
 您可以透過在多個區域或單一區域中部署 HA 配置來確保資料的高可用性。
 
-多區域（建議）:: 跨三個區域部署 HA 配置可確保當一個區域內發生故障時資料仍然可用。請注意，與使用單一區域相比，寫入效能略低，但差異很小。
-單區:: 在單一區域中部署時， Cloud Volumes ONTAP HA 配置使用分散放置策略。此策略可確保 HA 配置免受區域內單點故障的影響，而無需使用單獨的區域來實現故障隔離。
+多個可用區（建議）:: 跨三個區域部署 HA 配置可確保當一個區域內發生故障時資料仍然可用。請注意，與使用單一區域相比，寫入效能略低，但差異很小。
+單一可用區:: 當部署在單一可用區域 (AZ) 中時，Cloud Volumes ONTAP HA 組態會採用分散放置原則。此原則可確保 HA 組態免受區域內單點故障的影響，而無需使用個別的區域來實現故障隔離。
 +
 --
 這種部署模型確實降低了您的成本，因為區域之間沒有資料流出費用。
 
+== 高可用性 (HA) 對中的儲存工作原理
+
 --
 
-
-
-
-== HA 對中的儲存工作原理
 
 與ONTAP叢集不同，GCP 中的Cloud Volumes ONTAP HA 對中的儲存不會在節點之間共用。相反，資料在節點之間同步鏡像，以便在發生故障時資料可用。
 
 
 
+[[storage-allocation]]
 === 儲存分配
 
 當您建立新磁碟區並且需要額外的磁碟時，控制台會為兩個節點指派相同數量的磁碟，建立鏡像聚合，然後建立新磁碟區。例如，如果磁碟區需要兩個磁碟，則控制台會為每個節點分配兩個磁碟，總共四個磁碟。
 
 
 
+[[storage-configurations]]
 === 儲存配置
 
 您可以將 HA 對用作主動-主動配置，其中兩個節點都向客戶端提供數據，或用作主動-被動配置，其中被動節點僅在接管主動節點的儲存後才會回應資料請求。
 
 
 
+[[performance-expectations-for-an-ha-configuration]]
 === HA 配置的效能預期
 
 Cloud Volumes ONTAP HA 配置在節點之間同步複製數據，這會消耗網路頻寬。因此，與單節點Cloud Volumes ONTAP配置相比，您可以獲得以下效能：
@@ -134,6 +149,7 @@ Cloud Volumes ONTAP HA 配置在節點之間同步複製數據，這會消耗網
 
 
 
+[[client-access-to-storage]]
 === 客戶端存取儲存
 
 用戶端應使用磁碟區所在節點的資料 IP 位址存取 NFS 和 CIFS 磁碟區。如果 NAS 用戶端使用夥伴節點的 IP 位址存取卷，則流量會在兩個節點之間流動，從而降低效能。
@@ -147,6 +163,7 @@ image::screenshot_mount_option.png[400]
 
 
 
+[[related-links]]
 === 相關連結
 
 * link:reference-networking-gcp.html["了解網路要求"]

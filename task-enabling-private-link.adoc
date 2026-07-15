@@ -18,6 +18,7 @@ Cloud Volumes ONTAP使用 Azure Private Link 連接到其關聯的儲存帳戶�
 
 
 
+[[overview]]
 == 概況
 
 預設情況下， NetApp Console啟用 Azure Private Link 來建立Cloud Volumes ONTAP與其關聯儲存帳戶之間的連線。  Azure 專用連結可保護 Azure 中端點之間的連線並提供效能優勢。
@@ -28,6 +29,7 @@ Cloud Volumes ONTAP使用 Azure Private Link 連接到其關聯的儲存帳戶�
 
 
 
+[[disable-azure-private-links-and-use-service-endpoints-instead]]
 == 停用 Azure Private Links 並改用服務終點
 
 如果您的業務需要，您可以在控制台中變更設置，以便將Cloud Volumes ONTAP配置為使用服務端點而不是 Azure Private Link。變更此設定適用於您建立的新Cloud Volumes ONTAP系統。服務端點僅支援link:https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure 區域對"^]控制台代理程式和Cloud Volumes ONTAP VNet 之間。
@@ -53,18 +55,21 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html#ena
 
 
 
+[[work-with-azure-private-links]]
 == 使用 Azure Private Links
 
 在大多數情況下，您無需執行任何操作即可設定與Cloud Volumes ONTAP 的Azure Private 連結。控制台為您管理 Azure 專用連結。但是如果您使用現有的 Azure 私人 DNS 區域，則需要編輯設定檔。
 
 
 
+[[requirement-for-custom-dns]]
 === 自訂 DNS 的要求
 
 或者，如果您使用自訂 DNS，則需要從自訂 DNS 伺服器建立至 Azure 私人 DNS 區域的條件轉送器。要了解更多信息，請參閱link:https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder["Azure 關於使用 DNS 轉送器的文檔"^]。
 
 
 
+[[how-private-link-connections-work]]
 === 專用連結連接的工作原理
 
 當控制台在 Azure 中部署Cloud Volumes ONTAP時，它會在資源組中建立一個私有端點。私有端點與Cloud Volumes ONTAP 的儲存帳戶相關聯。因此，對Cloud Volumes ONTAP儲存的存取需要透過 Microsoft 主幹網路。
@@ -80,6 +85,7 @@ NOTE: 如果控制台代理程式和Cloud Volumes ONTAP系統部署在不同的 
 
 
 
+[[provide-details-about-your-azure-private-dns]]
 === 提供有關 Azure 專用 DNS 的詳細信息
 
 如果你使用 https://docs.microsoft.com/en-us/azure/dns/private-dns-overview["Azure 專用 DNS"^]，那麼就需要在每個Console代理上修改一個設定檔。否則，控制台無法設定Cloud Volumes ONTAP與其關聯儲存帳戶之間的 Azure Private Link 連線。
@@ -111,6 +117,7 @@ NOTE: 如果控制台代理程式和Cloud Volumes ONTAP系統部署在不同的 
 
 
 
+[[enable-rollback-on-failures]]
 === 啟用故障回滾
 
 如果控制台無法在特定操作中建立 Azure 專用鏈接，它將在沒有 Azure 專用連結連接的情況下完成此操作。建立新系統（單一節點或 HA 對）時，或在 HA 對上執行以下操作時，可能會發生這種情況：建立新聚合、向現有聚合新增磁碟或在超過 32 TiB 時建立新的儲存帳戶。

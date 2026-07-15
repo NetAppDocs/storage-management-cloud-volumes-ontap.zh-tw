@@ -14,7 +14,7 @@ summary: 您可以在單一系統設定中或 AWS 中以 HA 對的形式快速�
 
 
 [role="lead"]
-您可以使用 `Quick create`在 Amazon Web Services (AWS) 和 Microsoft Azure 中部署 Cloud Volumes ONTAP，以便在單一節點和高可用性 (HA) 組態中更快速地部署。與進階方法相比，此簡化程序可在單一頁面上自動設定預設值並將瀏覽降至最低，進而減少部署步驟。
+您可以在 Amazon Web Services （AWS）、Microsoft Azure 和 Google Cloud 上使用 `Quick create`部署 Cloud Volumes ONTAP，以便在單節點和高可用性 （HA） 配置中實現更快速的部署。與進階方法相比，此簡化流程透過在單一頁面上自動設定預設值並減少導覽步驟，從而降低了部署步驟數量。
 
 .開始之前
 開始之前、請確定您擁有下列項目：
@@ -39,6 +39,11 @@ link:task-planning-your-config.html["在 AWS 中規劃您的組態"]
 link:task-planning-your-config-azure.html["在 Azure 中規劃您的組態"]
 
 --
+.Google雲
+--
+link:task-planning-your-config-gcp.html["在 Google Cloud 中規劃您的配置"]
+
+--
 ====
 . 了解 Cloud Volumes ONTAP 的授權要求。如需相關資訊，請參閱：
 +
@@ -52,6 +57,11 @@ link:task-set-up-licensing-aws.html["在 AWS 中設定授權"]
 .Azure
 --
 link:task-set-up-licensing-azure.html["在 Azure 中設定授權"]
+
+--
+.Google雲
+--
+link:task-planning-your-config-gcp.html["在 Google Cloud 中規劃您的配置"]
 
 --
 ====
@@ -69,13 +79,18 @@ link:reference-networking-aws.html["AWS 中的網路需求"]
 link:reference-networking-azure.html["Azure 中的網路需求"]
 
 --
+.Google雲
+--
+link:reference-networking-gcp.html["Google Cloud 中的網路需求"]
+
+--
 ====
 
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
 . [[訂閱]]在 Canvas 頁面上，按一下 *新增系統* 並依照指示進行操作。
-. 選擇您的雲端服務供應商（*Amazon Web Services* 或 *Microsoft Azure*）> *Cloud Volumes ONTAP/Cloud Volumes ONTAP HA* > *Add new*。預設會選取 *Quick create* 選項。
+. 選擇您的雲端服務供應商（*Amazon Web Services*、*Microsoft Azure* 或 *Google Cloud*）> *Cloud Volumes ONTAP/Cloud Volumes ONTAP HA* > *新增項目*。預設會選取 *Quick create* 選項。
 +
 .快速建立選項的範例螢幕擷取畫面
 [%collapsible]
@@ -92,15 +107,20 @@ image:screenshot-aws-quick-create.png["width=500,alt=\"AWS Quick Create\""]
 image:screenshot-azure-quick-create.png["width=500,alt=\"Azure Quick Create\""]
 
 --
+.Google雲
+--
+image:screenshot-quick-start-gcp.png["width=500,alt=\"Google Cloud Quick Create\""]
+
+--
 =====
 ====
 
 
 .系統詳細資料
-. *雲端提供者帳戶/認證*：帳戶和訂閱詳細資料會根據您的 NetApp Console 代理程式自動填入。如果您有多個帳戶或訂閱，請選取您要使用的帳戶或訂閱。如果 NetApp Console 代理程式無法使用，系統會提示您 https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html["建立控制台代理"^]。
+. *雲端提供者帳戶/憑證/Google Cloud 專案*：帳戶和訂閱詳細資訊將根據您的 Console 代理程式自動填入。如果您有多個帳戶或訂閱，請選擇要使用的帳戶或訂閱。如果 Console 代理程式無法使用，系統會提示您 https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html["建立控制台代理"^]。
 . *名稱*：輸入 Cloud Volumes ONTAP 系統的名稱（也稱為叢集名稱）。NetApp Console 使用系統（叢集）名稱來命名 Cloud Volumes ONTAP 系統和 VM 執行個體。如果您選擇該選項，它也會將此名稱用作預先定義安全性群組的前置字元。
 . *ONTAP 認證*：這些是 Cloud Volumes ONTAP 叢集管理員帳戶的認證。您可以使用這些認證透過 ONTAP System Manager 或 ONTAP CLI 連線至 Cloud Volumes ONTAP。您可以保留預設的 _admin_ 使用者名稱，也可以將其變更為自訂使用者名稱。
-. *標籤*：標籤是 AWS 或 Azure 資源的中繼資料。NetApp Console 會將標籤新增至 Cloud Volumes ONTAP 執行個體以及與該執行個體關聯的每個資源。建立 Cloud Volumes ONTAP 系統時，您可以透過使用者介面新增最多 15 個標籤，建立完成後還可以新增更多標籤。更多資訊，請參閱：
+. *標籤/標記*：標籤是 AWS 或 Azure 資源的元資料。Console 會將標籤新增至 Cloud Volumes ONTAP 執行個體以及與該執行個體關聯的每個資源。建立 Cloud Volumes ONTAP 系統時，您可以透過使用者介面新增最多 15 個標籤，建立完成後還可以新增更多標籤。如需更多資訊，請參閱：
 +
 [role="tabbed-block"]
 ====
@@ -112,6 +132,11 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["AWS 文件�
 .Azure
 --
 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json["Azure 文件：標記資源"^]。
+
+--
+.Google雲
+--
+https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud Documentation：標籤和標記"^]。
 
 --
 ====
@@ -129,7 +154,7 @@ https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-res
 ====
 .適用於 AWS
 --
-*VPC*：對於 AWS，請輸入符合您計畫的區域 VPC 及子網路
+*VPC*：對於 AWS，請輸入您計劃部署的區域的 Amazon Virtual Private Cloud (VPC) 網路及其子網路。
 
 .AWS 高可用性
 如果您選擇了 HA 組態，請輸入以下資訊：
@@ -151,7 +176,18 @@ https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-res
 --
 .適用於 Azure
 --
-*VNET*：對於 Azure，請選擇所需的 VNET。
+*VNet*：選擇所需的 Azure 虛擬網路 (VNet)。有關 VNet 需求的資訊，請參閱 link:reference-networking-azure.html#networking-for-azure-vnet-encryption["Azure VNet 加密的網路"]。
+
+--
+.適用於 Google Cloud
+--
+*VPC 與子網路*：對於 Google Cloud，請輸入區域的 Google Virtual Private Cloud (VPC) 網路，以及根據您規劃的部署所需的子網路。
+
+.單一 AZ 或多個 AZ 中的 HA
+如果您選擇了高可用性 （HA） 配置，請輸入以下資訊：*節點 1 和節點 2 以及中介器的區域*：新增這兩個節點和中介器的區域。*連接性* 為 HA 配置選擇四個不同的 VPC，並在每個 VPC 中選擇一個子網路。有關 VPC-1、VPC-2 和 VPC-3 的詳細資訊，請參閱 link:reference-networking-gcp.html#requirements-specific-to-single-node-systems["VPC-1、VPC-2 和 VPC-3 的規則"]。
+
+
+NOTE: Cloud Volumes ONTAP 9.19.1 及更高版本支援 link:concept-ha-google-cloud.html["用於單一可用區高可用性配置的共用磁碟"]，使得中介器執行個體成為可選或冗餘的。在此配置中，資料複製不需要中介器區域、VPC 和子網路。
 
 --
 ====
@@ -185,6 +221,6 @@ TIP: 如果您想利用 WORM 和資料分層，則必須停用備份和還原並
 CAUTION: 部署程序完成後，請勿在 AWS 或 Azure 雲端入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，尤其是系統標籤。對這些配置進行的任何變更都可能導致意外行為或資料遺失。
 
 .相關連結
-* link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"] *
+* link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"]
 * link:task-deploying-otc-aws.html["使用進階部署在 AWS 中部署Cloud Volumes ONTAP"]
 

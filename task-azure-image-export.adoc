@@ -91,6 +91,7 @@ South Central US          southcentralus       (US) South Central US
 
 
 
+[[export-vhd-file-using-the-azure-cloud-shell-on-linux]]
 == 使用 Linux 上的 Azure Cloud Shell 匯出 VHD 文件
 
 從 Azure Cloud Shell，將市場映像匯出至 VHD 檔案（例如，_9150.01000024.05090105.vhd_），然後下載到本機 Linux 系統。執行下列步驟從 Azure 市場取得 VHD 映像。
@@ -155,6 +156,7 @@ PS /home/user1> Remove-AzDisk -ResourceGroupName $diskRG -DiskName $diskName
 
 
 
+[[export-vhd-file-using-the-azure-cli-on-linux]]
 == 使用 Linux 上的 Azure CLI 匯出 VHD 文件
 
 使用本機 Linux 系統的 Azure CLI 將市場映像匯出到 VHD 檔案。

@@ -118,6 +118,7 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 
 
 
+[[prepare-the-environment-for-running-the-tool]]
 == 準備執行工具的環境
 
 執行工具之前，請先執行這些步驟。
@@ -154,6 +155,7 @@ includedPermissions:
 - deploymentmanager.manifests.get
 - iam.serviceAccounts.get
 - storage.buckets.create
+- storage.buckets.get
 - storage.objects.create
 - storage.objects.delete
 - storage.objects.get
@@ -254,6 +256,7 @@ exec -l $SHELL
 ====
 
 
+[[run-the-conversion-tool]]
 == 執行轉換工具
 
 這些步驟適用於 Ubuntu 和 SUSE Linux Enterprise Server 上執行轉換工具。
@@ -313,6 +316,7 @@ CAUTION: 轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment M
 
 
 
+[[roll-back-the-conversion]]
 == 復原轉換
 
 如果您不想繼續轉換，可以按照以下步驟回溯到 Deployment Manager：

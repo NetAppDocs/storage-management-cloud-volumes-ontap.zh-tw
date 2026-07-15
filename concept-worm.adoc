@@ -20,6 +20,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 
 
+[[how-worm-storage-works]]
 == WORM儲存的工作原理
 
 一旦文件被提交到 WORM 存儲，即使保留期已過，也無法修改。防篡改時鐘確定 WORM 檔案的保留期何時結束。
@@ -28,12 +29,14 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 
 
+[[activating-worm-storage]]
 == 啟動 WORM 存儲
 
 如何啟動 WORM 儲存取決於您使用的Cloud Volumes ONTAP版本。
 
 
 
+[[version-9-10-1-and-later]]
 === 版本 9.10.1 及更高版本
 
 從Cloud Volumes ONTAP 9.10.1 開始，您可以選擇在磁碟區層級啟用或停用 WORM。
@@ -46,12 +49,14 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 
 
+[[version-9-10-0-and-earlier]]
 === 版本 9.10.0 及更早版本
 
 新增系統時，您可以在Cloud Volumes ONTAP系統上啟動 WORM 儲存。您從控制台建立的每個磁碟區都啟用了 WORM。您無法停用單一磁碟區上的 WORM 儲存。
 
 
 
+[[committing-files-to-worm]]
 == 將文件提交至 WORM
 
 您可以使用應用程式透過 NFS 或 CIFS 將檔案提交至 WORM，或使用 ONTAP CLI 自動將檔案提交至 WORM。您也可以使用 WORM 可追加檔案來保留增量寫入的資料，例如日誌資訊。如需相關資訊，請參閱 https://docs.netapp.com/us-en/ontap/snaplock/commit-files-worm-state-manual-task.html#commit-files-to-worm-manually["使用 ONTAP SnapLock 將檔案提交至 WORM"^]。
@@ -60,6 +65,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 
 
+[[enabling-worm-on-a-cloud-volumes-ontap-system]]
 == 在Cloud Volumes ONTAP系統上啟用 WORM
 
 您可以在控制台上建立Cloud Volumes ONTAP系統時啟用 WORM 儲存。如果在建立系統時未啟用 WORM，您也可以在系統上啟用 WORM。啟用後，您將無法停用 WORM。
@@ -87,6 +93,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 
 
+[[deleting-worm-files]]
 == 刪除 WORM 文件
 
 您可以使用特權刪除功能刪除保留期內的 WORM 檔案。
@@ -95,6 +102,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 
 
+[[worm-and-data-tiering]]
 == WORM 和資料分層
 
 建立新的Cloud Volumes ONTAP 9.8 系統或更高版本時，您可以同時啟用資料分層和 WORM 儲存。使用 WORM 儲存啟用資料分層可讓您將資料分層到雲端中的物件儲存。
@@ -108,6 +116,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 
 
+[[limitations]]
 == 限制
 
 * Cloud Volumes ONTAP中的 WORM 儲存體在「可信任儲存管理員」模型下運作。雖然 WORM 文件受到保護以防止更改或修改，但即使這些卷包含未過期的 WORM 數據，群集管理員也可以刪除這些卷。

@@ -25,6 +25,7 @@ summary: 如果在啟動初始Cloud Volumes ONTAP系統後需要更多存儲，�
 
 
 
+[[before-you-begin]]
 == 開始之前
 
 關於卷配置的一些注意事項：
@@ -43,6 +44,7 @@ endif::aws[]
 
 
 
+[[create-a-volume]]
 == 創建卷
 
 建立磁碟區最常見的方法是指定所需的磁碟區類型，然後讓控制台為您處理磁碟指派。但您也可以選擇要在其上建立磁碟區的特定聚合。
@@ -219,6 +221,8 @@ ONTAP包含多種儲存效率功能，可減少您所需的總儲存量。  NetA
 
 
 
+[[create-a-volume-on-the-second-node-in-an-ha-configuration]]
+[[create-volume-second-node]]
 == 在 HA 配置中的第二個節點上建立卷
 
 預設情況下，控制台在 HA 配置中的第一個節點上建立磁碟區。如果您需要主動-主動配置，其中兩個節點都向客戶端提供數據，則必須在第二個節點上建立聚合和磁碟區。
@@ -247,6 +251,7 @@ endif::aws[]
 
 
 
+[[after-you-create-a-volume]]
 == 建立磁碟區後
 
 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。

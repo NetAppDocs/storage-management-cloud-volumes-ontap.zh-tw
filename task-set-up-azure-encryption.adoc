@@ -18,6 +18,7 @@ summary: 使用具有 Microsoft 管理金鑰的 Azure 儲存服務加密，資�
 
 
 
+[[data-encryption-overview]]
 == 資料加密概述
 
 Cloud Volumes ONTAP資料在 Azure 中自動使用 https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview["Azure 儲存服務加密"^]。預設實作使用 Microsoft 管理的金鑰。無需設定。
@@ -30,6 +31,7 @@ Cloud Volumes ONTAP資料在 Azure 中自動使用 https://learn.microsoft.com/e
 
 
 
+[[how-data-is-encrypted]]
 === 資料如何加密
 
 控制台使用磁碟加密集，從而可以透過託管磁碟而不是頁面 blob 來管理加密金鑰。任何新的資料磁碟也使用相同的磁碟加密集。較低版本將使用 Microsoft 管理的金鑰，而不是客戶管理的金鑰。
@@ -98,6 +100,7 @@ Cloud Volumes ONTAP的所有 Azure 儲存帳戶均使用客戶管理的金鑰加
 
 
 
+[[key-rotation-in-cloud-volumes-ontap]]
 == Cloud Volumes ONTAP中的金鑰輪換
 
 配置加密金鑰時，必須使用 Azure 入口網站來設定並啟用自動金鑰輪替。建立並啟用新版本的加密金鑰可確保Cloud Volumes ONTAP可以自動偵測並使用最新的金鑰版本進行加密，確保您的資料保持安全而無需人工幹預。
@@ -113,6 +116,7 @@ NOTE: 配置金鑰後，請確保已選擇 https://learn.microsoft.com/en-us/azu
 
 
 
+[[create-a-user-assigned-managed-identity]]
 == 建立使用者分配的託管標識
 
 您可以選擇建立稱為使用者指派的託管識別碼的資源。這樣做可以讓您在建立Cloud Volumes ONTAP系統時加密您的儲存帳戶。我們建議在建立金鑰保管庫和產生金鑰之前建立此資源。
@@ -136,6 +140,7 @@ NOTE: 配置金鑰後，請確保已選擇 https://learn.microsoft.com/en-us/azu
 
 
 
+[[create-a-key-vault-and-generate-a-key]]
 == 建立金鑰保管庫並產生金鑰
 
 金鑰保管庫必須位於您計劃建立Cloud Volumes ONTAP系統的相同 Azure 訂閱和區域中。
@@ -198,6 +203,7 @@ NOTE: 使用 Azure 客戶管理加密金鑰的前提是為金鑰保管庫啟用 
 
 
 
+[[create-a-system-that-uses-the-encryption-key]]
 == 建立使用加密金鑰的系統
 
 建立金鑰保管庫並產生加密金鑰後，您可以建立配置為使用該金鑰的新Cloud Volumes ONTAP系統。這些步驟透過使用 API 來支援。

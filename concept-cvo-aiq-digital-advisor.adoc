@@ -14,10 +14,11 @@ summary: Digital Advisor整合到NetApp Console中，以便您可以在單一管
 
 
 [role="lead"]
-https://www.netapp.com/services/support/active-iq/["Active IQDigital Advisor"]（也稱為Digital Advisor）整合到NetApp Console中，以便您可以在單一管理平台中最佳化Cloud Volumes ONTAP系統的操作、安全性和效能。
+https://www.netapp.com/data-services/digital-advisor/["NetApp Active IQ Digital Advisor"^]（也稱為 Digital Advisor）已整合至 NetApp Console，讓您可以在單一窗格中最佳化 Cloud Volumes ONTAP 系統的作業、安全性和效能。
 
 
 
+[[features]]
 == 特徵
 
 您可以使用Digital Advisor查看儲存系統的整體狀態、有關係統健康狀況的高級資訊、庫存、計劃以及監視清單層級的寶貴見解。
@@ -30,18 +31,21 @@ https://www.netapp.com/services/support/active-iq/["Active IQDigital Advisor"]�
 
 
 
+[[supported-ontap-systems]]
 == 支援的ONTAP系統
 
 Digital Advisor提供您 NSS 帳戶內所有本地ONTAP系統和Cloud Volumes ONTAP系統的資訊。
 
 
 
+[[cost]]
 == 成本
 
 透過控制台使用此服務是免費的。
 
 
 
+[[how-digital-advisor-works-with-netapp-console]]
 == Digital Advisor如何與NetApp Console搭配使用
 
 Digital Advisor使用者介面完全整合在控制台中。
@@ -60,6 +64,7 @@ NOTE: 自 2021 年 12 月 3 日起， NetApp已改用註冊 NSS 帳戶憑證的�
 
 
 
+[[whats-next]]
 == 下一步
 
 請參閱 https://docs.netapp.com/us-en/active-iq/index.html["Digital Advisor文檔"]了解詳情。

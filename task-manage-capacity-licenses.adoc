@@ -27,6 +27,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 
 
+[[how-licenses-are-added-to-netapp-console]]
 == 如何將許可證新增至NetApp Console
 
 從NetApp銷售代表處購買許可證後， NetApp將向您發送一封電子郵件，其中包含序號和其他許可詳細資訊。
@@ -37,6 +38,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 
 
+[[view-the-consumed-capacity-in-your-account]]
 == 查看您帳戶中已消耗的容量
 
 控制台顯示您帳戶中消耗的總容量以及按許可包消耗的容量。這可以幫助您了解收費方式以及是否需要購買額外的容量。
@@ -71,6 +73,7 @@ image:screenshot_cvo_licensing_card.png["width=300 顯示您的Cloud Volumes ONT
 
 
 
+[[viewing-package-details]]
 == 查看包裹詳情
 
 您可以透過在Cloud Volumes ONTAP頁面上切換到傳統模式來查看每個套件使用的容量的詳細資訊。
@@ -90,6 +93,7 @@ image:screenshot_licesning_standard_view.png["切換到標準視圖按鈕的螢�
 
 
 
+[[change-charging-methods]]
 == 改變充電方式
 
 基於容量的許可以_包_的形式提供。建立Cloud Volumes ONTAP系統時，您可以根據業務需求從多個授權包中進行選擇。如果您在建立系統後需求發生變化，您可以隨時更改套餐。例如，您可以從 Essentials 套件變更為 Professional 套件。
@@ -122,6 +126,7 @@ image:screenshot-digital-wallet-charging-method-button.png["控制台中Cloud Vo
 
 
 
+[[download-usage-reports]]
 == 下載使用情況報告
 
 您可以從控制台下載四份使用量報告。這些使用情況報告提供您的訂閱的容量詳細信息，並告訴您如何為Cloud Volumes ONTAP訂閱中的資源付費。可下載的報告會擷取某個時間點的數據，並且可以輕鬆地與他人分享。
@@ -130,52 +135,114 @@ image:screenshot-download-usage-report.png["螢幕截圖顯示了基於Cloud Vol
 
 以下報告可供下載。顯示的容量值以 TiB 為單位。
 
-* *進階用法*：此報告包含以下資訊：
+* *High-level usage*：本報告彙整了您帳戶的總容量使用情況，並按計費方式（預購授權與隨用隨付）進行細分。報告包含以下資訊：
 +
-** 總消耗容量
-** 預先承諾的總容量
-** 總 BYOL 容量
-** 市場合約總容量
-** PAYGO 總容量
+[cols="1,2"]
+|===
+| 欄 | 描述 
 
 
-* * Cloud Volumes ONTAP軟體包使用情況*：此報告包含每個軟體包的以下資訊：
+| 總消耗容量 | 您帳戶中所有 Cloud Volumes ONTAP 系統的總佈建容量。 
+
+
+| 預先承諾的總容量 | 您從 NetApp 購買的總授權容量，包括 BYOL 授權和 Marketplace 合約。此值為 Total BYOL 容量與 Total Marketplace contracts 容量的總和。 
+
+
+| 總 BYOL 容量 | 您直接從 NetApp 購買的自帶授權 (BYOL) 授權所涵蓋的預承諾容量部分。 
+
+
+| 市場合約總容量 | 透過雲端服務提供者的市場購買的年度市場合約或私有報價所涵蓋的預承諾容量部分。 
+
+
+| PAYGO 總容量 | 已消耗容量中未被任何預先承諾授權涵蓋的部分，按隨用隨付（PAYGO）的每小時市場費率計費。 
+|===
+* *Cloud Volumes ONTAP 套件使用量*：本報告提供的容量細分與高階使用量報告相同，但依授權套件進行組織。報告包含以下資訊：
 +
-** 總消耗容量
-** 預先承諾的總容量
-** 總 BYOL 容量
-** 市場合約總容量
-** PAYGO 總容量
+[cols="1,2"]
+|===
+| 欄 | 描述 
 
 
+| 總消耗容量 | 此套件在您帳戶中所有 Cloud Volumes ONTAP 系統上的總佈建容量。 
+
+
+| 預先承諾的總容量 | 您從 NetApp 購買的此套件的授權總容量，包括 BYOL 授權和 Marketplace 合約。此值為 BYOL 總容量與 Marketplace 合約總容量的總和。 
+
+
+| 總 BYOL 容量 | 此套件的預承諾容量部分，由您直接向 NetApp 購買的自帶授權 （BYOL） 授權所涵蓋。 
+
+
+| 市場合約總容量 | 此套餐中預先承諾的容量部分，由年度市場合約或透過雲端供應商市場購買的私有報價所涵蓋。 
+
+
+| PAYGO 總容量 | 此套件中已用容量中未涵蓋於任何預先承諾授權的部分，將按隨用隨付（PAYGO）每小時市場費率計費。 
+|===
 * *儲存虛擬機器使用情況*：此報告顯示收費容量在Cloud Volumes ONTAP系統和儲存虛擬機器 (SVM) 之間的分配。此資訊僅在報告中提供。它包含以下資訊：
 +
-** 系統 ID 和名稱（顯示為 UUID）
-** 雲端
-** NetApp帳號 ID
-** 系統配置
-** SVM 名稱
-** 預配置容量
-** 充電容量匯總
-** 市集計費條款
-** Cloud Volumes ONTAP軟體套件或功能
-** 收費 SaaS 市集訂閱名稱
-** 收費 SaaS 市集訂閱 ID
-** 工作負載類型
+[cols="1,2"]
+|===
+| 欄 | 描述 
 
 
+| 系統 ID 和名稱 | Cloud Volumes ONTAP 系統的唯一識別碼 （UUID） 和顯示名稱。 
+
+
+| 雲端 | 系統部署所在的雲端供應商（例如 AWS、Azure 或 Google Cloud）。 
+
+
+| NetApp帳號 ID | 與系統關聯的 NetApp 帳戶識別碼。 
+
+
+| 系統配置 | 系統的部署組態（例如，單節點或 HA 配對）。 
+
+
+| SVM 名稱 | Cloud Volumes ONTAP 系統中儲存虛擬機器 （SVM） 的名稱。 
+
+
+| 預配置容量 | SVM 上佈建的總容量。 
+
+
+| 充電容量匯總 | SVM 實際計費容量。每個 SVM 都有一個最低計費容量（預設為 4 TiB，但具體數值可能因帳戶而異）。如果 SVM 的已佈建容量等於或低於該最低值，則此值向上取整至最低值；否則，它等於已佈建容量。 
+
+
+| 市集計費條款 | 相關市場訂閱的計費週期（例如，按小時或按年計費）。 
+
+
+| Cloud Volumes ONTAP軟體套件或功能 | 與 SVM 關聯的授權套件或功能（例如，Essentials 或 Professional）。 
+
+
+| 收費 SaaS 市集訂閱名稱 | 用於計費的市集訂閱名稱。 
+
+
+| 收費 SaaS 市集訂閱 ID | 用於計費的市場訂閱唯一識別碼。 
+
+
+| 工作負載類型 | 指示 SVM 的磁碟區是 *Primary*（讀取/寫入），主動用於生產資料，還是 *Secondary*（DP），資料保護目標磁碟區，例如用於備份和複寫的 SnapMirror 複本。 
+|===
 * *磁碟區使用情況*：此報表顯示Cloud Volumes ONTAP系統中如何依磁碟區細分收費容量。控制台中的任何螢幕上均不顯示此資訊。它包括以下資訊：
 +
-** 系統 ID 和名稱（顯示為 UUID）
-** SVN 名稱
-** 卷 ID
-** 卷類型
-** 卷配置容量
+[cols="1,2"]
+|===
+| 欄 | 描述 
+
+
+| 系統 ID 和名稱 | 包含該磁碟區的 Cloud Volumes ONTAP 系統的唯一識別碼 （UUID） 和顯示名稱。 
+
+
+| SVM 名稱 | 包含該磁碟區的儲存虛擬機器 （SVM） 的名稱。 
+
+
+| 卷 ID | 該磁碟區的唯一識別碼。 
+
+
+| 卷類型 | 磁碟區的類型（例如，讀寫或資料保護）。 
+
+
+| 卷配置容量 | 為磁碟區佈建的總容量。 
+|===
 +
 
 NOTE: FlexClone磁碟區不包含在此報表中，因為這些類型的磁碟區不會產生費用。
-
-
 
 
 

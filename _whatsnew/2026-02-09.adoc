@@ -4,6 +4,7 @@
 
 
 
+[[support-for-google-cloud-infrastructure-manager]]
 === 支援 Google Cloud Infrastructure Manager
 
 Cloud Volumes ONTAP 9.16.1 及更高版本現在支援使用 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^]（IM）而非 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^]（DM）來部署 Google Cloud 中的新部署。Google 將在不久的將來棄用 Deployment Manager 作為基礎架構服務，轉而使用更進階的基礎架構管理器。

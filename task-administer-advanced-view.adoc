@@ -18,6 +18,7 @@ Cloud Volumes ONTAP中的高階儲存管理功能可透過ONTAP系統管理器 (
 
 
 
+[[features]]
 == 特徵
 
 您可以使用控制台中的ONTAP系統管理員執行各種儲存管理功能。以下列表包含其中一些功能，但並不詳盡：
@@ -34,6 +35,7 @@ Cloud Volumes ONTAP中的高階儲存管理功能可透過ONTAP系統管理器 (
 
 
 
+[[supported-configurations]]
 == 支援的配置
 
 * 標準雲端區域中的Cloud Volumes ONTAP 9.10.0 及更高版本可透過ONTAP System Manager 進行進階儲存管理。
@@ -42,6 +44,7 @@ Cloud Volumes ONTAP中的高階儲存管理功能可透過ONTAP系統管理器 (
 
 
 
+[[limitations]]
 == 限制
 
 Cloud Volumes ONTAP不支援系統管理器介面中顯示的一些功能：
@@ -55,6 +58,7 @@ Cloud Volumes ONTAP不支援系統管理器介面中顯示的一些功能：
 
 
 
+[[configure-authentication-for-accessing-system-manager]]
 == 配置存取系統管理員的身份驗證
 
 身為管理員，您可以為從控制台存取ONTAP系統管理員的使用者啟動身份驗證。您可以根據ONTAP使用者角色確定正確的存取權限級別，並根據需要啟用或停用身份驗證。如果啟用身份驗證，則使用者每次從控制台存取系統管理員或重新載入頁面時都需要輸入其ONTAP使用者憑證，因為控制台不會在內部儲存憑證。如果您停用身份驗證，使用者可以使用管理員憑證存取系統管理員。
@@ -78,6 +82,7 @@ NOTE: 如果將此值設為*啟用*，則身份驗證將會重置，並且您必
 
 
 
+[[get-started-with-system-manager]]
 == 開始使用系統管理員
 
 您可以從Cloud Volumes ONTAP系統存取ONTAP System Manager。
@@ -97,6 +102,7 @@ image:screenshot_advanced_view.png["顯示系統管理員按鈕的螢幕截圖�
 
 
 
+[[help-with-using-system-manager]]
 == 有關使用系統管理員的協助
 
 如果您需要使用 System Manager 和Cloud Volumes ONTAP 的協助，您可以參考 https://docs.netapp.com/us-en/ontap/index.html["ONTAP文檔"^]以獲得逐步說明。以下是一些可能有幫助的ONTAP文件連結：

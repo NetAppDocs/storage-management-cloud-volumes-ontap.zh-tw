@@ -4,6 +4,7 @@
 
 
 
+[[end-of-availability-for-node-based-licenses]]
 === 基於節點的許可證的可用性終止
 
 NetApp已計劃終止提供 (EOA) 和終止支援 (EOS) Cloud Volumes ONTAP基於節點的授權。從 2024 年 11 月 11 日起，基於節點的許可證的有限可用性已終止。基於節點的授權支援將於 2024 年 12 月 31 日結束。在基於節點的許可證 EOA 之後，您應該使用BlueXP許可證轉換工具過渡到基於容量的許可證。
@@ -14,6 +15,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#
 
 
 
+[[removal-of-node-based-deployments-from-bluexp]]
 === 從BlueXP中刪除基於節點的部署
 
 使用基於節點的許可證部署Cloud Volumes ONTAP系統的選項在BlueXP上已棄用。除少數特殊情況外，您不能對任何雲端提供者的Cloud Volumes ONTAP部署使用基於節點的授權。
@@ -30,6 +32,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#
 
 
 
+[[addition-of-a-cold-tier-for-cloud-volumes-ontap-data-on-azure-blob-storage]]
 === 在 Azure Blob 儲存體上為Cloud Volumes ONTAP資料新增冷層
 
 BlueXP現在可讓您選擇冷層來儲存 Azure Blob 儲存體上的非活動容量層資料。在現有的熱層和冷層中添加冷層可為您提供更實惠的儲存選項並提高成本效率。
@@ -38,6 +41,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.ht
 
 
 
+[[option-to-restrict-public-access-to-storage-account-for-azure]]
 === 限制 Azure 儲存帳戶公共存取的選項
 
 現在您可以選擇限制對 Azure 中Cloud Volumes ONTAP系統的儲存帳戶的公共存取。透過停用訪問，您可以保護您的私人 IP 位址不被洩露，即使在同一個 VNet 內，也需要遵守您組織的安全策略。此選項也會停用Cloud Volumes ONTAP系統的資料分層，並且適用於單節點和高可用性對。
@@ -46,6 +50,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-az
 
 
 
+[[worm-enablement-after-deploying-cloud-volumes-ontap]]
 === 部署Cloud Volumes ONTAP後啟用 WORM
 
 現在，您可以使用BlueXP在現有的Cloud Volumes ONTAP系統上啟動一次寫入、多次讀取 (WORM) 儲存。此功能為您提供了在工作環境中啟用 WORM 的靈活性，即使在建立期間未啟用 WORM。一旦啟用，您就無法停用 WORM。

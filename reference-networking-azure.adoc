@@ -18,12 +18,14 @@ NetApp Console負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址�
 
 
 
+[[requirements-for-cloud-volumes-ontap]]
 == Cloud Volumes ONTAP的要求
 
 Azure 中必須符合下列網路需求。
 
 
 
+[[outbound-internet-access]]
 === 出站互聯網訪問
 
 Cloud Volumes ONTAP系統需要出站網際網路存取才能存取外部端點以實現各種功能。如果這些端點在具有嚴格安全要求的環境中被阻止， Cloud Volumes ONTAP將無法正常運作。
@@ -78,6 +80,7 @@ Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
 |===
 
 
+[[network-proxy-configuration-of-netapp-console-agent]]
 === NetApp Console代理程式的網路代理程式配置
 
 您可以使用NetApp Console代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的外部網路存取。控制台支援兩種類型的代理：
@@ -90,6 +93,7 @@ Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
 
 
 
+[[ip-addresses]]
 === IP 位址
 
 控制台會自動為 Azure 中的Cloud Volumes ONTAP指派所需數量的私有 IP 位址。您需要確保您的網路有足夠的可用私人 IP 位址。
@@ -166,6 +170,7 @@ NOTE: NIC3 僅適用於使用頁 Blob 儲存的 HA 部署。
 
 
 
+[[secure-connections-to-azure-services]]
 === 與 Azure 服務的安全連線
 
 預設情況下，控制台啟用 Azure 專用鏈接，用於Cloud Volumes ONTAP和 Azure 頁 Blob 儲存帳戶之間的連接。
@@ -178,6 +183,7 @@ link:task-enabling-private-link.html["了解有關將 Azure Private Links 或服
 
 
 
+[[networking-for-azure-vnet-encryption]]
 === Azure VNet 加密的網路
 
 Cloud Volumes ONTAP 支援 https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview["Azure Virtual Network（VNet）加密"^]加密 VNet 內或對等 VNet 之間的 VM 對 VM 流量。此功能在 Azure VNet 層配置，與 Cloud Volumes ONTAP 拓撲（單節點或 HA）無關。
@@ -188,6 +194,7 @@ https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-o
 
 
 
+[[connections-to-other-ontap-systems]]
 === 與其他ONTAP系統的連接
 
 要在 Azure 中的Cloud Volumes ONTAP系統和其他網路中的ONTAP系統之間複製數據，您必須在 Azure VNet 和其他網路（例如您的公司網路）之間建立 VPN 連線。
@@ -196,6 +203,7 @@ https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-o
 
 
 
+[[port-for-the-ha-interconnect]]
 === HA 互連埠
 
 Cloud Volumes ONTAP HA 對包含 HA 互連，這使得每個節點能夠持續檢查其夥伴節點是否正常運行，並為對方的非揮發性記憶體鏡像日誌資料。  HA 互連使用 TCP 連接埠 10006 進行通訊。
@@ -204,6 +212,7 @@ Cloud Volumes ONTAP HA 對包含 HA 互連，這使得每個節點能夠持續�
 
 
 
+[[only-one-ha-pair-in-an-azure-resource-group]]
 === Azure 資源組中只有一個 HA 對
 
 您必須為在 Azure 中部署的每個Cloud Volumes ONTAP HA 對使用一個專用資源群組。一個資源組中僅支援一個 HA 對。
@@ -212,6 +221,7 @@ Cloud Volumes ONTAP HA 對包含 HA 互連，這使得每個節點能夠持續�
 
 
 
+[[security-group-rules]]
 === 安全群組規則
 
 控制台建立 Azure 安全性群組，其中包含Cloud Volumes ONTAP成功執行的入站和出站規則。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-azure.html["查看控制台代理程式的安全性群組規則"^] 。
@@ -490,6 +500,7 @@ NOTE: 來源是Cloud Volumes ONTAP系統上的介面（IP 位址）。
 |===
 
 
+[[requirements-for-the-console-agent]]
 == 控制台代理的要求
 
 如果您尚未建立控制台代理，您也應該查看控制台代理的網路需求。

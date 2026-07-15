@@ -4,6 +4,7 @@
 
 
 
+[[new-regions-supported-in-azure]]
 === Azure 支援的新區域
 
 現在您可以在下列區域的 Azure 中的單一和多個可用區域中部署Cloud Volumes ONTAP 9.12.1 GA 及更高版本。這包括對單節點和高可用性 (HA) 部署的支援。

@@ -36,6 +36,7 @@ AKV 僅可用於保護資料 SVM 的NetApp磁碟區加密 (NVE) 金鑰。欲了�
 
 
 
+[[configuration-process]]
 == 配置過程
 
 概述的步驟擷取如何向 Azure 註冊您的Cloud Volumes ONTAP配置以及如何建立 Azure Key Vault 和金鑰。如果您已經完成這些步驟，請確保您具有正確的配置設置，特別是在<<create-akv>>，然後繼續<<ontap>>。

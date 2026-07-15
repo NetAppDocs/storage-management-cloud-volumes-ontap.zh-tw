@@ -18,6 +18,7 @@ NetApp Console可讓您為大多數Cloud Volumes ONTAP設定選擇正常或高�
 
 
 
+[[normal-write-speed]]
 == 正常寫入速度
 
 當您選擇正常寫入速度時，資料將直接寫入磁碟。當資料直接寫入磁碟時，可以降低發生意外系統中斷或涉及意外系統中斷的級聯故障（僅限 HA 對）時資料遺失的可能性。
@@ -26,6 +27,7 @@ NetApp Console可讓您為大多數Cloud Volumes ONTAP設定選擇正常或高�
 
 
 
+[[high-write-speed]]
 == 高寫入速度
 
 當您選擇高寫入速度時，資料會在寫入磁碟之前緩衝在記憶體中，從而提供更快的寫入效能。由於這種緩存，如果發生意外的系統中斷，則可能會遺失資料。
@@ -34,12 +36,14 @@ NetApp Console可讓您為大多數Cloud Volumes ONTAP設定選擇正常或高�
 
 
 
+[[when-to-use-high-write-speed]]
 === 何時使用高寫入速度
 
 如果您的工作負載需要快速寫入效能，並且您可以承受意外系統中斷或涉及意外系統中斷的級聯故障（僅限 HA 對）時資料遺失的風險，那麼高寫入速度是一個不錯的選擇。
 
 
 
+[[recommendations-when-using-high-write-speed]]
 === 使用高寫入速度時的建議
 
 如果啟用高寫入速度，則應確保應用程式層的寫入保護，或確保應用程式能夠容忍資料遺失（如果發生）。
@@ -48,6 +52,7 @@ ifdef::aws[]
 
 
 
+[[high-write-speed-with-an-ha-pair-in-aws]]
 === AWS 中的 HA 對具有高寫入速度
 
 如果您打算在 AWS 中的 HA 對上啟用高寫入速度，則應了解多可用區 (AZ) 部署和單一可用區部署之間的保護等級差異。跨多個可用區部署 HA 對可提供更高的彈性，並有助於降低資料遺失的可能性。
@@ -58,6 +63,7 @@ endif::aws[]
 
 
 
+[[configurations-that-support-high-write-speed]]
 === 支援高寫入速度的配置
 
 並非所有Cloud Volumes ONTAP配置都支援高寫入速度。這些配置預設使用正常的寫入速度。
@@ -104,12 +110,14 @@ endif::gcp[]
 
 
 
+[[how-to-select-a-write-speed]]
 == 如何選擇寫入速度
 
 您可以在新增的Cloud Volumes ONTAP系統時選擇寫入速度，並且可以link:task-modify-write-speed.html["更改現有系統的寫入速度"]。
 
 
 
+[[what-to-expect-if-data-loss-occurs]]
 == 如果發生資料遺失會發生什麼
 
 如果因寫入速度過快而導致資料遺失，事件管理系統 (EMS) 會報告以下兩個事件：
@@ -133,6 +141,7 @@ endif::gcp[]
 
 
 
+[[how-to-stop-data-access-if-data-loss-occurs]]
 == 如果發生資料遺失，如何停止資料存取
 
 如果您擔心資料遺失，希望應用程式在資料遺失時停止運行，並在正確解決資料遺失問題後恢復資料訪問，則可以使用 CLI 中的 NVFAIL 選項來實現該目標。

@@ -4,6 +4,7 @@
 
 
 
+[[support-for-transparent-proxy]]
 === 支援透明代理
 
 除了現有的明確代理連線之外， BlueXP現在還支援透明代理伺服器。建立或修改BlueXP連接器時，您可以設定透明代理伺服器來安全地管理往返Cloud Volumes ONTAP 的網路流量。
@@ -17,6 +18,7 @@
 
 
 
+[[new-vm-type-supported-for-cloud-volumes-ontap-in-azure]]
 === Azure 中的Cloud Volumes ONTAP支援新的 VM 類型
 
 從Cloud Volumes ONTAP 9.13.1 開始，L8s_v3 作為 Azure 單一和多個可用區域中的 VM 類型受到支持，適用於新的和現有的高可用性 (HA) 對部署。

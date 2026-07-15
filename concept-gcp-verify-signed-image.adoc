@@ -18,6 +18,7 @@ summary: 透過Cloud Volumes ONTAP映像摘要檔案工具驗證匯出的 Google
 
 
 
+[[signed-image-verification-workflow-summary]]
 == 簽名影像驗證工作流程摘要
 
 以下是 Google Cloud 簽名影像驗證工作流程的概述。

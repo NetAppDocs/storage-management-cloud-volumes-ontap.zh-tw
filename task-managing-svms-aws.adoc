@@ -20,6 +20,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[supported-number-of-storage-vms]]
 == 支援的儲存虛擬機器數量
 
 從 9.7 版本開始，特定的Cloud Volumes ONTAP配置支援多個儲存虛擬機器。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP發行說明"^]驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。
@@ -28,6 +29,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[verify-limits-for-your-configuration]]
 == 驗證配置的限制
 
 每個 EC2 執行個體支援每個網路介面的最大私有 IPv4 位址數量。在 AWS 中為新的儲存虛擬機器指派 IP 位址之前，您需要驗證限制。
@@ -40,6 +42,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[allocate-ip-addresses-in-aws]]
 == 在 AWS 中分配 IP 位址
 
 在為新的儲存虛擬機器建立 LIF 之前，必須將私人 IPv4 位址指派給 AWS 中的連接埠 e0a。
@@ -90,6 +93,7 @@ image:screenshot_aws_e0a.gif["AWS 控制台的螢幕截圖，顯示網路介面�
 
 
 
+[[create-a-storage-vm-on-a-single-node-system]]
 == 在單節點系統上建立儲存 VM
 
 這些步驟會在單節點系統上建立新的儲存 VM。建立 NAS LIF 需要一個私有 IP 位址，如果您要建立管理 LIF，則需要另一個選用的私有 IP 位址。
@@ -137,6 +141,7 @@ vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
 
 
 
+[[create-a-storage-vm-on-an-ha-pair-in-a-single-az]]
 == 在單一可用區內的 HA 對上建立儲存虛擬機
 
 這些步驟在單一 AZ 中的 HA 對上建立一個新的儲存虛擬機器。建立 NAS LIF 需要一個私人 IP 位址，如果要建立管理 LIF，則需要另一個可選的私人 IP 位址。
@@ -209,6 +214,7 @@ network interface service-policy add-service -vserver <svm-name> -policy default
 
 
 
+[[create-a-storage-vm-on-an-ha-pair-in-multiple-azs]]
 == 在多個可用區的 HA 對上建立儲存虛擬機
 
 這些步驟在多個 AZ 中的 HA 對上建立一個新的儲存虛擬機器。

@@ -4,6 +4,7 @@
 
 
 
+[[user-authentication-enabled-for-accessing-system-manager-from-bluexp]]
 === 已啟用使用者身份驗證，可從BlueXP存取系統管理員
 
 身為BlueXP管理員，您現在可以為從BlueXP存取ONTAP系統管理員的ONTAP使用者啟動身分驗證。您可以透過編輯BlueXP連接器設定來啟用此選項。此選項適用於標準模式和私人模式。
@@ -12,6 +13,7 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-ad
 
 
 
+[[bluexp-advanced-view-renamed-to-system-manager]]
 === BlueXP Advanced View 重新命名為 System Manager
 
 透過ONTAP系統管理員從BlueXP對Cloud Volumes ONTAP進行進階管理的選項已從 *Advanced View* 重新命名為 *System Manager*。
@@ -20,6 +22,7 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-ad
 
 
 
+[[introducing-a-simpler-way-to-manage-licenses-with-the-bluexp-digital-wallet]]
 === 引入使用BlueXP digital wallet管理許可證的更簡單方法
 
 現在，您可以透過使用BlueXP digital wallet中改進的導航點來體驗簡化的Cloud Volumes ONTAP授權管理：

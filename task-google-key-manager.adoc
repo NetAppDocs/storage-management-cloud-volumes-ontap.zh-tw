@@ -29,6 +29,7 @@ summary: 將 Google 的金鑰管理服務用於您的第三方金鑰管理服務
 
 
 
+[[configuration]]
 == 配置
 
 .Google雲
@@ -74,6 +75,7 @@ NOTE: 如果您使用的是Cloud Volumes ONTAP 9.13.0 或更高版本，則無�
 
 
 
+[[troubleshoot]]
 == 故障排除
 
 如果需要進行故障排除，您可以在上面的最後兩個步驟中追蹤原始 REST API 日誌：

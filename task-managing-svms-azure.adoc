@@ -22,6 +22,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[supported-number-of-storage-vms]]
 == 支援的儲存虛擬機器數量
 
 從Cloud Volumes ONTAP 9.9.0 開始，根據您的許可證，支援具有特定配置的多個儲存虛擬機器。請參閱 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["Cloud Volumes ONTAP發行說明"^]驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。
@@ -30,6 +31,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[create-a-storage-vm]]
 == 建立儲存虛擬機
 
 根據您的設定和授權類型，您可以透過 NetApp Console 的 API，在單一節點系統或高可用性（HA）組態中建立多個儲存 VM。
@@ -49,6 +51,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[single-node-system]]
 === 單節點系統
 
 使用下列 API 呼叫在單節點系統上建立儲存 VM。
@@ -65,6 +68,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 ----
 
 
+[[ha-pair]]
 === HA 對
 
 使用以下 API 呼叫在 HA 對上建立儲存虛擬機器：
@@ -81,6 +85,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 ----
 
 
+[[manage-storage-vms-on-single-node-systems-and-ha-pairs]]
 == 管理單節點系統和 HA 配對上的儲存 VM
 
 使用 API，您可以重新命名和刪除單節點和 HA 配置中的儲存虛擬機器。
@@ -90,6 +95,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[rename-a-storage-vm]]
 === 重新命名儲存虛擬機
 
 若要重新命名儲存虛擬機，您應該提供現有儲存虛擬機和新儲存虛擬機的名稱作為參數。
@@ -129,6 +135,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[delete-a-storage-vm]]
 === 刪除儲存虛擬機
 
 在單一節點或 HA 配置中，如果儲存虛擬機器沒有任何活動卷，則可以將其刪除。

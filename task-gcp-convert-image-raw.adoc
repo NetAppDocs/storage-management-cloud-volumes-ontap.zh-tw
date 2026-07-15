@@ -18,6 +18,7 @@ summary: 透過 Google Cloud 命令列將匯出的影像轉換為 disk.raw 格�
 
 
 
+[[why-is-this-step-needed]]
 == 為什麼需要這一步？
 
 無法直接下載 Google Cloud 的圖片。為了根據簽署的摘要和證書驗證圖像，您需要有一個機制來比較兩個檔案並下載圖像。為此，您必須將圖像匯出/轉換為 disk.raw 格式，並將結果保存在 Google Cloud 的儲存桶中。在此過程中，disk.raw 檔案被壓縮並壓縮。
@@ -35,6 +36,7 @@ summary: 透過 Google Cloud 命令列將匯出的影像轉換為 disk.raw 格�
 
 
 
+[[use-google-cloud-command-line-to-export-google-cloud-image]]
 == 使用 Google Cloud 命令列匯出 Google Cloud 鏡像
 
 將影像匯出到雲端儲存的首選方法是使用 https://cloud.google.com/sdk/gcloud/reference/compute/images/export["gcloud compute images export 指令"^]。此命令獲取提供的圖像並將其轉換為 disk.raw 文件，該文件會被 tarred 和 gzip 壓縮。產生的檔案保存在目標URL，然後可以下載進行驗證。

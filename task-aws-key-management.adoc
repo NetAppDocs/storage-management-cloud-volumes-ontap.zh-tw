@@ -31,6 +31,7 @@ NOTE: 您只能為資料 SVM 配置金鑰。
 
 
 
+[[configuration]]
 == 配置
 
 .AWS

@@ -24,6 +24,7 @@ ifdef::aws[]
 
 
 
+[[data-tiering-in-aws]]
 == AWS 中的資料分層
 
 在 AWS 中啟用資料分層時，Cloud Volumes ONTAP 使用 EBS 作為熱資料的效能層，並使用 Amazon Simple Storage Service（Amazon S3）作為非作用中資料的容量層。
@@ -70,6 +71,7 @@ ifdef::azure[]
 
 
 
+[[data-tiering-in-azure]]
 == Azure 中的資料分層
 
 當您在 Azure 中啟用資料分層時， Cloud Volumes ONTAP會使用 Azure 託管磁碟作為熱資料的效能層，並使用 Azure Blob 儲存作為非活動資料的容量層。
@@ -116,6 +118,7 @@ ifdef::gcp[]
 
 
 
+[[data-tiering-in-google-cloud]]
 == Google Cloud 中的資料分層
 
 在 Google Cloud 中啟用資料分層後，Cloud Volumes ONTAP 會使用持久磁碟作為熱資料的效能層，並使用 Google Cloud Storage 儲存桶作為非使用中資料的容量層。您可以在建立系統時選擇儲存層，並可隨時變更。有關變更儲存類別的資訊，請參閱 link:task-tiering.html["將非活動資料分層到低成本物件存儲"]。
@@ -149,12 +152,14 @@ endif::gcp[]
 
 
 
+[[data-tiering-and-capacity-limits]]
 == 資料分層和容量限制
 
 如果啟用資料分層，系統的容量限制將保持不變。此限制分佈在性能層和容量層。
 
 
 
+[[volume-tiering-policies]]
 == 卷分層策略
 
 若要啟用資料分層，您必須在建立、修改或複製磁碟區時選擇磁碟區分層策略。您可以為每個磁碟區選擇不同的策略。
@@ -194,6 +199,7 @@ TIP: 您可以變更最短冷卻期和 50% 的預設聚合閾值（更多內容�
 
 
 
+[[turning-off-cloud-volumes-ontap-impacts-the-cooling-period]]
 === 關閉Cloud Volumes ONTAP會影響冷卻期
 
 資料塊透過冷卻掃描進行冷卻。在此過程中，未使用的塊的溫度將移動（冷卻）到下一個較低的值。預設冷卻時間取決於磁碟區分層策略：
@@ -209,6 +215,7 @@ TIP: 當Cloud Volumes ONTAP關閉時，每個區塊的溫度都會保留，直�
 
 
 
+[[setting-up-data-tiering]]
 == 設定資料分層
 
 有關說明和受支援配置的列表，請參閱link:task-tiering.html["將非活動資料分層到低成本物件存儲"]。

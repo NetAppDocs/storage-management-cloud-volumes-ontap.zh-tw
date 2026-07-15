@@ -18,6 +18,7 @@ summary: 透過 Azure 中的Cloud Volumes ONTAP ，您可以使用不同的網�
 
 
 
+[[about-snapmirror-traffic-segregation-in-azure]]
 == 關於 Azure 中的SnapMirror流量隔離
 
 預設情況下， NetApp Console會在相同子網路上設定Cloud Volumes ONTAP部署中的所有 NIC 和 LIF。在這樣的設定中， SnapMirror複製流量和資料和管理流量使用相同的子網路。隔離SnapMirror流量利用了無法路由到用於資料和管理流量的現有子網路的額外子網路。
@@ -37,6 +38,7 @@ image:diagram-segregate-snapmirror-traffic.png["此圖展示了單節點配置�
 
 
 
+[[step-1-create-an-additional-nic-and-attach-to-the-destination-vm]]
 == 步驟 1：建立額外的 NIC 並連接到目標 VM
 
 本節提供有關如何建立附加 NIC 並將其附加到目標 VM 的說明。目標 VM 是 Azure 中Cloud Volumes ONTAP中的單節點或 HA 對系統，您要設定額外的 NIC。
@@ -112,6 +114,7 @@ az network nic list --resource-group azure-59806175-60147103-azure-rg --query "[
 
 
 
+[[step-secondstep-2-create-a-new-ipspace-broadcast-domain-and-intercluster-lif-for-the-new-nic]]
 == [[step-second]]步驟 2：為新 NIC 建立新的 IPspace、廣播網域和叢集間 LIF
 
 群集間 LIF 的單獨 IP 空間為群集間複製的網路功能提供了邏輯分離。
@@ -155,6 +158,7 @@ dest::> net int show
 
 
 
+[[step-3-verify-cluster-peering-between-the-source-and-destination-systems]]
 == 步驟 3：驗證來源系統和目標系統之間的叢集對等連接
 
 本節提供有關如何驗證來源系統和目標系統之間的對等關係的說明。
@@ -180,6 +184,7 @@ src::> ping -lif <src_node-ic-lif> -vserver <src_svm> -destination <10.161.189.1
 
 
 
+[[step-4-create-svm-peering-between-the-source-and-destination-system]]
 == 步驟 4：在來源系統和目標系統之間建立 SVM 對等連接
 
 本節提供如何在來源系統和目標系統之間建立 SVM 對等的說明。
@@ -235,6 +240,7 @@ dest::> vserver peer show
 
 
 
+[[step-5-create-a-snapmirror-replication-relationship-between-the-source-and-destination-system]]
 == 步驟 5：在來源系統和目標系統之間建立SnapMirror複製關係
 
 本節提供如何在來源系統和目標系統之間建立SnapMirror複製關係的說明。

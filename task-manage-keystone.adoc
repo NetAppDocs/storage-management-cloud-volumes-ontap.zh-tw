@@ -24,6 +24,7 @@ https://www.netapp.com/services/keystone/["了解有關Keystone的更多信息"^
 
 
 
+[[authorize-your-account]]
 == 授權您的帳戶
 
 您需要先聯絡NetApp授權您的控制台帳號使用Keystone訂閱，然後才能在控制台中使用和管理Keystone訂閱。
@@ -40,6 +41,7 @@ NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 
 
 
+[[link-a-subscription]]
 == 連結訂閱
 
 在NetApp授權您的帳戶後，您可以連結Keystone訂閱以用於Cloud Volumes ONTAP。此操作使用戶能夠選擇訂閱作為新Cloud Volumes ONTAP系統的收費方式。
@@ -55,6 +57,7 @@ NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 
 
 
+[[request-more-or-less-committed-capacity]]
 == 請求更多或更少的承諾容量
 
 如果您想要變更訂閱服務等級的承諾容量，您可以直接從控制台向NetApp傳送請求。請求服務等級的額外容量可為Cloud Volumes ONTAP系統提供更多儲存空間。
@@ -72,6 +75,7 @@ NetApp代表將透過授權您的帳戶存取訂閱來處理您的要求。
 
 
 
+[[monitor-usage]]
 == 監控使用情況
 
 Digital Advisor儀表板可讓您監控Keystone訂閱使用情況並產生報告。
@@ -80,6 +84,7 @@ https://docs.netapp.com/us-en/keystone-staas/integrations/aiq-keystone-details.h
 
 
 
+[[unlink-a-subscription]]
 == 取消訂閱鏈接
 
 如果您不再想將Keystone訂閱與控制台一起使用，您可以取消訂閱連結。請注意，您只能取消連結未附加至現有Cloud Volumes ONTAP訂閱的訂閱。

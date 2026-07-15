@@ -18,6 +18,7 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 
 
 
+[[setting-preferred-billing-for-standalone-aws-listing]]
 == 為獨立 AWS 清單設定首選計費方式
 
 如果您擁有與 AWS 帳戶關聯的獨立 AWS 訂閱，則可以透過該訂閱支付 Cloud Volumes ONTAP 的費用。如果您也擁有 NetApp Intelligent Services (NIS) 訂閱，則可以透過與 NIS 訂閱關聯的套餐支付資料服務的費用。對於現有訂閱，NetApp 建議您切換到獨立訂閱模式，以便更好地管理 Cloud Volumes ONTAP 的使用成本。
@@ -44,6 +45,7 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 
 
 
+[[capacity-based-license]]
 == 基於容量的許可證
 
 基於容量的許可使您能夠按 TiB 容量支付Cloud Volumes ONTAP費用。基於容量的許可以_包_的形式提供：Essentials 包或 Professional 包。
@@ -61,6 +63,7 @@ link:concept-licensing.html["了解有關基於容量的許可的更多信息"] 
 
 
 
+[[byol]]
 === BYOL
 
 透過從NetApp購買授權 (BYOL) 進行預付款，以便在任何雲端供應商部署Cloud Volumes ONTAP系統。
@@ -97,6 +100,7 @@ link:task-deploying-otc-aws.html["查看在 AWS 中啟動Cloud Volumes ONTAP 的
 
 
 
+[[paygo-subscription]]
 === PAYGO 訂閱
 
 透過訂閱雲端供應商市場提供的服務按小時付費。
@@ -126,6 +130,7 @@ TIP: 您可以從「設定」>「憑證」頁面管理與您的 AWS 帳戶關聯
 
 
 
+[[annual-contract]]
 === 年度合約
 
 從雲端提供者的市場購買年度合同，按年付款。
@@ -151,6 +156,7 @@ link:task-deploying-otc-aws.html["查看在 AWS 中啟動Cloud Volumes ONTAP 的
 
 
 
+[[freemium]]
 == 免費增值
 
 選擇免費加值服務，免費使用Cloud Volumes ONTAP，最高可提供 500 GiB 的設定容量。link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#free-trials["了解有關免費增值服務的更多信息"^] 。
@@ -178,6 +184,7 @@ link:task-deploying-otc-aws.html["查看在 AWS 中啟動Cloud Volumes ONTAP 的
 
 
 
+[[keystone-subscription]]
 == Keystone訂閱
 
 Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.html#keystone-subscription["了解有關NetApp Keystone訂閱的更多信息"^] 。
@@ -201,6 +208,7 @@ link:task-deploying-otc-aws.html["查看在 AWS 中啟動Cloud Volumes ONTAP 的
 
 
 
+[[node-based-license]]
 == 基於節點的許可證
 
 基於節點的許可證是Cloud Volumes ONTAP的上一代許可證。基於節點的授權可以從NetApp (BYOL) 購買，並且僅在特定情況下才可以續訂授權。有關信息，請參閱：

@@ -18,6 +18,7 @@ summary: 在 AWS 中部署Cloud Volumes ONTAP時，您可以選擇符合您的�
 
 
 
+[[choose-a-cloud-volumes-ontap-license]]
 == 選擇Cloud Volumes ONTAP許可證
 
 Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符合您需求的消費模式。
@@ -28,6 +29,7 @@ Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符�
 
 
 
+[[choose-a-supported-region]]
 == 選擇支援的區域
 
 大多數 AWS 區域都支援Cloud Volumes ONTAP 。 https://bluexp.netapp.com/cloud-volumes-global-regions["查看支援區域的完整列表"^] 。
@@ -36,6 +38,7 @@ Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符�
 
 
 
+[[choose-a-supported-local-zone]]
 === 選擇受支援的本地區域
 
 選擇本地區域是可選的。包括新加坡在內的一些 AWS 本地區域支援Cloud Volumes ONTAP 。 AWS 中的Cloud Volumes ONTAP僅支援單一可用區域中的高可用性 (HA) 模式。不支援單節點部署。
@@ -49,6 +52,7 @@ link:https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html["AWS
 
 
 
+[[choose-a-supported-instance]]
 == 選擇支援的實例
 
 Cloud Volumes ONTAP支援多種執行個體類型，具體取決於您選擇的授權類型。
@@ -57,6 +61,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws
 
 
 
+[[understand-storage-limits]]
 == 了解儲存限制
 
 Cloud Volumes ONTAP系統的原始容量限制與許可證相關。額外的限制會影響聚合和磁碟區的大小。在規劃配置時您應該注意這些限制。
@@ -65,6 +70,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.
 
 
 
+[[size-your-system-in-aws]]
 == 在 AWS 中調整系統大小
 
 調整Cloud Volumes ONTAP系統的大小可以幫助您滿足效能和容量要求。選擇實例類型、磁碟類型和磁碟大小時，您應該注意幾個關鍵點：
@@ -126,6 +132,7 @@ EBS 磁碟大小:: 如果您選擇的配置不支援link:concept-aws-elastic-vol
 
 
 
+[[view-default-system-disks]]
 == 查看預設系統磁碟
 
 除了用戶資料的儲存之外，控制台還購買了Cloud Volumes ONTAP系統資料（啟動資料、根資料、核心資料和NVRAM）的雲端儲存。出於規劃目的，在部署Cloud Volumes ONTAP之前查看這些詳細資訊可能會有所幫助。
@@ -137,6 +144,7 @@ TIP: 控制台代理還需要係統磁碟。 https://docs.netapp.com/us-en/bluex
 
 
 
+[[prepare-to-deploy-cloud-volumes-ontap-in-an-aws-outpost]]
 == 準備在 AWS Outpost 中部署Cloud Volumes ONTAP
 
 如果您有 AWS Outpost，則可以透過在部署過程中選擇 Outpost VPC 在該 Outpost 中部署Cloud Volumes ONTAP 。體驗與駐留在 AWS 中的任何其他 VPC 相同。請注意，您需要先在 AWS Outpost 中部署控制台代理程式。
@@ -150,12 +158,14 @@ TIP: 控制台代理還需要係統磁碟。 https://docs.netapp.com/us-en/bluex
 
 
 
+[[collect-networking-information]]
 == 收集網路資訊
 
 在 AWS 中啟動Cloud Volumes ONTAP時，您需要指定有關 VPC 網路的詳細資訊。您可以使用工作表從管理員收集資訊。
 
 
 
+[[single-node-or-ha-pair-in-a-single-az]]
 === 單一可用區中的單一節點或 HA 對
 
 [cols="30,70"]
@@ -176,6 +186,7 @@ TIP: 控制台代理還需要係統磁碟。 https://docs.netapp.com/us-en/bluex
 |===
 
 
+[[ha-pair-in-multiple-azs]]
 === 多個可用區中的 HA 對
 
 [cols="30,70"]
@@ -226,12 +237,14 @@ TIP: 控制台代理還需要係統磁碟。 https://docs.netapp.com/us-en/bluex
 |===
 
 
+[[choose-a-write-speed]]
 == 選擇寫入速度
 
 控制台可讓您選擇Cloud Volumes ONTAP的寫入速度設定。在選擇寫入速度之前，您應該了解正常設定和高設定之間的差異以及使用高寫入速度時的風險和建議。link:concept-write-speed.html["了解有關寫入速度的更多信息"] 。
 
 
 
+[[choose-a-volume-usage-profile]]
 == 選擇卷使用情況設定檔
 
 ONTAP包含多種儲存效率功能，可減少您所需的總儲存量。在控制台中建立磁碟區時，您可以選擇啟用這些功能的設定檔或停用這些功能的設定檔。您應該了解有關這些功能的更多信息，以幫助您決定使用哪個配置文件。

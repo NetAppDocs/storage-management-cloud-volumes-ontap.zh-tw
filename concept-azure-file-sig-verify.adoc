@@ -18,6 +18,7 @@ Azure 映像驗證過程透過剝離 VHD 檔案的開頭 1 MB 和結尾 512 位�
 
 
 
+[[file-signature-verification-workflow-summary]]
 == 文件簽章驗證工作流程摘要
 
 以下是文件簽章驗證工作流程的概述。

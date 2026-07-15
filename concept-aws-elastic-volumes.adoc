@@ -18,6 +18,7 @@ summary: 透過Cloud Volumes ONTAP聚合支援 Amazon EBS Elastic Volumes 功能
 
 
 
+[[benefits]]
 == 好處
 
 * 動態磁碟成長
@@ -41,12 +42,14 @@ https://aws.amazon.com/ebs/features/["AWS 文件：了解有關 AWS 彈性磁碟
 
 
 
+[[supported-configurations]]
 == 支援的配置
 
 特定Cloud Volumes ONTAP版本和特定 EBS 磁碟類型支援 Amazon EBS Elastic Volumes 功能。
 
 
 
+[[cloud-volumes-ontap-version]]
 === Cloud Volumes ONTAP版本
 
 從 9.11.0 或更高版本建立的 _new_ Cloud Volumes ONTAP系統支援彈性磁碟區功能。  9.11.0 之前部署的現有Cloud Volumes ONTAP系統不支援此功能。
@@ -55,12 +58,14 @@ https://aws.amazon.com/ebs/features/["AWS 文件：了解有關 AWS 彈性磁碟
 
 
 
+[[ebs-disk-types]]
 === EBS 磁碟類型
 
 使用通用 SSD（gp3）或預先設定 IOPS SSD（io1）時，彈性磁碟區功能會在聚合層級自動啟用。使用任何其他磁碟類型的聚合不支援彈性磁碟區功能。
 
 
 
+[[required-aws-permissions]]
 == 所需的 AWS 權限
 
 從 3.9.19 版本開始，控制台代理需要下列權限才能在Cloud Volumes ONTAP聚合上啟用和管理彈性磁碟區功能：
@@ -73,6 +78,7 @@ https://aws.amazon.com/ebs/features/["AWS 文件：了解有關 AWS 彈性磁碟
 
 
 
+[[how-support-for-elastic-volumes-works]]
 == 彈性卷支援如何運作
 
 啟用了彈性磁碟區功能的聚合由一個或兩個 RAID 群組組成。每個 RAID 群組有四個相同的磁碟，容量相同。下面是一個 10 TiB 聚合的範例，該聚合包含四個磁碟，每個磁碟大小為 2.5 TiB：
@@ -93,6 +99,7 @@ image:diagram-aws-elastic-volumes-two-raid-groups.png["概念圖顯示了一個�
 
 
 
+[[what-happens-when-you-create-a-volume]]
 === 建立磁碟區時會發生什麼
 
 如果您建立使用 gp3 或 io1 磁碟的捲，控制台將如下在聚合上建立該磁碟區：
@@ -118,6 +125,7 @@ image:diagram-aws-elastic-volumes-two-raid-groups.png["概念圖顯示了一個�
 
 
 
+[[capacity-management-mode]]
 === 容量管理模式
 
 控制台代理程式的容量管理模式與彈性磁碟區的工作方式類似於與其他類型的聚合的工作方式：
@@ -130,12 +138,14 @@ link:concept-storage-management.html#capacity-management["了解有關容量管�
 
 
 
+[[limitations]]
 == 限制
 
 增加聚合體的大小最多可能需要 6 小時。在此期間，控制台無法為該聚合請求任何額外容量。
 
 
 
+[[how-to-work-with-elastic-volumes]]
 == 如何使用彈性卷
 
 您可以使用彈性磁碟區執行下列任務：

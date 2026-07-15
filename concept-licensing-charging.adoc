@@ -18,6 +18,7 @@ summary: 熟悉基於容量的許可證的收費、消費模式、定價和配�
 
 
 
+[[consumption-models-or-license-purchase-options]]
 == 消費模式或許可購買選項
 
 我們提供基於容量的授權套餐，並有以下幾種消費模式或購買選項：
@@ -48,12 +49,13 @@ endif::azure[]
 ** 如果您的許可證期限已到期
 
 
-* 如果您擁有 BYOL 授權並透過市集簽訂了年度合約，您的使用量和超額使用量將根據您設定的計費偏好收取費用。若要了解您的收費方式，請參閱 link:concept-licensing-charging.html#concept-licensing-charging.html#billing-preferences-and-overages["計費偏好和超額費用"]。
+* 如果您擁有 BYOL 授權並透過市集簽訂了年度合約，您的使用量和超額使用量將根據您設定的計費偏好收取費用。若要了解您的收費方式，請參閱 link:concept-licensing-charging.html#billing-preferences-and-overages["計費偏好和超額費用"]。
 * 中國大陸地區僅支援採用 BYOL 的單節點系統。中國大陸地區的部署不受 BYOL 授權限制。
 
 
 
 
+[[changing-of-license-packages]]
 == 更改許可證包
 
 部署後，您可以變更使用基於容量的許可的Cloud Volumes ONTAP系統的軟體包。例如，如果您使用 Essentials 套件部署了Cloud Volumes ONTAP系統，則可以在業務需求變更時將其變更為 Professional 套件。
@@ -64,6 +66,7 @@ link:task-manage-capacity-licenses.html["了解如何更改充電方式"] 。
 
 
 
+[[how-you-are-charged-for-supported-storage-types-and-packages]]
 == 支援的儲存類型和套餐如何收費
 
 Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。Cloud Volumes ONTAP 9.7 及更高版本提供基於容量的授權包。
@@ -72,6 +75,7 @@ Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。C
 
 
 
+[[storage-vms]]
 === 儲存虛擬機
 
 * 額外的資料服務儲存虛擬機器 (SVM) 無需額外的授權費用，但每個資料服務 SVM 至少需支付 4 TiB 的容量費用。
@@ -80,12 +84,14 @@ Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。C
 
 
 
+[[ha-pairs]]
 === HA 對
 
 對於 HA 對，您只需為節點上配置的容量付費。您無需為同步鏡像到合作夥伴節點的資料付費。
 
 
 
+[[flexclone-and-flexcache-volumes]]
 === FlexClone和FlexCache卷
 
 * 您無需為FlexClone磁碟區所使用的容量付費。
@@ -94,12 +100,14 @@ Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。C
 
 
 
+[[readwrite-volumes]]
 === 讀/寫卷
 
 如果您建立或使用可寫入（讀取/寫入）卷，則該磁碟區將被視為主卷，並按每個儲存虛擬機器 (SVM) 的最低費用收取已配置容量的費用。例如FlexVol讀/寫卷、 SnapLock審計捲和 CIFS/NFS 審計卷。所有用戶創建的數據量均按您的訂閱和套餐類型收費。  ONTAP內部自動建立且無法儲存資料的磁碟區（例如 SVM 根磁碟區）不收費。
 
 
 
+[[essentials-packages]]
 === 基本套裝
 
 使用 Essentials 套件時，您需要根據部署類型（HA 或單節點）和磁碟區類型（主磁碟區或輔助磁碟區）付費。價格由高至低的順序如下：_Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。或者，當您購買市場合約或接受私人優惠時，任何部署或卷類型的容量費用都是相同的。
@@ -118,6 +126,7 @@ NOTE: 如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數�
 
 
 
+[[capacity-limit]]
 == 容量限制
 
 在基於容量的許可模型中，每個Cloud Volumes ONTAP系統都支援分層到物件存儲，並且總分層容量可以擴展到雲端提供者的存儲桶限制。雖然許可證沒有施加容量限制，但遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳實踐"^]確保在配置和管理分層時實現最佳效能、可靠性和成本效率。
@@ -131,6 +140,7 @@ NOTE: 如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數�
 
 
 
+[[max-number-of-systems]]
 == 最大系統數量
 
 採用基於容量的授權模式時，每個 NetApp Console 組織最多只能建立 24 個 Cloud Volumes ONTAP 系統。一個「系統」指的是 Cloud Volumes ONTAP HA 配對、Cloud Volumes ONTAP 單節點系統，或您建立的任何其他儲存 VM。預設儲存 VM 不計入此限制。此限制適用於所有授權模式。
@@ -159,6 +169,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
+[[minimum-charge]]
 == 最低收費
 
 對於每個具有至少一個主（讀寫）卷的提供資料的儲存虛擬機，最低收費為 4 TiB。如果主磁碟區的總和小於 4 TiB，則控制台將對該儲存虛擬機器套用 4 TiB 的最低費用。
@@ -169,6 +180,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
+[[billing-preferences-and-overages]]
 == 計費偏好和超額費用
 
 您可以在控制台的“*Licenses and subscriptions*”部分選擇您的收費方式。當您的使用量超過許可證套餐或年度訂閱中規定的容量時，就會產生超額費用。
@@ -181,6 +193,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
+[[how-overages-are-charged-for-essentials-licenses]]
 === Essentials許可證超額費用如何收取
 
 如果您從NetApp購買 Essentials 授權（自帶授權），並且超出了特定 Essentials 軟體套件的授權容量，則控制台會將超出部分的費用計入價格較高的 Essentials 授權（如果您有可用容量的授權）。遊戲主機會先使用您已付費的可用容量，然後再向市場收費。如果您的 BYOL 授權沒有可用容量，超出容量的部分將按市場按需小時費率 (PAYGO) 收費，並添加到您的月帳單中。

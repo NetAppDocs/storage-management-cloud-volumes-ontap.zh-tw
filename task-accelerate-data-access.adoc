@@ -29,6 +29,7 @@ NetApp Console提供FlexCache磁碟區的管理link:https://docs.netapp.com/us-e
 video::PBNPVRUeT1o[youtube,width=848,height=480]
 
 
+[[work-with-flexcache-when-the-origin-is-encrypted]]
 == 當來源加密時使用FlexCache
 
 在原始磁碟區已加密的Cloud Volumes ONTAP系統上設定FlexCache時，需要執行額外的步驟，以確保FlexCache磁碟區可以正確存取和快取加密資料。

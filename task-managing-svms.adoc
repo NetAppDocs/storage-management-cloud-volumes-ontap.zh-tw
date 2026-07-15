@@ -18,12 +18,14 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 
+[[supported-number-of-storage-vms]]
 == 支援的儲存虛擬機器數量
 
 特定配置支援多個儲存虛擬機器。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP發行說明"^]驗證您的Cloud Volumes ONTAP版本支援的儲存虛擬機器數量。
 
 
 
+[[work-with-multiple-storage-vms]]
 == 使用多個儲存虛擬機
 
 NetApp Console支援您從ONTAP系統管理員或ONTAP CLI 建立的任何其他儲存虛擬機器。
@@ -38,6 +40,7 @@ image:screenshot_replicate_volume_svm.gif["螢幕截圖顯示了選擇要在其�
 
 
 
+[[modify-the-name-of-the-default-storage-vm]]
 == 修改預設儲存虛擬機器的名稱
 
 控制台會自動命名其為Cloud Volumes ONTAP所建立的單一儲存虛擬機器。如果您有嚴格的命名標準，則可以從ONTAP系統管理員、 ONTAP CLI 或 API 修改儲存虛擬機器的名稱。例如，您可能希望該名稱與ONTAP叢集的儲存虛擬機器的命名方式相符。

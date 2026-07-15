@@ -18,6 +18,7 @@ Cloud Volumes ONTAP高可用性 (HA) 設定提供無中斷操作和容錯功能�
 
 
 
+[[ha-components]]
 == HA 組件
 
 在 AWS 中， Cloud Volumes ONTAP HA 配置包含以下元件：
@@ -28,6 +29,7 @@ Cloud Volumes ONTAP高可用性 (HA) 設定提供無中斷操作和容錯功能�
 
 
 
+[[mediator]]
 === 調解員
 
 以下是有關 AWS 中中介實例的一些關鍵細節：
@@ -48,6 +50,7 @@ NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 D
 
 
 
+[[storage-takeover-and-giveback]]
 == 儲存接管和交還
 
 如果一個節點發生故障，另一個節點可以為其夥伴提供資料以提供持續的資料服務。客戶端可以從夥伴節點存取相同的數據，因為資料已同步鏡像到夥伴節點。
@@ -58,6 +61,7 @@ NOTE: 對於Cloud Volumes ONTAP 9.10.0 及更早版本，調解器上安裝了 D
 
 
 
+[[rpo-and-rto]]
 == RPO 和 RTO
 
 HA 配置透過以下方式維護資料的高可用性：
@@ -68,12 +72,14 @@ HA 配置透過以下方式維護資料的高可用性：
 
 
 
+[[ha-deployment-models]]
 == HA部署模型
 
 您可以透過跨多個可用區 (AZ) 或在單一可用區 (AZ) 中部署 HA 配置來確保資料的高可用性。您應該查看有關每種配置的更多詳細信息，以選擇最適合您需求的配置。
 
 
 
+[[multiple-availability-zones]]
 === 多個可用區域
 
 在多個可用區 (AZ) 中部署 HA 配置可確保在 AZ 或執行Cloud Volumes ONTAP節點的執行個體發生故障時資料的高可用性。您應該了解 NAS IP 位址如何影響資料存取和儲存故障轉移。
@@ -121,6 +127,7 @@ image:diagram_takeover_giveback.png["概念圖顯示了Cloud Volumes ONTAP HA �
 
 
 
+[[single-availability-zone]]
 === 單一可用區
 
 如果執行Cloud Volumes ONTAP節點的執行個體發生故障，在單一可用區 (AZ) 中部署 HA 配置可以確保資料的高可用性。所有資料都可以從 VPC 外部本地存取。
@@ -151,6 +158,7 @@ NOTE: 有關哪些特定主機配置支援 ALUA 的信息，請參閱 http://mys
 
 
 
+[[aws-local-zones]]
 === AWS 本地區域
 
 AWS 本地區域是一種基礎設施部署，其中儲存、運算、資料庫和其他精選 AWS 服務位於大城市和工業區附近。借助 AWS 本地區域，您可以讓 AWS 服務更接近您，從而改善工作負載的延遲並在本地維護資料庫。在Cloud Volumes ONTAP，
@@ -203,18 +211,21 @@ link:https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/
 
 
 
+[[how-storage-works-in-an-ha-pair]]
 == HA 對中的儲存工作原理
 
 與ONTAP叢集不同， Cloud Volumes ONTAP HA 對中的儲存不會在節點之間共用。相反，資料在節點之間同步鏡像，以便在發生故障時資料可用。
 
 
 
+[[storage-allocation]]
 === 儲存分配
 
 當您建立新磁碟區並且需要額外的磁碟時，控制台會為兩個節點指派相同數量的磁碟，建立鏡像聚合，然後建立新磁碟區。例如，如果磁碟區需要兩個磁碟，則控制台會為每個節點分配兩個磁碟，總共四個磁碟。
 
 
 
+[[storage-configurations]]
 === 儲存配置
 
 您可以將 HA 對用作主動-主動配置，其中兩個節點都向客戶端提供數據，或用作主動-被動配置，其中被動節點僅在接管主動節點的儲存後才會回應資料請求。
@@ -224,6 +235,7 @@ NOTE: 只有在使用儲存系統視圖中的控制台時，您才可以設定�
 
 
 
+[[performance-expectations]]
 === 績效預期
 
 Cloud Volumes ONTAP HA 配置在節點之間同步複製數據，這會消耗網路頻寬。因此，與單節點Cloud Volumes ONTAP配置相比，您可以獲得以下效能：
@@ -236,6 +248,7 @@ Cloud Volumes ONTAP HA 配置在節點之間同步複製數據，這會消耗網
 
 
 
+[[client-access-to-storage]]
 === 客戶端存取儲存
 
 用戶端應使用磁碟區所在節點的資料 IP 位址存取 NFS 和 CIFS 磁碟區。如果 NAS 用戶端使用夥伴節點的 IP 位址存取卷，則流量會在兩個節點之間流動，從而降低效能。

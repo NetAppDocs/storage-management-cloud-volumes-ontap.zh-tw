@@ -20,6 +20,7 @@ summary: NetApp Console可讓您管理磁碟區和 CIFS 伺服器。它還會提
 
 
 
+[[manage-volumes]]
 == 管理磁碟區
 
 透過使用控制台的標準視圖，您可以根據儲存需求管理磁碟區。您可以檢視、編輯、複製、還原和刪除磁碟區。
@@ -122,6 +123,7 @@ NOTE: 控制台將磁碟區移至使用具有分層功能的所選磁碟類型�
 
 
 
+[[resize-a-volume]]
 == 調整磁碟區大小
 
 預設情況下，當磁碟區空間不足時，它會自動增長到最大大小。預設值為 1,000，這表示磁碟區可以增長到其大小的 11 倍。該值可以在控制台代理的設定中配置。
@@ -144,6 +146,7 @@ image:screenshot-resize-volume.png["螢幕顯示卷調整大小後修改後的�
 
 
 
+[[modify-the-cifs-server]]
 == 修改 CIFS 伺服器
 
 如果您變更 DNS 伺服器或 Active Directory 網域，則需要修改Cloud Volumes ONTAP中的 CIFS 伺服器，以便它可以繼續為用戶端提供儲存服務。
@@ -209,6 +212,7 @@ Cloud Volumes ONTAP使用變更來更新 CIFS 伺服器。
 
 
 
+[[move-a-volume]]
 == 移動磁碟區
 
 移動磁碟區以提高容量利用率、提高效能並滿足服務等級協定。
@@ -227,6 +231,7 @@ Cloud Volumes ONTAP使用變更來更新 CIFS 伺服器。
 
 
 
+[[move-a-volume-when-console-displays-an-action-required-message]]
 == 當控制台顯示「需要操作」訊息時移動卷
 
 控制台可能會顯示「需要採取行動」訊息，表示需要移動磁碟區以避免容量問題，但您需要自行解決問題。如果發生這種情況，您需要確定如何修正問題，然後移動一個或多個磁碟區。
@@ -246,6 +251,7 @@ TIP: 當聚合已達到 90% 的使用容量時，控制台會顯示這些「需�
 
 
 
+[[identify-how-to-correct-capacity-issues]]
 === 確定如何修正容量問題
 
 如果控制台無法提供移動磁碟區以避免容量問題的建議，則必須確定需要移動的磁碟區以及是否應將它們移至同一系統上的另一個聚合或另一個系統。
@@ -289,6 +295,7 @@ image::screenshot_aggr_volume_overview.png[螢幕截圖聚合量概覽]
 
 
 
+[[move-volumes-to-another-system-to-avoid-capacity-issues]]
 === 將磁碟區移至另一個系統以避免容量問題
 
 您可以將一個或多個磁碟區移至另一個Cloud Volumes ONTAP系統以避免容量問題。如果系統達到其磁碟限制，您可能需要執行此操作。
@@ -323,6 +330,8 @@ image::screenshot_aggr_volume_overview.png[螢幕截圖聚合量概覽]
 
 
 
+[[move-volumes-to-another-aggregate-to-avoid-capacity-issues]]
+[[move-volumes-aggregate-capacity]]
 === 將磁碟區移至另一個聚合以避免容量問題
 
 您可以將一個或多個磁碟區移至另一個聚合以避免容量問題。
@@ -364,6 +373,7 @@ image::screenshot_aggr_capacity.png[螢幕截圖聚合容量]
 
 
 
+[[reasons-why-a-volume-move-might-perform-slowly]]
 == 交易量變動執行緩慢的原因
 
 如果Cloud Volumes ONTAP符合以下任何條件，則行動磁碟區所需的時間可能會比您預期的要長：
@@ -382,6 +392,7 @@ image::screenshot_aggr_capacity.png[螢幕截圖聚合容量]
 
 
 
+[[view-flexgroup-volumes]]
 == 查看FlexGroup卷
 
 您可以直接透過控制台中的「磁碟區」標籤檢視透過ONTAP System Manager 或ONTAP CLI 建立的FlexGroup區。您可以透過專用的 *Volumes* 圖塊查看 FleGroup 卷的詳細信息，並透過圖示的懸停文字識別每個FlexGroup卷組。此外，您可以透過磁碟區樣式列識別和排序磁碟區清單視圖下的FlexGroup磁碟區。

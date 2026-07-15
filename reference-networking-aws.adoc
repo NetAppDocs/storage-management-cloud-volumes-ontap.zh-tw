@@ -18,12 +18,14 @@ NetApp Console負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址�
 
 
 
+[[general-requirements]]
 == 一般要求
 
 確保您已滿足 AWS 中的以下要求。
 
 
 
+[[outbound-internet-access-for-cloud-volumes-ontap-nodes]]
 === Cloud Volumes ONTAP節點的出站互聯網訪問
 
 Cloud Volumes ONTAP系統需要出站網際網路存取才能存取外部端點以實現各種功能。如果這些端點在具有嚴格安全要求的環境中被阻止， Cloud Volumes ONTAP將無法正常運作。
@@ -82,6 +84,7 @@ Cloud Volumes ONTAP使用這些端點與各種服務進行通訊。
 |===
 
 
+[[outbound-internet-access-for-the-ha-mediator]]
 === HA 中介器的出站互聯網訪問
 
 HA 中介執行個體必須具有與 AWS EC2 服務的出站連接，以便它可以協助儲存故障轉移。為了提供連接，您可以新增公用 IP 位址、指定代理伺服器或使用手動選項。
@@ -96,6 +99,7 @@ HA 中介執行個體必須具有與 AWS EC2 服務的出站連接，以便它�
 
 
 
+[[network-proxy-configuration-of-netapp-console-agent]]
 === NetApp Console代理程式的網路代理程式配置
 
 您可以使用NetApp Console代理程式的代理伺服器設定來啟用來自Cloud Volumes ONTAP 的外部網路存取。控制台支援兩種類型的代理：
@@ -108,6 +112,7 @@ HA 中介執行個體必須具有與 AWS EC2 服務的出站連接，以便它�
 
 
 
+[[private-ip-addresses]]
 === 私人 IP 位址
 
 控制台會自動為Cloud Volumes ONTAP指派所需數量的私人 IP 位址。您需要確保您的網路有足夠的可用私人 IP 位址。
@@ -217,6 +222,7 @@ TIP: 當部署在多個可用區時，多個 LIF 與link:reference-networking-aw
 
 
 
+[[security-groups]]
 === 安全群組
 
 您不需要建立安全性群組，因為控制台會為您完成此操作。如果您需要使用自己的，請參閱link:reference-security-groups.html["安全群組規則"]。
@@ -226,6 +232,7 @@ TIP: 正在尋找有關控制台代理的資訊？ https://docs.netapp.com/us-en
 
 
 
+[[connection-for-data-tiering]]
 === 資料分層連接
 
 如果您想要將 EBS 用作效能層，將 Amazon S3 用作容量層，則必須確保 Cloud Volumes ONTAP 與 S3 建立連線。提供此連線的最佳方法是建立指向 S3 服務的 VPC 端點。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文件：建立網關終端節點"^]。
@@ -236,12 +243,14 @@ TIP: 正在尋找有關控制台代理的資訊？ https://docs.netapp.com/us-en
 
 
 
+[[connections-to-ontap-systems]]
 === 與ONTAP系統的連接
 
 要在 AWS 中的Cloud Volumes ONTAP系統和其他網路中的ONTAP系統之間複製數據，您必須在 AWS VPC 和其他網路（例如您的公司網路）之間建立 VPN 連線。有關說明，請參閱 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html["AWS 文件：設定 AWS VPN 連接"^]。
 
 
 
+[[dns-and-active-directory-for-cifs]]
 === CIFS 的 DNS 和 Active Directory
 
 如果您想要設定 CIFS 存儲，則必須在 AWS 中設定 DNS 和 Active Directory，或將您的本機設定擴展到 AWS。
@@ -252,6 +261,7 @@ DNS 伺服器必須為 Active Directory 環境提供名稱解析服務。您可�
 
 
 
+[[vpc-sharing]]
 === VPC共享
 
 從 9.11.1 版本開始，AWS 透過 VPC 共享支援Cloud Volumes ONTAP HA 對。 VPC 共用可讓您的組織與其他 AWS 帳戶共用子網路。若要使用此配置，您必須設定您的 AWS 環境，然後使用 API 部署 HA 對。
@@ -260,6 +270,7 @@ link:task-deploy-aws-shared-vpc.html["了解如何在共享子網路中部署 HA
 
 
 
+[[requirements-for-ha-pairs-in-multiple-azs]]
 == 多可用區中 HA 對的要求
 
 額外的 AWS 網路需求適用於使用多個可用區 (AZ) 的Cloud Volumes ONTAP HA 設定。在啟動 HA 對之前，您應該查看這些要求，因為在新增Cloud Volumes ONTAP系統時必須在控制台中輸入網路詳細資訊。
@@ -315,6 +326,7 @@ NOTE: 控制台會自動建立靜態 IP 位址，用於 iSCSI 存取和來自 VP
 
 
 
+[[example-ha-configuration]]
 === HA 設定範例
 
 下圖說明了多個可用區中的 HA 對特有的網路元件：三個可用區、三個子網路、浮動 IP 位址和一個路由表。
@@ -323,6 +335,7 @@ image:diagram_ha_networking.png["概念圖顯示了Cloud Volumes ONTAP HA 架構
 
 
 
+[[requirements-for-the-console-agent]]
 == 控制台代理的要求
 
 如果您尚未建立控制台代理，則應查看網路需求。

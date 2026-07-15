@@ -18,6 +18,7 @@ summary: 了解Cloud Volumes ONTAP 的預設設定方式可以幫助您設定和
 
 
 
+[[default-setup]]
 == 預設設定
 
 * NetApp Console在部署Cloud Volumes ONTAP時會建立一個資料服務儲存虛擬機器。某些配置支援額外的儲存虛擬機器。link:task-managing-svms.html["了解有關管理儲存虛擬機的更多信息"] 。
@@ -128,6 +129,7 @@ NOTE: 組織或帳戶管理員可以從「設定」頁面修改此值。
 
 
 
+[[internal-disks-for-system-data]]
 == 用於系統資料的內部磁碟
 
 除了用戶資料的儲存外，控制台還購買了系統資料的雲端儲存。
@@ -136,6 +138,7 @@ ifdef::aws[]
 
 
 
+[[aws]]
 === AWS
 
 * 每個節點有三個磁碟用於啟動、根和核心資料：
@@ -172,6 +175,7 @@ ifdef::azure[]
 
 
 
+[[azure-single-node]]
 === Azure（單節點）
 
 * 三個高級 SSD 磁碟：
@@ -194,6 +198,7 @@ ifdef::azure[]
 
 
 
+[[azure-ha-pair]]
 === Azure（HA 對）
 
 .HA 與頁 Blob 對
@@ -244,6 +249,7 @@ ifdef::gcp[]
 
 
 
+[[google-cloud-single-node]]
 === Google Cloud（單節點）
 
 * 一個 10 GiB SSD 永久磁碟，用於儲存啟動數據
@@ -260,6 +266,7 @@ NOTE: 重新啟動時會自動建立快照。
 
 
 
+[[google-cloud-ha-pair]]
 === Google Cloud（高可用性對）
 
 * 兩個 10 GiB SSD 持久性磁碟用於啟動數據
@@ -280,6 +287,7 @@ endif::gcp[]
 
 
 
+[[where-the-disks-reside]]
 === 磁碟所在位置
 
 儲存佈局：

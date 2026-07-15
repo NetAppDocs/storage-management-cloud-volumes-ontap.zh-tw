@@ -18,6 +18,7 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 
 
 
+[[freemium]]
 == 免費增值
 
 選擇免費加值服務，免費使用Cloud Volumes ONTAP，最高可提供 500 GiB 的設定容量。link:concept-licensing.html#packages["了解有關免費增值服務的更多信息"] 。
@@ -42,6 +43,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中啟動Cloud Volumes ONTA
 
 
 
+[[capacity-based-license]]
 == 基於容量的許可證
 
 基於容量的許可使您能夠按 TiB 容量支付Cloud Volumes ONTAP費用。基於容量的許可以_包_的形式提供：Essentials 或 Professional 包。
@@ -59,6 +61,7 @@ link:concept-licensing.html#capacity-based-licensing["了解有關基於容量�
 
 
 
+[[byol]]
 === BYOL
 
 透過從NetApp購買授權 (BYOL) 進行預付款，以便在任何雲端供應商部署Cloud Volumes ONTAP系統。
@@ -93,6 +96,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中啟動Cloud Volumes ONTA
 
 
 
+[[paygo-subscription]]
 === PAYGO 訂閱
 
 透過訂閱雲端供應商市場提供的服務按小時付費。
@@ -119,6 +123,7 @@ TIP: 您可以從「設定」>「憑證」頁面管理與您的帳戶相關的 G
 
 
 
+[[annual-contract]]
 === 年度合約
 
 透過購買年度合約每年支付Cloud Volumes ONTAP 的費用。
@@ -147,6 +152,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中啟動Cloud Volumes ONTA
 
 
 
+[[keystone-subscription]]
 == Keystone訂閱
 
 Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.html#keystone-subscription["了解有關NetApp Keystone訂閱的更多信息"] 。
@@ -170,6 +176,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中啟動Cloud Volumes ONTA
 
 
 
+[[node-based-license]]
 == 基於節點的許可證
 
 基於節點的許可證是Cloud Volumes ONTAP的上一代許可證。基於節點的授權可以從NetApp (BYOL) 購買，並且僅在特定情況下才可以續訂授權。有關信息，請參閱：

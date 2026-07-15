@@ -20,6 +20,7 @@ VPC 服務控制使您能夠控制對受信任邊界之外的 Google 管理服�
 
 
 
+[[how-netapp-services-communicate-with-vpc-service-controls]]
 == NetApp服務如何與 VPC 服務控制進行通訊
 
 控制台直接與 Google Cloud API 通訊。這可以從 Google Cloud 外部的外部 IP 位址觸發（例如，來自 api.services.cloud.netapp.com），也可以從 Google Cloud 內部指派給控制台代理程式的內部位址觸發。
@@ -28,6 +29,7 @@ VPC 服務控制使您能夠控制對受信任邊界之外的 Google 管理服�
 
 
 
+[[images]]
 == 圖片
 
 Cloud Volumes ONTAP 和 Console 都使用來自 Google Cloud 內由 NetApp 管理的專案中的映像。如果您的組織有政策阻止使用非組織內部託管的映像，這可能會影響 Console 代理程式和 Cloud Volumes ONTAP 的部署。
@@ -36,12 +38,14 @@ Cloud Volumes ONTAP 和 Console 都使用來自 Google Cloud 內由 NetApp 管�
 
 
 
+[[deploying-a-console-agent]]
 === 部署控制台代理
 
 部署控制台代理程式的使用者需要能夠引用 projectId 為 _netapp-cloudmanager_ 且專案編號為 _14190056516_ 中所託管的映像。
 
 
 
+[[deploying-cloud-volumes-ontap]]
 === 部署Cloud Volumes ONTAP
 
 * 控制台服務帳戶需要引用服務項目中託管在 projectId _netapp-cloudmanager_ 中的映像和項目編號 _14190056516_。
@@ -52,6 +56,7 @@ Cloud Volumes ONTAP 和 Console 都使用來自 Google Cloud 內由 NetApp 管�
 
 
 
+[[vpc-service-controls-perimeter-policies]]
 == VPC 服務控制邊界策略
 
 策略允許對 VPC Service Controls 規則集設定例外。有關策略的更多資訊，請造訪 https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#policy-model["Google Cloud VPC Service Controls 政策文件"^]。
@@ -60,6 +65,7 @@ Cloud Volumes ONTAP 和 Console 都使用來自 Google Cloud 內由 NetApp 管�
 
 
 
+[[ingress-rules]]
 === 入口規則
 
 ....
@@ -107,6 +113,7 @@ To:
 ....
 
 
+[[egress-rules]]
 === 出口規則
 
 ....

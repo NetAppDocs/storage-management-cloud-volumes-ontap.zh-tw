@@ -18,6 +18,7 @@ Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符�
 
 
 
+[[licensing-overview]]
 == 許可概述
 
 新客戶可以使用以下授權選項。
@@ -33,6 +34,7 @@ NOTE: 對於未經許可而使用許可的功能，我們將不提供支援。
 
 
 
+[[capacity-based-licensing]]
 == 基於容量的許可
 
 基於容量的許可包可讓您按 TiB 容量支付Cloud Volumes ONTAP費用。該許可證與您的NetApp帳戶相關聯，只要許可證提供足夠的容量，您就可以根據許可證為多個系統收費。
@@ -46,6 +48,7 @@ NOTE: 雖然NetApp Console中管理的產品和服務的實際使用情況和計
 
 
 
+[[packages]]
 === 套餐
 
 以下基於容量的軟體包可用於Cloud Volumes ONTAP。有關基於容量的許可證包的更多信息，請參閱link:concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"]。
@@ -120,6 +123,7 @@ NOTE: 備份和復原需要按使用量付費 (PAYGO) 訂閱，但使用此服�
 
 
 
+[[availability-of-capacity-based-licenses]]
 === 基於容量的許可證的可用性
 
 Cloud Volumes ONTAP系統的 PAYGO 和 BYOL 授權的可用性要求控制台代理程式啟動並執行。
@@ -131,6 +135,7 @@ NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，�
 
 
 
+[[how-to-get-started]]
 === 如何開始
 
 了解如何開始使用基於容量的許可：
@@ -158,6 +163,7 @@ endif::gcp[]
 
 
 
+[[keystone-subscription]]
 == Keystone訂閱
 
 一種按需付費的訂閱式服務，為那些喜歡 OpEx 消費模式而非前期資本支出或租賃的用戶提供無縫的混合雲端體驗。
@@ -170,12 +176,14 @@ link:https://docs.netapp.com/us-en/keystone-staas/index.html["了解有關NetApp
 
 
 
+[[supported-configurations]]
 === 支援的配置
 
 Keystone 訂閱支援 HA 配對。目前單節點系統不支援此授權選項。
 
 
 
+[[capacity-limit]]
 === 容量限制
 
 在基於容量的許可模型中，每個Cloud Volumes ONTAP系統都支援分層到物件存儲，並且總分層容量可以擴展到雲端提供者的存儲桶限制。雖然許可證沒有施加容量限制，但遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳實踐"^]確保在配置和管理分層時實現最佳效能、可靠性和成本效率。
@@ -189,6 +197,7 @@ Keystone 訂閱支援 HA 配對。目前單節點系統不支援此授權選項�
 
 
 
+[[how-to-get-started]]
 === 如何開始
 
 了解如何開始使用Keystone訂閱：
@@ -216,6 +225,7 @@ endif::gcp[]
 
 
 
+[[node-based-licensing]]
 == 基於節點的許可
 
 基於節點的許可是上一代許可模式，使您能夠按節點許可Cloud Volumes ONTAP 。此許可模式不適用於新客戶。按節點充電已被上述按容量充電方法所取代。
@@ -226,6 +236,7 @@ NetApp已計劃終止基於節點的許可的可用性 (EOA) 和支援 (EOS)。�
 
 
 
+[[end-of-availability-of-node-based-licenses]]
 === 基於節點的許可證的可用性終止
 
 從 2024 年 11 月 11 日起，基於節點的許可證的有限可用性已終止。基於節點的授權支援將於 2024 年 12 月 31 日結束。
@@ -274,6 +285,7 @@ NOTE: 即使在這些情況下，新的基於節點的許可證和許可證續�
 
 
 
+[[license-conversion]]
 == 許可證轉換
 
 控制台可以透過許可證轉換工具將基於節點的許可證無縫轉換為基於容量的許可證。有關基於節點的許可的 EOA 的信息，請參閱link:concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"]。

@@ -29,6 +29,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 
 
+[[manage-paygo-licenses]]
 == 管理 PAYGO 許可證
 
 Licenses and subscriptions選單，您可以查看有關每個 PAYGO Cloud Volumes ONTAP系統的詳細信息，包括序號和 PAYGO 許可證類型。
@@ -48,6 +49,7 @@ image:screenshot_paygo_licenses.png["螢幕截圖顯示了Licenses and subscript
 
 
 
+[[manage-byol-licenses]]
 == 管理 BYOL 許可證
 
 透過新增和刪除系統許可證和額外容量許可證來管理您直接從NetApp購買的許可證。
@@ -57,6 +59,7 @@ NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，�
 
 
 
+[[add-unassigned-licenses]]
 === 新增未分配的許可證
 
 將基於節點的許可證新增至控制台，以便您在建立新的Cloud Volumes ONTAP系統時可以選擇該許可證。控制台將這些許可證標識為_未分配_。
@@ -80,6 +83,7 @@ NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，�
 
 
 
+[[exchange-unassigned-node-based-licenses]]
 === 交換未分配的基於節點的許可證
 
 如果您有未指派的基於節點的Cloud Volumes ONTAP許可證且尚未使用，則可以將其轉換為NetApp Backup and Recovery許可證、 NetApp Data Classification許可證或NetApp Cloud Tiering許可證來交換該許可證。
@@ -114,6 +118,7 @@ image:screenshot-exchange-license.png["未指派許可證頁面上顯示的 Exch
 
 
 
+[[obtain-a-system-license-file]]
 === 取得系統許可證文件
 
 在大多數情況下，控制台可以使用您的NetApp支援網站帳戶自動取得您的授權文件。但如果不能，那麼您將需要手動上傳許可證文件。如果您沒有許可證文件，您可以從 netapp.com 取得。
@@ -132,6 +137,7 @@ image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品�
 
 
 
+[[update-a-system-license]]
 === 更新系統許可證
 
 當您透過聯絡NetApp代表續訂 BYOL 訂閱時，控制台會自動從NetApp取得新授權並將其安裝在Cloud Volumes ONTAP系統上。如果控制台無法透過安全的網路連線存取許可證文件，您可以自行取得該文件，然後手動上傳該文件。
@@ -152,6 +158,7 @@ image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品�
 
 
 
+[[manage-extra-capacity-licenses]]
 === 管理額外容量許可證
 
 您可以為Cloud Volumes ONTAP BYOL 系統購買額外的容量許可證，以分配超過 BYOL 系統許可證提供的 368 TiB 的容量。例如，您可以購買一個額外的許可證容量，為Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者您可以購買三個額外的容量許可證以獲得高達 1.4 PiB。
@@ -210,6 +217,7 @@ image:screenshot-license-generator.png["螢幕截圖：顯示包含可用產品�
 
 
 
+[[change-between-paygo-and-byol]]
 == PAYGO 與 BYOL 之間的變化
 
 不支援將系統從 PAYGO 按節點授權轉換為 BYOL 按節點授權（反之亦然）。如果您想在按使用量付費訂閱和 BYOL 訂閱之間切換，那麼您需要部署一個新系統並將資料從現有系統複製到新系統。
