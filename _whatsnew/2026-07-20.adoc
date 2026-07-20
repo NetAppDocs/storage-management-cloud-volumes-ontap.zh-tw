@@ -1,0 +1,46 @@
+= 推出從 AWS Marketplace 簡化 Cloud Volumes ONTAP 上線流程
+:allow-uri-read: 
+
+
+
+
+[[introducing-simplified-onboarding-of-cloud-volumes-ontap-from-aws-marketplace]]
+=== 推出從 AWS Marketplace 簡化 Cloud Volumes ONTAP 上線流程
+
+NetApp 為 AWS Marketplace 中的 Cloud Volumes ONTAP 引入簡化的上線流程，減少手動步驟和上線阻力。
+
+先前，從 AWS Marketplace 部署 Cloud Volumes ONTAP 需要瀏覽多個畫面並手動設定角色、原則和憑證。這使得部署過程緩慢且容易出錯。
+
+全新的上線流程透過以下功能，簡化您從市場訂閱過渡到完全運作的 Cloud Volumes ONTAP 環境的流程：
+
+. 訂閱 AWS Marketplace 上的 Cloud Volumes ONTAP 專用清單：您在 AWS Marketplace 上訂閱 Cloud Volumes ONTAP 獨立式清單，購買訂閱，並設定您的 AWS 帳戶（如果您還沒有帳戶）。
+. NetApp Console 引導流程：您在 NetApp Console 中設定帳戶後，Console 會自動引導您完成部署流程，並在右側顯示引導流程。如果您需要離開 Console，可以稍後繼續完成引導流程。
+. 關聯您的訂閱：您可以自動將訂閱與 Console 建立關聯，避免手動連結的繁瑣步驟。
+. 使用 AWS 憑證組態部署 Console 代理程式：您可以自動建立所需的 AWS 角色。此程序會在您的 AWS 帳戶中部署一個包含所需角色和原則的 AWS CloudFormation 堆疊供您審查，然後將其與 NetApp Console 關聯，從而省去手動 IAM 設定。接下來，您可以繼續完成代理程式組態、連網和安全性群組設定，以開始代理程式部署。
+. 在 AWS 中部署新的 Cloud Volumes ONTAP 系統：您可以直接導覽至 `Quick create`精靈，以更快速、更簡化的方式部署 Cloud Volumes ONTAP。
+
+
+.相關連結
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["AWS 中 Cloud Volumes ONTAP 和資料服務的彈性計費"^]
+
+
+
+
+[[well-architected-configuration-analysis-for-cloud-volumes-ontap-in-azure]]
+=== Azure 中 Cloud Volumes ONTAP 的架構完善組態分析
+
+NetApp Console 現在支援對執行在 Microsoft Azure 中的 Cloud Volumes ONTAP 系統進行架構完善的組態分析。Console 每天分析您的部署，並提供架構完善的狀態、見解和建議，以協助您維護遵守 NetApp 最佳實務和架構完善架構的系統。
+
+精心設計的儀表板顯示已分析系統的總數，並按組態和嚴重性層級對資源進行分類。如果您是系統管理員，可以直接從 Console 儀表板檢視組織內任何組態問題的建議，並下載包含所有建議的 CSV 報告。組態分類依據：
+
+* *可靠性*：即使在發生中斷的情況下，也能確保工作負載正確且穩定地運作。
+* *安全性*：透過風險評估和緩解措施保護資料、系統和資產。
+* *卓越營運*：最佳化架構以最大化商業價值。
+* *成本最佳化*：降低和最佳化成本，以實現更大的商業價值。
+
+
+.相關連結
+* https://docs.netapp.com/us-en/console-well-architected/cvo/configuration-analysis-cvo.html["Cloud Volumes ONTAP 組態分析"^]
+* https://docs.netapp.com/us-en/console-well-architected/improve-configurations-cvo.html["實作架構完善的系統組態"^]
+

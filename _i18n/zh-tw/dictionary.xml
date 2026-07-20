@@ -4444,34 +4444,13 @@
   <block id="b8bed80dbd79102cbf54b5efe00489c3" category="paragraph">請參閱<block ref="ad561d482c49648a0d36f6a86e379ff3" category="inline-link-rx"></block>有關使用“GcpEncryption”參數的更多詳細資訊。</block>
   <block id="b10aaff78dfb34e8e7e4c718d4519219" category="summary">如果您想要將 Amazon 加密與Cloud Volumes ONTAP一起使用，則需要設定 AWS 金鑰管理服務。</block>
   <block id="24558fa2d9e2dec026acbaef1270de6f" category="doc">設定Cloud Volumes ONTAP以在 AWS 中使用客戶管理的金鑰</block>
-  <block id="b7b5da9f4d5594bacc1509df196de5c3" category="paragraph">如果您想要將 Amazon 加密與Cloud Volumes ONTAP一起使用，則需要設定 AWS 金鑰管理服務 (KMS)。</block>
-  <block id="9f56109c17c31f07ff65b26766248ab0" category="list-text">確保存在有效的客戶主金鑰 (CMK)。</block>
-  <block id="bb48d7bc648620f7021e1939a70399e5" category="paragraph">CMK 可以是 AWS 管理的 CMK 或客戶管理的 CMK。它可以與NetApp Console和Cloud Volumes ONTAP位於同一個 AWS 帳戶中，也可以位於不同的 AWS 帳戶中。</block>
-  <block id="7f7975d07f7b22c5ac4adcb7da7f9ff6" category="inline-link">AWS 文件：客戶主金鑰 (CMK)</block>
-  <block id="4f6aed083674727be0bd5c99c02ac1eb" category="paragraph"><block ref="4f6aed083674727be0bd5c99c02ac1eb" category="inline-link-rx"></block></block>
-  <block id="28977d81dd9c36c8a12defa3b8a35dc6" category="list-text">透過新增以_金鑰使用者_身分向控制台提供權限的 IAM 角色來修改每個 CMK 的金鑰策略。</block>
-  <block id="059c070cf8c0f3089e8a516b29039297" category="paragraph">將身分識別和存取管理 (IAM) 角色新增為關鍵用戶，可授予控制台使用 CMK 與Cloud Volumes ONTAP 的權限。</block>
   <block id="12c408bd16ab2b7bec2d2fd9df4058ec" category="inline-link">AWS 文件：編輯金鑰</block>
   <block id="4db012a57fce0c7516bb8ccf07c2a6ee" category="paragraph"><block ref="4db012a57fce0c7516bb8ccf07c2a6ee" category="inline-link-rx"></block></block>
-  <block id="16a004e232c7bf28e178d1cf7ee9bf7d" category="list-text">如果 CMK 位於不同的 AWS 帳戶中，請完成下列步驟：</block>
-  <block id="5b8718002a145a073d09eaa86149213b" category="list-text">從 CMK 所在的帳戶進入 KMS 控制台。</block>
-  <block id="d2baa122967120a2e92786dc0cfbf8d3" category="list-text">選擇鍵。</block>
-  <block id="c1f5858ac0acbfbb819098e1d9d4ff3c" category="list-text">在「常規配置」窗格中，複製金鑰的 ARN。</block>
-  <block id="0484251ad0f9d4b7109de7ebe51452b9" category="paragraph">建立Cloud Volumes ONTAP系統時，您需要向控制台提供 ARN。</block>
-  <block id="84afdfea6618796c7ba3de20efb0315c" category="list-text">在 *其他 AWS 帳戶* 窗格中，新增為控制台提供權限的 AWS 帳戶。</block>
-  <block id="5ea0fd87cc4e646dcd09e3c5840247c3" category="paragraph">通常，這是部署控制台的帳戶。如果 AWS 中未安裝控制台，請使用您向控制台提供 AWS 存取金鑰的帳戶。</block>
   <block id="f6c3e4ba12741405212a36846aa18da7" category="inline-image-macro">此螢幕截圖顯示了 AWS KMS 控制台中的「新增其他 AWS 帳戶」按鈕。</block>
   <block id="6473cb5c9e5edeaeac6c86095a320b04" category="paragraph"><block ref="6473cb5c9e5edeaeac6c86095a320b04" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b6baefed4491989a402be507143bf2ca" category="inline-image-macro">此螢幕截圖顯示了 AWS KMS 控制台中的「其他 AWS 帳戶」對話方塊。</block>
   <block id="0ac4079be63ae59e0b253ede02d0600d" category="paragraph"><block ref="0ac4079be63ae59e0b253ede02d0600d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1da28a44874fafde4e4b450d1e806278" category="list-text">現在切換到為控制台提供權限的 AWS 帳戶並開啟 IAM 控制台。</block>
-  <block id="82bb5935870011035cbcd473a3789892" category="list-text">建立包含下面列出的權限的 IAM 策略。</block>
-  <block id="020e8a2ae8633978c02347a8143cbf53" category="list-text">將政策附加到向控制台提供權限的 IAM 角色或 IAM 使用者。</block>
-  <block id="11d39808224367470cc67c228de1b9a3" category="paragraph">以下政策提供控制台使用來自外部 AWS 帳戶的 CMK 所需的權限。請務必修改「資源」部分中的區域和帳戶 ID。</block>
   <block id="c2a34cad77f0451e7d0f58a7e0e6e450" category="inline-link">AWS 文件：允許其他帳戶中的使用者使用 KMS 金鑰</block>
-  <block id="802482a11bca72c205b3a1d95ff61b0a" category="paragraph">有關此過程的更多詳細信息，請參閱<block ref="9601f431d0df2b9877da4b65b53342b6" category="inline-link-rx"></block>。</block>
-  <block id="c81afb1b84ded76b91ff7f71834201df" category="list-text">如果您使用的是客戶管理的 CMK，請透過將Cloud Volumes ONTAP IAM 角色新增為_密鑰使用者_來修改 CMK 的密鑰原則。</block>
-  <block id="c13f89355236652e9c75af1eec63418d" category="paragraph">您需要在部署Cloud Volumes ONTAP之後執行此步驟，因為 IAM 角色是在建立Cloud Volumes ONTAP系統時建立的。  （當然，您可以選擇使用現有的Cloud Volumes ONTAP IAM 角色，因此可以先執行此步驟。）</block>
   <block id="f71bca1a74e3009d7cff4912558ab628" category="summary">設定 AWS 傳輸網關，以允許 NAS 用戶端從Cloud Volumes ONTAP所在的 VPC 外部存取浮動 IP 位址。這是有益的，因為當發生故障時，浮動 IP 會在節點之間自動遷移。</block>
   <block id="88f49ea08cc48c12826d7601b30c9af6" category="doc">為Cloud Volumes ONTAP HA 設定 AWS 傳輸網關</block>
   <block id="74800c4b0c4f7420856e108da469e4d7" category="paragraph">設定 AWS 中轉網關以允許存取 HA 對的<block ref="b4592641b260566283cc706f7ca397da" category="inline-link-macro-rx"></block>來自 HA 對所在的 VPC 外部。</block>
@@ -6050,7 +6029,6 @@
   <block id="9bdf94b25b3f8ba7bb03a42f48691647" category="cell">Google Cloud 資訊</block>
   <block id="b2fe6e8e5b070e72b892f6e209852031" category="admonition">如果您的 Cloud Volumes ONTAP 系統位於 AWS Local Zone，則不支援將資料分層儲存到 Amazon Simple Storage Service（Amazon S3），因為在 Local Zone 之外存取 Amazon S3 儲存貯體會造成更高的延遲，並影響 Cloud Volumes ONTAP 活動。</block>
   <block id="d9a38c751a133d3cc1d6d336083fca10" category="list-text">建立系統時，請在 API 請求中使用「gcpEncryption」參數。</block>
-  <block id="02d14173028105a436e6e5dab6a4b14f" category="paragraph">如果您在 Cloud Volumes ONTAP 上啟用了資料分層，並且想要加密儲存在 Amazon Simple Storage Service（Amazon S3）儲存貯體中的資料，則需要執行此步驟。</block>
   <block id="4fe6c7577974d296eafe073a58b28cd0" category="list-text">對於 AWS，您需要一個指向 Amazon Simple Storage Service （Amazon S3）的 VPC 終端節點。<block ref="8bf18368a4d50e7d264c6ce0821cc35b" category="inline-xref-macro-rx"></block>.</block>
   <block id="5a608055757169c6aba0a0f0941983c0" category="section-title">將冷資料分層至 Amazon S3 的要求</block>
   <block id="c7a88ab28024271a86ee9c37f4e572db" category="paragraph">確保 Cloud Volumes ONTAP 已連線至 Amazon S3。提供此連線的最佳方法是建立指向 S3 服務的 VPC 端點。有關說明，請參閱<block ref="739944581ddd86bd6d09f3841372a69b" category="inline-link-rx"></block>。</block>
@@ -6572,4 +6550,70 @@
   <block id="d61e9edc9775b872ce6780755f978cb5" category="list-text"><block ref="d61e9edc9775b872ce6780755f978cb5" category="inline-link-macro-rx"></block></block>
   <block id="658eb72da44348bf013db3a71420c2be" category="section-title">2026年7月14日</block>
   <block id="e5ca7e45a0041c75558cb2e9b26352b5" category="sidebar">在 Google Cloud 中使用預設值部署 Cloud Volumes ONTAP</block>
+  <block id="63a331b4a7ef8ade5f4d0df6929fdd39" category="doc">推出從 AWS Marketplace 簡化 Cloud Volumes ONTAP 上線流程</block>
+  <block id="3c7e14792d1bfe3f0ac2972bb2b2b283" category="paragraph">NetApp 為 AWS Marketplace 中的 Cloud Volumes ONTAP 引入簡化的上線流程，減少手動步驟和上線阻力。</block>
+  <block id="07de933840f509439b88a42c1b5a81f8" category="paragraph">先前，從 AWS Marketplace 部署 Cloud Volumes ONTAP 需要瀏覽多個畫面並手動設定角色、原則和憑證。這使得部署過程緩慢且容易出錯。</block>
+  <block id="7b0a4d96333ac82141b9bf7031a4427c" category="paragraph">全新的上線流程透過以下功能，簡化您從市場訂閱過渡到完全運作的 Cloud Volumes ONTAP 環境的流程：</block>
+  <block id="d8a801d58e75e021f2941c09a13ac4cc" category="list-text">訂閱 AWS Marketplace 上的 Cloud Volumes ONTAP 專用清單：您在 AWS Marketplace 上訂閱 Cloud Volumes ONTAP 獨立式清單，購買訂閱，並設定您的 AWS 帳戶（如果您還沒有帳戶）。</block>
+  <block id="2beff62713d0ca26e8bbeb26d118da72" category="list-text">NetApp Console 引導流程：您在 NetApp Console 中設定帳戶後，Console 會自動引導您完成部署流程，並在右側顯示引導流程。如果您需要離開 Console，可以稍後繼續完成引導流程。</block>
+  <block id="3545b8b6c97019ee16382e1e9f1566d6" category="list-text">關聯您的訂閱：您可以自動將訂閱與 Console 建立關聯，避免手動連結的繁瑣步驟。</block>
+  <block id="7fe500a5c571cd7ec037fadddeb65e6d" category="list-text">使用 AWS 憑證組態部署 Console 代理程式：您可以自動建立所需的 AWS 角色。此程序會在您的 AWS 帳戶中部署一個包含所需角色和原則的 AWS CloudFormation 堆疊供您審查，然後將其與 NetApp Console 關聯，從而省去手動 IAM 設定。接下來，您可以繼續完成代理程式組態、連網和安全性群組設定，以開始代理程式部署。</block>
+  <block id="1dc23a84b7e2b375289ce6857c758408" category="list-text">在 AWS 中部署新的 Cloud Volumes ONTAP 系統：您可以直接導覽至<block ref="956eaa6186169471a13345860cad0757" prefix=" " category="inline-code"></block>精靈，以更快速、更簡化的方式部署 Cloud Volumes ONTAP。</block>
+  <block id="92818173e0caa5fc0e16c368b850e85b" category="list-text"><block ref="92818173e0caa5fc0e16c368b850e85b" category="inline-link-rx"></block></block>
+  <block id="45155a6d96a264e24647f30ebb774e4f" category="list-text"><block ref="45155a6d96a264e24647f30ebb774e4f" category="inline-link-rx"></block></block>
+  <block id="e8f7f517a7c22ec0466a4d916c974b67" category="section-title">Azure 中 Cloud Volumes ONTAP 的架構完善組態分析</block>
+  <block id="8579a865aaeb9e025994731e2e5b4b7b" category="paragraph">NetApp Console 現在支援對執行在 Microsoft Azure 中的 Cloud Volumes ONTAP 系統進行架構完善的組態分析。Console 每天分析您的部署，並提供架構完善的狀態、見解和建議，以協助您維護遵守 NetApp 最佳實務和架構完善架構的系統。</block>
+  <block id="7be0ecfd06a37dfa6ce465eeee7e76b0" category="paragraph">精心設計的儀表板顯示已分析系統的總數，並按組態和嚴重性層級對資源進行分類。如果您是系統管理員，可以直接從 Console 儀表板檢視組織內任何組態問題的建議，並下載包含所有建議的 CSV 報告。組態分類依據：</block>
+  <block id="d1288590d0a85a5033a8db4112eab3bf" category="list-text">*可靠性*：即使在發生中斷的情況下，也能確保工作負載正確且穩定地運作。</block>
+  <block id="f9a9871ceb0b0b6106ac0c3761f8ccd5" category="list-text">*安全性*：透過風險評估和緩解措施保護資料、系統和資產。</block>
+  <block id="3e21d0873324d070ffd9f5112b99ce4d" category="list-text">*卓越營運*：最佳化架構以最大化商業價值。</block>
+  <block id="886863730bd12cb56f89bdf0ee2221be" category="list-text">*成本最佳化*：降低和最佳化成本，以實現更大的商業價值。</block>
+  <block id="109cdb23e41e8df9e7f4319a28a800c9" category="inline-link">Cloud Volumes ONTAP 組態分析</block>
+  <block id="30e75dda73d152784f441d20f2d17069" category="list-text"><block ref="30e75dda73d152784f441d20f2d17069" category="inline-link-rx"></block></block>
+  <block id="5bff0e2ec30fb9a44ab23683ebe9af90" category="inline-link">實作架構完善的系統組態</block>
+  <block id="fae0b0bdb2210aacd56925bf63411bc1" category="list-text"><block ref="fae0b0bdb2210aacd56925bf63411bc1" category="inline-link-rx"></block></block>
+  <block id="8381df48e9be426c5a0c10881c1deb6b" category="paragraph">如果您想要將 Amazon Web Services （AWS） 加密與 Cloud Volumes ONTAP 搭配使用，則需要設定 AWS 關鍵管理服務 （KMS）。</block>
+  <block id="d4a0c1bae3ce52b89988e4025c15728f" category="paragraph">客戶主金鑰 (CMK) 可由 AWS 或客戶管理。它可以與 NetApp Console 和 Cloud Volumes ONTAP 位於同一 AWS 帳戶中，也可以位於不同的 AWS 帳戶（共享的帳戶）中。AWS 僅透過 AWS 主控台啟用金鑰管理。如需更多資訊，請參閱<block ref="489bfcd850e0fa4bfd74a278f7f67b66" category="inline-link-rx"></block>。</block>
+  <block id="6268b495b409110e383079b8b2ae93f9" category="list-text">請確保您已掌握有關 NetApp Console 代理程式身份識別與存取管理 (IAM) 角色的資訊，適用於 AWS。</block>
+  <block id="c1d1bc4bdd0bc87aaad76e92fbec1706" category="list-text">確保存在有效的 CMK。</block>
+  <block id="9217c4f5b4501a4862e09fe127627878" category="section-title">為單一帳戶設定客戶管理的 KMS 金鑰</block>
+  <block id="a906c6aaae826fb656cef193eebf11b5" category="paragraph">當 Console 代理程式和 Cloud Volumes ONTAP 位於同一個 AWS 帳戶時，請完成下列步驟：</block>
+  <block id="f9ac849f5e1614f6ef5b6e2cbb46e838" category="list-text">授予 Console 代理程式的 IAM 角色 S3 加密權限。將<block ref="599a8ceed768fab9cc6e39dff7c9f215" prefix=" " category="inline-code"></block>行動新增至 IAM 角色原則：</block>
+  <block id="ab5ce703f4e6f60b339fe82426134f8e" category="list-text">啟用 Console 代理程式對客戶管理的加密金鑰 （CMEK） 的存取。在 AWS Console 上使用下列方法之一：</block>
+  <block id="6cce6d20d452367c8502a560c4a5a63b" category="open-title">將該角色新增為關鍵用戶（建議）</block>
+  <block id="d81295ff72a7b82f918db127295bd011" category="list-text">在 AWS Console 中，前往 *KMS &gt; Customer managed keys*，然後選擇您的 CMEK 金鑰。</block>
+  <block id="af25bfcae8badfa6701e34c8050d7bf0" category="list-text">在「關鍵使用者」區段中，選取「新增」。</block>
+  <block id="f25e3b4ac9f715022dc141f032f143bc" category="list-text">選擇您的 Console 代理程式執行個體角色，例如，<block ref="0998f1a8ed75faa08f8e75a04491bb3f" prefix=" " category="inline-code"></block>，然後按一下「新增」。</block>
+  <block id="345e93a96b6e66cb9274dbad975c0db2" category="list-text">儲存變更。</block>
+  <block id="0000e285f8e7eb4ed4e4797573887078" category="open-title">更新 KMS 金鑰原則</block>
+  <block id="b2d497ac6fb7d8b94cfc9f64937f0219" category="list-text">在 AWS 主控台中，前往 *KMS*，然後搜尋您的金鑰。</block>
+  <block id="017bf802eb557b1991791133d0197878" category="list-text">選擇 *Key policy* 索引標籤，然後選擇 *Edit*。</block>
+  <block id="a7790957568914751d78c83520426791" category="list-text">尋找允許存取金鑰的聲明<block ref="20132c8c5718ce52dc21622e28f60cd5" prefix=" " category="inline-code"></block>，並將 Console 代理程式角色 Amazon Resource Name （ARN） 附加至<block ref="8804b01fe5f36aa163269316113bacde" prefix=" " category="inline-code"></block>陣列。將以下範例中的佔位符替換為您的值：</block>
+  <block id="5a39ea12818a872b0a7453832cb711c7" category="list-text"><block ref="5e6047cb0bac084e0f3daff9fa08ad03" prefix="" category="inline-code"></block>：您的 12 位數 AWS 帳戶 ID</block>
+  <block id="57a4a91c9e564088f01c0b623cd4ae49" category="list-text"><block ref="153ab1f1ba95459c5e317c089df965a3" prefix="" category="inline-code"></block>：Console 代理程式的 IAM 角色名稱</block>
+  <block id="44c5dcd3316f82b16264c57cdacdeaae" category="section-title">為共享的帳戶設定客戶管理的 KMS 金鑰</block>
+  <block id="5c0b0544e826f4a61c68da40496bb210" category="paragraph">當 Console 代理程式在一個 AWS 帳戶（帳戶 A）中執行，而 Cloud Volumes ONTAP 部署在另一個 AWS 帳戶（帳戶 B）時，請先完成帳戶 A 的所有單一帳戶步驟，然後再完成這些步驟。</block>
+  <block id="a34307276baec7905af5061fc383703a" category="list-text">將<block ref="599a8ceed768fab9cc6e39dff7c9f215" prefix=" " category="inline-code"></block>行動新增至帳戶 B 的假定角色。這是必要的，因為 FabricPool 儲存桶加密呼叫是在帳戶 B 的假定角色下執行的。此權限涵蓋在用於分層的 S3 儲存桶上啟用預設加密。</block>
+  <block id="01c2a112e11dcc6710e473ba8274ebc6" category="list-text">如果 CMEK 金鑰儲存在帳戶 B 中，則帳戶 A 的代理程式角色需要直接存取才能使用該金鑰。帳戶 B 中的 KMS 金鑰原則授予了這種跨帳戶存取。</block>
+  <block id="deca4a1ba3b5c41ca30151078a91da33" category="list-text">在帳戶 B 的 AWS Console 中，前往 *KMS &gt; Customer managed keys*，然後選擇用於 Cloud Volumes ONTAP 部署的 CMEK 金鑰。</block>
+  <block id="dc1a95574af67e82444486d40acc7e06" category="list-text">開啟 *金鑰原則* 索引標籤，然後選取 *編輯*。</block>
+  <block id="7ec2c0ccb22f0194a78395d47d9a5798" category="list-text">新增一條聲明，授予帳戶 A 的 IAM 角色存取金鑰的權限：</block>
+  <block id="cad1c43d1df965b5d0ebe349b39a3e87" category="admonition">帳戶 B 的金鑰原則控制帳戶 A 的 Console 代理程式角色是否可以被信任使用該金鑰。除了帳戶 A 的 IAM 原則之外，還需要此原則聲明。</block>
+  <block id="d9f65eda3d1691ba9f3981b546b733db" category="list-text">更新帳戶 A 的 Console 代理程式的 IAM 原則，允許對帳戶 B 的金鑰呼叫 KMS API。</block>
+  <block id="34781b59af6b7e7057dbff3e8d75639b" category="list-text">在帳戶 A 的 AWS Console 中，前往 *IAM &gt; Roles*，然後選擇 Console 代理程式角色，例如，<block ref="0998f1a8ed75faa08f8e75a04491bb3f" prefix=" " category="inline-code"></block> 或 <block ref="19487023927f67e9ee4927df69475acb" prefix=" " category="inline-code"></block>。</block>
+  <block id="26542555615ff4bf6f583704505da204" category="list-text">新增或更新帳戶 B 金鑰的 KMS 權限：</block>
+  <block id="111ee22ed87f062516252ca928d0ca1f" category="admonition">帳戶 B 中的金鑰原則控制對金鑰的存取。帳戶 A 中的 IAM 原則允許 Console 代理程式角色進行 KMS API 呼叫。如果任一帳戶缺少組態，AWS 將限制存取。</block>
+  <block id="c6e822ad6f9df2b1031f9ab9992b9207" category="list-text">在帳戶 B 的 CMEK 中，將帳戶 A 新增為允許的外部 AWS 帳戶。</block>
+  <block id="91bf5517a0bad22be034687674e336f0" category="list-text">在帳戶 B 的 AWS KMS 主控台中，開啟目標 KMS 金鑰，找到「其他 AWS 帳戶」部分。</block>
+  <block id="f6129b767d39d9ed34d7ae6053c62161" category="list-text">選擇 *Add other AWS accounts* ，然後輸入帳戶 A 的 AWS 帳戶 ID。</block>
+  <block id="e9c94f00457ea21a40fc65f895551b15" category="list-text">Amazon 文件：</block>
+  <block id="4bf879127e6f8ada001e22da7cd613fc" category="inline-link">AWS KMS 金鑰</block>
+  <block id="19d72fcc9111cffa779bff14e2fa7ee5" category="list-text"><block ref="19d72fcc9111cffa779bff14e2fa7ee5" category="inline-link-rx"></block></block>
+  <block id="eea6e94cc47bf2127cc8510d58c2d283" category="list-text"><block ref="eea6e94cc47bf2127cc8510d58c2d283" category="inline-link-rx"></block></block>
+  <block id="bd60f8eeb5b9937557c375734de5e99f" category="list-text">NetApp Console 文件：</block>
+  <block id="e54158140168d6bfda7951dabc8a0468" category="inline-link">在 NetApp Console 中了解 AWS 憑證和權限</block>
+  <block id="a1c934fae6db0a99059aed88ff3d47b3" category="list-text"><block ref="a1c934fae6db0a99059aed88ff3d47b3" category="inline-link-rx"></block></block>
+  <block id="51c9eb8f2bdf1ba7a4e0dbc5ca8299bd" category="inline-link">管理 NetApp Console 的 AWS 憑證與市場訂閱</block>
+  <block id="fd6c8706b70c72f62dc54104dbcb57c2" category="list-text"><block ref="fd6c8706b70c72f62dc54104dbcb57c2" category="inline-link-rx"></block></block>
+  <block id="ac750267020c9b3c0e32de825d9b57fc" category="section-title">2026年7月20日</block>
 </blocks>
