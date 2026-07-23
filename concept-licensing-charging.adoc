@@ -221,3 +221,11 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 另外 100 TiB 在具有主磁碟區的 HA 對上進行設定。您購買的許可證沒有_Essentials Primary HA_承諾容量。  _Essentials Primary HA_ 授權的價格高於 _Essentials Primary Single Node_ 和 _Essentials Secondary HA_ 授權。
 
 在此範例中，控制台會依照市場價格對額外的 100 TiB 收取超額費用。超額費用將出現在您的每月帳單上。
+
+.相關連結
+* link:concept-licensing.html["Cloud Volumes ONTAP許可"]
+* link:task-manage-capacity-licenses.html["管理Cloud Volumes ONTAP基於容量的許可"]
+* link:task-manage-node-licenses.html["管理節點型授權"]
+* link:task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"]
+* link:task-manage-keystone.html["管理Keystone訂閱"]
+

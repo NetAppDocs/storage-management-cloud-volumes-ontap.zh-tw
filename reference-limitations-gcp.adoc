@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations-gcp.html 
+keywords: limitations, google cloud platform, gcp, psc, private service connect 
+summary: 已知限制標識了該產品的此版本不支援或無法與其正確互通的平台、裝置或功能。仔細審查這些限制。 
+---
+= Google Cloud 中 Cloud Volumes ONTAP 的已知限制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+以下已知限制僅適用於 Google Cloud Platform 中的 Cloud Volumes ONTAP。請務必同時查看 link:reference-limitations.html["所有雲端供應商中 Cloud Volumes ONTAP 的限制"]。
+
+
+
+[[limitation-with-packet-mirroring]]
+== 封包鏡像的限制
+
+https://cloud.google.com/vpc/docs/packet-mirroring["資料包鏡像"^] 必須在您部署 Cloud Volumes ONTAP 的 Google Cloud VPC 中停用。
+
+如果啟用封包映像，Cloud Volumes ONTAP 將無法正常運作。
+
+
+
+[[google-private-service-connect-limitations]]
+== Google Private Service Connect 限制
+
+如果您在部署 Cloud Volumes ONTAP 的 VPC 中利用 https://cloud.google.com/vpc/docs/private-service-connect["Google Private Service Connect"^]，則需要實作 DNS 記錄，將流量轉送到所需的 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["API 端點"^]。
+
+目前私有服務連線不支援將 Cloud Volumes ONTAP 中的資料分層儲存到 Google Cloud Storage 儲存桶中。

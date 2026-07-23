@@ -255,3 +255,11 @@ NOTE: FlexClone磁碟區不包含在此報表中，因為這些類型的磁碟�
 
 . 開啟下載的檔案以存取報告。
 
+
+.相關連結
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP許可"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理節點型授權"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-keystone.html["管理Keystone訂閱"^]
+

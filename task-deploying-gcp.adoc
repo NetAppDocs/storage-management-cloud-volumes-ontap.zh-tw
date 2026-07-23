@@ -155,7 +155,7 @@ NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式�
 +
 .. 如有需要，請啟用 *Flash Cache* 或選擇 *Normal* 或 *High* 寫入速度。
 +
-了解更多關於 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html#flash-cache-support["快閃記憶體"^]和link:concept-write-speed.html["寫入速度"]的信息。
+深入瞭解 link:reference-configs-gcp.html#flash-cache-support["快閃記憶體"] 和 link:concept-write-speed.html["寫入速度"]。
 
 +
 
@@ -387,7 +387,7 @@ NOTE: 如果所選版本有較新的候選版本、通用版本或修補程式�
 +
 .. 如有需要，請啟用 *Flash Cache* 或選擇 *Normal* 或 *High* 寫入速度。
 +
-了解更多關於 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html#flash-cache-support["快閃記憶體"^]和link:concept-write-speed.html["寫入速度"]的信息。
+深入瞭解 link:reference-configs-gcp.html#flash-cache-support["快閃記憶體"^] 和 link:concept-write-speed.html["寫入速度"]。
 
 +
 

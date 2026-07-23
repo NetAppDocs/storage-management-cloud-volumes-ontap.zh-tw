@@ -57,14 +57,14 @@ NOTE: 雖然NetApp Console中管理的產品和服務的實際使用情況和計
 
 ifdef::azure[]
 
-* link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中支援的配置"^]
+* link:link:reference-configs-azure.html["Azure 中支援的配置"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中支援的配置"^]
+* link:link:reference-configs-gcp.html["Google Cloud 中支援的配置"^]
 
 
 endif::gcp[]
@@ -296,3 +296,11 @@ NOTE: 即使在這些情況下，新的基於節點的許可證和許可證續�
 
 
 NOTE: 不支援將系統從基於容量的許可轉換為基於節點的許可。
+
+.相關連結
+* link:concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"]
+* link:task-manage-capacity-licenses.html["管理Cloud Volumes ONTAP基於容量的許可"]
+* link:task-manage-node-licenses.html["管理節點型授權"]
+* link:task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"]
+* link:task-manage-keystone.html["管理Keystone訂閱"]
+

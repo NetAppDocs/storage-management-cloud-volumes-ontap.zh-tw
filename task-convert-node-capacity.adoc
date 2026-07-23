@@ -93,3 +93,9 @@ TIP: 如果您的Cloud Volumes ONTAP系統已按容量收費，或任何要求�
 * Azure - azurepo@netapp.com
 * Google Cloud - gcppo@netapp.com
 
+
+.相關連結
+* link:concept-licensing.html["Cloud Volumes ONTAP許可"]
+* link:task-manage-capacity-licenses.html["管理Cloud Volumes ONTAP基於容量的許可"]
+* link:task-manage-node-licenses.html["管理節點型授權"]
+

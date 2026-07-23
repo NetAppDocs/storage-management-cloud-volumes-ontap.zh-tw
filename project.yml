@@ -33,19 +33,35 @@ sidebar:
     - title: 什麼是新的
       url: "/whats-new.html"
     - title: 已知限制
-      url: "/reference-limitations.html"
-    - title: Cloud Volumes ONTAP發行說明
-      url: "/whats-new-ontap.html"
+      entries:
+      - title: 常見限制
+        url: "/reference-limitations.html"
+      - title: AWS 的限制
+        url: "/reference-limitations-aws.html"
+      - title: Azure 的限制
+        url: "/reference-limitations-azure.html"
+      - title: Google Cloud 的限制
+        url: "/reference-limitations-gcp.html"
   - title: 開始
     entries:
     - title: 了解Cloud Volumes ONTAP
       url: "/concept-overview-cvo.html"
-    - title: 新部署支援的ONTAP版本
-      url: "/reference-versions.html"
-    - title: 開始使用 Amazon Web Services
+    - title: Cloud Volumes ONTAP中的許可
+      url: "/concept-licensing.html"
+    - title: 了解 Cloud Volumes ONTAP 儲存設備
+      entries:
+      - title: Cloud Volumes ONTAP配置
+        url: "/reference-default-configs.html"
+      - title: 客戶端協定
+        url: "/concept-client-protocols.html"
+      - title: 儲存管理
+        url: "/concept-storage-management.html"
+      - title: Cloud Volumes ONTAP HA 組態
+        url: "/concept-degraded-ha-pair.html"
+    - title: 在 Amazon Web Services 中部署
       flavor: aws
       entries:
-      - title: 快速啟動
+      - title: 部署總覽
         url: "/task-getting-started-aws.html"
       - title: 規劃您的配置
         url: "/task-planning-your-config.html"
@@ -73,14 +89,14 @@ sidebar:
         url: "/task-deploying-otc-aws.html"
       - title: 在 AWS Secret 區域部署Cloud Volumes ONTAP
         url: "/task-getting-started-aws-c2s.html"
-    - title: 開始使用 Microsoft Azure
+    - title: 在 Microsoft Azure 中部署
       flavor: azure
       entries:
       - title: 了解 Azure 中的Cloud Volumes ONTAP部署選項
         url: "/concept-azure-mktplace-direct.html"
-      - title: NetApp Console入門
+      - title: 在 NetApp Console 中部署
         entries:
-        - title: 快速啟動
+        - title: 部署總覽
           url: "/task-getting-started-azure.html"
         - title: 規劃您的配置
           url: "/task-planning-your-config-azure.html"
@@ -100,26 +116,24 @@ sidebar:
           url: "/task-deploying-otc-azure.html"
         - title: 驗證 Azure 平台映像
           entries:
-          - title: 概況
+          - title: 了解 Azure 映像驗證
             url: "/concept-azure-image-verification.html"
           - title: 下載 Azure 映像文件
             url: "/task-azure-download-digest-file.html"
           - title: 匯出 Azure 映像文件
             url: "/task-azure-image-export.html"
-          - title: 驗證文件簽名
-            entries:
-            - title: 了解文件簽名驗證
-              url: "/concept-azure-file-sig-verify.html"
-            - title: 在 Linux 上驗證檔案簽名
-              url: "/task-file-verification-linux.html"
-            - title: 在 macOS 上驗證文件簽名
-              url: "/task-file-verification-mac.html"
-      - title: 開始進入市場
+          - title: 了解文件簽名驗證
+            url: "/concept-azure-file-sig-verify.html"
+          - title: 在 Linux 上驗證檔案簽名
+            url: "/task-file-verification-linux.html"
+          - title: 在 macOS 上驗證文件簽名
+            url: "/task-file-verification-mac.html"
+      - title: 在 Azure Marketplace 部署
         url: "/task-deploy-cvo-azure-mktplc.html"
-    - title: 開始使用 Google Cloud
+    - title: 部署在 Google Cloud 上
       flavor: gcp
       entries:
-      - title: 快速啟動
+      - title: 部署總覽
         url: "/task-getting-started-gcp.html"
       - title: 規劃您的配置
         url: "/task-planning-your-config-gcp.html"
@@ -149,46 +163,11 @@ sidebar:
             url: "/concept-gcp-verify-signed-image.html"
           - title: 使用 OpenSSL 驗證內容
             url: "/task-verify-openssl-gcp.html"
-  - title: 使用Cloud Volumes ONTAP
+  - title: 儲存設備管理
     entries:
-    - title: 許可證管理
-      entries:
-      - title: 管理基於容量的許可證
-        url: "/task-manage-capacity-licenses.html"
-      - title: 管理Keystone訂閱
-        url: "/task-manage-keystone.html"
-      - title: 管理基於節點的許可證
-        url: "/task-manage-node-licenses.html"
-    - title: 捲和 LUN 管理
-      entries:
-      - title: 創建卷
-        url: "/task-create-volumes.html"
-      - title: 管理現有捲
-        url: "/task-manage-volumes.html"
-      - title: 將非活動資料分層到物件存儲
-        url: "/task-tiering.html"
-      - title: 將 LUN 連接到主機
-        url: "/task-connect-lun.html"
-      - title: 使用FlexCache加速資料存取
-        url: "/task-accelerate-data-access.html"
-    - title: 聚合管理
-      entries:
-      - title: 建立聚合
-        url: "/task-create-aggregates.html"
-      - title: 管理現有聚合
-        url: "/task-manage-aggregates.html"
-      - title: 管理容量設定
-        url: "/task-manage-capacity-settings.html"
-      - title: 在 Azure 中管理磁碟效能
-        flavor: azure
-        entries:
-        - title: 在 Azure 中管理 Premium SSD v2 磁碟效能
-          url: "/task-manage-perf-params-azure.html"
-        - title: 在 Azure 中升級磁碟效能層
-          url: "/task-upgrade-disk-perf-azure.html"
     - title: 儲存虛擬機器管理
       entries:
-      - title: 使用儲存虛擬機
+      - title: Cloud Volumes ONTAP 儲存 VM
         url: "/task-managing-svms.html"
       - title: 管理 AWS 中的儲存虛擬機
         flavor: aws
@@ -199,138 +178,155 @@ sidebar:
       - title: 管理 Google Cloud 中的儲存虛擬機
         flavor: gcp
         url: "/task-managing-svms-gcp.html"
-      - title: 設定 SVM 災難復原
-        url: "/task-manage-svm-dr.html"
+    - title: 聚合管理
+      entries:
+      - title: 建立聚合
+        url: "/task-create-aggregates.html"
+      - title: 管理現有聚合
+        url: "/task-manage-aggregates.html"
+      - title: 管理容量設定
+        url: "/task-manage-capacity-settings.html"
+    - title: 捲和 LUN 管理
+      entries:
+      - title: 資料分層
+        url: "/concept-data-tiering.html"
+      - title: 寫入速度
+        url: "/concept-write-speed.html"
+      - title: WORM儲存
+        url: "/concept-worm.html"
+      - title: 創建卷
+        url: "/task-create-volumes.html"
+      - title: 管理現有捲
+        url: "/task-manage-volumes.html"
+      - title: 將 LUN 連接到主機
+        url: "/task-connect-lun.html"
+      - title: 將非活動資料分層到物件存儲
+        url: "/task-tiering.html"
+      - title: 使用FlexCache加速資料存取
+        url: "/task-accelerate-data-access.html"
     - title: 安全性和資料加密
       entries:
+      - title: 了解加密
+        url: "/concept-security.html"
       - title: 使用NetApp加密技術加密卷
         url: "/task-encrypting-volumes.html"
-      - title: 使用 AWS Key Management Service 管理金鑰
-        flavor: aws
-        url: "/task-aws-key-management.html"
-      - title: 使用 Azure Key Vault 管理金鑰
-        flavor: azure
-        url: "/task-azure-key-vault.html"
-      - title: 使用 Google Cloud KMS 管理金鑰
-        flavor: gcp
-        url: "/task-google-key-manager.html"
       - title: 提高勒索軟體防護
         url: "/task-protecting-ransomware.html"
       - title: 為 WORM 儲存建立防篡改 Snapshot 副本
         url: "/reference-worm-snaplock.html"
-    - title: 系統管理
-      entries:
-      - title: 升級Cloud Volumes ONTAP
-        url: "/task-updating-ontap-cloud.html"
-      - title: 註冊現收現付系統
-        url: "/task-registering.html"
-      - title: 轉換基於節點的許可證
-        url: "/task-convert-node-capacity.html"
-      - title: 停止和啟動系統
-        url: "/task-managing-state.html"
-      - title: 同步系統時間
-        url: "/task-sync-time.html"
-      - title: 修改系統寫入速度
-        url: "/task-modify-write-speed.html"
-      - title: 更改系統密碼
-        url: "/task-change-password.html"
-      - title: 新增、移除或刪除系統
-        entries:
-        - title: 新增現有系統
-          url: "/task-adding-systems.html"
-        - title: 刪除系統
-          url: "/task-removing.html"
-        - title: 刪除系統
-          url: "/task-deleting-system.html"
-      - title: AWS 管理
-        flavor: aws
-        entries:
-        - title: 在 AWS 中使用 EC2 執行個體
-          url: "/task-change-ec2-instance.html"
-        - title: 更改 HA 對的路由表
-          url: "/task-change-route-tables.html"
-        - title: 配置放置組創建
-          url: task-configure-placement-group-failure-aws.html
-      - title: Azure 管理
-        flavor: azure
-        entries:
-        - title: 變更 Azure VM 類型
-          url: "/task-change-azure-vm.html"
-        - title: 覆蓋 CIFS 鎖
-          url: "/task-overriding-cifs-locks.html"
-        - title: 使用 Azure 專用連結或服務終結點
-          url: "/task-enabling-private-link.html"
-        - title: 移動資源組
-          url: "/task-moving-resource-groups-azure.html"
-        - title: 在 Azure 中隔離SnapMirror流量
-          url: "/task-segregate-snapmirror-azure.html"
-      - title: Google Cloud 管理
-        flavor: gcp
-        entries:
-        - title: 更改機器類型
-          url: "/task-change-gcp-machine.html"
-        - title: 將現有部署轉換為 Infrastructure Manager
-          url: "/task-gcp-dm-im-conv.html"
-      - title: 透過系統管理器進行管理
-        url: "/task-administer-advanced-view.html"
-      - title: 從 CLI 進行管理
-        url: "/task-connecting-to-otc.html"
-    - title: 系統健康和事件
-      entries:
-      - title: 驗證AutoSupport設置
-        url: "/task-verify-autosupport.html"
-      - title: 配置 EMS
-        url: "/task-configure-ems.html"
-  - title: 概念
+  - title: 雲端基礎架構管理
     entries:
-    - title: 授權
+    - title: AWS 管理
+      flavor: aws
       entries:
-      - title: Cloud Volumes ONTAP中的許可
-        url: "/concept-licensing.html"
+      - title: AWS 中支援的組態
+        url: "/reference-configs-aws.html"
+      - title: AWS 中的儲存限制
+        url: "/reference-limits-aws.html"
+      - title: 了解 AWS 中的高可用性 (HA) 對
+        url: "/concept-ha.html"
+      - title: 使用 AWS Key Management Service 管理金鑰
+        url: "/task-aws-key-management.html"
+      - title: 了解 AWS 中的 Elastic Volumes
+        url: "/concept-aws-elastic-volumes.html"
+      - title: 在 AWS 中使用 EC2 執行個體
+        url: "/task-change-ec2-instance.html"
+      - title: 更改 HA 對的路由表
+        url: "/task-change-route-tables.html"
+    - title: Azure 管理
+      flavor: azure
+      entries:
+      - title: Azure 中支援的配置
+        url: "/reference-configs-azure.html"
+      - title: Azure 中的儲存限制
+        url: "/reference-limits-azure.html"
+      - title: 了解 Azure 中的高可用性 (HA) 對
+        url: "/concept-ha-azure.html"
+      - title: 使用 Azure Key Vault 管理金鑰
+        url: "/task-azure-key-vault.html"
+      - title: 變更 Azure VM 類型
+        url: "/task-change-azure-vm.html"
+      - title: 覆蓋 CIFS 鎖
+        url: "/task-overriding-cifs-locks.html"
+      - title: 使用 Azure 專用連結或服務終結點
+        url: "/task-enabling-private-link.html"
+      - title: 移動資源組
+        url: "/task-moving-resource-groups-azure.html"
+      - title: 在 Azure 中隔離SnapMirror流量
+        url: "/task-segregate-snapmirror-azure.html"
+      - title: 在 Azure 中管理 Premium SSD v2 磁碟效能
+        url: "/task-manage-perf-params-azure.html"
+      - title: 在 Azure 中升級磁碟效能層
+        url: "/task-upgrade-disk-perf-azure.html"
+    - title: Google Cloud 管理
+      flavor: gcp
+      entries:
+      - title: Google Cloud 中支援的配置
+        url: "/reference-configs-gcp.html"
+      - title: Google Cloud 中的儲存限制
+        url: "/reference-limits-gcp.html"
+      - title: 了解 Google Cloud 中的高可用性 (HA) 對
+        url: "/concept-ha-google-cloud.html"
+      - title: 使用 Google Cloud KMS 管理金鑰
+        url: "/task-google-key-manager.html"
+      - title: 更改機器類型
+        url: "/task-change-gcp-machine.html"
+      - title: 將現有部署轉換為 Infrastructure Manager
+        url: "/task-gcp-dm-im-conv.html"
+  - title: Cloud Volumes ONTAP 系統管理
+    entries:
+    - title: 新部署支援的版本
+      url: "/reference-versions.html"
+    - title: Cloud Volumes ONTAP 升級
+      url: "/task-updating-ontap-cloud.html"
+    - title: 許可證管理
+      entries:
       - title: 了解有關基於容量的許可證的更多信息
         url: "/concept-licensing-charging.html"
-    - title: 儲存
+      - title: 管理基於容量的許可證
+        url: "/task-manage-capacity-licenses.html"
+      - title: 了解節點型 BYOL
+        url: "/concept-license-management.html"
+      - title: 管理基於節點的許可證
+        url: "/task-manage-node-licenses.html"
+      - title: 轉換基於節點的許可證
+        url: "/task-convert-node-capacity.html"
+    - title: 註冊現收現付系統
+      url: "/task-registering.html"
+    - title: 停止和啟動系統
+      url: "/task-managing-state.html"
+    - title: 同步系統時間
+      url: "/task-sync-time.html"
+    - title: 修改系統寫入速度
+      url: "/task-modify-write-speed.html"
+    - title: 更改系統密碼
+      url: "/task-change-password.html"
+    - title: 系統管理
       entries:
-      - title: 客戶端協定
-        url: "/concept-client-protocols.html"
-      - title: 磁碟和聚合
-        url: "/concept-storage.html"
-      - title: AWS 中的彈性磁碟區
-        flavor: aws
-        url: "/concept-aws-elastic-volumes.html"
-      - title: 資料分層
-        url: "/concept-data-tiering.html"
-      - title: 儲存管理
-        url: "/concept-storage-management.html"
-      - title: 寫入速度
-        url: "/concept-write-speed.html"
-      - title: 快閃記憶體
-        url: "/concept-flash-cache.html"
-      - title: WORM儲存
-        url: "/concept-worm.html"
-    - title: 高可用性對
-      entries:
-      - title: AWS 中的 HA 對
-        flavor: aws
-        url: "/concept-ha.html"
-      - title: Azure 中的 HA 對
-        flavor: azure
-        url: "/concept-ha-azure.html"
-      - title: GCP 中的 HA 對
-        flavor: gcp
-        url: "/concept-ha-google-cloud.html"
-      - title: 儲存接管期間的操作
-        url: "/concept-degraded-ha-pair.html"
-    - title: 安全
-      url: "/concept-security.html"
-    - title: 表現
-      url: "/concept-performance.html"
-    - title: 基於節點的 BYOL 管理
-      url: "/concept-license-management.html"
-    - title: AutoSupportDigital Advisor
+      - title: 新增現有系統
+        url: "/task-adding-systems.html"
+      - title: 刪除系統
+        url: "/task-removing.html"
+      - title: 刪除系統
+        url: "/task-deleting-system.html"
+    - title: 配置 EMS
+      url: "/task-configure-ems.html"
+  - title: Cloud Volumes ONTAP 與其他產品的整合
+    entries:
+    - title: 雲端供應商整合
+      url: "/reference-provider-integrations.html"
+    - title: 透過系統管理器進行管理
+      url: "/task-administer-advanced-view.html"
+    - title: 從 CLI 進行管理
+      url: "/task-connecting-to-otc.html"
+    - title: Flash Cache 和 Cloud Volumes ONTAP
+      url: "/concept-flash-cache.html"
+    - title: Cloud Volumes ONTAP 和 AutoSupport-Digital Advisor
       url: "/concept-active-iq.html"
-    - title: 預設配置
-      url: "/reference-default-configs.html"
+    - title: 驗證AutoSupport設置
+      url: "/task-verify-autosupport.html"
+    - title: 管理Keystone訂閱
+      url: "/task-manage-keystone.html"
   - title: 知識和支持
     entries:
     - title: 註冊以獲得支持

@@ -1,0 +1,8 @@
+---
+permalink: task-manage-svm-dr.html 
+redirect: storage-management-cloud-volumes-ontap/concept-degraded-ha-pair.html 
+---
+= 
+:allow-uri-read: 
+
+

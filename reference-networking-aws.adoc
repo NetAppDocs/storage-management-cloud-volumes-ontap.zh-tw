@@ -344,7 +344,7 @@ image:diagram_ha_networking.png["概念圖顯示了Cloud Volumes ONTAP HA 架構
 * https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["AWS 中的安全群組規則"^]
 
 
-.相關主題
+.相關連結
 * link:task-verify-autosupport.html["驗證Cloud Volumes ONTAP 的AutoSupport設置"]
 * https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP內部端口"^] 。
 

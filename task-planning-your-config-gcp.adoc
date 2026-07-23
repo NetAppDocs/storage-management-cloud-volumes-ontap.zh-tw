@@ -41,7 +41,7 @@ Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符�
 
 Cloud Volumes ONTAP支援多種機器類型，具體取決於您選擇的授權類型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支援的組態"^]
+link:reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支援的組態"]
 
 
 
@@ -59,7 +59,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.
 
 調整Cloud Volumes ONTAP系統的大小可以幫助您滿足效能和容量要求。在選擇機器類型、磁碟類型和磁碟大小時，您應該注意幾個關鍵點：
 
-機器類型:: 請查看支援的機器類型。 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Cloud Volumes ONTAP發行說明"^]然後查看谷歌提供的關於每種受支援機器類型的詳細資訊。將您的工作負載需求與機器類型的 vCPU 和記憶體數量相符。請注意，每個 CPU 核心都會提高網路效能。
+機器類型:: 查看支援的機器類型link:reference-configs-gcp.html["Cloud Volumes ONTAP發行說明"^]，然後審查 Google 提供的每種支援機器類型的詳細資訊。根據您的工作負載需求，選擇與機器類型對應的 vCPU 數量和記憶體容量。請注意，每個 CPU 核心都會提升連網效能。
 +
 --
 請參閱以下內容以了解更多詳細資訊：

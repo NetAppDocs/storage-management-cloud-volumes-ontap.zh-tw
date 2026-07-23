@@ -32,7 +32,7 @@ NetApp提供了兩種在 Azure 上部署Cloud Volumes ONTAP 的選項。 Cloud V
 
 | *支援的虛擬機器 (VM) 類型*  a| 
 Eds_v5 和 Ls_v3 實例類型
-| 全方位的 VM 類型。https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中支援的配置"^] 
+| 涵蓋所有虛擬機器類型。link:reference-configs-azure.html["Azure 中支援的配置"] 
 
 
 | *執照* | 免費許可證 | 任何基於容量的許可證。link:concept-licensing.html["Cloud Volumes ONTAP許可"] 
@@ -47,7 +47,7 @@ Eds_v5 和 Ls_v3 實例類型
 | 部署模型 | 單可用區（AZ）高可用（HA）模式部署 | 所有支援的配置，包括單節點和 HA 模式、單 AZ 和多 AZ 部署 
 
 
-| *支援的磁碟類型* | 高級 SSD v2 託管磁碟 | 更廣泛的支持。link:concept-storage.html#azure-storage["Cloud Volumes ONTAP的預設配置"] 
+| *支援的磁碟類型* | 高級 SSD v2 託管磁碟 | 更廣泛的支援。link:reference-configs-azure.html#azure-storage-for-user-data["Azure 中支援的磁碟類型"] 
 
 
 | *寫入速度（快速寫入模式）* | 不支援 | 根據您的配置，支援。link:concept-write-speed.html["了解Cloud Volumes ONTAP中的寫入速度"] 。 

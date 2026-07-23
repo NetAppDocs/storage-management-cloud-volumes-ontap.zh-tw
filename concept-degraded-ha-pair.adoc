@@ -1,19 +1,52 @@
 ---
 sidebar: sidebar 
 permalink: concept-degraded-ha-pair.html 
-keywords: storage takeover, storage giveback, degraded, degraded status, degraded state, ha pair, ha takeover, takeover, giveback 
-summary: 當 HA 對中的一個節點不可用時，另一個節點將為其夥伴提供資料以提供持續的資料服務。這稱為存儲接管。在儲存恢復完成之前，有些操作無法執行。 
+keywords: 'high-availability (HA) configuration in Cloud Volumes ONTAP, CVO HA, storage takeover, storage giveback, degraded, degraded status, ha takeover, takeover, giveback, disaster recovery, svm disaster recovery, storage vm dr' 
+summary: Cloud Volumes ONTAP 中的高可用性 （HA） 組態可確保企業儲存設備的業務連續性和容錯能力。 
 ---
-= 當Cloud Volumes ONTAP HA 對中的節點處於離線狀態時，操作就無法使用
-:hardbreaks:
+= Cloud Volumes ONTAP HA 組態
 :allow-uri-read: 
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ./media/
 
 
 [role="lead"]
+Cloud Volumes ONTAP 中的高可用性 （HA） 組態可確保企業儲存設備的業務連續性和容錯能力。透過在分隔的故障網域中部署兩個 ONTAP 節點，系統可在發生硬體故障、網路中斷或例行維護事件時提供無中斷操作 （NDO） 和無縫故障轉移。
+
+當您的架構需要下列條件時，請部署 HA 配對：
+
+* *關鍵任務工作負載*：無法容忍停機的資料庫和企業應用程式。
+* *非中斷式升級*：升級至 ONTAP 版本或變更底層雲端運算執行個體，而無需將儲存設備離線。
+* *多區域彈性*：防止雲端區域內隔離的可用度區域故障。
+
+
+
+
+[[how-ha-pairs-work]]
+== HA 配對的工作原理
+
+從管理角度來看，HA 組態以雙主動式叢集的方式運作，而個別資料彙總則由特定節點所擁有。
+
+* *同步複寫*：寫入主節點 NVRAM 的資料會同步鏡射到合作夥伴節點 NVRAM，然後再向用戶端確認寫入。
+* *中介執行個體支援*：第三方中介執行個體監控兩個節點的健全狀況。如果主節點無回應，中介執行個體將協調儲存設備接管。
+* *儲存接管*：倖存節點接管合作夥伴的儲存設備彙總和網路介面，並在幾秒鐘內恢復資料服務。
+
+
+
+
+[[ha-configuration-requirements-and-limitations]]
+== HA 組態要求和限制
+
+在 Cloud Volumes ONTAP 中部署 HA 配對時，請考慮以下要求和限制：
+
+* *運算規模*：HA 配對中的兩個節點必須使用完全相同的雲端運算執行個體類型或機器配置。
+* *協定支援*：SMB/CIFS 持續可用度 （CA） 支援 Hyper-V 和 SQL Server 工作負載，但需要特定的 ONTAP 組態標誌。
+* *故障轉移時間*：雖然儲存設備接管通常以秒為單位進行衡量，但必須正確設定用戶端側逾時設定（如 iSCSI 啟動器逾時），以防止應用程式中斷。
+
+
+
+
+[[operations-unavailable-when-a-node-in-an-ha-pair-is-offline]]
+== 當 HA 配對中的某個節點離線時，無法使用的操作
+
 當 HA 對中的一個節點不可用時，另一個節點將為其夥伴提供資料以提供持續的資料服務。這被稱為_存儲接管_。在儲存恢復完成之前，有些操作無法執行。
 
 
@@ -32,3 +65,24 @@ TIP: 當 HA 對中的某個節點不可用時， NetApp Console中的系統狀�
 
 
 儲存交還完成且系統狀態恢復正常後，這些操作將再次可用。
+
+
+
+[[storage-vm-disaster-recovery-for-cloud-volumes-ontap]]
+== Cloud Volumes ONTAP 的儲存 VM 災難恢復
+
+NetApp Console 不提供儲存設備虛擬機器 （SVM） 災難恢復 （DR） 的設定或協調支援。若要為 Cloud Volumes ONTAP 設定災難恢復，您必須使用 ONTAP System Manager 或 ONTAP CLI 來設定 SnapMirror SVM 複寫。
+
+如果要在兩個 Cloud Volumes ONTAP 系統之間設定 SnapMirror SVM 複製，則複製必須在兩個 HA 配對系統或兩個單節點系統之間進行。您無法在 HA 配對系統和單節點系統之間設定 SnapMirror SVM 複製。
+
+有關ONTAP CLI 說明，請參閱以下文件。
+
+* https://library.netapp.com/ecm/ecm_get_file/ECMLP2839856["SVM 災難復原準備快速指南"^]
+* https://library.netapp.com/ecm/ecm_get_file/ECMLP2839857["SVM 災難復原快速指南"^]
+
+
+.相關連結
+* link:concept-ha.html["了解 AWS 中的Cloud Volumes ONTAP HA 對"]
+* link:concept-ha-azure.html["了解 Azure 中的Cloud Volumes ONTAP HA 對"]
+* link:concept-ha-google-cloud.html["了解 GCP 中的 Cloud Volumes ONTAP HA 配對"]
+

@@ -108,7 +108,8 @@ image:screenshot_advanced_view.png["顯示系統管理員按鈕的螢幕截圖�
 如果您需要使用 System Manager 和Cloud Volumes ONTAP 的協助，您可以參考 https://docs.netapp.com/us-en/ontap/index.html["ONTAP文檔"^]以獲得逐步說明。以下是一些可能有幫助的ONTAP文件連結：
 
 * https://docs.netapp.com/us-en/ontap/ontap-security-hardening/roles-applications-authentication.html["ONTAP角色、應用程式和身份驗證"^]
-* https://docs.netapp.com/us-en/ontap/system-admin/access-cluster-system-manager-browser-task.html["使用 System Manager 存取叢集"^] 。
+* https://docs.netapp.com/us-en/ontap/concepts/introducing-ontap-interfaces-concept.html["ONTAP 使用者介面"^]
+* https://docs.netapp.com/us-en/ontap/concept_administration_overview.html["使用 ONTAP System Manager 了解叢集管理"^]
 * https://docs.netapp.com/us-en/ontap/volume-admin-overview-concept.html["捲和 LUN 管理"^]
 * https://docs.netapp.com/us-en/ontap/network-manage-overview-concept.html["網管"^]
 * https://docs.netapp.com/us-en/ontap/concept_dp_overview.html["資料保護"^]

@@ -1,0 +1,262 @@
+---
+sidebar: sidebar 
+permalink: reference-limits-gcp.html 
+keywords: limits, maximum, storage, aggregates, disks, volumes, capacity, luns, size, storage virtual machine, SVM 
+summary: Cloud Volumes ONTAP 在 Google Cloud 中具有儲存組態限制，以提供可靠的作業。為獲得最佳效能，請勿將系統配置為最大值。 
+---
+= Google Cloud 中 Cloud Volumes ONTAP 的儲存限制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 具有儲存組態限制，以提供可靠的作業。為獲得最佳效能，請勿將系統配置為最大值。
+
+
+
+[[maximum-system-capacity-by-license]]
+== 依授權的最大系統容量
+
+Cloud Volumes ONTAP 系統的最大系統容量由其授權決定。最大系統容量包括磁碟型儲存設備以及用於資料分層的物件儲存設備。
+
+NetApp 不支援超出系統容量限制。如果您達到授權容量上限，NetApp Console 會顯示需要採取行動的訊息，並且不再允許您新增磁碟。
+
+在某些組態中，磁碟限制會導致您無法僅使用磁碟達到容量限制。您可以透過 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["將非活動資料分層到物件存儲"^]達到容量限制。如需更多詳細資料，請參閱以下磁碟限制。
+
+[[cap-license-gcp]]
+.容量型授權的容量限制
+使用基於容量的授權，每個 Cloud Volumes ONTAP 系統都支援分層至物件儲存。分層總容量可擴充至雲端供應商的儲存桶限制。雖然授權不會限制容量，但在配置和管理分層時，您應遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳實踐"^]以確保最佳效能、可靠性和成本效益。如需詳細資訊，請參閱 https://cloud.google.com/storage/docs/buckets["Google Cloud 文件"^]。
+
+其他授權類型的容量限制::
+
+
+[cols="25,75"]
+|===
+| 授權 | 系統最大容量（磁碟 + 物件儲存） 
+
+
+| 免費增值 | 500 GB 
+
+
+| PAYGO Explore | 2 TB （Explore 不支援資料分層） 
+
+
+| PAYGO Standard | 10 TB 
+
+
+| PAYGO Premium | 368 TB 
+
+
+| 基於節點的許可證 | 2 PiB (需要多個授權) 
+|===
+.對於 HA 配對，授權容量限制是針對每個節點還是整個 HA 配對？
+容量限制是指整個 HA 配對。而不是每個節點。例如，如果您使用 Premium 授權，則兩個節點之間最多可擁有 368 TB 的容量。
+
+.對於 HA 配對，鏡像資料是否計入授權容量限制？
+不，不會。HA 對中的資料會在節點間同步鏡像，以便在 Google Cloud 發生故障時資料仍可使用。例如，如果您在節點 A 上購買了 8 TB 的磁碟，Console 也會在節點 B 上分配一個 8 TB 的磁碟用於鏡像資料。雖然總共設定了 16 TB 的容量，但只有 8 TB 會佔用授權限制。
+
+
+
+[[aggregate-limits]]
+== Aggregate 限制
+
+Cloud Volumes ONTAP 將 Google Cloud Platform 磁碟分組到 _Aggregate_ 中。Aggregate 為磁碟區提供儲存。
+
+[cols="2*"]
+|===
+| 參數 | 限制 
+
+
+| 資料集合體的最大數量 ^1^  a| 
+* 單節點 99
+* 64（適用於整個 HA 配對）
+
+
+
+
+| 最大彙總大小 | 256 TB 原始容量 ^2^ 
+
+
+| 每個 Aggregate 的磁碟數 | 1-6 ^3^ 
+
+
+| 每個 Aggregate 的最大 RAID 群組數 | 1 
+|===
+附註：
+
+. 資料 aggregate 的最大數量不包括根 aggregate。
+. 組成 Aggregate 的磁碟決定了 Aggregate 容量限制。此限制不包括用於資料分層的物件儲存。
+. 聚合中的所有磁碟必須具有相同的大小。
+
+
+
+
+[[disk-and-tiering-limits]]
+== 磁碟和分層限制
+
+下表顯示了僅使用磁碟以及使用磁碟並採用冷資料分層儲存到物件儲存時的最大系統容量。磁碟容量限制僅適用於包含使用者資料的磁碟。這些限制不包括開機磁碟、根磁碟或 NVRAM。
+
+[cols="60,40"]
+|===
+| 參數 | 限制 
+
+
+| 最大資料磁碟數  a| 
+* 單節點系統為 124
+* HA 配對每個節點 123 個
+
+
+
+
+| 最大磁碟大小 | 64 TB 
+
+
+| 僅使用磁碟時的最大系統容量 | 256 TB ^1^ 
+
+
+| 使用磁碟並將冷資料分層儲存到 Google Cloud Storage 儲存貯體的最大系統容量 | 取決於授權。請參閱上述系統容量上限。 
+|===
+^1^ 此限制由 Google Cloud Platform 中的虛擬機器限制定義。
+
+
+
+[[storage-vm-limits]]
+== Storage VM 限制
+
+某些組態可讓您為 Cloud Volumes ONTAP 建立額外的儲存 VM （ SVM ）。
+
+這些是經過測試的極限值。不支援設定更多儲存 VM。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-gcp.html["了解如何建立額外的儲存 VM"^]。
+
+[cols="2*"]
+|===
+| 許可證類型 | 儲存 VM 限制 
+
+
+| *免費增值*  a| 
+總共 24 個儲存 VM ^1^
+
+
+
+| *基於容量的 PAYGO 或 BYOL* ^2^  a| 
+總共 24 個儲存 VM ^1^
+
+
+
+| *基於節點的 BYOL* ^3^  a| 
+總共 24 個儲存 VM ^1^
+
+
+
+| *基於節點的 PAYGO*  a| 
+* 1 個用於提供資料的儲存 VM
+* 1 個用於災難恢復的儲存 VM
+
+
+|===
+. 這 24 個儲存 VM 可提供資料或設定為災難恢復（DR）。
+. 對於基於容量的授權模式，額外的儲存 VM 無需額外授權費用，但每個儲存 VM 最低收費 4 TiB 容量。例如，如果您建立兩個儲存 VM，每個 VM 預置 2 TiB 的容量，則總共需要支付 8 TiB 的費用。
+. 對於基於節點的 BYOL，除 Cloud Volumes ONTAP 預設提供的第一個儲存 VM 外，每個額外的_資料服務_儲存 VM 都需要附加授權。請聯絡您的客戶團隊以取得儲存 VM 附加授權。
++
+您為災難復原（DR）設定的儲存 VM 不需要附加授權（免費），但會計入儲存 VM 限制。例如，如果您有 12 個資料服務儲存 VM 和 12 個設定用於災難復原的儲存 VM，則表示您已達到限制，無法建立任何其他儲存 VM。
+
+
+
+
+
+[[logical-storage-limits]]
+== 邏輯儲存限制
+
+[cols="22,22,56"]
+|===
+| 邏輯儲存 | 參數 | 限制 
+
+
+.2+| *檔案* | 最大大小 ^2^ | 128 TB 
+
+
+| 每個 Volume 的最大值 | 磁碟區大小取決於具體情況，最高可達 20 億 
+
+
+| *FlexClone Volume* | 階層式複製深度 ^12^ | 499 
+
+
+.3+| *FlexVol Volume * | 每個節點的最大值 | 500 
+
+
+| 最小尺寸 | 20 MB 
+
+
+| 最大尺寸 ^3^ | 300 TiB 
+
+
+| *Qtree* | 每個 FlexVol Volume 的最大值 | 4,995 
+
+
+| *Snapshot 複本* | 每個 FlexVol Volume 的最大值 | 1,023 
+|===
+. 階層式複製深度是指可從單一 FlexVol volume 建立的巢狀 FlexClone volumes 階層的最大深度。
+. 從 ONTAP 9.12.1P2 開始，限制為 128 TB。在 ONTAP 9.11.1 及更早版本中，限制為 16 TB。
+. 使用以下工具和最低版本，支援建立最大大小為 300 TiB 的 FlexVol volume：
++
+** 從 Cloud Volumes ONTAP 9.12.1 P2 和 9.13.0 P2 開始的 System Manager 和 ONTAP CLI
+** 從 Cloud Volumes ONTAP 9.13.1 開始
+
+
+
+
+
+
+[[iscsi-storage-limits]]
+== iSCSI 儲存限制
+
+[cols="3*"]
+|===
+| iSCSI 儲存設備 | 參數 | 限制 
+
+
+.4+| *LUN* | 每個節點的最大值 | 1,024 
+
+
+| LUN 對應的最大數量 | 1,024 
+
+
+| 最大大小 | 16 TB 
+
+
+| 每個 Volume 的最大值 | 512 
+
+
+| *igroup* | 每個節點的最大值 | 256 
+
+
+.2+| *啟動器* | 每個節點的最大值 | 512 
+
+
+| 每個 igroup 的最大數量 | 128 
+
+
+| *iSCSI 工作階段* | 每個節點的最大值 | 1,024 
+
+
+.2+| *LIF* | 每個連接埠的最大容量 | 1 
+
+
+| 每個連接埠集的最大數量 | 32 
+
+
+| *Portsets* | 每個節點的最大值 | 256 
+|===
+
+
+[[cloud-volumes-ontap-ha-pairs-do-not-support-immediate-storage-giveback]]
+== Cloud Volumes ONTAP HA 配對不支援立即儲存恢復
+
+節點重新開機後，合作夥伴必須先同步資料才能歸還儲存設備。重新同步資料所需的時間取決於節點當機期間用戶端寫入的資料量以及歸還期間的資料寫入速度。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha-google-cloud.html["了解在 Google Cloud 中運行的 Cloud Volumes ONTAP HA 配對中的儲存運作方式"^]。

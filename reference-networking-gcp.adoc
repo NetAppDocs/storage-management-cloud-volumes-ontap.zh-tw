@@ -582,7 +582,7 @@ NOTE: 為了讓新的 Google Cloud HA 對部署實現較高的寫入速度，VPC
 . 新增用於控制台代理的標籤並儲存配置。
 
 
-.相關主題
+.相關連結
 * link:task-verify-autosupport.html["驗證Cloud Volumes ONTAP 的AutoSupport設置"]
 * https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP內部端口"^] 。
 

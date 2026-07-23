@@ -4,7 +4,7 @@ permalink: reference-limitations.html
 keywords: limitations, flexgroup, ontap s3, s3 configuration, svm dr, svm disaster recovery, disaster recovery, storage vm dr, BlueXP, Console, cloud manager 
 summary: 已知限制標識了該產品的此版本不支援或無法與其正確互通的平台、裝置或功能。仔細審查這些限制。 
 ---
-= 已知限制
+= Cloud Volumes ONTAP 的已知限制
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -16,12 +16,129 @@ summary: 已知限制標識了該產品的此版本不支援或無法與其正�
 [role="lead"]
 已知限制標識了該產品的此版本不支援或無法與其正確互通的平台、裝置或功能。仔細審查這些限制。
 
-這些限制特定於NetApp Console中的Cloud Volumes ONTAP管理。若要查看Cloud Volumes ONTAP軟體本身的限制， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limitations.html["前往Cloud Volumes ONTAP發行說明"^] 。
+
+
+[[cloud-volumes-ontap-limitations-with-respect-to-ontap]]
+== Cloud Volumes ONTAP 相對於 ONTAP 的限制
+
+以下限制適用於所有雲端供應商中的 Cloud Volumes ONTAP：AWS、Azure 和 Google Cloud。
+
+
+
+[[unsupported-ontap-features]]
+== 不支援的 ONTAP 功能
+
+Cloud Volumes ONTAP 不支援某些 ONTAP 功能，包括但不限於：
+
+* Aggregate 層級即時重複資料刪除
+* Aggregate 層級背景重複資料刪除
+* 磁碟維護中心
+* 磁碟清理
+* FabricPool 鏡像
+* 光纖通道 (FC)
+* Flash Pool
+* Infinite Volume
+* 介面群組
+* 節點內 LIF 容錯移轉
+* MetroCluster
+* 多重管理員驗證
++
+在 Cloud Volumes ONTAP 上啟用多管理員驗證將導致不受支援的組態。
+
+* RAID4、RAID-DP、RAID-TEC（支援 RAID0）
+* 服務處理器
+* SnapLock Compliance 和 Enterprise 模式（僅支援雲端 WORM）
+* SnapMirror 同步
+* VLAN
+* 用於加密的 Onboard Key Manager（OKM）
+* SMB 持續可用性（CA）
++
+不支援 https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/What_are_SMB_Continuous_Availability_CA_Shares["持續可用的 SMB 共用"^] 進行不中斷營運。
+
+
+
+
+
+[[maximum-concurrent-replication-operations]]
+== 最大並行複寫作業
+
+Cloud Volumes ONTAP 每個節點的 SnapMirror 或 SnapVault 並發傳輸數上限為 100，與執行個體類型或機器類型無關。
+
+
+
+[[cloud-provider-snapshots-must-not-be-used-for-your-backup-and-recovery-plans]]
+=== 雲端供應商快照不得用於您的備份與還原計畫
+
+您不應將雲端提供者的快照用作 Cloud Volumes ONTAP 資料備份和復原計畫的一部分。您應該始終使用 ONTAP Snapshot 複本或第三方備份解決方案來備份和還原託管在 Cloud Volumes ONTAP 上的資料。
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解如何使用 NetApp Backup and Recovery 來備份和還原 ONTAP 資料"^]。
+
+
+NOTE: WAFL 檔案系統中的 ONTAP 一致性點決定了資料一致性。只有 ONTAP 才能使 WAFL 檔案系統靜止，從而產生崩潰一致性備份。
+
+
+
+[[cloud-volumes-ontap-supports-only-reserved-and-on-demand-vm-instances]]
+=== Cloud Volumes ONTAP 僅支援預留和隨選 VM 執行個體
+
+Cloud Volumes ONTAP 可以在雲端供應商的保留或隨選 VM 執行個體上執行。不支援其他類型的 VM 執行個體。
+
+
+
+[[automatic-application-resource-management-solutions-shouldnt-be-used]]
+=== 不應使用自動應用程式資源管理解決方案
+
+自動應用程式資源管理解決方案不應管理 Cloud Volumes ONTAP 系統。這樣做可能會導致變更為不受支援的組態。例如，此解決方案可能會將 Cloud Volumes ONTAP 變更為不受支援的 VM 執行個體類型。
+
+
+
+[[software-updates-must-be-completed-by-netapp-console]]
+=== 軟體更新必須由 NetApp Console 完成
+
+Cloud Volumes ONTAP 的升級必須透過 NetApp Console 完成。請勿使用 System Manager 或 CLI 升級 Cloud Volumes ONTAP。否則可能會影響系統穩定性。
+
+
+
+[[cloud-volumes-ontap-deployment-must-not-be-modified-from-your-cloud-providers-console]]
+=== Cloud Volumes ONTAP 部署不得透過雲端提供者的主控台進行修改
+
+從雲端供應商的主控台變更 Cloud Volumes ONTAP 組態會導致不受支援的組態。對 NetApp Console 建立和管理的 Cloud Volumes ONTAP 資源進行的任何變更都可能影響系統穩定性以及 NetApp Console 管理系統的能力。
+
+
+NOTE: 初始部署後，支援修改用於 Cloud Volumes ONTAP 資源的 Azure 訂閱名稱。
+
+
+
+[[disks-and-aggregates-must-be-managed-from-the-console]]
+=== 磁碟和 Aggregate 必須透過 NetApp Console 進行管理
+
+必須直接從控制台建立和刪除所有磁碟和聚合。您不應從其他管理工具執行這些操作。這樣做會影響系統穩定性，妨礙將來添加磁碟的能力，並可能產生冗餘的雲端供應商費用。
+
+
+
+[[snapmanager-licensing-limitation]]
+=== SnapManager 授權限制
+
+Cloud Volumes ONTAP 支援 SnapManager 每伺服器授權。不支援每儲存系統（SnapManager 套件）授權。
+
+
+
+[[limitations-with-third-party-agents-and-extensions]]
+=== 第三方代理程式和擴充功能的限制
+
+Cloud Volumes ONTAP 虛擬機器執行個體不支援第三方代理程式和 VM 擴充功能。
+
+
+
+[[cloud-volumes-ontap-limitations-in-netapp-console]]
+== Cloud Volumes ONTAP 在 NetApp Console 中的限制
+
+這些限制僅適用於 NetApp Console 中的 Cloud Volumes ONTAP 管理。
 
 
 
 [[console-doesnt-support-flexgroup-volumes-creation]]
-== 控制台不支援創建FlexGroup卷
+=== 控制台不支援創建FlexGroup卷
 
 雖然Cloud Volumes ONTAP支援FlexGroup卷，但控制台目前不支援建立FlexGroup卷。如果您從ONTAP系統管理員或ONTAP CLI 建立FlexGroup卷，則應將控制台中的容量管理模式設為 `Manual`。 `Automatic`模式可能無法與FlexGroup磁碟區正常搭配使用。
 
@@ -31,7 +148,7 @@ NOTE: 我們計劃在未來的版本中提供在控制台中建立FlexGroup磁�
 
 
 [[console-doesnt-support-s3-with-cloud-volumes-ontap]]
-== 控制台不支援帶有Cloud Volumes ONTAP 的S3
+=== 控制台不支援帶有Cloud Volumes ONTAP 的S3
 
 雖然 Cloud Volumes ONTAP 支援 S3 作為橫向擴充儲存選項，但 Console 不提供任何此功能的管理功能。使用 CLI 是從 Cloud Volumes ONTAP 設定 S3 用戶端存取的最佳實踐做法。如需詳細資訊，請參閱 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-s3-cg/home.html["ONTAP S3 組態電源指南"^]。
 
@@ -40,7 +157,7 @@ link:concept-client-protocols.html["深入瞭解 Cloud Volumes ONTAP 對 ONTAP S
 
 
 [[console-doesnt-support-disaster-recovery-for-storage-vms]]
-== 控制台不支援儲存虛擬機器的災難復原
+=== 控制台不支援儲存虛擬機器的災難復原
 
 控制台不提供儲存虛擬機器 (SVM) 災難復原的任何設定或編排支援。您必須使用ONTAP系統管理員或ONTAP CLI。
 

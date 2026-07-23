@@ -4,7 +4,7 @@ permalink: task-modify-write-speed.html
 keywords: write speed, high write speed, normal write speed, change write speed 
 summary: 隨著儲存需求的變化，您可能需要變更Cloud Volumes ONTAP系統的配置。例如，您可以在即用即付配置之間進行變更、變更實例或虛擬機器類型等等。 
 ---
-= 修改系統寫入速度
+= 在 Cloud Volumes ONTAP 中修改系統寫入速度
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

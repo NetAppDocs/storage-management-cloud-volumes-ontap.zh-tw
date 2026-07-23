@@ -4,7 +4,7 @@ permalink: task-getting-started-gcp.html
 keywords: google cloud platform, gcp, cloud manager, deploy the Console, launch the Console, create the Console, getting started, networking, gcp networking, service account, tiering, data tiering, bucket, fabricpool, cloud backup, storage access key, gcp role, role, iam role, permissions, gcp permissions, cloud backup, the Console 
 summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTAP 。 
 ---
-= Google Cloud 中的Cloud Volumes ONTAP快速入門
+= Google Cloud 中 Cloud Volumes ONTAP 的部署總覽
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,55 +14,100 @@ summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTA
 
 
 [role="lead"]
-只需幾個步驟即可在 Google Cloud 中開始使用Cloud Volumes ONTAP 。
+要部署 Cloud Volumes ONTAP，您首先需要了解您的 Google Cloud 訂閱和 Cloud Volumes ONTAP 授權。您還必須確認已為您的 Google Cloud 專案和組織建立了 NetApp Console 代理程式。本主題中的許多資訊需要在開始部署 Cloud Volumes ONTAP 之前，作為 Console 設定的一部分完成。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]建立控制台代理
-[role="quick-margin-para"]
-如果你沒有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，你需要創建一個。 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["了解如何在 Google Cloud 中建立控制台代理"^]
+[cols="20,35,25,25"]
+|===
+| 任務 | 描述 | 參考 | 私有模式部署注意事項 
 
-[role="quick-margin-para"]
-請注意，如果您想在沒有網路存取的子網路中部署Cloud Volumes ONTAP ，則需要手動安裝控制台代理程式並存取在該控制台代理程式上執行的NetApp Console。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在沒有網路存取的地方手動安裝控制台代理"^]
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"]規劃您的配置
-[role="quick-margin-para"]
+ a| 
+建立 Console 代理程式
+ a| 
+如果您還沒有 Console 代理程式，請在部署 Cloud Volumes ONTAP 之前建立一個。如果部署在沒有網際網路存取的子網路中，請手動安裝 Console 代理程式並存取在該代理程式上執行的 NetApp Console。
+ a| 
+請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["在 Google Cloud 中建立 Console 代理程式"^]
+ a| 
+如果部署在無法存取網際網路的子網路中，請手動安裝 Console 代理程式，並存取在該 Console 代理程式上執行的 NetApp Console 使用者介面。請參閱 Console 設定指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在無網際網路存取的情況下手動安裝 Console 代理程式"^]
+
+
+
+ a| 
+規劃您的配置
+ a| 
 控制台提供符合您的工作負載要求的預先配置包，或者您可以建立自己的配置。如果您選擇自己的配置，您應該了解可用的選項。
+ a| 
+link:task-planning-your-config-gcp.html["規劃您的配置"]
+ a| 
+對於私有環境模式部署，您也需要考慮類似的規劃因素。
 
-[role="quick-margin-para"]
-link:task-planning-your-config-gcp.html["了解有關規劃配置的更多信息"] 。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]設定網路
-[role="quick-margin-list"]
+
+ a| 
+設定網路
+ a| 
 . 確保您的 VPC 和子網路將支援控制台代理和Cloud Volumes ONTAP之間的連線。
-. 如果您打算啟用資料分層， https://cloud.google.com/vpc/docs/configure-private-google-access["為私有 Google 存取權設定Cloud Volumes ONTAP子網路"^] 。
+. 如果您打算啟用資料分層，請為 Private Google Access 設定 Cloud Volumes ONTAP 子網路。
 . 如果您正在部署 HA 對，請確保您有四個 VPC，每個 VPC 都有自己的子網路。
 . 如果您使用共用 VPC，請向控制台代理服務帳戶提供_計算網路使用者_角色。
 . 為NetApp AutoSupport啟用從目標 VPC 的出站網際網路存取。
-+
-如果您在沒有網路存取的位置部署Cloud Volumes ONTAP，則不需要執行此步驟。
+
+ a| 
+請參閱：
+
+* link:reference-networking-gcp.html["Google Cloud 的網路需求"]
+* 請參閱 Google Cloud 文件： https://cloud.google.com/vpc/docs/configure-private-google-access["設定 Private Google Access"^]
+
+ a| 
+不需要 AutoSupport 的傳出網際網路存取。其他所有連網要求保持不變。
 
 
 
-[role="quick-margin-para"]
-link:reference-networking-gcp.html["了解有關網絡要求的更多信息"] 。
+ a| 
+設定服務帳戶
+ a| 
+Cloud Volumes ONTAP 需要 Google Cloud 服務帳戶才能啟用資料分層，將冷資料分層至 Google Cloud 中的低成本物件儲存，以及啟用 NetApp Backup and Recovery，將 Volume 備份至低成本物件儲存。
+ a| 
+* link:task-creating-gcp-service-account.html["設定服務帳戶"]
+* link:concept-data-tiering.html["了解資料分層"]
+* 請參閱 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery 文件"^]
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"]設定服務帳戶
-[role="quick-margin-para"]
-Cloud Volumes ONTAP需要 Google Cloud 服務帳戶來實現兩個目的。第一個是當你啟用link:concept-data-tiering.html["資料分層"]將冷資料分層到 Google Cloud 中的低成本物件儲存。第二個是當你啟用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^]將磁碟區備份到低成本的物件儲存。
+ a| 
+私有模式部署無需額外考慮。
 
-[role="quick-margin-para"]
-您可以設定一個服務帳戶並將其用於兩種用途。服務帳戶必須具有*儲存管理員*角色。
 
-[role="quick-margin-para"]
-link:task-creating-gcp-service-account.html["閱讀逐步說明"] 。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]啟用 Google Cloud API
-[role="quick-margin-para"]
-https://cloud.google.com/apis/docs/getting-started#enabling_apis["在您的專案中啟用 Google Cloud API"^]. https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["這些 API"^]，您可能已經在建立 Console 代理時啟用了它們，這些是在 Google Cloud 中部署 Cloud Volumes ONTAP 所必需的。
+ a| 
+啟用 Google Cloud API
+ a| 
+在您的專案中啟用所需的 Google Cloud API。您可能已經在建立 Console 代理程式時啟用了這些 API。
+ a| 
+請參閱 Google Cloud 文件：https://cloud.google.com/apis/docs/getting-started#enabling_apis["啟用 Google Cloud API"^]
+ a| 
+必須啟用 API。請與您的雲端系統管理員合作，在您的私有環境中啟用所需的 API。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"]使用控制台啟動Cloud Volumes ONTAP
-[role="quick-margin-para"]
-按一下“*新增系統*”，選擇您想要部署的系統類型，然後完成精靈中的步驟。link:task-deploying-gcp.html["閱讀逐步說明"] 。
 
+
+ a| 
+從 Console 部署 Cloud Volumes ONTAP
+ a| 
+完成所有先決條件後，即可依照精靈中的步驟在 Google Cloud 中部署 Cloud Volumes ONTAP。
+ a| 
+請參閱：
+
+* link:task-quick-deploy-gcp.html["使用快速建立部署 Cloud Volumes ONTAP"]
+* link:task-deploying-gcp.html["使用進階選項部署 Cloud Volumes ONTAP"]
+
+ a| 
+在開始部署之前，請確保您已從 NetApp 購買 Cloud Volumes ONTAP 授權。私有模式部署需要基於節點的 BYOL 授權。不支援使用 Marketplace 訂閱來支付 Cloud Volumes ONTAP 的使用費用。請從 NetApp 取得授權檔案，並在部署期間上傳。請參閱：
+
+* link:concept-license-management.html["基於節點的 BYOL 授權管理"]
+* link:task-manage-node-licenses.html["管理節點型 BYOL 授權"]
+* link:task-quick-deploy-gcp.html["使用快速建立部署 Cloud Volumes ONTAP"]
+* link:task-deploying-gcp.html["使用進階選項部署 Cloud Volumes ONTAP"]
+
+
+|===
 .相關連結
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["建立控制台代理"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在 Linux 主機上安裝控制台代理軟體"^]

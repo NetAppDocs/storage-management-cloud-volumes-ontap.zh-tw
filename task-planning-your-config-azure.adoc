@@ -41,7 +41,7 @@ Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符�
 
 Cloud Volumes ONTAP支援多種 VM 類型，視您選擇的授權類型而定。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支援的配置"^]
+link:reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支援的配置"]
 
 
 

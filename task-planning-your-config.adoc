@@ -57,7 +57,7 @@ link:https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html["AWS
 
 Cloud Volumes ONTAP支援多種執行個體類型，具體取決於您選擇的授權類型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支援的配置"^]
+link:reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支援的配置"]
 
 
 

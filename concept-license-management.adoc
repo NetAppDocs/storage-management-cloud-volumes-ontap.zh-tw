@@ -4,7 +4,7 @@ permalink: concept-license-management.html
 keywords: byol, bring your own license, expiration, warning, node-based byol, node license, capacity 
 summary: 每個具有基於節點的 BYOL 的Cloud Volumes ONTAP系統都必須安裝具有有效訂閱的系統授權。控制台透過為您管理許可證並在許可證到期前顯示警告來簡化流程。 
 ---
-= 基於節點的 BYOL 授權管理
+= 了解 Cloud Volumes ONTAP 節點型 BYOL
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -19,7 +19,7 @@ summary: 每個具有基於節點的 BYOL 的Cloud Volumes ONTAP系統都必須�
 
 NOTE: 基於節點的許可證是Cloud Volumes ONTAP的上一代許可證。基於節點的授權可以從NetApp (BYOL) 購買，並且僅在特定情況下才可以續訂授權。
 
-link:concept-licensing.html["了解有關Cloud Volumes ONTAP許可選項的更多信息"] 。
+link:concept-licensing.html["了解Cloud Volumes ONTAP許可證"]。
 
 link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["了解有關如何管理基於節點的許可證的更多信息"^] 。
 
@@ -82,3 +82,12 @@ image:screenshot_warning.gif["螢幕截圖：顯示包含警告圖示的Cloud Vo
 例如，您可能想要刪除現有的授權系統，然後將授權與不同 VPC/VNet 或雲端提供者中的新 BYOL 系統一起使用。請注意，只有_cloud-agnostic_序號才適用於任何雲端提供者。與雲無關的序號以 _908xxxx_ 前綴開頭。
 
 值得注意的是，您的 BYOL 授權與您的公司和一組特定的NetApp支援網站憑證相關聯。
+
+.相關連結
+* link:concept-licensing.html["Cloud Volumes ONTAP許可"^]
+* link:concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"^]
+* link:task-manage-capacity-licenses.html["管理Cloud Volumes ONTAP基於容量的許可"^]
+* link:task-manage-node-licenses.html["管理節點型授權"^]
+* link:task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"^]
+* link:task-manage-keystone.html["管理Keystone訂閱"^]
+

@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+使用基於容量的授權，每個 Cloud Volumes ONTAP 系統都支援分層至物件儲存。分層總容量可擴充至雲端供應商的儲存桶限制。雖然授權不會限制容量，但在配置和管理分層時，您應遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳實踐"^]以確保最佳效能、可靠性和成本效益。

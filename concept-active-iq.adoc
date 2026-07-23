@@ -14,9 +14,57 @@ summary: ONTAP的AutoSupport元件收集遙測資料並將其發送以進行分�
 
 
 [role="lead"]
-ONTAP的AutoSupport元件收集遙測資料並將其發送以進行分析。 Active IQ Digital Advisor （也稱為Digital Advisor）分析來自AutoSupport 的數據並提供主動護理和優化。利用人工智慧，Digital Advisor可以識別潛在問題並在其影響您的業務之前幫助您解決它們。
+ONTAP 的 AutoSupport 元件會收集遙測資料並將其傳送以進行分析。Active IQ Digital Advisor （也稱為 Digital Advisor）會分析來自 AutoSupport 的資料，並提供主動式維護和最佳化服務。
+
+https://www.netapp.com/data-services/digital-advisor/["NetApp Active IQ Digital Advisor"^]（也稱為 Digital Advisor）已整合到 NetApp Console 中，可讓您在單一窗口中最佳化 Cloud Volumes ONTAP 系統的運作、安全性和效能。Digital Advisor 利用人工智慧技術，可識別潛在問題並協助您在問題影響業務之前加以解決。
 
 Digital Advisor透過雲端的入口網站和行動應用程式提供可操作的預測分析和主動支持，使您能夠優化全球混合雲中的資料基礎架構。所有擁有有效SupportEdge合約的NetApp客戶均可獲得Digital Advisor的資料驅動見解和建議（功能因產品和支援層級而異）。
+
+您可以使用Digital Advisor查看儲存系統的整體狀態、有關係統健康狀況的高級資訊、庫存、計劃以及監視清單層級的寶貴見解。
+
+* 分析並優化儲存系統的健康狀況
+* 深入了解儲存系統的所有風險以及降低風險的措施
+* 透過查看效能資料的圖形格式來分析儲存設備的效能
+* 獲取有關容量超過 90% 或接近 90% 的系統的詳細信息
+
+
+
+
+[[supported-ontap-systems]]
+== 支援的ONTAP系統
+
+Digital Advisor提供您 NSS 帳戶內所有本地ONTAP系統和Cloud Volumes ONTAP系統的資訊。
+
+
+
+[[cost]]
+== 成本
+
+透過控制台使用此服務是免費的。
+
+
+
+[[how-digital-advisor-works-with-netapp-console]]
+== Digital Advisor如何與NetApp Console搭配使用
+
+Digital Advisor使用者介面完全整合在控制台中。
+
+在左側面板中，按一下「健康」> “Digital Advisor”。
+
+* 如果您已經在控制台中註冊了一個現有的 NSS 帳戶，則Digital Advisor UI 的顯示方式與您在獨立實施中看到的一樣 https://activeiq.netapp.com/[]。
++
+image:screenshot_aiq_digital_advisor.png["控制台中Digital Advisor使用者介面的螢幕截圖。"]
+
+* 如果您尚未在控制台中註冊 NSS 帳戶，請立即註冊 NSS 帳戶，然後就會出現Digital Advisor UI。參考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["管理與組織或帳戶關聯的 NSS 憑證"]以取得說明。
+
+
+
+NOTE: 自 2021 年 12 月 3 日起， NetApp已改用註冊 NSS 帳戶憑證的新方法。有關更多信息，請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["此常見問題解答"] 。如果您的 NSS 帳戶使用舊的憑證集，您將需要將帳戶更新為新的憑證。
+
+
+
+[[how-you-can-use-digital-advisor]]
+== 如何使用 Digital Advisor
 
 您可以使用Digital Advisor執行以下一些操作：
 

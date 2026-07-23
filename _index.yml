@@ -5,76 +5,105 @@ indexpage:
   tiles:
   - title: 開始
     links:
-    - title: 了解Cloud Volumes ONTAP
+    - title: 什麼是新的
+      url: whats-new.html
+    - title: 什麼是Cloud Volumes ONTAP？
       url: concept-overview-cvo.html
-    - title: AWS 快速入門
-      url: task-getting-started-aws.html
-    - title: AWS Top Secret/Secret Cloud 區域快速入門
-      url: task-getting-started-aws-c2s.html
-      flavor: aws
-    - title: Azure 快速入門
-      url: task-getting-started-azure.html
-      flavor: azure
-    - title: Google Cloud 快速入門
-      url: task-getting-started-gcp.html
-      flavor: gcp
-  - title: 授權
+    - title: 安全性與法規遵循
+      url: concept-security.html
+    - title: 支援的版本
+      url: reference-versions.html
+    - title: 支援的升級路徑
+      url: task-updating-ontap-cloud.html#supported-upgrade-paths
+    - title: 預設配置
+      url: reference-default-configs.html
+  - title: 了解Cloud Volumes ONTAP
     links:
-    - title: 許可概述
+    - title: 授權
       url: concept-licensing.html
-    - title: 管理基於容量的許可證
+    - title: 安全
+      url: concept-security.html
+    - title: 了解加密
+      url: concept-security.html
+    - title: 儲存管理
+      url: concept-storage-management.html
+    - title: 用於Cloud Volumes ONTAP叢集的磁碟和聚合
+      url: reference-default-configs.html
+    - title: Cloud Volumes ONTAP 工作負載的效能監控
+      url: concept-performance.html
+  - title: AWS
+    links:
+    - title: 支援的組態
+      url: reference-configs-aws.html
+    - title: 了解 AWS 中的Cloud Volumes ONTAP HA 對
+      url: concept-ha.html
+    - title: AWS 中的網路要求/安全性要求
+      url: reference-networking-aws.html
+    - title: 快速部署
+      url: task-quick-deploy-aws.html
+    - title: 在秘密雲端部署 AWS
+      url: task-getting-started-aws-c2s.html
+    - title: 使用 AWS 關鍵管理服務管理加密金鑰
+      url: task-aws-key-management.html
+  - title: Azure
+    links:
+    - title: 支援的組態
+      url: reference-configs-azure.html
+    - title: 了解 Azure 中的Cloud Volumes ONTAP HA 對
+      url: concept-ha-azure.html
+    - title: Azure 中的網路要求/安全性要求
+      url: reference-networking-azure.html
+    - title: 快速部署
+      url: task-quick-deploy-azure.html
+    - title: 在市場部署
+      url: task-deploy-cvo-azure-mktplc.html
+    - title: 使用 Azure Key Vault 管理加密金鑰
+      url: task-azure-key-vault.html
+  - title: Google雲
+    links:
+    - title: 支援的組態
+      url: reference-configs-gcp.html
+    - title: 了解 Google Cloud 中的Cloud Volumes ONTAP HA 對
+      url: concept-ha-google-cloud.html
+    - title: Google Cloud 中的網路要求/安全性要求
+      url: reference-networking-gcp.html
+    - title: 快速部署
+      url: task-getting-started-gcp.html
+    - title: 使用 Google Cloud KMS 管理加密金鑰
+      url: task-google-key-manager.html
+  - title: 系統和儲存設備管理
+    links:
+    - title: 管理基於容量的許可
       url: task-manage-capacity-licenses.html
-    - title: 交換未分配的基於節點的許可證
-      url: task-manage-node-licenses.html#exchange-unassigned-node-based-licenses
-    - title: 管理Keystone訂閱
-      url: task-manage-keystone.html
-  - title: 儲存管理
-    links:
-    - title: 創建卷
+    - title: 將節點型授權轉換為容量型授權
+      url: task-convert-node-capacity.html
+    - title: 在系統上建立 FlexVol Volume
       url: task-create-volumes.html
-    - title: 將非活動資料分層到物件存儲
+    - title: 層級非活躍資料
       url: task-tiering.html
-    - title: 使用FlexCache加速資料存取
-      url: task-accelerate-data-access.html
-    - title: ONTAP SAN 主機配置
-      url: https://docs.netapp.com/us-en/ontap-sanhost
-  - title: 系統管理
-    links:
-    - title: 升級Cloud Volumes ONTAP
-      url: task-updating-ontap-cloud.html
-    - title: 停止並啟動Cloud Volumes ONTAP
-      url: task-managing-state.html
-  - title: 安全
-    links:
-    - title: 使用NetApp加密技術加密卷
+    - title: 管理儲存虛擬機
+      url: task-managing-svms.html
+    - title: 在 Cloud Volumes ONTAP 上加密磁碟區
       url: task-encrypting-volumes.html
-    - title: 提高勒索軟體防護
-      url: task-protecting-ransomware.html
-  - title: API
+  - title: API 參考（NetApp Console Automation）
     links:
-    - title: Cloud Volumes ONTAP API 概述
-      url: https://docs.netapp.com/us-en/bluexp-automation/cm/overview.html
-    - title: 準備使用 API
-      url: https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html
     - title: API 參考
-      url: https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html
-  - title: 故障排除
+      url: https://docs.netapp.com/us-en/console-automation/cm/overview.html
+    - title: Cloud Volumes ONTAP API 概述
+      url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
+    - title: 準備使用 API
+      url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
+  - title: 更多資源
     links:
-    - title: NetApp知識庫
+    - title: 故障排除
       url: https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Volumes_ONTAP_(CVO)
-  - title: 參考
-    links:
-    - title: 支援的配置
-      url: https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html
+    - title: ONTAP 使用者介面
+      url: https://docs.netapp.com/us-en/ontap/concepts/introducing-ontap-interfaces-concept.html
+    - title: 使用 ONTAP CLI 管理 Cloud Volumes ONTAP
+      url: https://docs.netapp.com/us-en/ontap-cli/index.html
     - title: 支援的雲區域
       url: https://bluexp.netapp.com/cloud-volumes-global-regions
     - title: 計算機
       url: https://www.netapp.com/ontap-cloud/pricing/
-  - title: 部落格和社區
-    links:
-    - title: NetApp Console
-      url: https://www.netapp.com/console
-    - title: NetApp Data Services
-      url: https://www.netapp.com/data-services/
     - title: NetApp社群
       url: https://community.netapp.com/

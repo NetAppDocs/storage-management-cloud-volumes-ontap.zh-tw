@@ -4,7 +4,7 @@ permalink: task-getting-started-azure.html
 keywords: microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, custom role, role, json, permissions, virtual machine, connectivity, internet, outbound, endpoint, connection, networks, vpn, replicating, policy, iam, setupasservice, sign up, cloud manager, BlueXP, cloud volumes ontap, cloud ontap, subscription, create 
 summary: 只需幾個步驟即可開始使用Cloud Volumes ONTAP for Azure。 
 ---
-= Azure 中的Cloud Volumes ONTAP快速入門
+= Azure 中 Cloud Volumes ONTAP 的部署總覽
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,35 +14,68 @@ summary: 只需幾個步驟即可開始使用Cloud Volumes ONTAP for Azure。
 
 
 [role="lead"]
-只需幾個步驟即可開始使用Cloud Volumes ONTAP for Azure。
+要部署 Cloud Volumes ONTAP，您首先需要了解您的 Azure 訂閱和 Cloud Volumes ONTAP 授權。您還必須確認已為您的 Azure 訂閱和組織建立了 NetApp Console 代理程式。本主題中的許多資訊需要在開始部署 Cloud Volumes ONTAP 之前，作為 Console 設定的一部分完成。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]建立控制台代理
-[role="quick-margin-para"]
-如果你沒有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要建立一個。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["了解如何在 Azure 中建立控制台代理"^]
+[cols="20,35,25,25"]
+|===
+| 任務 | 描述 | 參考 | 私有模式部署注意事項 
 
-[role="quick-margin-para"]
-請注意，如果您想在沒有網路存取的子網路中部署Cloud Volumes ONTAP ，則需要手動安裝控制台代理程式並存取在該控制台代理程式上執行的NetApp Console。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在沒有網路存取的地方手動安裝控制台代理"^]
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"]規劃您的配置
-[role="quick-margin-para"]
-控制台提供符合您的工作負載要求的預先配置包，或者您可以建立自己的配置。如果您選擇自己的配置，您應該了解可用的選項。有關信息，請參閱link:task-planning-your-config-azure.html["在 Azure 中規劃您的Cloud Volumes ONTAP配置"]。
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]設定網路
-[role="quick-margin-list"]
-. 確保您的 VNet 和子網路將支援控制台代理程式和Cloud Volumes ONTAP之間的連線。
-. 為NetApp AutoSupport啟用從目標 VPC 的出站網際網路存取。
-+
-如果您在沒有網路存取的位置部署Cloud Volumes ONTAP，則不需要執行此步驟。
+ a| 
+建立 Console 代理程式
+ a| 
+如果您還沒有 Console 代理程式，請在部署 Cloud Volumes ONTAP 之前建立一個。
+ a| 
+請參閱 Console 設定指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["在 Azure 中建立 Console 代理程式"^]
+ a| 
+如果部署在無法存取網際網路的子網路中，請手動安裝 Console 代理程式，並存取在該 Console 代理程式上執行的 NetApp Console 使用者介面。請參閱 Console 設定指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在無網際網路存取的情況下手動安裝 Console 代理程式"^]
 
 
 
-[role="quick-margin-para"]
-link:reference-networking-azure.html["了解有關網絡要求的更多信息"] 。
+ a| 
+規劃您的配置
+ a| 
+控制台提供符合您的工作負載要求的預先配置包，或者您可以建立自己的配置。如果您選擇自己的配置，您應該了解可用的選項。
+ a| 
+link:task-planning-your-config-azure.html["在 Azure 中規劃您的Cloud Volumes ONTAP配置"]
+ a| 
+對於私有環境模式部署，您也需要考慮類似的規劃因素。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"]啟動Cloud Volumes ONTAP
-[role="quick-margin-para"]
-按一下“*新增系統*”，選擇您想要部署的系統類型，然後完成精靈中的步驟。link:task-deploying-otc-azure.html["閱讀逐步說明"] 。
 
+
+ a| 
+設定網路
+ a| 
+. 確保您的 VNet 和子網路支援 Console 代理程式和 Cloud Volumes ONTAP 之間的連線。
+. 從目標 VNet 啟用 NetApp AutoSupport 的傳出網際網路存取。
+
+ a| 
+link:reference-networking-azure.html["Azure 的網路需求"]
+ a| 
+不需要 AutoSupport 的傳出網際網路存取。其他所有連網要求保持不變。
+
+
+
+ a| 
+從 Console 部署 Cloud Volumes ONTAP
+ a| 
+完成所有先決條件後，即可依照精靈中的步驟在 Azure 中部署 Cloud Volumes ONTAP。
+ a| 
+請參閱：
+
+* link:task-quick-deploy-azure.html["使用快速建立部署 Cloud Volumes ONTAP"]
+* link:task-deploying-otc-azure.html["使用進階選項部署 Cloud Volumes ONTAP"]
+
+ a| 
+在開始部署之前，請確保您已從 NetApp 購買 Cloud Volumes ONTAP 授權。私有模式部署需要基於節點的 BYOL 授權。不支援使用 Marketplace 訂閱來支付 Cloud Volumes ONTAP 的使用費用。請從 NetApp 取得授權檔案，並在部署期間上傳。請參閱：
+
+* link:concept-license-management.html["基於節點的 BYOL 授權管理"]
+* link:task-manage-node-licenses.html["管理節點型 BYOL 授權"]
+* link:task-quick-deploy-azure.html["使用快速建立部署 Cloud Volumes ONTAP"]
+* link:task-deploying-otc-azure.html["使用進階選項部署 Cloud Volumes ONTAP"]
+
+
+|===
 .相關連結
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["從控制台建立控制台代理"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-marketplace.html["從 Azure 市集建立控制台代理"^]

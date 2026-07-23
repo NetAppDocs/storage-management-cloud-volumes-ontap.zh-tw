@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations-aws.html 
+keywords: limitations, aws, amazon web services, flashe cache, alarms, cloudwatch, giveback, govcloud, c2s, aws outpost, outposts 
+summary: 這些已知限制是 Amazon Web Services 中 Cloud Volumes ONTAP 特有的限制。 
+---
+= AWS 中 Cloud Volumes ONTAP 的已知限制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+以下已知限制僅適用於 Amazon Web Services 中的 Cloud Volumes ONTAP。請務必同時查看 link:reference-limitations.html["所有雲端供應商中 Cloud Volumes ONTAP 的限制"]。
+
+
+
+[[aws-outpost-limitations]]
+== AWS Outpost 限制
+
+如果您擁有 AWS Outpost，則可以在部署過程中選擇 Outpost VPC，將 Cloud Volumes ONTAP 部署到該 Outpost 中。部署體驗與在 AWS 中部署任何其他 VPC 相同。請注意，您需要先在 AWS Outpost 中部署一個 Console 代理程式。
+
+需要指出的是，存在一些限制：
+
+* 目前僅支援單節點Cloud Volumes ONTAP系統
+* 可與Cloud Volumes ONTAP一起使用的 EC2 執行個體僅限於 Outpost 中可用的執行個體
+* 目前僅支援通用 SSD（gp2）
+
+
+
+
+[[flash-cache-limitations]]
+== Flash Cache 限制
+
+C5D 和 R5D 執行個體類型包含本機 NVMe 儲存設備，Cloud Volumes ONTAP 將其用作 _Flash Cache_。請注意以下限制：
+
+* 若要利用 Cloud Volumes ONTAP 9.12.0 及更早版本中的 Flash Cache 效能改進，必須停用所有磁碟區的壓縮功能。部署或升級至 Cloud Volumes ONTAP 9.12.1 時，無需停用壓縮功能。
++
+您可以在從 NetApp Console 建立磁碟區時選擇不啟用儲存效率，或者您也可以先建立磁碟區，然後 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["使用 CLI 停用資料壓縮"^]。
+
+* Cloud Volumes ONTAP不支援重新啟動後快取重新預熱。
+
+
+
+
+[[false-alarms-reported-by-amazon-cloudwatch]]
+== Amazon CloudWatch 報告的誤報
+
+Cloud Volumes ONTAP 在閒置時不會釋放 CPU，因此 https://aws.amazon.com/cloudwatch/["Amazon CloudWatch"^]可能會因為偵測到 100% 的使用率而針對 EC2 執行個體回報高 CPU 警告。您可以忽略此警報。ONTAP statistics 指令會顯示 CPU 的實際使用情況。
+
+
+
+[[cloud-volumes-ontap-ha-pairs-do-not-support-immediate-storage-giveback]]
+== Cloud Volumes ONTAP HA 配對不支援立即儲存恢復
+
+節點重新開機後，合作夥伴必須先同步資料才能歸還儲存設備。重新同步資料所需的時間取決於節點當機期間用戶端寫入的資料量以及歸還期間的資料寫入速度。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha.html["了解在 AWS 中執行的 Cloud Volumes ONTAP HA 配對中的儲存運作原理"^]。

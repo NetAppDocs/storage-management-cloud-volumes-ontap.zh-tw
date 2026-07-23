@@ -4,7 +4,7 @@ permalink: concept-flash-cache.html
 keywords: cloud volumes ontap, flash cache, read-intensive, read, random, databases, email, file services, compression, performance, nvme 
 summary: 一些Cloud Volumes ONTAP配置包括本地 NVMe 存儲， Cloud Volumes ONTAP將其用作閃存緩存以獲得更好的性能。 
 ---
-= 快閃記憶體
+= Flash Cache 和 Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -48,8 +48,8 @@ endif::aws[]
 * Cloud Volumes ONTAP不支援重新啟動後快取重新預熱。
 
 
-.相關主題
-* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支援的配置"^]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支援的配置"^]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支援的組態"^]
+.相關連結
+* link:reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支援的配置"]
+* link:reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支援的配置"]
+* link:reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支援的組態"]
 
