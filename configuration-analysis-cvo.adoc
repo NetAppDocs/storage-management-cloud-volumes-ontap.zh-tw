@@ -1,0 +1,122 @@
+---
+sidebar: sidebar 
+permalink: configuration-analysis-cvo.html 
+keywords: Cloud Volumes ONTAP, license, well-architected, WAD, CVO 
+summary: NetApp Console 中架構完善的儀表板會定期分析儲存系統組態，以判斷您的 Cloud Volumes ONTAP 系統是否存在任何組態問題。發現問題時，儀表板會顯示問題所在，並說明需要進行哪些變更，以確保您的儲存系統達到最佳效能、具成本效益，並符合最佳實務的法規遵循要求。 
+---
+= 在架構完善的儀表板上對 Cloud Volumes ONTAP 進行組態分析
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: https://docs.netapp.com/us-en/console-well-architected/media/
+
+
+[role="lead"]
+NetApp Console 中架構完善的儀表板會定期分析儲存系統組態，以判斷您的 Cloud Volumes ONTAP 系統是否存在任何組態問題。發現問題時，儀表板會顯示問題所在，並說明需要進行哪些變更，以確保您的儲存系統達到最佳效能、具成本效益，並符合最佳實務的法規遵循要求。
+
+主要功能包括：
+
+* 每日配置分析
+* 對 NetApp ONTAP 儲存系統和合作夥伴儲存設備提供者進行自動最佳實務做法驗證
+* 主動可觀測性
+* 洞察化為行動
+
+
+未解析的指令位於 https://raw.githubusercontent.com/NetAppDocs/console-well-architected/main/cvo/configuration-analysis-cvo.adoc[] - include::well-architected-workloads.adoc[]
+
+
+
+[[analysis-requirements]]
+== 分析要求
+
+若要進行完整的 Cloud Volumes ONTAP 系統分析，您必須link:https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html#agent-console-deploy["部署 NetApp Console 代理程式"^]在系統和 NetApp Console 之間建立連線。
+
+
+
+[[best-practices-and-recommendations-for-cloud-volumes-ontap-systems]]
+== Cloud Volumes ONTAP 系統的最佳實務做法與建議
+
+架構完善的儀表板可評估儲存組態，深入檢視 ONTAP 組態最佳實務，以及是否符合 Azure Well-Architected Framework。此評估也會建議改進措施和修正方法。
+
+精心設計的分析將組態分類為架構的下列要素：_可靠性_、_安全性_、_卓越營運_、_成本最佳化_和_效能效率_。
+
+
+
+[[reliability]]
+=== 可靠性
+
+可靠性確保工作負載即使在中斷期間也能正確且持續地執行其預期功能。
+
+* *Snapshot 原則*
++
+排程本機 Snapshot 快照技術，以實現高效備份和快速還原。Snapshot 快照技術是 Volume 的即時時間點映像。
+
+* *SSD 容量餘裕*
++
+SSD 儲存層的容量使用率不得超過 80%。否則可能會影響容量資源池儲存層的資料讀取和寫入作業，進而影響系統的處理量。當容量耗盡時，資料 Volume 將變為唯讀狀態。嘗試寫入新資料的服務也會失敗。
+
+
+
+
+
+[[security]]
+=== 安全
+
+安全重點在於透過風險評估和緩解策略來保護資料、系統和資產。
+
+* *搭載 AI 的自主勒索軟體防護 (ARP/AI)*
++
+NetApp 具備人工智慧的自主勒索軟體防護 (ARP/AI) 有助於增強網路彈性，保護您的 Volume 免受勒索軟體威脅。我們建議為所有 Volume 啟用 ARP/AI。
+
+
+
+
+
+[[operational-excellence]]
+=== 卓越營運
+
+卓越營運績效的重點在於提供最佳的架構和商業價值。
+
+* *Volume 容量餘裕*
++
+我們建議 Volume 容量使用率不要超過 80%。這可能會影響應用程式的資料讀取和寫入。Volume 容量的增加可以手動進行，也可以使用 Volume 自動擴充功能自動進行。
+
+* *FlexCache 寫入模式*
++
+為了獲得最佳效能，我們建議使用最適合您工作負載的 FlexCache® 寫入模式。對於具有小檔案的讀取密集型工作負載，Write-around 模式可提供更好的效能，而對於具有大檔案的寫入密集型工作負載，Write-back 模式則可提供更好的效能。
+
+* *FlexCache® 複本大小*
++
+我們建議在快取 Volume 上啟用 Volume 自動調整規模和清理功能，以維持最佳大小，並將快取集中用於頻繁存取（熱）資料，以達到尖峰效率。
+
+* *ONTAP 版本法規遵循*
++
+升級至最新 ONTAP 版本，以獲得完整的相容性、支援及新功能的存取。
+
+
+
+
+
+[[cost-optimization]]
+=== 成本最佳化
+
+成本優化可協助您在保持低成本的同時，為企業創造最大價值。
+
+* *超額配置的固態硬碟容量*
++
+過度配置的 SSD 容量層會增加不必要的成本。我們建議在維持 20% 可用空間緩衝區的同時，減少 SSD 層容量。減少容量的作業需要數小時到數天時間，在此期間其他檔案系統作業將無法進行。
+
+* *冷資料分層*
++
+啟用冷資料分層，將冷資料從 SSD 儲存層遷移到成本較低的儲存設備。我們建議對每個 Volume 套用分層原則。Azure Blob Storage 可作為非作用中資料的容量層。
+
+
+
+.接下來
+link:https://docs.netapp.com/us-en/console-well-architected/cvo/improve-configurations-cvo.html["實作架構良好的 Cloud Volumes ONTAP 系統組態"]
+
+.相關連結
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#well-architected-configuration-analysis-for-cloud-volumes-ontap-in-azure["Azure 中 Cloud Volumes ONTAP 的架構完善組態分析"^]
+

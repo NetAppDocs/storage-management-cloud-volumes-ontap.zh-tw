@@ -5,7 +5,7 @@ settings:
     release_notes_repo: console-relnotes
   harmony_integration: maestro
   internal:
-    pdf_enabled: false
+    pdf_enabled: true
   prod:
     pdf_enabled: true
     harmony_enabled: false
@@ -327,6 +327,10 @@ sidebar:
       url: "/task-verify-autosupport.html"
     - title: 管理Keystone訂閱
       url: "/task-manage-keystone.html"
+    - title: Cloud Volumes ONTAP 和 Microsoft OneLake
+      url: "/task-azure-onelake.html"
+    - title: Cloud Volumes ONTAP 和架構完善的儀表板
+      url: "/configuration-analysis-cvo.html"
   - title: 知識和支持
     entries:
     - title: 註冊以獲得支持
