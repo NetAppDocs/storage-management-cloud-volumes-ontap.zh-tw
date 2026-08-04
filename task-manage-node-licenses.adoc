@@ -13,5 +13,227 @@ summary: 在NetApp Console中管理基於節點的許可證，以確保每個Clo
 :imagesdir: https://docs.netapp.com/us-en/console-licenses-subscriptions/media/
 
 
-[role="lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead lead"]
-include::https://raw.githubusercontent.com/NetAppDocs/console-licenses-subscriptions/main/task-manage-node-based-licenses.adoc[lines=15..-1]
+[role="lead lead"]
+在 NetApp Console 中管理節點型授權，以確保每個 Cloud Volumes ONTAP 系統都具有所需容量的有效授權。
+
+節點型授權是上一代授權模式（不適用於新客戶）：
+
+* 自帶授權 (BYOL) 授權購買自 NetApp
+* 從雲端供應商的市場取得每小時隨用隨付 (PAYGO) 訂閱
+
+
+您可以從 NetApp Console 管理節點型 Cloud Volumes ONTAP 授權。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["深入瞭解 Cloud Volumes ONTAP 授權"^]。
+
+
+
+[[manage-paygo-licenses]]
+== 管理隨用隨付授權
+
+「Licenses and subscriptions」選單可讓您檢視每個 PAYGO Cloud Volumes ONTAP 系統的詳細資訊，包括序號和 PAYGO 授權類型。
+
+.步驟
+. 從左側導覽窗格中，選取 *Administration > Licenses and subscriptions*。
+. 選擇 *Overview* 標籤。
+. 在 Cloud Volumes ONTAP 圖磚上，選取 * 檢視 *。
+. 從下拉式選單中選取 *Node Based Licenses*。
+. 按一下 *PAYGO* 。
+. 在表格中檢視每張隨用隨付授權的詳細資訊。
++
+image:screenshot_paygo_licenses.png["快照顯示「Licenses and subscriptions」頁面上的表格，其中包含三個隨用隨付授權。每一列顯示名稱、系統類型、序號、套件，以及用於管理授權的連結。"]
+
+. 如有需要，請按一下 *Manage PAYGO License* 以變更隨用隨付授權或變更執行個體類型。
+
+
+
+
+[[manage-byol-licenses]]
+== 管理 BYOL 授權
+
+透過新增和移除系統授權及額外容量授權，管理您直接從 NetApp 購買的授權。
+
+
+NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。
+
+
+
+[[add-unassigned-licenses]]
+=== 新增未指派的授權
+
+將節點型授權新增至 NetApp Console，以便在建立新的 Cloud Volumes ONTAP 系統時可以選取該授權。NetApp Console 會將這些授權識別為「未指派」。
+
+.步驟
+. 從左側導覽窗格中，選取 *Administration > Licenses and subscriptions*。
+. 選擇 *Overview* 標籤。
+. 在 Cloud Volumes ONTAP 圖磚上，選取 * 檢視 *。
+. 從下拉式選單中選取 *Node Based Licenses*。
+. 按一下“*未分配*”。
+. 按一下「新增未指派的許可證」。
+. 輸入許可證的序號或上傳許可證文件。
++
+如果您還沒有授權檔案，請參閱以下部分。
+
+. 按一下「新增許可證」。
+
+
+.結果
+Console 會新增授權。在您將該授權與新的 Cloud Volumes ONTAP 系統建立關聯之前，它將被標記為未指派。關聯完成後，該授權將移至 *Licenses and subscriptions* 中的 *BYOL* 索引標籤。
+
+
+
+[[exchange-unassigned-node-based-licenses]]
+=== 交換未指派的節點型授權
+
+如果您有未指派的 Cloud Volumes ONTAP 節點型授權且尚未使用，您可以將其轉換為 NetApp Backup and Recovery 授權、NetApp Data Classification 授權或 NetApp Cloud Tiering 授權，以交換該授權。
+
+更換授權會撤銷 Cloud Volumes ONTAP 授權，並為該服務建立等值的美元授權：
+
+* Cloud Volumes ONTAP HA 配對的授權已轉換為 51 TiB 直接授權
+* Cloud Volumes ONTAP 單一節點授權已轉換為 32 TiB 直接授權
+
+
+轉換後的授權與 Cloud Volumes ONTAP 授權具有相同的到期日。
+
+link:https://mydemo.netapp.com/player/?demoId=c96ef113-c338-4e44-9bda-81a8d252de63&showGuide=true&showGuidesToolbar=true&showHotspots=true&source=app["檢視如何交換節點型授權的詳細步驟。"^]
+
+.步驟
+. 從左側導覽窗格中，選取 *Administration > Licenses and subscriptions*。
+. 選擇 *Overview* 標籤。
+. 在 Cloud Volumes ONTAP 圖磚上，選取 * 檢視 *。
+. 從下拉式選單中選取 *Node Based Licenses*。
+. 按一下“*未分配*”。
+. 點選「Exchange License」。
++
+image:screenshot-exchange-license.png["未指派授權頁面上顯示的 Exchange 授權選項的快照。"]
+
+. 選擇您要用來交換授權的服務。
+. 如果系統提示，請為 HA 配對選擇額外的授權。
+. 閱讀法律同意書並點選「同意」。
+
+
+.結果
+Console 會將未指派的授權轉換為您選擇的服務。您可以在 *Data Services Licenses* 索引標籤中檢視新授權。
+
+
+
+[[obtain-a-system-license-file]]
+=== 取得系統授權檔案
+
+大多數情況下，主控台可以使用您的 NetApp 支援網站帳戶自動取得授權檔案。但如果無法取得，則需要手動上傳授權檔案。如果您沒有授權檔案，可以從 netapp.com 取得。
+
+.步驟
+. 前往 https://register.netapp.com/register/getlicensefile["NetApp許可證文件產生器"^]並使用您的 NetApp 支援網站憑證登入。
+. 輸入您的密碼，選擇您的產品，輸入序號，確認您已閱讀並接受隱私權政策，然後按一下*提交*。
++
+*例子*
+
++
+image:screenshot-license-generator.png["快照：顯示 NetApp License Generator 網頁的範例及可用的產品線。"]
+
+. 選擇您是否希望透過電子郵件或直接下載接收 serialnumber.NLF JSON 檔案。
+
+
+
+
+[[update-a-system-license]]
+=== 更新系統授權
+
+當您透過聯絡 NetApp 代表續約 BYOL 訂閱時，Console 會自動從 NetApp 取得新授權並將其安裝到 Cloud Volumes ONTAP 系統中。如果 Console 無法透過安全的網際網路連線存取授權檔案，您可以自行取得該檔案，然後手動上傳該檔案。
+
+.步驟
+. 從左側導覽窗格中，選取 *Administration > Licenses and subscriptions*。
+. 選擇 *Overview* 標籤。
+. 在 Cloud Volumes ONTAP 圖磚上，選取 * 檢視 *。
+. 從下拉式選單中選取 *Node Based Licenses*。
+. 在 *BYOL* 標籤中，展開 Cloud Volumes ONTAP 系統的詳細資訊。
+. 點選系統授權旁的行動選單，然後選擇 *Update License*。
+. 上傳授權檔案（如果您有 HA 配對，則上傳多個檔案）。
+. 點選「更新授權」。
+
+
+.結果
+主控台會更新 Cloud Volumes ONTAP 系統上的授權。
+
+
+
+[[manage-extra-capacity-licenses]]
+=== 管理額外容量授權
+
+您可以為 Cloud Volumes ONTAP BYOL 系統購買額外的容量授權，以分配超過 BYOL 系統授權所提供的 368 TiB 容量。例如，您可以購買一個額外的容量授權，為 Cloud Volumes ONTAP 分配高達 736 TiB 的容量。或者，您可以購買三個額外的容量授權，以獲得高達 1.4 PiB 的容量。
+
+您可以為單節點系統或 HA 配對購買的授權數量沒有限制。
+
+
+
+==== 新增容量授權
+
+如需購買額外的容量授權，請透過主控台右下角的聊天圖示與我們聯絡。購買授權後，您可以將其套用至 Cloud Volumes ONTAP 系統。
+
+.步驟
+. 從左側導覽窗格中，選取 *Administration > Licenses and subscriptions*。
+. 選擇 *Overview* 標籤。
+. 在 Cloud Volumes ONTAP 圖磚上，選取 * 檢視 *。
+. 從下拉式選單中選取 *Node Based Licenses*。
+. 在 *BYOL* 標籤中，展開 Cloud Volumes ONTAP 系統的詳細資訊。
+. 點選「新增容量授權」。
+. 輸入序號或上傳授權檔案（如果您有 HA 配對，則上傳多個檔案）。
+. 點選「新增容量授權」。
+
+
+
+
+==== 更新容量授權
+
+如果您延長了額外容量授權的期限，則需要在 Console 中更新授權。
+
+.步驟
+. 從左側導覽窗格中，選取 *Administration > Licenses and subscriptions*。
+. 選擇 *Overview* 標籤。
+. 在 Cloud Volumes ONTAP 圖磚上，選取 * 檢視 *。
+. 從下拉式選單中選取 *Node Based Licenses*。
+. 在 *BYOL* 標籤中，展開 Cloud Volumes ONTAP 系統的詳細資訊。
+. 點選容量授權旁的行動選單，然後選擇 *Update License*。
+. 上傳授權檔案（如果您有 HA 配對，則上傳多個檔案）。
+. 點選「更新授權」。
+
+
+
+
+==== 移除容量授權
+
+如果額外的容量授權已過期且不再使用，您可以隨時將其移除。
+
+.步驟
+. 從左側導覽窗格中，選取 *Administration > Licenses and subscriptions*。
+. 選擇 *Overview* 標籤。
+. 在 Cloud Volumes ONTAP 圖磚上，選取 * 檢視 *。
+. 從下拉式選單中選取 *Node Based Licenses*。
+. 在 *BYOL* 標籤中，展開 Cloud Volumes ONTAP 系統的詳細資訊。
+. 點選容量授權旁的行動選單，然後選擇 *Remove License*。
+. 按一下 *Remove* 。
+
+
+
+
+[[change-between-paygo-and-byol]]
+== 在 PAYGO 與 BYOL 之間切換
+
+系統不支援從按需付費（PAYGO）按節點授權轉換為自帶授權（BYOL）按節點授權（反之亦然）。如果您想在隨用隨付訂閱和 BYOL 訂閱之間切換，則需要部署新系統，並將現有系統中的資料複寫到新系統。
+
+.步驟
+. 建立新的 Cloud Volumes ONTAP 系統。
+. 為需要複寫的每個 Volume，在系統之間設定一次性資料複寫。
++
+https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何在系統之間複寫資料"^]
+
+. 透過刪除原始系統來終止您不再需要的 Cloud Volumes ONTAP 系統。
++
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deleting-system.html["了解如何刪除 Cloud Volumes ONTAP 系統"^]。
+
+
+
+.相關連結
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["將節點型授權轉換為容量型授權"^]
+

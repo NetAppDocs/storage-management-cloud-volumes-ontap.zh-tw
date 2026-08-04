@@ -4,7 +4,7 @@ permalink: configuration-analysis-cvo.html
 keywords: Cloud Volumes ONTAP, license, well-architected, WAD, CVO 
 summary: NetApp Console 中架構完善的儀表板會定期分析儲存系統組態，以判斷您的 Cloud Volumes ONTAP 系統是否存在任何組態問題。發現問題時，儀表板會顯示問題所在，並說明需要進行哪些變更，以確保您的儲存系統達到最佳效能、具成本效益，並符合最佳實務的法規遵循要求。 
 ---
-= 在架構完善的儀表板上對 Cloud Volumes ONTAP 進行組態分析
+= Cloud Volumes ONTAP 組態分析
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

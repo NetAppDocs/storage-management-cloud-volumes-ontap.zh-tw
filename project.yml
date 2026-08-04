@@ -315,9 +315,9 @@ sidebar:
     entries:
     - title: 雲端供應商整合
       url: "/reference-provider-integrations.html"
-    - title: 透過系統管理器進行管理
+    - title: 從 ONTAP System Manager 進行管理
       url: "/task-administer-advanced-view.html"
-    - title: 從 CLI 進行管理
+    - title: 使用 ONTAP CLI 進行管理
       url: "/task-connecting-to-otc.html"
     - title: Flash Cache 和 Cloud Volumes ONTAP
       url: "/concept-flash-cache.html"
@@ -325,7 +325,7 @@ sidebar:
       url: "/concept-active-iq.html"
     - title: 驗證AutoSupport設置
       url: "/task-verify-autosupport.html"
-    - title: 管理Keystone訂閱
+    - title: Cloud Volumes ONTAP 和 Keystone
       url: "/task-manage-keystone.html"
     - title: Cloud Volumes ONTAP 和 Microsoft OneLake
       url: "/task-azure-onelake.html"
