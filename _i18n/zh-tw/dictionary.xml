@@ -7361,7 +7361,6 @@
   <block id="d0367f15d2fd772d543d692442807fa1" category="list-text">對 NetApp ONTAP 儲存系統和合作夥伴儲存設備提供者進行自動最佳實務做法驗證</block>
   <block id="3583e4a3e4e2e122cff65b8ad9045348" category="list-text">主動可觀測性</block>
   <block id="16fcd85dc9469370b62b4b46381f8e2a" category="list-text">洞察化為行動</block>
-  <block id="3cf81f2251f5d2b923d6011214221dc4" category="paragraph">未解析的指令位於<block ref="c491f271fb4c6f62c68f73c7ad844350" category="inline-link-rx"></block> - include::well-architected-workloads.adoc[]</block>
   <block id="3f6f8b4e204fd3aa39cac35661de164d" category="section-title">分析要求</block>
   <block id="021c4674734853c034b954078fa080f3" category="inline-link-macro">部署 NetApp Console 代理程式</block>
   <block id="ed3de084ebd57dfb5d10d8d07d5ff7c2" category="paragraph">若要進行完整的 Cloud Volumes ONTAP 系統分析，您必須<block ref="19a2c83f86e8c849ea6629f601093445" category="inline-link-macro-rx"></block>在系統和 NetApp Console 之間建立連線。</block>
@@ -7673,4 +7672,5 @@
   <block id="4375417a8b8f335f3352e1f741532269" category="sidebar">使用 ONTAP CLI 進行管理</block>
   <block id="932294ad5d34f659aa544ec559cad4ad" category="sidebar">Cloud Volumes ONTAP 和 Keystone</block>
   <block id="887238a149638ebe371e1475e7cf53de" category="sidebar">Cloud Volumes ONTAP 和架構完善的儀表板</block>
+  <block id="973b36ffce6cb4dba1d81ef122b1f245" category="paragraph">未解析的指令位於<block ref="c491f271fb4c6f62c68f73c7ad844350" category="inline-link-rx"></block> - include::_include/well-architected-workloads.adoc[]</block>
 </blocks>

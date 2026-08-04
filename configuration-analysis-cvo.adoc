@@ -24,7 +24,7 @@ NetApp Console 中架構完善的儀表板會定期分析儲存系統組態，�
 * 洞察化為行動
 
 
-未解析的指令位於 https://raw.githubusercontent.com/NetAppDocs/console-well-architected/main/cvo/configuration-analysis-cvo.adoc[] - include::well-architected-workloads.adoc[]
+未解析的指令位於 https://raw.githubusercontent.com/NetAppDocs/console-well-architected/main/cvo/configuration-analysis-cvo.adoc[] - include::_include/well-architected-workloads.adoc[]
 
 
 
