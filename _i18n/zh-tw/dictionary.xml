@@ -7292,7 +7292,6 @@
   <block id="2e5d14f7919ff3c6138e7845aec4f915" category="sidebar">支援的版本</block>
   <block id="c4d6a904ef528003bf03bc2e65cffd26" category="sidebar">支援的升級路徑</block>
   <block id="ed2ddb015b7b7b651921053fc149d928" category="sidebar">了解加密</block>
-  <block id="757c7a545c3639d3a6d5c6664431b930" category="sidebar">Cloud Volumes ONTAP 工作負載的效能監控</block>
   <block id="a470b9079d65fd390c8d7493dec5f4e9" category="sidebar">支援的組態</block>
   <block id="a7370487cf69c78f7ad768c8dae41fd6" category="sidebar">AWS 中的網路要求/安全性要求</block>
   <block id="36403c3548e2e3931df74ecbe98ac96a" category="sidebar">快速部署</block>
@@ -7672,5 +7671,14 @@
   <block id="4375417a8b8f335f3352e1f741532269" category="sidebar">使用 ONTAP CLI 進行管理</block>
   <block id="932294ad5d34f659aa544ec559cad4ad" category="sidebar">Cloud Volumes ONTAP 和 Keystone</block>
   <block id="887238a149638ebe371e1475e7cf53de" category="sidebar">Cloud Volumes ONTAP 和架構完善的儀表板</block>
-  <block id="973b36ffce6cb4dba1d81ef122b1f245" category="paragraph">未解析的指令位於<block ref="c491f271fb4c6f62c68f73c7ad844350" category="inline-link-rx"></block> - include::_include/well-architected-workloads.adoc[]</block>
+  <block id="9ffdb95250e26c7a6b468126ac7c75b0" category="section-title">運作方式</block>
+  <block id="874fbc8635967fd5300d05269c50cea0" category="paragraph">Workload Factory 每日分析您在支援的雲端儲存系統部署上執行的工作負載。此分析提供架構完善的狀態資訊、洞察分析和建議。</block>
+  <block id="27b3ab8a4b26cd2ee311ee2ac5911ba3" category="paragraph">每日分析完成後，部署的「架構完善」儀表板會顯示組態狀態為「最佳化的」或「未最佳化的」。您可以按類別查看組態問題，以及組態問題和建議清單。您可以審查針對組態問題的建議。部分問題可由 Workload Factory 自動修復，而其他問題則需要手動介入。在這種情況下，Workload Factory 會提供詳細說明，協助您實作建議的變更。</block>
+  <block id="8215457eb88ef1fb110b79579b908e3d" category="paragraph">您可以忽略不適用於您環境的組態分析。這樣可以避免不必要的警示和不準確的最佳化結果。</block>
+  <block id="8817b0c6f0795c52cab62044416eee8a" category="inline-link-macro">深入瞭解自訂規則</block>
+  <block id="821af7226458ea25572e88e8ab2026e4" category="paragraph">您也可以使用純文字語言建立自訂規則，以根據組織的標準和 NetApp 最佳實務來驗證您的環境。先進行模擬執行測試規則，然後排程在您的環境中執行。<block ref="ce039b478eb432b675a03c04866f31ab" category="inline-link-macro-rx"></block>。</block>
+  <block id="ee25e0b6cd574166f206b4c5b7f02df3" category="section-title">為什麼這很重要</block>
+  <block id="c2bf4ab5c816a6a7be03384125f4a5d6" category="paragraph">Workload Factory 將最佳實務應用於大型儲存設備、資料庫和 VMware 環境，結合後續評估、建議洞察和修復措施。在 NetApp Console 中套用的自動化修復程序可減少人為錯誤、確保統一管理，並維護工作負載基礎架構的效能和可靠性。</block>
+  <block id="8f96dd86c3b476f91f5e8deb2f840342" category="sidebar">Cloud Volumes ONTAP 和其他 NetApp 產品</block>
+  <block id="632cbf73d084e28580f4f6dfbd84efcc" category="sidebar">Cloud Volumes ONTAP 和 Flash Cache</block>
 </blocks>
