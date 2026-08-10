@@ -14,14 +14,18 @@ summary: Cloud Volumes ONTAP有多種授權選項。每個選項都允許您選�
 
 
 [role="lead"]
-Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符合您需求的消費模式。
+Cloud Volumes ONTAP 提供多種授權模式。每種模式都能讓您選擇滿足自身需求的消費模式。
+
+您可以選擇透過雲端市場或透過 NetApp （自帶授權 (BYOL)）購買或續約 Licenses and subscriptions。市場提供年度訂閱和隨用隨付 (PAYGO) 選項。如需相關資訊，請參閱 link:concept-license-management.html["了解有關Cloud Volumes ONTAP基於容量的許可證的更多信息"]。
+
+BYOL 授權可向 NetApp 購買，並可用於任何雲端供應商。有關 BYOL 授權可用度的詳細資訊，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
 
 
 
 [[licensing-overview]]
 == 許可概述
 
-新客戶可以使用以下授權選項。
+新客戶可以選擇按容量付費的年度市場訂閱或 Keystone 訂閱。少數部署（例如私有模式部署）也採用上一代基於節點的 BYOL 授權模式。
 
 基於容量的許可:: 按配置容量支付NetApp帳戶中的多個Cloud Volumes ONTAP系統的費用。包括購買附加雲端資料服務的能力。有關基於容量的許可證的消費模式或購買選項的更多信息，請參閱：link:concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"] 。
 Keystone訂閱:: 一種按需付費的訂閱式服務，為高可用性 (HA) 對提供無縫的混合雲體驗。
@@ -243,6 +247,9 @@ NetApp已計劃終止基於節點的許可的可用性 (EOA) 和支援 (EOS)。�
 
 如果您擁有有效的基於節點的合同，並且該合約的有效期超出了 EOA 日期，那麼您可以繼續使用該許可證，直到合約到期。一旦合約到期，就需要過渡到基於容量的許可模式。如果您沒有Cloud Volumes ONTAP節點的長期合同，則務必在 EOS 日期之前規劃您的轉換。
 
+
+NOTE: 在私有環境中以私有模式部署 Cloud Volumes ONTAP。
+
 從下表中了解有關每種許可證類型以及 EOA 對其影響的更多資訊：
 
 [cols="2*"]
@@ -270,13 +277,8 @@ NetApp已計劃終止基於節點的許可的可用性 (EOA) 和支援 (EOS)。�
 自 EOS 日期起將停止獲得NetApp支持，直到您過渡到基於容量的許可證。
 
 |===
-.除外責任
-NetApp意識到某些情況需要特殊考慮，基於節點的許可的 EOA 和 EOS 不適用於以下情況：
-
-* 美國公共部門客戶
-* 私有模式下的部署
-* AWS 中國區Cloud Volumes ONTAP部署
-
+.例外情況
+NetApp 認識到某些情況需要特殊考量，例如在 AWS 中部署 Cloud Volumes ONTAP 的中國區域，基於節點的授權的 EOA 和 EOS 可能不適用於以下情況：
 
 對於這些特殊情況， NetApp將提供支持，以滿足符合合約義務和營運需求的獨特授權要求。
 

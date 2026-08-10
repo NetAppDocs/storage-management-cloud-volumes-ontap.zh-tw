@@ -1,0 +1,27 @@
+= Cloud Volumes ONTAP 9.19.1
+:allow-uri-read: 
+
+
+
+
+[[cloud-volumes-ontap-9-19-1]]
+=== Cloud Volumes ONTAP 9.19.1
+
+現在您可以使用 NetApp Console 在 Amazon Web Services （AWS） 和 Google Cloud 上部署和管理 Cloud Volumes ONTAP 9.19.1 的正式版 （GA）。此版本目前無法在 Microsoft Azure （Azure） 中部署和升級。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有關此版本Cloud Volumes ONTAP的更多信息"^]。
+
+
+
+[[ability-to-convert-node-based-licenses-to-capacity-based-licensing-in-private-mode]]
+=== 能夠在私有模式下將節點型授權轉換為容量型授權
+
+NetApp 很高興宣布，針對私有模式 Cloud Volumes ONTAP 部署推出容量型授權模式。您現在可以將節點型授權轉換為容量型授權，藉此最佳化私有模式 Cloud Volumes ONTAP 部署的成本。對於私有模式部署，您可以直接向 NetApp 購買 Essentials（自備授權 (BYOL)）套件，其容量與您現有的節點型授權相近。
+
+此轉換選項支援 NetApp 分階段從節點型授權過渡到容量型授權的計畫。節點型授權會為每個系統分配固定容量，而容量型授權則從 Cloud Volumes ONTAP 系統的共享容量資源池取得資源，讓您能夠隨著儲存設備需求的變更，更靈活地重新指派工作負載。
+
+.相關連結
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^]
+* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-convert-node-capacity.html#conversion-in-a-private-mode-deployment["私有模式部署中的轉換"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理 Cloud Volumes ONTAP 的節點型授權"^]
+

@@ -160,7 +160,6 @@
   <block id="186b3997de3027cf87a351ba0a1f9bf4" category="doc">Cloud Volumes ONTAP 9.17.1 RC</block>
   <block id="2a0942c706fe1023b055df5cfc6720d2" category="paragraph">現在您可以使用BlueXP在 Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.17.1 的候選版本 1。但此版本尚不支援在AWS中部署和升級。</block>
   <block id="1794b1ebac03efdd38e24eb28c47629a" category="inline-link-macro">了解有關此版本Cloud Volumes ONTAP的更多信息</block>
-  <block id="e0a027f4bdcd16cda78c830ace94fc76" category="paragraph"><block ref="539cae97b36c04420caaf667f01300c8" category="inline-link-macro-rx"></block> 。</block>
   <block id="bc2fe31b1e2682a9a79513d792e9c721" category="doc">BlueXP現在是NetApp Console</block>
   <block id="995c8f79a8e07fbd8d519e45d03d6004" category="paragraph">NetApp Console建立在增強和重組的BlueXP基礎之上，可在企業級內部和雲端環境中集中管理NetApp儲存和NetApp Data Services，提供即時洞察、更快的工作流程和簡化的管理，並且高度安全且合規。</block>
   <block id="2ef9d641d45afe99b74ad6f9a9f797ad" category="inline-link">NetApp Console發行說明</block>
@@ -747,7 +746,6 @@
   <block id="14f508f0826944b504efb176670357e8" category="list-text">*BYOL*：自備授權（BYOL）。從NetApp購買的許可證，可用於在任何雲端供應商中部署Cloud Volumes ONTAP 。</block>
   <block id="ceb2294714463ec73c3bb76a991ef103" category="admonition">已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱<block ref="73dc1b5468c2405a47da63a28335f079" category="inline-link-rx"></block> 。</block>
   <block id="3c7a90227f7481790a6d7eb5b1a274ea" category="list-text">*PAYGO*：即用即付 (PAYGO) 訂閱是從雲端供應商市場按小時訂閱的。</block>
-  <block id="146cb6145f5238f0a019636047844250" category="list-text">*年度*：來自雲端提供者市場的年度合約。</block>
   <block id="cf3a2d2c139bf5c9cc87fe714bfff3b1" category="paragraph">請注意以下事項：</block>
   <block id="fb8439ec6848d4c09164235309706a2e" category="list-text">如果您從NetApp購買了 BYOL 許可證，則還需要從雲端供應商的雲端市場訂閱 PAYGO 產品。 NetApp已限制 BYOL 授權。當您的 BYOL 授權到期時，您需要將其替換為雲端市場訂閱。</block>
   <block id="0956d25698d6ea6e452e1cd574ab1eea" category="paragraph">您的許可證總是會先被收費，但在以下情況下，我們將按照市場上的小時費率向您收費：</block>
@@ -811,7 +809,6 @@
   <block id="e70747c71702cdc100bd5f592ed452be" category="summary">Cloud Volumes ONTAP有多種授權選項。每個選項都允許您選擇滿足您需求的配置。</block>
   <block id="6b32e99bddf60938239aabe092cb4c16" category="paragraph">Cloud Volumes ONTAP有多種授權選項。每個選項都可以讓您選擇符合您需求的消費模式。</block>
   <block id="8efc36afc2e7202a9c9bda00b8e8a75d" category="section-title">許可概述</block>
-  <block id="f008ecd5469e24eee31eb4e2e4a1e23f" category="paragraph">新客戶可以使用以下授權選項。</block>
   <block id="771f877f73ed39c1ce2849efb746d509" category="list-text">基於容量的許可</block>
   <block id="4bbac1ba6da1fae98898078ee927d707" category="inline-link-macro">了解有關基於容量的許可證的更多信息</block>
   <block id="fc860be5f135f0d58f6a4cc1a552d57f" category="list-text">Keystone訂閱</block>
@@ -882,8 +879,6 @@
   <block id="d83127b1411e10b0e57743f291048e63" category="paragraph">您無權使用此授權部署新的Cloud Volumes ONTAP系統。現有系統可能會繼續運行，但在 EOS 日期之後，您將不會收到任何系統支援或更新。</block>
   <block id="dddb9d06ec44b2f4783c5cbeb3b3f962" category="paragraph">具有 PAYGO 訂閱的有效基於節點的許可證</block>
   <block id="1992166b3e269c648d4c3627fe482fa5" category="paragraph">自 EOS 日期起將停止獲得NetApp支持，直到您過渡到基於容量的許可證。</block>
-  <block id="ddbff06fb221c5c1396bb37c09f6f2fb" category="paragraph-title">除外責任</block>
-  <block id="60d1148bddcd69c1238a0b69f45bdaa5" category="paragraph">NetApp意識到某些情況需要特殊考慮，基於節點的許可的 EOA 和 EOS 不適用於以下情況：</block>
   <block id="0fda23bdfd335df1f36c51b87bc2b780" category="paragraph">對於這些特殊情況， NetApp將提供支持，以滿足符合合約義務和營運需求的獨特授權要求。</block>
   <block id="913f6cd3e420105c804151f182c6938f" category="admonition">即使在這些情況下，新的基於節點的許可證和許可證續訂自批准之日起最長有效期為一年。</block>
   <block id="5be0251ff1848cd4d292e0a684e70539" category="section-title">許可證轉換</block>
@@ -2320,13 +2315,9 @@
   <block id="5ab578b73044132252d5442b12aeb846" category="paragraph">對於年度或長期承諾， NetApp建議您在 EOA 日期（2024 年 11 月 11 日）或許可證到期日之前聯繫您的NetApp代表，以確保過渡的先決條件到位。如果您沒有Cloud Volumes ONTAP節點的長期合同，並且根據按需付費 (PAYGO) 訂閱運行您的系統，那麼在 2024 年 12 月 31 日支援終止 (EOS) 之前規劃您的轉換非常重要。在這兩種情況下，您都應確保您的系統符合要求，然後再使用NetApp Console中的許可證轉換工具實現無縫過渡。</block>
   <block id="4bedf07f0fb0e4e91062f6c20aefb983" category="paragraph">有關 EOA 和 EOS 的信息，請參閱<block ref="7f9a8649ca2d86db235ba56502d14f92" category="inline-link-macro-rx"></block>。</block>
   <block id="aef6fd472f817709940e55ee0509b06b" category="list-text">當您使用許可證轉換工具時，從基於節點到基於容量的許可模型的轉換是在現場線上進行的，從而無需進行任何資料遷移或配置額外的雲端資源。</block>
-  <block id="1b740ae810dbba9c533dc649a7e00e1a" category="list-text">它是一種無中斷操作，不會發生服務中斷或應用程式停機。</block>
   <block id="ae7204194871107f02073f12fcf8eef4" category="list-text">Cloud Volumes ONTAP系統中的帳戶和應用程式資料保持不變。</block>
   <block id="0caba03d6443607a5e6317db3c48768b" category="list-text">轉換後，底層雲端資源不受影響。</block>
   <block id="c71b87b7ddb6142065c0158af5ec7d67" category="list-text">許可證轉換工具支援所有部署類型，例如單節點、單可用區 (AZ) 中的高可用性 (HA)、多 AZ 中的 HA、自帶許可證 (BYOL) 和 PAYGO。</block>
-  <block id="a555fa04b2345d39f8fdfff081afbc14" category="list-text">該工具支援所有基於節點的許可證作為來源，以及所有基於容量的許可證作為目標。例如，如果您擁有基於節點的 PAYGO 標準許可證，則可以將其轉換為透過市場購買的任何基於容量的許可證。 NetApp已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱<block ref="73dc1b5468c2405a47da63a28335f079" category="inline-link-rx"></block> 。</block>
-  <block id="d83716c2cd131d390d1534102b05cd41" category="list-text">所有雲端供應商、AWS、Azure 和 Google Cloud 都支援轉換。</block>
-  <block id="17b44aa5dd5a227e033b4a869774c160" category="list-text">轉換後，基於節點的許可證的序號將被基於容量的格式取代。這是轉換的一部分，並反映在您的NetApp支援網站 (NSS) 帳戶中。</block>
   <block id="57badbd9aeb6e5152434b70bdd22ed2e" category="list-text">當您過渡到基於容量的模型時，您的資料將繼續保留在與基於節點的許可相同的位置。這種方法保證了資料放置不會中斷，並在整個過渡過程中堅持資料主權原則。</block>
   <block id="185df8fc7d6cba2b3dc4ddbb241610fe" category="list-title">開始之前</block>
   <block id="c89523d65a6a7e4c3fbcb8cbfee5d6e5" category="list-text">您應該擁有一個具有客戶存取權限或管理員存取權限的 NSS 帳戶。</block>
@@ -2345,7 +2336,6 @@
   <block id="400c55906a66dfb0a544082037323a6b" category="list-text">如果目標套件與帳戶的 BYOL 授權可用性不一致，且您現有的基於容量的授權中沒有足夠的容量，那麼您將透過市場訂閱付費。</block>
   <block id="0e5c1be9c6aca6c1aaf08bf9ed203110" category="admonition">如果任何一項要求未滿足，則許可證轉換不會發生。在特定情況下，許可證可能會轉換，但不能使用。點擊資訊圖示以識別問題並採取糾正措施。</block>
   <block id="d15266cc5f90d2de0d43d4dfc0bb3f9c" category="list-text">在「*系統*」頁面上，雙擊要修改許可證類型的系統的名稱。</block>
-  <block id="ccf71cd219d20a210964977da3ff250e" category="list-text">在「概述」標籤上，按一下「功能」面板。</block>
   <block id="498a7301ce7f11c6c87ae04fa3f52b88" category="list-text">檢查*充電方式*旁邊的鉛筆圖示。如果您的系統的充電方式是<block ref="e71f388bff446d0d83b053510eafc3ce" prefix=" " category="inline-code"></block>，可轉換為按容量充電。</block>
   <block id="1c72b9c278e1ac9dd3d0f1e9d9732d89" category="admonition">如果您的Cloud Volumes ONTAP系統已按容量收費，或任何要求未滿足，則該圖示將被停用。</block>
   <block id="731ac9424395af5a16ebaa7d43ac7363" category="list-text">在*將基於節點的許可證轉換為基於容量的許可證*螢幕上，驗證系統名稱和來源許可證詳細資訊。</block>
@@ -2353,7 +2343,6 @@
   <block id="ad55f0eebc5068e31eecc1bc08fae252" category="list-text">必需品。預設值為<block ref="4d55f77f062bf48891bd0f749c36a36d" prefix=" " category="inline-code"></block>。</block>
   <block id="2afb5f4c96f686848c18c82d0403786c" category="list-text">如果您擁有 BYOL 許可證，則可以在轉換完成後選取核取方塊以從控制台中刪除基於節點的許可證。如果轉換仍在進行中，選取此核取方塊將不會從控制台中刪除授權。此選項不適用於市場訂閱。</block>
   <block id="a42381ccb4c9b07d94af68aac09b97db" category="list-text">選取核取方塊以確認您了解變更的含義，然後按一下「*繼續*」。</block>
-  <block id="0eb9e79eef04cea0e0859627689cc768" category="paragraph">查看新的許可證序號並在控制台的*Licenses and subscriptions*選單中驗證變更。</block>
   <block id="64561f2ec1b6edafb724a07913dbf5b1" category="section-title">不同超標量中的定價</block>
   <block id="48663a71734c459a4eb7d42e979ef986" category="paragraph">有關定價的詳細信息，請訪問<block ref="6dd6e0ebeffdbf7b0b2bee2f498a2c82" category="inline-link-rx"></block>。</block>
   <block id="26592e143987ab40aba1ac379c886b8d" category="paragraph">有關特定超標量中的私人優惠的信息，請寫信至：</block>
@@ -2539,12 +2528,9 @@
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">例如：</block>
   <block id="b1dde3304edf68afb6be3819b52b7152" category="inline-link">了解Cloud Volumes ONTAP API</block>
   <block id="40f3baabc19d523f34effa4916ea3369" category="paragraph"><block ref="40f3baabc19d523f34effa4916ea3369" category="inline-link-rx"></block></block>
-  <block id="116506219a3191e0250a50c5119faeae" category="paragraph">您可以使用 Azure 市場直接部署來快速輕鬆地部署Cloud Volumes ONTAP。從 Azure 市場，您只需點擊幾下即可快速部署Cloud Volumes ONTAP ，並在您的環境中探索其核心特性和功能。</block>
   <block id="8961ce8062351f2634d0c6d59da1e838" category="inline-link-macro">了解NetApp Console和市場中的Cloud Volumes ONTAP產品</block>
   <block id="ffc422115a31323beb67b9e80bb88ec8" category="paragraph">有關該產品的更多信息，請參閱<block ref="13a4bdf4a83beff605af38114243ed83" category="inline-link-macro-rx"></block>。</block>
-  <block id="d15f6815308408695bb2a91b7207a65d" category="paragraph">使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統具有這些屬性。請注意，透過 Azure 市場部署的獨立實例的功能在NetApp Console中被發現時會發生變化。</block>
   <block id="307fba28eaa68023634ac12efe78443d" category="list-text">最新的Cloud Volumes ONTAP版本（9.16.1 或更高版本）。</block>
-  <block id="87449344416c32f88eeb38f3bd00e092" category="list-text">Cloud Volumes ONTAP的免費許可證，限制為 500 GiB 的配置容量。此許可證不包括NetApp支持，且沒有到期日期。</block>
   <block id="152058aae87c0f08791efa9a9cbd8167" category="inline-link-macro">靈活的編排模式</block>
   <block id="35acff494427083599ef0a6b5f200d8d" category="list-text">兩個節點在單一可用區 (AZ) 中以高可用性 (HA) 模式配置，並配置預設序號。儲存虛擬機器（儲存 VM）部署在<block ref="76b8e7a3e49d5a96c336355428b9cbdd" category="inline-link-macro-rx"></block>。</block>
   <block id="860574f2fb3649a1d434d1ed47437a59" category="list-text">預設創建的實例的聚合。</block>
@@ -2557,7 +2543,6 @@
   <block id="47f64097ec44c9f18f4025941f2e4436" category="list-text">FabricPool分層</block>
   <block id="39a42abacdd9ed9f78332fb060b29196" category="list-text">更改儲存虛擬機器類型</block>
   <block id="b578dbfdde2bda79f859ef35aa53672e" category="list-text">快速寫入模式</block>
-  <block id="cea379dc708683105165e44b4cd1a6aa" category="list-text">確保您擁有有效的 Azure 市場訂閱。</block>
   <block id="a01bb8da3018252a01366ddb6767e8a3" category="inline-link-macro">單一可用區內的高可用性部署</block>
   <block id="02ba5c8a00de1d81760f01a1677a04d1" category="list-text">確保您滿足<block ref="83ccac9ef63ed88da88c49dabd89eaa8" category="inline-link-macro-rx"></block>在 Azure 中。請參閱<block ref="76989abbcca6152c60f49caf5e88bdee" category="inline-link-macro-rx"></block> 。</block>
   <block id="6b499511e63bc63aeaf41ffb911727ea" category="list-text">您需要指派以下 Azure 角色之一才能部署Cloud Volumes ONTAP：</block>
@@ -2568,7 +2553,6 @@
   <block id="6766a739ae4fb6afa77da370f15622b7" category="paragraph">“權限”：[{“操作”：[“Microsoft.AAD/register/action”，“Microsoft.Resources/subscriptions/resourceGroups/write”，“Microsoft.Network/loadBalancers/write”，“Microsoft.ClassicCompute/virtualMachin es/write”，“Microsoft.Compute/capacityReservationGroups/deploy/action”，“Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write”，“Microsoft.Ne twork/networkInterfaces/write”，“Microsoft.Compute/virtualMachines/write”，“Microsoft.Compute/virtualMachines/extensions/write”，“Microsoft.Resources/deployments/validate/action”，“Micr osoft.Resources/subscriptions/resourceGroups/read”，“Microsoft.Network/virtualNetworks/write”，“Microsoft.Network/virtualNetworks/read”，“Microsoft.Network/networkSecurityGroups/write”， “Microsoft.Network/networkSecurityGroups/read”、“Microsoft.Compute/disks/write”、“Microsoft.Compute/virtualMachineScaleSets/write”、“Microsoft.Resources/deployment s/write」、「Microsoft.Network/virtualNetworks/subnets/read」、「Microsoft.Network/virtualNetworks/subnets/write」]、「notActions」：[]、「dataActions」：[]、「notDataActions」：[] } ]</block>
   <block id="645a169438346f46551a9b4ac5ab1e57" category="inline-link">Azure 文件：Azure 儲存權限</block>
   <block id="68e01e68bf1f5bcd729c6bd4e46062e7" category="admonition">如果您已將資源提供者「Microsoft.storage」註冊到您的訂閱，那麼您不需要<block ref="a5247130ddf1c1aec9bf97e04b90b259" prefix=" " category="inline-code"></block>允許。欲了解更多信息，請參閱<block ref="d3458bbe37b36b18531c528f928d76ce" category="inline-link-rx"></block>。</block>
-  <block id="fea8870db28737c6ef35d9b3e3a2ba87" category="list-text">從 Azure 市場網站搜尋NetApp產品。</block>
   <block id="bf8fb42f05fc0f00389a7a6bd708fddd" category="list-text">選擇* NetApp Cloud Volumes ONTAP direct*。</block>
   <block id="18d9eb94444bbb5cc63acb692f56ca87" category="list-text">按一下「*建立*」以啟動部署精靈。</block>
   <block id="3ad50573794660103eccc594ba3fb4f0" category="list-text">選擇一個計劃。  *計劃*清單通常顯示Cloud Volumes ONTAP的最新版本。</block>
@@ -2591,19 +2575,13 @@
   <block id="0573433fb185b84611f18e3f6e506cd2" category="paragraph">選擇通知圖示即可查看部署進度。部署Cloud Volumes ONTAP後，您可以查看列出的可供操作的儲存虛擬機器。</block>
   <block id="20a0bd63dc9b064c0cedc40d649eb29a" category="paragraph">一旦可以訪問，請使用ONTAP系統管理員或ONTAP CLI 透過您設定的管理員憑證登入儲存虛擬機器。此後，您可以建立磁碟區、LUN 或共用並開始利用Cloud Volumes ONTAP的儲存功能。</block>
   <block id="d4e7a9bbdf268719d1e4887b0bb7a121" category="section-title">解決部署問題</block>
-  <block id="0f14cbd67da8e5fe806dd5ee58c8ae05" category="paragraph">直接透過 Azure 市場部署的Cloud Volumes ONTAP系統不包括NetApp的支援。如果部署過程中出現任何問題，您可以獨立排除故障並解決。</block>
-  <block id="e9ad8cb2d3f7ad7951cb5e2ccdf98fcc" category="list-text">在 Azure 市場網站上，前往 *啟動診斷 &gt; 序列日誌*。</block>
   <block id="3473bcdf09ad8e881f1d60433d0651a8" category="list-text">下載並調查串行日誌。</block>
   <block id="7afbb0eb51f3278f46cb4b6d919cf956" category="list-text">請參閱產品文件和知識庫 (KB) 文章以進行故障排除。</block>
-  <block id="31ba7b19ca3c214876b7398219977647" category="inline-link">Azure 市場文檔</block>
-  <block id="e6a36c01dbb836e81ba8524516c15d96" category="list-text"><block ref="e6a36c01dbb836e81ba8524516c15d96" category="inline-link-rx"></block></block>
   <block id="7a4e9cb5597c0c38152cde29a5ffea15" category="inline-link">NetApp文檔</block>
   <block id="f34c4068e7529dd122f3896aa32177fd" category="list-text"><block ref="f34c4068e7529dd122f3896aa32177fd" category="inline-link-rx"></block></block>
   <block id="86b2dcafcdf6ee11674f3d4ddea97474" category="inline-link">NetApp知識庫文章</block>
   <block id="d59a7dcaf690c69cf296b9028f3f23e7" category="list-text"><block ref="d59a7dcaf690c69cf296b9028f3f23e7" category="inline-link-rx"></block></block>
   <block id="5775ea47ce218fd72bef02765075cfba" category="section-title">在控制台中發現已部署的系統</block>
-  <block id="3fbbef8d735fc39da570964a7bdc604c" category="paragraph">您可以發現使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統，並在控制台中的 *系統* 頁面上進行管理。控制台代理程式發現系統、新增系統並套用必要的許可證，並為這些系統解鎖控制台的全部功能。保留具有 PSSD v2 託管磁碟的單一 AZ 中的原始 HA 配置，並且系統註冊到與原始部署相同的 Azure 訂閱和資源群組。</block>
-  <block id="fe812c3a7bb2afed170446cf40a74dc2" category="paragraph">在發現使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統時，控制台代理將執行下列任務：</block>
   <block id="9fb326c55818aec17fb7e0bd43bfac40" category="inline-link-macro">免費增值許可證</block>
   <block id="b8967b77fd138bba59ac3f95d424502d" category="list-text">將發現系統的免費許可證替換為常規的基於容量的許可證<block ref="1b26e9041eb43ecd32ea6f7717f721cc" category="inline-link-macro-rx"></block>。</block>
   <block id="616aa81cdcfec45f18bf71977903d727" category="list-text">保留已部署系統的現有功能，並新增控制台的附加功能，例如資料保護、資料管理和安全功能。</block>
@@ -2616,7 +2594,6 @@
   <block id="b4f0b14a7c03bd1408d6f962ce6f783f" category="list-text">將實例註冊到用於發現它們的 NSS 帳戶。</block>
   <block id="9ea9c6e19b1b679ebc8489e1abbcca81" category="inline-link-macro">自動和手動模式</block>
   <block id="cafedbc12625c51784900844db248af7" category="list-text">啟用容量管理功能<block ref="a953b070790e096be6f09488828337e6" category="inline-link-macro-rx"></block>對於已發現的系統。</block>
-  <block id="6863151d09b16a30ba9facee46a4dfb0" category="paragraph">確保在 Azure 市場上部署已完成。只有當部署完成且可供發現時，控制台代理才能發現系統。</block>
   <block id="8a458d8c60bb1dd40c3f86347edd3357" category="inline-link-macro">將現有的Cloud Volumes ONTAP系統新增至控制台</block>
   <block id="0ab166b904d43d7cbf272326c5e44598" category="paragraph">在控制台中，您可以按照標準程序來發現現有系統。請參閱<block ref="bce6bc60c7c6b3c4be175175db51ca28" category="inline-link-macro-rx"></block> 。</block>
   <block id="fd11d45aadcd4e9407d5c24aab385e8f" category="inline-link-macro">擴大總量</block>
@@ -3334,7 +3311,6 @@
   <block id="0c0401d1e9169d6dd38462b1e0d04126" category="section-title">取消訂閱鏈接</block>
   <block id="492847bcbc9ec0bd3075b612aa43e4a7" category="list-text">選擇* Keystone*。</block>
   <block id="6e1a9790b199742bec95dea2070e2f3f" category="summary">在NetApp Console中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。</block>
-  <block id="160221c1e99e53b72af8a65c2440852b" category="doc">管理Cloud Volumes ONTAP 的基於節點的許可</block>
   <block id="5b5068830882d3d6b54d331cdd743e62" category="paragraph">有關ONTAP CLI 說明，請參閱以下文件。</block>
   <block id="412af2a2404a4e920b18be59197204b0" category="inline-link">SVM 災難復原準備快速指南</block>
   <block id="c15bb50c43eaf0ceb1bc0ce3d7503ebd" category="list-text"><block ref="c15bb50c43eaf0ceb1bc0ce3d7503ebd" category="inline-link-rx"></block></block>
@@ -5320,7 +5296,6 @@
   <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
   <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
   <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
-  <block id="f99b3d89987ba6dd6d51c370eaeea8f2" category="admonition">在發現過程中，您可能會看到失敗訊息，但您可以忽略它們，直到發現過程完成。在發現期間，請勿修改 Azure 市場入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外的系統行為。</block>
   <block id="950e7e695356602272f63f5a229978c6" category="inline-link-macro">在 Google Cloud 規劃Cloud Volumes ONTAP配置</block>
   <block id="b64ce252b77116ca032fd6f285079df7" category="list-text"><block ref="b64ce252b77116ca032fd6f285079df7" category="inline-link-macro-rx"></block></block>
   <block id="306ce3f6735e643338e201f2701d07a8" category="admonition">部署程序完成後，請勿修改 AWS 雲端入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外行為或資料遺失。</block>
@@ -6156,8 +6131,6 @@
   <block id="fbe952375aa3beae684faea7d44f613e" category="paragraph"><block ref="aaeef2d217066cd2eca41aa9288574cd" category="inline-link-macro-rx"></block>。</block>
   <block id="368df362649fb4d4bcc4049fba338707" category="doc">Cloud Volumes ONTAP 對新一代 Google Cloud VM 的支援</block>
   <block id="f6e70cdd9ff9d05c5228d01c9dd78150" category="paragraph">在 9.18.1 版本中，NetApp 將新的 Cloud Volumes ONTAP 部署從 N2 虛擬機器移轉至新一代 Google Cloud C3 系列虛擬機器，帶來更快速且更具擴充性的體驗。您現在可以在 Google Cloud 中部署 Cloud Volumes ONTAP 9.18.1 及更新版本時，充分運用 C3 系列虛擬機器的優勢。C3 系列虛擬機器採用 Google Virtual NIC （gVNIC） 和 Hyperdisk Balanced 磁碟，可確保為高強度工作負載提供動態效能，進而提升效能並擴大容量限制。</block>
-  <block id="b6e501a3f9a9964fecae7c393bb7cf74" category="doc">Cloud Volumes ONTAP 9.19.1 RC</block>
-  <block id="f11434f81dce28dd60c981c553fa8539" category="paragraph">現在您可以使用 NetApp Console 在 Google Cloud 中部署和管理 Cloud Volumes ONTAP 9.19.1 的候選發行版本 （RC）。此版本尚不支援在 Amazon Web Services （AWS） 和 Microsoft Azure （Azure） 中部署和升級。</block>
   <block id="25e0da852d260d2649ca08106da6e096" category="section-title">Cloud Volumes ONTAP HA 支援下一代 Google Cloud VM</block>
   <block id="8eb29cd4df495e469d2747ba84799174" category="paragraph">在 9.19.1 版本中，NetApp 將 Cloud Volumes ONTAP 高可用性 （HA） 部署從 N2 VM 移轉至下一代 Google Cloud C3 系列 VM，以提供更快速且更具擴充性的體驗。</block>
   <block id="6cc056a948dd84f835846a2201f9b4b5" category="admonition">此支援僅適用於單可用區 (AZ) HA 部署。</block>
@@ -6203,7 +6176,6 @@
   <block id="47da39c54c9f65768d8dc5f7d5110b69" category="paragraph">== 高可用性 (HA) 對中的儲存工作原理</block>
   <block id="0ebfd0efa7f8474608b3e2e3ab2122eb" category="list-text">如果您擁有 BYOL 授權並透過市集簽訂了年度合約，您的使用量和超額使用量將根據您設定的計費偏好收取費用。若要了解您的收費方式，請參閱 <block ref="895ee561f86a5b0bd9078aa957f421ed" category="inline-link-macro-rx"></block>。</block>
   <block id="124b9ac800df05ee7610d4fbd30cc172" category="paragraph">Cloud Volumes ONTAP 在 9.18.1 及更新版本中支援單節點部署的 Hyperdisk Balanced 磁碟，並在 9.19.1 及更新版本中支援單一可用區域 （AZ） 中的高可用性 （HA） 組態。</block>
-  <block id="ed9eeab5c5b2e9634ca18379fe44e9a2" category="list-text">9.19.1 RC</block>
   <block id="de9583e6fce7a27a387782e9dccc41f2" category="list-text">與 Console 代理程式關聯的服務帳戶<block ref="7bbaad5d325a365e141c19bc8c6c20e4" category="inline-link-rx"></block>。</block>
   <block id="4a4c37c91ec5c91b65063b5007c5b11d" category="list-text">*系統詳情*：選擇一個專案，指定叢集名稱，可選擇服務帳戶，可選擇新增標籤，然後指定憑證。</block>
   <block id="80866d7aec976fab87796b6194e9c082" category="cell">Google Cloud 專案和 Marketplace 訂閱</block>
@@ -7681,4 +7653,73 @@
   <block id="c2bf4ab5c816a6a7be03384125f4a5d6" category="paragraph">Workload Factory 將最佳實務應用於大型儲存設備、資料庫和 VMware 環境，結合後續評估、建議洞察和修復措施。在 NetApp Console 中套用的自動化修復程序可減少人為錯誤、確保統一管理，並維護工作負載基礎架構的效能和可靠性。</block>
   <block id="8f96dd86c3b476f91f5e8deb2f840342" category="sidebar">Cloud Volumes ONTAP 和其他 NetApp 產品</block>
   <block id="632cbf73d084e28580f4f6dfbd84efcc" category="sidebar">Cloud Volumes ONTAP 和 Flash Cache</block>
+  <block id="0814f25d2fb19660c0f5a17f5faecd5b" category="doc">以私有模式部署 Cloud Volumes ONTAP</block>
+  <block id="f88a90c15ff08da20180a1e7c1e2cb55" category="paragraph">您可以依照文件中提供的逐步轉換流程，直接在現有環境中以私有模式部署 Cloud Volumes ONTAP。在私有模式部署中，Cloud Volumes ONTAP 系統部署在您自己的虛擬私有雲 （VPC） 或虛擬網路 （VNet） 中，並且不會連接到公有網際網路。您可以使用私有模式部署來滿足組織的安全性和法規遵循要求。</block>
+  <block id="dfbf98dc6589ce46f8f507664741a1b2" category="inline-link">2025-06-25</block>
+  <block id="833e5fa02f534c554c475beb9dc88522" category="paragraph">私有模式部署先前僅使用可從 NetApp 取得的節點型授權。節點型授權是 Cloud Volumes ONTAP 的上一代授權。NetApp 自<block ref="442b2c7b239429db88d6f18cd76a6301" category="inline-link-rx"></block>起，除特殊情況外，已限制節點型授權的購買、延期及續約。自 2026 年 7 月 31 日起，節點型授權對於美國公共部門 （USPS） 及其他私有模式部署等特殊情況，將達到可用度終止 （EOA）。</block>
+  <block id="956d7ac5202f446ef956439b30405e15" category="paragraph">如果您擁有基於節點的授權的私有部署，請依照下列步驟操作：</block>
+  <block id="1413e5fff8cfc90e97cde09a6dd4e77f" category="list-text">您的節點型授權將無法再購買或續約。</block>
+  <block id="b8d13eefc4430b4596f9a4332354de31" category="list-text">無法存取新功能和增強功能。</block>
+  <block id="f5e0177af1238c0bbb1122354e33ba47" category="list-text">由於節點型限制，持續面臨較高的操作剛性。</block>
+  <block id="b82c33523f5b28ca897ab966d26c2203" category="list-text">節點型授權到期後，需要切換至私有模式的容量型授權。如需相關指示，請參閱<block ref="19941bf328ef30c0886fe8a18f87b8c7" category="inline-link-rx"></block>。</block>
+  <block id="5594c2174d528fb9d5b9250acc4fb0b3" category="doc">Cloud Volumes ONTAP 9.19.1</block>
+  <block id="a504c964d28135033096219100cd2752" category="paragraph">Cloud Volumes ONTAP 9.19.1 發布候選版 （RC） 僅在 Google Cloud 中提供，可升級至 9.19.1 正式版 （GA）。</block>
+  <block id="5289c2eccb07f2de1b015934c3e3c499" category="paragraph"><block ref="a12e21b39ac968ec668c91e1c7ce7228" category="inline-link-rx"></block>。</block>
+  <block id="d1a290546aa0bd95540ad9a226d03984" category="paragraph">現在您可以使用 NetApp Console 在 Amazon Web Services （AWS） 和 Google Cloud 上部署和管理 Cloud Volumes ONTAP 9.19.1 的正式版 （GA）。此版本目前無法在 Microsoft Azure （Azure） 中部署和升級。</block>
+  <block id="9c401333124a333afeb34fc1d3d80d23" category="section-title">能夠在私有模式下將節點型授權轉換為容量型授權</block>
+  <block id="a66e68273ca1e28833ad2b50bddc700d" category="paragraph">NetApp 很高興宣布，針對私有模式 Cloud Volumes ONTAP 部署推出容量型授權模式。您現在可以將節點型授權轉換為容量型授權，藉此最佳化私有模式 Cloud Volumes ONTAP 部署的成本。對於私有模式部署，您可以直接向 NetApp 購買 Essentials（自備授權 (BYOL)）套件，其容量與您現有的節點型授權相近。</block>
+  <block id="8d94a4670c9de52eee118828f4c8a497" category="paragraph">此轉換選項支援 NetApp 分階段從節點型授權過渡到容量型授權的計畫。節點型授權會為每個系統分配固定容量，而容量型授權則從 Cloud Volumes ONTAP 系統的共享容量資源池取得資源，讓您能夠隨著儲存設備需求的變更，更靈活地重新指派工作負載。</block>
+  <block id="7001fe21d803a81374a1df0d0c30c5f1" category="inline-link">私有模式部署中的轉換</block>
+  <block id="9b30aa0b7958fa3a6f20a3dc7995d44f" category="list-text"><block ref="9b30aa0b7958fa3a6f20a3dc7995d44f" category="inline-link-rx"></block></block>
+  <block id="c1abbf97e12a86fa8ee3d99a6d57e8d2" category="inline-link">管理 Cloud Volumes ONTAP 的節點型授權</block>
+  <block id="9bb44fee1ffc8cb84fe1dd304c171c38" category="list-text"><block ref="9bb44fee1ffc8cb84fe1dd304c171c38" category="inline-link-rx"></block></block>
+  <block id="4c1e65eea805e6ca20946bf66e4386fa" category="admonition">NetApp 已限制購買、延期及續約 BYOL 授權，並限制特定情境（例如私有模式部署）中的可用度。如需詳細資訊，請參閱<block ref="73dc1b5468c2405a47da63a28335f079" category="inline-link-rx"></block>。</block>
+  <block id="aca089c9cb85a069b94fd356fb2c64af" category="list-text">*市場訂閱/年度合約*：指您從雲端供應商的市場購買的年度合約。私有模式部署不支援市場訂閱。</block>
+  <block id="3a62e54bb4584af72048afe2c45e5267" category="paragraph">Cloud Volumes ONTAP 提供多種授權模式。每種模式都能讓您選擇滿足自身需求的消費模式。</block>
+  <block id="8945528f136f9ac44ec85233b62972ed" category="paragraph">您可以選擇透過雲端市場或透過 NetApp （自帶授權 (BYOL)）購買或續約 Licenses and subscriptions。市場提供年度訂閱和隨用隨付 (PAYGO) 選項。如需相關資訊，請參閱 <block ref="555d033cff8f114fac45c99df6059058" category="inline-link-macro-rx"></block>。</block>
+  <block id="44b133d7d2b64a8ecb188f7b262b15b3" category="paragraph">BYOL 授權可向 NetApp 購買，並可用於任何雲端供應商。有關 BYOL 授權可用度的詳細資訊，請參閱<block ref="73dc1b5468c2405a47da63a28335f079" category="inline-link-rx"></block>。</block>
+  <block id="bf9fcd757b4dd631995eb6f549ed366b" category="paragraph">新客戶可以選擇按容量付費的年度市場訂閱或 Keystone 訂閱。少數部署（例如私有模式部署）也採用上一代基於節點的 BYOL 授權模式。</block>
+  <block id="400810b341f29ed98ab80839314d8449" category="admonition">在私有環境中以私有模式部署 Cloud Volumes ONTAP。</block>
+  <block id="d5f1381c5f97f928df4ef8d18c2a27c0" category="paragraph-title">例外情況</block>
+  <block id="46702b00986502a0ba93f0d72b34e4cc" category="paragraph">NetApp 認識到某些情況需要特殊考量，例如在 AWS 中部署 Cloud Volumes ONTAP 的中國區域，基於節點的授權的 EOA 和 EOS 可能不適用於以下情況：</block>
+  <block id="aaf58e5a5445d876b8f7b0fe22b5afbf" category="list-text">9.19.1</block>
+  <block id="fcb50b7114552006299f15c59968bbd0" category="section-title">標準模式部署中的轉換</block>
+  <block id="d765139c688eaef6ec6aed984d396a05" category="paragraph">如果您採用標準模式部署，可以使用 NetApp Console 中的授權轉換工具，將節點型授權轉換為容量型授權。所有雲端供應商（包括 AWS、Azure 和 Google Cloud）均支援此轉換。您可以將節點型授權轉換為透過市場購買的任何容量型授權。例如，如果您擁有 PAYGO 標準版節點型授權，則可以將其轉換為透過市場購買的任何容量型授權。</block>
+  <block id="049bfb95508348edbb0dffb383d3c982" category="list-text">這是一項不中斷營運的操作：</block>
+  <block id="e0586682a4494ae8df5970f3a51b3305" category="list-text">服務不會中斷，也不會發生應用程式停機時間。</block>
+  <block id="37d1ba532be21b36f44c36cb1487e86d" category="list-text">在標準模式下，此工具支援所有節點型授權作為來源，以及所有容量型授權作為目的地。例如，如果您擁有 BYOL 節點型授權，您可以將其轉換為從 NetApp 購買的任何容量型授權。</block>
+  <block id="ea65110d9caa87a427e373b25c4e98a8" category="list-text">轉換完成後，節點型授權的序號將替換為容量型格式。此操作是轉換過程的一部分，並會反映在您的 NetApp 支援網站 （NSS） 帳戶中。</block>
+  <block id="7dc3868f50a82e16cb29523f9cd8c7d6" category="list-text">在「概覽」標籤上，按一下「功能」面板。</block>
+  <block id="6df37da891397d448439bd3e0c11c611" category="paragraph">查看新的授權序號，並在 Console 的「管理 &gt; Licenses and subscriptions」功能表中驗證變更。</block>
+  <block id="6354fe9522f51b065b8da2bec7e6ad93" category="paragraph">如果您採用私有模式部署，可以使用 NetApp Console 中的授權轉換工具，將節點型授權轉換為容量型授權。所有雲端供應商，包括 AWS、Azure 和 Google Cloud，均支援此轉換。</block>
+  <block id="c5eb35de0b7b7fc3a2e309675960df48" category="paragraph">由於私有模式不支援市場訂閱，您需要從 NetApp 購買 Essentials （自帶授權 (BYOL)）套件。這樣，您就可以在 BYOL 模式下享受容量型授權的優勢，而無需市場訂閱。</block>
+  <block id="43b95047b9651a9f6b309309baf2c6d1" category="admonition">在私有模式下，不支援將基於節點的授權轉換為除 Essentials 之外的任何基於容量的授權。</block>
+  <block id="e148814771c2a4d194ec9a025ec5fc42" category="list-text">轉換後，您節點型授權的全部容量將在 Essentials 套件下進行追蹤，您仍將依照 BYOL 協議計費。</block>
+  <block id="0bf20bba5024010985a96de70ab9cb4a" category="list-text">使用授權轉換工具時，從節點型授權模式到容量型授權模式的轉換將直接就地完成，無需任何資料移轉或額外雲端資源的佈建。</block>
+  <block id="da25db4b4fa32d93cec7e3daf851c19b" category="list-text">您的資料將繼續保留在與節點型授權相同的位置。這種方法可確保資料放置不會中斷，並在整個過渡過程中維護資料主權原則。</block>
+  <block id="2447df08554ddc6630c6c8f4da437614" category="list-text">授權轉換工具支援所有部署類型，例如單一節點和單一可用度區域 （AZ） 中的高可用度 （HA） 組態以及多個 AZ 組態。</block>
+  <block id="3c72799332f4b1aab90a8acbda8da2a5" category="list-text">轉換完成後，Cloud Volumes ONTAP 系統將更新新的序號。</block>
+  <block id="29baa0f31810ae20a104497e55707351" category="list-text">由於私有模式 Cloud Volumes ONTAP 部署不支援市場訂閱，因此您必須從 NetApp 取得基於容量的 Essentials 授權。</block>
+  <block id="bb66317cd0453054fb405849c52026c1" category="list-text">容量型授權的容量應與節點型授權的容量相近，以便進行轉換。</block>
+  <block id="173213e6a806d9151db9cae626eccc0a" category="list-text">基於容量的 Essentials 套件應與您的基於節點的 BYOL 授權類型相對應。例如，採用次要 Volume （HA） 的私有雲模式部署應使用對應的 Essentials Secondary HA 授權，或使用最符合的授權，例如 Essentials Primary 或 Essentials Primary HA。</block>
+  <block id="db15ee662ceba704719e32061a562a61" category="list-text">請查看 *Charging method* 旁的鉛筆圖示。如果您系統的收費方式為<block ref="e71f388bff446d0d83b053510eafc3ce" prefix=" " category="inline-code"></block>，您可以將其轉換為容量型授權。</block>
+  <block id="da87d7e7a64361035cc0e34458efc8ad" category="list-text">選擇 Essentials 作為轉換現有授權的目的地套件：</block>
+  <block id="d02431b3c418500914dda864390cf4f3" category="list-text">轉換完成後，您可以選取此核取方塊，從 Console 中刪除節點型授權。如果轉換仍在進行中，選取此核取方塊不會從 Console 中移除授權。</block>
+  <block id="17769cb7fca5b211bc545524162cdb9b" category="doc">從 Azure Marketplace 部署 Cloud Volumes ONTAP</block>
+  <block id="89e89d68b4151e5d8f4ca5de0e1d2733" category="paragraph">您可以使用 Azure Marketplace 直接部署來快速輕鬆地部署 Cloud Volumes ONTAP。只需在 Azure Marketplace 中點擊幾下，即可快速部署 Cloud Volumes ONTAP，並在您的環境中探索其核心特性和功能。</block>
+  <block id="2eb690ea4652e421c3e51dd6085019ed" category="paragraph">使用 Azure Marketplace 直接部署所部署的 Cloud Volumes ONTAP 系統具有下列屬性。請注意，透過 Azure Marketplace 部署的獨立式執行個體的功能，會在 NetApp Console 中被探索時發生變更。</block>
+  <block id="21dd5156944102d55cd9ade369833082" category="list-text">Cloud Volumes ONTAP 提供高達 500 GiB 已佈建容量的免費授權，不含 NetApp 支援，且無到期日。超過 500 GiB 的容量需要有效的授權權利，並可能產生費用。若要存取完整的 Cloud Volumes ONTAP 體驗和進階管理功能，請將您的 Cloud Volumes ONTAP 系統連線至 NetApp Console。透過 NetApp Console 進行探索和管理，需要與您的 NetApp Console 帳戶關聯的有效 Azure Marketplace 訂閱。</block>
+  <block id="83776a163fbb96376e571a31d146ef23" category="list-text">如果您打算在 NetApp Console 中探索和管理已部署的系統，請確保 NetApp Console 帳戶已關聯至有效的 Azure Marketplace 訂閱。將系統探索至 NetApp Console 需要有效的訂閱。</block>
+  <block id="dafc0a5d872858be8406e85eb31f93a9" category="list-text">從 Azure Marketplace 站台搜尋 NetApp 產品。</block>
+  <block id="d98c7da71ebf35b1e2ca8161b1966b59" category="paragraph">透過 Azure Marketplace 直接部署的 Cloud Volumes ONTAP 系統不包含來自 NetApp 的支援。如果在部署過程中出現任何問題，您可以自行進行疑難排解並解決。</block>
+  <block id="6f99f6ffa31874382f91c0d7c2df5bcf" category="list-text">在 Azure Marketplace 站台上，前往 *Boot diagnostics &gt; Serial log*。</block>
+  <block id="2e4aa2ebea9035457a612c2e33a98723" category="inline-link">Azure Marketplace 文件</block>
+  <block id="655158284af1d355b08d476dcba5a745" category="list-text"><block ref="655158284af1d355b08d476dcba5a745" category="inline-link-rx"></block></block>
+  <block id="97dd92b05cdb33e3226adee6f7fa87d5" category="paragraph">您可以探索使用 Azure Marketplace 直接部署所部署的 Cloud Volumes ONTAP 系統，並在 Console 的 *Systems* 頁面上管理這些系統。Console 代理程式會探索這些系統、新增這些系統並套用必要的授權，並為這些系統解鎖 Console 的完整功能。單一 AZ 中使用 PSSD v2 Managed Disks 的原始 HA 組態將予以保留，且系統會註冊至與原始部署相同的 Azure 訂閱和資源群組。</block>
+  <block id="143dcfc16663024a3b19b7595b25b428" category="paragraph">在探索使用 Azure Marketplace 直接部署所部署的 Cloud Volumes ONTAP 系統時，Console 代理程式會執行下列工作：</block>
+  <block id="b43a1773f1806b14eb8be329915ea364" category="paragraph">請確保 Azure Marketplace 中的部署已完成。Console 代理程式只有在部署完成且系統可供探索後，才能探索這些系統。</block>
+  <block id="5dd495348645ba0b8c457019d98c6c24" category="admonition">在探索期間，您可能會看到故障訊息，但您可以忽略這些訊息，直到探索程序完成。在探索期間，請勿修改 Azure Marketplace 入口網站中系統產生的 Cloud Volumes ONTAP 組態，尤其是系統標記。對這些組態所做的任何變更都可能導致意外的系統行為。</block>
+  <block id="aea9c467234db8f0360906cb49a2233c" category="inline-link">新增新的市場訂閱</block>
+  <block id="6dee350fc875c2ca1694dcd7936e6fa8" category="list-text"><block ref="6dee350fc875c2ca1694dcd7936e6fa8" category="inline-link-rx"></block></block>
+  <block id="6ffc226d668d783acc3c710ae22bd61d" category="section-title">2026年8月10日</block>
 </blocks>

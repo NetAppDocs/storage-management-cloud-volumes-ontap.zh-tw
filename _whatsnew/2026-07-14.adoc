@@ -1,15 +1,15 @@
-= Cloud Volumes ONTAP 9.19.1 RC
+= Cloud Volumes ONTAP 9.19.1
 :allow-uri-read: 
 
 
 
 
-[[cloud-volumes-ontap-9-19-1-rc]]
-=== Cloud Volumes ONTAP 9.19.1 RC
+[[cloud-volumes-ontap-9-19-1]]
+=== Cloud Volumes ONTAP 9.19.1
 
-現在您可以使用 NetApp Console 在 Google Cloud 中部署和管理 Cloud Volumes ONTAP 9.19.1 的候選發行版本 （RC）。此版本尚不支援在 Amazon Web Services （AWS） 和 Microsoft Azure （Azure） 中部署和升級。
+Cloud Volumes ONTAP 9.19.1 發布候選版 （RC） 僅在 Google Cloud 中提供，可升級至 9.19.1 正式版 （GA）。
 
-link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有關此版本Cloud Volumes ONTAP的更多信息"^] 。
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有關此版本Cloud Volumes ONTAP的更多信息"^]。
 
 
 

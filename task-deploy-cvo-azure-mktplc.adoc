@@ -4,7 +4,7 @@ permalink: task-deploy-cvo-azure-mktplc.html
 keywords: deploy cvo marketplace, marketplace direct cvo deployment, azure marketplace 
 summary:  
 ---
-= 從 Azure 市場部署Cloud Volumes ONTAP
+= 從 Azure Marketplace 部署 Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,15 +14,15 @@ summary:
 
 
 [role="lead"]
-您可以使用 Azure 市場直接部署來快速輕鬆地部署Cloud Volumes ONTAP。從 Azure 市場，您只需點擊幾下即可快速部署Cloud Volumes ONTAP ，並在您的環境中探索其核心特性和功能。
+您可以使用 Azure Marketplace 直接部署來快速輕鬆地部署 Cloud Volumes ONTAP。只需在 Azure Marketplace 中點擊幾下，即可快速部署 Cloud Volumes ONTAP，並在您的環境中探索其核心特性和功能。
 
 有關該產品的更多信息，請參閱link:concept-azure-mktplace-direct.html["了解NetApp Console和市場中的Cloud Volumes ONTAP產品"]。
 
 .關於此任務
-使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統具有這些屬性。請注意，透過 Azure 市場部署的獨立實例的功能在NetApp Console中被發現時會發生變化。
+使用 Azure Marketplace 直接部署所部署的 Cloud Volumes ONTAP 系統具有下列屬性。請注意，透過 Azure Marketplace 部署的獨立式執行個體的功能，會在 NetApp Console 中被探索時發生變更。
 
 * 最新的Cloud Volumes ONTAP版本（9.16.1 或更高版本）。
-* Cloud Volumes ONTAP的免費許可證，限制為 500 GiB 的配置容量。此許可證不包括NetApp支持，且沒有到期日期。
+* Cloud Volumes ONTAP 提供高達 500 GiB 已佈建容量的免費授權，不含 NetApp 支援，且無到期日。超過 500 GiB 的容量需要有效的授權權利，並可能產生費用。若要存取完整的 Cloud Volumes ONTAP 體驗和進階管理功能，請將您的 Cloud Volumes ONTAP 系統連線至 NetApp Console。透過 NetApp Console 進行探索和管理，需要與您的 NetApp Console 帳戶關聯的有效 Azure Marketplace 訂閱。
 * 兩個節點在單一可用區 (AZ) 中以高可用性 (HA) 模式配置，並配置預設序號。儲存虛擬機器（儲存 VM）部署在link:concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["靈活的編排模式"]。
 * 預設創建的實例的聚合。
 * 預置容量為 500 GiB 的高級 SSD v2 託管磁碟，以及根磁碟和資料磁碟。
@@ -39,7 +39,7 @@ summary:
 
 
 .開始之前
-* 確保您擁有有效的 Azure 市場訂閱。
+* 如果您打算在 NetApp Console 中探索和管理已部署的系統，請確保 NetApp Console 帳戶已關聯至有效的 Azure Marketplace 訂閱。將系統探索至 NetApp Console 需要有效的訂閱。
 * 確保您滿足link:concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["單一可用區內的高可用性部署"]在 Azure 中。請參閱link:reference-networking-azure.html["為Cloud Volumes ONTAP設定 Azure 網路"] 。
 * 您需要指派以下 Azure 角色之一才能部署Cloud Volumes ONTAP：
 +
@@ -60,7 +60,7 @@ NOTE: 如果您已將資源提供者「Microsoft.storage」註冊到您的訂閱
 
 
 .步驟
-. 從 Azure 市場網站搜尋NetApp產品。
+. 從 Azure Marketplace 站台搜尋 NetApp 產品。
 . 選擇* NetApp Cloud Volumes ONTAP direct*。
 . 按一下「*建立*」以啟動部署精靈。
 . 選擇一個計劃。  *計劃*清單通常顯示Cloud Volumes ONTAP的最新版本。
@@ -99,14 +99,14 @@ NOTE: 為了遵守 Microsoft Azure 限制，您應該在設定新的虛擬網路
 [[troubleshoot-deployment-issues]]
 == 解決部署問題
 
-直接透過 Azure 市場部署的Cloud Volumes ONTAP系統不包括NetApp的支援。如果部署過程中出現任何問題，您可以獨立排除故障並解決。
+透過 Azure Marketplace 直接部署的 Cloud Volumes ONTAP 系統不包含來自 NetApp 的支援。如果在部署過程中出現任何問題，您可以自行進行疑難排解並解決。
 
 .步驟
-. 在 Azure 市場網站上，前往 *啟動診斷 > 序列日誌*。
+. 在 Azure Marketplace 站台上，前往 *Boot diagnostics > Serial log*。
 . 下載並調查串行日誌。
 . 請參閱產品文件和知識庫 (KB) 文章以進行故障排除。
 +
-** https://learn.microsoft.com/en-us/partner-center/["Azure 市場文檔"]
+** https://learn.microsoft.com/en-us/partner-center/["Azure Marketplace 文件"]
 ** https://www.netapp.com/support-and-training/documentation/["NetApp文檔"]
 ** https://kb.netapp.com/["NetApp知識庫文章"]
 
@@ -118,10 +118,10 @@ NOTE: 為了遵守 Microsoft Azure 限制，您應該在設定新的虛擬網路
 [[discover-the-deployed-systems-in-console]]
 == 在控制台中發現已部署的系統
 
-您可以發現使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統，並在控制台中的 *系統* 頁面上進行管理。控制台代理程式發現系統、新增系統並套用必要的許可證，並為這些系統解鎖控制台的全部功能。保留具有 PSSD v2 託管磁碟的單一 AZ 中的原始 HA 配置，並且系統註冊到與原始部署相同的 Azure 訂閱和資源群組。
+您可以探索使用 Azure Marketplace 直接部署所部署的 Cloud Volumes ONTAP 系統，並在 Console 的 *Systems* 頁面上管理這些系統。Console 代理程式會探索這些系統、新增這些系統並套用必要的授權，並為這些系統解鎖 Console 的完整功能。單一 AZ 中使用 PSSD v2 Managed Disks 的原始 HA 組態將予以保留，且系統會註冊至與原始部署相同的 Azure 訂閱和資源群組。
 
 .關於此任務
-在發現使用 Azure 市場直接部署部署的Cloud Volumes ONTAP系統時，控制台代理將執行下列任務：
+在探索使用 Azure Marketplace 直接部署所部署的 Cloud Volumes ONTAP 系統時，Console 代理程式會執行下列工作：
 
 * 將發現系統的免費許可證替換為常規的基於容量的許可證link:concept-licensing.html#packages["免費增值許可證"]。
 * 保留已部署系統的現有功能，並新增控制台的附加功能，例如資料保護、資料管理和安全功能。
@@ -135,13 +135,13 @@ NOTE: 為了遵守 Microsoft Azure 限制，您應該在設定新的虛擬網路
 
 
 .開始之前
-確保在 Azure 市場上部署已完成。只有當部署完成且可供發現時，控制台代理才能發現系統。
+請確保 Azure Marketplace 中的部署已完成。Console 代理程式只有在部署完成且系統可供探索後，才能探索這些系統。
 
 .步驟
 在控制台中，您可以按照標準程序來發現現有系統。請參閱link:task-adding-systems.html["將現有的Cloud Volumes ONTAP系統新增至控制台"] 。
 
 
-CAUTION: 在發現過程中，您可能會看到失敗訊息，但您可以忽略它們，直到發現過程完成。在發現期間，請勿修改 Azure 市場入口網站中系統產生的Cloud Volumes ONTAP配置，尤其是系統標籤。對這些配置所做的任何變更都可能導致意外的系統行為。
+CAUTION: 在探索期間，您可能會看到故障訊息，但您可以忽略這些訊息，直到探索程序完成。在探索期間，請勿修改 Azure Marketplace 入口網站中系統產生的 Cloud Volumes ONTAP 組態，尤其是系統標記。對這些組態所做的任何變更都可能導致意外的系統行為。
 
 .完成後
 發現完成後，您可以在控制台的「*系統*」頁面上查看列出的系統。您可以執行各種管理任務，例如link:task-manage-aggregates.html["擴大總量"]，link:task-create-volumes.html["添加卷"] ，link:task-managing-svms-azure.html["配置額外的儲存虛擬機"] ， 和link:task-change-azure-vm.html["更改實例類型"]。
@@ -149,6 +149,7 @@ CAUTION: 在發現過程中，您可能會看到失敗訊息，但您可以忽�
 .相關連結
 有關建立儲存的更多信息，請參閱ONTAP文件：
 
+* https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["新增新的市場訂閱"^]
 * https://docs.netapp.com/us-en/ontap/volumes/create-volume-task.html["為 NFS 建立卷"^]
 * https://docs.netapp.com/us-en/ontap-cli/lun-create.html["為 iSCSI 建立 LUN"^]
 * https://docs.netapp.com/us-en/ontap-cli/vserver-cifs-share-create.html["為 CIFS 建立共享"^]

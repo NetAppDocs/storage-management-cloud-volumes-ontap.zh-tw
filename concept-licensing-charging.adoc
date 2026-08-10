@@ -26,7 +26,7 @@ summary: 熟悉基於容量的許可證的收費、消費模式、定價和配�
 * *BYOL*：自備授權（BYOL）。從NetApp購買的許可證，可用於在任何雲端供應商中部署Cloud Volumes ONTAP 。
 +
 
-NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。
+NOTE: NetApp 已限制購買、延期及續約 BYOL 授權，並限制特定情境（例如私有模式部署）中的可用度。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
 
 
 
@@ -35,7 +35,7 @@ ifdef::azure[]
 endif::azure[]
 
 * *PAYGO*：即用即付 (PAYGO) 訂閱是從雲端供應商市場按小時訂閱的。
-* *年度*：來自雲端提供者市場的年度合約。
+* *市場訂閱/年度合約*：指您從雲端供應商的市場購買的年度合約。私有模式部署不支援市場訂閱。
 
 
 請注意以下事項：

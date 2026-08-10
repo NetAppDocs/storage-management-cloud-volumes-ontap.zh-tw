@@ -4,7 +4,7 @@ permalink: task-manage-node-licenses.html
 keywords: license, licensing, install, updating license, system license, add system license, adding a system license,  update byol license, nlf, license generator, extra, by-node, NetApp Console, cloud backup, cloud data sense, cloud tiering 
 summary: 在NetApp Console中管理基於節點的許可證，以確保每個Cloud Volumes ONTAP系統都具有所需容量的有效許可證。 
 ---
-= 管理Cloud Volumes ONTAP 的基於節點的許可
+= 管理 Cloud Volumes ONTAP 的節點型授權
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
