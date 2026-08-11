@@ -22,7 +22,7 @@ summary:
 使用 Azure Marketplace 直接部署所部署的 Cloud Volumes ONTAP 系統具有下列屬性。請注意，透過 Azure Marketplace 部署的獨立式執行個體的功能，會在 NetApp Console 中被探索時發生變更。
 
 * 最新的Cloud Volumes ONTAP版本（9.16.1 或更高版本）。
-* Cloud Volumes ONTAP 提供高達 500 GiB 已佈建容量的免費授權，不含 NetApp 支援，且無到期日。超過 500 GiB 的容量需要有效的授權權利，並可能產生費用。若要存取完整的 Cloud Volumes ONTAP 體驗和進階管理功能，請將您的 Cloud Volumes ONTAP 系統連線至 NetApp Console。透過 NetApp Console 進行探索和管理，需要與您的 NetApp Console 帳戶關聯的有效 Azure Marketplace 訂閱。
+* Cloud Volumes ONTAP 提供高達 500 GiB 已佈建容量的免費授權，不含 NetApp 支援，且無到期日。超過 500 GiB 的容量需要有效的授權權利，並可能產生費用。若要存取完整的 Cloud Volumes ONTAP 體驗和進階管理功能，請將您的 Cloud Volumes ONTAP 系統連線至主控台。透過主控台進行探索和管理需要與您的主控台帳戶關聯的有效 Azure Marketplace 訂閱。
 * 兩個節點在單一可用區 (AZ) 中以高可用性 (HA) 模式配置，並配置預設序號。儲存虛擬機器（儲存 VM）部署在link:concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["靈活的編排模式"]。
 * 預設創建的實例的聚合。
 * 預置容量為 500 GiB 的高級 SSD v2 託管磁碟，以及根磁碟和資料磁碟。
@@ -39,7 +39,7 @@ summary:
 
 
 .開始之前
-* 如果您打算在 NetApp Console 中探索和管理已部署的系統，請確保 NetApp Console 帳戶已關聯至有效的 Azure Marketplace 訂閱。將系統探索至 NetApp Console 需要有效的訂閱。
+* 如果您打算在 Console 中探索和管理已部署的系統，請確保 Console 帳戶已關聯至有效的 Azure Marketplace 訂閱。將系統探索至 Console 需要有效的訂閱。
 * 確保您滿足link:concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["單一可用區內的高可用性部署"]在 Azure 中。請參閱link:reference-networking-azure.html["為Cloud Volumes ONTAP設定 Azure 網路"] 。
 * 您需要指派以下 Azure 角色之一才能部署Cloud Volumes ONTAP：
 +

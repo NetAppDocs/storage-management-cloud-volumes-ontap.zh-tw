@@ -195,8 +195,8 @@ image::screenshot-cvo-s3-onelake-confirm.png[螢幕截圖顯示已確認的 Clou
 
 
 
-[[next-steps-index-data-with-azure-ai-search]]
-== 後續步驟：使用 Azure AI Search 索引資料
+[[enable-azure-ai-search]]
+== 啟用 Azure AI 搜尋
 
 建立 OneLake 捷徑後，您可以設定 Azure AI Search 以透過 OneLake 索引儲存在 Cloud Volumes ONTAP Volume 中的資料。Azure AI Search 索引功能可讓 Microsoft Copilot 和 Azure OpenAI 等 AI 應用程式使用這些資料。
 
