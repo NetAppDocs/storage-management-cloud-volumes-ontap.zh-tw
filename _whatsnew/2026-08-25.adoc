@@ -1,0 +1,17 @@
+= Azure 中奧地利東部和比利時中部地區的支援
+:allow-uri-read: 
+
+
+
+
+[[support-for-austria-east-and-belgium-central-regions-in-azure]]
+=== Azure 中奧地利東部和比利時中部地區的支援
+
+現在，您可以在 Azure 的奧地利東部 (austriaeast) 和比利時中部 (belgiumcentral) 區域部署 Cloud Volumes ONTAP 9.12.1 GA 及更新版本。支援下列部署類型：
+
+* 單節點
+* 在單一可用度區域中使用本機備援儲存設備 （LRS） 實現 HA
+* 使用區域備援儲存設備 （ZRS） 在多個可用度區域中實現 HA
+
+
+有關所有受支援區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。

@@ -16,6 +16,8 @@ summary: 請確認您已完成在 AWS 中部署 Cloud Volumes ONTAP 的所有先
 [role="lead"]
 要部署 Cloud Volumes ONTAP，您首先需要了解您的 AWS 訂閱和 Cloud Volumes ONTAP 授權。您也必須確認已為您的 AWS 帳戶建立 NetApp Console 代理程式。本主題中的許多資訊需要在開始部署 Cloud Volumes ONTAP 之前，作為 Console 設定的一部分完成。
 
+您可以使用 AWS Marketplace 或 NetApp Console 在 AWS 中就職 Cloud Volumes ONTAP。下表提供在 AWS 中部署 Cloud Volumes ONTAP 所需完成之任務的高階總覽。從 AWS Marketplace 就職是一種簡化的體驗，可自動執行 Console 代理程式部署與訂閱關聯。如需從 AWS Marketplace 就職的相關資訊，請參閱 link:task-onboard-cvo-aws-marketplace.html["在 AWS Marketplace 就職 Cloud Volumes ONTAP"]。
+
 [cols="20,35,25,25"]
 |===
 | 任務 | 描述 | 參考 | 私有模式部署注意事項 

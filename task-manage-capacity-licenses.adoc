@@ -106,6 +106,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 Console 一律會優先嘗試針對授權進行計費。如果授權不可用，則會針對市場訂閱進行計費。您無需將 BYOL 訂閱轉換為市場訂閱，反之亦然。
 
 * 如果您從雲端供應商的市場獲得了私人報價或合約，則變更為合約中未包含的計費方式，將導致按 BYOL（如果您從 NetApp 購買了授權）或 PAYGO 計費。
+* 如果您打算透過 AWS 市場中的獨立式 Cloud Volumes ONTAP 訂閱對 Cloud Volumes ONTAP 容量進行計費，則 Cloud Volumes ONTAP 系統必須使用受支援的容量型套件（Essentials 或 Freemium）。Professional 套件不支援獨立式清單，仍將透過 NIS 訂閱進行計費。選擇所需的套件後，請使用 NetApp Console 中的 *Billing preferences* 選擇用於 Cloud Volumes ONTAP 計費的市場訂閱。
 
 
 .步驟

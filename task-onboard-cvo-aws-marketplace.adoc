@@ -1,0 +1,269 @@
+---
+sidebar: sidebar 
+permalink: task-onboard-cvo-aws-marketplace.html 
+keywords: aws marketplace, cloud volumes ontap, onboarding, subscribe, deploy agent, setup guide, organization, subscription association 
+summary: 在 AWS Marketplace 中訂閱 Cloud Volumes ONTAP，並在 NetApp Console 中完成設定，包括建立組織、訂閱關聯、部署代理程式和建立第一個系統。 
+---
+= 從 AWS Marketplace 訂閱並部署 Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+從 AWS Marketplace 訂閱 Cloud Volumes ONTAP，並讓 NetApp Console 指引您完成就職程序。從訂閱到部署，整個過程簡單便捷，您可以快速啟動並執行 Cloud Volumes ONTAP。引導式體驗簡化了從 AWS Marketplace 訂閱到部署的流程，協助您無需豐富的雲端或 ONTAP 專業知識即可部署 Cloud Volumes ONTAP。
+
+從 AWS Marketplace 訂閱和部署 Cloud Volumes ONTAP 包括以下步驟：
+
+* 在 AWS Marketplace 中訂閱 Cloud Volumes ONTAP。
+* 註冊 Console。
+* 建立您的組織（如果需要）並關聯市場訂閱。
+* 在 AWS 中部署 Console 代理程式。
+* 新增您的第一個 Cloud Volumes ONTAP 系統。
+
+
+簡化的就職流程可自動部署代理程式，您只需進行少量輸入即可完成訂閱關聯、IAM 角色組態、代理程式佈建和系統初始化。後端協調會自動處理 CloudFormation 堆疊建立、VPC 連線驗證和資源相依性。這減少了手動組態步驟和畫面切換，因此您可以更快部署 Cloud Volumes ONTAP，並減少設定錯誤和中斷。在部署過程中，您可以在右側面板中追蹤進度。
+
+.開始之前
+在開始就職工作流程之前，請先審查這些先決條件。
+
+* 您需要一個具有在 AWS Marketplace 中訂閱權限的 AWS 帳戶。若要使用自動 IAM 設定，您必須是 AWS 系統管理員或擁有以下所示的權限。
++
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CloudFormationStack",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack",
+        "cloudformation:DeleteStack",
+        "cloudformation:DescribeStacks",
+        "cloudformation:DescribeStackEvents",
+        "cloudformation:GetTemplateSummary",
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:GetRole",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:GetRolePolicy",
+        "iam:PassRole",
+        "lambda:CreateFunction",
+        "lambda:DeleteFunction",
+        "lambda:GetFunction",
+        "lambda:InvokeFunction"
+  ]
+}
+----
+* 您可以在 AWS 中建立或使用 IAM 角色進行代理程式部署。
+* 您可以在 NetApp Console 中登入或建立帳戶。
+
+
+有關完整的 AWS 代理程式部署先決條件，請參閱link:https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-aws-marketplace.html["從 AWS Marketplace 部署 NetApp Console 代理程式"^]。
+
+
+
+[[subscribe-in-aws-marketplace]]
+== 在 AWS Marketplace 中訂閱
+
+首先在 AWS Marketplace 中找到 Cloud Volumes ONTAP 產品，開始就職程序。
+
+.步驟
+. 使用您的 AWS 帳戶存取 AWS Marketplace。
+. 找到 NetApp Cloud Volumes ONTAP 產品。AWS Marketplace 中提供兩種 Cloud Volumes ONTAP 產品：
++
+** Cloud Volumes ONTAP 年度訂閱的獨立式產品
+** NetApp 智慧服務 (NIS) 是 NetApp 資料服務和 Cloud Volumes ONTAP 訂閱的組合產品。為此就職工作流程選擇_獨立式_產品。
+
+
+. 審查清單詳細資料和定價條款。
+. 訂閱並完成付款。
+. 訂閱後，AWS 會將您重新導向至 Console 註冊或登入頁面。
+
+
+
+
+[[sign-up-or-sign-in-to-netapp-console]]
+== 註冊或登入 NetApp Console
+
+完成市場訂閱後，請存取 Console 以繼續進行設定。
+
+.步驟
+. 在「控制台」頁面上，選擇以下一項：
++
+** 如果您是新用戶，請*註冊*。
+** 如果您已有帳戶，請登入 NetApp Console。
+
+
+. 如果您選擇了*Sign up*，請完成以下步驟：
++
+.. 請填寫必填欄位：
++
+*** 電子郵件
+*** 密碼
+*** 姓名
+*** 公司
+*** 國家
+
+
+.. 選取 *下一步*。
+.. 選用：輸入聯絡詳細資料，例如地址、城市、州/省、郵遞區號和電話號碼。
+.. 選擇 *Sign up*。
+.. 接受許可條款。
+.. 請使用來自 service@console.netapp.com 的訊息來驗證您的電子郵件地址。
+
+
+. 登入 Console 並完成驗證。
+
+
+
+
+[[create-your-organization]]
+== 建立您的組織
+
+只有當您是首次使用者或尚未加入 NetApp Console 組織時，才需要完成此步驟。
+
+如果您已經是某個組織的成員，請跳過此部分並繼續<<關聯您的訂閱>>。
+
+建立組織以管理使用者、角色、權限、授權和系統。
+
+.步驟
+. 請輸入組織名稱。
+. （可選）關聯 NetApp 支援網站（NSS）帳戶。
+. 選擇 *Create*。
+
+
+
+
+[[associate-your-subscription]]
+== 關聯您的訂閱
+
+建立組織後，Console 會自動嘗試將您的市場訂閱與該組織連結。
+
+如果自動關聯失敗，請手動關聯您的訂閱。link:https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["了解如何管理訂閱"^]。
+
+
+
+[[deploy-a-console-agent-in-aws]]
+== 在 AWS 中部署 Console 代理程式
+
+關聯訂閱後，Console 會自動開啟代理程式部署流程，以管理您的 AWS 資源和 Cloud Volumes ONTAP 系統。
+
+若要深入瞭解代理程式部署期間所使用的權限，請參閱 link:https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["AWS 權限參考"^]。
+
+.步驟
+. 您可以按照介紹頁面中提到的步驟來取得部署代理程式所需的最低權限，或繼續自動建立代理程式部署角色。
+. 在「AWS 憑證」頁面上，選擇下列其中一個選項，為代理程式部署提供憑證：
++
+[role="tabbed-block"]
+====
+.為我建立角色（建議）
+--
+選擇此選項將開啟 AWS CloudFormation 快速建立流程，用於建立代理程式部署角色。如果您是具有系統管理員權限的使用者，則可以使用此選項自動使用 CloudFormation 堆疊建立原則、角色，並驗證使用者以建立代理程式。
+
+.. 新增 AWS 帳戶 ID，也可以選擇新增外部 ID。Console 會設定預設角色名稱。
+.. 確認條款並選擇 *Create stack*。
++
+image:screenshot-stack-creation.png["width=50% AWS CloudFormation 堆疊建立頁面的螢幕截圖，您可以在其中輸入 AWS 帳戶 ID，也可以選擇輸入代理程式部署角色的外部 ID。"]
+
+.. 在 AWS 中設定 IAM 角色並產生 ARN 後，請確認並儲存該角色。
+
+
+--
+.假設角色
+--
+這是手冊角色指派工作流程的一部分。請輸入現有的 IAM 角色 ARN。有關編輯此角色的資訊，請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html#associate-an-existing-subscription-with-your-organization["管理 NetApp Console 的 AWS 憑證與市場訂閱"^]。
+
+--
+.AWS金鑰
+--
+這是手動角色指派工作流程的一部分。請輸入 AWS 存取金鑰和秘密金鑰。如需相關資訊，請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html#add-the-credentials-to-an-existing-agent["管理 NetApp Console 的 AWS 憑證與市場訂閱"^]。
+
+--
+====
+. 部署 AWS 代理程式：
++
+.. 在 *AWS 代理程式詳細資料* 頁面上，設定或確認代理程式執行個體名稱和代理程式角色。
+.. 在「網路」頁面上，選擇 VPC、子網路、金鑰對、公用 IP 行為和 Proxy 設定。
+.. 設定*安全群組*。允許傳入 HTTP (80)、HTTPS (443) 和 SSH (22)，以進行代理程式 VM 的疑難排解存取。
+
+
+. 審查各章節摘要，然後選擇「新增」以部署。
++
+有關完整的連網和權限要求，請參閱：
+
++
+** https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-aws-marketplace.html#step-1-set-up-networking["為 AWS Marketplace 部署設定連網"^]
+** https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-aws-marketplace.html#step-2-set-up-aws-permissions["設定 AWS 權限"^]
+** https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["AWS 權限參考"^]
+
+
+. 追蹤部署進度對話框，直到部署完成。您可以擴充事件日誌以審查詳細活動。
+
+
+.完成後
+部署完成後，您可以建立您的第一個 Cloud Volumes ONTAP 系統，或留在「系統」頁面稍後新增系統。
+
+
+
+[[add-your-first-cloud-volumes-ontap-system]]
+== 新增您的第一個 Cloud Volumes ONTAP 系統
+
+代理程式準備好後，在 AWS 中建立您的第一個 Cloud Volumes ONTAP 系統。
+
+.步驟
+. 從部署後提示中，選擇 *Add system*。
+. 啟動 Cloud Volumes ONTAP 系統建立工作流程。
+. 完成系統組態。
+
+
+有關詳細的系統部署說明，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"^]。
+
+
+
+[[troubleshooting-and-recovery]]
+== 疑難排解與恢復
+
+如果您在完成就職流程前離開，或代理程式部署失敗，請使用此部分。這些步驟可協助您從上次中斷的地方繼續，或恢復並重試部署。
+
+
+
+[[resume-setup]]
+=== 繼續設定
+
+如果在完成之前離開，您可以從上次完成的步驟繼續設定。
+
+.步驟
+. 前往 NetApp Console 首頁。
+. 選擇 *Resume setup* 以繼續就職程序。
+
+
+
+
+[[recover-from-deployment-failure]]
+=== 從部署故障中復原
+
+如果部署失敗：
+
+.步驟
+. 下載部署報告。
+. 審查您的組態和日誌。
+. 選擇 *Start over* 以重試部署。
++
+link:https://docs.netapp.com/us-en/console-setup-admin/task-troubleshoot-agent.html["了解如何疑難排解代理程式問題"^]。
+
+
+
+.相關連結
+使用這些資源進行相關的設定任務和疑難排解。
+
+* link:https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-aws-marketplace.html["從 AWS Marketplace 部署 NetApp Console 代理程式"^]
+* link:https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html#subscribe["設定 AWS 訂閱"^]
+* link:https://docs.netapp.com/us-en/console-setup-admin/task-troubleshoot-agent.html["排查 NetApp Console 代理程式故障"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/["Cloud Volumes ONTAP文檔"^]
+

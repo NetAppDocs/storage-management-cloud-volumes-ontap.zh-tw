@@ -20,6 +20,25 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+[[25-august-2026]]
+== 2026年8月25日
+
+
+
+[[support-for-austria-east-and-belgium-central-regions-in-azure]]
+=== Azure 中奧地利東部和比利時中部地區的支援
+
+現在，您可以在 Azure 的奧地利東部 (austriaeast) 和比利時中部 (belgiumcentral) 區域部署 Cloud Volumes ONTAP 9.12.1 GA 及更新版本。支援下列部署類型：
+
+* 單節點
+* 在單一可用度區域中使用本機備援儲存設備 （LRS） 實現 HA
+* 使用區域備援儲存設備 （ZRS） 在多個可用度區域中實現 HA
+
+
+有關所有受支援區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+
+
+
 [[10-august-2026]]
 == 2026年8月10日
 
@@ -122,6 +141,7 @@ NetApp 為 AWS Marketplace 中的 Cloud Volumes ONTAP 引入簡化的上線流�
 
 
 .相關連結
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-onboard-cvo-aws-marketplace.html["從 AWS Marketplace 就職 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["AWS 中 Cloud Volumes ONTAP 和資料服務的彈性計費"^]
 
