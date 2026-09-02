@@ -7843,4 +7843,16 @@
   <block id="a610575fc8363bddd388bfee0dc0a7ee" category="list-text"><block ref="a610575fc8363bddd388bfee0dc0a7ee" category="inline-link-macro-rx"></block></block>
   <block id="43026f5cdef9b8d7671a52ecabf5bea0" category="list-text"><block ref="43026f5cdef9b8d7671a52ecabf5bea0" category="inline-link-rx"></block></block>
   <block id="f6bbe5efd3f2141104f822ac01ed3102" category="section-title">2026年8月25日</block>
+  <block id="9775ec01b640ec37d790fc80fcd304fa" category="doc">Azure Secret 和 Top Secret 區域中的 Cloud Volumes ONTAP 支援（私有預覽版）</block>
+  <block id="71220dfc0ef52806d7063323e20a8d01" category="paragraph">Cloud Volumes ONTAP 現已支援在 Azure Government Secret 和 Top Secret 區域中部署，目前為私人預覽版。此功能將 Cloud Volumes ONTAP 擴展到 Microsoft 的機密 Azure 環境，使政府和國防客戶能夠使用 ONTAP 進行資料管理員、保護和災難恢復，以支援國家安全性工作負載。請聯絡您的 NetApp 客戶團隊以參與。</block>
+  <block id="9a4d5529d16b869118217275b6da762d" category="paragraph">如需相關資訊，請參閱 Azure 文件：</block>
+  <block id="d6cb1d3533b658f7c8098c480b799207" category="inline-link">適用於美國政府任務的雲端^</block>
+  <block id="77063c44fc617a6f3c637b1e2c35bd37" category="list-text"><block ref="77063c44fc617a6f3c637b1e2c35bd37" category="inline-link-rx"></block></block>
+  <block id="985c02ef44894c5b9eb81c7ef41befb6" category="inline-link">Azure 政府機密</block>
+  <block id="97003784d2f5493688983ca3efa74e68" category="list-text"><block ref="97003784d2f5493688983ca3efa74e68" category="inline-link-rx"></block></block>
+  <block id="68e1f1aba2e1561ee3226c9bcfef5ee1" category="inline-link">Azure Government Top Secret</block>
+  <block id="3a487e075186bbd01e8a952b88b55326" category="list-text"><block ref="3a487e075186bbd01e8a952b88b55326" category="inline-link-rx"></block></block>
+  <block id="c465a7bd98f96ab6b7e15dbed5471998" category="list-text">*遠端資料複寫*</block>
+  <block id="b03b92c4dfcafd9226ecc9026f960e01" category="paragraph">透過遠端複寫保護您的 Cloud Volumes ONTAP 資料。遠端資料複寫透過在不同位置維護資料的同步副本，提供災難恢復功能，確保在系統故障或災難發生時的業務連續性。</block>
+  <block id="5e6b403f3ce4af919738fd94fe35d2d0" category="section-title">2026 年 9 月 2 日</block>
 </blocks>

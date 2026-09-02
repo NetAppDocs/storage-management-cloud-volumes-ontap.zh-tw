@@ -1,0 +1,17 @@
+= Azure Secret 和 Top Secret 區域中的 Cloud Volumes ONTAP 支援（私有預覽版）
+:allow-uri-read: 
+
+
+
+
+[[cloud-volumes-ontap-support-in-azure-secret-and-top-secret-regions-private-preview]]
+=== Azure Secret 和 Top Secret 區域中的 Cloud Volumes ONTAP 支援（私有預覽版）
+
+Cloud Volumes ONTAP 現已支援在 Azure Government Secret 和 Top Secret 區域中部署，目前為私人預覽版。此功能將 Cloud Volumes ONTAP 擴展到 Microsoft 的機密 Azure 環境，使政府和國防客戶能夠使用 ONTAP 進行資料管理員、保護和災難恢復，以支援國家安全性工作負載。請聯絡您的 NetApp 客戶團隊以參與。
+
+如需相關資訊，請參閱 Azure 文件：
+
+* https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions/["適用於美國政府任務的雲端^"]
+* https://azure.microsoft.com/en-us/explore/global-infrastructure/government/national-security["Azure 政府機密"^]
+* https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions["Azure Government Top Secret"^]
+
