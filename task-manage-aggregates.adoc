@@ -29,11 +29,11 @@ CAUTION: 必須直接從NetApp Console建立和刪除所有磁碟和聚合。您
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
 . 在「*系統*」頁面上，雙擊要管理聚合的Cloud Volumes ONTAP系統。
 . 從系統詳細資料中，按一下「*聚合*」標籤。
-. 對於所需的聚合，按一下image:icon-action.png[""]管理操作的圖示。
+. 針對所需的彙總，請按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示以進行管理動作。
 +
 image:screenshot_aggr_menu_options.png["聚合選單選項的螢幕截圖。"]
 
-. 透過可用選項管理您的聚合image:icon-action.png[""]菜單。
+. 透過 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 選單中的可用選項管理您的彙總。
 
 
 
@@ -43,7 +43,7 @@ ifdef::aws[]
 
 對於 AWS，您可以增加支援 Amazon EBS 彈性磁碟區的聚合的容量。
 
-. 根據image:icon-action.png[""]在選單上，點選*增加容量*。
+. 在 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 選單下，點選 *增加容量*。
 . 輸入您想要新增的額外容量，然後按一下*增加*。
 
 

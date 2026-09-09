@@ -337,7 +337,7 @@ CAUTION: 如果沒有足夠的空間，那麼Cloud Volumes ONTAP就無法移動�
 
 .步驟
 . 從左側導覽窗格前往*管理>代理*。
-. 點選image:icon-action.png[""]管理Cloud Volumes ONTAP系統的控制台代理的圖示。
+. 按一下管理 Cloud Volumes ONTAP 系統的控制台代理程式的 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示。
 . 選擇* Cloud Volumes ONTAP設定*。
 +
 image::screenshot-settings-cloud-volumes-ontap.png[設定圖示下的Cloud Volumes ONTAP設定選項的螢幕截圖。]

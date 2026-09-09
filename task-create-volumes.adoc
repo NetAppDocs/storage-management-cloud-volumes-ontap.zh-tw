@@ -65,7 +65,7 @@ endif::aws[]
 --
 .特定骨材
 --
-.. 在*聚合*選項卡上，轉到所需的聚合並點擊image:icon-action.png[""]圖示.
+.. 在 *彙總* 標籤上，前往所需的彙總，然後按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示。
 .. 選擇*新增卷*。image:screenshot_add_volume_button_agg.png["“聚合”標籤下的“新增磁碟區”按鈕的螢幕截圖。"]
 
 

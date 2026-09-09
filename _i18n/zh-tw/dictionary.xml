@@ -1988,7 +1988,6 @@
   <block id="5ad10cfb674234136c181d096cb59522" category="paragraph-title">所需權限</block>
   <block id="99bdfb197101bf876ef3b087827beaa4" category="paragraph">您需要指派組織或帳戶管理員權限才能修改Cloud Volumes ONTAP使用者驗證的控制台代理設定。</block>
   <block id="aa2199cb1bb818eb2b3b90d201502840" category="list-text">從左側導覽窗格前往*管理&gt;代理*。</block>
-  <block id="e9c35a16cf306867e850f1a072befe88" category="list-text">點選<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>所需控制台代理的圖示並選擇*編輯控制台代理*。</block>
   <block id="ef46255365b3e47560b36ea8589d2d00" category="list-text">在*強制使用者憑證*下，選取*啟用/停用*複選框。預設情況下，身份驗證是禁用的。</block>
   <block id="1c969f0ef9143d2554b1ddaa0d92382f" category="admonition">如果將此值設為*啟用*，則身份驗證將會重置，並且您必須修改任何現有工作流程以適應此變更。</block>
   <block id="4cc186df234138a57b2e8c5d8e5f7f8d" category="list-text">點選“儲存”。</block>
@@ -2258,7 +2257,6 @@
   <block id="c33283e89e8cd329189a883e4e8f4053" category="list-text">必須至少包含一個英文字母和一個數字</block>
   <block id="c2ffca846e9e6726f5fcc838afa7cba5" category="list-text">不應包含以下特殊字元：<block ref="4981b6e6dc1b6d6cbf5e189886588934" prefix=" " category="inline-code"></block></block>
   <block id="a42cd27291aedcf9964de9d89624ec1e" category="list-text">在*系統*頁面上，雙擊Cloud Volumes ONTAP系統的名稱。</block>
-  <block id="7cf6d09f6c35b61322fde4c0dd11570b" category="list-text">在控制台的右上角，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖標，然後選擇*設定密碼*。</block>
   <block id="cde648cfec6a9f1a0f5bbf7f5083336a" category="inline-image-macro">螢幕截圖顯示了系統提供的包含「設定密碼」操作的選單。</block>
   <block id="d1c167c796401c671e613bfcd1fbf5bb" category="paragraph"><block ref="d1c167c796401c671e613bfcd1fbf5bb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4760896a3351a42c072a61eb664108e5" category="summary">您可以修改 AWS 路由表，其中包含部署在多個 AWS 可用區中的 HA 對的浮動 IP 位址的路由。如果新的 NFS 或 CIFS 用戶端需要存取 AWS 中的 HA 對，您可以這樣做。</block>
@@ -2384,7 +2382,6 @@
   <block id="e6441a36027812e99b99675afebb1ad3" category="inline-image-macro">概覽標籤下的新增磁碟區按鈕的螢幕截圖。</block>
   <block id="57558e515c4178f1c27c4fe21e349c6e" category="paragraph">選擇“卷”選項卡，然後按一下“新增卷”。<block ref="d66b0ca71189f0ddd53cd4b3e65bbf57" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8f16078272611a0f4398b213c95246b5" category="open-title">特定骨材</block>
-  <block id="885da3b95c056e70931f65a33ea17088" category="list-text">在*聚合*選項卡上，轉到所需的聚合並點擊<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖示.</block>
   <block id="d67d87305db3f29260c81473dd44e3f1" category="inline-image-macro">“聚合”標籤下的“新增磁碟區”按鈕的螢幕截圖。</block>
   <block id="5ff758746d0b8603d8e7cc0736b6b8d3" category="list-text">選擇*新增卷*。<block ref="90511a2a61b219fe659f6c6204d0e9f4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="108a74a6cbb575c986177039e07dc411" category="list-text">請依照精靈中的步驟建立磁碟區。</block>
@@ -2498,7 +2495,6 @@
   <block id="488113528f5ee1e3b5937164669d88a3" category="paragraph"><block ref="f7cdf513db892a96f724bb06e033cc0c" category="inline-link-rx"></block> 。</block>
   <block id="6c40837b72d70ae6b7038522183754a0" category="list-text">刪除Cloud Volumes ONTAP系統。</block>
   <block id="3b90b5540ed00f0b6c6dc889f298934c" category="list-text">在「*系統*」頁面上，雙擊要刪除的Cloud Volumes ONTAP系統的名稱。</block>
-  <block id="393fcf44f13dc33611e68af462aa0b09" category="list-text">在控制台的右上角，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖標，然後選擇*刪除*。</block>
   <block id="efeb08d04d298bc5a7cab7297e3e33d3" category="list-text">輸入要刪除的系統的名稱，然後按一下「*刪除*」。刪除系統可能需要最多五分鐘。</block>
   <block id="3264c8e5645849e735efbc7fb5a89023" category="admonition">僅適用於Cloud Volumes ONTAP Professional 許可證，備份和復原是免費的。此免費福利不適用於已刪除的環境。如果Cloud Volumes ONTAP環境的備份副本保留在備份和復原實例中，則您將需要為備份副本付費，直到它們被刪除為止。</block>
   <block id="956ed8c59362d82aacc7c1ccc24ee128" category="doc">在 AWS 共用子網路中部署Cloud Volumes ONTAP HA 對</block>
@@ -2922,7 +2918,6 @@
   <block id="c49bf5e025cb6e60256e27b50c1e1d7c" category="paragraph">如果您的業務需要，您可以在控制台中變更設置，以便將Cloud Volumes ONTAP配置為使用服務端點而不是 Azure Private Link。變更此設定適用於您建立的新Cloud Volumes ONTAP系統。服務端點僅支援<block ref="143d2b52aa05d0c2b5e02a98661c9a57" category="inline-link-macro-rx"></block>控制台代理程式和Cloud Volumes ONTAP VNet 之間。</block>
   <block id="573514d5de621ecfe56c91e7c665d73d" category="inline-link">Azure 區域對</block>
   <block id="1f370e761acf121f11e5a9650fea6600" category="paragraph">控制台代理應部署在與其管理的Cloud Volumes ONTAP系統相同的 Azure 區域中，或部署在<block ref="71e0e9a7366955554f0600c5ea8cfc7f" category="inline-link-rx"></block>適用於Cloud Volumes ONTAP系統。</block>
-  <block id="33059c41e16db33fd5a113bc9f3f1cde" category="list-text">點選<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>管理Cloud Volumes ONTAP系統的控制台代理的圖示。</block>
   <block id="945a3e63731f2e910aa6dad34b34ef5c" category="list-text">選擇* Cloud Volumes ONTAP設定*。</block>
   <block id="13cdcbf94ff7381b25ca5784f874a9b6" category="image-alt">設定圖示下的Cloud Volumes ONTAP設定選項的螢幕截圖。</block>
   <block id="6c00fef2e24946332c58419df6198320" category="list-text">在「*Azure*」下，按一下「*使用 Azure 專用連結*」。</block>
@@ -3260,13 +3255,10 @@
   <block id="a760d335f1fa2810727ed37789f5c213" category="paragraph">如果聚合空間不足，您可以使用ONTAP系統管理員將磁碟區移至另一個聚合。</block>
   <block id="b796592de2543966990a29ebd9095cc4" category="list-text">在「*系統*」頁面上，雙擊要管理聚合的Cloud Volumes ONTAP系統。</block>
   <block id="79636f7c0017220661389c2b9ab4bf56" category="list-text">從系統詳細資料中，按一下「*聚合*」標籤。</block>
-  <block id="8aea04863be513559539bc0ead95e239" category="list-text">對於所需的聚合，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>管理操作的圖示。</block>
   <block id="4940ff7a33940e4ec33b7d78f146648a" category="inline-image-macro">聚合選單選項的螢幕截圖。</block>
   <block id="65c989c474db774160c441e94f03ddfc" category="paragraph"><block ref="65c989c474db774160c441e94f03ddfc" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ec57ef43a7af45349f5933a166eab707" category="list-text">透過可用選項管理您的聚合<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>菜單。</block>
   <block id="e83630b8e6273107e391f5f81a2bb56e" category="admonition">若要將磁碟新增至聚合，聚合中的所有磁碟必須具有相同的大小。</block>
   <block id="1fa9cab08589734f915412a3b0a337b1" category="paragraph">對於 AWS，您可以增加支援 Amazon EBS 彈性磁碟區的聚合的容量。</block>
-  <block id="151a2b996e176a433417676f36db61d2" category="list-text">根據<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>在選單上，點選*增加容量*。</block>
   <block id="cacd62863a1aec474ea14c7ba39b9f28" category="list-text">輸入您想要新增的額外容量，然後按一下*增加*。</block>
   <block id="f21c1bc5bcee9dae9d5eb025e4c6d884" category="paragraph">請注意，您必須將聚合的容量增加至少 256 GiB 或聚合大小的 10%。例如，如果您有 1.77 TiB 聚合，則 10% 就是 181 GiB。這低於 256 GiB，因此聚合的大小必須增加 256 GiB 的最小值。</block>
   <block id="2eb14dc3edd9fb392b8095df85f2f222" category="summary">從NetApp Console管理基於容量的許可證，以確保您的NetApp帳戶具有足夠的容量用於您的Cloud Volumes ONTAP系統。</block>
@@ -3408,7 +3400,6 @@
   <block id="34b14acb1a2ab9863c3c5dad4fd43a16" category="paragraph">例如，進階資訊應該顯示類似以下內容：聚合 aggr1 已達到其容量限制。</block>
   <block id="d741de259d45adde48602bde8af2fa1e" category="list-text">確定要移出聚合的一個或多個磁碟區：</block>
   <block id="917f77e19bd3db27edc6b2340ea3a7d9" category="list-text">在Cloud Volumes ONTAP系統中，按一下 *Aggregates tab*。</block>
-  <block id="a69fa2e48e8044b3b57c3421102c3175" category="list-text">在聚合圖塊上，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖標，然後點擊*查看匯總詳情*。</block>
   <block id="6d2e07ae8aec14e8c7f5862f9a6a5ade" category="list-text">在「聚合詳細資料」畫面的「概述」標籤下，檢視每個磁碟區的大小並選擇要移出聚合的一個或多個磁碟區。</block>
   <block id="1ac63b40afca7dec0b6be58237e990c5" category="paragraph">您應該選擇足夠大的磁碟區來釋放聚合中的空間，以避免將來出現額外的容量問題。</block>
   <block id="a996d75e91b5144977f6dd124cd75572" category="image-alt">螢幕截圖聚合量概覽</block>
@@ -3439,10 +3430,8 @@
   <block id="a0147f320461b84bd766277daa455d28" category="paragraph">需要移動兩個或更多磁碟區以避免容量問題；但是，控制台無法為您執行此操作。</block>
   <block id="b9caee734c459ea1d440e0f169eb1723" category="list-text">驗證現有聚合是否具有可供您需要移動的磁碟區所使用的容量：</block>
   <block id="9b7369571b345d669d0e974c6d79076e" category="list-text">在Cloud Volumes ONTAP系統上，按一下 *Aggregates tab*。</block>
-  <block id="e43e4bac47c138747571cc56cc7c9284" category="list-text">在所需的聚合圖塊上，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖標，然後*查看聚合詳細資訊*以查看可用容量（預先配置大小減去已使用聚合容量）。</block>
   <block id="e40eb63a3506950ad93ba909dcf25c90" category="image-alt">螢幕截圖聚合容量</block>
   <block id="b8bd018e0e8deb966bda4a09610591ac" category="list-text">如果需要，將磁碟新增至現有聚合：</block>
-  <block id="421d1b5c36149f9bc417af02cf7c2124" category="list-text">選擇聚合，然後按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖示 &gt; *新增磁碟*。</block>
   <block id="3425dbe0168b60aed62d54b2290baad1" category="list-text">選擇要新增的磁碟數量，然後按一下「*新增*」。</block>
   <block id="e272fdd11a7aa99158a093a41c65fdd9" category="list-text">如果沒有可用容量的聚合，則建立一個新的聚合。</block>
   <block id="0e725e4f9ac82ce0408528d6e38105f1" category="inline-link-macro">建立聚合</block>
@@ -3878,7 +3867,6 @@
   <block id="7f28e24a7c8929b9ea02725ffac8ea67" category="doc">從NetApp Console移除Cloud Volumes ONTAP系統</block>
   <block id="bf74416051ebd23aa12ffa560fdd35ad" category="paragraph">刪除Cloud Volumes ONTAP系統會將其從NetApp Console中移除。它不會刪除Cloud Volumes ONTAP系統。如果需要，您可以稍後重新發現該系統。</block>
   <block id="f6982d54fc10b8dff73549c0a04dda7c" category="list-text">在「*系統*」頁面上，雙擊要刪除的系統。</block>
-  <block id="31745001313aa79cdad6c8f6ab911c90" category="list-text">在控制台的右上角，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖標，然後選擇*從工作區中刪除*。</block>
   <block id="ab8587ffcd52404950c043ccf36aaf8c" category="list-text">在*從工作區中刪除*視窗中，按一下*刪除*。</block>
   <block id="1cdcde2746fca932e1f6783d36cde77e" category="paragraph">控制台刪除系統。使用者可以隨時從*系統*頁面重新發現已刪除的系統。</block>
   <block id="acdfc619ad459d4ab0532bb87b6d7fca" category="summary">啟用此 Microsoft Azure 功能以在 SAZ 中部署 HA。</block>
@@ -4484,7 +4472,6 @@
   <block id="58f03f4aa156a72c372951a943f6b4d3" category="section-title">驗證聚合是否在線</block>
   <block id="8934d548c1104122f0b1a27daeb92ffa" category="paragraph">在更新軟體之前， Cloud Volumes ONTAP的聚合必須處於線上狀態。在大多數配置中，聚合應該處於線上狀態，但如果沒有，則應將其置於線上狀態。</block>
   <block id="99d9b45657c4a8690b30f3b0f450d10a" category="list-text">在Cloud Volumes ONTAP系統上，按一下 *Aggregates* 標籤。</block>
-  <block id="ae94a52c4296ae374ee6be8e682957a0" category="list-text">在所需的聚合圖塊上，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖標，然後選擇*查看匯總詳情*。</block>
   <block id="8a58bd2f86c7acb1b532ae3d8d8ffea5" category="inline-image-macro">螢幕截圖：查看聚合資訊時顯示「狀態」欄位。</block>
   <block id="46804cb5ec7cb836d1b3ea87af016b42" category="paragraph"><block ref="46804cb5ec7cb836d1b3ea87af016b42" category="inline-image-macro-rx" type="image"></block></block>
   <block id="af85ea64dfacf7faf161184211d438c9" category="list-text">如果聚合處於離線狀態，請使用ONTAP系統管理員使聚合處於連線狀態：</block>
@@ -4537,7 +4524,6 @@
   <block id="367ad91722e49365699290156d04506b" category="paragraph">有兩條路徑可用。正確的路徑取決於您的控制台代理版本。</block>
   <block id="1b19ae48e0693419e1e905991459c290" category="list-text"><block ref="b31c7138696aef9cf55dc226ffd11bfa" prefix="" category="inline-code"></block></block>
   <block id="93f9a2aa0331918bf3f1a44fb42f791e" category="list-text"><block ref="d42052aef7da6deaffc65522893f95f6" prefix="" category="inline-code"></block></block>
-  <block id="179ef4c35afe7df9fca82dc7c1fd5143" category="list-text">在系統上，按一下<block ref="6b6d595755b48ff08cea04127d7784c8" category="inline-image-macro-rx" type="image"></block>圖標，然後點擊*更新Cloud Volumes ONTAP*。</block>
   <block id="31a578b8e294d03f4be50639f79e8160" category="list-text">在更新Cloud Volumes ONTAP版本頁面上，輸入 URL，然後按一下 *變更圖片*。</block>
   <block id="3ad650f1a041bdd6c72340558a4aa4d0" category="paragraph">如果您將軟體映像複製到上面顯示的路徑中的控制台代理，則需要輸入以下 URL：</block>
   <block id="1b7efa2b5fdb1436a1d0b4c37a1997e2" category="paragraph">\http://&lt;Console_agent_private-IP-address&gt;/ontap/images/&lt;映像檔名&gt;</block>
@@ -7856,4 +7842,19 @@
   <block id="b03b92c4dfcafd9226ecc9026f960e01" category="paragraph">透過遠端複寫保護您的 Cloud Volumes ONTAP 資料。遠端資料複寫透過在不同位置維護資料的同步副本，提供災難恢復功能，確保在系統故障或災難發生時的業務連續性。</block>
   <block id="5e6b403f3ce4af919738fd94fe35d2d0" category="section-title">2026 年 9 月 2 日</block>
   <block id="ee3e9d951c79faa2be7ec2e79fdaf3dd" category="paragraph">Workload Factory 會定期分析儲存系統組態，以判斷您的 Cloud Volumes ONTAP 系統是否有任何組態問題。發現問題時，架構完善的儀表板會顯示問題所在，以及需要變更的建議，以確保您的儲存系統達到最佳效能、成本效益，並符合最佳實務。</block>
+  <block id="e7f639747125ba0ea26f45843967eecd" category="inline-image-macro">一個顯示三個水平點的圖示，用於執行其他動作</block>
+  <block id="3f516fbf049ebb05c463c753eb67b9a4" category="list-text">按一下所需主控台代理程式的 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後選取 *編輯主控台代理程式*。</block>
+  <block id="60ebb6e9c8e7bd00664ff0182834bbbc" category="list-text">在控制台右上角，按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後選取 *設定密碼*。</block>
+  <block id="9c1e8a93062f9e08c18b7ff18d4c581f" category="list-text">在 *彙總* 標籤上，前往所需的彙總，然後按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示。</block>
+  <block id="0de3101fcf1da466c94cae4391b9e8a2" category="list-text">在主控台的右上角，按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後選取 *刪除*。</block>
+  <block id="3e932f868737e21b9ed5bda835757c87" category="list-text">按一下管理 Cloud Volumes ONTAP 系統的控制台代理程式的 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示。</block>
+  <block id="6a1e4ec541e571fac83e1c9ca6c9764f" category="list-text">針對所需的彙總，請按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示以進行管理動作。</block>
+  <block id="c6f3be6f5fd2a7a00e040c02adef2a44" category="list-text">透過 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 選單中的可用選項管理您的彙總。</block>
+  <block id="8ce65cfa7ee0582b8e471eae7579ed00" category="list-text">在 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 選單下，點選 *增加容量*。</block>
+  <block id="72e8de0716c9783610815fe31a38c5cc" category="list-text">在彙總圖塊上，按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後按一下 *檢視彙總詳細資料*。</block>
+  <block id="a016ea4bcb3e06f27b724ec30052c7d0" category="list-text">在所需的彙總圖塊上，按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後按一下 *檢視彙總詳細資料* 以檢視可用容量（已配置大小減去已使用彙總容量）。</block>
+  <block id="47e9ea2515e7bd4f510f7771337ace7c" category="list-text">選擇彙總，然後按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示 &gt; *新增磁碟*。</block>
+  <block id="6cff1893b505d7554422f471b99af689" category="list-text">在主控台的右上角，按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後選取 *從工作區移除*。</block>
+  <block id="249693747a2015307738625ff22160d7" category="list-text">在所需的彙總圖塊上，按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後選取 *檢視彙總詳細資料*。</block>
+  <block id="1d9ce53bf771f416c253fb83a5e69679" category="list-text">在系統上，按一下 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 圖示，然後按一下 *更新 Cloud Volumes ONTAP*。</block>
 </blocks>
