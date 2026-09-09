@@ -7855,4 +7855,5 @@
   <block id="c465a7bd98f96ab6b7e15dbed5471998" category="list-text">*遠端資料複寫*</block>
   <block id="b03b92c4dfcafd9226ecc9026f960e01" category="paragraph">透過遠端複寫保護您的 Cloud Volumes ONTAP 資料。遠端資料複寫透過在不同位置維護資料的同步副本，提供災難恢復功能，確保在系統故障或災難發生時的業務連續性。</block>
   <block id="5e6b403f3ce4af919738fd94fe35d2d0" category="section-title">2026 年 9 月 2 日</block>
+  <block id="ee3e9d951c79faa2be7ec2e79fdaf3dd" category="paragraph">Workload Factory 會定期分析儲存系統組態，以判斷您的 Cloud Volumes ONTAP 系統是否有任何組態問題。發現問題時，架構完善的儀表板會顯示問題所在，以及需要變更的建議，以確保您的儲存系統達到最佳效能、成本效益，並符合最佳實務。</block>
 </blocks>
