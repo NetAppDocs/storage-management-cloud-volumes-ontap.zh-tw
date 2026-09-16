@@ -58,4 +58,4 @@ Cloud Volumes ONTAP 在閒置時不會釋放 CPU，因此 https://aws.amazon.com
 
 節點重新開機後，合作夥伴必須先同步資料才能歸還儲存設備。重新同步資料所需的時間取決於節點當機期間用戶端寫入的資料量以及歸還期間的資料寫入速度。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha.html["了解在 AWS 中執行的 Cloud Volumes ONTAP HA 配對中的儲存運作原理"^]。
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-ha.html["了解在 AWS 中執行的 Cloud Volumes ONTAP HA 配對中的儲存運作原理"^]。

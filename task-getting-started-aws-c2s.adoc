@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-getting-started-aws-c2s.html 
 keywords: commercial cloud services, c2s, secret cloud, top secret cloud, aws secret region, the Console 
-summary: 與標準 AWS 區域類似，您可以在 AWS Secret Cloud 和 Top Secret Cloud 環境中部署Cloud Volumes ONTAP ，為您的雲端儲存提供企業級功能。  AWS Secret Cloud 和 Top Secret Cloud 區域是特定於美國情報界的封閉區域；本頁的說明僅適用於 AWS Secret Cloud 和 Top Secret Cloud 區域使用者。 
+summary: 您可以在 AWS Secret Cloud 和 Top Secret Cloud 環境中部署 Cloud Volumes ONTAP。AWS Secret Cloud 和 Top Secret Cloud 區域是專為美國情報機構提供的封閉區域。本頁的說明僅適用於 AWS Secret Cloud 和 Top Secret Cloud 區域的使用者。 
 ---
 = 在 AWS Secret Cloud 或 AWS Top Secret Cloud 中部署Cloud Volumes ONTAP
 :hardbreaks:
@@ -33,7 +33,7 @@ summary: 與標準 AWS 區域類似，您可以在 AWS Secret Cloud 和 Top Secr
 在 AWS Secret Cloud 和 Top Secret Cloud 中，控制台以_私有模式_運作。在私人模式下，控制台與 SaaS 圖層沒有連線。您可以透過可以存取控制台代理的本機基於 Web 的應用程式來存取控制台。
 
 +
-要了解有關隱私模式工作原理的更多信息，請參閱link:https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode["控制台中的私有部署模式"^]。
+若要深入瞭解私有模式的運作方式，請參閱link:https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html#private-mode["控制台中的私有部署模式"^]。
 
 
 

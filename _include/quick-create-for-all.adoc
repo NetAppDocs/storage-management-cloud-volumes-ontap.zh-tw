@@ -121,7 +121,7 @@ endif::gcp[]
 
 ifdef::gcp[]
 
-對於 _Google Cloud_，如果您打算使用 link:concept-data-tiering.html["資料分層"] 或  https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 搭配 Cloud Volumes ONTAP，則需要啟用 *Service Account* 並選擇具有預先定義 Storage Admin 角色的服務帳號。link:task-creating-gcp-service-account.html["了解如何建立服務帳號"^]。與 Console 代理程式關聯的服務帳號  https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["應該具有所需的權限"^]。
+對於 _Google Cloud_，如果您打算使用 link:concept-data-tiering.html["資料分層"] 或  https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 搭配 Cloud Volumes ONTAP，則需要啟用 *Service Account* 並選擇具有預先定義 Storage Admin 角色的服務帳號。link:task-creating-gcp-service-account.html["了解如何建立服務帳號"^]。與 Console 代理程式關聯的服務帳戶 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["應該具有所需的權限"^]。
 
 endif::gcp[]
 
@@ -170,7 +170,7 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud Documen
 
 .多個可用區中的高可用性
 ... *可用區域和中介*：選擇每個節點的可用區域 (AZ) 以及要部署Cloud Volumes ONTAP HA 對的中介和對應子網路。
-... *浮動 IP*：如果您選擇多個 AZ，請為 NFS 和 CIFS 服務以及叢集和 SVM 管理指定浮動 IP 位址。 IP 位址必須位於該區域內所有 VPC 的 CIDR 區塊之外。有關更多詳細信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^]。
+... *浮動 IP*：如果您選擇了多個可用區（AZ），請為 NFS 和 CIFS 服務以及叢集和 SVM 管理指定浮動 IP 位址。這些 IP 位址必須位於該區域中所有 VPC 的 CIDR 區塊之外。如需其他詳細資訊，請參閱 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^]。
 ... *調解器存取*：指定調解器存取資訊。調解器是一個單獨的實例，用於監控 HA 對的健康狀況並在發生故障時提供仲裁。提供金鑰對名稱以使中介執行個體能夠連線到 AWS EC2 服務，並選擇連線方法。
 ... *路由表*：如果您選擇了多個 AZ，請選擇包含到浮動 IP 位址的路由的路由表。如果您有多個路由表，則選擇正確的路由表非常重要。否則，某些用戶端可能無法存取Cloud Volumes ONTAP HA 對。有關路由表的更多信息，請參閱 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文件：路由表"^]。
 

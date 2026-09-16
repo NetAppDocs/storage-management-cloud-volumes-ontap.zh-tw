@@ -30,7 +30,7 @@ NetApp Console負責設定Cloud Volumes ONTAP的網路元件，例如 IP 位址�
 
 Cloud Volumes ONTAP系統需要出站網際網路存取才能存取外部端點以實現各種功能。如果這些端點在具有嚴格安全要求的環境中被阻止， Cloud Volumes ONTAP將無法正常運作。
 
-控制台代理程式會聯絡多個端點以進行日常操作。有關所用端點的信息，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看從控制台代理聯繫的端點"^]和 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-networking-saas-console.html["準備好使用控制台的網絡"^]。
+Console 代理程式會聯絡多個端點以進行日常作業。如需所使用端點的相關資訊，請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看從控制台代理聯繫的端點"^]與 https://docs.netapp.com/us-en/console-setup-admin/reference-networking-saas-console.html["準備好使用控制台的網絡"^]。
 
 
 
@@ -108,7 +108,7 @@ HA 中介執行個體必須具有與 AWS EC2 服務的出站連接，以便它�
 * *透明代理*：網路配置為透過控制台代理的代理程式自動路由來自Cloud Volumes ONTAP 的出站流量。設定透明代理時，管理員只需要提供用於從Cloud Volumes ONTAP進行連接的根 CA 證書，而不是代理伺服器的 HTTP 位址。確保使用以下方式取得相同的根 CA 憑證並將其上傳到您的Cloud Volumes ONTAP系統 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全性憑證安裝"^]命令。
 
 
-有關配置代理伺服器的信息，請參閱 https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理伺服器"^]。
+如需設定 Proxy 伺服器的相關資訊，請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理伺服器"^]。
 
 
 
@@ -228,7 +228,7 @@ TIP: 當部署在多個可用區時，多個 LIF 與link:reference-networking-aw
 您不需要建立安全性群組，因為控制台會為您完成此操作。如果您需要使用自己的，請參閱link:reference-security-groups.html["安全群組規則"]。
 
 
-TIP: 正在尋找有關控制台代理的資訊？ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["查看控制台代理程式的安全性群組規則"^]
+TIP: 正在尋找有關 Console 代理程式的資訊？ https://docs.netapp.com/us-en/console-setup-admin/reference-ports-aws.html["查看控制台代理程式的安全性群組規則"^]
 
 
 
@@ -340,8 +340,8 @@ image:diagram_ha_networking.png["概念圖顯示了Cloud Volumes ONTAP HA 架構
 
 如果您尚未建立控制台代理，則應查看網路需求。
 
-* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-install-options-aws.html["查看控制台代理程式的網路要求"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["AWS 中的安全群組規則"^]
+* https://docs.netapp.com/us-en/console-setup-admin/concept-install-options-aws.html["查看控制台代理程式的網路要求"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-ports-aws.html["AWS 中的安全群組規則"^]
 
 
 .相關連結

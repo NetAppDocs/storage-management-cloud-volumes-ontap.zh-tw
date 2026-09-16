@@ -22,6 +22,6 @@ NetApp 很高興宣布，針對私有模式 Cloud Volumes ONTAP 部署推出容�
 
 .相關連結
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-convert-node-capacity.html#conversion-in-a-private-mode-deployment["私有模式部署中的轉換"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html#conversion-in-a-private-mode-deployment["私有模式部署中的轉換"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理 Cloud Volumes ONTAP 的節點型授權"^]
 

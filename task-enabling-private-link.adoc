@@ -51,7 +51,7 @@ image::screenshot-settings-cloud-volumes-ontap.png[設定圖示下的Cloud Volum
 .完成後
 如果您停用了 Azure Private Links 且控制台代理程式使用代理伺服器，則必須啟用直接 API 流量。
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html#enable-a-proxy-on-a-connector["了解如何在控制台代理上啟用直接 API 流量"^]
+https://docs.netapp.com/us-en/console-setup-admin/task-configuring-proxy.html#enable-a-proxy-on-a-connector["了解如何在控制台代理上啟用直接 API 流量"^]
 
 
 

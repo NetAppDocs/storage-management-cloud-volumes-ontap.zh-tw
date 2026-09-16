@@ -28,9 +28,9 @@ summary: 請確認您已完成在 AWS 中部署 Cloud Volumes ONTAP 的所有先
  a| 
 如果您還沒有 Console 代理程式，請在部署 Cloud Volumes ONTAP 之前建立一個。如果部署在沒有網際網路存取的子網路中，請手動安裝 Console 代理程式並存取在該代理程式上執行的 NetApp Console。
  a| 
-請參閱 Console 設定指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["在 AWS 中建立 Console 代理程式"^]
+請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-aws.html["在 AWS 中建立 Console 代理程式"^]
  a| 
-如果部署在無法存取網際網路的子網路中，請手動安裝 Console 代理程式，並存取在該 Console 代理程式上執行的 NetApp Console 使用者介面。請參閱 Console 設定指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在無網際網路存取的情況下手動安裝 Console 代理程式"^]
+如果部署在無法存取網際網路的子網路中，請手動安裝 Console 代理程式，並存取在該 Console 代理程式上執行的 NetApp Console 使用者介面。請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["在無網際網路存取的情況下手動安裝 Console 代理程式"^]
 
 
 
@@ -89,8 +89,8 @@ link:task-setting-up-kms.html["設定 AWS KMS"]
 
 |===
 .相關連結
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html["為 AWS 建立控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-marketplace.html["從 AWS Marketplace 建立控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在本機安裝並設定控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["控制台代理的 AWS 權限"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-bluexp.html["為 AWS 建立控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-marketplace.html["從 AWS Marketplace 建立控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["在本機安裝並設定控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["控制台代理的 AWS 權限"^]
 

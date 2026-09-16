@@ -30,6 +30,6 @@ https://cloud.google.com/vpc/docs/packet-mirroring["資料包鏡像"^] 必須在
 [[google-private-service-connect-limitations]]
 == Google Private Service Connect 限制
 
-如果您在部署 Cloud Volumes ONTAP 的 VPC 中利用 https://cloud.google.com/vpc/docs/private-service-connect["Google Private Service Connect"^]，則需要實作 DNS 記錄，將流量轉送到所需的 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["API 端點"^]。
+如果您在部署 Cloud Volumes ONTAP 的 VPC 中利用 https://cloud.google.com/vpc/docs/private-service-connect["Google Private Service Connect"^]，則需要實作 DNS 記錄，將流量轉送到所需的 https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["API 端點"^]。
 
 目前私有服務連線不支援將 Cloud Volumes ONTAP 中的資料分層儲存到 Google Cloud Storage 儲存桶中。

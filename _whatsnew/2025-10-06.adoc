@@ -18,4 +18,4 @@ NetApp Console建立在增強和重組的BlueXP基礎之上，可在企業級內
 
 現在，您可以使用快速部署方法在 AWS 中部署Cloud Volumes ONTAP，適用於單一節點和高可用性 (HA) 設定。與進階方法相比，此簡化流程減少了步驟數，在單一頁面上自動設定預設值，並最大限度地減少了導航，使部署更快、更容易。
 
-有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速部署在 AWS 中部署Cloud Volumes ONTAP"^] 。
+如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速部署在 AWS 中部署Cloud Volumes ONTAP"^]。

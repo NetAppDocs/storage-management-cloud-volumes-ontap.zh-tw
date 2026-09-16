@@ -112,10 +112,10 @@ Azure Premium Storage 的效能與磁碟大小相關。更大的磁碟可提供�
 
 除了用戶資料的儲存之外，控制台還購買了Cloud Volumes ONTAP系統資料（啟動資料、根資料、核心資料和NVRAM）的雲端儲存。出於規劃目的，在部署Cloud Volumes ONTAP之前查看這些詳細資訊可能會有所幫助。
 
-link:reference-default-configs.html#azure-single-node["查看 Azure 中Cloud Volumes ONTAP系統資料的預設磁碟"] 。
+link:reference-configs-azure.html#azure-single-node["查看 Azure 中Cloud Volumes ONTAP系統資料的預設磁碟"]。
 
 
-TIP: 控制台代理還需要係統磁碟。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-connector-default-config.html["查看控制台代理預設配置的詳細信息"^] 。
+TIP: Console 代理程式也需要系統磁碟。 https://docs.netapp.com/us-en/console-setup-admin/reference-connector-default-config.html["查看控制台代理預設配置的詳細信息"^]。
 
 
 

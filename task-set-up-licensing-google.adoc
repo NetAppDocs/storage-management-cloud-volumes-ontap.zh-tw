@@ -67,16 +67,16 @@ link:concept-licensing.html#capacity-based-licensing["了解有關基於容量�
 透過從NetApp購買授權 (BYOL) 進行預付款，以便在任何雲端供應商部署Cloud Volumes ONTAP系統。
 
 
-NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。
+NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
 
 .步驟
 . https://www.netapp.com/forms/sales-contact/["聯絡NetApp銷售人員以取得許可證"^]
-. https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["將您的NetApp支援網站帳號新增至NetApp Console"^]
+. https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["將您的NetApp支援網站帳號新增至NetApp Console"^]
 +
 控制台會自動查詢 NetApp 的授權服務，以取得與您的NetApp支援網站帳戶相關的授權的詳細資訊。如果沒有錯誤，控制台將新增許可證。
 
 +
-您必須先從控制台取得許可證，然後才能與Cloud Volumes ONTAP一起使用。如果需要的話，你可以link:task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account["手動將許可證新增至控制台"]。
+您必須先從控制台取得授權，才能與 Cloud Volumes ONTAP 一起使用。如有需要，您可以link:https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html#add-a-license["手動將許可證新增至控制台"]。
 
 . 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
 +
@@ -119,7 +119,7 @@ image:screenshot-professional.png["建立Cloud Volumes ONTAP系統時專業選�
 link:task-deploying-gcp.html["查看在 Google Cloud 中啟動Cloud Volumes ONTAP 的逐步說明"] 。
 
 
-TIP: 您可以從「設定」>「憑證」頁面管理與您的帳戶相關的 Google Cloud Marketplace 訂閱。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["了解如何管理您的 Google Cloud 憑證和訂閱"^]
+TIP: 您可以從「設定」>「憑證」頁面管理與您的帳戶相關的 Google Cloud Marketplace 訂閱。 https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html["了解如何管理您的 Google Cloud 憑證和訂閱"^]
 
 
 

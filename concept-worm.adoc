@@ -61,7 +61,7 @@ WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費�
 
 您可以使用應用程式透過 NFS 或 CIFS 將檔案提交至 WORM，或使用 ONTAP CLI 自動將檔案提交至 WORM。您也可以使用 WORM 可追加檔案來保留增量寫入的資料，例如日誌資訊。如需相關資訊，請參閱 https://docs.netapp.com/us-en/ontap/snaplock/commit-files-worm-state-manual-task.html#commit-files-to-worm-manually["使用 ONTAP SnapLock 將檔案提交至 WORM"^]。
 
-在Cloud Volumes ONTAP系統上啟動 WORM 儲存後，您必須使用ONTAP CLI 進行所有 WORM 儲存的管理。有關說明，請參閱 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["有關SnapLock的ONTAP文檔"^]。
+在 Cloud Volumes ONTAP 系統上啟動 WORM 儲存設備後，您必須使用 ONTAP CLI 進行所有 WORM 儲存設備的管理。如需相關指示，請參閱 link:https://docs.netapp.com/us-en/ontap/snaplock/index.html["有關SnapLock的ONTAP文檔"^]。
 
 
 

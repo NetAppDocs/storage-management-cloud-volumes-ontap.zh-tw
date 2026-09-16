@@ -34,7 +34,7 @@ Cloud Volumes ONTAP利用 NetApp 業界領先的複製技術SnapMirror將本機�
 Cloud Volumes ONTAP也與NetApp Backup and Recovery集成，提供備份和復原功能，以保護和長期存檔您的雲端資料。
 
 +
-link:https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關備份和恢復的更多信息"^]
+link:https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["了解有關備份和恢復的更多信息"^]
 
 * 資料分層
 +
@@ -56,7 +56,7 @@ Cloud Volumes ONTAP支援資料加密並提供防毒和勒索軟體的保護。
 與NetApp Data Classification整合可協助您了解資料環境並識別敏感資料。
 
 +
-https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關數據分類的更多信息"^]
+https://docs.netapp.com/us-en/data-services-data-classification/concept-cloud-compliance.html["了解有關數據分類的更多信息"^]
 
 
 
@@ -65,4 +65,4 @@ NOTE: Cloud Volumes ONTAP中包含ONTAP功能的授權。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["查看支援的Cloud Volumes ONTAP配置"^]
 
-https://bluexp.netapp.com/ontap-cloud["了解有關Cloud Volumes ONTAP 的更多信息"^]
+link:https://www.netapp.com/ontap-cloud/["了解有關Cloud Volumes ONTAP 的更多信息"^]

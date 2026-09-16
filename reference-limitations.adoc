@@ -71,7 +71,7 @@ Cloud Volumes ONTAP 每個節點的 SnapMirror 或 SnapVault 並發傳輸數上�
 
 您不應將雲端提供者的快照用作 Cloud Volumes ONTAP 資料備份和復原計畫的一部分。您應該始終使用 ONTAP Snapshot 複本或第三方備份解決方案來備份和還原託管在 Cloud Volumes ONTAP 上的資料。
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解如何使用 NetApp Backup and Recovery 來備份和還原 ONTAP 資料"^]。
+https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["了解如何使用 NetApp Backup and Recovery 來備份和還原 ONTAP 資料"^]。
 
 
 NOTE: WAFL 檔案系統中的 ONTAP 一致性點決定了資料一致性。只有 ONTAP 才能使 WAFL 檔案系統靜止，從而產生崩潰一致性備份。

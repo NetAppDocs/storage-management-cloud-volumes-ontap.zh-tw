@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-licensing.html 
-keywords: 'freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, cloud backup, digital wallet, bluexp license conversion for node based, license end of support (EOS) node-based, end of availability (EOA) of node-based' 
+keywords: freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, cloud backup, digital wallet, bluexp license conversion for node based, end of support, eos, end of availability, eoa, node-based 
 summary: Cloud Volumes ONTAP有多種授權選項。每個選項都允許您選擇滿足您需求的配置。 
 ---
 = Cloud Volumes ONTAP許可
@@ -18,7 +18,7 @@ Cloud Volumes ONTAP 提供多種授權模式。每種模式都能讓您選擇滿
 
 您可以選擇透過雲端市場或透過 NetApp （自帶授權 (BYOL)）購買或續約 Licenses and subscriptions。市場提供年度訂閱和隨用隨付 (PAYGO) 選項。如需相關資訊，請參閱 link:concept-license-management.html["了解有關Cloud Volumes ONTAP基於容量的許可證的更多信息"]。
 
-BYOL 授權可向 NetApp 購買，並可用於任何雲端供應商。有關 BYOL 授權可用度的詳細資訊，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
+BYOL 授權可向 NetApp 購買，並可用於任何雲端供應商。有關 BYOL 授權可用度的詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
 
 
 
@@ -61,14 +61,14 @@ NOTE: 雖然NetApp Console中管理的產品和服務的實際使用情況和計
 
 ifdef::azure[]
 
-* link:link:reference-configs-azure.html["Azure 中支援的配置"]
+* link:reference-configs-azure.html["Azure 中支援的配置"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:link:reference-configs-gcp.html["Google Cloud 中支援的配置"^]
+* link:reference-configs-gcp.html["Google Cloud 中支援的配置"^]
 
 
 endif::gcp[]
@@ -120,7 +120,7 @@ endif::gcp[]
 * 包括使用NetApp Backup and Recovery進行無限磁碟區備份，但僅適用於使用專業版軟體套件的Cloud Volumes ONTAP系統。
 +
 
-NOTE: 備份和復原需要按使用量付費 (PAYGO) 訂閱，但使用此服務不會產生任何費用。有關設定備份和恢復許可的更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-licensing-cloud-backup.html["設定備份和恢復許可"^]。
+NOTE: 備份和復原需要隨用隨付（PAYGO）訂閱，但使用此服務不會產生任何費用。如需設定備份和復原授權的詳細資訊，請參閱 https://docs.netapp.com/us-en/data-services-backup-recovery/task-licensing-cloud-backup.html["設定備份和恢復許可"^]。
 
 * 額外付費即可新增任何 NetApp 雲端資料服務
 
@@ -132,10 +132,10 @@ NOTE: 備份和復原需要按使用量付費 (PAYGO) 訂閱，但使用此服�
 
 Cloud Volumes ONTAP系統的 PAYGO 和 BYOL 授權的可用性要求控制台代理程式啟動並執行。
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#impact-on-cloud-volumes-ontap["了解控制台代理"^] 。
+https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html#impact-on-cloud-volumes-ontap["了解控制台代理"^]。
 
 
-NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 授權可用性受限"^] 。
+NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 授權可用性受限"^]。
 
 
 

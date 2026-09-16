@@ -9,7 +9,7 @@
 
 您可以依照文件中提供的逐步轉換流程，直接在現有環境中以私有模式部署 Cloud Volumes ONTAP。在私有模式部署中，Cloud Volumes ONTAP 系統部署在您自己的虛擬私有雲 （VPC） 或虛擬網路 （VNet） 中，並且不會連接到公有網際網路。您可以使用私有模式部署來滿足組織的安全性和法規遵循要求。
 
-私有模式部署先前僅使用可從 NetApp 取得的節點型授權。節點型授權是 Cloud Volumes ONTAP 的上一代授權。NetApp 自 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["2025-06-25"]起，除特殊情況外，已限制節點型授權的購買、延期及續約。自 2026 年 7 月 31 日起，節點型授權對於美國公共部門 （USPS） 及其他私有模式部署等特殊情況，將達到可用度終止 （EOA）。
+私有模式部署先前僅使用可從 NetApp 取得的節點型授權。節點型授權是 Cloud Volumes ONTAP 的上一代授權。NetApp 自 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["2025-06-25"]起，除特殊情況外，已限制節點型授權的購買、延期及續約。自 2026 年 7 月 31 日起，節點型授權對於美國公共部門 （USPS） 及其他私有模式部署等特殊情況，將達到可用度終止 （EOA）。
 
 如果您擁有基於節點的授權的私有部署，請依照下列步驟操作：
 

@@ -18,7 +18,7 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 要在 Google Cloud 中建立和管理其他資料服務儲存虛擬機，您應該使用 API。這是因為 API 自動化了建立儲存虛擬機器和配置所需網路介面的過程。建立儲存虛擬機器時， NetApp Console會配置所需的 LIF 服務，以及儲存虛擬機器出站 SMB/CIFS 通訊所需的 iSCSI LIF。
 
-有關執行Cloud Volumes ONTAP API 呼叫的信息，請參閱 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 呼叫"^]。
+如需執行 Cloud Volumes ONTAP API 呼叫的相關資訊，請參閱 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 呼叫"^]。
 
 
 
@@ -152,8 +152,8 @@ summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端
 
 
 .相關資訊
-* https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["準備使用 API"^]
-* https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["取得所需的標識符"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
+* https://docs.netapp.com/us-en/console-automation/cm/prepare.html["準備使用 API"^]
+* https://docs.netapp.com/us-en/console-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
+* https://docs.netapp.com/us-en/console-automation/platform/get_identifiers.html#get-the-connector-identifier["取得所需的標識符"^]
+* https://docs.netapp.com/us-en/console-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
 

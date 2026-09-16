@@ -74,7 +74,7 @@ https://aws.amazon.com/ebs/features/["AWS 文件：了解有關 AWS 彈性磁碟
 * ec2：修改卷
 
 
-這些權限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["NetApp提供的政策"^]
+這些權限包含在 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["NetApp提供的政策"^]
 
 
 
@@ -196,6 +196,6 @@ link:task-manage-aggregates.html["了解如何提高總容量"] 。
 如果目標Cloud Volumes ONTAP系統支援彈性卷，則目標卷將放置在啟用了彈性卷的聚合上（只要您選擇 gp3 或 io1 磁碟）。
 
 +
-https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何設定資料複製"^]
+https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["了解如何設定資料複製"^]
 
 

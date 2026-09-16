@@ -131,7 +131,7 @@ NOTE: 控制台將磁碟區移至使用具有分層功能的所選磁碟類型�
 如果您需要調整磁碟區大小，您可以從控制台中的ONTAP系統管理員進行操作。
 
 .步驟
-. 按一下系統管理員視圖以透過ONTAP系統管理員調整磁碟區大小。請參閱link:task-administer-advanced-view.html#how-to-get-started["如何開始"] 。
+. 選擇 System Manager 檢視以透過 ONTAP System Manager 調整 Volume 大小。請參閱 link:task-administer-advanced-view.html#get-started-with-system-manager["開始使用系統管理員"]。
 . 從左側導覽選單中，選擇“儲存”>“磁碟區”。
 . 從磁碟區清單中，確定應調整大小的磁碟區。
 . 點選選項圖標image:screenshot_gallery_options.gif["烤肉串圖標"]。
@@ -237,7 +237,7 @@ Cloud Volumes ONTAP使用變更來更新 CIFS 伺服器。
 控制台可能會顯示「需要採取行動」訊息，表示需要移動磁碟區以避免容量問題，但您需要自行解決問題。如果發生這種情況，您需要確定如何修正問題，然後移動一個或多個磁碟區。
 
 
-TIP: 當聚合已達到 90% 的使用容量時，控制台會顯示這些「需要操作」訊息。如果啟用了資料分層，則當聚合已達到 80% 的已使用容量時會顯示訊息。預設情況下，保留 10% 的可用空間用於資料分層。link:task-tiering.html#changing-the-free-space-ratio-for-data-tiering["了解有關數據分層的可用空間比率的更多信息"^] 。
+TIP: 當彙總的已使用容量達到 90% 時，主控台會顯示這些「需要採取行動」訊息。如果啟用資料分層，當彙總的已使用容量達到 80% 時，就會顯示這些訊息。預設情況下，會預留 10% 的可用空間以進行資料分層。link:task-tiering.html#change-the-free-space-ratio-for-data-tiering["了解有關數據分層的可用空間比率的更多信息"^]。
 
 .步驟
 . <<確定如何修正容量問題>> 。
@@ -312,11 +312,11 @@ image::screenshot_aggr_volume_overview.png[螢幕截圖聚合量概覽]
 . 確定具有可用容量的Cloud Volumes ONTAP系統，或部署新系統。
 . 將來源系統拖曳到目標系統以執行磁碟區的一次性資料複製。
 +
-有關信息，請參閱link:https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["在系統之間複製數據"^]。
+如需詳細資訊，請參閱link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["在系統之間複製數據"^]。
 
 . 前往「複製狀態」頁面，然後中斷SnapMirror關係，將複製的磁碟區從資料保護磁碟區轉換為讀取/寫入磁碟區。
 +
-有關信息，請參閱link:https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html#managing-data-replication-schedules-and-relationships["管理資料複製計劃和關係"^]。
+如需詳細資訊，請參閱link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html#managing-data-replication-schedules-and-relationships["管理資料複製計劃和關係"^]。
 
 . 配置資料存取的磁碟區。
 +

@@ -63,7 +63,7 @@ image:screenshot_ransomware_protection.gif["螢幕截圖顯示了系統內部可
 
 Cloud Volumes ONTAP支援自主勒索軟體防護 (ARP) 功能，可對工作負載進行分析，以主動偵測並警告可能表明勒索軟體攻擊的異常活動。
 
-與透過以下方式提供的檔案副檔名保護分開 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-protecting-ransomware.html#protection-from-common-ransomware-file-extensions["勒索軟體防護設置"]，ARP 功能使用工作負載分析根據偵測到的「異常活動」向使用者發出潛在攻擊警報。勒索軟體防護設定和 ARP 功能可以結合使用，以實現全面的勒索軟體防護。
+除了透過 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-protecting-ransomware.html#protection-from-common-ransomware-file-extensions["勒索軟體防護設置"]提供的檔案副檔名保護之外，ARP 功能使用工作負載分析，根據偵測到的「異常活動」向使用者發出潛力攻擊的警報。勒索軟體保護設定和 ARP 功能可以結合使用，以實現全面的勒索軟體保護。
 
 ARP 功能可與自帶授權 (BYOL) 一起使用，且無需額外付費即可在市場訂閱您的授權。
 

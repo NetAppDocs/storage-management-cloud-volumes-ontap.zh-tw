@@ -221,7 +221,7 @@ NOTE: 使用 Azure 客戶管理加密金鑰的前提是為金鑰保管庫啟用 
 "Microsoft.KeyVault/vaults/accessPolicies/write",
 "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action"
 ----
-https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看最新的權限列表"^]
+https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html["查看最新的權限列表"^]
 
 .步驟
 . 使用下列 API 呼叫取得 Azure 訂閱中的金鑰保管庫清單。
@@ -293,5 +293,5 @@ NOTE: 包括 `"userAssignedIdentity": " userAssignedIdentityId"`如果您建立�
 
 .相關連結
 * https://docs.netapp.com/us-en/console-automation/cm/wf_cvo_before.html["準備使用 Cloud Volumes ONTAP API 工作流程"^]。
-* https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#azure-haworking-environments["了解 ONTAP 管理 REST API"^]。
+* https://docs.netapp.com/us-en/console-automation/cm/api_ref_resources.html#azure-haworking-environments["了解 ONTAP 管理 REST API"^]。
 

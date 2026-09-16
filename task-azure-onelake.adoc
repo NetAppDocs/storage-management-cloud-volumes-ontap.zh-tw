@@ -14,7 +14,7 @@ summary: 設定 Cloud Volumes ONTAP 與 ONTAP S3 多傳輸協定存取，以使 
 
 
 [role="lead"]
-您可以將 Cloud Volumes ONTAP 與 https://community.fabric.microsoft.com/["Microsoft Fabric"^]整合，使用 https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^]讓現有的 Cloud Volumes ONTAP NAS 資料可供 Microsoft 分析和 AI 服務（例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot）使用。此整合無需資料搬移或重複資料。此整合使用 https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP S3 多重傳輸協定"^]存取將 Cloud Volumes ONTAP 連接到現有的 Microsoft Fabric 湖倉。
+您可以將 Cloud Volumes ONTAP 與 link:https://community.fabric.microsoft.com/["Microsoft Fabric"^] 整合，並使用 link:https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^]，讓現有的 Cloud Volumes ONTAP NAS 資料可供 Microsoft 分析和 AI 服務（例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot）使用。此整合無需資料搬移或重複資料。此整合使用 link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP S3 多重傳輸協定"^] 存取，將 Cloud Volumes ONTAP 連接到現有的 Microsoft Fabric 湖倉。
 
 
 

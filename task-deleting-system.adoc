@@ -30,7 +30,7 @@ NOTE: 刪除系統時，不會刪除其他資源，例如NetApp Backup and Recov
 
 . 如果您在此系統上啟用了資料分類，並且沒有其他系統使用此服務，那麼您需要刪除該服務的實例。
 +
-https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html#the-cloud-data-sense-instance["了解有關資料分類實例的更多信息"^] 。
+https://docs.netapp.com/us-en/data-services-data-classification/concept-cloud-compliance.html#the-cloud-data-sense-instance["了解有關資料分類實例的更多信息"^]。
 
 . 刪除Cloud Volumes ONTAP系統。
 +

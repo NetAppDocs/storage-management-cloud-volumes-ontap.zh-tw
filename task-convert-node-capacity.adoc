@@ -20,7 +20,7 @@ summary: '在基於節點的許可證的可用性終止 (EOA) 之後，您應該
 
 有關 EOA 和 EOS 的信息，請參閱link:concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"]。
 
-已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。
+NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
 
 
 

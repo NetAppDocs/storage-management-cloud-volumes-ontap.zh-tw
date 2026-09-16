@@ -110,7 +110,7 @@ link:task-connecting-to-otc.html["了解如何透過 SSH 連線到Cloud Volumes 
 . 如果狀態仍然失敗，請驗證Cloud Volumes ONTAP和控制台代理之間是否透過連接埠建立連線。 `3128`。
 . 如果驗證後狀態仍然失敗，請透過 SSH 連線至控制台代理程式。
 +
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["了解有關控制台代理連接到 Linux VM 的更多信息"^]
+https://docs.netapp.com/us-en/console-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["了解有關控制台代理連接到 Linux VM 的更多信息"^]
 
 . 前往 `/opt/application/netapp/cloudmanager/docker_occm/data/`。
 . 開啟代理設定檔 `squid.conf`。這是文件的結構：

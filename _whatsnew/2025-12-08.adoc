@@ -9,7 +9,7 @@
 
 現在，您可以透過修改 IOPS 和吞吐量參數來提高 Azure 中 Premium SSD v2 託管磁碟的效能。利用此功能，您可以根據工作負載需求最佳化系統的儲存效能。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-perf-params-azure.html["在 Azure 中管理Cloud Volumes ONTAP的 Premium SSD v2 磁碟效能"^]。
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-perf-params-azure.html["在 Azure 中管理Cloud Volumes ONTAP的 Premium SSD v2 磁碟效能"^]。
 
 
 

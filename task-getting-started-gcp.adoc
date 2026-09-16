@@ -28,7 +28,7 @@ summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTA
  a| 
 請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["在 Google Cloud 中建立 Console 代理程式"^]
  a| 
-如果部署在無法存取網際網路的子網路中，請手動安裝 Console 代理程式，並存取在該 Console 代理程式上執行的 NetApp Console 使用者介面。請參閱 Console 設定指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在無網際網路存取的情況下手動安裝 Console 代理程式"^]
+如果部署在無法存取網際網路的子網路中，請手動安裝 Console 代理程式，並存取在該 Console 代理程式上執行的 NetApp Console 使用者介面。請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["在無網際網路存取的情況下手動安裝 Console 代理程式"^]
 
 
 
@@ -70,7 +70,7 @@ Cloud Volumes ONTAP 需要 Google Cloud 服務帳戶才能啟用資料分層，�
  a| 
 * link:task-creating-gcp-service-account.html["設定服務帳戶"]
 * link:concept-data-tiering.html["了解資料分層"]
-* 請參閱 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery 文件"^]
+* 請參閱 https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery 文件"^]
 
  a| 
 私有模式部署無需額外考慮。
@@ -109,7 +109,7 @@ Cloud Volumes ONTAP 需要 Google Cloud 服務帳戶才能啟用資料分層，�
 
 |===
 .相關連結
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["建立控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在 Linux 主機上安裝控制台代理軟體"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["建立控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["在 Linux 主機上安裝控制台代理軟體"^]
 * https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["控制台代理的 Google Cloud 權限"^]
 

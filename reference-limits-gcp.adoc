@@ -25,7 +25,7 @@ Cloud Volumes ONTAP 系統的最大系統容量由其授權決定。最大系統
 
 NetApp 不支援超出系統容量限制。如果您達到授權容量上限，NetApp Console 會顯示需要採取行動的訊息，並且不再允許您新增磁碟。
 
-在某些組態中，磁碟限制會導致您無法僅使用磁碟達到容量限制。您可以透過 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["將非活動資料分層到物件存儲"^]達到容量限制。如需更多詳細資料，請參閱以下磁碟限制。
+在某些組態中，磁碟限制會導致您無法僅使用磁碟達到容量限制。您可以透過 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["將非活動資料分層到物件存儲"^]達到容量限制。如需更多詳細資料，請參閱以下磁碟限制。
 
 [[cap-license-gcp]]
 .容量型授權的容量限制
@@ -131,7 +131,7 @@ Cloud Volumes ONTAP 將 Google Cloud Platform 磁碟分組到 _Aggregate_ 中。
 
 這些是經過測試的極限值。不支援設定更多儲存 VM。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-gcp.html["了解如何建立額外的儲存 VM"^]。
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-managing-svms-gcp.html["了解如何建立額外的儲存 VM"^]。
 
 [cols="2*"]
 |===
@@ -259,4 +259,4 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-gcp.
 
 節點重新開機後，合作夥伴必須先同步資料才能歸還儲存設備。重新同步資料所需的時間取決於節點當機期間用戶端寫入的資料量以及歸還期間的資料寫入速度。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha-google-cloud.html["了解在 Google Cloud 中運行的 Cloud Volumes ONTAP HA 配對中的儲存運作方式"^]。
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-ha-google-cloud.html["了解在 Google Cloud 中運行的 Cloud Volumes ONTAP HA 配對中的儲存運作方式"^]。

@@ -108,7 +108,7 @@ Cloud Volumes ONTAP 使用 Azure 儲存設備做為磁碟、並將其分組為 _
 [[limits-for-different-deployment-modes-of-capacity-based-licensing]]
 === 基於容量的授權的不同部署模式限制
 
-下列磁碟限制適用於使用容量型授權套件的 Cloud Volumes ONTAP 系統 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["瞭解 Cloud Volumes ONTAP 授權選項"^]。
+下列磁碟限制適用於使用容量型授權套件的 Cloud Volumes ONTAP 系統 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["瞭解 Cloud Volumes ONTAP 授權選項"^]。
 
 
 NOTE: 有關單節點、單可用區中採用頁 Blob 的 HA 對以及單可用區和多可用區中採用共享託管磁碟的 HA 對的最大系統容量和資料分層容量限制，請參閱 <<cap-license-azure>>。
@@ -341,7 +341,7 @@ NOTE: 有關單節點、單可用區中採用頁 Blob 的 HA 對以及單可用�
 
 下列磁碟限制適用於使用基於節點授權的 Cloud Volumes ONTAP 系統。基於節點授權是上一代授權模式，可讓您按節點為 Cloud Volumes ONTAP 授權。現有客戶仍可使用基於節點授權。
 
-您可以為 Cloud Volumes ONTAP BYOL 單節點或 HA 配對系統購買多個基於節點的授權，以分配超過 368 TiB 的容量，最高可達經測試和支援的最大系統容量限制 2 PiB。請注意，磁碟限制可能會導致您僅使用磁碟無法達到容量限制。您可以透過 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["將非活動資料分層到物件存儲"^]突破磁碟限制 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["了解如何將額外的系統授權新增至 Cloud Volumes ONTAP"^]。Cloud Volumes ONTAP 支援的最大經測試和支援系統容量為 2 PiB，超過 2 PiB 限制將導致系統組態不受支援。
+您可以為 Cloud Volumes ONTAP BYOL 單節點或 HA 配對系統購買多個基於節點的授權，以分配超過 368 TiB 的容量，最高可達經測試和支援的最大系統容量限制 2 PiB。請注意，磁碟限制可能會導致您僅使用磁碟無法達到容量限制。您可以透過 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["將非活動資料分層到物件存儲"^]突破磁碟限制 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["了解如何將額外的系統授權新增至 Cloud Volumes ONTAP"^]。Cloud Volumes ONTAP 支援的最大經測試和支援系統容量為 2 PiB，超過 2 PiB 限制將導致系統組態不受支援。
 
 
 
@@ -631,7 +631,7 @@ HA 配對有兩種組態類型：分頁 Blob 和多個可用性區域。每種�
 
 這些是經過測試的極限值。不支援設定更多儲存 VM 。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-azure.html["了解如何建立額外的儲存 VM"^]。
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-managing-svms-azure.html["了解如何建立額外的儲存 VM"^]。
 
 [cols="2*"]
 |===

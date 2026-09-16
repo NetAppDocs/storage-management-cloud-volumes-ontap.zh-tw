@@ -26,8 +26,8 @@ summary: 您可以在單一系統設定中或作為 AWS 中的 HA 對啟動Cloud
 [[licensing]]
 * 已啟動並正在執行的控制台代理程式。
 +
-** 你應該有一個 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["與您的系統關聯的控制台代理"^]。
-** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您應該準備好讓控制台代理程式始終處於運行狀態"^] 。
+** 您應該有一個 https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-aws.html["與您的系統關聯的控制台代理"^]。
+** https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["您應該準備好讓控制台代理程式始終處於運行狀態"^]。
 
 
 * 了解您想要使用的配置。
@@ -59,7 +59,7 @@ link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
 . [[訂閱]]在*系統*頁面上，點擊*新增系統*並依照指示操作。
 . 選擇 *Amazon Web Services* 和 * Cloud Volumes ONTAP Single Node*。
 . 選擇*進階建立*。由於預設選擇了*快速建立*模式，您可能會看到一條有關預設值的訊息。按一下“繼續”。
-. 如果出現提示， https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["建立控制台代理"^] 。
+. 如果出現提示， https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-aws.html["建立控制台代理"^]。
 . *詳細資料和憑證*：可選擇變更 AWS 憑證和訂閱，輸入系統名稱，根據需要新增標籤，然後輸入密碼。
 +
 此頁面中的某些欄位是不言自明的。下表描述了您可能需要指導的欄位：
@@ -79,7 +79,7 @@ link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
 | 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
 
 
-| 編輯憑證 | 選擇與您要部署此系統的帳戶關聯的 AWS 憑證。您也可以將 AWS 市場訂閱與此Cloud Volumes ONTAP系統關聯起來使用。點擊「新增訂閱」將所選憑證與新的 AWS 市場訂閱關聯。訂閱可以是年度合同，也可以是按小時付費的Cloud Volumes ONTAP 。https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html["了解如何在NetApp Console新增其他 AWS 憑證"^] 。 
+| 編輯憑證 | 選擇與您要部署此系統的帳戶相關聯的 AWS 憑證。您也可以關聯要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 市場訂閱。按一下 *新增訂閱* 將所選憑證與新的 AWS 市場訂閱關聯。訂閱可以是年度合約，或是以每小時費率支付 Cloud Volumes ONTAP 費用。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在NetApp Console新增其他 AWS 憑證"^]。 
 |===
 +
 
@@ -87,15 +87,15 @@ TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使�
 
 . *服務*：啟用服務啟用或停用您不想與Cloud Volumes ONTAP一起使用的單一服務。
 +
-** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp Data Classification的更多信息"^]
-** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp Backup and Recovery的更多信息"^]
+** https://docs.netapp.com/us-en/data-services-data-classification/concept-cloud-compliance.html["了解有關NetApp Data Classification的更多信息"^]
+** https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp Backup and Recovery的更多信息"^]
 +
 
 TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
 
 
 
-. *位置和連接*：輸入您在 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#collect-networking-information["AWS 工作表"^]。
+. *位置與連線*：輸入您在 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config.html#collect-networking-information["AWS 工作表"^]中記錄的網路資訊。
 +
 下表描述了您可能需要指導的欄位：
 
@@ -248,11 +248,11 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 | DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
 
 
-| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+| NTP 伺服器 | 選擇 *Use Active Directory Domain* 以使用 Active Directory DNS 設定 NTP 伺服器。如果需要使用其他位址設定 NTP 伺服器，則應使用 API。詳情請參閱 https://docs.netapp.com/us-en/console-automation/index.html["NetApp Console自動化文檔"^]。請注意，只能在建立 CIFS 伺服器時設定 NTP 伺服器。建立 CIFS 伺服器後將無法設定 NTP 伺服器。 
 |===
 . *使用情況設定檔、磁碟類型和分層原則*：選擇是否要啟用儲存效率功能，並在需要時編輯磁碟區分層策略。
 +
-更多信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#choose-a-volume-usage-profile["了解卷使用情況"^]，link:concept-data-tiering.html["資料分層概述"^] ， 和 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支援哪些內嵌儲存效率功能？"^]
+如需詳細資訊，請參閱 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config.html#choose-a-volume-usage-profile["了解卷使用情況"^]、link:concept-data-tiering.html["資料分層概述"^] 和 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支援哪些內嵌儲存效率功能？"^]
 
 . *審核並批准*：審核並確認您的選擇。
 +
@@ -327,7 +327,7 @@ CAUTION: 部署程序完成後，請勿修改 AWS 雲端入口網站中系統產
 | 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
 
 
-| 編輯憑證 | 選擇要用於此Cloud Volumes ONTAP系統的 AWS 憑證和市場訂閱。點擊「新增訂閱」將所選憑證與新的 AWS 市場訂閱關聯。訂閱可以是年度合同，也可以是按小時付費的Cloud Volumes ONTAP 。如果您直接從NetApp購買了授權（自帶授權 (BYOL)），則無需 AWS 訂閱。 NetApp已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^] 。https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html["了解如何在控制台中新增其他 AWS 憑證"^] 。 
+| 編輯憑證 | 選擇要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 憑證和市場訂閱。按一下 *新增訂閱* 將所選憑證與新的 AWS 市場訂閱建立關聯。訂閱可以是年度合約，也可以按小時費率支付 Cloud Volumes ONTAP 費用。如果您直接向 NetApp 購買授權（自帶授權（BYOL）），則不需要 AWS 訂閱。NetApp 已限制 BYOL 授權的購買、延展和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在控制台中新增其他 AWS 憑證"^]。 
 |===
 +
 
@@ -335,8 +335,8 @@ TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使�
 
 . *服務*：啟用服務啟用或停用您不想在此Cloud Volumes ONTAP系統中使用的單一服務。
 +
-** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有關NetApp Data Classification的更多信息"^]
-** https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["了解有關備份和恢復的更多信息"^]
+** https://docs.netapp.com/us-en/data-services-data-classification/concept-cloud-compliance.html["了解有關NetApp Data Classification的更多信息"^]
+** https://docs.netapp.com/us-en/data-services-backup-recovery/task-backup-to-s3.html["了解有關備份和恢復的更多信息"^]
 +
 
 TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
@@ -371,7 +371,7 @@ TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並
 . *連線和 SSH 驗證*：選擇 HA 對和中介的連線方法。
 . *浮動 IP*：如果您選擇多個 AZ，請指定浮動 IP 位址。
 +
-IP 位址必須位於該區域內所有 VPC 的 CIDR 區塊之外。有關更多詳細信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^]。
+IP 位址必須位於該地區所有 VPC 的 CIDR 區塊之外。如需其他詳細資料，請參閱 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^]。
 
 . *路由表*：如果您選擇了多個 AZ，請選擇應包含到浮動 IP 位址的路由的路由表。
 +
@@ -506,11 +506,11 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 | DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
 
 
-| NTP 伺服器 | 選擇「使用 Active Directory 網域」以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用不同的位址來設定 NTP 伺服器，那麼您應該使用 API。請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]了解詳情。請注意，只有在建立 CIFS 伺服器時才能設定 NTP 伺服器。建立 CIFS 伺服器後，它不可配置。 
+| NTP 伺服器 | 選擇 *Use Active Directory Domain* 以使用 Active Directory DNS 設定 NTP 伺服器。如果需要使用其他位址設定 NTP 伺服器，則應使用 API。詳情請參閱 https://docs.netapp.com/us-en/console-automation/index.html["NetApp Console自動化文檔"^]。請注意，只能在建立 CIFS 伺服器時設定 NTP 伺服器。建立 CIFS 伺服器後將無法設定 NTP 伺服器。 
 |===
 . *使用情況設定檔、磁碟類型和分層原則*：選擇是否要啟用儲存效率功能，並在需要時編輯磁碟區分層策略。
 +
-更多信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#choose-a-volume-usage-profile["選擇卷使用情況設定檔"^]和link:concept-data-tiering.html["資料分層概述"^]。
+如需更多資訊，請參閱link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config.html#choose-a-volume-usage-profile["選擇卷使用情況設定檔"^]和link:concept-data-tiering.html["資料分層概述"^]。
 
 . *審核並批准*：審核並確認您的選擇。
 +

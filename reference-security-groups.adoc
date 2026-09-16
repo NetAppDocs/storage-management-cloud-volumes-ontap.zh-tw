@@ -371,4 +371,4 @@ Cloud Volumes ONTAP HA 設定的預先定義內部安全性群組包括以下規
 [[rules-for-the-console-agent]]
 == 控制台代理的規則
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["查看控制台代理程式的安全性群組規則"^]
+https://docs.netapp.com/us-en/console-setup-admin/reference-ports-aws.html["查看控制台代理程式的安全性群組規則"^]

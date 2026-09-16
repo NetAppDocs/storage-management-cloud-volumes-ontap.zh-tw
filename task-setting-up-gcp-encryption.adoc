@@ -62,4 +62,4 @@ https://cloud.google.com/kms/docs/iam#granting_roles_on_a_resource["Google Cloud
 ----
 
 
-請參閱 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自動化文檔"^]有關使用“GcpEncryption”參數的更多詳細資訊。
+如需有關使用「GcpEncryption」參數的詳細資訊，請參閱 https://docs.netapp.com/us-en/console-automation/index.html["NetApp Console自動化文檔"^]。

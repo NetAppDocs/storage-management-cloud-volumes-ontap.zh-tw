@@ -21,4 +21,4 @@ BlueXP現在支援私有模式下的Cloud Volumes ONTAP高可用性 (HA) 部署�
 
 NOTE: 在受限模式下使用BlueXP時不支援 AWS 本地區域。
 
-有關具有 HA 部署的 AWS 本地區域的更多信息，請參閱link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha.html#aws-local-zones["AWS 本地區域"^]。
+如需有關採用 HA 部署的 AWS Local Zones 的詳細資訊，請參閱link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-ha.html#aws-local-zones["AWS 本地區域"^]。

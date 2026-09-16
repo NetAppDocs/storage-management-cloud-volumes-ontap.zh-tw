@@ -21,7 +21,7 @@ NOTE: 基於節點的許可證是Cloud Volumes ONTAP的上一代許可證。基�
 
 link:concept-licensing.html["了解Cloud Volumes ONTAP許可證"]。
 
-link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["了解有關如何管理基於節點的許可證的更多信息"^] 。
+link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["了解有關如何管理基於節點的許可證的更多信息"^]。
 
 
 
@@ -31,7 +31,7 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-l
 可以從 NetApp 購買基於節點的授權。您可以為單節點系統或 HA 配對購買的授權數量沒有限制。
 
 
-NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，請參閱 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 授權可用性受限"^] 。
+NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 授權可用性受限"^]。
 
 基於節點的許可證最多可為單一節點或 HA 對提供 368 TiB 的容量。您可能已為Cloud Volumes ONTAP BYOL 系統購買了多個許可證，以分配超過 368 TiB 的容量。例如，您可能有兩個許可證，為Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者，您可能有四個許可證，以獲得最多 1.4 PiB 的容量。
 
@@ -44,7 +44,7 @@ NOTE: 已限制 BYOL 授權的購買、延期和續約。有關更多信息，�
 
 當您建立基於節點的 BYOL 系統時，控制台會提示您輸入許可證的序號和NetApp支援網站帳戶。控制台使用該帳戶從NetApp下載許可證檔案並將其安裝在Cloud Volumes ONTAP系統上。
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["了解如何將NetApp支援網站帳戶新增至控制台"^] 。
+https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html["了解如何將NetApp支援網站帳戶新增至控制台"^]。
 
 如果控制台無法透過安全的網路連線存取許可證文件，您可以link:task-manage-node-licenses.html["自行取得文件，然後手動將文件上傳到控制台"]。
 
