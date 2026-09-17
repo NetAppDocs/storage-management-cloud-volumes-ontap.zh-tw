@@ -228,7 +228,7 @@ Cloud Volumes ONTAP HA 對包含 HA 互連，這使得每個節點能夠持續�
 
 Cloud Volumes ONTAP的 Azure 安全性群組需要開啟適當的連接埠以進行節點之間的內部通訊。 https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP內部端口"^] 。
 
-我們不建議修改預先定義的安全性群組或使用自訂安全群組。但是，如果必須這樣做，請注意，部署過程要求Cloud Volumes ONTAP系統在自己的子網路內擁有完全存取權限。部署完成後，如果決定修改網路安全群組，請確保保持叢集連接埠和 HA 網路連接埠開放。這確保了Cloud Volumes ONTAP叢集內的無縫通訊（節點之間的任意通訊）。
+我們不建議修改預先定義的安全性群組或使用自訂安全性群組。但是，如果您必須這樣做，請附註，部署程序要求 Cloud Volumes ONTAP 系統在其自身子網路內擁有完全存取。部署完成後，如果您決定修改網路安全性群組，請確保叢集連接埠和 HA 網路連接埠保持開啟，因為 HA 連網依賴兩個節點之間不受限制的通訊。此外，節點的 IP 位址在部署期間會自動定義。這確保了 Cloud Volumes ONTAP 叢集內部的無縫通訊（節點之間任意通訊）。
 
 
 

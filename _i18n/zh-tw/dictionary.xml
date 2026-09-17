@@ -1478,7 +1478,6 @@
   <block id="80292c326dbd4c631ce6da31d922620c" category="paragraph">您必須為在 Azure 中部署的每個Cloud Volumes ONTAP HA 對使用一個專用資源群組。一個資源組中僅支援一個 HA 對。</block>
   <block id="2d7b1fe0a5512f641a66eaf3dabde3d2" category="paragraph">如果您嘗試在 Azure 資源組中部署第二個Cloud Volumes ONTAP HA 對，控制台會遇到連線問題。</block>
   <block id="72cb359256f1b923869ffe5643075163" category="paragraph">Cloud Volumes ONTAP的 Azure 安全性群組需要開啟適當的連接埠以進行節點之間的內部通訊。<block ref="9235b6a724dccf5c41be51f4736123ae" category="inline-link-rx"></block> 。</block>
-  <block id="e3f7f3a3bb47d39a7fd58de8d5070b2b" category="paragraph">我們不建議修改預先定義的安全性群組或使用自訂安全群組。但是，如果必須這樣做，請注意，部署過程要求Cloud Volumes ONTAP系統在自己的子網路內擁有完全存取權限。部署完成後，如果決定修改網路安全群組，請確保保持叢集連接埠和 HA 網路連接埠開放。這確保了Cloud Volumes ONTAP叢集內的無縫通訊（節點之間的任意通訊）。</block>
   <block id="302d2301b273d2d6c222fdca1f337988" category="paragraph">新增Cloud Volumes ONTAP系統並選擇預先定義安全性群組時，您可以選擇允許下列其中的流量：</block>
   <block id="3ed4080616d1d3c88deef90096108130" category="list-text">*僅限選定的 VNet*：入站流量的來源是Cloud Volumes ONTAP系統的 VNet 子網路範圍和控制台代理程式所在的 VNet 子網路範圍。這是推薦的選項。</block>
   <block id="cd8b82367babbe39683e8fb9f0c22ed5" category="list-text">*所有 VNets*：入站流量的來源是 0.0.0.0/0 IP 範圍。</block>
@@ -5771,8 +5770,6 @@
   <block id="055fe1da24359dd71a9c8b67896496aa" category="list-text">在 AWS 標籤上，選擇獨立訂閱，然後按一下選項圖示 <block ref="ac91b27a7720c4844510cacb9be7afe5" category="inline-image-macro-rx" type="image"></block>。</block>
   <block id="ca114d54630fd2217b0a7f7b707b2524" category="list-text">在「編輯配置」視窗中，在 *AWS 帳戶憑證* 欄位中選擇獨立清單的訂閱編號。</block>
   <block id="1a8a4084eaf9e7b7e14963049e616310" category="list-text">點選 *Configure*。您可以看到，訂閱是您在 AWS 中 Cloud Volumes ONTAP 計費的首選選項。</block>
-  <block id="5308f0957f4f665b7b8a7a70e7f26dbb" category="inline-link">使用快速建立部署 Cloud Volumes ONTAP</block>
-  <block id="69bad18c1431b72e27676656dcb02294" category="list-text">部署新的 Cloud Volumes ONTAP 系統時，請選擇 Essentials 套裝，以便透過獨立訂閱進行計費。如需相關資訊，請參閱<block ref="3bd26a21bb4b5b57e3e4e28150d4f309" category="inline-link-rx"></block>。</block>
   <block id="a731966b7a272e5b052ef9a7b9ea958e" category="paragraph">在 *Data services* 標籤上重複相同的步驟，即可將 NIS 訂閱用於您的資料服務。部署新的 Cloud Volumes ONTAP 系統時，請選擇 Professional 套餐，以便透過 NIS 訂閱進行計費。</block>
   <block id="55a36fface9a3342eae20532f4dd2f82" category="section-title">2026 年 5 月 12 日</block>
   <block id="fe315d7471968d18b362c1b1144a20b0" category="paragraph">開始之前、請確定您擁有下列項目：</block>
@@ -5826,8 +5823,6 @@
   <block id="edbf603043ea71af5a3f46821ad9d4a3" category="admonition">部署程序完成後，請勿在 AWS 或 Azure 雲端入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，尤其是系統標籤。對這些配置進行的任何變更都可能導致意外行為或資料遺失。</block>
   <block id="a4ad56ab8baa8582d6dba6091a9bd877" category="doc">簡化 Azure 中的 Cloud Volumes ONTAP 部署</block>
   <block id="8bfd035a33aa401829a9de89b5e0c246" category="paragraph">現在，您可以使用快速建立功能在 Azure 中部署 Cloud Volumes ONTAP，支援單一節點和高可用性 (HA) 設定。與進階方法相比，此簡化流程減少了步驟，在單一頁面上自動設定預設值，並最大限度地減少了導覽，從而使部署更快、更輕鬆。</block>
-  <block id="da7aee176a6e0989fc4edf2b02e0af34" category="inline-link">使用快速建立在 Azure 中部署 Cloud Volumes ONTAP</block>
-  <block id="8928e512cc17b6dd2c97fcb7dff5a06a" category="list-text"><block ref="8928e512cc17b6dd2c97fcb7dff5a06a" category="inline-link-rx"></block></block>
   <block id="6d1c2cdb212ea73452146a3edb82fe12" category="inline-link">使用 Azure 中的進階選項部署 Cloud Volumes ONTAP</block>
   <block id="3cf666a1e5ff2ecf85c4a0bcf868d65f" category="list-text"><block ref="3cf666a1e5ff2ecf85c4a0bcf868d65f" category="inline-link-rx"></block></block>
   <block id="94b7b54556632ab5a087eae13f0e0af9" category="doc">使用 AWS 中的進階選項部署 Cloud Volumes ONTAP</block>
@@ -5910,8 +5905,6 @@
   <block id="7f779554154f7bbce7ebe34e61b8a90f" category="list-text">您可以透過 NetApp Console 或使用<block ref="566e7ce0d4fe7a4872db87a6368a9417" prefix=" " category="inline-code"></block> API 在新增聚合時變更 IOPS 和吞吐量設定。</block>
   <block id="2d6c818daeac263c2afd4036d7f74e1e" category="section-title">簡化 Google Cloud 中的 Cloud Volumes ONTAP 部署</block>
   <block id="cb811eee80c50a73b0cadcc740ccb6e0" category="paragraph">現在，您可以使用 *Quick create* 精靈在 Google Cloud 中部署 Cloud Volumes ONTAP，支援單一節點和高可用性 (HA) 配置。此簡化流程減少了步驟，在單一頁面上自動設定預設值，並將導覽步驟降至最少，從而實現更快、更輕鬆的部署。</block>
-  <block id="66ac7407a9c84ca6778fae23ed993062" category="inline-link">使用 Quick create 在 Google Cloud 中部署 Cloud Volumes ONTAP</block>
-  <block id="0dfb1e2c47e659e01c54c2e333c51aab" category="list-text"><block ref="0dfb1e2c47e659e01c54c2e333c51aab" category="inline-link-rx"></block></block>
   <block id="2ac8bb0efb00600c2a41354a94948174" category="inline-link">使用 Google Cloud 中的進階選項部署 Cloud Volumes ONTAP</block>
   <block id="6c9068df44f8a14533034d80a58ea324" category="list-text"><block ref="6c9068df44f8a14533034d80a58ea324" category="inline-link-rx"></block></block>
   <block id="12d92330947695a8724da477e7db5baa" category="section-title">為 Cloud Volumes ONTAP 引入存取角色</block>
@@ -5965,7 +5958,6 @@
   <block id="3545b8b6c97019ee16382e1e9f1566d6" category="list-text">關聯您的訂閱：您可以自動將訂閱與 Console 建立關聯，避免手動連結的繁瑣步驟。</block>
   <block id="7fe500a5c571cd7ec037fadddeb65e6d" category="list-text">使用 AWS 憑證組態部署 Console 代理程式：您可以自動建立所需的 AWS 角色。此程序會在您的 AWS 帳戶中部署一個包含所需角色和原則的 AWS CloudFormation 堆疊供您審查，然後將其與 NetApp Console 關聯，從而省去手動 IAM 設定。接下來，您可以繼續完成代理程式組態、連網和安全性群組設定，以開始代理程式部署。</block>
   <block id="1dc23a84b7e2b375289ce6857c758408" category="list-text">在 AWS 中部署新的 Cloud Volumes ONTAP 系統：您可以直接導覽至<block ref="956eaa6186169471a13345860cad0757" prefix=" " category="inline-code"></block>精靈，以更快速、更簡化的方式部署 Cloud Volumes ONTAP。</block>
-  <block id="92818173e0caa5fc0e16c368b850e85b" category="list-text"><block ref="92818173e0caa5fc0e16c368b850e85b" category="inline-link-rx"></block></block>
   <block id="45155a6d96a264e24647f30ebb774e4f" category="list-text"><block ref="45155a6d96a264e24647f30ebb774e4f" category="inline-link-rx"></block></block>
   <block id="e8f7f517a7c22ec0466a4d916c974b67" category="section-title">Azure 中 Cloud Volumes ONTAP 的架構完善組態分析</block>
   <block id="8579a865aaeb9e025994731e2e5b4b7b" category="paragraph">NetApp Console 現在支援對執行在 Microsoft Azure 中的 Cloud Volumes ONTAP 系統進行架構完善的組態分析。Console 每天分析您的部署，並提供架構完善的狀態、見解和建議，以協助您維護遵守 NetApp 最佳實務和架構完善架構的系統。</block>
@@ -6905,7 +6897,6 @@
   <block id="2890ecdc70e02afe7e3a31c92bf55434" category="paragraph">類似的步驟也適用於私有模式部署。</block>
   <block id="ce7ffa9f1434857273b5b40df89fe170" category="paragraph">從 Console 部署 Cloud Volumes ONTAP</block>
   <block id="9afbf91fc5dacff8aee5144e68e0c23c" category="paragraph">完成所有先決條件後，即可依照精靈中的步驟在 AWS 中部署 Cloud Volumes ONTAP。</block>
-  <block id="7988489db427729a73853b519bbd74e5" category="list-text"><block ref="7988489db427729a73853b519bbd74e5" category="inline-link-macro-rx"></block></block>
   <block id="dd80703f7d89793c8c6bcd9eb27c0ffa" category="inline-link-macro">使用進階選項部署 Cloud Volumes ONTAP</block>
   <block id="63e3b7b0b8eabb63c1a575019f00025a" category="list-text"><block ref="63e3b7b0b8eabb63c1a575019f00025a" category="inline-link-macro-rx"></block></block>
   <block id="13a8f9ff894e3f4bcda70be513c557c4" category="paragraph">在開始部署之前，請確保您已從 NetApp 購買 Cloud Volumes ONTAP 授權。私有模式部署需要基於節點的 BYOL 授權。不支援使用 Marketplace 訂閱來支付 Cloud Volumes ONTAP 的使用費用。請從 NetApp 取得授權檔案，並在部署期間上傳。請參閱：</block>
@@ -6923,7 +6914,6 @@
   <block id="8067dceda8c922cafa53a5f6a696c873" category="paragraph"><block ref="8067dceda8c922cafa53a5f6a696c873" category="inline-link-macro-rx"></block></block>
   <block id="34f79dfeddc8c0c0cf29bb075dba1e0a" category="paragraph">完成所有先決條件後，即可依照精靈中的步驟在 Azure 中部署 Cloud Volumes ONTAP。</block>
   <block id="6563093287f74a616e9d7ac49b4d6a44" category="paragraph">請參閱：</block>
-  <block id="a0e1f80d9ffd45a9a79c524fcf4e035b" category="list-text"><block ref="a0e1f80d9ffd45a9a79c524fcf4e035b" category="inline-link-macro-rx"></block></block>
   <block id="e67c04a7ad4eeda74ceb878c0553eff4" category="list-text"><block ref="e67c04a7ad4eeda74ceb878c0553eff4" category="inline-link-macro-rx"></block></block>
   <block id="755ff4f3bf37dc77238bd9ce18d2513f" category="doc">Google Cloud 中 Cloud Volumes ONTAP 的部署總覽</block>
   <block id="3c0c2050848fa2bd86d68cd9d6bc0637" category="paragraph">要部署 Cloud Volumes ONTAP，您首先需要了解您的 Google Cloud 訂閱和 Cloud Volumes ONTAP 授權。您還必須確認已為您的 Google Cloud 專案和組織建立了 NetApp Console 代理程式。本主題中的許多資訊需要在開始部署 Cloud Volumes ONTAP 之前，作為 Console 設定的一部分完成。</block>
@@ -6946,7 +6936,6 @@
   <block id="3aa88e14f76a8581416d0bc54d696335" category="paragraph">請參閱 Google Cloud 文件：<block ref="0d7e4a8564255c1fc289d23249d3b568" category="inline-link-rx"></block></block>
   <block id="17e44be1a44fd14dacaae11875ff356b" category="paragraph">必須啟用 API。請與您的雲端系統管理員合作，在您的私有環境中啟用所需的 API。</block>
   <block id="19d8bd352f2c40ce75403d13170b311b" category="paragraph">完成所有先決條件後，即可依照精靈中的步驟在 Google Cloud 中部署 Cloud Volumes ONTAP。</block>
-  <block id="8db3889b9094da1779e8e10e063742d5" category="list-text"><block ref="8db3889b9094da1779e8e10e063742d5" category="inline-link-macro-rx"></block></block>
   <block id="7c9fa6cfa8bf4914f6804681fe5a5c2d" category="list-text"><block ref="7c9fa6cfa8bf4914f6804681fe5a5c2d" category="inline-link-macro-rx"></block></block>
   <block id="0375af31d39c4bfde1c980cd053ab2b9" category="doc">Cloud Volumes ONTAP 儲存 VM</block>
   <block id="54448f9a8312c7b08e3e97308160554c" category="paragraph">儲存設備虛擬機器 (SVM) 是在 ONTAP 中執行的虛擬機器，可為您的用戶端提供儲存設備和資料服務。您可能將其稱為 _SVM_ 或 _vserver_。Cloud Volumes ONTAP 預設配置一個儲存設備虛擬機器，但某些組態支援額外儲存容量虛擬機器。</block>
@@ -7527,7 +7516,6 @@
   <block id="b0845b98104086e018330dff1f994b3a" category="list-text">從部署後提示中，選擇 *Add system*。</block>
   <block id="beec7c8b8f52f7e44dec39ce075d3abb" category="list-text">啟動 Cloud Volumes ONTAP 系統建立工作流程。</block>
   <block id="e4998cdb09fc1ae76d7c7b0f97a04fd9" category="list-text">完成系統組態。</block>
-  <block id="8dbb4c9a73791ff9189a74648db065ad" category="paragraph">有關詳細的系統部署說明，請參閱<block ref="3bd26a21bb4b5b57e3e4e28150d4f309" category="inline-link-rx"></block>。</block>
   <block id="72d7b93cee23363a2907b2be8b237290" category="section-title">疑難排解與恢復</block>
   <block id="cb1bc5edf506394ee9927cb447901c17" category="paragraph">如果您在完成就職流程前離開，或代理程式部署失敗，請使用此部分。這些步驟可協助您從上次中斷的地方繼續，或恢復並重試部署。</block>
   <block id="90a521d73cad15b4a353df47ccdc06d8" category="section-title">繼續設定</block>
@@ -7849,4 +7837,16 @@
   <block id="7df6c0dd0528ad9774b45898063090a4" category="paragraph"><block ref="dc9f69e3a8e3128c351ac73e19819cc9" category="inline-link-rx"></block>。</block>
   <block id="01988715156f44a53eb56faf9b69550d" category="paragraph"><block ref="fdf6f50138bbdc950c2bd1272476f30e" category="inline-link-rx"></block>。</block>
   <block id="8798ec6bebe0dbdc8a5621562ddc3007" category="list-text"><block ref="8798ec6bebe0dbdc8a5621562ddc3007" category="inline-link-rx"></block></block>
+  <block id="1b74bdaaeb695f9d39e8913cd8508559" category="inline-link">使用 Azure 中的快速建立功能部署 Cloud Volumes ONTAP</block>
+  <block id="0796c5be1b7e3f0ba6006690f24de331" category="list-text"><block ref="0796c5be1b7e3f0ba6006690f24de331" category="inline-link-rx"></block></block>
+  <block id="fa64a8ba43091dc1f18b40ede22ba208" category="inline-link">使用 Google Cloud 中的快速建立功能部署 Cloud Volumes ONTAP</block>
+  <block id="c334239a4338073665306baf11363bc2" category="list-text"><block ref="c334239a4338073665306baf11363bc2" category="inline-link-rx"></block></block>
+  <block id="d9862ed1f24a79da571ce975d43849ac" category="inline-link">使用 AWS 中的快速建立功能部署 Cloud Volumes ONTAP</block>
+  <block id="a8756e706557440388ef829ae5f6fe1f" category="list-text"><block ref="a8756e706557440388ef829ae5f6fe1f" category="inline-link-rx"></block></block>
+  <block id="fd857327903d761ee1b293fadbb70f89" category="paragraph">我們不建議修改預先定義的安全性群組或使用自訂安全性群組。但是，如果您必須這樣做，請附註，部署程序要求 Cloud Volumes ONTAP 系統在其自身子網路內擁有完全存取。部署完成後，如果您決定修改網路安全性群組，請確保叢集連接埠和 HA 網路連接埠保持開啟，因為 HA 連網依賴兩個節點之間不受限制的通訊。此外，節點的 IP 位址在部署期間會自動定義。這確保了 Cloud Volumes ONTAP 叢集內部的無縫通訊（節點之間任意通訊）。</block>
+  <block id="0f37e7019150020ad56dacb33e050ce0" category="list-text"><block ref="0f37e7019150020ad56dacb33e050ce0" category="inline-link-macro-rx"></block></block>
+  <block id="c5ff6e289ca10cde1a5f81d196d305dc" category="list-text"><block ref="c5ff6e289ca10cde1a5f81d196d305dc" category="inline-link-macro-rx"></block></block>
+  <block id="0a96b1cb21a865ff7a38d495809cc48e" category="list-text"><block ref="0a96b1cb21a865ff7a38d495809cc48e" category="inline-link-macro-rx"></block></block>
+  <block id="75b888c439b50482e442b156f85f8b7b" category="paragraph">有關詳細的系統部署說明，請參閱<block ref="51799ed8a3c9382ecde3d4e502dc227c" category="inline-link-rx"></block>。</block>
+  <block id="60bc46bac54334a76b532d0019347623" category="list-text">部署新的 Cloud Volumes ONTAP 系統時，請選擇 Essentials 套裝，以便透過獨立訂閱進行計費。如需相關資訊，請參閱<block ref="51799ed8a3c9382ecde3d4e502dc227c" category="inline-link-rx"></block>。</block>
 </blocks>

@@ -75,7 +75,7 @@ link:task-setting-up-kms.html["設定 AWS KMS"]
  a| 
 完成所有先決條件後，即可依照精靈中的步驟在 AWS 中部署 Cloud Volumes ONTAP。
  a| 
-* link:task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"]
+* link:task-quick-deploy-aws.html["使用 AWS 中的快速建立功能部署 Cloud Volumes ONTAP"]
 * link:task-deploying-otc-aws.html["使用進階選項部署 Cloud Volumes ONTAP"]
 
  a| 
@@ -83,7 +83,6 @@ link:task-setting-up-kms.html["設定 AWS KMS"]
 
 * link:concept-license-management.html["基於節點的 BYOL 授權管理"]
 * link:task-manage-node-licenses.html["管理節點型 BYOL 授權"]
-* link:task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"]
 * link:task-deploying-otc-aws.html["使用進階選項部署 Cloud Volumes ONTAP"]
 
 

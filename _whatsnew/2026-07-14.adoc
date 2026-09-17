@@ -55,7 +55,7 @@ https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series["G
 現在，您可以使用 *Quick create* 精靈在 Google Cloud 中部署 Cloud Volumes ONTAP，支援單一節點和高可用性 (HA) 配置。此簡化流程減少了步驟，在單一頁面上自動設定預設值，並將導覽步驟降至最少，從而實現更快、更輕鬆的部署。
 
 .相關連結
-* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-gcp.html["使用 Quick create 在 Google Cloud 中部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-gcp.html["使用 Google Cloud 中的快速建立功能部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-gcp.html["使用 Google Cloud 中的進階選項部署 Cloud Volumes ONTAP"^]
 
 

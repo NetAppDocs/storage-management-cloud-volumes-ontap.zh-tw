@@ -95,7 +95,7 @@ Cloud Volumes ONTAP 需要 Google Cloud 服務帳戶才能啟用資料分層，�
  a| 
 請參閱：
 
-* link:task-quick-deploy-gcp.html["使用快速建立部署 Cloud Volumes ONTAP"]
+* link:task-quick-deploy-gcp.html["使用 Google Cloud 中的快速建立功能部署 Cloud Volumes ONTAP"]
 * link:task-deploying-gcp.html["使用進階選項部署 Cloud Volumes ONTAP"]
 
  a| 
@@ -103,7 +103,6 @@ Cloud Volumes ONTAP 需要 Google Cloud 服務帳戶才能啟用資料分層，�
 
 * link:concept-license-management.html["基於節點的 BYOL 授權管理"]
 * link:task-manage-node-licenses.html["管理節點型 BYOL 授權"]
-* link:task-quick-deploy-gcp.html["使用快速建立部署 Cloud Volumes ONTAP"]
 * link:task-deploying-gcp.html["使用進階選項部署 Cloud Volumes ONTAP"]
 
 

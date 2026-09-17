@@ -222,7 +222,7 @@ image:screenshot-stack-creation.png["width=50% AWS CloudFormation 堆疊建立�
 . 完成系統組態。
 
 
-有關詳細的系統部署說明，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"^]。
+有關詳細的系統部署說明，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用 AWS 中的快速建立功能部署 Cloud Volumes ONTAP"^]。
 
 
 

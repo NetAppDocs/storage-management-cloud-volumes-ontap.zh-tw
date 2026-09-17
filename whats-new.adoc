@@ -161,7 +161,7 @@ NetApp 為 AWS Marketplace 中的 Cloud Volumes ONTAP 引入簡化的上線流�
 
 .相關連結
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-onboard-cvo-aws-marketplace.html["從 AWS Marketplace 就職 Cloud Volumes ONTAP"^]
-* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用 AWS 中的快速建立功能部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["AWS 中 Cloud Volumes ONTAP 和資料服務的彈性計費"^]
 
 
@@ -243,7 +243,7 @@ https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series["G
 現在，您可以使用 *Quick create* 精靈在 Google Cloud 中部署 Cloud Volumes ONTAP，支援單一節點和高可用性 (HA) 配置。此簡化流程減少了步驟，在單一頁面上自動設定預設值，並將導覽步驟降至最少，從而實現更快、更輕鬆的部署。
 
 .相關連結
-* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-gcp.html["使用 Quick create 在 Google Cloud 中部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-gcp.html["使用 Google Cloud 中的快速建立功能部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-gcp.html["使用 Google Cloud 中的進階選項部署 Cloud Volumes ONTAP"^]
 
 
@@ -320,7 +320,7 @@ Cloud Volumes ONTAP 9.16.1 及更高版本支援 M6id 和 M6idn EC2 執行個體
 現在，您可以使用快速建立功能在 Azure 中部署 Cloud Volumes ONTAP，支援單一節點和高可用性 (HA) 設定。與進階方法相比，此簡化流程減少了步驟，在單一頁面上自動設定預設值，並最大限度地減少了導覽，從而使部署更快、更輕鬆。
 
 .相關連結
-* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-azure.html["使用快速建立在 Azure 中部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-azure.html["使用 Azure 中的快速建立功能部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html["使用 Azure 中的進階選項部署 Cloud Volumes ONTAP"^]
 
 

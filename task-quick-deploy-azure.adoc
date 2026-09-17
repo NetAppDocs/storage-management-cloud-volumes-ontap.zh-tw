@@ -4,7 +4,7 @@ permalink: task-quick-deploy-azure.html
 keywords: azure quick deploy, quick deploy, azure, single screen deployment Azure, SAZ, MAZ, single node, HA pair 
 summary: 您可以快速地在 Azure 中以單一系統設定或高可用性 （HA） 配對的形式部署 Cloud Volumes ONTAP 執行個體。 
 ---
-= 使用快速建立部署 Cloud Volumes ONTAP
+= 使用 Azure 中的快速建立功能部署 Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
