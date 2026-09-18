@@ -49,9 +49,7 @@ Workload Factory 將最佳實務應用於大型儲存設備、資料庫和 VMwar
 [[analysis-requirements]]
 == 分析要求
 
-若要進行完整的 Cloud Volumes ONTAP 系統分析，您必須link:https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html#agent-console-deploy["部署 NetApp Console 代理程式"^]在系統和 NetApp Console 之間建立連線。
-
-您還必須建立與下列端點的傳出連線：
+確保與 Cloud Volumes ONTAP 關聯的控制台代理程式可以存取下列端點：
 
 * \https://api.workloads.netapp.com
 * \https://ws.workloads.bluexp.netapp.com

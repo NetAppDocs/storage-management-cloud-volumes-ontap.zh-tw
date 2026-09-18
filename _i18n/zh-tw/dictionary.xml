@@ -1651,7 +1651,6 @@
   <block id="a21848ca8e1b04c74552ca38f4284f2b" category="cell">Syslog 轉送訊息</block>
   <block id="e4ccfb5e65126f4e0ac934b981e1c7e0" category="paragraph">如果您尚未建立控制台代理，您也應該查看控制台代理的網路需求。</block>
   <block id="569fe31933e5918613ae1efa70e82d16" category="inline-link">Azure 中的安全性群組規則</block>
-  <block id="806bf55e3fada643423a5e8b443a821f" category="summary">設定您的 Google Cloud 網絡，以便Cloud Volumes ONTAP系統可以正常運作。</block>
   <block id="8163eb1a73467820de782c3a3ebd563a" category="doc">為Cloud Volumes ONTAP設定 Google Cloud 網路</block>
   <block id="589257f6242e3a6232a5f72f7867c4b6" category="inline-link-macro">了解 HA 對在 Google Cloud 中的工作原理</block>
   <block id="c8e39b92d04aae2c3a6d3e6f428d480e" category="paragraph">如果你想部署 HA 對，你應該<block ref="135d51832239d75e9eff2c1e7574765f" category="inline-link-macro-rx"></block>。</block>
@@ -3933,7 +3932,6 @@
   <block id="31cfe21e9465f2898f2b13f830136b3b" category="inline-link">將您的NetApp支援網站帳戶新增至控制台</block>
   <block id="3207026ba19ccd796b2c4277be209fbb" category="paragraph">控制台會自動查詢 NetApp 的授權服務，以取得與您的NetApp支援網站帳戶相關的授權的詳細資訊。如果沒有錯誤，控制台會自動將許可證新增至控制台。</block>
   <block id="78f7ee59f5b8117330beb5ce37c3e39d" category="inline-link-macro">手動將許可證新增至控制台</block>
-  <block id="c95180dbd3a8987d4dea53f7e95fae82" category="paragraph">您必須先從控制台取得許可證，然後才能與Cloud Volumes ONTAP一起使用。如果需要的話，你可以<block ref="19f97ce9176222c84cb0e330227fb9ce" category="inline-link-macro-rx"></block>。</block>
   <block id="cd47b6ba1f96bb028270f3efb891831c" category="list-text">在控制台的「*系統*」頁面上，按一下「*新增系統*」並依照步驟操作。</block>
   <block id="56d5a0565e658b5d14d92cd4f4f444ae" category="paragraph">總是會先向您從NetApp購買的許可證收費，但如果您超出許可容量或許可證期限到期，則會按照市場上的小時費率向您收費。</block>
   <block id="0412ae79fd9c84c83f86aee6ff87fc52" category="list-text">返回控制台後，在到達收費方式頁面時選擇基於容量的套餐。</block>
@@ -5629,8 +5627,6 @@
   <block id="2977507bb7188d1e96246a14057a3902" category="inline-link">私有模式部署快速入門</block>
   <block id="2d0e6ad25589f8f4affb38c55f4f325f" category="list-text"><block ref="2d0e6ad25589f8f4affb38c55f4f325f" category="inline-link-rx"></block></block>
   <block id="4caab03d94f5f056dee76ac3abd4066d" category="inline-link">私有模式部署的 Infrastructure Manager 組態</block>
-  <block id="d79d7aeb01a8087d8ac3417a9437a457" category="paragraph">在私有模式部署中，您需要進行一些組態變更，Cloud Volumes ONTAP 才能開始使用 Infrastructure Manager。請參閱<block ref="a3ca45cd087005e24df23da60619241b" category="inline-link-rx"></block>。</block>
-  <block id="72f140aadeef542ffaaccb8f92bb751b" category="paragraph">如果您想要以私有模式部署 Cloud Volumes ONTAP 9.16.1 或更高版本，則需要進行一些設定變更，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作為部署服務，而不是 Google 最終將棄用的 Deployment Manager。</block>
   <block id="d8ded2f209878a774abc9ec32f535df0" category="list-text">請確保您的 Cloud Volumes ONTAP 系統版本為 9.16.1 或更高版本。如果不是，請升級您的系統。有關說明，請參閱<block ref="2bd5b2c5d36e72902dcf55c00d490964" category="inline-link-rx"></block>。</block>
   <block id="d65cea469279b26fd96aefa9946737d3" category="list-text">請確保已啟用 Google Cloud API。請參閱<block ref="284597b9b55c9d9b3851ec2830376fdc" category="inline-link-rx"></block>。</block>
   <block id="c1a7d01779c80df928434b55a0985909" category="inline-link">在此處啟用 Cloud Build API</block>
@@ -5657,7 +5653,6 @@
   <block id="a55abb3f1f891995d70f70a7d8476b90" category="example-title">對於私有模式部署，請確保滿足下列附加前提條件：</block>
   <block id="043abbc7d82ea8f85b4eb2cfc1ed8c1a" category="list-text">請確保您已安裝最新版本的 Console 代理程式。從 NetApp Support Site 下載產品安裝程式，然後手動將代理程式安裝到您的主機上，以便代理程式可以使用 Infrastructure Manager API。</block>
   <block id="25dde09ff44d3749c7c30e9d6de5ea84" category="list-text">如果您以私有模式執行該工具，請確保除了其他 API 之外，還啟用了 Cloud Build API<block ref="284597b9b55c9d9b3851ec2830376fdc" category="inline-link-rx"></block>。</block>
-  <block id="61396513f8cad4235cc6230c5b5bd890" category="list-text">請確保您已完成網路配置並為私有模式部署建立了工作池。請參閱 <block ref="394ae5ca2623ff2541a3ab80e68c7904" category="inline-link-macro-rx"></block>。</block>
   <block id="cee17a2118e2f87df1ef45ab60919d83" category="cell">cloudbuild.googleapis.com</block>
   <block id="e61855b4554dd4f867078342b0fe3ed9" category="cell">僅私有模式需要建置操作</block>
   <block id="77ef2eaf8c2a9596bf70daf2be42abe2" category="cell">pypi.org</block>
@@ -5691,7 +5686,6 @@
   <block id="56fe813ce089ce40cf0ddd7a34baa41d" category="section-title">執行轉換工具</block>
   <block id="127f0169d9159483efb1bf11269a83d6" category="paragraph">這些步驟適用於 Ubuntu 和 SUSE Linux Enterprise Server 上執行轉換工具。</block>
   <block id="582f01440b1fe8b3b54fbaaa3e0ae2a5" category="example-title">在私有模式部署中執行該工具</block>
-  <block id="e3e9593585f6673afa2b7fc51d4207a1" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 參數以在私有模式部署中執行該工具。有關工作池配置，請參閱 <block ref="394ae5ca2623ff2541a3ab80e68c7904" category="inline-link-macro-rx"></block>。</block>
   <block id="c6e9d79a05da6fd3036f2ce45e30d798" category="paragraph">此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。運行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _&lt;system-name-imdeploy&gt;_ 格式顯示在 Google Console 的 Infrastructure Manager 下，表示 Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。</block>
   <block id="73f8b632600f6bf7d4edd2fb31ec35be" category="admonition">轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment Manager 的部署物件。此部署物件包含您可能需要用來回滾已轉換系統的資訊。</block>
   <block id="56a5c925d77740ea69d50272863f3f75" category="section-title">2026 年 2 月 26 日</block>
@@ -7033,8 +7027,6 @@
   <block id="3583e4a3e4e2e122cff65b8ad9045348" category="list-text">主動可觀測性</block>
   <block id="16fcd85dc9469370b62b4b46381f8e2a" category="list-text">洞察化為行動</block>
   <block id="3f6f8b4e204fd3aa39cac35661de164d" category="section-title">分析要求</block>
-  <block id="021c4674734853c034b954078fa080f3" category="inline-link-macro">部署 NetApp Console 代理程式</block>
-  <block id="ed3de084ebd57dfb5d10d8d07d5ff7c2" category="paragraph">若要進行完整的 Cloud Volumes ONTAP 系統分析，您必須<block ref="19a2c83f86e8c849ea6629f601093445" category="inline-link-macro-rx"></block>在系統和 NetApp Console 之間建立連線。</block>
   <block id="f064aed6dd86a2b762ecf9bcf528b941" category="section-title">Cloud Volumes ONTAP 系統的最佳實務做法與建議</block>
   <block id="df022fa81268ad87abe9b34e29e60ea4" category="paragraph">架構完善的儀表板可評估儲存組態，深入檢視 ONTAP 組態最佳實務，以及是否符合 Azure Well-Architected Framework。此評估也會建議改進措施和修正方法。</block>
   <block id="ffd9fc00ab43b8283346c6266e00d684" category="paragraph">精心設計的分析將組態分類為架構的下列要素：_可靠性_、_安全性_、_卓越營運_、_成本最佳化_和_效能效率_。</block>
@@ -7421,7 +7413,6 @@
   <block id="22b14536778a26fb341e73c9dfc20414" category="list-text"><block ref="22b14536778a26fb341e73c9dfc20414" category="inline-link-rx"></block></block>
   <block id="9a707d77cf426a13d6626ab2d67f565d" category="doc">Azure 中奧地利東部和比利時中部地區的支援</block>
   <block id="44e833213a99257d69192896111996f4" category="paragraph">現在，您可以在 Azure 的奧地利東部 (austriaeast) 和比利時中部 (belgiumcentral) 區域部署 Cloud Volumes ONTAP 9.12.1 GA 及更新版本。支援下列部署類型：</block>
-  <block id="1ee2856eba991f06fff41aa25f053f64" category="paragraph">您還必須建立與下列端點的傳出連線：</block>
   <block id="0eda8bbe61d2248f5418aba76b8dc5b1" category="list-text">\https://api.workloads.netapp.com</block>
   <block id="9f45fe3cd2af64a1afc3f4b7f81bdae6" category="list-text">\https://ws.workloads.bluexp.netapp.com</block>
   <block id="69fad001104806c7d3df4d9a347564cb" category="inline-link-macro">在 AWS Marketplace 就職 Cloud Volumes ONTAP</block>
@@ -7849,4 +7840,15 @@
   <block id="0a96b1cb21a865ff7a38d495809cc48e" category="list-text"><block ref="0a96b1cb21a865ff7a38d495809cc48e" category="inline-link-macro-rx"></block></block>
   <block id="75b888c439b50482e442b156f85f8b7b" category="paragraph">有關詳細的系統部署說明，請參閱<block ref="51799ed8a3c9382ecde3d4e502dc227c" category="inline-link-rx"></block>。</block>
   <block id="60bc46bac54334a76b532d0019347623" category="list-text">部署新的 Cloud Volumes ONTAP 系統時，請選擇 Essentials 套裝，以便透過獨立訂閱進行計費。如需相關資訊，請參閱<block ref="51799ed8a3c9382ecde3d4e502dc227c" category="inline-link-rx"></block>。</block>
+  <block id="8dfa69a16c9a3090245af0738da1b3b3" category="paragraph">在私有模式部署中，您需要進行一些組態變更，Cloud Volumes ONTAP 才能開始使用 Infrastructure Manager。請參閱<block ref="2d72fce957adfd77b9a2cafc57bfb2b8" category="inline-link-rx"></block>。</block>
+  <block id="54675850f07c5f375dabbd24ce963055" category="paragraph">確保與 Cloud Volumes ONTAP 關聯的控制台代理程式可以存取下列端點：</block>
+  <block id="8e7b9a9e43a2aeb3a7aabc300317310a" category="summary">設定您的 Google Cloud 連網，以確保 Cloud Volumes ONTAP 系統正常運作。您將了解 CVO 的連網需求、私人 IP 位址、VPC、子網路、封包鏡射、防火牆規則和 HA 組態，以及 Console 代理程式需求。</block>
+  <block id="ecdc6a1891228ecd86842e25403089c2" category="section-title">私有模式或受保護環境中的 Infrastructure Manager 組態</block>
+  <block id="09099a34e07c1b55b04062d463b379d9" category="paragraph">如果您想在私有模式下或在受 VPC Service Controls 保護的專案中部署 Cloud Volumes ONTAP 9.16.1 或更新版本，則需要進行一些組態變更，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作為部署服務，而不是 Google 最終將棄用的 Deployment Manager。</block>
+  <block id="3be0ccabbc043586c0889f1f415a8b9f" category="paragraph">如果您將 Cloud Volumes ONTAP 部署在受 VPC Service Controls 保護的專案中，請在與 Console 代理程式相同的專案中建立私有工作資源池。工作資源池必須處於運作狀態。Google Cloud 的預設公用 Cloud Build 工作資源池無法在服務邊界內運作。</block>
+  <block id="f4a4ada049ad3a9b0e3d9b625436e9a9" category="paragraph">如果您在受 VPC Service Controls 保護的專案中部署 Cloud Volumes ONTAP，請使用 API 建立 Cloud Volumes ONTAP 系統，並在建立要求主體中包含 <block ref="127211a07a94fab89b03bd83ab2202c0" prefix=" " category="inline-code"></block> 參數。</block>
+  <block id="115d3c8236e5dc5d086a75c0cf66c531" category="admonition">目前，使用控制台 UI 部署 Cloud Volumes ONTAP 時不支援包含工作資源池。對於受 VPC 服務控制保護的專案，API 是部署 Cloud Volumes ONTAP 的唯一支援方式。</block>
+  <block id="70a3e02e226af164a67315a0bf5fe570" category="list-text">請確保您已完成網路配置並為私有模式部署建立了工作池。請參閱<block ref="e482e79d7a86cf247d85a7cad0d36465" category="inline-link-macro-rx"></block>。</block>
+  <block id="d7d760cd1b52022e615021b6f8f10dee" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 參數以在私有模式部署中執行該工具。有關工作池配置，請參閱 <block ref="e482e79d7a86cf247d85a7cad0d36465" category="inline-link-macro-rx"></block>。</block>
+  <block id="80eeb3d4d3560338374cd151f3c11997" category="paragraph">您必須先從控制台取得授權，才能與 Cloud Volumes ONTAP 一起使用。如有需要，您可以<block ref="197414bd6021ce3306666e377bab3f64" category="inline-link-macro-rx"></block>。</block>
 </blocks>

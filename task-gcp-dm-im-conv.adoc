@@ -44,7 +44,7 @@ summary: 對於您在 Google Cloud 中的現有部署，您需要將系統升級
 ====
 ** 請確保您已安裝最新版本的 Console 代理程式。從 NetApp Support Site 下載產品安裝程式，然後手動將代理程式安裝到您的主機上，以便代理程式可以使用 Infrastructure Manager API。
 ** 如果您以私有模式執行該工具，請確保除了其他 API 之外，還啟用了 Cloud Build API https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["啟用 Google Cloud API"^]。
-** 請確保您已完成網路配置並為私有模式部署建立了工作池。請參閱 link:reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["私有模式部署的 Infrastructure Manager 組態"]。
+** 請確保您已完成網路配置並為私有模式部署建立了工作池。請參閱link:reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式部署的 Infrastructure Manager 組態"]。
 
 
 ====
@@ -293,7 +293,7 @@ dmconvert \
 .在私有模式部署中執行該工具
 [%collapsible]
 ====
-指定  `--worker-pool` 參數以在私有模式部署中執行該工具。有關工作池配置，請參閱 link:reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["私有模式部署的 Infrastructure Manager 組態"]。
+指定  `--worker-pool` 參數以在私有模式部署中執行該工具。有關工作池配置，請參閱 link:reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式部署的 Infrastructure Manager 組態"]。
 
 [source, cli]
 ----
