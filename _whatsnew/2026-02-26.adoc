@@ -1,15 +1,15 @@
-= 支援私有模式部署的 Google Infrastructure Manager
+= 支援 Google Infrastructure Manager 的私有模式部署
 :allow-uri-read: 
 
 
 
 
 [[support-for-google-infrastructure-manager-for-private-mode-deployments]]
-=== 支援私有模式部署的 Google Infrastructure Manager
+=== 支援 Google Infrastructure Manager 的私有模式部署
 
-Cloud Volumes ONTAP 9.16.1 及更高版本現在支援 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^]（IM），而非 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^]（DM），用於 Google Cloud 中的新私有模式部署。Google 將在不久的將來棄用 Deployment Manager 作為基礎架構服務，改用更進階的 Infrastructure Manager。
+Cloud Volumes ONTAP 9.16.1 及更新版本現在支援 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^]（IM）而非 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^]（DM），以在 Google Cloud 中進行新的私有模式部署。Google 將在不久的將來棄用 Deployment Manager 作為基礎架構服務，轉而使用更進階的 Infrastructure Manager。
 
-自 2026 年 2 月 25 日起，Cloud Volumes ONTAP 使用 Infrastructure Manager 進行新的和現有的私有模式部署。此表說明了基本工作流程：
+自 2026 年 2 月 25 日起，Cloud Volumes ONTAP 將使用 Infrastructure Manager 來管理新建和現有的私人模式部署。下表將為您說明基本工作流程：
 
 [cols="1,4,1,1,1,1"]
 |===
@@ -43,7 +43,7 @@ Console 版本的所有權限如下：
 
 
 |===
-在私有模式部署中，您需要進行一些組態變更，Cloud Volumes ONTAP 才能開始使用 Infrastructure Manager。請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式部署的 Infrastructure Manager 組態"^]。
+在私有模式部署中，您需要對 Cloud Volumes ONTAP 進行一些組態變更才能開始使用 Infrastructure Manager。請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["私有模式部署的 Infrastructure Manager 組態"^]。
 
 .相關連結
 * https://docs.netapp.com/us-en/console-setup-admin/whats-new.html#console-agent-4-2-0["NetApp Console Agent 4.2.0 發行說明"^]

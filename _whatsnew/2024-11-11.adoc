@@ -25,7 +25,7 @@ NetApp認識到符合合約義務和營運需求的以下獨特授權要求，�
 * 美國公共部門客戶
 * 私有模式下的部署
 * AWS 中國區Cloud Volumes ONTAP部署
-* 如果您擁有有效、未過期的按節點自帶授權（BYOL 授權）
+* 如果您擁有有效且未過期的按節點自備授權（BYOL）套件
 
 
 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^]

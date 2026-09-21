@@ -73,7 +73,7 @@ image:screenshot_cvo_licensing_card.png["width=300 顯示 Cloud Volumes ONTAP �
 
 
 
-[[viewing-package-details]]
+[[view-package-details]]
 == 檢視套件詳細資料
 
 您可以透過在 Cloud Volumes ONTAP 頁面上切換至舊版模式，檢視每個套件所使用容量的詳細資訊。

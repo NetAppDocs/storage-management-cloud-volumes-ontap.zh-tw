@@ -16,7 +16,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage
 [[overage-charging-for-essentials-licenses-simplified]]
 === Essentials 授權超額收費簡化
 
-對於Cloud Volumes ONTAP市場年度合約/私有報價，Essentials 授權的超額使用運算現在與自帶授權 (BYOL) 套餐保持一致。此前，超出部分按基本套餐的每小時市場價格計費。現在，如果您的市場年度合約包含多個 Essentials 套餐， NetApp Console會將 Essentials 套餐的超額費用計入您訂閱中價格較高的 Essentials 套餐的可用容量。這簡化了 Essentials 套餐的超額費用計算，並確保從 BYOL 授權模式平穩過渡到訂閱模式。
+對於 Cloud Volumes ONTAP 市場年度合約/私有報價，Essentials 授權的超額使用運算方式現已與自帶授權（BYOL）套餐保持一致。此前，超額使用費用以市場每小時費率計算，且僅針對特定 Essentials 套餐。現在，如果您的市場年度合約包含多個 Essentials 套餐，NetApp Console 會將某個 Essentials 套餐的超額使用費用計入您訂閱中價格更高的 Essentials 套餐的可用容量。這簡化了 Essentials 套餐的超額使用計算，並確保從 BYOL 授權平穩過渡到訂閱模式。
 
 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing-charging.html#how-overages-are-charged-for-essentials-licenses["Essentials許可證超額費用如何收取"^]
 

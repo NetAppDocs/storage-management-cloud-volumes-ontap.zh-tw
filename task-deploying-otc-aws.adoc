@@ -327,7 +327,7 @@ CAUTION: 部署程序完成後，請勿修改 AWS 雲端入口網站中系統產
 | 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
 
 
-| 編輯憑證 | 選擇要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 憑證和市場訂閱。按一下 *新增訂閱* 將所選憑證與新的 AWS 市場訂閱建立關聯。訂閱可以是年度合約，也可以按小時費率支付 Cloud Volumes ONTAP 費用。如果您直接向 NetApp 購買授權（自帶授權（BYOL）），則不需要 AWS 訂閱。NetApp 已限制 BYOL 授權的購買、延展和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在控制台中新增其他 AWS 憑證"^]。 
+| 編輯憑證 | 選擇要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 憑證和市場訂閱。按一下 *Add Subscription* 將所選憑證與新的 AWS 市場訂閱建立關聯。訂閱可以是年度合約，也可以按小時費率支付 Cloud Volumes ONTAP 費用。如果您直接從 NetApp 購買授權（自帶授權或 BYOL），則不需要 AWS 訂閱。NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在控制台中新增其他 AWS 憑證"^]。 
 |===
 +
 
@@ -539,7 +539,22 @@ CAUTION: 部署程序完成後，請勿修改 AWS 雲端入口網站中系統產
 
 
 
+
+
+[[deploy-cloud-volumes-ontap-in-private-mode]]
+== 以私有模式部署 Cloud Volumes ONTAP
+
+私有模式部署選項可協助您滿足組織的安全性和法規遵循要求。私有模式部署與標準模式部署遵循相同的程序。它在您自己的虛擬私有雲（VPC）或虛擬網路（VNet）中運作，無需連接公共網際網路。
+
+在私有模式下，您必須向 NetApp 購買以容量為基礎的自備授權（BYOL）或 link:concept-license-management.html["BYOL"] _Essentials_ 套件，並在部署期間將其指派給您的系統。前 500 GiB 的已使用容量不計入您的授權費用。隨著工作負載需求的成長，購買額外的 Essentials 套件。部署後，您可以在主控台中檢視授權序號。
+
+如需將授權檔案上傳至私有模式部署的相關資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理 Cloud Volumes ONTAP 的節點型授權"]。
+
+.以節點為基礎的授權限制
+私有模式部署先前僅使用基於節點的授權。NetApp 自 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["2025-06-25"]起，除少數特殊情況外，已限制購買、擴充和續約這些上一代授權。如果您現有使用基於節點授權的私有模式部署，則必須將其轉換為基於容量的授權。如需相關指示，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["將節點型授權轉換為容量型授權"^]。
+
 .相關連結
+* link:task-onboard-cvo-aws-marketplace.html["從 AWS Marketplace 訂閱並部署 Cloud Volumes ONTAP"]
 * link:task-planning-your-config.html["規劃您的Cloud Volumes ONTAP配置"]
 * link:task-quick-deploy-aws.html["使用快速部署在 AWS 中部署Cloud Volumes ONTAP"]
 

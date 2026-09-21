@@ -32,7 +32,7 @@ summary: 了解Cloud Volumes ONTAP 的預設設定方式可以幫助您設定和
 ** FlexClone
 ** iSCSI
 ** 多租戶加密金鑰管理 (MTEKM)，從Cloud Volumes ONTAP 9.12.1 GA 開始
-** NetApp磁碟區加密（僅適用於自帶授權 (BYOL) 或註冊的即用即付 (PAYGO) 系統）
+** NetApp 磁碟區加密（僅適用於自帶授權 （BYOL） 或已註冊的隨用隨付 （PAYGO） 系統）
 ** NFS ifdef::aws[] endif::aws[] ifdef::azure[] endif::azure[]
 ** SnapMirror
 ** SnapRestore

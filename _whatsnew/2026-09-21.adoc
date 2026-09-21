@@ -1,0 +1,21 @@
+= 支援私有模式部署中以容量為基礎的授權
+:allow-uri-read: 
+
+
+
+
+[[support-for-capacity-based-licenses-in-private-mode-deployments]]
+=== 支援私有模式部署中以容量為基礎的授權
+
+現在，您可以在 AWS、Azure 和 Google Cloud 中以私有模式部署採用容量型授權的 Cloud Volumes ONTAP 系統。
+
+NetApp 僅支援私有模式下以容量為基礎之授權的 Essentials 套件。請向 NetApp 購買以容量為基礎的自備授權（BYOL）Essentials 套件，並在部署期間將其分配給您的系統。前 500 GiB 的已使用容量不計入您的授權費用。您可以隨著工作負載需求的增加購買額外的套件。
+
+NetApp 建議所有私有模式 Cloud Volumes ONTAP 部署均採用基於容量的授權。如果您已有採用基於節點授權的現有私有模式部署，您可以透過向 NetApp 購買 Essentials 套件，將其轉換為基於容量的授權。這項新的部署功能與轉換選項結合，支援了 NetApp 逐步從基於節點的授權過渡到基於容量的授權的計畫。
+
+.相關連結
+* https://review.docs.netapp.com/us-en/storage-management-cloud-volumes-ontap_capacity-license-darkmode/concept-licensing.html["Cloud Volumes ONTAP許可"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-license-management.html["了解 Cloud Volumes ONTAP BYOL"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理 Cloud Volumes ONTAP 的節點型授權"^]
+

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-getting-started-gcp.html 
 keywords: google cloud platform, gcp, cloud manager, deploy the Console, launch the Console, create the Console, getting started, networking, gcp networking, service account, tiering, data tiering, bucket, fabricpool, cloud backup, storage access key, gcp role, role, iam role, permissions, gcp permissions, cloud backup, the Console 
-summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTAP 。 
+summary: 只需幾個步驟即可開始在 Google Cloud 中使用 Cloud Volumes ONTAP。 
 ---
 = Google Cloud 中 Cloud Volumes ONTAP 的部署總覽
 :hardbreaks:
@@ -19,6 +19,17 @@ summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTA
 [cols="20,35,25,25"]
 |===
 | 任務 | 描述 | 參考 | 私有模式部署注意事項 
+
+
+ a| 
+驗證 NetApp Console 角色
+ a| 
+在建立 Console 代理程式並執行 Cloud Volumes ONTAP 的其他部署任務之前，必須驗證必要的 IAM 角色和權限是否已到位。
+ a| 
+請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["NetApp Console 中的 Cloud Volumes ONTAP 存取角色"^] https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["為 Cloud Volumes ONTAP 設定角色型存取"^]
+ a| 
+確認角色已正確設定。
+
 
 
  a| 
@@ -39,7 +50,7 @@ summary: 只需幾個步驟即可開始使用 Google Cloud 的Cloud Volumes ONTA
  a| 
 link:task-planning-your-config-gcp.html["規劃您的配置"]
  a| 
-對於私有環境模式部署，您也需要考慮類似的規劃因素。
+對於私有模式部署，您需要有類似的規劃考量。
 
 
 
@@ -73,7 +84,7 @@ Cloud Volumes ONTAP 需要 Google Cloud 服務帳戶才能啟用資料分層，�
 * 請參閱 https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery 文件"^]
 
  a| 
-私有模式部署無需額外考慮。
+對於私有模式部署，無需考慮其他因素。
 
 
 
@@ -99,10 +110,10 @@ Cloud Volumes ONTAP 需要 Google Cloud 服務帳戶才能啟用資料分層，�
 * link:task-deploying-gcp.html["使用進階選項部署 Cloud Volumes ONTAP"]
 
  a| 
-在開始部署之前，請確保您已從 NetApp 購買 Cloud Volumes ONTAP 授權。私有模式部署需要基於節點的 BYOL 授權。不支援使用 Marketplace 訂閱來支付 Cloud Volumes ONTAP 的使用費用。請從 NetApp 取得授權檔案，並在部署期間上傳。請參閱：
+私有模式僅支援進階部署。在開始部署之前，請確保您已向 NetApp 購買 Cloud Volumes ONTAP 授權。私有模式部署依賴 BYOL 授權。不支援使用市場訂閱來支付 Cloud Volumes ONTAP 的使用費用。請從 NetApp 取得授權檔案，並在部署期間上傳。請參閱：
 
-* link:concept-license-management.html["基於節點的 BYOL 授權管理"]
-* link:task-manage-node-licenses.html["管理節點型 BYOL 授權"]
+* link:concept-license-management.html["許可證管理"]
+* link:task-manage-node-licenses.html["管理 BYOL 授權"]
 * link:task-deploying-gcp.html["使用進階選項部署 Cloud Volumes ONTAP"]
 
 

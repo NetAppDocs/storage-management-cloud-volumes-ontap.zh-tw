@@ -14,33 +14,29 @@ summary: 熟悉基於容量的許可證的收費、消費模式、定價和配�
 
 
 [role="lead"]
-您應該熟悉基於容量的許可證的收費方式和容量使用。
+Cloud Volumes ONTAP 基於容量的授權決定了儲存容量、套件和超額的計費方式。使用此資訊來了解計費與容量消耗，特別是針對標準模式部署。
+
+私有模式部署只能在自帶授權（BYOL）模式下使用基於容量的 Essentials 套件。有關私有模式部署的授權詳細資訊，請參閱 link:concept-license-management.html["了解 Cloud Volumes ONTAP BYOL"^]。
 
 
 
-[[consumption-models-or-license-purchase-options]]
-== 消費模式或許可購買選項
+[[consumption-models-and-purchase-options]]
+== 消費模式和購買選項
 
 我們提供基於容量的授權套餐，並有以下幾種消費模式或購買選項：
 
-* *BYOL*：自備授權（BYOL）。從NetApp購買的許可證，可用於在任何雲端供應商中部署Cloud Volumes ONTAP 。
+* *市場訂閱/年度合約*：來自您雲端供應商市場的年度合約。私有模式部署不支援市場訂閱。
+* *PAYGO*：即用即付 (PAYGO) 訂閱是從雲端供應商市場按小時訂閱的。
+* *BYOL*：自備授權（BYOL）。從 NetApp 購買的授權，可用於在任何雲端供應商部署 Cloud Volumes ONTAP。
 +
 
-NOTE: NetApp 已限制購買、延期及續約 BYOL 授權，並限制特定情境（例如私有模式部署）中的可用度。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
+NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約，並且在特定場景（例如私有模式部署）中可用度有限。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。
 
-
-
-ifdef::azure[]
-
-endif::azure[]
-
-* *PAYGO*：即用即付 (PAYGO) 訂閱是從雲端供應商市場按小時訂閱的。
-* *市場訂閱/年度合約*：指您從雲端供應商的市場購買的年度合約。私有模式部署不支援市場訂閱。
 
 
 請注意以下事項：
 
-* 如果您從NetApp購買了 BYOL 許可證，則還需要從雲端供應商的雲端市場訂閱 PAYGO 產品。 NetApp已限制 BYOL 授權。當您的 BYOL 授權到期時，您需要將其替換為雲端市場訂閱。
+* 如果您從 NetApp 購買 BYOL 授權，您還需要在雲端供應商的市場中訂閱 PAYGO 產品。NetApp 已限制標準模式部署的 BYOL 授權。當您的 BYOL 授權到期時，請將其替換為雲端市場訂閱。
 +
 您的許可證總是會先被收費，但在以下情況下，我們將按照市場上的小時費率向您收費：
 
@@ -55,30 +51,21 @@ endif::azure[]
 
 
 
-[[changing-of-license-packages]]
-== 更改許可證包
-
-部署後，您可以變更使用基於容量的許可的Cloud Volumes ONTAP系統的軟體包。例如，如果您使用 Essentials 套件部署了Cloud Volumes ONTAP系統，則可以在業務需求變更時將其變更為 Professional 套件。
-
-link:task-manage-capacity-licenses.html["了解如何更改充電方式"] 。
-
-有關將基於節點的許可證轉換為基於容量的許可證的信息，請參閱
-
-
-
 [[how-you-are-charged-for-supported-storage-types-and-packages]]
 == 支援的儲存類型和套餐如何收費
 
 Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。Cloud Volumes ONTAP 9.7 及更高版本提供基於容量的授權包。
 
-如需定價的詳細資訊，請前往 link:https://www.netapp.com/pricing/["NetApp 定價網站"^]。
+以下各節解釋了收費內容、最低收費標準以及超額收費方式。
+
+如需定價的詳細資訊，請前往 https://bluexp.netapp.com/pricing/["NetApp Console網站"^]。
 
 
 
 [[storage-vms]]
 === 儲存虛擬機
 
-* 額外的資料服務儲存虛擬機器 (SVM) 無需額外的授權費用，但每個資料服務 SVM 至少需支付 4 TiB 的容量費用。
+* 額外的資料服務儲存設備虛擬機器（SVM）沒有額外的授權費用，但每個資料服務 SVM 的最低容量費用為 4 TiB。
 * 災難復原 SVM 根據預置容量收費。
 
 
@@ -103,14 +90,14 @@ Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。C
 [[readwrite-volumes]]
 === 讀/寫卷
 
-如果您建立或使用可寫入（讀取/寫入）卷，則該磁碟區將被視為主卷，並按每個儲存虛擬機器 (SVM) 的最低費用收取已配置容量的費用。例如FlexVol讀/寫卷、 SnapLock審計捲和 CIFS/NFS 審計卷。所有用戶創建的數據量均按您的訂閱和套餐類型收費。  ONTAP內部自動建立且無法儲存資料的磁碟區（例如 SVM 根磁碟區）不收費。
+可寫入的（讀寫）Volume 是主 Volume。系統根據每個儲存設備虛擬機器（SVM）的最低費用對已配置的容量進行計費。例如 FlexVol 讀寫 Volume、SnapLock 稽核 Volume，以及 CIFS/NFS 稽核 Volume。所有使用者建立的資料 Volume 均根據您的訂閱和套件類型計費。ONTAP 內部 Volume（例如 SVM 根目錄 Volume）不計費，因為它們是自動建立的，無法儲存資料。
 
 
 
 [[essentials-packages]]
 === 基本套裝
 
-使用 Essentials 套件時，您需要根據部署類型（HA 或單節點）和磁碟區類型（主磁碟區或輔助磁碟區）付費。價格由高至低的順序如下：_Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。或者，當您購買市場合約或接受私人優惠時，任何部署或卷類型的容量費用都是相同的。
+Essentials 套件按部署類型（HA 或單一節點）和 Volume 類型（主要或次要）計費。價格由高至低依序為 _Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。如果您購買市場合約或接受私人優惠，則任何部署或 Volume 類型的容量費用均相同。
 
 許可證完全基於Cloud Volumes ONTAP系統內建立的磁碟區類型：
 
@@ -119,53 +106,10 @@ Cloud Volumes ONTAP的計費是基於多種因素，例如套餐和卷類型。C
 * 基本輔助單節點：僅使用一個ONTAP節點在Cloud Volumes ONTAP系統上建立的資料保護 (DP) 類型磁碟區（通常是唯讀的SnapMirror或SnapVault目標磁碟區）。
 +
 
-NOTE: 如果只讀/DP 磁碟區成為主卷，則控制台會將其視為主數據，並且收費成本將根據磁碟區處於讀取/寫入模式的時間來計算。當磁碟區再次變為唯讀/DP 時，它會再次將該磁碟區視為輔助數據，並使用控制台中最匹配的授權進行相應的收費。
+NOTE: 如果唯讀的 DP Volume 變為主要 Volume，Console 會將其視為主要資料，並根據該 Volume 保持讀寫模式的時間計算費用。如果該 Volume 再次變為唯讀，Console 會將其視為次要資料，並根據 Console 中最符合的授權進行收費。
 
 * 基本輔助 HA：在Cloud Volumes ONTAP系統上使用兩個可以相互故障轉移以實現無中斷資料存取的ONTAP節點建立的資料保護 (DP) 類型磁碟區（通常是唯讀的SnapMirror或SnapVault目標磁碟區）。
 
-
-
-
-[[capacity-limit]]
-== 容量限制
-
-在基於容量的許可模型中，每個Cloud Volumes ONTAP系統都支援分層到物件存儲，並且總分層容量可以擴展到雲端提供者的存儲桶限制。雖然許可證沒有施加容量限制，但遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳實踐"^]確保在配置和管理分層時實現最佳效能、可靠性和成本效率。
-
-有關每個雲端提供者的容量限制的信息，請參閱其文檔：
-
-* https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html["AWS 文件"^]
-* https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account["託管磁碟的 Azure 文件"^]和 https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets["Azure Blob 儲存體文檔"^]
-* https://cloud.google.com/storage/docs/buckets["Google Cloud 文件"^]
-
-
-
-
-[[max-number-of-systems]]
-== 最大系統數量
-
-採用基於容量的授權模式時，每個 NetApp Console 組織最多只能建立 24 個 Cloud Volumes ONTAP 系統。一個「系統」指的是 Cloud Volumes ONTAP HA 配對、Cloud Volumes ONTAP 單節點系統，或您建立的任何其他儲存 VM。預設儲存 VM 不計入此限制。此限制適用於所有授權模式。
-
-例如，假設您有三個系統：
-
-* 具有一個儲存虛擬機器的單節點Cloud Volumes ONTAP系統（這是部署Cloud Volumes ONTAP時所建立的預設儲存虛擬機器）
-+
-該系統算一個系統。
-
-* 具有兩個儲存虛擬機（預設儲存虛擬機，加上您建立的一個額外的儲存虛擬機）的單節點Cloud Volumes ONTAP系統
-+
-此系統計為兩個系統：一個用於單節點系統，一個用於額外的儲存 VM。
-
-* 具有三個儲存虛擬機（預設儲存虛擬機，以及您建立的兩個額外的儲存虛擬機）的Cloud Volumes ONTAP HA 對
-+
-系統計為三個系統：一個用於 HA 對，兩個用於附加儲存虛擬機器。
-
-
-
-總共有六個系統。這樣一來，您的組織中就可以再容納 14 個系統。
-
-如果您需要部署超過 24 台系統，請聯絡您的客戶代表或銷售團隊。
-
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AWS、Azure 和 Google Cloud 的儲存限制"^] 。
 
 
 
@@ -198,7 +142,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 如果您從NetApp購買 Essentials 授權（自帶授權），並且超出了特定 Essentials 軟體套件的授權容量，則控制台會將超出部分的費用計入價格較高的 Essentials 授權（如果您有可用容量的授權）。遊戲主機會先使用您已付費的可用容量，然後再向市場收費。如果您的 BYOL 授權沒有可用容量，超出容量的部分將按市場按需小時費率 (PAYGO) 收費，並添加到您的月帳單中。
 
-同樣，如果您簽訂了年度市場合約或包含多個 Essentials 套餐的私人優惠，並且您的使用量超過了特定套餐的部署和容量類型的承諾容量，則控制台會根據可用容量，向價格更高的 Essentials 套餐收取超額費用。當該容量耗盡後，剩餘的超額容量將以市場按需（PAYGO）小時費率計費，並添加到您的月帳單中。
+同樣地，如果您簽訂了年度市場合約或包含多個 Essentials 套件的私人優惠，並且您的使用量超過了特定部署和 Volume 類型的承諾容量，主控台會將超出部分計入價格較高且仍有可用容量的 Essentials 套件中。該容量耗盡後，剩餘的超出部分將按市場隨需（PAYGO）的小時費率計費，並新增至您的每月帳單中。
 
 如需 Essentials 授權收費的相關資訊，請參閱 <<基本套裝>>。
 
@@ -222,10 +166,67 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 在此範例中，控制台會依照市場價格對額外的 100 TiB 收取超額費用。超額費用將出現在您的每月帳單上。
 
+
+
+[[change-license-packages]]
+== 變更授權套件
+
+部署完成後，您可以變更採用基於容量授權的 Cloud Volumes ONTAP 系統的套件。例如，如果您部署的 Cloud Volumes ONTAP 系統使用的是 Essentials 套件，則當您的業務需求變更時，您可以將其變更為 Professional 套件。link:task-manage-capacity-licenses.html["了解如何更改充電方式"]。
+
+NetApp 正在逐步淘汰基於節點的授權，轉而採用基於容量的授權。基於節點的授權仍適用於少數較舊的系統，例如 USPS 客戶和在中國的部署。如果您擁有基於節點的授權，您可以將其轉換為基於容量的授權。如需有關將基於節點的授權轉換為基於容量的授權的資訊，請參閱 link:task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"]。
+
+
+
+[[capacity-limit]]
+== 容量限制
+
+在基於容量的許可模型中，每個Cloud Volumes ONTAP系統都支援分層到物件存儲，並且總分層容量可以擴展到雲端提供者的存儲桶限制。雖然許可證沒有施加容量限制，但遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳實踐"^]確保在配置和管理分層時實現最佳效能、可靠性和成本效率。
+
+有關每個雲端提供者的容量限制的信息，請參閱其文檔：
+
+* https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html["AWS 文件"^]
+* https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account["託管磁碟的 Azure 文件"^]和 https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets["Azure Blob 儲存體文檔"^]
+* https://cloud.google.com/storage/docs/buckets["Google Cloud 文件"^]
+
+
+
+
+[[max-number-of-systems]]
+== 最大系統數量
+
+基於容量的授權將每個 NetApp Console 組織最多限制為 24 個 Cloud Volumes ONTAP 系統。一個 _系統_ 可以是 Cloud Volumes ONTAP HA 配對、Cloud Volumes ONTAP 單節點系統，或是您建立的額外儲存容量 VM。預設儲存設備 VM 不計入此限制。此限制適用於所有授權模式。
+
+例如，假設您有三個系統：
+
+* 具有一個儲存虛擬機器的單節點Cloud Volumes ONTAP系統（這是部署Cloud Volumes ONTAP時所建立的預設儲存虛擬機器）
++
+該系統算一個系統。
+
+* 具有兩個儲存虛擬機（預設儲存虛擬機，加上您建立的一個額外的儲存虛擬機）的單節點Cloud Volumes ONTAP系統
++
+此系統計為兩個系統：一個用於單節點系統，一個用於額外的儲存 VM。
+
+* 具有三個儲存虛擬機（預設儲存虛擬機，以及您建立的兩個額外的儲存虛擬機）的Cloud Volumes ONTAP HA 對
++
+系統計為三個系統：一個用於 HA 對，兩個用於附加儲存虛擬機器。
+
+
+
+總共有六個系統。這樣一來，您的組織中就可以再容納 14 個系統。
+
+如果您有需要超過 24 個系統的大型部署，請聯絡您的帳戶代表或銷售團隊。
+
+了解以下儲存設備限制：
+
+* AWS：link:reference-limits-aws.html["AWS 中Cloud Volumes ONTAP的儲存限制"]
+* Azure：link:reference-limits-azure.html["Azure 中Cloud Volumes ONTAP的儲存限制"]
+* Google Cloud：link:reference-limits-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 的儲存限制"]
+
+
 .相關連結
-* link:concept-licensing.html["Cloud Volumes ONTAP許可"]
-* link:task-manage-capacity-licenses.html["管理Cloud Volumes ONTAP基於容量的許可"]
-* link:task-manage-node-licenses.html["管理節點型授權"]
-* link:task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"]
-* link:task-manage-keystone.html["管理Keystone訂閱"]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP許可"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-capacity-licenses.html["管理Cloud Volumes ONTAP基於容量的許可"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理節點型授權"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["將基於節點的許可證轉換為基於容量的許可證"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-keystone.html["管理Keystone訂閱"^]
 

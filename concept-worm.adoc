@@ -16,7 +16,7 @@ summary: '您可以在Cloud Volumes ONTAP系統上啟動一次寫入、多次讀
 [role="lead"]
 您可以在Cloud Volumes ONTAP系統上啟動一次寫入、多次讀取 (WORM) 存儲，以便在指定的保留期內以未修改的形式保留檔案。雲端 WORM 儲存由SnapLock技術提供支持，這意味著 WORM 檔案在檔案層級受到保護。
 
-WORM 功能可與自帶許可證 (BYOL) 一起使用，並且無需額外付費即可在市場訂閱您的許可證。請聯絡您的NetApp銷售代表，將 WORM 新增至您目前的許可證。
+WORM 功能可用於您的市場訂閱和自備授權（BYOL），無需額外費用。請聯絡您的 NetApp 銷售代表，將 WORM 新增至您目前的授權。
 
 
 

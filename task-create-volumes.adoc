@@ -36,7 +36,7 @@ summary: 如果在啟動初始Cloud Volumes ONTAP系統後需要更多存儲，�
 
 ifdef::aws[]
 
-* 如果您想在 AWS 中使用 CIFS，則必須設定 DNS 和 Active Directory。有關詳細信息，請參閱link:reference-networking-aws.html["Cloud Volumes ONTAP for AWS 的網路需求"]。
+* 如果您要在 AWS 中使用 CIFS，則必須設定 DNS 和 Active Directory。如需詳細資訊，請參閱 link:reference-networking-aws.html["AWS 中Cloud Volumes ONTAP的網路需求"]。
 * 如果您的Cloud Volumes ONTAP配置支援 Amazon EBS 彈性磁碟區功能，您可能需要link:concept-aws-elastic-volumes.html["詳細了解建立磁碟區時發生的情況"]。
 
 
