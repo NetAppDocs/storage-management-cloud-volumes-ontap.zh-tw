@@ -1,0 +1,158 @@
+---
+sidebar: sidebar 
+permalink: concept-cvo-automation.html 
+keywords: automation, infrastructure as code, IaC, Terraform, Ansible, Cloud Volumes ONTAP, API procedures, ONTAP CLI procedures, list of API and CLI procedures in Cloud Volumes ONTAP or CVO 
+summary: 了解 NetApp 支援 Cloud Volumes ONTAP 的自動化技術。 
+---
+= 了解 Cloud Volumes ONTAP 自動化選項
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+DevOps 團隊使用各種工具來自動化資料中心執行環境的設定和管理。除了 NetApp Console 之外，您還可以使用多種技術來實現 Cloud Volumes ONTAP 的自動化，包括 NetApp Console API、ONTAP CLI 流程以及 Ansible 和 Terraform 等自動化工具。這些外部自動化工具通常基於基礎架構即程式碼（IaC）設計。
+
+使用 https://labondemand.netapp.com/["隨需實驗室"^]來練習自動化 Cloud Volumes ONTAP。
+
+
+
+[[netapp-console-apis]]
+== NetApp Console API
+
+NetApp Console 提供 REST API，可用於以程式設計方式管理 Cloud Volumes ONTAP 資源。這些 API 支援建立和管理 Cloud Volumes ONTAP 系統，以及在 Amazon Web Services（AWS）、Microsoft Azure（Azure）和 Google Cloud 上新增彙總和 Volume 等作業。可用的 API 呼叫因雲端供應商和部署類型（包括單節點和高可用度（HA）組態）而異。
+
+您可以使用 Cloud Volumes ONTAP API 工作流程來自動化典型的部署和後續儲存設備管理。一些工作流程包括準備部署、建立系統和管理儲存設備，並提供針對 AWS 、 Azure 和 Google Cloud 的特定供應商工作流程。
+
+[cols="2,2,3"]
+|===
+| 活動 | 使用的 API 和介面 | API 參考 
+
+
+| 建立 Cloud Volumes ONTAP 系統。API 呼叫因雲端供應商和單節點或 HA 部署而異。 | NetApp Console REST API 和 Cloud Volumes ONTAP API 工作流程  a| 
+* https://docs.netapp.com/us-en/console-automation/cm/wf_aws_cloud_create_we_capacity.html["AWS：建立系統"^] - `POST /occm/api/vsa/working-environments` 或 `POST /occm/api/aws/ha/working-environments`
+* https://docs.netapp.com/us-en/console-automation/cm/wf_azure_cloud_create_we_capacity.html["Azure：建立系統"^] - `POST /occm/api/azure/vsa/working-environments` 或 `POST /occm/api/azure/ha/working-environments`
+* https://docs.netapp.com/us-en/console-automation/cm/wf_gcp_cloud_create_we_capacity.html["Google Cloud：建立系統"^] - `POST /occm/api/gcp/vsa/working-environments` 或 `POST /occm/api/gcp/ha/working-environments`
+
+
+
+
+| 為 Cloud Volumes ONTAP 系統建立彙總。 | NetApp Console REST API  a| 
+* https://docs.netapp.com/us-en/console-automation/cm/wf_aws_ontap_create_aggr.html["AWS：建立彙總"^] - `POST /occm/api/vsa/aggregates` 或者 `POST /occm/api/aws/ha/aggregates`
+* https://docs.netapp.com/us-en/console-automation/cm/wf_aws_cloud_add_capacity.html["AWS：新增容量至 Elastic Volume 彙總"^] - `POST /occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity` 或 `POST /occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity`
+* https://docs.netapp.com/us-en/console-automation/cm/wf_aws_ontap_add_disks_aggr.html["AWS：新增磁碟至彙總"^] - `POST /occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/disks` 或  `POST /occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/disks`
+
+
+
+
+| 為 Cloud Volumes ONTAP 系統設定 CIFS 伺服器。 | NetApp Console REST API  a| 
+* https://docs.netapp.com/us-en/console-automation/cm/wf_aws_ontap_create_cifs.html["AWS：建立 CIFS 伺服器組態"^] - `POST /occm/api/vsa/working-environments/{workingEnvironmentId}/cifs` 或 `POST /occm/api/aws/ha/working-environments/{workingEnvironmentId}/cifs`
+* https://docs.netapp.com/us-en/console-automation/cm/wf_azure_ontap_create_cifs.html["Azure：建立 CIFS 伺服器組態"^] - `POST /occm/api/azure/vsa/working-environments/{workingEnvironmentId}/cifs` 或 `POST /occm/api/azure/ha/working-environments/{workingEnvironmentId}/cifs`
+* https://docs.netapp.com/us-en/console-automation/cm/wf_gcp_ontap_create_cifs.html["Google Cloud：建立 CIFS 伺服器組態"^] - `POST /occm/api/gcp/vsa/working-environments/{workingEnvironmentId}/cifs` 或 `POST /occm/api/gcp/ha/working-environments/{workingEnvironmentId}/cifs`
+
+
+
+
+| 在 Azure 和 Google Cloud 中建立和管理額外的資料服務儲存設備 VM，並設定其所需的網路介面。 | 適用於 NetApp Console 的 Cloud Volumes ONTAP API  a| 
+link:task-managing-svms-azure.html["管理 Azure 中的儲存空間 VM"] link:task-managing-svms-gcp.html["管理 Google Cloud 中的儲存虛擬機"]
+
+
+
+| 建立使用客戶管理加密金鑰的 Cloud Volumes ONTAP 系統。 | NetApp Console API  a| 
+link:task-set-up-azure-encryption.html["在 Azure 中使用客戶管理的金鑰"] link:task-setting-up-gcp-encryption.html["在 Google Cloud 中使用客戶管理的金鑰"]
+
+
+
+| 部署後修改 Azure Premium SSD v2 磁碟的 IOPS 和處理量設定。 | Cloud Volumes ONTAP API  a| 
+link:task-manage-perf-params-azure.html["管理 Premium SSD v2 磁碟效能"]
+
+
+
+| 在 AWS 共享的子網路中部署 Cloud Volumes ONTAP HA 配對。 | Cloud Volumes ONTAP API  a| 
+link:task-deploy-aws-shared-vpc.html["在 AWS 共享的子網路中部署 HA 配對"]
+
+
+
+| 如果在部署期間未設定物件存放區，則在系統建立後啟用資料分層。 | Cloud Volumes ONTAP API | link:task-tiering.html["啟用資料分層"] 
+
+
+| 為現有的 Cloud Volumes ONTAP 叢集設定 NTP 伺服器。 | NetApp Console API | link:task-sync-time.html["設定 NTP 伺服器"] 
+|===
+如需更多資訊，請參閱：
+
+* https://docs.netapp.com/us-en/console-automation/cm/overview.html["了解 ONTAP 管理 REST API"^]
+* https://docs.netapp.com/us-en/console-automation/cm/wf_cvo_before.html["準備使用 Cloud Volumes ONTAP API 工作流程"^]
+* https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html["您的第一次 API 呼叫"^]
+* https://docs.netapp.com/us-en/console-automation/cm/cvo_deployment.html["使用 REST API 的典型 Cloud Volumes ONTAP 部署"^]
+
+
+
+
+[[ontap-cli]]
+== ONTAP CLI
+
+您可以使用 ONTAP CLI 執行多項 Cloud Volumes ONTAP 管理任務。可用步驟和命令因功能和雲端供應商而異。請勿使用 ONTAP CLI 或 ONTAP System Manager 升級 Cloud Volumes ONTAP。請從 NetApp Console 執行升級。
+
+[cols="2,2,3"]
+|===
+| 活動 | CLI 程序或命令 | 參考資料 
+
+
+| 為 Cloud Volumes ONTAP 設定加密金鑰管理。 | ONTAP CLI 中的 AWS KMS、Azure Key Vault 或 Google Cloud KMS 指令  a| 
+link:task-aws-key-management.html["設定 AWS KMS 金鑰管理"] link:task-azure-key-vault.html["設定 Azure Key Vault 金鑰管理"] link:task-google-key-manager.html["設定 Google Cloud KMS 金鑰管理"]
+
+
+
+| 設定事件管理系統（EMS）事件目的地和路由。 | ONTAP CLI 中的 EMS 組態指令 | link:task-configure-ems.html["配置 EMS"] 
+
+
+| 為現有的 Cloud Volumes ONTAP 叢集設定 NTP 伺服器。 | `cluster time-service ntp server create` | link:task-sync-time.html["設定 NTP 伺服器"] 
+
+
+| 建立儲存效率已停用的 Volume 時，請停用資料壓縮。 | ONTAP CLI Volume 效率指令  a| 
+link:concept-flash-cache.html["審查儲存效率選項"] link:reference-limitations-aws.html["查看 AWS 儲存效率限制"]
+
+
+
+| 建立額外的 LUN。 | ONTAP CLI 中的 LUN 建立指令 | link:task-create-volumes.html["建立 Volume 和額外的 LUN"] 
+
+
+| 建立停用 WORM 的 Volume，或為 SnapLock Volume 建立 Snapshot 快照技術複本（視情況而定）。 | ONTAP CLI 中的 Volume 和 Snapshot 快照技術管理指令  a| 
+link:concept-worm.html["管理 WORM 儲存設備"] link:reference-worm-snaplock.html["為 WORM 儲存設備建立 Snapshot 快照技術副本"]
+
+
+
+| 設定 NVFAIL 行為，以協助防止在資料遺失事件發生後存取資料，直到問題解決。 | ONTAP CLI 中的 NVFAIL 組態指令 | link:concept-write-speed.html["設定 NVFAIL"] 
+
+
+| 在 Azure 單節點部署中隔離 SnapMirror 複寫流量。 | ONTAP CLI 連網和 SnapMirror 指令 | link:task-segregate-snapmirror-azure.html["在 Azure 中隔離SnapMirror流量"] 
+|===
+如需更多資訊，請參閱  https://docs.netapp.com/us-en/ontap-cli/man.html["ONTAP CLI 參考指南"^]
+
+
+
+[[ansible]]
+== Ansible
+
+Ansible 是一款基於過程式組態檔的開源組態管理工具。
+
+* https://galaxy.ansible.com/ui/repo/published/netapp/ontap/["Ansible Galaxy"^]
+* https://docs.ansible.com/ansible/latest/user_guide/index.html["Ansible 文件"^]
+
+
+
+
+[[terraform]]
+== Terraform
+
+Terraform 是一款開源的協調工具，它使用宣告式組態檔案。NetApp 為 Cloud Volumes ONTAP 提供了 Terraform 供應商。您可以使用它來自動化基礎架構，並與 IaC 整合。如需詳細資訊，請參閱 https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest["NetApp Terraform 供應商"^]。
+
+.相關資訊
+* https://docs.netapp.com/us-en/console-automation/automate/overview.html["NetApp Console 自動化概述"^]
+* https://www.netapp.com/devops/what-is-infrastructure-as-code-iac/["基礎架構即程式碼"^]
+* https://www.terraform.io/["Terraform"^]
+* https://www.ansible.com/["Ansible"^]
+

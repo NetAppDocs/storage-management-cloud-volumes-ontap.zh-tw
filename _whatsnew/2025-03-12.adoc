@@ -13,4 +13,4 @@
 * US Gov Virginia（美國政府地區 - 維吉尼亞州）
 
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。

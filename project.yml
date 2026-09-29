@@ -311,6 +311,8 @@ sidebar:
       url: "/task-azure-onelake.html"
     - title: Cloud Volumes ONTAP 和架構完善的儀表板
       url: "/configuration-analysis-cvo.html"
+    - title: 了解 Cloud Volumes ONTAP 自動化選項
+      url: "/concept-cvo-automation.html"
   - title: 知識和支持
     entries:
     - title: 註冊以獲得支持

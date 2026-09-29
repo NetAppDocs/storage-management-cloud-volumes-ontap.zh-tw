@@ -14,4 +14,4 @@
 * 使用區域備援儲存設備 （ZRS） 在多個可用度區域中實現 HA
 
 
-有關所有受支援區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有支援區域的列表，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。

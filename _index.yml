@@ -85,14 +85,18 @@ indexpage:
       url: task-managing-svms.html
     - title: 在 Cloud Volumes ONTAP 上加密磁碟區
       url: task-encrypting-volumes.html
-  - title: API 參考（NetApp Console Automation）
+  - title: Cloud Volumes ONTAP 自動化
     links:
+    - title: 了解 Cloud Volumes ONTAP 自動化選項
+      url: concept-cvo-automation.html
     - title: API 參考
-      url: https://docs.netapp.com/us-en/console-automation/cm/overview.html
-    - title: Cloud Volumes ONTAP API 概述
-      url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
-    - title: 準備使用 API
-      url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
+      url: https://docs.netapp.com/us-en/console-automation/index.html
+    - title: NetApp Console REST API 概念
+      url: https://docs.netapp.com/us-en/console-automation/platform/concepts.html
+    - title: 了解 API 工作流程程序
+      url: https://docs.netapp.com/us-en/console-automation/cm/workflow_processes.html
+    - title: AWS、Azure 和 Google Cloud 的 Cloud Volumes ONTAP API 呼叫清單
+      url: https://docs.netapp.com/us-en/console-automation/cm/cvo_deployment.html
   - title: Cloud Volumes ONTAP 和其他 NetApp 產品
     links:
     - title: NetApp Console 中的 Cloud Volumes ONTAP 角色
@@ -116,7 +120,7 @@ indexpage:
     - title: 使用 ONTAP CLI 管理 Cloud Volumes ONTAP
       url: https://docs.netapp.com/us-en/ontap-cli/index.html
     - title: 支援的雲區域
-      url: https://bluexp.netapp.com/cloud-volumes-global-regions
+      url: https://www.netapp.com/cloud-volumes-ontap/supported-regions/
     - title: 計算機
       url: https://www.netapp.com/ontap-cloud/pricing/
     - title: NetApp社群

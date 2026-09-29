@@ -1298,7 +1298,7 @@ HA 配對使用 Azure Managed Disks。支援下列磁碟類型和大小。
 [[supported-regions]]
 === 支援的地區
 
-如需 Azure 區域支援，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes 全球區域"^]。
+如需 Azure 區域支援，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Cloud Volumes 全球區域"^]。
 
 .相關連結
 * link:task-planning-your-config-azure.html["了解如何為 Azure 中的系統選擇磁碟類型和磁碟大小"]

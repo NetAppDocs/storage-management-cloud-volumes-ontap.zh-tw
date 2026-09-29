@@ -72,4 +72,4 @@ Cloud Volumes ONTAP 在某些 VM 類型中使用本機 NVMe 儲存作為 _Flash 
 
 某些地區不支援 HA 配對。
 
-https://bluexp.netapp.com/cloud-volumes-global-regions["檢視受支援的 Azure 區域清單"^]。
+https://www.netapp.com/cloud-volumes-ontap/supported-regions/["檢視受支援的 Azure 區域清單"^]。

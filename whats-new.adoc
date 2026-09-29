@@ -55,7 +55,7 @@ Cloud Volumes ONTAP 現已支援在 Azure Government Secret 和 Top Secret 區�
 
 如需相關資訊，請參閱 Azure 文件：
 
-* https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions/["適用於美國政府任務的雲端^"]
+* https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions/["美國政府任務雲"^]
 * https://azure.microsoft.com/en-us/explore/global-infrastructure/government/national-security["Azure 政府機密"^]
 * https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions["Azure Government Top Secret"^]
 
@@ -77,7 +77,7 @@ Cloud Volumes ONTAP 現已支援在 Azure Government Secret 和 Top Secret 區�
 * 使用區域備援儲存設備 （ZRS） 在多個可用度區域中實現 HA
 
 
-有關所有受支援區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有支援區域的列表，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -157,7 +157,7 @@ NetApp Console 中架構完善的儀表板現在可讓您修復 Cloud Volumes ON
 * 使用區域備援儲存設備 （ZRS） 在多個可用度區域中實現 HA
 
 
-有關所有受支援區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有支援區域的列表，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -308,7 +308,7 @@ Cloud Volumes ONTAP 角色適用於 Amazon Web Service (AWS)、Microsoft Azure (
 
 現在您可以在馬來西亞西部（malaysiawest）區域的 Azure 中，在單一和多個可用區部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。這包括對單節點和高可用性（HA）部署的支援。
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -520,7 +520,7 @@ Console 版本的所有權限如下：
 * 印尼中部 (indonesiacentral)
 
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -880,7 +880,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploy
 * 墨西哥中央
 
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -908,7 +908,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-managi
 
 現在您可以在中國區域的 AWS 中部署Cloud Volumes ONTAP 9.13.1。這包括對單節點和高可用性 (HA) 部署的支援。僅支援直接從NetApp購買的授權。
 
-有關區域可用性，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP的全球區域地圖"^]。
+有關區域可用度，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Cloud Volumes ONTAP的全球區域地圖"^]。
 
 
 
@@ -940,7 +940,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-managi
 * US Gov Virginia（美國政府地區 - 維吉尼亞州）
 
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -982,7 +982,7 @@ link:https://docs.netapp.com/us-en/cloud-volumes-ontap-9161-relnotes/["了解此
 
 Azure 現已支援紐西蘭北部地區的Cloud Volumes ONTAP 9.12.1 GA 及更高版本的單節點和高可用性 (HA) 配置。請注意，此區域不支援 Lsv3 實例類型。
 
-有關所有受支援區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有支援區域的列表，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -1188,7 +1188,7 @@ WORM（一次寫入多次讀取）和 ARP（自主勒索軟體保護）的內建
 
 AWS 現已支援加拿大西部地區的Cloud Volumes ONTAP 9.12.1 GA 及更高版本。
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["AWS 下的全球區域地圖"^]。
+如需所有區域的清單，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["AWS 下的全球區域地圖"^]。
 
 
 
@@ -1326,7 +1326,7 @@ NOTE: 在標準模式下使用BlueXP時支援 AWS 本地區域。目前，在受
 * 加拿大中部
 
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -1335,7 +1335,7 @@ NOTE: 在標準模式下使用BlueXP時支援 AWS 本地區域。目前，在受
 
 約翰尼斯堡地區(`africa-south1`Google Cloud 的Cloud Volumes ONTAP 9.12.1 GA 及更高版本現已支援區域。
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Google Cloud 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Google Cloud 下的全球區域地圖"^]。
 
 
 
@@ -1483,7 +1483,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9141-relnotes/["了解此版�
 * 阿拉伯聯合大公國北部
 
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -1499,7 +1499,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9141-relnotes/["了解此版�
 
 Google Cloud for Cloud Volumes ONTAP 9.12.1 GA 及更高版本現已支援柏林地區。
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Google Cloud 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Google Cloud 下的全球區域地圖"^]。
 
 
 
@@ -1515,7 +1515,7 @@ Google Cloud for Cloud Volumes ONTAP 9.12.1 GA 及更高版本現已支援柏林
 
 AWS 現已支援特拉維夫地區的Cloud Volumes ONTAP 9.12.1 GA 及更高版本。
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["AWS 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["AWS 下的全球區域地圖"^]。
 
 
 
@@ -1531,7 +1531,7 @@ AWS 現已支援特拉維夫地區的Cloud Volumes ONTAP 9.12.1 GA 及更高版�
 
 Google Cloud for Cloud Volumes ONTAP和 Connector for Cloud Volumes ONTAP 9.12.1 GA 及更高版本現已支援沙烏地阿拉伯地區。
 
-有關所有地區的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Google Cloud 下的全球區域地圖"^]。
+有關所有地區的清單，請參閱  https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Google Cloud 下的全球區域地圖"^]。
 
 
 
@@ -1557,7 +1557,7 @@ Azure 中的下列區域現在支援Cloud Volumes ONTAP 9.12.1 GA 及更高版�
 * 美國西部 2
 
 
-有關支援多個可用區的所有區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+如需支援多個可用度區的所有區域清單，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -1662,7 +1662,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9131-relnotes/["了解此版�
 
 Azure 中的日本東部和韓國中部現在支援Cloud Volumes ONTAP 9.12.1 GA 及更高版本的 HA 多可用區域部署。
 
-有關支援多個可用區的所有區域的列表，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球區域地圖"^]。
+如需支援多個可用度區的所有區域清單，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球區域地圖"^]。
 
 
 
@@ -1782,7 +1782,7 @@ Azure 中的澳洲東部區域現在支援Cloud Volumes ONTAP 9.12.1 GA 及更�
 * 支援直接從NetApp購買的授權。
 
 
-有關區域可用性，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP的全球區域地圖"^]。
+如需區域可用度，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Cloud Volumes ONTAP的全球區域地圖"^]。
 
 
 
@@ -1852,7 +1852,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage
 
 NOTE: 僅 9.12.1 GA 和 9.13.0 GA 支援在中國區域全新部署Cloud Volumes ONTAP 。您可以將這些版本升級到Cloud Volumes ONTAP的更高修補程式和版本。如果您想在中國地區部署更高版本的Cloud Volumes ONTAP ，請聯絡NetApp支援。
 
-有關區域可用性，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP的全球區域地圖"^]。
+如需區域可用度，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Cloud Volumes ONTAP的全球區域地圖"^]。
 
 
 
@@ -2212,7 +2212,7 @@ https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["ONTAP�
 
 從 9.10.1 版本開始，Azure West US 3 區域現在支援Cloud Volumes ONTAP 。
 
-https://bluexp.netapp.com/cloud-volumes-global-regions["查看Cloud Volumes ONTAP支援區域的完整列表"^]
+https://www.netapp.com/cloud-volumes-ontap/supported-regions/["查看Cloud Volumes ONTAP支援區域的完整列表"^]
 
 
 
@@ -2387,7 +2387,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-tierin
 * 聖地牙哥 (southamerica-west1) - 僅限單一節點
 
 
-https://bluexp.netapp.com/cloud-volumes-global-regions["查看Cloud Volumes ONTAP支援區域的完整列表"^]
+https://www.netapp.com/cloud-volumes-ontap/supported-regions/["查看Cloud Volumes ONTAP支援區域的完整列表"^]
 
 
 

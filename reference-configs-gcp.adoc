@@ -477,7 +477,7 @@ Cloud Volumes ONTAP 9.18.1 及更高版本支援單節點部署的 C3 系列虛�
 [[supported-regions]]
 == 支援的地區
 
-如需 Google Cloud 區域支援，請參閱 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes 全球區域"^]。
+如需 Google Cloud 區域支援，請參閱 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Cloud Volumes 全球區域"^]。
 
 .相關連結
 * https://cloud.google.com/compute/docs/disks/["Google Cloud 文件：儲存選項"^]
