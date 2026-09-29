@@ -20,7 +20,7 @@ _tar.gz_ 檔案包含圖像簽名驗證所需的檔案。除了 _tar.gz_ 檔案�
 
 .步驟
 . 前往 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp支援網站上的Cloud Volumes ONTAP產品頁面"^]並從*下載*部分下載所需的軟體版本。
-. 在Cloud Volumes ONTAP下載頁面上，按一下 Azure 映像檔的下載檔案並下載 _tar.gz_ 檔案。
+. 在 Cloud Volumes ONTAP 下載頁面上，選擇 Azure "映像" 的可下載檔案，然後下載 _tar.gz_ 檔案。
 +
 image::screenshot_cloud_volumes_ontap_tar.gz.png[螢幕截圖雲卷 ontap tar.gz]
 

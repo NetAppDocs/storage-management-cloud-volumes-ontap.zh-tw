@@ -18,4 +18,39 @@ Cloud Volumes ONTAP支援NetApp磁碟區加密 (NVE) 和NetApp聚合加密 (NAE)
 
 NVE 和 NAE 均由外部金鑰管理器支援。
 
-如果def::aws[] endif::aws[] 如果def::azure[] endif::azure[] 如果def::gcp[] endif::gcp[] 如果def::aws[] endif::aws[] 如果def::azure[] endif::azure[] 如果你::gcp[] defendiffcp[]
+如果您使用 NVE，則可以選擇使用雲端提供者的金鑰保管庫來保護ONTAP加密金鑰：
+
+* AWS 關鍵管理服務（從 9.12.0 版本開始）
+* Azure 金鑰保管庫 (AKV)
+* Google Cloud 金鑰管理服務
+
+
+設定外部金鑰管理程式後，新的彙總將預設啟用 NAE。不屬於 NAE 彙總的新 Volume 將預設啟用 NVE（例如，如果您有在設定外部金鑰管理程式之前建立的現有彙總）。
+
+Cloud Volumes ONTAP 不支援就職金鑰管理。
+
+.開始之前
+您的 Cloud Volumes ONTAP 系統應向 NetApp 支援註冊。NetApp Volume Encryption 授權會自動安裝在每個向 NetApp 支援註冊的 Cloud Volumes ONTAP 系統上。
+
+* https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html["將 NetApp 支援網站帳戶新增至控制台"^]
+* link:task-registering.html["註冊現收現付系統"]
+
+
+
+NOTE: NetApp Console 不會在位於中國地區的系統上安裝 NVE 授權。
+
+.步驟
+. 檢視 http://mysupport.netapp.com/matrix["NetApp互通性表工具"^]中支援的金鑰管理器清單。
++
+
+TIP: 搜尋 *Key Managers* 解決方案。
+
+. link:task-connecting-to-otc.html["連線至 Cloud Volumes ONTAP CLI"^]。
+. 設定外部金鑰管理。
++
+** AWS：link:task-aws-key-management.html["AWS 金鑰管理服務"]
+** Azure：link:task-azure-key-vault.html["Azure 金鑰保管庫 (AKV)"]
+** Google Cloud：link:task-google-key-manager.html["Google Cloud 金鑰管理服務"]
+
+
+

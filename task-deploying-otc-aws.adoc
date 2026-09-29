@@ -56,9 +56,9 @@ link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. [[訂閱]]在*系統*頁面上，點擊*新增系統*並依照指示操作。
+. ［［訂閱］］在 *系統* 頁面上，選取 *新增系統* 並依照提示操作。
 . 選擇 *Amazon Web Services* 和 * Cloud Volumes ONTAP Single Node*。
-. 選擇*進階建立*。由於預設選擇了*快速建立*模式，您可能會看到一條有關預設值的訊息。按一下“繼續”。
+. 選擇 *進階建立*。由於預設選擇 *快速建立* 模式，您可能會看到關於預設值的訊息。選擇 *繼續*。
 . 如果出現提示， https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-aws.html["建立控制台代理"^]。
 . *詳細資料和憑證*：可選擇變更 AWS 憑證和訂閱，輸入系統名稱，根據需要新增標籤，然後輸入密碼。
 +
@@ -79,11 +79,11 @@ link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
 | 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
 
 
-| 編輯憑證 | 選擇與您要部署此系統的帳戶相關聯的 AWS 憑證。您也可以關聯要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 市場訂閱。按一下 *新增訂閱* 將所選憑證與新的 AWS 市場訂閱關聯。訂閱可以是年度合約，或是以每小時費率支付 Cloud Volumes ONTAP 費用。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在NetApp Console新增其他 AWS 憑證"^]。 
+| 編輯憑證 | 選擇與您要部署此系統的帳戶相關聯的 AWS 憑證。您也可以關聯要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 市場訂閱。選取 *新增訂閱* 以將所選憑證與新的 AWS 市場訂閱建立關聯。訂閱可以是年度合約，也可以按小時費率支付 Cloud Volumes ONTAP 的費用。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在NetApp Console新增其他 AWS 憑證"^]。 
 |===
 +
 
-TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使用者都需要訂閱。第一個用戶訂閱後，AWS 市場會通知後續用戶他們已經訂閱，如下圖所示。當 AWS 帳戶有訂閱時，每個 IAM 使用者都需要將自己與該訂閱關聯起來。如果您看到下面顯示的訊息，請點擊「*點擊這裡*」連結前往控制台網站並完成該過程。image:screenshot_aws_marketplace.gif["當 AWS 帳戶已有訂閱但特定 IAM 使用者可能沒有時，顯示Cloud Volumes ONTAP控制台的訂閱頁面的螢幕截圖。"]
+TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使用者都需要訂閱。第一個使用者訂閱後，AWS 市場會通知後續使用者他們已訂閱，如下"映像"所示。雖然 AWS 帳戶的訂閱已生效，每個 IAM 使用者仍需要將自己與該訂閱建立關聯。如果您看到如下所示的訊息，請選擇 *click here* 連結前往 Console 網站並完成此程序。image:screenshot_aws_marketplace.gif["當 AWS 帳戶已有訂閱但特定 IAM 使用者可能沒有時，顯示Cloud Volumes ONTAP控制台的訂閱頁面的螢幕截圖。"]
 
 . *服務*：啟用服務啟用或停用您不想與Cloud Volumes ONTAP一起使用的單一服務。
 +
@@ -139,11 +139,11 @@ link:concept-security.html#encryption-of-data-at-rest["了解有關受支援的�
 ** link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
 
 
-. * Cloud Volumes ONTAP配置*（僅限年度 AWS 市場合約）：查看預設配置並點擊*繼續*或點擊*更改配置*以選擇您自己的配置。
+. *Cloud Volumes ONTAP 組態*（僅限年度 AWS 市場合約）：審查預設組態並選擇 *繼續* 或選擇 *變更組態* 以選擇您自己的組態。
 +
 如果保留預設配置，則只需要指定一個卷，然後審核並批准該配置。
 
-. *預先配置套件*：選擇其中一個套件以快速啟動Cloud Volumes ONTAP，或點擊*變更配置*以選擇您自己的配置。
+. *預先組態的套件*：選擇其中一個套件以快速產品發表 Cloud Volumes ONTAP，或選擇 *變更組態* 以選擇您自己的組態。
 +
 如果您選擇其中一個包，那麼您只需要指定一個卷，然後審核並批准配置。
 
@@ -187,7 +187,7 @@ link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
 .. 如果您啟動 WORM 存儲，請選擇保留期限。
 
 
-. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
+. *建立 Volume*：輸入新 Volume 的詳細資料，或選擇 *略過*。
 +
 link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
 
@@ -257,9 +257,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 . *審核並批准*：審核並確認您的選擇。
 +
 .. 查看有關配置的詳細資訊。
-.. 按一下「更多資訊」以查看有關支援和控制台將購買的 AWS 資源的詳細資訊。
+.. 選擇 *更多資訊* 以審查有關支援和控制台將購買的 AWS 資源的詳細資訊。
 .. 選取*我明白...*複選框。
-.. 按一下“*開始*”。
+.. 選擇 *Go*。
 
 
 
@@ -267,7 +267,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 .結果
 控制台啟動Cloud Volumes ONTAP實例。您可以在*審核*頁面上追蹤進度。
 
-如果您在啟動Cloud Volumes ONTAP實例時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+如果在啟動 Cloud Volumes ONTAP 執行個體時遇到任何問題，請審查故障訊息。您也可以選擇系統並選擇 *重新建立環境*。
 
 如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
 
@@ -297,7 +297,7 @@ CAUTION: 部署程序完成後，請勿修改 AWS 雲端入口網站中系統產
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. 在*系統*頁面上，按一下*新增系統*並依照指示操作。
+. 在 *系統* 頁面上，選擇 *新增系統* 並依照提示操作。
 . 選擇 *Amazon Web Services* 和 * Cloud Volumes ONTAP HA*。
 +
 一些 AWS 本地區域可用。
@@ -327,11 +327,11 @@ CAUTION: 部署程序完成後，請勿修改 AWS 雲端入口網站中系統產
 | 使用者名稱和密碼 | 這些是Cloud Volumes ONTAP叢集管理員帳戶的憑證。您可以使用這些憑證透過ONTAP System Manager 或ONTAP CLI 連線到Cloud Volumes ONTAP 。保留預設的_admin_使用者名稱或將其變更為自訂使用者名稱。 
 
 
-| 編輯憑證 | 選擇要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 憑證和市場訂閱。按一下 *Add Subscription* 將所選憑證與新的 AWS 市場訂閱建立關聯。訂閱可以是年度合約，也可以按小時費率支付 Cloud Volumes ONTAP 費用。如果您直接從 NetApp 購買授權（自帶授權或 BYOL），則不需要 AWS 訂閱。NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在控制台中新增其他 AWS 憑證"^]。 
+| 編輯憑證 | 選擇要與此 Cloud Volumes ONTAP 系統搭配使用的 AWS 憑證和市場訂閱。選擇 *Add Subscription* 將所選憑證與新的 AWS 市場訂閱建立關聯。訂閱可以是年度合約，也可以按小時費率支付 Cloud Volumes ONTAP 的費用。如果您直接從 NetApp 購買了授權（自帶授權或 BYOL），則不需要 AWS 訂閱。NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 授權可用性受限"^]。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何在控制台中新增其他 AWS 憑證"^]。 
 |===
 +
 
-TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使用者都需要訂閱。第一個用戶訂閱後，AWS 市場會通知後續用戶他們已經訂閱，如下圖所示。當 AWS 帳戶有訂閱時，每個 IAM 使用者都需要將自己與該訂閱關聯起來。如果您看到下面顯示的訊息，請點擊「*點擊這裡*」連結前往控制台網站並完成該過程。image:screenshot_aws_marketplace.gif["當 AWS 帳戶已有訂閱但特定 IAM 使用者可能沒有時，顯示Cloud Volumes ONTAP控制台的訂閱頁面的螢幕截圖。"]
+TIP: 如果多個 IAM 使用者在同一個 AWS 帳戶中工作，則每個使用者都需要訂閱。第一個使用者訂閱後，AWS 市場會通知後續使用者他們已訂閱，如下"映像"所示。雖然 AWS _帳戶_ 的訂閱已生效，但每個 IAM 使用者都需要將自己與該訂閱建立關聯。如果您看到如下所示的訊息，請選擇 *click here* 連結前往 Console 網站並完成此程序。image:screenshot_aws_marketplace.gif["當 AWS 帳戶已有訂閱但特定 IAM 使用者可能沒有時，顯示Cloud Volumes ONTAP控制台的訂閱頁面的螢幕截圖。"]
 
 . *服務*：啟用服務啟用或停用您不想在此Cloud Volumes ONTAP系統中使用的單一服務。
 +
@@ -397,11 +397,11 @@ link:concept-security.html#encryption-of-data-at-rest["了解有關受支援的�
 ** link:task-set-up-licensing-aws.html["了解如何設定許可"^] 。
 
 
-. * Cloud Volumes ONTAP配置*（僅限年度 AWS Marketplace 合約）：查看預設配置並點擊*繼續*或點擊*更改配置*以選擇您自己的配置。
+. *Cloud Volumes ONTAP 組態*（僅限年度 AWS Marketplace 合約）：審查預設組態並選擇 *繼續* 或選擇 *變更組態* 以選擇您自己的組態。
 +
 如果保留預設配置，則只需要指定一個卷，然後審核並批准該配置。
 
-. *預先配置套件*（按小時或僅限 BYOL）：選擇其中一個套件以快速啟動Cloud Volumes ONTAP，或點擊*變更配置*以選擇您自己的配置。
+. *預先配置的套件*（僅限按小時或 BYOL）：選擇其中一個套件即可快速產品發表 Cloud Volumes ONTAP，或選擇 *變更組態* 來選擇您自己的組態。
 +
 如果您選擇其中一個包，那麼您只需要指定一個卷，然後審核並批准配置。
 
@@ -445,7 +445,7 @@ link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
 .. 如果您啟動 WORM 存儲，請選擇保留期限。
 
 
-. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
+. *建立 Volume*：輸入新 Volume 的詳細資料，或選擇 *略過*。
 +
 link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
 
@@ -515,9 +515,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 . *審核並批准*：審核並確認您的選擇。
 +
 .. 查看有關配置的詳細資訊。
-.. 按一下「更多資訊」以查看有關支援和控制台將購買的 AWS 資源的詳細資訊。
+.. 選擇 *更多資訊* 以審查有關支援和控制台將購買的 AWS 資源的詳細資訊。
 .. 選取*我明白...*複選框。
-.. 按一下“*開始*”。
+.. 選擇 *Go*。
 
 
 
@@ -525,7 +525,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 .結果
 控制台啟動Cloud Volumes ONTAP HA 對。您可以在*審核*頁面上追蹤進度。
 
-如果您在啟動 HA 對時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊重新建立環境。
+如果在啟動 HA 配對時遇到任何問題，審查故障訊息。您也可以選擇系統並選擇「重新建立環境」。
 
 .完成後
 * 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。

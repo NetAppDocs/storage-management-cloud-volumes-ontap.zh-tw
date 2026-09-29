@@ -19,12 +19,8 @@ Cloud Volumes ONTAP CLI 讓您能夠執行所有管理命令，對於高階任�
 .開始之前
 使用 SSH 連線到Cloud Volumes ONTAP 的主機必須具有與Cloud Volumes ONTAP 的網路連線。例如，您可能需要從雲端供應商網路中的跳轉主機進行 SSH。
 
-ifdef::aws[]
 
-
-NOTE: 當部署在多個 AZ 中時， Cloud Volumes ONTAP HA 配置使用浮動 IP 位址作為叢集管理接口，這表示外部路由不可用。您必須從屬於相同路由域的主機進行連線。
-
-endif::aws[]
+NOTE: 在 AWS 中，當部署在多個 AZ 時，採用 HA 組態的 Cloud Volumes ONTAP 會針對叢集管理介面使用浮動 IP 位址，這表示無法使用外部路由。您必須從屬於相同路由網域的主機進行連線。
 
 .步驟
 . 在NetApp Console中，確定叢集管理介面的 IP 位址：

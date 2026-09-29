@@ -56,7 +56,7 @@ link:task-set-up-licensing-azure.html["了解如何設定許可"^] 。
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. [[訂閱]]在*系統*頁面上，點擊*新增系統*並依照指示操作。
+. ［［訂閱］］在 *系統* 頁面上，選取 *新增系統* 並依照提示操作。
 . *選擇位置*：選擇*Microsoft Azure*和* Cloud Volumes ONTAP單一節點*。
 . 如果出現提示， https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["建立控制台代理"^]。
 . *詳細資料和憑證*：可選擇變更 Azure 憑證和訂閱，指定群集名稱，根據需要新增標籤，然後指定憑證。
@@ -130,7 +130,7 @@ TIP: 如果您使用的 Azure 帳戶具有 https://docs.netapp.com/us-en/console
 ** link:task-set-up-licensing-azure.html["了解如何設定許可"^] 。
 
 
-. *預先配置套件*：選擇其中一個套件來快速部署Cloud Volumes ONTAP系統，或點擊*建立我自己的設定*。
+. *預先配置的套件*：選擇其中一個套件以快速部署 Cloud Volumes ONTAP 系統，或選擇 *建立我自己的組態*。
 +
 如果您選擇其中一個套餐，您只需指定一個卷，然後審核並批准配置。
 
@@ -177,7 +177,7 @@ link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
 .. 如果您啟動 WORM 存儲，請選擇保留期限。
 
 
-. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
+. *建立 Volume*：輸入新 Volume 的詳細資料，或選擇 *略過*。
 +
 link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
 
@@ -247,9 +247,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 . *審核並批准*：審核並確認您的選擇。
 +
 .. 查看有關配置的詳細資訊。
-.. 按一下「更多資訊」以查看有關支援和控制台將購買的 Azure 資源的詳細資訊。
+.. 選擇 *更多資訊* 以審查有關支援和 Console 將購買的 Azure 資源的詳細資訊。
 .. 選取*我明白...*複選框。
-.. 按一下“*開始*”。
+.. 選擇 *Go*。
 
 
 
@@ -257,7 +257,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 .結果
 控制台部署Cloud Volumes ONTAP系統。您可以在審核頁面上追蹤進度。
 
-如果您在部署Cloud Volumes ONTAP系統時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+如果您在部署 Cloud Volumes ONTAP 系統時遇到任何問題，請審查故障訊息。您也可以選擇該系統並選擇 *重新建立環境*。
 
 如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
 
@@ -281,7 +281,7 @@ CAUTION: 部署程序完成後，請勿修改 Azure 入口網站中系統產生�
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. [[訂閱]]在*系統*頁面上，點擊*新增系統*並依照指示操作。
+. ［［訂閱］］在 *系統* 頁面上，選取 *新增系統* 並依照提示操作。
 . 如果出現提示， https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["建立控制台代理"^]。
 . *詳細資料和憑證*：可選擇變更 Azure 憑證和訂閱，指定群集名稱，根據需要新增標籤，然後指定憑證。
 +
@@ -365,7 +365,7 @@ TIP: 如果您使用的 Azure 帳戶具有 https://docs.netapp.com/us-en/console
 ** link:task-set-up-licensing-azure.html["了解如何設定許可"^] 。
 
 
-. *預先配置套件*：選擇其中一個套件來快速部署Cloud Volumes ONTAP系統，或點擊*變更配置*。
+. *預先配置軟體包*：選擇一個軟體包以快速部署 Cloud Volumes ONTAP 系統，或選擇*變更組態*。
 +
 如果您選擇其中一個套餐，您只需指定一個卷，然後審核並批准配置。
 
@@ -428,7 +428,7 @@ link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
 +
 link:concept-worm.html["了解有關 WORM 存儲的更多信息"^] 。
 
-. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
+. *建立 Volume*：輸入新 Volume 的詳細資料，或選擇 *略過*。
 +
 link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
 
@@ -498,9 +498,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 . *審核並批准*：審核並確認您的選擇。
 +
 .. 查看有關配置的詳細資訊。
-.. 按一下「更多資訊」以查看有關支援和控制台將購買的 Azure 資源的詳細資訊。
+.. 選擇 *更多資訊* 以審查有關支援和 Console 將購買的 Azure 資源的詳細資訊。
 .. 選取*我明白...*複選框。
-.. 按一下“*開始*”。
+.. 選擇 *Go*。
 
 
 
@@ -508,7 +508,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 .結果
 控制台部署Cloud Volumes ONTAP系統。您可以在審核頁面上追蹤進度。
 
-如果您在部署Cloud Volumes ONTAP系統時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+如果您在部署 Cloud Volumes ONTAP 系統時遇到任何問題，請審查故障訊息。您也可以選擇該系統並選擇 *重新建立環境*。
 
 .完成後
 * 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。

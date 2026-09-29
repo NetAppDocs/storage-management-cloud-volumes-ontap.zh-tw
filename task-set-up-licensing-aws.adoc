@@ -35,10 +35,10 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 
 .步驟
 . 在 NetApp Console 的左側面板中，選擇 *Administration > Licenses and subscriptions > Billing preferences > Cloud Volumes ONTAP*。
-. 在 AWS 標籤上，選擇獨立訂閱，然後按一下選項圖示 image:screenshot_gallery_options.gif["烤肉串圖標"]。
+. 在 AWS 標籤上，選擇獨立式訂閱，然後選擇選項圖示 image:screenshot_gallery_options.gif["烤肉串圖標"]。
 . 在「編輯配置」視窗中，在 *AWS 帳戶憑證* 欄位中選擇獨立清單的訂閱編號。
-. 點選 *Configure*。您可以看到，訂閱是您在 AWS 中 Cloud Volumes ONTAP 計費的首選選項。
-. 部署新的 Cloud Volumes ONTAP 系統時，請選擇 Essentials 套裝，以便透過獨立訂閱進行計費。如需相關資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用 AWS 中的快速建立功能部署 Cloud Volumes ONTAP"^]。
+. 選擇 *Configure*。您可以看到，訂閱是您在 AWS 中 Cloud Volumes ONTAP 計費的首選選項。
+. 部署新的 Cloud Volumes ONTAP 系統時，請選擇 Essentials 套裝，以便透過獨立訂閱進行計費。如需相關資訊，請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速建立部署 Cloud Volumes ONTAP"^]。
 
 
 在 *Data services* 標籤上重複相同的步驟，即可將 NIS 訂閱用於您的資料服務。部署新的 Cloud Volumes ONTAP 系統時，請選擇 Professional 套餐，以便透過 NIS 訂閱進行計費。
@@ -79,9 +79,9 @@ NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資訊，�
 +
 您必須先從主控台取得授權，才能將其與 Cloud Volumes ONTAP 搭配使用。如有需要，您可以 link:https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html#add-a-license["手動將許可證新增至控制台"^]。
 
-. 在控制台的「*系統*」頁面上，按一下「*新增系統*」並依照步驟操作。
+. 在主控台的 *系統* 頁面上，選擇 *新增系統* 並按照步驟操作。
 +
-.. 在“詳細資料和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 AWS Marketplace 中的即用即付服務。
+.. 在 *詳細資訊和憑證* 頁面上，選擇 *編輯憑證 > 新增訂閱*，然後按照提示在 AWS Marketplace 中訂閱隨用隨付產品。
 +
 總是會先向您從NetApp購買的許可證收費，但如果您超出許可容量或許可證期限到期，則會按照市場上的小時費率向您收費。
 
@@ -109,9 +109,9 @@ link:task-deploying-otc-aws.html["查看在 AWS 中啟動Cloud Volumes ONTAP 的
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 AWS Marketplace 中的即用即付服務
+.. 在 *詳細資訊和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示在 AWS Marketplace 中訂閱隨用隨付產品
 +
 image:screenshot-aws-paygo-subscription.png["建立Cloud Volumes ONTAP系統時 PAYGO 訂閱選項的螢幕截圖。"]
 
@@ -138,9 +138,9 @@ TIP: 您可以從「設定」>「憑證」頁面管理與您的 AWS 帳戶關聯
 與按小時訂閱類似，控制台會提示您訂閱 AWS Marketplace 中提供的年度合約。
 
 .步驟
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在*詳細資訊和憑證*頁面上，按一下*編輯憑證 > 新增訂閱*，然後依照指示在 AWS Marketplace 中訂閱年度合約。
+.. 在 *詳細資訊和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後按照提示在 AWS Marketplace 中訂閱年度合約。
 +
 image:screenshot-aws-annual-subscription.png["建立Cloud Volumes ONTAP系統時提供的年度合約的螢幕截圖。"]
 
@@ -163,9 +163,9 @@ link:task-deploying-otc-aws.html["查看在 AWS 中啟動Cloud Volumes ONTAP 的
 
 .步驟
 . 從NetApp Console的左側導覽功能表中，選擇「儲存」>「管理」。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在“詳細資料和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 AWS Marketplace 中的即用即付服務。
+.. 在 *詳細資訊和憑證* 頁面上，選擇 *編輯憑證 > 新增訂閱*，然後按照提示在 AWS Marketplace 中訂閱隨用隨付產品。
 +
 除非您超過 500 GiB 的預置容量，否則不會透過市場訂閱向您收費，屆時系統將自動轉換為 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#packages["基本套餐"^]。
 
@@ -193,7 +193,7 @@ Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.h
 . 如果您尚未訂閱， https://www.netapp.com/forms/keystone-sales-contact/["聯絡NetApp"^]
 . mailto:ng-keystone-success@netapp.com[聯絡NetApp] 為您的使用者帳號授權一個或多個Keystone訂閱。
 . NetApp授權您的帳戶後，link:task-manage-keystone.html#link-a-subscription["連結您的訂閱以用於Cloud Volumes ONTAP"] 。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
 .. 當提示選擇充電方式時，選擇Keystone Subscription 充電方式。
 +

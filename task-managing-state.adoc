@@ -37,7 +37,7 @@ summary: 您可以從NetApp Console停止並啟動Cloud Volumes ONTAP來管理�
 
 .步驟
 . 在*系統*頁面上，雙擊Cloud Volumes ONTAP系統。
-. 在「概覽」標籤上，按一下「功能」面板，然後按一下「*規劃停機時間*」旁的鉛筆圖示。
+. 在「概覽」標籤上，選取「功能」面板，然後選取 *計畫停機時間* 旁的鉛筆圖示。
 +
 image::screenshot_schedule_downtime.png[400]
 
@@ -56,7 +56,7 @@ image:screenshot_schedule_downtime_window.png["螢幕截圖：顯示計劃停機
 
 
 
-. 點選“儲存”。
+. 選擇 *Save*。
 
 
 .結果
@@ -76,12 +76,12 @@ NOTE: 為了降低成本，控制台會定期刪除根和啟動磁碟的舊快�
 當您停止 HA 對時，控制台將關閉兩個節點。
 
 .步驟
-. 在系統中，按一下「*關閉*」圖示。
+. 從系統中，選取 *關閉* 圖示。
 +
 image:screenshot_turn_off_redesign.png["螢幕截圖：顯示關閉Cloud Volumes ONTAP系統的圖示。"]
 
 . 保持建立快照的選項處於啟用狀態，因為快照可以啟用系統復原。
-. 按一下“關閉”。
+. 選取 *關閉*。
 +
 停止系統可能需要幾分鐘的時間。您可以稍後從*系統*頁面重新啟動系統。
 

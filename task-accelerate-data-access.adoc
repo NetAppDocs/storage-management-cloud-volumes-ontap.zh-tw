@@ -36,25 +36,11 @@ video::PBNPVRUeT1o[youtube,width=848,height=480]
 
 .開始之前
 . *加密設定*：確保來源磁碟區完全加密且可操作。對於Cloud Volumes ONTAP系統，這涉及與特定於雲端的金鑰管理服務整合。
++
+** *對於 AWS 而言*，這通常表示使用 AWS 關鍵管理服務（KMS）。如需詳細資訊，請參閱 link:task-aws-key-management.html["使用 AWS Key Management Service 管理金鑰"]。
+** *對於 Azure*，您需要為 NetApp Volume Encryption（NVE）設定 Azure Key Vault。如需詳細資訊，請參閱 link:task-azure-key-vault.html["使用 Azure Key Vault 管理金鑰"]。
+** *對於 Google Cloud*，請使用 Google Cloud 關鍵管理服務。如需詳細資訊，請參閱 link:task-google-key-manager.html["使用 Google 的雲端金鑰管理服務管理金鑰"]。
 
-
-ifdef::aws[]
-
-對於 AWS，這通常表示使用 AWS 金鑰管理服務 (KMS)。有關信息，請參閱link:task-aws-key-management.html["使用 AWS Key Management Service 管理金鑰"]。
-
-endif::aws[]
-
-ifdef::azure[]
-
-對於 Azure，您需要為NetApp磁碟區加密 (NVE) 設定 Azure Key Vault。有關信息，請參閱link:task-azure-key-vault.html["使用 Azure Key Vault 管理金鑰"]。
-
-endif::azure[]
-
-ifdef::gcp[]
-
-對於 Google Cloud，它是 Google Cloud Key Management Service。有關信息，請參閱link:task-google-key-manager.html["使用 Google 的雲端金鑰管理服務管理金鑰"]。
-
-endif::gcp[]
 
 . *金鑰管理服務*：在建立FlexCache區之前，請先確認金鑰管理服務是否在Cloud Volumes ONTAP系統上正確設定。此配置對於FlexCache磁碟區解密來自原始磁碟區的資料至關重要。
 . *許可*：確認有效的FlexCache許可證可用並在Cloud Volumes ONTAP系統上啟動。

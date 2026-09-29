@@ -68,7 +68,7 @@ summary: 您可以在 AWS Secret Cloud 和 Top Secret Cloud 環境中部署 Clou
 
 
 .步驟
-. 前往 AWS IAM 控制台並點擊 *政策*。
+. 前往 AWS IAM 主控台並選擇 *原則*。
 . 為控制台代理實例建立策略。
 +
 
@@ -592,17 +592,17 @@ docker restart <docker-id>
 . 從左側導覽選單中，選擇*Licenses and subscriptions*。
 . 在 * Cloud Volumes ONTAP* 面板上，選擇 *檢視*。
 . 在 * Cloud Volumes ONTAP* 標籤上，選擇 *許可證>基於節點的許可證*。
-. 按一下“*未分配*”。
-. 按一下「新增未指派的許可證」。
+. 選取 *未指派*。
+. 選擇 *新增未指派的授權*。
 . 輸入許可證的序號或上傳許可證文件。
 . 如果您還沒有許可證文件，則需要從 netapp.com 手動上傳許可證文件。
 +
 .. 前往link:https://register.netapp.com/site/vsnr/register/getlicensefile["NetApp許可證文件產生器"^]並使用您的NetApp支援網站憑證登入。
-.. 輸入您的密碼，選擇您的產品，輸入序號，確認您已閱讀並接受隱私權政策，然後按一下*提交*。
+.. 輸入您的密碼，選擇您的產品，輸入序號，確認您已讀取並接受隱私權政策，然後選擇 *提交*。
 .. 選擇您是否希望透過電子郵件或直接下載接收 serialnumber.NLF JSON 檔案。
 
 
-. 按一下「新增許可證」。
+. 選取 *Add License*。
 
 
 .結果
@@ -619,7 +619,7 @@ docker restart <docker-id>
 對於 HA 對，需要金鑰對來啟用對 HA 中介的基於金鑰的 SSH 驗證。
 
 .步驟
-. 在「*系統*」頁面上，按一下「*新增系統*」。
+. 在 *系統* 頁面上，選取 *新增系統*。
 . 在「*建立*」下，選擇Cloud Volumes ONTAP。
 +
 對於 HA：在 *建立* 下，選擇Cloud Volumes ONTAP或Cloud Volumes ONTAP HA。

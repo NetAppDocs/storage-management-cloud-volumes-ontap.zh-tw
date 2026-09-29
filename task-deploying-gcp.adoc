@@ -59,7 +59,7 @@ link:task-set-up-licensing-google.html["了解如何設定許可"] 。
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. [[訂閱]]在*系統*頁面上，點擊*新增系統*並依照指示操作。
+. ［［訂閱］］在 *系統* 頁面上，選取 *新增系統* 並依照提示操作。
 . *選擇位置*：選擇*Google Cloud*和* Cloud Volumes ONTAP*。
 . 如果系統提示， https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["建立控制台代理"^]。
 . *詳細資料和憑證*：選擇一個項目，指定一個群集名稱，可選地選擇一個服務帳戶，可選地新增標籤，然後指定憑證。
@@ -92,7 +92,7 @@ link:task-set-up-licensing-google.html["了解如何設定許可"] 。
 
 NOTE: 這是您為 Console 設定的服務帳戶，link:https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["如本頁所述"^]。
 
-按一下「新增訂閱」將選定的憑證與訂閱關聯。
+選擇 *新增訂閱* 將所選憑證與訂閱關聯。
 
 若要建立隨用隨付的 Cloud Volumes ONTAP 系統，您需要從 Google Cloud 市場中選擇一個與 Cloud Volumes ONTAP 訂閱相關的 Google Cloud 專案。請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html["將市場訂閱與 Google Cloud 憑證關聯"^]。
 
@@ -132,7 +132,7 @@ TIP: 如果您想使用 WORM 和資料分層，則必須停用備份和還原並
 ** link:task-set-up-licensing-google.html["了解如何設定許可"^]
 
 
-. *預先配置套件*：選擇其中一個套件以快速部署 Cloud Volumes ONTAP 系統，或按一下*建立我自己的組態*。預先配置套件會因所選的 Cloud Volumes ONTAP 版本而異。例如，對於 Cloud Volumes ONTAP 9.18.1 及更新版本，NetApp Console 會顯示包含 C3 VM 的套件，包括 Hyperdisk Balanced 磁碟。您可以根據工作負載需求修改組態，例如 IOPS 和處理量參數。
+. *預先設定的套件*：選擇其中一個套件以快速部署 Cloud Volumes ONTAP 系統，或選擇 *建立自訂組態*。預先設定的套件會根據所選的 Cloud Volumes ONTAP 版本而有所不同。例如，對於 Cloud Volumes ONTAP 9.18.1 及更新版本，主控台會顯示包含 C3 VM（包括 Hyperdisk Balanced 磁碟）的套件。您可以根據工作負載需求修改組態，例如 IOPS 和處理量參數。
 +
 如果您選擇其中一個套餐，您只需指定一個卷，然後審核並批准配置。
 
@@ -185,7 +185,7 @@ link:concept-data-tiering.html["了解有關數據分層的更多信息"^] 。
 
 
 
-. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
+. *建立 Volume*：輸入新 Volume 的詳細資料，或選擇 *略過*。
 +
 link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
 
@@ -255,9 +255,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 . *審核並批准*：審核並確認您的選擇。
 +
 .. 查看有關配置的詳細資訊。
-.. 點擊*更多資訊*查看有關支援和控制台將購買的 Google Cloud 資源的詳細資訊。
+.. 選擇 *更多資訊* 以審查有關支援和控制台將購買的 Google Cloud 資源的詳細資訊。
 .. 選取*我明白...*複選框。
-.. 按一下“*開始*”。
+.. 選擇 *Go*。
 
 
 
@@ -265,7 +265,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 .結果
 控制台部署Cloud Volumes ONTAP系統。您可以在*審核*頁面上追蹤進度。
 
-如果您在部署Cloud Volumes ONTAP系統時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+如果您在部署 Cloud Volumes ONTAP 系統時遇到任何問題，請審查故障訊息。您也可以選擇該系統並選擇 *重新建立環境*。
 
 如需更多協助，請訪問 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
 
@@ -289,7 +289,7 @@ CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. 在*系統*頁面上，按一下*儲存>系統*並按照提示進行操作。
+. 在 *系統* 頁面上，選擇 *儲存設備 > 系統*，然後依照指示操作。
 . *選擇位置*：選擇*Google Cloud*和* Cloud Volumes ONTAP HA*。
 . *系統詳情*：選擇一個專案，指定叢集名稱，可選擇服務帳戶，可選擇新增標籤，然後指定憑證。
 +
@@ -304,7 +304,7 @@ CAUTION: 部署程序完成後，請勿在 Google Cloud 入口網站中修改系
 | Google Cloud 專案和 Marketplace 訂閱  a| 
 選擇要用於此系統的 Google 專案和訂閱。這是您為 Console 設定的服務帳號。如需相關資訊，請參閱 link:https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["主控台設定文件"^]。Console 使用專案建立 Cloud Volumes ONTAP 系統，並使用訂閱確定計費和使用情況。如果在下拉清單中看不到任何其他專案，則表示您尚未將該服務帳號與其他專案建立關聯。請前往 Google Cloud Console，開啟 IAM 服務，然後選擇專案。將用於 Console 的角色所對應的服務帳號新增至該專案。您需要對每個專案重複此步驟。
 
-按一下「新增訂閱」將選定的憑證與訂閱關聯。
+選擇 *新增訂閱* 將所選憑證與訂閱關聯。
 
 若要建立隨用隨付的 Cloud Volumes ONTAP 系統，您需要從 Google Cloud Marketplace 中選擇一個與 Cloud Volumes ONTAP 訂閱關聯的 Google Cloud 專案。請參閱 Console 設定文件： https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html["將市場訂閱與 Google Cloud 憑證關聯"^]。
 
@@ -364,7 +364,7 @@ link:reference-networking-gcp.html["了解有關網絡要求的更多信息"^] �
 ** link:task-set-up-licensing-google.html["了解如何設定許可"^] 。
 
 
-. *預先配置套件*：選擇其中一個套件來快速部署Cloud Volumes ONTAP系統，或點擊*建立我自己的設定*。
+. *預先配置的套件*：選擇其中一個套件以快速部署 Cloud Volumes ONTAP 系統，或選擇 *建立我自己的組態*。
 +
 如果您選擇其中一個套件，只需指定一個磁碟區，然後審核並核准組態即可。預先配置套件會根據所選的 Cloud Volumes ONTAP 版本和組態類型而有所不同。例如，如果您選擇 Cloud Volumes ONTAP 9.19.1 或更新版本的單一 AZ 部署，則可以看到包含 C3 系列機器和 Hyperdisk Balanced 磁碟的預先配置套件。對於舊版和多個 AZ，您仍然可以選擇 n2-standard 機器和 Persistent Disks。您可以根據工作負載需求修改組態，例如 IOPS 和輸送量參數。
 
@@ -416,7 +416,7 @@ link:concept-data-tiering.html["了解有關數據分層的更多信息"^] 。
 
 
 
-. *建立磁碟區*：輸入新磁碟區的詳細資料或點選*跳過*。
+. *建立 Volume*：輸入新 Volume 的詳細資料，或選擇 *略過*。
 +
 link:concept-client-protocols.html["了解支援的客戶端協定和版本"^] 。
 
@@ -486,9 +486,9 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 . *審核並批准*：審核並確認您的選擇。
 +
 .. 查看有關配置的詳細資訊。
-.. 點擊*更多資訊*查看有關支援和控制台將購買的 Google Cloud 資源的詳細資訊。
+.. 選擇 *更多資訊* 以審查有關支援和控制台將購買的 Google Cloud 資源的詳細資訊。
 .. 選取*我明白...*複選框。
-.. 按一下“*開始*”。
+.. 選擇 *Go*。
 
 
 
@@ -496,7 +496,7 @@ image:screenshot_cot_vol.gif["螢幕截圖：顯示為Cloud Volumes ONTAP實例�
 .結果
 控制台部署Cloud Volumes ONTAP系統。您可以在*審核*頁面上追蹤進度。
 
-如果您在部署Cloud Volumes ONTAP系統時遇到任何問題，請查看失敗訊息。您也可以選擇系統並點擊*重新建立環境*。
+如果您在部署 Cloud Volumes ONTAP 系統時遇到任何問題，請審查故障訊息。您也可以選擇該系統並選擇 *重新建立環境*。
 
 .完成後
 * 如果您配置了 CIFS 共享，請授予使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。

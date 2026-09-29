@@ -27,8 +27,8 @@ summary: 當您建立 iSCSI 磁碟區時， NetApp Console會自動為您建立 
 . 在*系統*頁面上，雙擊要管理磁碟區的Cloud Volumes ONTAP系統。
 . 在系統中，選擇*Volumes*選項卡。
 . 前往所需的磁碟區圖區塊，然後選擇*管理磁碟區*以存取右側的管理磁碟區面板。
-. 按一下*目標 iQN*。
-. 按一下*複製*以複製 iQN 名稱。
+. 選擇 *Target iQN*。
+. 選擇 *複本* 以複製 iQN 名稱。
 . 建立從主機到 LUN 的 iSCSI 連線。
 +
 ** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-iscsi-rhel-cg/GUID-15E8C226-BED5-46D0-BAED-379EA4311340.html["適用於 Red Hat Enterprise Linux 的ONTAP 9 iSCSI 快速設定：啟動與目標的 iSCSI 會話"^]

@@ -39,15 +39,14 @@ summary: 從NetApp Console升級Cloud Volumes ONTAP以取得最新的功能和�
 
 
 [[supported-upgrade-paths]]
-=== 支援的升級路徑
+== 支援的升級路徑
 
 您可以升級到的 Cloud Volumes ONTAP 版本取決於您目前正在執行的版本。下表中每個發行版本的通用版本或修補程式版本代表可供升級的基本版本。有關可用修補程式的詳細資訊，請參閱每個發行版本的 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["版本化發行說明"^]。
 
-ifdef::aws[]
 
 
-
-==== AWS 支援的升級路徑
+[[aws]]
+=== AWS
 
 [cols="2*"]
 |===
@@ -152,13 +151,10 @@ ifdef::aws[]
 
 | 8.3 | 9.0 
 |===
-endif::aws[]
-
-ifdef::azure[]
 
 
-
-==== Azure 支援的升級路徑
+[[azure]]
+=== Azure
 
 [cols="2*"]
 |===
@@ -193,13 +189,10 @@ ifdef::azure[]
 * 9.10.1 P12 -> 9.11.1 P20
 
 
-endif::azure[]
-
-ifdef::gcp[]
 
 
-
-==== Google Cloud 支援的升級路徑
+[[google-cloud]]
+=== Google雲
 
 [cols="2*"]
 |===
@@ -304,8 +297,6 @@ ifdef::gcp[]
 
 | 8.3 | 9.0 
 |===
-endif::gcp[]
-
 請注意以下事項：
 
 * Cloud Volumes ONTAP支援的升級路徑與本機ONTAP叢集支援的升級路徑不同。
@@ -441,8 +432,8 @@ NOTE: 儘管NetApp Backup and Recovery使用SnapMirror的實作來建立備份�
 
 NOTE: 您從中存取控制台的電腦必須具有與Cloud Volumes ONTAP 的網路連線。例如，您可能需要從雲端供應商網路中的跳轉主機登入控制台。
 
-. 點選*保護>關係*。
-. 選擇關係並點選*操作>靜默*。
+. 選取 *保護 > 關係*。
+. 選取關係，然後選取 *作業 > 靜止*。
 
 
 
@@ -456,15 +447,15 @@ NOTE: 您從中存取控制台的電腦必須具有與Cloud Volumes ONTAP 的網
 以下步驟介紹如何使用ONTAP System Manager 9.3 及更高版本。
 
 .步驟
-. 在Cloud Volumes ONTAP系統上，按一下 *Aggregates* 標籤。
-. 在所需的彙總圖塊上，按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後選取 *檢視彙總詳細資料*。
+. 在 Cloud Volumes ONTAP 系統中，選擇 *彙總* 標籤。
+. 在所需的彙總圖塊上，選取 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後選取 *檢視彙總詳細資料*。
 +
 image:screenshots_aggregate_details_state.png["螢幕截圖：查看聚合資訊時顯示「狀態」欄位。"]
 
 . 如果聚合處於離線狀態，請使用ONTAP系統管理員使聚合處於連線狀態：
 +
-.. 按一下“儲存”>“聚合和磁碟”>“聚合”。
-.. 選擇聚合，然後按一下*更多操作>狀態>線上*​​。
+.. 選擇 *儲存 > 彙總 & 磁碟 > 彙總*。
+.. 選擇彙總，然後選擇 *更多動作 > 狀態 > 線上*。
 
 
 
@@ -511,20 +502,20 @@ Cloud Volumes ONTAP系統上不得進行磁碟區或聚合建立等操作。
 +
 image:screenshot_overview_upgrade.png["顯示「概覽」標籤下「立即升級！」連結的螢幕截圖。"]
 
-. 如果要升級已安裝的Cloud Volumes ONTAP版本，請按一下“立即升級！”預設情況下，您會看到最新的、相容的升級版本。
+. 如果要升級已安裝的 Cloud Volumes ONTAP 版本，請選擇「立即升級！」預設情況下，您會看到最新的相容版本可供升級。
 +
 image:screenshot_upgrade_select_versions.png["升級Cloud Volumes ONTAP版本頁面的螢幕截圖。"]
 
 +
-若要升級到其他版本，請點選*選擇其他版本*。您會看到所列的最新Cloud Volumes ONTAP版本也與您系統上安裝的版本相容。例如，您的系統上安裝的版本是9.12.1P3，並且有以下相容版本可用：
+如果您想升級到其他版本，請選擇 *選擇其他版本*。您將看到與您系統上已安裝版本相容的最新 Cloud Volumes ONTAP 版本清單。例如，您系統上已安裝的版本是 9.12.1P3，以下是可用的相容版本：
 
 +
 ** 9.12.1P4 至 9.12.1P14
 ** 9.13.1 和 9.13.1P1 您會看到 9.13.1P1 是升級的預設版本，而 9.12.1P13、9.13.1P14、9.13.1 和 9.13.1P1 是其他可用版本。
 
 
-. 或者，您可以按一下「所有版本」來輸入要升級到的另一個版本（例如，已安裝版本的下一個修補程式）。有關目前Cloud Volumes ONTAP版本的相容升級路徑，請參閱link:task-updating-ontap-cloud.html#supported-upgrade-paths["支援的升級路徑"]。
-. 按一下“*儲存*”，然後按一下“*應用*”。image:screenshot_upgrade_other_versions.png["顯示可升級版本的螢幕截圖。"]
+. 您也可以選擇 *All versions* 來輸入要升級到的其他版本（例如，已安裝版本的下一個修補程式）。如需目前 Cloud Volumes ONTAP 版本的相容升級途徑，請參閱 link:task-updating-ontap-cloud.html#supported-upgrade-paths["支援的升級路徑"]。
+. 選取 *儲存*，然後選取 *套用*。 image:screenshot_upgrade_other_versions.png["顯示可升級版本的螢幕截圖。"]
 . 在升級Cloud Volumes ONTAP頁面中，請閱讀 EULA，然後選擇 *我已閱讀並同意 EULA*。
 . 選擇*升級*。
 . 若要查看進度，請在Cloud Volumes ONTAP系統上選擇 *Audit*。
@@ -574,8 +565,8 @@ NOTE: 預先定義的Cloud Volumes ONTAP安全群組預設允許出站 HTTP 連�
 ** `/opt/application/netapp/cloudmanager/ontap/images/`
 
 
-. 在系統上，按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後按一下 *更新 Cloud Volumes ONTAP*。
-. 在更新Cloud Volumes ONTAP版本頁面上，輸入 URL，然後按一下 *變更圖片*。
+. 在系統中，選擇 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後選擇 *更新 Cloud Volumes ONTAP*。
+. 在「更新 Cloud Volumes ONTAP 版本」頁面上，輸入 URL，然後選擇 *變更映像*。
 +
 如果您將軟體映像複製到上面顯示的路徑中的控制台代理，則需要輸入以下 URL：
 
@@ -586,7 +577,7 @@ NOTE: 預先定義的Cloud Volumes ONTAP安全群組預設允許出站 HTTP 連�
 
 NOTE: 在 URL 中，*image-file-name* 必須遵循「cot.image.9.13.1P2.tgz」格式。
 
-. 按一下“繼續”進行確認。
+. 選取 *繼續* 以確認。
 
 
 .結果
@@ -594,8 +585,6 @@ NOTE: 在 URL 中，*image-file-name* 必須遵循「cot.image.9.13.1P2.tgz」�
 
 .完成後
 如果您暫停了SnapMirror傳輸，請使用系統管理員恢復傳輸。
-
-ifdef::gcp[]
 
 
 
@@ -619,5 +608,3 @@ _maxDownloadSessions_ 的值可以是 1 或任何大於 1 的整數。如果值�
 請注意，32 是一個範例值。您應該使用的值取決於您的 NAT 配置和您可以同時擁有的會話數。
 
 https://docs.netapp.com/us-en/console-automation/cm/api_ref_resources.html#occmconfig["了解有關 /occm/config API 呼叫的更多信息"^]。
-
-endif::gcp[]

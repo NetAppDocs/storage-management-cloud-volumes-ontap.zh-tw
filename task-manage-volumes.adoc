@@ -32,37 +32,37 @@ summary: NetApp Console可讓您管理磁碟區和 CIFS 伺服器。它還會提
 +
 image:screenshot_manage_vol_button.png["「磁碟區」標籤下的「管理磁碟區」按鈕的螢幕截圖。"]
 
-. 在所需的捲圖塊上，按一下*管理磁碟區*。
+. 在所需的 Volume 磁貼上，選擇 *管理 Volume*。
 +
 [cols="30,70"]
 |===
 | 任務 | 行動 
 
 
-| 查看有關卷的信息 | 在「管理磁碟區」面板的「磁碟區操作」下，按一下「檢視磁碟區詳細資料」。 
+| 查看有關卷的信息 | 在「管理 Volume」面板的「Volume 行動」下，選取 *檢視 Volume 詳細資料*。 
 
 
 | 取得NFS掛載命令  a| 
-.. 在「管理磁碟區」面板的「磁碟區操作」下，按一下「安裝指令」。
-.. 按一下“*複製*”。
+.. 在「管理 Volume」面板的「Volume 行動」下，選取 *掛載指令*。
+.. 選擇 *複本*。
 
 
 
 
 | 複製卷  a| 
-.. 在「管理磁碟區」面板的「磁碟區操作」下，按一下「複製磁碟區」。
-.. 根據需要修改克隆名稱，然後按一下“*克隆*”。
+.. 在「管理 Volume」面板的「Volume 行動」下，選取 *Clone Volume*。
+.. 根據需要修改 Clone 名稱，然後選擇 *Clone*。
 
 
 此過程會建立一個FlexClone磁碟區。  FlexClone磁碟區是可寫入的、時間點副本，它節省空間，因為它只使用少量空間來儲存元數據，並且僅在更改或新增資料時才消耗額外的空間。
 
-要了解有關FlexClone卷的更多信息，請參閱 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["ONTAP 9 邏輯儲存管理指南"^]。
+若要深入瞭解 FlexClone Volume，請參閱 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["ONTAP 9 邏輯儲存管理指南"^]。
 
 
 
 | 編輯卷（限讀寫卷）  a| 
-.. 在“管理磁碟區”面板的“磁碟區操作”下，按一下“編輯磁碟區設定”
-.. 修改磁碟區的快照策略、NFS 協定版本、NFS 存取控制清單（匯出策略）或共用權限，然後按一下*套用*。
+.. 在「管理 Volume」面板的「Volume 行動」下，選取 *編輯 Volume 設定*
+.. 修改 Volume 的 Snapshot 原則、NFS 傳輸協定版本、NFS 存取控制清單（匯出原則）或共享權限，然後選取 *套用*。
 
 
 
@@ -71,30 +71,30 @@ NOTE: 如果您需要自訂 Snapshot 策略，則可以使用ONTAP System Manage
 
 
 | 刪除卷  a| 
-.. 在「管理磁碟區」面板的「磁碟區操作」下，按一下「刪除磁碟區」。
+.. 在「管理 Volume」面板的「Volume 行動」下，選取 *刪除 Volume*。
 .. 在「刪除磁碟區」視窗下，輸入要刪除的磁碟區的名稱。
-.. 再次點選“*刪除*”進行確認。
+.. 再次選擇*刪除*進行確認。
 
 
 
 
 | 按需建立 Snapshot 副本  a| 
-.. 在「管理磁碟區」面板的「保護操作」下，按一下「建立 Snapshot 副本」。
-.. 如果需要，請變更名稱，然後按一下“*建立*”。
+.. 在「管理 Volume」面板的「保護行動」下，選擇 *建立 Snapshot 複本*。
+.. 如有需要，請變更名稱，然後選取 *建立*。
 
 
 
 
 | 將資料從 Snapshot 副本還原到新卷  a| 
-.. 在「管理磁碟區」面板的「保護操作」下，按一下「從 Snapshot 副本還原」。
-.. 選擇一個 Snapshot 副本，輸入新磁碟區的名稱，然後按一下「*復原*」。
+.. 在「管理 Volume」面板的「保護行動」下，選取 *從 Snapshot 複本還原*。
+.. 選擇 Snapshot 複本，輸入新 Volume 的名稱，然後選擇 *還原*。
 
 
 
 
 | 更改底層磁碟類型  a| 
-.. 在「管理磁碟區」面板的「進階操作」下，按一下「變更磁碟類型」。
-.. 選擇磁碟類型，然後按一下“*變更*”。
+.. 在「管理 Volume」面板的「進階動作」下，選擇 *變更磁碟類型*。
+.. 選擇磁碟類型，然後選擇 *變更*。
 
 
 
@@ -103,8 +103,8 @@ NOTE: 控制台將磁碟區移至使用所選磁碟類型的現有聚合，或�
 
 
 | 更改分層策略  a| 
-.. 在「管理磁碟區」面板的「進階操作」下，按一下「變更分層策略」。
-.. 選擇不同的策略並點擊*更改*。
+.. 在「管理 Volume」面板的「進階行動」下，選取 *變更分層原則*。
+.. 選擇其他原則，然後選擇 *更改*。
 
 
 
@@ -113,9 +113,9 @@ NOTE: 控制台將磁碟區移至使用具有分層功能的所選磁碟類型�
 
 
 | 刪除卷  a| 
-.. 選擇一個卷，然後按一下“*刪除*”。
+.. 選擇一個 Volume，然後選擇 *刪除*。
 .. 在對話方塊中輸入磁碟區的名稱。
-.. 再次點選“*刪除*”進行確認。
+.. 再次選擇*刪除*進行確認。
 
 
 |===
@@ -134,10 +134,10 @@ NOTE: 控制台將磁碟區移至使用具有分層功能的所選磁碟類型�
 . 選擇 System Manager 檢視以透過 ONTAP System Manager 調整 Volume 大小。請參閱 link:task-administer-advanced-view.html#get-started-with-system-manager["開始使用系統管理員"]。
 . 從左側導覽選單中，選擇“儲存”>“磁碟區”。
 . 從磁碟區清單中，確定應調整大小的磁碟區。
-. 點選選項圖標image:screenshot_gallery_options.gif["烤肉串圖標"]。
+. 選擇選項圖示 image:screenshot_gallery_options.gif["烤肉串圖標"]。
 . 選擇*調整大小*。
 . 在*調整磁碟區大小*畫面上，根據需要編輯容量和快照預留百分比。您可以將現有的可用空間與修改後的容量進行比較。
-. 點選“儲存”。
+. 選擇 *Save*。
 
 
 image:screenshot-resize-volume.png["螢幕顯示卷調整大小後修改後的容量"]
@@ -152,8 +152,8 @@ image:screenshot-resize-volume.png["螢幕顯示卷調整大小後修改後的�
 如果您變更 DNS 伺服器或 Active Directory 網域，則需要修改Cloud Volumes ONTAP中的 CIFS 伺服器，以便它可以繼續為用戶端提供儲存服務。
 
 .步驟
-. 從Cloud Volumes ONTAP系統的 *Overview* 標籤中，按一下右側面板下的 *Feature* 標籤。
-. 在 CIFS 設定欄位下，按一下 *鉛筆圖示* 以顯示 CIFS 設定視窗。
+. 從 Cloud Volumes ONTAP 系統的 *概覽* 標籤中，選擇右側面板下的 *功能* 標籤。
+. 在 CIFS 設定欄位下，選擇 *鉛筆圖示* 以顯示 CIFS 設定視窗。
 . 指定 CIFS 伺服器的設定：
 +
 [cols="30,70"]
@@ -170,7 +170,7 @@ image:screenshot-resize-volume.png["螢幕顯示卷調整大小後修改後的�
 | 授權加入網域的憑證 | 具有足夠權限將電腦新增至 AD 網域內指定組織單位 (OU) 的 Windows 帳戶的名稱和密碼。 
 
 
-| DNS 主 IP 位址和輔助 IP 位址 | 為 CIFS 伺服器提供名稱解析的 DNS 伺服器的 IP 位址。所列的 DNS 伺服器必須包含定位 Active Directory LDAP 伺服器和 CIFS 伺服器將加入的網域的網域控制站所需的服務位置記錄 (SRV)。 ifdef::gcp[] 如果您正在設定 Google Managed Active Directory，則預設可以使用 169.254.169.254 IP 位址存取 AD。 endif::gcp[] 
+| DNS 主 IP 位址和輔助 IP 位址 | 為 CIFS 伺服器提供名稱解析的 DNS 伺服器的 IP 位址。所列的 DNS 伺服器必須包含用於定位 CIFS 伺服器將要參加的網域的 Active Directory LDAP 伺服器和網域控制站的服務位置記錄（SRV）。如果您設定的是 Google 代管的 Active Directory，則預設可以使用 IP 位址 169.254.169.254 存取 AD。 
 
 
 | DNS 網域 | Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。 
@@ -182,29 +182,13 @@ image:screenshot-resize-volume.png["螢幕顯示卷調整大小後修改後的�
 | 組織單位  a| 
 AD 網域內與 CIFS 伺服器關聯的組織單位。預設值為 CN=Computers。
 
-ifdef::aws[]
+** AWS：若要將 AWS Managed Microsoft AD 設定為 Cloud Volumes ONTAP 的 AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=corp*。
+** Azure：若要將 Azure AD 網域服務設定為 Cloud Volumes ONTAP 的 AD 伺服器，請在此欄位中輸入 *OU=AADDC Computers* 或 *OU=AADDC Users*。Azure 文件：link:https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["在 Azure AD Domain Services 代管網域中建立組織單位（OU）"^]
+** Google Cloud：若要將 Google Managed Microsoft AD 設定為 Cloud Volumes ONTAP 的 AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=Cloud*。Google Cloud 文件：link:https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google 代管的 Microsoft AD 中的組織單位"^]
 
-** 若要將 AWS Managed Microsoft AD 設定為Cloud Volumes ONTAP 的AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=corp*。
-
-
-endif::aws[]
-
-ifdef::azure[]
-
-** 若要將 Azure AD 網域服務設定為Cloud Volumes ONTAP 的AD 伺服器，請在此欄位中輸入 *OU=AADDC Computers* 或 *OU=AADDC Users*。link:https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure 文件：在 Azure AD 網域服務託管網域中建立組織單位 (OU)"^]
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-** 若要將 Google Managed Microsoft AD 設定為Cloud Volumes ONTAP的 AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=Cloud*。link:https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文件：Google Managed Microsoft AD 中的組織單位"^]
-
-
-endif::gcp[]
 
 |===
-. 點選“*設定*”。
+. 選擇 *設定*。
 
 
 .結果
@@ -263,8 +247,8 @@ TIP: 當彙總的已使用容量達到 90% 時，主控台會顯示這些「需�
 
 . 確定要移出聚合的一個或多個磁碟區：
 +
-.. 在Cloud Volumes ONTAP系統中，按一下 *Aggregates tab*。
-.. 在彙總圖塊上，按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後按一下 *檢視彙總詳細資料*。
+.. 在 Cloud Volumes ONTAP 系統中，選擇 *彙總標籤*。
+.. 在彙總圖塊上，選取 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後選取 *檢視彙總詳細資料*。
 .. 在「聚合詳細資料」畫面的「概述」標籤下，檢視每個磁碟區的大小並選擇要移出聚合的一個或多個磁碟區。
 +
 您應該選擇足夠大的磁碟區來釋放聚合中的空間，以避免將來出現額外的容量問題。
@@ -303,11 +287,9 @@ image::screenshot_aggr_volume_overview.png[螢幕截圖聚合量概覽]
 .關於此任務
 您可以按照此任務中的步驟來修正以下「需要操作」訊息：
 
-[]
-====
-移動磁碟區對於避免容量問題是必要的；但是，控制台無法為您執行此操作，因為系統已達到磁碟限制。
 
-====
+NOTE: 移動 Volume 是避免容量問題的必要操作；但是，如果系統達到磁碟限制，則控制台無法為您執行此行動。
+
 .步驟
 . 確定具有可用容量的Cloud Volumes ONTAP系統，或部署新系統。
 . 將來源系統拖曳到目標系統以執行磁碟區的一次性資料複製。
@@ -339,16 +321,14 @@ image::screenshot_aggr_volume_overview.png[螢幕截圖聚合量概覽]
 .關於此任務
 您可以按照此任務中的步驟來修正以下「需要操作」訊息：
 
-[]
-====
-需要移動兩個或更多磁碟區以避免容量問題；但是，控制台無法為您執行此操作。
 
-====
+NOTE: 需要移動兩個或更多磁碟區以避免容量問題；但是，控制台無法為您執行此操作。
+
 .步驟
 . 驗證現有聚合是否具有可供您需要移動的磁碟區所使用的容量：
 +
-.. 在Cloud Volumes ONTAP系統上，按一下 *Aggregates tab*。
-.. 在所需的彙總圖塊上，按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後按一下 *檢視彙總詳細資料* 以檢視可用容量（已配置大小減去已使用彙總容量）。
+.. 在 Cloud Volumes ONTAP 系統上，選取 *彙總標籤*。
+.. 在所需的彙總圖塊上，選擇 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後選擇 *檢視彙總詳細資料* 以檢視可用容量（已配置大小減去已使用的彙總容量）。
 +
 image::screenshot_aggr_capacity.png[螢幕截圖聚合容量]
 
@@ -356,8 +336,8 @@ image::screenshot_aggr_capacity.png[螢幕截圖聚合容量]
 
 . 如果需要，將磁碟新增至現有聚合：
 +
-.. 選擇彙總，然後按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示 > *新增磁碟*。
-.. 選擇要新增的磁碟數量，然後按一下「*新增*」。
+.. 選擇彙總，然後選擇 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示 > *新增磁碟*。
+.. 選擇要新增的磁碟數量，然後選擇 *新增*。
 
 
 . 如果沒有可用容量的聚合，則建立一個新的聚合。

@@ -25,9 +25,9 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. 在「*系統*」頁面上，按一下「*新增系統*」並依照NetApp Console中的步驟進行操作。
+. 在 *系統* 頁面上，選取 *新增系統*，然後按照 NetApp Console 中的步驟操作。
 +
-.. 在*詳細資訊和憑證*頁面上，按一下*編輯憑證>新增訂閱*，然後依照指示訂閱 Google Cloud Marketplace 中的即用即付產品。
+.. 在 *詳細資訊與憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Google Cloud Marketplace 中的隨用隨付產品。
 +
 除非您超過 500 GiB 的預配置容量，否則您無需透過市場訂閱付費，此時系統將自動轉換為link:concept-licensing.html#packages["基本套餐"]。
 
@@ -78,9 +78,9 @@ NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資�
 +
 您必須先從控制台取得授權，才能與 Cloud Volumes ONTAP 一起使用。如有需要，您可以link:https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html#add-a-license["手動將許可證新增至控制台"]。
 
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在*詳細資訊和憑證*頁面上，按一下*編輯憑證>新增訂閱*，然後依照指示訂閱 Google Cloud Marketplace 中的即用即付產品。
+.. 在 *詳細資訊與憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Google Cloud Marketplace 中的隨用隨付產品。
 +
 總是會先向您從NetApp購買的許可證收費，但如果您超出許可容量或許可證期限到期，則會按照市場上的小時費率向您收費。
 
@@ -105,9 +105,9 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中啟動Cloud Volumes ONTA
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在*詳細資訊和憑證*頁面上，按一下*編輯憑證>新增訂閱*，然後依照指示訂閱 Google Cloud Marketplace 中的即用即付產品。
+.. 在 *詳細資訊與憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Google Cloud Marketplace 中的隨用隨付產品。
 .. 返回控制台後，在到達收費方式頁面時選擇基於容量的套餐。
 +
 image:screenshot-professional.png["建立Cloud Volumes ONTAP系統時專業選項的螢幕截圖。"]
@@ -136,10 +136,10 @@ TIP: 您可以從「設定」>「憑證」頁面管理與您的帳戶相關的 G
 +
 NetApp與您分享私人優惠後，您可以在系統建立期間從 Google Cloud Marketplace 訂閱時選擇年度方案。
 
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在*詳細資訊和憑證*頁面上，按一下*編輯憑證>新增訂閱*，然後依照指示在 Google Cloud Marketplace 中訂閱年度方案。
-.. 在 Google Cloud 中，選擇與您的帳戶共享的年度計劃，然後按一下*訂閱*。
+.. 在 *詳細資訊和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示在 Google Cloud Marketplace 中訂閱年度計畫。
+.. 在 Google Cloud 中，選擇與您的帳戶共享的年度計劃，然後選擇 *訂閱*。
 .. 返回控制台後，在到達收費方式頁面時選擇基於容量的套餐。
 +
 image:screenshot-professional.png["建立Cloud Volumes ONTAP系統時專業選項的螢幕截圖。"]
@@ -161,7 +161,7 @@ Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.h
 . 如果您尚未訂閱， https://www.netapp.com/forms/keystone-sales-contact/["聯絡NetApp"^]
 . mailto:ng-keystone-success@netapp.com[聯絡NetApp] 授權您的控制台使用者帳號擁有一個或多個Keystone訂閱。
 . NetApp授權您的帳戶後，link:task-manage-keystone.html#link-a-subscription["連結您的訂閱以用於Cloud Volumes ONTAP"] 。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
 .. 當提示選擇充電方式時，選擇Keystone Subscription 充電方式。
 +

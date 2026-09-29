@@ -35,8 +35,8 @@ https://docs.netapp.com/us-en/data-services-data-classification/concept-cloud-co
 . 刪除Cloud Volumes ONTAP系統。
 +
 .. 在「*系統*」頁面上，雙擊要刪除的Cloud Volumes ONTAP系統的名稱。
-.. 在主控台的右上角，按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後選取 *刪除*。
-.. 輸入要刪除的系統的名稱，然後按一下「*刪除*」。刪除系統可能需要最多五分鐘。
+.. 在控制台的右上角，選擇 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示，然後選擇 *刪除*。
+.. 輸入要刪除的系統名稱，然後選取 *刪除*。刪除系統最多可能需要五分鐘。
 
 
 

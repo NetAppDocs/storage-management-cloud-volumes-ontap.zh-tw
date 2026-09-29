@@ -57,21 +57,12 @@ NOTE: 雖然NetApp Console中管理的產品和服務的實際使用情況和計
 
 以下基於容量的軟體包可用於Cloud Volumes ONTAP。有關基於容量的許可證包的更多信息，請參閱link:concept-licensing-charging.html["了解有關基於容量的許可證的更多信息"]。
 
-有關以下基於容量的套件所支援的 VM 類型的列表，請參閱：
+有關雲端供應商的儲存設備限制，請參閱：
 
-ifdef::azure[]
+* link:reference-limits-aws.html["AWS 中Cloud Volumes ONTAP的儲存限制"]
+* link:reference-limits-azure.html["Azure 中Cloud Volumes ONTAP的儲存限制"]
+* link:reference-limits-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 的儲存限制"]
 
-* link:reference-configs-azure.html["Azure 中支援的配置"]
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-* link:reference-configs-gcp.html["Google Cloud 中支援的配置"^]
-
-
-endif::gcp[]
 
 
 
@@ -144,26 +135,10 @@ NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資�
 
 了解如何開始使用基於容量的許可：
 
-ifdef::aws[]
-
 * link:task-set-up-licensing-aws.html["在 AWS 中設定Cloud Volumes ONTAP許可"]
-
-
-endif::aws[]
-
-ifdef::azure[]
-
 * link:task-set-up-licensing-azure.html["在 Azure 中設定Cloud Volumes ONTAP許可"]
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
 * link:task-set-up-licensing-google.html["在 Google Cloud 中設定Cloud Volumes ONTAP許可"]
 
-
-endif::gcp[]
 
 
 
@@ -206,26 +181,10 @@ Keystone 訂閱支援 HA 配對。目前單節點系統不支援此授權選項�
 
 了解如何開始使用Keystone訂閱：
 
-ifdef::aws[]
-
 * link:task-set-up-licensing-aws.html["在 AWS 中設定Cloud Volumes ONTAP許可"]
-
-
-endif::aws[]
-
-ifdef::azure[]
-
 * link:task-set-up-licensing-azure.html["在 Azure 中設定Cloud Volumes ONTAP許可"]
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
 * link:task-set-up-licensing-google.html["在 Google Cloud 中設定Cloud Volumes ONTAP許可"]
 
-
-endif::gcp[]
 
 
 

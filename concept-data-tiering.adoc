@@ -20,8 +20,6 @@ image:diagram_data_tiering.png["這是概念圖，顯示熱數據進入 EBS 存�
 
 資料分層由FabricPool技術提供支援。 Cloud Volumes ONTAP為所有Cloud Volumes ONTAP叢集提供資料分層，無需額外的授權。當您啟用資料分層時，分層到物件儲存的資料會產生費用。有關對象儲存成本的詳細信息，請參閱雲端提供者的文檔。
 
-ifdef::aws[]
-
 
 
 [[data-tiering-in-aws]]
@@ -64,10 +62,6 @@ NetApp Console為每個系統建立一個 S3 儲存桶，並將其命名為 fabr
 
 --
 
-
-endif::aws[]
-
-ifdef::azure[]
 
 
 
@@ -112,10 +106,6 @@ ifdef::azure[]
 --
 
 
-endif::azure[]
-
-ifdef::gcp[]
-
 
 
 [[data-tiering-in-google-cloud]]
@@ -147,8 +137,6 @@ ifdef::gcp[]
 
 --
 
-
-endif::gcp[]
 
 
 

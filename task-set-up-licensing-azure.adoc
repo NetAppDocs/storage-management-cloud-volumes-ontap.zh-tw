@@ -25,9 +25,9 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 
 .步驟
 . 從NetApp Console的左側導覽功能表中，選擇「儲存」>「管理」。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 Azure 市集中的即用即付產品。
+.. 在 *詳細資料和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Azure Marketplace 中的隨用隨付產品。
 +
 除非您超過 500 GiB 的預置容量，否則不會透過市場訂閱向您收費，屆時系統將自動轉換為 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["基本套餐"^]。
 
@@ -81,9 +81,9 @@ NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資�
 +
 您必須先從控制台取得授權，才能與 Cloud Volumes ONTAP 一起使用。如有需要，您可以link:task-manage-capacity-licenses.html#how-licenses-are-added-to-netapp-console["手動將許可證新增至控制台"]。
 
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 Azure 市集中的即用即付產品。
+.. 在 *詳細資料和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Azure Marketplace 中的隨用隨付產品。
 +
 總是會先向您從NetApp購買的許可證收費，但如果您超出許可容量或許可證期限到期，則會按照市場上的小時費率向您收費。
 
@@ -111,9 +111,9 @@ link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP
 
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在“詳細資訊和憑證”頁面上，按一下“編輯憑證”>“新增訂閱”，然後依照指示訂閱 Azure 市集中的即用即付產品。
+.. 在 *詳細資料和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Azure Marketplace 中的隨用隨付產品。
 +
 image:screenshot-azure-paygo-subscription.png["建立Cloud Volumes ONTAP系統時 PAYGO 訂閱選項的螢幕截圖。"]
 
@@ -145,10 +145,10 @@ TIP: 您可以從「設定」>「憑證」頁面管理與您的 Azure 帳戶相�
 +
 NetApp與您分享私人優惠後，您可以在系統建立期間從 Azure 市場訂閱時選擇年度方案。
 
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
-.. 在「詳細資料和憑證」頁面上，按一下「編輯憑證」>「新增訂閱」>「繼續」。
-.. 在 Azure 入口網站中，選擇與您的 Azure 帳戶共用的年度計劃，然後按一下「*訂閱*」。
+.. 在 *詳細資料和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱 > 繼續*。
+.. 在 Azure 入口網站中，選擇與您的 Azure 帳戶共享的年度計畫，然後選擇 *訂閱*。
 .. 返回控制台後，在到達收費方式頁面時選擇基於容量的套餐。
 +
 image:screenshot-professional.png["建立Cloud Volumes ONTAP系統時專業選項的螢幕截圖。"]
@@ -170,7 +170,7 @@ Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.h
 . 如果您尚未訂閱， https://www.netapp.com/forms/keystone-sales-contact/["聯絡NetApp"^]
 . mailto:ng-keystone-success@netapp.com[聯絡NetApp] 以在控制台中授權您的使用者帳戶擁有一個或多個Keystone訂閱。
 . NetApp授權您的帳戶後，link:task-manage-keystone.html#link-a-subscription["連結您的訂閱以用於Cloud Volumes ONTAP"] 。
-. 在*系統*頁面上，按一下*新增系統*並依照步驟操作。
+. 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
 .. 當提示選擇充電方式時，選擇Keystone Subscription 充電方式。
 +

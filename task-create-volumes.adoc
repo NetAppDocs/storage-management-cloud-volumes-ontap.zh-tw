@@ -32,15 +32,13 @@ summary: 如果在啟動初始Cloud Volumes ONTAP系統後需要更多存儲，�
 
 * 建立 iSCSI Volume 時，控制台會自動為您建立一個 LUN。我們簡化了操作，每個 Volume 只建立一個 LUN，因此無需任何管理。建立 Volume 之後，link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-connect-lun.html["使用 IQN 從主機連線到 LUN"^]。
 * 您可以從ONTAP系統管理員或ONTAP CLI 建立其他 LUN。
+* 在 AWS 中：
++
+** 如果您要在 AWS 中使用 CIFS，則必須設定 DNS 和 Active Directory。如需詳細資訊，請參閱 link:reference-networking-aws.html["AWS Cloud Volumes ONTAP 的網路需求"]。
+** 如果您的Cloud Volumes ONTAP配置支援 Amazon EBS 彈性磁碟區功能，您可能需要link:concept-aws-elastic-volumes.html["詳細了解建立磁碟區時發生的情況"]。
 
 
-ifdef::aws[]
 
-* 如果您要在 AWS 中使用 CIFS，則必須設定 DNS 和 Active Directory。如需詳細資訊，請參閱 link:reference-networking-aws.html["AWS 中Cloud Volumes ONTAP的網路需求"]。
-* 如果您的Cloud Volumes ONTAP配置支援 Amazon EBS 彈性磁碟區功能，您可能需要link:concept-aws-elastic-volumes.html["詳細了解建立磁碟區時發生的情況"]。
-
-
-endif::aws[]
 
 
 
@@ -60,12 +58,12 @@ endif::aws[]
 ====
 .任何聚合
 --
-選擇“卷”選項卡，然後按一下“新增卷”。image:screenshot_add_volume_button.png["概覽標籤下的新增磁碟區按鈕的螢幕截圖。"]
+選取 Volume 索引標籤，然後選取 *新增 Volume*。 image:screenshot_add_volume_button.png["概覽標籤下的新增磁碟區按鈕的螢幕截圖。"]
 
 --
 .特定骨材
 --
-.. 在 *彙總* 標籤上，前往所需的彙總，然後按一下 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示。
+.. 在 *彙總* 標籤上，移至所需的彙總並選取 image:icon-action.png["一個顯示三個水平點的圖示，用於執行其他動作"] 圖示。
 .. 選擇*新增卷*。image:screenshot_add_volume_button_agg.png["“聚合”標籤下的“新增磁碟區”按鈕的螢幕截圖。"]
 
 
@@ -96,7 +94,7 @@ endif::aws[]
 |===
 .. *協定*：為磁碟區選擇一個協定（NFS、CIFS 或 iSCSI），然後提供所需的資訊。
 +
-如果您選擇 CIFS 但尚未設定伺服器，則按一下「下一步」後控制台會提示您設定 CIFS 連線。
+如果選擇 CIFS 但尚未設定伺服器，則在選擇 *下一步* 後，主控台會提示您設定 CIFS 連線。
 
 +
 link:concept-client-protocols.html["了解支援的客戶端協定和版本"] 。
@@ -120,42 +118,21 @@ link:concept-client-protocols.html["了解支援的客戶端協定和版本"] �
 DNS 主 IP 位址和輔助 IP 位址:: 為 CIFS 伺服器提供名稱解析的 DNS 伺服器的 IP 位址。所列的 DNS 伺服器必須包含定位 CIFS 伺服器將加入的網域的 Active Directory LDAP 伺服器和網域控制站所需的服務位置記錄 (SRV)。
 +
 --
-ifdef::gcp[]
-
---
-
-
 如果您正在設定 Google 管理的 Active Directory，則預設可以使用 169.254.169.254 IP 位址存取 AD。
 
-endif::gcp[]
-
+--
 要加入的 Active Directory 網域:: 您希望 CIFS 伺服器加入的 Active Directory (AD) 網域的 FQDN。
 授權加入網域的憑證:: 具有足夠權限將電腦新增至 AD 網域內指定組織單位 (OU) 的 Windows 帳戶的名稱和密碼。
 CIFS 伺服器 NetBIOS 名稱:: AD 網域中唯一的 CIFS 伺服器名稱。
 組織單位:: AD 網域內與 CIFS 伺服器關聯的組織單位。預設值為 CN=Computers。
-
-
-ifdef::aws[]
-
++
+--
 *** 若要將 AWS Managed Microsoft AD 設定為Cloud Volumes ONTAP 的AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=corp*。
-
-
-endif::aws[]
-
-ifdef::azure[]
-
 *** 若要將 Azure AD 網域服務設定為Cloud Volumes ONTAP 的AD 伺服器，請在此欄位中輸入 *OU=AADDC Computers* 或 *OU=AADDC Users*。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure 文件：在 Azure AD 網域服務託管網域中建立組織單位 (OU)"^]
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
 *** 若要將 Google Managed Microsoft AD 設定為Cloud Volumes ONTAP的 AD 伺服器，請在此欄位中輸入 *OU=Computers,OU=Cloud*。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文件：Google Managed Microsoft AD 中的組織單位"^]
 
 
-endif::gcp[]
-
+--
 DNS 網域:: Cloud Volumes ONTAP儲存虛擬機器 (SVM) 的 DNS 網域。大多數情況下，該域與 AD 域相同。
 NTP 伺服器:: 選擇 *Use Active Directory Domain* 以使用 Active Directory DNS 設定 NTP 伺服器。如果您需要使用其他位址設定 NTP 伺服器，則應使用 API。如需詳細資訊，請參閱 https://docs.netapp.com/us-en/console-automation/index.html["NetApp Console 自動化文件"^]。
 +
@@ -177,33 +154,12 @@ NTP 伺服器:: 選擇 *Use Active Directory Domain* 以使用 Active Directory 
 ====
 .. *磁碟類型*：根據您的效能需求和成本要求為磁碟區選擇底層磁碟類型。
 +
-ifdef::aws[]
-
-+
 *** link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config.html#size-your-system-in-aws["在 AWS 中調整系統規模"^]
+*** link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config-azure.html#size-your-system-in-azure["在 Azure 中調整系統大小"^]
+*** link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中調整系統規模"^]
 
 
-
-
-
-
-endif::aws[]
-
-ifdef::azure[]
-
-* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config-azure.html#size-your-system-in-azure["在 Azure 中調整系統大小"^]
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中調整系統規模"^]
-
-
-endif::gcp[]
-
-. *使用設定檔和分層策略*：選擇是否啟用或停用磁碟區上的儲存效率功能，然後選擇link:concept-data-tiering.html["卷分層策略"]。
+.. *使用設定檔和分層策略*：選擇是否啟用或停用磁碟區上的儲存效率功能，然後選擇link:concept-data-tiering.html["卷分層策略"]。
 +
 ONTAP包含多種儲存效率功能，可減少您所需的總儲存量。  NetApp儲存效率功能有以下優勢：
 
@@ -213,7 +169,9 @@ ONTAP包含多種儲存效率功能，可減少您所需的總儲存量。  NetA
 壓縮:: 透過壓縮主儲存、輔助儲存和歸檔儲存磁碟區內的資料來減少儲存資料所需的實體容量。
 
 
-. *審核*：審核有關卷的詳細信息，然後按一下*新增*。
+.. *審查*：審查有關 Volume 的詳細資料，然後選擇 *新增*。
+
+
 
 
 .結果
@@ -230,24 +188,20 @@ ONTAP包含多種儲存效率功能，可減少您所需的總儲存量。  NetA
 .步驟
 . 從左側導覽功能表中，選擇“儲存”>“管理”。
 . 在「*系統*」頁面上，雙擊要管理聚合的Cloud Volumes ONTAP系統的名稱。
-. 在“聚合”標籤上，按一下“新增聚合”，然後建立聚合。
+. 在「彙總」標籤上，選擇 *新增彙總*，然後建立彙總。
 +
 image:screenshot_add_aggregate_cvo.png["顯示新增聚合進度的螢幕截圖。"]
 
 . 對於主節點，選擇 HA 對中的第二個節點。
-. 控制台建立聚合後，選擇它，然後按一下*建立磁碟區*。
-. 輸入新卷的詳細信息，然後按一下“建立”。
+. 控制台建立彙總後，選取它，然後選取 *建立 Volume*。
+. 輸入新 Volume 的詳細資料，然後選取 *建立*。
 
 
 .結果
 控制台在 HA 對中的第二個節點上建立磁碟區。
 
-ifdef::aws[]
-
 
 TIP: 對於在多個 AWS 可用區中部署的 HA 對，您必須使用磁碟區所在節點的浮動 IP 位址將磁碟區掛載到用戶端。
-
-endif::aws[]
 
 
 

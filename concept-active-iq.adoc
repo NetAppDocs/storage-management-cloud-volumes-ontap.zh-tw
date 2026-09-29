@@ -49,7 +49,7 @@ Digital Advisor提供您 NSS 帳戶內所有本地ONTAP系統和Cloud Volumes ON
 
 Digital Advisor使用者介面完全整合在控制台中。
 
-在左側面板中，按一下「健康」> “Digital Advisor”。
+從左側面板中，選擇 *健康 > Digital Advisor*。
 
 * 如果您已經在控制台中註冊了一個現有的 NSS 帳戶，則Digital Advisor UI 的顯示方式與您在獨立實施中看到的一樣 https://activeiq.netapp.com/[]。
 +
