@@ -21,7 +21,7 @@ NetApp 建議所有新部署均採用基於容量的授權。如果您有使用�
 
 NOTE: 來自雲端供應商市場的 PAYGO（隨用隨付）訂閱不適用於私有模式部署。在私有模式下，NetApp 直接提供 BYOL 授權。基於節點的授權僅適用於現有的私有模式部署，無法新部署。NetApp 自 2025 年 6 月 25 日起，已限制在私有模式下購買、延期和續訂基於節點的授權。如果您已有基於節點的授權，則必須將其轉換為基於容量的授權。
 
-對於新的私有模式部署，請改用基於容量的授權。請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap_capacity-license-darkmode/task-deploying-otc-aws.html#deploy-cloud-volumes-ontap-in-private-mode["以私有模式部署 Cloud Volumes ONTAP"^]。
+對於新的私有模式部署，請改用基於容量的授權。請參閱 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-aws.html#deploy-cloud-volumes-ontap-in-private-mode["以私有模式部署 Cloud Volumes ONTAP"^]。
 
 
 

@@ -239,6 +239,16 @@ sidebar:
         url: "/task-manage-perf-params-azure.html"
       - title: 在 Azure 中升級磁碟效能層
         url: "/task-upgrade-disk-perf-azure.html"
+      - title: 使用 Workload Factory 進行組態分析與改善
+        entries:
+        - title: Azure 中的 Cloud Volumes ONTAP 組態分析
+          url: "/concept-configuration-analysis-cvo.html"
+        - title: 改進 Azure 中的 Cloud Volumes ONTAP 組態
+          url: "/task-improve-configurations-cvo.html"
+      - title: Azure 中的 Cloud Volumes ONTAP 組態分析
+        url: "/concept-configuration-analysis-cvo.html"
+      - title: 改進 Azure 中的 Cloud Volumes ONTAP 組態
+        url: "/task-improve-configurations-cvo.html"
     - title: Google Cloud 管理
       entries:
       - title: Google Cloud 中支援的配置
@@ -309,8 +319,6 @@ sidebar:
       url: "/task-manage-keystone.html"
     - title: Cloud Volumes ONTAP 和 Microsoft OneLake
       url: "/task-azure-onelake.html"
-    - title: Cloud Volumes ONTAP 和架構完善的儀表板
-      url: "/configuration-analysis-cvo.html"
     - title: 了解 Cloud Volumes ONTAP 自動化選項
       url: "/concept-cvo-automation.html"
   - title: 知識和支持

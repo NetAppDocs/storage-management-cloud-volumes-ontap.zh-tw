@@ -1,0 +1,144 @@
+---
+sidebar: sidebar 
+permalink: task-improve-configurations-cvo.html 
+keywords: improve configurations, optimize configurations, implement best practices, well-architected file system, Cloud Volumes ONTAP, Microsoft Azure 
+summary: 架構完善的儀表板掃描 Cloud Volumes ONTAP 組態，提供見解與建議，協助您實現卓越營運績效。 
+---
+= 使用 Workload Factory 改善 Azure 中的 Cloud Volumes ONTAP 組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用 NetApp Workload Factory 從 NetApp Console 為您在 Azure 中的 Cloud Volumes ONTAP 系統實作最佳實務。您可以輕鬆審查架構良好的狀態，了解組態的問題，並修復問題，以改善任何未針對可靠性、安全性、效率、效能和成本進行最佳化的系統架構。
+
+link:concept-configuration-analysis-cvo.html["了解組態分析和架構良好狀態。"]
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+Workload Factory 每天分析 Microsoft Azure 上的 Cloud Volumes ONTAP 系統組態。
+
+由於儲存組態的要求各不相同，您可以忽略不適用於您儲存環境的特定組態分析。
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+* 您必須link:concept-azure-mktplace-direct.html["已部署"]在 Azure 中擁有 Cloud Volumes ONTAP 系統，才能檢視架構良好的狀態和組態問題的建議。
+* 確保與 Cloud Volumes ONTAP 關聯的代理程式可以存取以下端點：
++
+** \https://api.workloads.netapp.com
+** \https://ws.workloads.bluexp.netapp.com
+
+
+
+
+
+
+[[fix-a-configuration-issue]]
+== 修復組態問題
+
+修正 Cloud Volumes ONTAP 系統或選定 Volume 的組態問題。您可以選擇一個或多個組態進行修正。
+
+修復操作可能會導致執行個體停機或服務中斷。在修復組態問題之前，請仔細審查每項建議。
+
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *架構完善* > *適用於 Azure 的 Cloud Volumes ONTAP*。
+. 在「架構完善」儀表板中，針對任何組態選擇 *檢視並修復*。請務必仔細審查建議。
++
+此建議說明最佳實務，以及未最佳化組態的潛在問題。
+
+. 選擇資源，然後點選「修復」。
++
+某些修復程序僅適用於特定組態，並非總是能應用於多個資源。例如，您可能可以修復單一 Volume 的組態，但無法修復多個 Volume 的組態。
+
+. 審查行動項目，了解此修復措施的後果，例如執行個體停機或服務中斷。
+. 如果您希望 Workload Factory 套用建議的變更，請選擇「修復」。
+
+
+.結果
+Workload Factory 已啟動修正問題的程序。
+
+
+
+[[dismiss-a-configuration-analysis]]
+== 駁回組態分析
+
+停止對 Cloud Volumes ONTAP 系統或所選 Volume 的組態分析。您可以在需要時重新啟動分析。
+
+[role="tabbed-block"]
+====
+.駁回系統的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *架構完善* > *適用於 Azure 的 Cloud Volumes ONTAP*。
+. 在「配置」下，找出不適用於您環境的配置，然後選取 *Dismiss* 。
+. 在「關閉組態」對話方塊中，選取 *Dismiss* 以停止組態分析。
+
+
+--
+.關閉 Volume 的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *架構完善* > *適用於 Azure 的 Cloud Volumes ONTAP*。
+. 在「組態」下，識別要為您的資源關閉的組態，然後選取 *檢視並修復*。
+. 在組態頁面上，選擇要從組態分析中排除的資源。
++
+** 對於單一資源：選擇操作選單，然後選擇 *關閉 Volume*。
+** 對於多個資源：選取資源，然後選取「批次行動」旁邊的 *Dismiss*。
+
+
+. 選取 *Dismiss* 以停止對此組態的分析。
+. 在「關閉 Volume」對話方塊中，選擇 *Dismiss* 進行確認。
+
+
+--
+====
+.結果
+Workload Factory 停止對所選組態的組態分析。
+
+
+
+[[reactivate-a-dismissed-configuration-analysis]]
+== 重新啟動已關閉的組態分析
+
+隨時重新啟動 Cloud Volumes ONTAP 系統已關閉的組態分析。您可以選擇一個或多個組態進行重新啟動。
+
+[role="tabbed-block"]
+====
+.重新啟動系統的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *架構完善* > *適用於 Azure 的 Cloud Volumes ONTAP*。
+. 選擇 *Dismissed configurations* 。
+. 確定要重新啟用的組態，然後選擇 *Reactivate*。
+
+
+--
+.重新啟動資源組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *架構完善* > *適用於 Azure 的 Cloud Volumes ONTAP*。
+. 選擇 *Dismissed configurations* 。
+. 在組態頁面上，選擇要重新啟動的資源。
++
+** 對於單一資源：選取動作選單，然後選取 *重新啟用*。
+** 對於多個資源：選擇資源，然後選擇「批次行動」旁邊的 *Reactivate*。
+
+
+
+
+--
+====
+.結果
+Workload Factory 會重新啟動組態分析，每天都會執行新的分析。

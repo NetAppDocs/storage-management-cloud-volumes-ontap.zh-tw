@@ -64,7 +64,9 @@ https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series["G
 [[introducing-access-roles-for-cloud-volumes-ontap]]
 === 為 Cloud Volumes ONTAP 引入存取角色
 
-NetApp 為 Cloud Volumes ONTAP 引入身分與存取管理 （IAM） 角色，從而實現基於角色的存取控制 （RBAC），以提高安全性並簡化合規性。使用者仍可使用現有憑證登入 NetApp Console 執行 Cloud Volumes ONTAP 操作。但是，驗證現在透過身分聯合進行路由，使 Console 管理員能夠對這些功能進行更精細的控制。每個使用者必須擁有以下角色之一，才能對 Cloud Volumes ONTAP 執行任何操作。若無角色，使用者將無法檢視或存取 Cloud Volumes ONTAP 執行個體。
+NetApp 為 Cloud Volumes ONTAP 引入身分和存取管理（IAM）角色，從而實現角色型存取控制（RBAC），以提高安全性並簡化法規遵循。使用者仍可使用現有憑證登入 NetApp Console 以執行 Cloud Volumes ONTAP 操作。但是，驗證現在透過身分聯盟進行，使 Console 系統管理員能夠對這些功能進行更精細的控制。在啟用 Cloud Volumes ONTAP 角色之前，Console 代理程式必須執行 4.9.0 或更新版本。
+
+每個使用者必須擁有以下角色之一，才能對 Cloud Volumes ONTAP 執行任何操作。若無角色，使用者將無法檢視或存取 Cloud Volumes ONTAP 執行個體。
 
 * *Cloud Volumes ONTAP viewer*：授予對 Cloud Volumes ONTAP 畫面和索引標籤的唯讀存取權限。在此角色中，某些畫面和操作按鈕將被停用。
 * *Cloud Volumes ONTAP operator*：支援日常管理任務，例如新增磁碟區、管理儲存和設定複製。
@@ -76,11 +78,11 @@ Console 管理員可透過「管理 > 身分」為 Cloud Volumes ONTAP 使用者
 Cloud Volumes ONTAP 使用本機快取來強制執行角色型存取控制 （RBAC），該快取記錄每個使用者的權限，並每小時自動重新整理一次。當使用者被指派新角色或現有角色發生變更時，變更可能需要長達一個小時才能生效，生效後，所有角色允許的工作流程都將啟用。
 
 
-NOTE: 首次部署 Console 代理程式或將現有 Console 代理程式升級至 Console 4.9.0 或更高版本時，系統會執行一次性初始化過程，自動為組織中的所有現有使用者指派 Cloud Volumes ONTAP 角色。此過程可能需要長達 30 分鐘才能完成。完成後，Console 會將對應的角色指派給現有使用者。
+NOTE: 首次部署 Console 代理程式，或將現有 Console 代理程式升級至 Console 4.9.0 或更新版本時，一次性的初始化程序會自動將 Cloud Volumes ONTAP 角色指派給組織中的所有現有使用者。此程序可能需要長達 30 分鐘才能完成。完成後，Console 會將適當的角色指派給現有使用者。除非有代理程式正在執行，否則不會發生初始化程序。
 
-Cloud Volumes ONTAP 角色適用於 Amazon Web Service (AWS)、Microsoft Azure (Azure) 和 Google Cloud 環境。
+Cloud Volumes ONTAP 角色適用於 Amazon Web Service （AWS）、Microsoft Azure （Azure） 和 Google Cloud 環境。這些角色不適用於私有和受限部署模式。
 
 .相關連結
-* https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["NetApp Console 存取角色"^]
 * https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["NetApp Console 中的 Cloud Volumes ONTAP 存取角色"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["在 NetApp Console 中為 Cloud Volumes ONTAP 設定角色型存取"^]
 

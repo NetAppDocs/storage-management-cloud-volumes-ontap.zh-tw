@@ -26,5 +26,5 @@ NetApp Console 中架構完善的儀表板現在可讓您修復 Cloud Volumes ON
 
 如果您之後想要納入先前被忽略的組態，可以在架構完善的儀表板中重新啟用它。這樣就能將該組態恢復到分析中，並讓您獲得相關的建議和修復方案。
 
-* link:https://docs.netapp.com/us-en/console-well-architected/cvo/improve-configurations-cvo.html["修正、關閉並重新啟用 Microsoft Azure 中 Cloud Volumes ONTAP 的組態"^]
+* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-improve-configurations-cvo.html["修正、關閉並重新啟用 Microsoft Azure 中 Cloud Volumes ONTAP 的組態"^]
 

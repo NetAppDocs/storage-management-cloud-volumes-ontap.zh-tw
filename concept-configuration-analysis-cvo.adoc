@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: concept-configuration-analysis-cvo.html 
+keywords: Cloud Volumes ONTAP, configuration issues, issues, improve, analyze, storage configuration, recommendation, recommendations 
+summary: 從 NetApp Console，Workload Factory 定期分析儲存系統組態，以判斷您的 Cloud Volumes ONTAP 系統是否有任何組態問題。 
+---
+= Azure 中 Cloud Volumes ONTAP 系統的組態分析
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Workload Factory 會定期從 NetApp Console 分析儲存系統組態，以判斷 Azure 中的 Cloud Volumes ONTAP 系統是否有任何組態問題。發現問題時，架構完善的儀表板會顯示問題所在，並提供需要變更的建議，以確保您的儲存系統達到最佳效能、成本效率，以及最佳實務的法規遵循。
+
+主要功能包括：
+
+* 每日配置分析
+* 對 NetApp ONTAP 儲存系統和合作夥伴儲存設備提供者進行自動最佳實務做法驗證
+* 主動可觀測性
+* 洞察化為行動
+
+
+link:https://docs.netapp.com/us-en/workload-family/index.html["了解更多關於 Workload Factory 的資訊。"^]
+
+
+
+[[how-it-works]]
+== 運作方式
+
+Workload Factory 每日分析您在支援的雲端儲存系統部署上執行的工作負載。此分析提供架構完善的狀態資訊、洞察分析和建議。
+
+每日分析完成後，部署的「架構完善」儀表板會將組態顯示為「最佳化的」或「未最佳化的」。您可以按類別查看組態問題，以及組態問題清單和建議。您可以審查針對組態問題的建議。Workload Factory 可以自動修復某些問題；其他問題則需要手冊干預。在這種情況下，Workload Factory 會提供詳細說明，幫助您實作建議的變更。
+
+您可以忽略不適用於您環境的組態分析。這樣可以避免不必要的警示和不準確的最佳化結果。
+
+您也可以使用純文字語言建立自訂規則，以根據組織的標準和 NetApp 最佳實務來驗證您的環境。先進行模擬執行測試規則，然後排程在您的環境中執行。
+
+
+
+[[why-it-matters]]
+== 為什麼這很重要
+
+Workload Factory 藉由結合後續評估與建議洞察和修復，將最佳實務做法應用於大型儲存設備、資料庫和 VMware 環境。自動化修復可減少人為錯誤，確保統一管理，並維護工作負載基礎架構的效能和可靠性。
+
+
+
+[[analysis-requirements]]
+== 分析要求
+
+確保與 Cloud Volumes ONTAP 關聯的控制台代理程式可以存取下列端點：
+
+* \https://api.workloads.netapp.com
+* \https://ws.workloads.bluexp.netapp.com
+
+
+
+
+[[best-practices-and-recommendations-for-cloud-volumes-ontap-systems]]
+== Cloud Volumes ONTAP 系統的最佳實務做法與建議
+
+Workload Factory 會對儲存設備組態進行評估，以深入檢視 ONTAP 組態的最佳實踐，並符合 Azure 架構完善框架的法規遵循。評估也會提出改進和修復建議。
+
+精心設計的分析將組態分類為架構的下列要素：_可靠性_、_安全性_、_卓越營運_、_成本最佳化_和_效能效率_。
+
+
+
+[[reliability]]
+=== 可靠性
+
+可靠性確保工作負載即使在中斷期間也能正確且持續地執行其預期功能。
+
+* *Snapshot 原則*
++
+排程本機 Snapshot 快照技術，以實現高效備份和快速還原。Snapshot 快照技術是 Volume 的即時時間點映像。
+
+* *SSD 容量餘裕*
++
+為避免應用程式的讀寫和處理量造成潛力影響，請將 SSD 儲存層的使用率保持在 80% 以下。您可以手動或自動增加容量。
+
+* *遠端資料複寫*
++
+透過遠端複寫保護您的 Cloud Volumes ONTAP 資料。遠端資料複寫透過在不同位置維護資料的同步副本，提供災難恢復功能，確保在系統故障或災難發生時的業務連續性。
+
+
+
+
+
+[[security]]
+=== 安全
+
+安全重點在於透過風險評估和緩解策略來保護資料、系統和資產。
+
+* *搭載 AI 的自主勒索軟體防護 (ARP/AI)*
++
+NetApp 具備人工智慧的自主勒索軟體防護 (ARP/AI) 有助於增強網路彈性，保護您的 Volume 免受勒索軟體威脅。我們建議為所有 Volume 啟用 ARP/AI。
+
+
+
+
+
+[[operational-excellence]]
+=== 卓越營運
+
+卓越營運績效的重點在於提供最佳的架構和商業價值。
+
+* *Volume 容量餘裕*
++
+請將 Volume 使用率保持在 80% 以下，以防止對應用程式讀寫和處理量造成潛力影響。您可以手動增加容量，也可以使用 Volume 自動擴充。
+
+* *FlexCache 寫入模式*
++
+為了獲得最佳效能，請選擇 FlexCache 最適合您工作負載的寫入模式。對於讀取密集型、檔案較小的工作負載，環繞寫入模式可提供更好的效能；而對於寫入密集型、檔案較大的工作負載，回寫寫入模式可提供更好的效能。
+
+* *FlexCache® 複本大小*
++
+啟用快取 Volume 自動調整規模和清理功能，以保持最佳大小，並將快取集中用於頻繁存取（熱）資料，從而達到尖峰效率。
+
+* *ONTAP 版本法規遵循*
++
+升級至最新 ONTAP 版本，以獲得完整的相容性、支援及新功能的存取。
+
+
+
+
+
+[[cost-optimization]]
+=== 成本最佳化
+
+成本優化可協助您在保持低成本的同時，為企業創造最大價值。
+
+* *超額配置的固態硬碟容量*
++
+過剩的 SSD 容量會增加不必要的成本。減少 SSD 分層，同時維持 20% 的可用空間緩衝區。此操作可能需要數小時到數天的時間，在此期間不支援其他檔案系統操作。
+
+* *冷資料分層*
++
+啟用冷資料分層，將冷資料從 SSD 儲存層遷移到成本較低的儲存設備。對每個 Volume 應用分層原則。
+
+
+
+.接下來
+link:task-improve-configurations-cvo.html["使用 Workload Factory 改善 Azure 中的 Cloud Volumes ONTAP 組態"]

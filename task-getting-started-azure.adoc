@@ -22,17 +22,6 @@ summary: 只需幾個步驟即可開始使用Cloud Volumes ONTAP for Azure。
 
 
  a| 
-驗證 NetApp Console 角色
- a| 
-在建立 Console 代理程式並執行 Cloud Volumes ONTAP 的其他部署任務之前，必須驗證必要的 IAM 角色和權限是否已到位。
- a| 
-請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["NetApp Console 中的 Cloud Volumes ONTAP 存取角色"^] https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["為 Cloud Volumes ONTAP 設定角色型存取"^]
- a| 
-確認角色已正確設定。
-
-
-
- a| 
 建立 Console 代理程式
  a| 
 如果您還沒有 Console 代理程式，請在部署 Cloud Volumes ONTAP 之前建立一個。
@@ -40,6 +29,17 @@ summary: 只需幾個步驟即可開始使用Cloud Volumes ONTAP for Azure。
 請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["在 Azure 中建立 Console 代理程式"^]
  a| 
 如果部署在無法存取網際網路的子網路中，請手動安裝 Console 代理程式，並存取在該 Console 代理程式上執行的 NetApp Console 使用者介面。請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["在無網際網路存取的情況下手動安裝 Console 代理程式"^]
+
+
+
+ a| 
+驗證 NetApp Console 角色
+ a| 
+建立控制台代理程式後，您必須驗證必要的 IAM 角色和 Cloud Volumes ONTAP 角色及權限是否已到位。
+ a| 
+請參閱 Console 設定指南：https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["NetApp Console 中的 Cloud Volumes ONTAP 存取角色"^] https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["為 Cloud Volumes ONTAP 設定角色型存取"^]
+ a| 
+在私有模式下， Console 代理程式必須正確設定必要的角色和權限。但是， Cloud Volumes ONTAP 角色不適用於私有模式部署。請參閱 Console 設定指南： https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["NetApp Console 存取角色"^]
 
 
 

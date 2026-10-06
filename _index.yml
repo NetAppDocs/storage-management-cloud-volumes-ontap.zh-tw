@@ -107,8 +107,8 @@ indexpage:
       url: "/concept-active-iq.html"
     - title: Cloud Volumes ONTAP 和 Microsoft OneLake
       url: "/task-azure-onelake.html"
-    - title: Cloud Volumes ONTAP 和架構完善的儀表板
-      url: "/configuration-analysis-cvo.html"
+    - title: Azure 和 Workload Factory 中的 Cloud Volumes ONTAP
+      url: "/concept-configuration-analysis-cvo.html"
     - title: Cloud Volumes ONTAP 和 Keystone
       url: "/task-manage-keystone.html"
   - title: 更多資源

@@ -42,6 +42,6 @@ NetApp Console 現在支援對執行在 Microsoft Azure 中的 Cloud Volumes ONT
 
 
 .相關連結
-* https://docs.netapp.com/us-en/console-well-architected/cvo/configuration-analysis-cvo.html["Cloud Volumes ONTAP 組態分析"^]
-* https://docs.netapp.com/us-en/console-well-architected/cvo/improve-configurations-cvo.html["實作架構良好的 Cloud Volumes ONTAP 系統組態"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-configuration-analysis-cvo.html["Cloud Volumes ONTAP 組態分析"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-improve-configurations-cvo.html["使用 Workload Factory 改善 Azure 中的 Cloud Volumes ONTAP 組態"^]
 
