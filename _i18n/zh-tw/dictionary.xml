@@ -7194,7 +7194,6 @@
   <block id="3fa68736455f9abf005902415a744856" category="paragraph"><block ref="3fa68736455f9abf005902415a744856" category="inline-link-rx"></block></block>
   <block id="fe0ff20f91d87a12fb5a919f2f09d702" category="paragraph"><block ref="fe0ff20f91d87a12fb5a919f2f09d702" category="inline-link-rx"></block></block>
   <block id="79bd526883928558187977d659917dca" category="list-text"><block ref="79bd526883928558187977d659917dca" category="inline-link-rx"></block></block>
-  <block id="7c6aeb3f4b51768651317047def161a1" category="list-text"><block ref="7c6aeb3f4b51768651317047def161a1" category="inline-link-rx"></block></block>
   <block id="04669dedc114228b290e66b3a53e009d" category="list-text"><block ref="04669dedc114228b290e66b3a53e009d" category="inline-link-rx"></block></block>
   <block id="6e9ce325483dda291717082e5329d6c8" category="paragraph">如需授權套件的相關資訊，請參閱<block ref="d9d28f09a38154804862cc0742f76db1" category="inline-link-rx"></block>。</block>
   <block id="658914614ae687a5f3785b2dac023a24" category="paragraph">如需切換至其他計費方式的相關資訊，請參閱<block ref="abcc188e637b21856ca793757fd17216" category="inline-link-rx"></block>。</block>
@@ -7575,10 +7574,8 @@
   <block id="4a7b975a18d85ad734dcfacfe5d6fc6a" category="list-text"><block ref="4a7b975a18d85ad734dcfacfe5d6fc6a" category="inline-link-macro-rx"></block></block>
   <block id="e6805077b3f74e1d1c4a35647779c4ab" category="list-text"><block ref="e6805077b3f74e1d1c4a35647779c4ab" category="inline-link-macro-rx"></block></block>
   <block id="7a630a613ad5140f64d4fb01af741d6b" category="example-title">對於私有模式部署，請確保滿足下列附加前提條件：</block>
-  <block id="7f31b6b072323d1aaa2e2e8ad1bedb5e" category="list-text">請確保您已完成網路組態，並為私有模式部署建立了工作節點資源池。請參閱 <block ref="35e5e66305f1922881221779e510e2d8" category="inline-link-macro-rx"></block>。</block>
   <block id="504d3e71571c89954eed124dfa5b825b" category="example-title">包含私有模式部署的額外權限</block>
   <block id="ebd2036d49c3b96c180472570fd48c1d" category="example-title">在私有模式部署中執行該工具</block>
-  <block id="aeb0575b4b66e933e9c5b96f7153308c" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 參數以在私有模式部署中執行該工具。有關工作資源池組態，請參閱 <block ref="35e5e66305f1922881221779e510e2d8" category="inline-link-macro-rx"></block>。</block>
   <block id="d672c069be18026b86395f27a7724ba5" category="cell">私有模式部署注意事項</block>
   <block id="4fbfded360b8289b829cf1c33cae0e0f" category="paragraph">驗證 NetApp Console 角色</block>
   <block id="769bcb1b917e9456afc908e3923e871d" category="inline-link">為 Cloud Volumes ONTAP 設定角色型存取</block>
@@ -8063,4 +8060,7 @@
   <block id="180f505a7fc07d3f76f768c6fcc4a74c" category="sidebar">使用 Workload Factory 進行組態分析與改善</block>
   <block id="7f8dc6515dcacddbb5d244b704ed2660" category="sidebar">Azure 中的 Cloud Volumes ONTAP 組態分析</block>
   <block id="a4103c06761e189279517f49433e8fdc" category="sidebar">改進 Azure 中的 Cloud Volumes ONTAP 組態</block>
+  <block id="65f9ec8af69f87b7b7419485ecdc45e9" category="list-text"><block ref="65f9ec8af69f87b7b7419485ecdc45e9" category="inline-link-rx"></block></block>
+  <block id="3a7bbb1b9e5b37872fef8f715efc7171" category="list-text">請確保您已完成網路組態，並為私有模式部署建立了工作節點資源池。請參閱 <block ref="36efb7ae258f0de12028dabdb108a37a" category="inline-link-macro-rx"></block>。</block>
+  <block id="6ed0cfe5d8872e13ec685679d0c5586b" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 參數以在私有模式部署中執行該工具。有關工作資源池組態，請參閱 <block ref="36efb7ae258f0de12028dabdb108a37a" category="inline-link-macro-rx"></block>。</block>
 </blocks>
