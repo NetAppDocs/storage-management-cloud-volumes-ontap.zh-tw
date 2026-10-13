@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: reference-networking-gcp.html 
-keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, bucket, private google access, set up data requirement, gcp networking, google networking, shared vpc, host project, service project; private mode or in a project protected by VPC Service Controls 
+keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, bucket, private google access, set up data requirement, gcp networking, google networking, shared vpc, host project, service project, private mode or in a project protected by VPC Service Controls 
 summary: 設定您的 Google Cloud 連網，以確保 Cloud Volumes ONTAP 系統正常運作。您將了解 CVO 的連網需求、私人 IP 位址、VPC、子網路、封包鏡射、防火牆規則和 HA 組態，以及 Console 代理程式需求。 
 ---
 = 為Cloud Volumes ONTAP設定 Google Cloud 網路
