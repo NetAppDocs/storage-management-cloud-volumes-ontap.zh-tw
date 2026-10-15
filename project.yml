@@ -197,6 +197,8 @@ sidebar:
         url: "/task-protecting-ransomware.html"
       - title: 為 WORM 儲存建立防篡改 Snapshot 副本
         url: "/reference-worm-snaplock.html"
+      - title: 啟用後端叢集網路加密
+        url: "/task-enable-cluster-encryption.html"
   - title: 雲端基礎架構管理
     entries:
     - title: AWS 管理
@@ -223,6 +225,8 @@ sidebar:
         url: "/reference-limits-azure.html"
       - title: 了解 Azure 中的高可用性 (HA) 對
         url: "/concept-ha-azure.html"
+      - title: 防止在 Azure 維護 Cloud Volumes ONTAP HA 期間中斷
+        url: "/task-azure-prevent-freeze.html"
       - title: 使用 Azure Key Vault 管理金鑰
         url: "/task-azure-key-vault.html"
       - title: 變更 Azure VM 類型
@@ -245,10 +249,6 @@ sidebar:
           url: "/concept-configuration-analysis-cvo.html"
         - title: 改進 Azure 中的 Cloud Volumes ONTAP 組態
           url: "/task-improve-configurations-cvo.html"
-      - title: Azure 中的 Cloud Volumes ONTAP 組態分析
-        url: "/concept-configuration-analysis-cvo.html"
-      - title: 改進 Azure 中的 Cloud Volumes ONTAP 組態
-        url: "/task-improve-configurations-cvo.html"
     - title: Google Cloud 管理
       entries:
       - title: Google Cloud 中支援的配置

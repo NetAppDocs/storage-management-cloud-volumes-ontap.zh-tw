@@ -161,6 +161,9 @@ summary: 從NetApp Console升級Cloud Volumes ONTAP以取得最新的功能和�
 | 目前版本 | 可直接升級到的版本 
 
 
+| 9.18.1 | 9.19.1 
+
+
 | 9.17.1 P1 | 9.18.1 
 
 

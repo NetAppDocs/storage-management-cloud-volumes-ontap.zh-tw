@@ -192,7 +192,7 @@ Keystone訂閱是一種按需付費的訂閱式服務。link:concept-licensing.h
 .步驟
 . 如果您尚未訂閱， https://www.netapp.com/forms/keystone-sales-contact/["聯絡NetApp"^]
 . mailto:ng-keystone-success@netapp.com[聯絡NetApp] 為您的使用者帳號授權一個或多個Keystone訂閱。
-. NetApp授權您的帳戶後，link:task-manage-keystone.html#link-a-subscription["連結您的訂閱以用於Cloud Volumes ONTAP"] 。
+. NetApp 授權您的帳戶後，link:task-manage-keystone.html["連結您的訂閱以用於Cloud Volumes ONTAP"]。
 . 在 *系統* 頁面上，選取 *新增系統* 並依照步驟操作。
 +
 .. 當提示選擇充電方式時，選擇Keystone Subscription 充電方式。

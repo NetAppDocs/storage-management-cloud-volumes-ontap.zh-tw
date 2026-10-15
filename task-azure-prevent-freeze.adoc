@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: task-azure-prevent-freeze.html 
+keywords: Azure, maintenance event, HA, takeover, giveback, freeze, disruption 
+summary: 透過抑制 Cloud Volumes ONTAP HA 配對的自動接管和歸還，防止 Azure 維護期間中斷。 
+---
+= 防止 Azure 維護期間 Cloud Volumes ONTAP HA 配對發生中斷
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以設定 Cloud Volumes ONTAP HA 配對，以在 Azure 排程維護期間抑制自動接管和歸還。此選用功能適用於 Cloud Volumes ONTAP 9.19.1 及更新版本，預設為停用。
+
+
+NOTE: 此功能在 Cloud Volumes ONTAP 9.19.1 中以公開預覽版的形式提供。
+
+Microsoft Azure 可能會在計劃維護期間短暫暫停虛擬機器。在 Cloud Volumes ONTAP HA 組態中，ONTAP 可能會將此暫停視為節點停電，並將儲存設備作業遷移到合作夥伴節點，然後在暫停的虛擬機器恢復時自動將其歸還（接管和歸還）。這可能會毀損作用中的用戶端連線。如果啟用此功能，HA 配對將在 Azure 計劃維護凍結期間繼續執行，而不會自動啟動接管和歸還。
+
+.關於此任務
+* 在 Azure VM 凍結期間，用戶端 I/O 可能會停滯。ONTAP 不會自動啟動接管，因此用戶端 I/O 會保留在受影響的節點上，而不是移至 HA 合作夥伴。I/O 可能會停滯，直到節點恢復運作為止。
+* 中斷持續時間取決於 Azure 虛擬機器凍結情況。凍結時間越長，I/O 中斷時間也越長。
+* 對於其他故障情況，常規 HA 保護仍然作用中。此功能僅在 Azure 排程維護凍結期間抑制接管和歸還。其他通常會觸發接管的情況（例如節點故障或崩潰）仍會繼續觸發。
+* 此功能適用於 HA 配對的兩個節點。維護事件行為在兩個節點上都有設定，不能只在一個節點上啟用。
+* 該功能在重新啟動後仍然有效，直到您將其停用為止。停用它將還原預設的排程維護接管和歸還行為。
+
+
+.開始之前
+* 您的 Cloud Volumes ONTAP 系統必須執行 9.19.1 或更高版本。
+* 您必須擁有 Cloud Volumes ONTAP 系統管理員存取權，才能完成此程序。
+* 驗證您的工作負載是否可以容忍 Azure 排程維護凍結期間的暫時性 I/O 停滯，並且在凍結期間繼續運作比預設的接管和歸還回應更可取。
+
+
+
+
+[[prevent-automatic-takeover-and-giveback-during-azure-scheduled-maintenance]]
+== 在 Azure 計劃維護期間防止自動接管和歸還
+
+.步驟
+. 識別 Azure HA 配對的系統 ID。如需識別資源與進行 API 呼叫的相關資訊，請參閱 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 呼叫"^]。
+. 向下列端點發送 `PUT`請求，並將 `{id}`替換為系統 ID：
++
+`PUT /occm/api/azure/ha/working-environments/{id}/opt-off-maintenance-event`
+
++
+在請求正文中將  `enabled` 設定為  `true`：
+
++
+[source, json]
+----
+{
+  "enabled": true
+}
+----
+
+
+.結果
+成功的請求會傳回 HTTP 202 狀態碼，且回應主體為空。
+
+
+IMPORTANT: API 會依序更新 HA 配對中的節點。如果要求在作業完成前失敗，請在重試要求之前驗證兩個節點上的設定，因為節點可能會有不同的設定。
+
+
+
+[[disable-the-feature-to-restore-default-behavior]]
+== 停用此功能以還原預設行為
+
+若要在 Azure 計劃維護期間還原預設的接管和歸還行為，請停用該功能。
+
+.步驟
+. 向同一個端點發送 `PUT`請求，並將 `{id}`替換為系統 ID：
++
+`PUT /occm/api/azure/ha/working-environments/{id}/opt-off-maintenance-event`
+
++
+在請求正文中將  `enabled` 設定為  `false`：
+
++
+[source, json]
+----
+{
+  "enabled": false
+}
+----
+
