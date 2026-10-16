@@ -1,0 +1,10 @@
+= AWS Marketplace 中 Cloud Volumes ONTAP 的分隔 PAYGO 列表
+:allow-uri-read: 
+
+
+
+
+[[separate-paygo-listing-for-cloud-volumes-ontap-in-aws-marketplace]]
+=== AWS Marketplace 中 Cloud Volumes ONTAP 的分隔 PAYGO 列表
+
+NetApp 現在透過 NetApp Standalone Listing（NSL）在 AWS Marketplace 中為 Cloud Volumes ONTAP 提供分隔的隨用隨付（PAYGO）清單。NetApp 先前推出了獨立式 Cloud Volumes ONTAP 訂閱，以容納 AWS 企業折扣計畫（EDP）的變更。PAYGO 清單現在與 Cloud Volumes ONTAP 年度合約一起在相同的 NSL 產品下提供，從而更輕鬆地追蹤 PAYGO 使用情況、監控溢出費用和管理消費成本。Cloud Volumes ONTAP 年度合約和 PAYGO 清單均與 NetApp Intelligence Services（NIS）年度合約和 PAYGO 清單保持分隔，因此可以對 Cloud Volumes ONTAP 容量和資料服務進行分隔計費。

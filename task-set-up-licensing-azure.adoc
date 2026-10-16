@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-set-up-licensing-azure.html 
 keywords: freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, digital wallet 
-summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在部署新系統時選擇該授權選項之前，需要執行幾個步驟。 
+summary: 在 Azure 中部署新系統之前，請為 Cloud Volumes ONTAP 設定免費增值、以容量為基礎（BYOL、PAYGO、年度合約）或 Keystone 訂閱授權。 
 ---
 = 在 Azure 中設定Cloud Volumes ONTAP許可
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 
 
 [role="lead"]
-在您決定要與Cloud Volumes ONTAP一起使用哪種授權選項後，需要執行幾個步驟才能在建立新系統時選擇該授權選項。
+在 Azure 中決定使用 Cloud Volumes ONTAP 的哪種授權選項後，您必須完成幾個步驟，才能在建立新系統時選擇該授權選項。
 
 
 
@@ -29,7 +29,7 @@ summary: 在您決定要為Cloud Volumes ONTAP使用哪種授權選項後，在�
 +
 .. 在 *詳細資料和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Azure Marketplace 中的隨用隨付產品。
 +
-除非您超過 500 GiB 的預置容量，否則不會透過市場訂閱向您收費，屆時系統將自動轉換為 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["基本套餐"^]。
+除非您已配置的容量超過 500 GiB，否則不會透過市場訂閱向您收費。屆時，系統會自動轉換為link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["基本套餐"^]。
 
 +
 image:screenshot-azure-paygo-subscription.png["建立Cloud Volumes ONTAP系統時 PAYGO 訂閱選項的螢幕截圖。"]
@@ -49,7 +49,7 @@ link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP
 [[capacity-based-license]]
 == 基於容量的許可證
 
-基於容量的許可使您能夠按 TiB 容量支付Cloud Volumes ONTAP費用。基於容量的許可以_包_的形式提供：Essentials 包或 Professional 包。
+基於容量的授權可讓您按 TiB 容量付費使用 Cloud Volumes ONTAP。基於容量的授權以_套件_形式提供：Essentials 套件或 Professional 套件。
 
 Essentials 和 Professional 套餐提供以下幾種消費模式或購買選項：
 
@@ -60,7 +60,7 @@ Essentials 和 Professional 套餐提供以下幾種消費模式或購買選項�
 
 link:concept-licensing.html["了解有關基於容量的許可的更多信息"] 。
 
-以下部分介紹如何開始使用每種消費模型。
+首先，請按照您想要使用的消費模式的步驟進行操作。
 
 
 
@@ -76,7 +76,7 @@ NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資�
 . https://www.netapp.com/forms/sales-contact/["聯絡NetApp銷售人員以取得許可證"^]
 . https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["將您的NetApp支援網站帳戶新增至控制台"^]
 +
-控制台會自動查詢 NetApp 的授權服務，以取得與您的NetApp支援網站帳戶相關的授權的詳細資訊。如果沒有錯誤，控制台會自動將許可證新增至控制台。
+Console 會自動查詢 NetApp 的授權服務，以取得與您的 NetApp 支援網站帳戶關聯的授權詳細資訊。如果沒有錯誤，Console 會自動新增授權。
 
 +
 您必須先從控制台取得授權，才能與 Cloud Volumes ONTAP 一起使用。如有需要，您可以link:task-manage-capacity-licenses.html["手動將許可證新增至控制台"]。
@@ -85,7 +85,7 @@ NOTE: NetApp 已限制 BYOL 授權的購買、延期和續約。如需詳細資�
 +
 .. 在 *詳細資料和憑證* 頁面上，選取 *編輯憑證 > 新增訂閱*，然後依照提示訂閱 Azure Marketplace 中的隨用隨付產品。
 +
-總是會先向您從NetApp購買的許可證收費，但如果您超出許可容量或許可證期限到期，則會按照市場上的小時費率向您收費。
+您從 NetApp 購買的授權一律會優先計費，但如果您超出授權容量或授權期限到期，則會按市場的小時費率向您收費。
 
 +
 image:screenshot-azure-paygo-subscription.png["建立Cloud Volumes ONTAP系統時 PAYGO 訂閱選項的螢幕截圖。"]
@@ -187,7 +187,7 @@ link:task-deploying-otc-azure.html["查看在 Azure 中啟動Cloud Volumes ONTAP
 [[node-based-license]]
 == 基於節點的許可證
 
-基於節點的許可證是Cloud Volumes ONTAP的上一代許可證。基於節點的授權可以從NetApp (BYOL) 購買，並且僅在特定情況下才可以續訂授權。有關信息，請參閱：
+以節點為基礎的授權是 Cloud Volumes ONTAP 的上一代授權。您可以向 NetApp （BYOL）購買以節點為基礎的授權。以節點為基礎的授權僅在特定情況下可供續約。如需詳細資訊，請參閱：
 
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#end-of-availability-for-node-based-licenses["基於節點的許可證的可用性終止"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基於節點的許可證的可用性終止"^]

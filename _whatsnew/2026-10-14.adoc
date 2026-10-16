@@ -20,7 +20,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["C
 
 從 Cloud Volumes ONTAP 9.19.1 GA 版本開始，對於滿足先決條件的全新 Azure 單節點和高可用度（HA）部署，Azure 主機加密預設為啟用。此功能會在資料寫入和讀取主機時，對託管 VM 的實體伺服器上的資料（包括臨時磁碟和關聯的主機級快取）進行加密。
 
-在 Azure 中部署 Cloud Volumes ONTAP 之前，請確保符合下列先決條件：
+在 Azure 中部署 Cloud Volumes ONTAP 之前，請確認您的環境符合以下先決條件：
 
 * 該 `EncryptionAtHost`功能已註冊到您的 Azure 訂閱。請參閱 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli["Microsoft 文件：在主機上啟用加密"^]。
 * 您選擇的 VM 執行個體類型支援在您的 Azure 區域中主機上的加密。請參閱 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli#finding-supported-vm-sizes["Microsoft 文件：尋找受支援的 VM 大小"^]。

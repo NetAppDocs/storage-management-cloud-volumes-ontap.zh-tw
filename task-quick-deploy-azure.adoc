@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-quick-deploy-azure.html 
 keywords: azure quick deploy, quick deploy, azure, single screen deployment Azure, SAZ, MAZ, single node, HA pair 
-summary: 您可以快速地在 Azure 中以單一系統設定或高可用性 （HA） 配對的形式部署 Cloud Volumes ONTAP 執行個體。 
+summary: 使用快速建立選項，即可從單一頁面在 Azure 中部署 Cloud Volumes ONTAP 單節點系統或 HA 配對。 
 ---
 = 使用 Azure 中的快速建立功能部署 Cloud Volumes ONTAP
 :hardbreaks:
@@ -14,18 +14,18 @@ summary: 您可以快速地在 Azure 中以單一系統設定或高可用性 （
 
 
 [role="lead"]
-您可以在 Amazon Web Services （AWS）、Microsoft Azure 和 Google Cloud 上使用 `Quick create`部署 Cloud Volumes ONTAP，以便在單節點和高可用性 （HA） 配置中實現更快速的部署。與進階方法相比，此簡化流程透過在單一頁面上自動設定預設值並減少導覽步驟，從而降低了部署步驟數量。
+您可以使用 `Quick create`在 Amazon Web Services （AWS）、Microsoft Azure 和 Google Cloud 中部署 Cloud Volumes ONTAP，以便在單一節點和高可用度 （HA） 組態中加快部署速度。與進階方法相比，這個簡化的程序透過在單一頁面上自動設定預設值並將瀏覽次數減至最低，減少了部署步驟。
 
 .開始之前
-開始之前、請確定您擁有下列項目：
+請確保您已備好：
 
-. 一個已啟動並執行且與您的專案或工作區關聯的 Console 代理程式。請注意，Console 代理程式需要始終執行。有關詳細資訊，請參閱：
+. 已啟動並執行，且與您的專案或工作區相關聯的 Console 代理程式。Console 代理程式必須隨時執行。如需詳細資訊，請參閱：
 +
 ** https://docs.netapp.com/us-en/console-setup-admin/concept-agents.html["瞭解 NetApp Console 代理程式"^]
 ** https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html["選擇 Console 代理程式部署方法"^]
 
 
-. 了解您想要使用的組態。開始之前，請選擇一種組態並從管理員取得網路資訊。如需相關資訊，請參閱：
+. 了解您想要使用的組態。選擇一種組態並從系統管理員取得連網資訊。如需相關資訊，請參閱：
 +
 [role="tabbed-block"]
 ====
@@ -122,7 +122,7 @@ image:screenshot-quick-start-gcp.png["width=500,alt=\"Google Cloud Quick Create\
 . *ONTAP 認證*：這些是 Cloud Volumes ONTAP 叢集管理員帳戶的認證。您可以使用這些認證透過 ONTAP System Manager 或 ONTAP CLI 連線至 Cloud Volumes ONTAP。您可以保留預設的 _admin_ 使用者名稱，也可以將其變更為自訂使用者名稱。
 
 
-對於 _Google Cloud_，如果您打算使用 link:concept-data-tiering.html["資料分層"] 或  https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 搭配 Cloud Volumes ONTAP，則需要啟用 *Service Account* 並選擇具有預先定義 Storage Admin 角色的服務帳號。link:task-creating-gcp-service-account.html["了解如何建立服務帳號"^]。與 Console 代理程式關聯的服務帳戶 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["應該具有所需的權限"^]。
+對於 _Google Cloud_ ，如果您打算將 link:concept-data-tiering.html["資料分層"] 或  https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 與 Cloud Volumes ONTAP 搭配使用，則需要啟用 *Service Account* ，並選取具有預先定義之 Storage Admin 角色的服務帳戶。link:task-creating-gcp-service-account.html["了解如何建立服務帳號"^]。與 Console 代理程式相關聯的服務帳戶 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["應該具有所需的權限"^]。
 
 . *標籤/標記*：標籤是 AWS 或 Azure 資源的元資料。Console 會將標籤新增至 Cloud Volumes ONTAP 執行個體以及與該執行個體關聯的每個資源。建立 Cloud Volumes ONTAP 系統時，您可以透過使用者介面新增最多 15 個標籤，建立完成後還可以新增更多標籤。如需更多資訊，請參閱：
 +
@@ -147,18 +147,18 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud Documen
 
 
 .部署和配置
-. *部署類型/拓樸*：選擇您要使用的部署類型、單節點、單一可用區域（AZ）中的高可用度（HA）或多個可用區域中的高可用度（HA）。
+. *部署類型/拓撲*：選擇要使用的部署類型：單一節點、單一可用度區（AZ）中的高可用度（HA），或多個可用度區（AZ）中的 HA。
 . *網路組態*：輸入您在規劃工作表中記錄的區域、VNet 和子網路的網路資訊。
 +
 .. *Region*：預設情況下，選擇與資源關聯的雲端帳戶的區域。
-.. *可用區*：您可以根據所選的部署類型以及所選區域是否支援該可用區來選擇可用區。
+.. *可用度區*：您可以根據所選的部署類型以及所選區域是否支援您的區域來選擇可用度區。
 .. *Subnet*：為該區域選擇一個子網路。
 +
 [role="tabbed-block"]
 ====
 .適用於 AWS
 --
-*VPC*：對於 AWS，請輸入您計劃部署的區域的 Amazon Virtual Private Cloud (VPC) 網路及其子網路。
+*VPC*：對於 AWS，請根據您規劃的部署，輸入該區域的 Amazon Virtual Private Cloud（VPC）網路及其子網路。
 
 .AWS 高可用性
 如果您選擇了 HA 組態，請輸入以下資訊：
@@ -171,7 +171,7 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud Documen
 ... *可用區域和中介*：選擇每個節點的可用區域 (AZ) 以及要部署Cloud Volumes ONTAP HA 對的中介和對應子網路。
 ... *浮動 IP*：如果您選擇了多個可用區（AZ），請為 NFS 和 CIFS 服務以及叢集和 SVM 管理指定浮動 IP 位址。這些 IP 位址必須位於該區域中所有 VPC 的 CIDR 區塊之外。如需其他詳細資訊，請參閱 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多個可用區中Cloud Volumes ONTAP HA 的 AWS 網路需求"^]。
 ... *調解器存取*：指定調解器存取資訊。調解器是一個單獨的實例，用於監控 HA 對的健康狀況並在發生故障時提供仲裁。提供金鑰對名稱以使中介執行個體能夠連線到 AWS EC2 服務，並選擇連線方法。
-... *路由表*：如果您選擇了多個 AZ，請選擇包含到浮動 IP 位址的路由的路由表。如果您有多個路由表，則選擇正確的路由表非常重要。否則，某些用戶端可能無法存取Cloud Volumes ONTAP HA 對。有關路由表的更多信息，請參閱 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文件：路由表"^]。
+... *路由表*：如果您選擇了多個可用區（AZ），請選擇包含指向浮動 IP 位址路由的路由表。如果您有多個路由表，請確定您選擇了正確的路由表。否則，某些用戶端可能無法存取 Cloud Volumes ONTAP HA 配對。如需有關路由表的詳細資訊，請參閱 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文件：路由表"^]。
 
 
 .充電和服務
@@ -185,7 +185,7 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud Documen
 --
 .適用於 Google Cloud
 --
-*VPC 與子網路*：對於 Google Cloud，請輸入區域的 Google Virtual Private Cloud (VPC) 網路，以及根據您規劃的部署所需的子網路。
+*VPC 和子網路*：對於 Google Cloud，請根據您計劃的部署，輸入區域的 Google Virtual Private Cloud（VPC）網路和子網路。
 
 .單一 AZ 或多個 AZ 中的 HA
 如果您選擇了高可用性 （HA） 配置，請輸入以下資訊：*節點 1 和節點 2 以及中介器的區域*：新增這兩個節點和中介器的區域。*連接性* 為 HA 配置選擇四個不同的 VPC，並在每個 VPC 中選擇一個子網路。有關 VPC-1、VPC-2 和 VPC-3 的詳細資訊，請參閱 link:reference-networking-gcp.html#requirements-specific-to-single-node-systems["VPC-1、VPC-2 和 VPC-3 的規則"]。
@@ -201,14 +201,14 @@ NOTE: Cloud Volumes ONTAP 9.19.1 及更高版本支援 link:concept-ha-google-cl
 
 .充電和服務
 . *授權*：選取您要用於此 Cloud Volumes ONTAP 系統的授權類型。您可以選擇 Professional、Essentials 和 Freemium 授權。如需不同授權的相關資訊，請參閱link:concept-licensing.html["了解Cloud Volumes ONTAP許可證"^]。
-. *資料服務與功能*：保留啟用的服務，或停用您不想與 Cloud Volumes ONTAP 一起使用的服務。在 _Google Cloud_ 中，若要選擇備份與還原，或使用 NetApp Cloud Tiering，您必須指定服務帳戶。
+. *資料服務與功能*：保持服務啟用，或停用您不想與 Cloud Volumes ONTAP 一起使用的服務。在 _Google Cloud_ 中，若要選擇備份和復原或使用 NetApp Cloud Tiering，您必須指定服務帳戶。
 +
 ** https://docs.netapp.com/us-en/data-services-data-classification/concept-classification.html["了解有關NetApp分類的更多信息"^]
 ** https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["了解有關NetApp Backup and Recovery的更多信息"^]
 ** link:concept-worm.html["了解Cloud Volumes ONTAP上的 WORM 存儲"]
 +
 
-TIP: 如果您想利用 WORM 和資料分層，則必須停用備份和還原並部署版本 9.8 或更高版本的Cloud Volumes ONTAP系統。
+TIP: 如果要使用 WORM 和資料分層，則必須停用備份和恢復，並部署版本為 9.8 或更高版本的 Cloud Volumes ONTAP 系統。
 
 
 
@@ -218,7 +218,7 @@ TIP: 如果您想利用 WORM 和資料分層，則必須停用備份和還原並
 
 在 _Azure_ 中，*概述* 部分顯示部署程序完成後將指派的資源。
 
-在 _AWS_ 中，建立 Cloud Volumes ONTAP 系統後，NetApp Console 會立即在指定的 VPC 中啟動測試執行個體來驗證連線性。如果連線成功，Console 會立即終止該執行個體，然後開始部署系統。如果 Console 無法驗證連線性，則系統建立失敗。測試執行個體可以是 `t2.nano`（適用於預設 VPC 租用）或 `m3.medium`（適用於專用 VPC 租用）。
+在 _AWS_ 中，建立 Cloud Volumes ONTAP 系統後，NetApp Console 會立即在指定的 VPC 中啟動測試執行個體來驗證連線能力。如果測試成功，Console 會立即終止該執行個體，然後開始部署系統。如果 Console 無法驗證連線能力，則系統建立失敗。測試執行個體為 `t2.nano`（針對預設 VPC 租用戶）或 `m3.medium`（針對專用 VPC 租用戶）。
 
 .完成後
 控制台部署Cloud Volumes ONTAP系統。您可以在審核頁面上追蹤進度。
@@ -226,7 +226,7 @@ TIP: 如果您想利用 WORM 和資料分層，則必須停用備份和還原並
 如果在部署 Cloud Volumes ONTAP 系統時遇到任何問題，請查看錯誤訊息。您也可以在系統上選擇 *Re-create environment*，然後使用 `Advanced`模式精靈繼續部署。
 
 
-CAUTION: 部署程序完成後，請勿在 AWS 或 Azure 雲端入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，尤其是系統標籤。對這些配置進行的任何變更都可能導致意外行為或資料遺失。
+CAUTION: 部署程序完成後，請勿在 AWS 或 Azure 雲端入口網站中修改系統產生的 Cloud Volumes ONTAP 組態，尤其是系統標籤。變更這些組態可能會商機意外行為或資料遺失。
 
 .相關連結
 * link:task-planning-your-config-azure.html["規劃您的Cloud Volumes ONTAP配置"]
