@@ -41,7 +41,7 @@ Microsoft Azure 可能會在計劃維護期間短暫暫停虛擬機器。在 Clo
 == 在 Azure 計劃維護期間防止自動接管和歸還
 
 .步驟
-. 識別 Azure HA 配對的系統 ID。如需識別資源與進行 API 呼叫的相關資訊，請參閱 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 呼叫"^]。
+. 識別 Azure HA 配對的系統 ID。如需識別資源與進行 API 呼叫的相關資訊，請參閱 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifier["發出 ONTAP 管理 REST API 呼叫"^]。
 . 向下列端點發送 `PUT`請求，並將 `{id}`替換為系統 ID：
 +
 `PUT /occm/api/azure/ha/working-environments/{id}/opt-off-maintenance-event`

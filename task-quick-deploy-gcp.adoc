@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-quick-deploy-gcp.html 
 keywords: google cloud quick deploy, quick deploy, GCP, single screen deployment Google Cloud, SAZ, MAZ, single node, HA pair 
-summary: 使用快速建立功能，在 Google Cloud 中將 Cloud Volumes ONTAP 部署為單一系統或 HA 配對。 
+summary: 使用快速建立功能，在 Google Cloud 中將 Cloud Volumes ONTAP 部署為單節點系統或 HA 配對。 
 ---
 = 使用 Google Cloud 中的快速建立功能部署 Cloud Volumes ONTAP
 :hardbreaks:

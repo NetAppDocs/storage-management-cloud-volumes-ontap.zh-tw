@@ -140,7 +140,7 @@ link:concept-worm.html["管理 WORM 儲存設備"] link:reference-worm-snaplock.
 Ansible 是一款基於過程式組態檔的開源組態管理工具。
 
 * https://galaxy.ansible.com/ui/repo/published/netapp/ontap/["Ansible Galaxy"^]
-* https://docs.ansible.com/ansible/latest/user_guide/index.html["Ansible 文件"^]
+* https://docs.ansible.com/projects/ansible/latest/getting_started/index.html["Ansible 文件"^]
 
 
 
