@@ -38,6 +38,7 @@ summary: 將 Google Cloud 中現有的 Cloud Volumes ONTAP 系統升級至 9.16.
 * 確認沒有透過 Google Cloud 控制台手動編輯過任何 Cloud Volumes ONTAP 資源或其屬性。
 * 請確認已啟用 Google Cloud API，包括 Google Cloud Quotas API。請參閱 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["啟用 Google Cloud API"^]。
 * 請確認 NetApp Console 代理程式的服務帳戶具有所有必要的權限。請參閱  https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 權限"^]。
+* 在開始轉換之前，我們建議您對 Cloud Volumes ONTAP 系統的根目錄磁碟和開機磁碟進行快照。
 +
 .對於私有模式部署，請確保滿足下列附加前提條件：
 [%collapsible]
@@ -173,6 +174,22 @@ includedPermissions:
     --file=YAML_FILE_PATH`如需詳細資訊，請參閱 https://cloud.google.com/iam/docs/creating-custom-roles["建立和管理自訂角色"^]。
 .. 將自訂角色附加到您將用於建立 VM 的服務帳戶。
 .. 將 `roles/iam.serviceAccountUser`角色新增至此服務帳戶。請參閱 https://docs.cloud.google.com/iam/docs/service-account-overview["服務帳戶概覽"^]。
+.. 在專案中啟用 IAM 服務帳戶憑證 API：
++
+[source, cli]
+----
+gcloud services enable iamcredentials.googleapis.com --project=PROJECT_ID
+----
+.. 允許您建立的服務帳戶模擬 Console 代理程式服務帳戶。為此，請將 `Service Account Token Creator` 角色授予您建立的服務帳戶。
++
+[source, cli]
+----
+gcloud iam service-accounts add-iam-policy-binding \
+CONSOLE_AGENT_SA@PROJECT_ID.iam.gserviceaccount.com \ --
+member="serviceAccount:CONVERT_VM_SA@PROJECT_ID.iam.gserviceaccount.com" \  --
+role="roles/iam.serviceAccountTokenCreator" \  --
+project=PROJECT_ID
+----
 
 
 . [[create-vm]]建立一個具有以下組態的 VM 。您可以在此 VM 上執行此工具。
@@ -307,7 +324,7 @@ dmconvert \
 
 
 .完成後
-此工具會顯示所有 Cloud Volumes ONTAP 系統和 SVM 詳細資料的清單。執行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會顯示在 Google Cloud Console 的 Infrastructure Manager 下，格式為 _<system-name-imdeploy>_，表示 Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。
+此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。執行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _<system-name-imdeploy>_ 格式顯示在 Google Cloud Console 的 Infrastructure Manager 下。此格式表示 NetApp Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。
 
 
 CAUTION: 轉換完成後，請勿在 Google Cloud Console 中刪除 Deployment Manager 的部署物件。此部署物件包含您可能需要用來復原已轉換系統的資訊。
