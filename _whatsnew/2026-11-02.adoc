@@ -7,8 +7,10 @@
 [[guidance-for-upgrading-ontap-hotfixes-for-specific-cloud-volumes-ontap-versions]]
 === 針對特定 Cloud Volumes ONTAP 版本升級 ONTAP 熱修復程式的指南
 
-ONTAP 已發布以下與 Cloud Volumes ONTAP 9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 及 9.19.1 版本相容的 Hotfix：
+ONTAP 已發布以下與 Cloud Volumes ONTAP 版本 9.12.1、9.13.1、9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 和 9.19.1 相容的 Hotfix：
 
+* 9.12.1P20HF1
+* 9.13.1P21HF1
 * 9.14.1P18HF1
 * 9.15.1P20HF1
 * 9.16.1P16HF1

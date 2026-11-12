@@ -5029,7 +5029,6 @@
   <block id="432f238e2167c79f023d25fc94cf7068" category="list-text">如果停用資料分層、則可以在後續 Aggregate 上啟用、但您需要關閉系統、並從 Google Cloud Console 新增服務帳戶。</block>
   <block id="ae02630a597278f3ffd84e28ca4d3fbd" category="admonition">部署程序完成後，請勿在 Google Cloud 入口網站中修改系統產生的 Cloud Volumes ONTAP 配置，例如系統標記和 Google Cloud 資源中設定的標籤。對這些配置進行任何更改都可能導致意外行為或資料遺失。</block>
   <block id="b9e5aa43ec2007eccaf097117438e531" category="doc">將現有的 Cloud Volumes ONTAP 部署轉換為 Infrastructure Manager</block>
-  <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link">NetApp 支援網站</block>
   <block id="fe91a45b95e89e219ea69631edff8521" category="list-text">Terraform 工件，儲存於<block ref="b1042b7d7203a022c297b13679f7d1f8" prefix=" " category="inline-code"></block>。</block>
   <block id="787ab3bb526ace3e3d9f5b857facafbf" category="list-text">偵錯記錄儲存在 <block ref="abecaca0429ea0c44adcba537eb94f89" prefix=" " category="inline-code"></block> 目錄中。您需要這些記錄進行疑難排解。<block ref="6ec9e5b046607d57923aee80f990225d" prefix=" " category="inline-code"></block> 儲存貯體儲存 Terraform 記錄。</block>
   <block id="07f770dff2ab3ed070b0fafe70eae22a" category="paragraph">使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系統會將資料和記錄儲存在 Google Cloud Storage 儲存桶中。這些儲存桶可能會產生額外費用，但請勿編輯或刪除儲存桶及其內容：</block>
@@ -5065,9 +5064,7 @@
   <block id="afbf0897a5a83fdd873dfb032ec695d3" category="cell">內部</block>
   <block id="964a9f95d3fda0f78f13dd7cd49fe137" category="cell">VM 元資料和驗證權杖</block>
   <block id="cc8a2ca4c8f7a6693635c0db1616e216" category="list-text">建立角色並將其附加到服務帳戶：</block>
-  <block id="960ea426544a50e48bbb44091a8b5e5a" category="list-text">建立具有下列權限的 YAML 檔案：</block>
   <block id="1d18879deca373fd3c960377615e653b" category="inline-link">建立和管理自訂角色</block>
-  <block id="869c76d4b80ed5f9cf0e8d2f4eb512e0" category="list-text">在 Google Cloud 中建立自訂角色，並賦予其 YAML 檔案中定義的權限。<block ref="6da58a565048c2e2729af1e6e86faa69" prefix=" " category="inline-code"></block>如需詳細資訊，請參閱<block ref="501c40914d64ab1d645ef6b122f85e83" category="inline-link-rx"></block>。</block>
   <block id="b32773154a8c5568c16bd0ac076b2038" category="list-text">將自訂角色附加到您將用於建立 VM 的服務帳戶。</block>
   <block id="a3b3d7065fff3323321a80503eca1bba" category="inline-link">服務帳戶概覽</block>
   <block id="4249c331d2620d2cd9780ca6679f30af" category="list-text">將<block ref="27a953ce0cbb51d4876b439aee2cbec1" prefix=" " category="inline-code"></block>角色新增至此服務帳戶。請參閱<block ref="88a1fe1ad7367a70a7d6fa5c7d98a110" category="inline-link-rx"></block>。</block>
@@ -5261,7 +5258,6 @@
   <block id="a4f8cf180bd6d1216c603260377fab0b" category="list-text">為上一個步驟中建立的私人連線 IP 範圍指派配置。</block>
   <block id="2fc774da70207cbd9c3f7f4cb2b882ce" category="list-text">部署此工作池並保持其運行，以進行 Cloud Volumes ONTAP 管理。Google Cloud 使用此工作池在隔離環境中執行所有 Terraform 操作。</block>
   <block id="e76afdbea65b310b371ae0744e22156a" category="list-text">以私有模式部署 Cloud Volumes ONTAP 時，請在 *GCP Worker Pool* 欄位中選擇此工作池的名稱。請參閱 <block ref="06a62ff106957757a2928a7c710d7365" category="inline-link-macro-rx"></block> 以取得相關說明。</block>
-  <block id="5e2a323cd6d7faff6d94fff36d28f7aa" category="list-text">轉換摘要，已儲存於<block ref="f80ad7d1c557c653b7c3e1f9d76587b2" prefix=" " category="inline-code"></block></block>
   <block id="043abbc7d82ea8f85b4eb2cfc1ed8c1a" category="list-text">請確保您已安裝最新版本的 Console 代理程式。從 NetApp Support Site 下載產品安裝程式，然後手動將代理程式安裝到您的主機上，以便代理程式可以使用 Infrastructure Manager API。</block>
   <block id="cee17a2118e2f87df1ef45ab60919d83" category="cell">cloudbuild.googleapis.com</block>
   <block id="e61855b4554dd4f867078342b0fe3ed9" category="cell">僅私有模式需要建置操作</block>
@@ -5282,7 +5278,6 @@
   <block id="235ad64d4d44f422462a6f13a9ebdb24" category="paragraph">執行工具之前，請先執行這些步驟。</block>
   <block id="25099748affaf06175b1716317124072" category="list-text">作業系統：根據您的需求、選擇以下任一映像：</block>
   <block id="53b4fb6fd5c954dbf179dba99b662501" category="list-text">SUSE Linux Enterprise Server 15 SP7 x86_64</block>
-  <block id="6b71f098730cc9eb4a17b15f0fde4f4f" category="list-text">使用您的 NSS 憑證從<block ref="2b34f2fd14a473003c4bec1d639c99ed" category="inline-link-rx"></block>下載轉換工具：<block ref="351cb02cba717c786694e4b04b17a03c" prefix=" " category="inline-code"></block></block>
   <block id="3d945423f8e9496c429a5d8c65b4604f" category="list-title">Ubuntu</block>
   <block id="4ae0b3e9c82d7212e106b8d937d888f9" category="list-title">SUSE Linux Enterprise Server</block>
   <block id="60deaa50ef5cb5075b022cf8b7e2aa9b" category="list-text">設定 Python：<block ref="cf4dfc540c38d1d6ba007027e57f8ad9" prefix=" " category="inline-code"></block></block>
@@ -7349,9 +7344,6 @@
   <block id="46b120686b67ad5cfd82f3089a86ecb2" category="list-text"><block ref="46b120686b67ad5cfd82f3089a86ecb2" category="inline-link-macro-rx"></block></block>
   <block id="4a7b975a18d85ad734dcfacfe5d6fc6a" category="list-text"><block ref="4a7b975a18d85ad734dcfacfe5d6fc6a" category="inline-link-macro-rx"></block></block>
   <block id="e6805077b3f74e1d1c4a35647779c4ab" category="list-text"><block ref="e6805077b3f74e1d1c4a35647779c4ab" category="inline-link-macro-rx"></block></block>
-  <block id="7a630a613ad5140f64d4fb01af741d6b" category="example-title">對於私有模式部署，請確保滿足下列附加前提條件：</block>
-  <block id="504d3e71571c89954eed124dfa5b825b" category="example-title">包含私有模式部署的額外權限</block>
-  <block id="ebd2036d49c3b96c180472570fd48c1d" category="example-title">在私有模式部署中執行該工具</block>
   <block id="d672c069be18026b86395f27a7724ba5" category="cell">私有模式部署注意事項</block>
   <block id="4fbfded360b8289b829cf1c33cae0e0f" category="paragraph">驗證 NetApp Console 角色</block>
   <block id="769bcb1b917e9456afc908e3923e871d" category="inline-link">為 Cloud Volumes ONTAP 設定角色型存取</block>
@@ -7963,7 +7955,6 @@
   <block id="ed1f1798cf59d3b7e2dccb773f996a49" category="paragraph">在請求正文中將 <block ref="a10311459433adf322f2590a4987c423" prefix=" " category="inline-code"></block> 設定為 <block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>：</block>
   <block id="840e012212b7ce51ef9cd5802d3ffc25" category="summary">啟用後端叢集網路加密，以保護尚未受 ONTAP IPsec 保護的 Cloud Volumes ONTAP 叢集流量。</block>
   <block id="7999d03bdd5aa474a03ebcf61a2de49d" category="doc">在 Azure 和 Google Cloud 中為 Cloud Volumes ONTAP 啟用後端叢集網路加密</block>
-  <block id="719b33ddd2a7d0686b19b3ae5af3ce4f" category="paragraph">對於 Cloud Volumes ONTAP 9.19.1 及更高版本，請啟用後端叢集網路加密，以保護 Azure 和 Google Cloud 高可用度（HA）組態中的內部東西向流量。此設定可保護傳輸中的流量；它不會加密 Volume 靜態資料。</block>
   <block id="d6a96ea38aea023cd1fea09197b94126" category="paragraph">ONTAP 使用透過核心 TLS （ kTLS ）的叢集工作階段管理（ CSM ）和軟體 IPsec ，為 HA 組態的後端網路提供安全的網路流量。Cloud Volumes ONTAP 9.19.1 及更新版本將此保護延伸至後端叢集流量。</block>
   <block id="e0c9d8803c8bdc8ce51e91511d3f16e9" category="admonition">啟用叢集網路加密可能會影響叢集效能。請注意操作，並在啟用此功能前確認您的環境能夠容納額外的例行成本。</block>
   <block id="3a77fed898c3fa02fcbdf21c5d1176c1" category="list-text">您必須執行 Cloud Volumes ONTAP 9.19.1 或更高版本。</block>
@@ -7980,8 +7971,6 @@
   <block id="f3c67684218b3eff305ecd149891fb61" category="list-text"><block ref="f3c67684218b3eff305ecd149891fb61" category="inline-link-rx"></block></block>
   <block id="54b3ffcd56ca9fcf7b510eacd6e2b2c2" category="inline-link">security cluster-network modify</block>
   <block id="8de36505e6c08f8621e3a78ce3f914fb" category="list-text"><block ref="8de36505e6c08f8621e3a78ce3f914fb" category="inline-link-rx"></block></block>
-  <block id="15bcb4c6449d561405dcd3343b296f3f" category="list-text">請確保您已完成網路組態，並為私有模式部署建立了工作節點資源池。請參閱 <block ref="f6826eadb975b62aabcce78c0bcbe6da" category="inline-link-macro-rx"></block>。</block>
-  <block id="22d13b1b320aa83b9fbd888d6b3349d9" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 參數以在私有模式部署中執行該工具。有關工作資源池組態，請參閱 <block ref="f6826eadb975b62aabcce78c0bcbe6da" category="inline-link-macro-rx"></block>。</block>
   <block id="6f05250c0d8ee6e1e655dce3b4fafd31" category="list-text">NetApp 授權您的帳戶後，<block ref="0d5be306dbda0781dddbcc32145dcc04" category="inline-link-macro-rx"></block>。</block>
   <block id="a5afab6e833a0c61f2c731eac753192e" category="paragraph">您必須先從控制台取得授權，才能與 Cloud Volumes ONTAP 一起使用。如有需要，您可以<block ref="01d63d3ea6e2febdc331ccf6e8ab0d0f" category="inline-link-macro-rx"></block>。</block>
   <block id="e4216eff9837bc291d5eabe5aed0dafd" category="paragraph">本頁所述的增強功能專門用於透過 Console 管理 Cloud Volumes ONTAP。若要了解主要版本與修補程式，請參閱 <block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block>。</block>
@@ -8053,13 +8042,11 @@
   <block id="4f54f1c82add47f08c941579c501a406" category="list-text">對於其他故障情況，正常的 HA 保護仍然作用中。此功能僅在 Azure 排程維護凍結期間抑制接管和歸還。其他通常會觸發接管的情況（例如節點故障或發生恐慌）仍會繼續觸發。</block>
   <block id="6683094c8541cbfa78e085bdd8260a1a" category="list-text">此功能適用於 HA 配對的兩個節點。維護事件行為在兩個節點上均已設定，無法僅在單一節點上啟用。</block>
   <block id="589bd286ccc0c7a999de70bb9265ddf1" category="paragraph">自 2026 年 2 月 9 日起，Google Cloud 中新的 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 將逐步棄用 Google Cloud Deployment Manager，改用 Infrastructure Manager。若要將您現有的 Cloud Volumes ONTAP 部署從 Deployment Manager 轉換為 Infrastructure Manager，請手動執行轉換工具。此一次性程序會自動將您的系統切換到 Infrastructure Manager。</block>
-  <block id="0004013451dd21cf0daaa50247b51200" category="paragraph">轉換工具可在 NetApp 支援網站中取得，並產生下列產物：</block>
   <block id="6a56d32ea8e0427687e2f48db0ebf04b" category="list-text">請確認您的 Cloud Volumes ONTAP 系統版本為 9.16.1 或更高版本。</block>
   <block id="aef1025d177152953fd77cf5dbf4c464" category="list-text">確認沒有透過 Google Cloud 控制台手動編輯過任何 Cloud Volumes ONTAP 資源或其屬性。</block>
   <block id="6d73b1750ac1021440bc6069824ebe87" category="list-text">請確認已啟用 Google Cloud API，包括 Google Cloud Quotas API。請參閱<block ref="284597b9b55c9d9b3851ec2830376fdc" category="inline-link-rx"></block>。</block>
   <block id="0a77e6fa3bcc2a4a46994a982c9cb782" category="list-text">請確認 NetApp Console 代理程式的服務帳戶具有所有必要的權限。請參閱 <block ref="818358be64a80b49936bc9250a957044" category="inline-link-rx"></block>。</block>
   <block id="5af96971a6186cfbb754577c214522f3" category="list-text">如果您以私有模式執行工具，請確保除了其他 API 之外，還啟用了 Cloud Build API。請參閱<block ref="284597b9b55c9d9b3851ec2830376fdc" category="inline-link-rx"></block>。</block>
-  <block id="685cec569501ca56e857119ffa3379da" category="paragraph">如果您以私有模式執行該工具，也請將 <block ref="b366c1901726ed94faabaca293b342ab" prefix=" " category="inline-code"></block> 權限新增至 YAML 檔案。</block>
   <block id="94a40954574ac4e2168d485e9c50ff38" category="list-text">連網：防火牆允許 HTTP 和 HTTPS</block>
   <block id="c62520e2944607e9aad9bfba7b6e5e2f" category="paragraph">使用下列步驟在 Ubuntu 和 SUSE Linux Enterprise Server 上執行轉換工具。</block>
   <block id="f61c832a1c1de58efaf2089d73c900ee" category="list-text">以<block ref="3a2e7e59491b74e35b36d9d724fd0584" prefix=" " category="inline-code"></block>使用者身分執行轉換工具。請確保您使用與 Console 代理程式相同的服務帳戶，並且該服務帳戶擁有所有的<block ref="5d3ef0c339df1f2a110bf7d6a45b4e45" category="inline-link-rx"></block>。</block>
@@ -8134,7 +8121,6 @@
   <block id="0557a17b7976bfada1cbf216d937643c" category="paragraph">Cloud Volumes ONTAP 現已支援與 <block ref="06dad0286aae23111863bb1a79b17a4a" category="inline-link-macro-rx"></block> 整合（公開預覽版）。此整合可讓您將現有的 Cloud Volumes ONTAP NAS 資料提供給 Microsoft 分析和 AI 服務，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。此整合無需資料搬移或重複資料。此整合使用 <block ref="aac36380121b9387ae99c37cf81e3144" category="inline-link-macro-rx"></block> 存取將 Cloud Volumes ONTAP 連接到現有的 Microsoft Fabric 湖倉。</block>
   <block id="ba184f13e7bf496f6768b87c5d7acdb0" category="list-text"><block ref="ba184f13e7bf496f6768b87c5d7acdb0" category="inline-link-rx"></block></block>
   <block id="5a5a491a94e6d556e85e601b24f8d121" category="doc">針對特定 Cloud Volumes ONTAP 版本升級 ONTAP 熱修復程式的指南</block>
-  <block id="b4891be2934b9e98fc19416ebfae6a18" category="paragraph">ONTAP 已發布以下與 Cloud Volumes ONTAP 9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 及 9.19.1 版本相容的 Hotfix：</block>
   <block id="e1436b576c97d4ee53df8bdb53230756" category="list-text">9.14.1P18HF1</block>
   <block id="5050c1a82a49a95d546f16829b500401" category="list-text">9.15.1P20HF1</block>
   <block id="124b86ef30adb0fa328f15ad507bbe98" category="list-text">9.16.1P16HF1</block>
@@ -8173,4 +8159,28 @@
   <block id="ef65f3f94d877de929be359626901d12" category="list-text">在專案中啟用 IAM 服務帳戶憑證 API：</block>
   <block id="76f8caea778b35171e350499ebd5a417" category="list-text">允許您建立的服務帳戶模擬 Console 代理程式服務帳戶。為此，請將<block ref="923187d4bd3b6bfa56e7df07d12df709" prefix=" " category="inline-code"></block> 角色授予您建立的服務帳戶。</block>
   <block id="435a8b22867c508e39228ff294ad3369" category="paragraph">此工具會顯示所有 Cloud Volumes ONTAP 系統及其 SVM 詳細資訊的清單。執行完成後，您可以查看所有已轉換系統的狀態。每個已轉換的系統都會以 _&lt;system-name-imdeploy&gt;_ 格式顯示在 Google Cloud Console 的 Infrastructure Manager 下。此格式表示 NetApp Console 現在使用 Infrastructure Manager API 來管理該 Cloud Volumes ONTAP 系統。</block>
+  <block id="24872a3badce2466861f424f45ddc1df" category="paragraph">ONTAP 已發布以下與 Cloud Volumes ONTAP 版本 9.12.1、9.13.1、9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 和 9.19.1 相容的 Hotfix：</block>
+  <block id="78008c5260700db5baf4534819697473" category="list-text">9.12.1P20HF1</block>
+  <block id="0a353d36bdabea4b41e087d5e43942fb" category="list-text">9.13.1P21HF1</block>
+  <block id="49389e9142e97d729ce6ab5f4ecbd7dc" category="paragraph">從 Cloud Volumes ONTAP 9.19.1 及更高版本開始，您可以啟用後端叢集網路加密，以保護 Azure 和 Google Cloud 高可用性（HA）組態中 Cloud Volumes ONTAP 節點內部的流量。此設定可保護傳輸中的流量，但不會加密 Volume 靜態資料。</block>
+  <block id="40175a32e3b83a2f4ad4417fd6aadc75" category="paragraph">轉換工具可在 NetApp 支援網站上取得，並建立下列成品：</block>
+  <block id="47a96ec9ac683fac8aa8ebbddbfb79ff" category="list-text">轉換結果摘要已儲存在<block ref="8f66602548a59e22c821de29517d7dff" prefix=" " category="inline-code"></block>中。</block>
+  <block id="d71c9eab1d64137328d11bd505836fa3" category="list-text">Cloud Volumes ONTAP 專案是指您建立 Cloud Volumes ONTAP 資源的 Google Cloud 專案。控制台代理程式和 Cloud Volumes ONTAP 系統可以位於同一個 Google Cloud 專案或不同的 Google Cloud 專案中（跨專案組態）。在跨專案組態中，您可以將控制台代理程式部署在一個專案（例如專案 A）中，並將 Cloud Volumes ONTAP 系統部署在另一個專案（例如專案 B）中，前提是控制台代理程式的服務帳戶擁有所需的權限。</block>
+  <block id="a6beaee929312480fb3d77a80200ebba" category="list-text"><block ref="459888dc95116b3e1800e611d3502102" prefix="" category="inline-code"></block>：用於全新 Cloud Volumes ONTAP 部署的 ONTAP 版本和 SVM Terraform 範本。在此儲存桶內，<block ref="141f3ccee25f2d3a39df4d9471e4bb21" prefix=" " category="inline-code"></block> 儲存桶包含 Cloud Volumes ONTAP Terraform 檔案。</block>
+  <block id="eb4b55ef5e5f15461bdc1c3263559885" category="inline-link">建立 Google Cloud 服務帳戶以搭配代理程式使用</block>
+  <block id="b4b8a6734a6218379e5d7901c8e105c4" category="list-text">如果控制台代理程式和 Cloud Volumes ONTAP 位於不同的專案中，請驗證控制台代理程式的服務帳戶是否在 Cloud Volumes ONTAP 專案中擁有所有必要的權限。請在<block ref="f12b3b5f11d936ff208d9319de21ab72" category="inline-link-rx"></block>中了解如何授予控制台代理程式的服務帳戶存取其他專案的權限。</block>
+  <block id="c49f46e2c01018fe47bafbca95a573e2" category="example-title">對於私有模式或保護模式部署，請確保滿足下列附加前提條件：</block>
+  <block id="3c40a980e63c29142fae547b4d39a5c3" category="list-text">請確保您已完成網路組態，並為私有模式或受保護環境部署建立工作資源池。請參閱 <block ref="f6826eadb975b62aabcce78c0bcbe6da" category="inline-link-macro-rx"></block>。</block>
+  <block id="787e00106230cd8397b9c11f5302a0a0" category="list-text">建立一個具有以下權限的 YAML 檔案。</block>
+  <block id="65408a2bebb31eae171bff9208d07aca" category="example-title">包含適用於私有模式或受保護部署的額外權限</block>
+  <block id="a7bf57a4a04ee22e2853a7bad9f65410" category="paragraph">如果您在私有模式或受保護的環境中執行該工具，也請將<block ref="b366c1901726ed94faabaca293b342ab" prefix=" " category="inline-code"></block>權限新增至 YAML 檔案。</block>
+  <block id="28621d675922a13fd49ccbf9f15f647b" category="example-title">包含跨專案部署的額外權限（一個專案中的主控台代理程式，另一個專案中的 Cloud Volumes ONTAP）</block>
+  <block id="6169a66c038862b521ea775f72b95112" category="paragraph">在跨專案部署中，您為 Console 代理程式的專案建立先前的 YAML 檔案。您需要為 Cloud Volumes ONTAP 資源位於的專案建立第二個 YAML 檔案，並具備下列權限：</block>
+  <block id="6b64344e5eefde7b133cb1318bbf415d" category="list-text">在 Google Cloud 中建立自訂角色，並具備 Console 代理程式專案中 YAML 檔案所定義的權限。在跨專案設定中，您也需要在 Cloud Volumes ONTAP 資源位於的專案中建立此角色。<block ref="6da58a565048c2e2729af1e6e86faa69" prefix=" " category="inline-code"></block>如需詳細資訊，請參閱<block ref="501c40914d64ab1d645ef6b122f85e83" category="inline-link-rx"></block>。</block>
+  <block id="88c21f467e22948cc713ce80cd8cc997" category="list-text">使用您的 NSS 憑證從<block ref="c78dfaf598bee0c97cb055febf7cde9c" category="inline-link-rx"></block>下載轉換工具：<block ref="351cb02cba717c786694e4b04b17a03c" prefix=" " category="inline-code"></block></block>
+  <block id="2707cef496585db395af17d9667509bd" category="example-title">在跨專案部署中執行該工具（一個專案中的主控台代理程式，另一個專案中的 Cloud Volumes ONTAP）</block>
+  <block id="04bf6b7abcf67ed8dc4c5abbdaa26889" category="paragraph">如果您的 Cloud Volumes ONTAP 系統位於與主控台代理程式所在的專案不同的專案中，請指定 <block ref="f771f2cb6e50d935d8e7d8a76e19a7e5" prefix=" " category="inline-code"></block> 參數。</block>
+  <block id="0e6d56fe5393252331d7343659494473" category="example-title">在私有模式或保護模式部署中執行該工具</block>
+  <block id="eeb17a28d1d99b5b083875c964f9eaca" category="paragraph">指定<block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block>參數以在私有模式或保護模式部署中執行該工具。有關工作資源池組態，請參閱<block ref="f6826eadb975b62aabcce78c0bcbe6da" category="inline-link-macro-rx"></block>。</block>
+  <block id="effe1179a23b252f4eedfe689321b115" category="paragraph">如果要進行跨專案部署，請指定 <block ref="f771f2cb6e50d935d8e7d8a76e19a7e5" prefix=" " category="inline-code"></block> 參數：</block>
 </blocks>

@@ -14,7 +14,7 @@ summary: 啟用後端叢集網路加密，以保護尚未受 ONTAP IPsec 保護�
 
 
 [role="lead"]
-對於 Cloud Volumes ONTAP 9.19.1 及更高版本，請啟用後端叢集網路加密，以保護 Azure 和 Google Cloud 高可用度（HA）組態中的內部東西向流量。此設定可保護傳輸中的流量；它不會加密 Volume 靜態資料。
+從 Cloud Volumes ONTAP 9.19.1 及更高版本開始，您可以啟用後端叢集網路加密，以保護 Azure 和 Google Cloud 高可用性（HA）組態中 Cloud Volumes ONTAP 節點內部的流量。此設定可保護傳輸中的流量，但不會加密 Volume 靜態資料。
 
 ONTAP 使用透過核心 TLS （ kTLS ）的叢集工作階段管理（ CSM ）和軟體 IPsec ，為 HA 組態的後端網路提供安全的網路流量。Cloud Volumes ONTAP 9.19.1 及更新版本將此保護延伸至後端叢集流量。
 
