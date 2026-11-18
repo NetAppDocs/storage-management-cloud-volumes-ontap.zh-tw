@@ -20,6 +20,64 @@ summary: 了解 Cloud Volumes ONTAP 管理的新功能和增強功能。
 
 
 
+[[17-november-2026]]
+== 2026年11月17日
+
+
+
+[[new-cloud-volumes-ontap-contributor-role]]
+=== 新 Cloud Volumes ONTAP 貢獻者角色
+
+NetApp 新增了 *Cloud Volumes ONTAP 貢獻者*角色，其權限高於營運者角色，但低於管理員角色。擁有營運者角色的使用者可以執行多項日常工作流程，包括 SnapMirror 複寫任務。管理員角色涵蓋了這些工作流程，但也允許管理員使用者刪除 Cloud Volumes ONTAP 系統，而許多組織不希望操作使用者擁有此權限。此角色至關重要，因為控制台目前不支援多管理員驗證（MAV），如果沒有 MAV，管理員使用者無需二次批准即可執行敏感操作，例如刪除系統。貢獻者角色允許使用者執行大多數關鍵操作，例如建立系統、管理複寫和管理儲存設備，同時防止系統刪除。
+
+貢獻者角色包含所有營運者權限，以及以下附加功能：
+
+* 建立 Cloud Volumes ONTAP 系統
+* 更新系統設定，例如變更執行個體類型或升級 ONTAP 版本
+* 管理複寫，包括中斷、重新同步、反向重新同步，以及編輯複寫排程和傳輸速率
+* 管理儲存設備，例如新增彙總和增加容量
+
+
+具有貢獻者角色的使用者無法執行以下任務：
+
+* 刪除系統、磁碟區、彙總或複寫關係
+* 開啟或關閉系統
+* 設定密碼
+* 存取 ONTAP System Manager
+
+
+您可以從 *管理 > 身分* 中指派貢獻者角色，就像您將其他 Cloud Volumes ONTAP 角色指派給使用者一樣。
+
+.相關連結
+* https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["NetApp Console 中的 Cloud Volumes ONTAP 存取角色"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["在 NetApp Console 中為 Cloud Volumes ONTAP 設定角色型存取"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html#data-service-roles["NetApp Console 存取角色"^]
+
+
+
+
+[[microsoft-entra-id-hybrid-user-authentication-for-smb-public-preview]]
+=== 適用於 SMB 的 Microsoft Entra ID 混合使用者身分驗證（公開預覽）
+
+Cloud Volumes ONTAP 9.19.1 及更新版本支援使用 https://www.microsoft.com/en-in/security/business/identity-access/microsoft-entra-id["Microsoft Entra ID"^]進行混合使用者身分驗證，以存取 SMB 共享。
+
+先前，Cloud Volumes ONTAP 僅支援網域使用者的 SMB 驗證，這需要內部部署 Active Directory （AD） 設定。透過混合式使用者身分驗證，您可以透過 Microsoft Entra ID 將 SMB 驗證擴展到雲端，同時繼續使用現有的內部部署 AD 基礎架構。
+
+採用混合使用者身分驗證時，使用者是在內部部署 AD 中建立，並使用 https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-azure-ad-connect["Microsoft Entra Connect"^]同步至 Microsoft Entra ID。ONTAP 透過與內部部署 AD 和 Microsoft Entra ID 通訊，來驗證存取 SMB 共享的使用者。
+
+此功能目前以公開預覽版的形式提供。僅支援透過 ONTAP CLI 進行設定。尚未提供 NetApp Console 整合。
+
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-azure-entra-id-smb-auth.html["設定 Microsoft Entra ID 驗證以支援 SMB"^]
+
+
+
+[[16-november-2026]]
+== 2026年11月16日
+
+未解析的指令位於 <stdin> - include::_whatsnew/2026-11-16.adoc[]
+
+
+
 [[02-november-2026]]
 == 2026年11月2日
 

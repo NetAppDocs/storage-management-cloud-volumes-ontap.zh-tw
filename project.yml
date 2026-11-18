@@ -47,7 +47,7 @@ sidebar:
         url: "/concept-degraded-ha-pair.html"
     - title: 在 Amazon Web Services 中部署
       entries:
-      - title: 從 AWS Marketplace 部署獨立式 Cloud Volumes ONTAP
+      - title: 使用 AWS Marketplace 上的獨立式清單部署 Cloud Volumes ONTAP
         url: "/task-onboard-cvo-aws-marketplace.html"
       - title: 部署總覽
         url: "/task-getting-started-aws.html"
@@ -225,7 +225,7 @@ sidebar:
         url: "/reference-limits-azure.html"
       - title: 了解 Azure 中的高可用性 (HA) 對
         url: "/concept-ha-azure.html"
-      - title: 防止 Azure 維護期間 Cloud Volumes ONTAP HA 配對發生中斷
+      - title: 防止 Azure 維護期間 HA 對發生中斷
         url: "/task-azure-prevent-freeze.html"
       - title: 使用 Azure Key Vault 管理金鑰
         url: "/task-azure-key-vault.html"
@@ -235,6 +235,8 @@ sidebar:
         url: "/task-overriding-cifs-locks.html"
       - title: 使用 Azure 專用連結或服務終結點
         url: "/task-enabling-private-link.html"
+      - title: 設定 Microsoft Entra ID 驗證以支援 SMB
+        url: "/task-azure-entra-id-smb-auth.html"
       - title: 移動資源組
         url: "/task-moving-resource-groups-azure.html"
       - title: 在 Azure 中隔離SnapMirror流量

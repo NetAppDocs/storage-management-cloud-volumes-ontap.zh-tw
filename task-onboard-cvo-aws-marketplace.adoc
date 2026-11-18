@@ -4,7 +4,7 @@ permalink: task-onboard-cvo-aws-marketplace.html
 keywords: aws marketplace, cloud volumes ontap, onboarding, subscribe, deploy agent, setup guide, organization, subscription association 
 summary: 在 AWS Marketplace 中訂閱 Cloud Volumes ONTAP，並在 NetApp Console 中完成設定，包括建立組織、訂閱關聯、部署代理程式和建立第一個系統。 
 ---
-= 從 AWS Marketplace 訂閱並部署 Cloud Volumes ONTAP 獨立式產品
+= 使用 AWS Marketplace 上的獨立式產品清單部署 Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -17,10 +17,10 @@ summary: 在 AWS Marketplace 中訂閱 Cloud Volumes ONTAP，並在 NetApp Conso
 在 AWS Marketplace 中訂閱獨立式的 Cloud Volumes ONTAP 產品，部署 Console 代理程式，並建立您的第一個系統。
 
 .開始之前
-在開始之前，請確保您已準備好：
+請確保您已備好：
 
 * 一個 NetApp Console 帳戶，或建立帳戶所需的資訊。
-* 確保 Console 代理程式網路符合要求。link:https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-aws-marketplace.html#step-1-set-up-networking["了解 Console 代理程式連網需求"^]
+* 符合要求的控制台代理程式網路。link:https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-aws-marketplace.html#step-1-set-up-networking["了解 Console 代理程式連網需求"^]
 * 具有訂閱 AWS Marketplace 並接受產品條款權限的 AWS 帳戶和身分。
 +
 如果您選擇 *為我建立角色*，則提交 CloudFormation 快速建立堆疊的 AWS 身分需要以下權限。若要使用相同身分訂閱和提交堆疊，請在開始之前附加這些權限。如果您使用不同的身分提交堆疊，請改為將這些權限附加到該身分。這些權限可讓 CloudFormation 建立部署角色；它們並非執行中代理程式所使用的權限。
@@ -72,10 +72,24 @@ summary: 在 AWS Marketplace 中訂閱 Cloud Volumes ONTAP，並在 NetApp Conso
 . 找到 NetApp Cloud Volumes ONTAP 獨立式產品。AWS Marketplace 提供兩種 Cloud Volumes ONTAP 產品：
 +
 ** Cloud Volumes ONTAP 年度訂閱的獨立式產品
-** 針對 NetApp 資料服務和 Cloud Volumes ONTAP 訂閱的 NetApp Intelligent Service 結合產品。
+** 適用於 NetApp 資料服務與 Cloud Volumes ONTAP 訂閱的 NetApp 智慧服務組合產品
 
 
-. 選擇 _獨立式_ 產品。這些步驟指南您訂閱獨立式產品。
+. 選擇 _獨立式_ 產品。審查清單詳細資料和定價條款。
+. 訂閱並完成付款。
+. 訂閱後，選取 *設定產品* 即可重新導向至 NetApp Console 以完成部署。
+
+
+
+
+[[subscribe-to-the-netapp-intelligent-service-offering-for-data-services]]
+== 訂閱資料服務的 NetApp Intelligent Service 產品
+
+如果您想使用其他資料服務，例如 NetApp Backup and Recovery，除了獨立式產品之外，您還需要訂閱 NetApp Intelligent Service 產品。
+
+.步驟
+. 使用具有所需權限的 AWS 帳戶前往 AWS Marketplace。
+. 找到並選擇 NetApp Intelligent Service 產品。
 . 審查清單詳細資料和定價條款。
 . 訂閱並完成付款。
 . 訂閱後，選取 *設定產品* 即可重新導向至 NetApp Console 以完成部署。
@@ -119,7 +133,7 @@ summary: 在 AWS Marketplace 中訂閱 Cloud Volumes ONTAP，並在 NetApp Conso
 
 .步驟
 . 請輸入組織名稱。
-. （可選）關聯 NetApp 支援網站（NSS）帳戶。
+. 選用：關聯 NetApp 支援網站（NSS）帳戶。
 . 選擇 *Create*。
 
 
@@ -166,7 +180,7 @@ Console 會嘗試將您的市場訂閱與您的組織建立關聯。如果自動
 若要讓主控台使用 CloudFormation 快速建立功能來建立角色，提交堆疊的 AWS 身分需要系統管理員權限或 <<aws-iam-role-permissions,上述 JSON 範例>> 中的最低權限。
 
 ... 選擇 *為我建立角色*。
-... 新增 AWS 帳戶 ID，也可以選擇新增外部 ID。Console 會設定預設角色名稱。
+... 新增 AWS 帳戶 ID，以及（選用）外部 ID。主控台會設定預設角色名稱。
 ... 選擇 *開啟 CloudFormation 快速建立*。
 ... 在 AWS CloudFormation 快速建立頁面中，確認條款並選擇 *建立堆疊*。
 +
@@ -182,7 +196,7 @@ image:screenshot-stack-creation.png["width=35% AWS CloudFormation 堆疊建立�
 
 ... 選擇 *擔任角色*。
 +
-主控台會為所扮演的角色建立一個名稱，您可以根據需要變更該名稱。
+控制台會為所扮演的角色建立一個名稱，您可以根據需要變更該名稱。
 
 ... 輸入現有角色的 ARN。
 ... 選擇 *驗證憑證*。
@@ -204,7 +218,7 @@ image:screenshot-stack-creation.png["width=35% AWS CloudFormation 堆疊建立�
 
 . 設定代理程式部署詳細資料，包括代理程式執行個體名稱，以及 Console 是否應為執行中的代理程式建立 IAM 角色或使用現有角色。
 +
-當 Console 建立 Console 代理程式時，會為該代理程式建立一個 IAM 角色和一個設定檔，或使用您提供的角色。此角色包含可讓代理程式管理 AWS 資源的權限。請確保在未來版本中新增權限時更新此角色link:https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["深入瞭解 Console 代理程式的 IAM 原則"^]。
+當控制台建立控制台代理程式時，它會為該代理程式建立一個 IAM 角色和一個設定檔，或使用您提供的角色。此角色包含使代理程式能夠管理 AWS 資源的權限。請根據代理程式所需的任何新權限及時更新此角色。link:https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["深入瞭解 Console 代理程式的 IAM 原則"^]。
 
 . 根據需要，透過選擇 VPC、子網路、金鑰對、公用 IP 行為和 Proxy 設定來設定連網。
 . 設定安全性群組規則以允許傳入 HTTP (80)、HTTPS (443) 和 SSH (22)，以便存取代理程式 VM 進行疑難排解。
@@ -232,7 +246,7 @@ link:https://docs.netapp.com/us-en/console-setup-admin/reference-ports-aws.html[
 
 控制台部署代理程式後，請遵循 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用 AWS 中的快速建立功能部署 Cloud Volumes ONTAP"^]中的步驟來建立您的第一個系統。
 
-如果您尚未準備好建立 Cloud Volumes ONTAP 系統，您可以隨時返回「系統」頁面稍後建立系統。
+如果您尚未準備好建立 Cloud Volumes ONTAP 系統，您可以隨時返回「系統」頁面進行建立。
 
 
 
