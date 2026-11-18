@@ -6903,7 +6903,6 @@
   <block id="44e833213a99257d69192896111996f4" category="paragraph">現在，您可以在 Azure 的奧地利東部 (austriaeast) 和比利時中部 (belgiumcentral) 區域部署 Cloud Volumes ONTAP 9.12.1 GA 及更新版本。支援下列部署類型：</block>
   <block id="0eda8bbe61d2248f5418aba76b8dc5b1" category="list-text">\https://api.workloads.netapp.com</block>
   <block id="9f45fe3cd2af64a1afc3f4b7f81bdae6" category="list-text">\https://ws.workloads.bluexp.netapp.com</block>
-  <block id="dbf314f960a580dec77c3328f5a7dcfe" category="list-text">如果您打算透過 AWS 市場中的獨立式 Cloud Volumes ONTAP 訂閱對 Cloud Volumes ONTAP 容量進行計費，則 Cloud Volumes ONTAP 系統必須使用受支援的容量型套件（Essentials 或 Freemium）。Professional 套件不支援獨立式清單，仍將透過 NIS 訂閱進行計費。選擇所需的套件後，請使用 NetApp Console 中的 *Billing preferences* 選擇用於 Cloud Volumes ONTAP 計費的市場訂閱。</block>
   <block id="a21deb009c8ff7309664108fdf426e10" category="summary">在 AWS Marketplace 中訂閱 Cloud Volumes ONTAP，並在 NetApp Console 中完成設定，包括建立組織、訂閱關聯、部署代理程式和建立第一個系統。</block>
   <block id="ce95e653013e10f07ac1b69529baf3bb" category="doc">從 AWS Marketplace 訂閱並部署 Cloud Volumes ONTAP</block>
   <block id="a4cede66de2477ac18bbdee0f03c3b4b" category="list-text">審查清單詳細資料和定價條款。</block>
@@ -7835,7 +7834,6 @@
   <block id="288d38f29d8eeeb99070bff4f65525c0" category="paragraph">在 AWS Marketplace 中找到獨立式的 Cloud Volumes ONTAP 產品。</block>
   <block id="a11a0a42613839623b80519a128fe81d" category="list-text">使用具有所需權限的 AWS 帳戶前往 AWS Marketplace。</block>
   <block id="ef6da38a0094b683cff50de6f2edfb73" category="list-text">找到 NetApp Cloud Volumes ONTAP 獨立式產品。AWS Marketplace 提供兩種 Cloud Volumes ONTAP 產品：</block>
-  <block id="65e2afdf3ea7ead73c73f2ccc67a88bb" category="list-text">Cloud Volumes ONTAP 年度訂閱的獨立式產品</block>
   <block id="0bede5b2fb82cb93a6b7341f902bd965" category="list-text">訂閱後，選取 *設定產品* 即可重新導向至 NetApp Console 以完成部署。</block>
   <block id="8e54d24c608de9f6d76f0ddf776cd3cc" category="paragraph">完成市場訂閱後，繼續在 NetApp Console 中進行設定。</block>
   <block id="e17e44482e762e707860b1c0d43859ab" category="list-text">如果您選擇 *註冊*，請完成以下步驟：</block>
@@ -8195,7 +8193,6 @@
   <block id="840c0d6ab3aac46cebc73c413bcb3de2" category="inline-link">設定 Microsoft Entra ID 驗證以支援 SMB</block>
   <block id="4751d6cb0ce22c95620735a0f455e8e4" category="paragraph"><block ref="4751d6cb0ce22c95620735a0f455e8e4" category="inline-link-rx"></block></block>
   <block id="79ef9f61ccfcabc1d70e24a061eef1a5" category="inline-link">進一步瞭解帳單偏好設定</block>
-  <block id="70563190697b86d4b7fef9663334a2c7" category="paragraph"><block ref="70563190697b86d4b7fef9663334a2c7" category="inline-link-rx"></block></block>
   <block id="f0f0c1d3ad1556de34b949ba497629d8" category="summary">在 Cloud Volumes ONTAP 上為 SMB 設定 Microsoft Entra ID 驗證，以支援混合式使用者身分並減少對內部部署 Active Directory 的依賴。</block>
   <block id="576dddd89d6fcee802f4b33d25d7129c" category="doc">在 Cloud Volumes ONTAP 上為 SMB 設定 Microsoft Entra ID 驗證</block>
   <block id="f0d496d92b622242ae63265df0a68c13" category="paragraph">您可以設定 Cloud Volumes ONTAP ，使其透過<block ref="c92d60eae0a0d9ece702070bd9116954" category="inline-link-rx"></block>對存取 SMB 共享的使用者進行驗證，從而為混合雲上的 Cloud Volumes ONTAP 使用者啟用身分支援。先前，驗證需要使用內部部署的 Active Directory （AD） 來管理網域使用者的身分。透過 Microsoft Entra ID ，您可以在保持混合使用者無縫存取的同時，使用雲端型驗證。</block>
@@ -8313,11 +8310,6 @@
   <block id="5798e009f5498705c64f92ce140cd070" category="paragraph">拒絕存取：</block>
   <block id="90354e46cc101991e55370e682628f58" category="doc">使用 AWS Marketplace 上的獨立式產品清單部署 Cloud Volumes ONTAP</block>
   <block id="12f4bfc0538b903177d595621c7ef42d" category="list-text">符合要求的控制台代理程式網路。<block ref="a3f5b6fd7f8b50cbffb3cbeb6fa40451" category="inline-link-macro-rx"></block></block>
-  <block id="b03eb9f92b70a1fafaeb31b1e5f8ccdc" category="list-text">適用於 NetApp 資料服務與 Cloud Volumes ONTAP 訂閱的 NetApp 智慧服務組合產品</block>
-  <block id="e3827b821f7d34121f8a07a802dad6dd" category="list-text">選擇 _獨立式_ 產品。審查清單詳細資料和定價條款。</block>
-  <block id="da387e40e73b9eeced07accc9de6e3e4" category="section-title">訂閱資料服務的 NetApp Intelligent Service 產品</block>
-  <block id="f0150d523b994c5ba03cc2d6e2bd875b" category="paragraph">如果您想使用其他資料服務，例如 NetApp Backup and Recovery，除了獨立式產品之外，您還需要訂閱 NetApp Intelligent Service 產品。</block>
-  <block id="a7ad6897f7b9076545ea2b2470df2cfb" category="list-text">找到並選擇 NetApp Intelligent Service 產品。</block>
   <block id="7db8d7489646d12d69a7696c02c128ef" category="list-text">選用：關聯 NetApp 支援網站（NSS）帳戶。</block>
   <block id="00042f51aa46d7bf5e0fd46db2c83ebd" category="paragraph">您的訂閱與 NetApp Console 關聯後，部署 Console 代理程式來管理 AWS 資源和 Cloud Volumes ONTAP 系統。</block>
   <block id="4176621cbdd2e1f6616332f1f3cae6d1" category="list-text">新增 AWS 帳戶 ID，以及（選用）外部 ID。主控台會設定預設角色名稱。</block>
@@ -8329,4 +8321,13 @@
   <block id="f2a895f791fcea8f719f85e864d53ea6" category="paragraph">未解析的指令位於 &lt;stdin&gt; - include::_whatsnew/2026-11-16.adoc[]</block>
   <block id="4e1d849ec7cd4b242a9a758a2e86fe1c" category="sidebar">使用 AWS Marketplace 上的獨立式清單部署 Cloud Volumes ONTAP</block>
   <block id="d2091e7366ce9b63a9a82bdd7bb6c641" category="sidebar">防止 Azure 維護期間 HA 對發生中斷</block>
+  <block id="464804aa8527c7a5675dd4c8d2b5f2b5" category="paragraph"><block ref="70563190697b86d4b7fef9663334a2c7" category="inline-link-rx"></block> <block ref="2d3a44ea7e8ca99b971ec5f419723d79" category="inline-link-rx"></block></block>
+  <block id="f17334f879855cf7befcf9561bf97a15" category="list-text">如果您打算透過 AWS 市場中的 Cloud Volumes ONTAP 專屬訂閱（年度合約或 PAYGO）來計費 Cloud Volumes ONTAP 容量，則 Cloud Volumes ONTAP 系統必須使用支援的以容量為基礎的套件（Essentials 或 Freemium）。Professional 套件不支援獨立式清單，並將繼續透過 NetApp Intelligent Services（NIS）訂閱計費。選擇所需的套件後，請使用 NetApp Console 中的 *Billing preferences* 來選擇用於 Cloud Volumes ONTAP 計費的市場訂閱。</block>
+  <block id="c57a3384803ce10606c2888bd8bebf10" category="list-text">Cloud Volumes ONTAP 的獨立式產品，可按年訂閱或隨用隨付（PAYGO）方式提供。</block>
+  <block id="0f84dfccc86093595e11d0f4f2979e06" category="list-text">適用於 NetApp 資料服務和 Cloud Volumes ONTAP 的 NetApp Intelligent Service（NIS）產品，也可按年訂閱或 PAYGO。</block>
+  <block id="6b67e3947a2b280b3f1a844cf4397014" category="list-text">選擇 _獨立式_ 產品的年度訂閱或 PAYGO 選項。檢閱清單詳細資料和定價條款。</block>
+  <block id="efd4fa7529d7c8cd4bd411aad0166ed6" category="section-title">訂閱適用於資料服務的 NetApp 智慧型服務</block>
+  <block id="db78a7e96024e9eef010b9cf7fb53251" category="paragraph">如果您想使用其他資料服務，例如 NetApp Backup and Recovery，除了獨立式產品之外，您還需要訂閱 NIS 產品。</block>
+  <block id="19345556c6e896fcd174b552b92e5c53" category="list-text">尋找並選擇 NetApp Intelligent Service (NIS) 產品的年度或 PAYGO 選項。</block>
+  <block id="bc2dc85706f0ec1cefd21d3f849eb1e9" category="section-title">2026年11月18日</block>
 </blocks>
