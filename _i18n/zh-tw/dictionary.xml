@@ -8317,8 +8317,6 @@
   <block id="4bec940f8e5547f4d7ea2a53ec902c6a" category="paragraph">當控制台建立控制台代理程式時，它會為該代理程式建立一個 IAM 角色和一個設定檔，或使用您提供的角色。此角色包含使代理程式能夠管理 AWS 資源的權限。請根據代理程式所需的任何新權限及時更新此角色。<block ref="7f447941d99d36030500c16d428fc2ff" category="inline-link-macro-rx"></block>。</block>
   <block id="4eedc010909cbd7fa3cbf5efdb1be4b6" category="paragraph">如果您尚未準備好建立 Cloud Volumes ONTAP 系統，您可以隨時返回「系統」頁面進行建立。</block>
   <block id="3cc38715797be469f39edd81c803bf02" category="section-title">2026年11月17日</block>
-  <block id="444d7501b3cc1feab5560e903adad61c" category="section-title">2026年11月16日</block>
-  <block id="f2a895f791fcea8f719f85e864d53ea6" category="paragraph">未解析的指令位於 &lt;stdin&gt; - include::_whatsnew/2026-11-16.adoc[]</block>
   <block id="4e1d849ec7cd4b242a9a758a2e86fe1c" category="sidebar">使用 AWS Marketplace 上的獨立式清單部署 Cloud Volumes ONTAP</block>
   <block id="d2091e7366ce9b63a9a82bdd7bb6c641" category="sidebar">防止 Azure 維護期間 HA 對發生中斷</block>
   <block id="464804aa8527c7a5675dd4c8d2b5f2b5" category="paragraph"><block ref="70563190697b86d4b7fef9663334a2c7" category="inline-link-rx"></block> <block ref="2d3a44ea7e8ca99b971ec5f419723d79" category="inline-link-rx"></block></block>
@@ -8330,4 +8328,8 @@
   <block id="db78a7e96024e9eef010b9cf7fb53251" category="paragraph">如果您想使用其他資料服務，例如 NetApp Backup and Recovery，除了獨立式產品之外，您還需要訂閱 NIS 產品。</block>
   <block id="19345556c6e896fcd174b552b92e5c53" category="list-text">尋找並選擇 NetApp Intelligent Service (NIS) 產品的年度或 PAYGO 選項。</block>
   <block id="bc2dc85706f0ec1cefd21d3f849eb1e9" category="section-title">2026年11月18日</block>
+  <block id="5a910ff91567ebb4e0ae85635837c5a8" category="doc">支援 Azure 中的丹麥東部和印度中南部區域</block>
+  <block id="b9433802e6e744b5cc84b87da127cf0e" category="paragraph">現在，您可以在 Azure 的丹麥東部（denmarkeast）和印度中南部（indiasouthcentral）區域部署 Cloud Volumes ONTAP 9.12.1 GA 及更新版本。支援下列部署類型：</block>
+  <block id="893f7f9c4326ccc9db9efcafead22429" category="list-text">使用區域備援儲存設備（ZRS）在多個可用度區域中的 HA - 僅限印度中南部</block>
+  <block id="1d13d5e4cee76a1ac900dd9c56640ddb" category="section-title">2026 年 11 月 24 日</block>
 </blocks>
