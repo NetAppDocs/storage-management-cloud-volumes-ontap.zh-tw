@@ -4,7 +4,7 @@ permalink: task-enable-cluster-encryption.html
 keywords: Backend cluster network encryption, encryption, security, TLS, IPsec, CSM, kTLS, backend encryption 
 summary: 啟用後端叢集網路加密，以保護尚未受 ONTAP IPsec 保護的 Cloud Volumes ONTAP 叢集流量。 
 ---
-= 在 Azure 和 Google Cloud 中為 Cloud Volumes ONTAP 啟用後端叢集網路加密
+= 為 Cloud Volumes ONTAP 啟用後端叢集網路加密
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

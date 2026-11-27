@@ -4,7 +4,7 @@ permalink: task-managing-svms.html
 keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported 
 summary: 儲存虛擬機是在ONTAP內運作的虛擬機，可為您的用戶端提供儲存和資料服務。您可能知道這是 SVM 或 vserver。  Cloud Volumes ONTAP預設配置一個儲存虛擬機，但某些配置支援額外的儲存虛擬機。 
 ---
-= Cloud Volumes ONTAP 儲存 VM
+= 在 Cloud Volumes ONTAP 中管理儲存設備虛擬機
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

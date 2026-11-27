@@ -4,7 +4,7 @@ permalink: task-upgrade-disk-perf-azure.html
 keywords: azure, premium ssd v2, Premium SSDv2, performance parameters, cloud volumes ontap 
 summary: 在 Azure 中設定 Premium SSD v2 磁碟的效能參數。 
 ---
-= 在 Azure Cloud Volumes ONTAP中變更進階 SSD 磁碟的效能層級
+= 在 Azure 中變更 Cloud Volumes ONTAP 的 Premium SSD 磁碟效能分層
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

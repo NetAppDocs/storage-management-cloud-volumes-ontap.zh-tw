@@ -4,7 +4,7 @@ permalink: reference-networking-azure.html
 keywords: networking, network, requirements, connection, connections, vnet, security group, security groups, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, blob, service endpoint 
 summary: 設定您的 Azure 網絡，以便Cloud Volumes ONTAP系統可以正常運作。 
 ---
-= 為Cloud Volumes ONTAP設定 Azure 網路
+= Cloud Volumes ONTAP 的 Azure 連網需求
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,7 +4,7 @@ permalink: task-encrypting-volumes.html
 keywords: encrypt, encryption, data, volumes, netapp volume encryption, volume encryption, nve, key managers, kmip, key management servers, license, ssl certificates, nae, netapp aggregate encryption 
 summary: 'Cloud Volumes ONTAP透過外部金鑰管理器支援NetApp磁碟區加密 (NVE) 和NetApp聚合加密 (NAE)。如果您設定了外部金鑰管理器，則預設啟用 NVE 和 NAE。' 
 ---
-= 使用NetApp加密解決方案加密Cloud Volumes ONTAP上的捲
+= 使用 NetApp 加密來加密 Cloud Volumes ONTAP 磁碟區
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,7 +4,7 @@ permalink: task-azure-onelake.html
 keywords: Azure, AI, integration, OneLake, analytics, ONTAP S3, Microsoft Fabric, OneLake shortcut, Azure AI Search, On-Premises Data Gateway, OPDG 
 summary: 設定 Cloud Volumes ONTAP 與 ONTAP S3 多傳輸協定存取，以使 Azure AI 服務能夠透過 Microsoft OneLake 讀取儲存在 Cloud Volumes ONTAP 系統中的資料。 
 ---
-= 將 Cloud Volumes ONTAP 系統與 Microsoft OneLake 整合，以實現 AI 和分析功能
+= 將 Cloud Volumes ONTAP 與 Microsoft OneLake 整合，以進行人工智慧與分析
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

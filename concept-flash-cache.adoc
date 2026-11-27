@@ -4,7 +4,7 @@ permalink: concept-flash-cache.html
 keywords: cloud volumes ontap, flash cache, read-intensive, read, random, databases, email, file services, compression, performance, nvme 
 summary: 一些Cloud Volumes ONTAP配置包括本地 NVMe 存儲， Cloud Volumes ONTAP將其用作閃存緩存以獲得更好的性能。 
 ---
-= Flash Cache 和 Cloud Volumes ONTAP
+= 了解 Cloud Volumes ONTAP 中的 Flash Cache
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

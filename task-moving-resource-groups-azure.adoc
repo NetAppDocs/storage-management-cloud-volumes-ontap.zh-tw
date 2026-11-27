@@ -4,7 +4,7 @@ permalink: task-moving-resource-groups-azure.html
 keywords: move resource groups, azure, remove system, resource groups, azure console, Azure subscriptions 
 summary: Cloud Volumes ONTAP支援 Azure 資源組移動，但工作流程僅在 Azure 控制台中進行。 
 ---
-= 在 Azure 控制台中移動Cloud Volumes ONTAP的 Azure 資源組
+= 在 Azure 中移動 Cloud Volumes ONTAP 資源群組
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

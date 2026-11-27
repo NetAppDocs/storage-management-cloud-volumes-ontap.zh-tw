@@ -1,0 +1,224 @@
+---
+sidebar: sidebar 
+permalink: task-convert-nis-nsl.html 
+keywords: NIS, NSL, NetApp Intelligent Services, standalone listing, marketplace subscription, migrate, convert, charging method, Essentials, Professional, backup 
+summary: 根據您的訂閱和計費方法，將 Cloud Volumes ONTAP 計費從 NetApp Intelligent Services 移至 AWS Marketplace 上的獨立式清單。 
+---
+= 在 AWS 中將 NIS 訂閱轉換為獨立式的 Cloud Volumes ONTAP 訂閱
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+將您的 Cloud Volumes ONTAP 使用量從 NetApp Intelligent Services (NIS) 清單移至 AWS Marketplace 上的 Cloud Volumes ONTAP 獨立式清單 (NSL)。
+
+獨立式清單是從 AWS Marketplace 採購 Cloud Volumes ONTAP 的首選途徑，提供專用的訂閱模式。獨立式清單僅支援 Cloud Volumes ONTAP Essentials 授權。如果您想要使用 Cloud Volumes ONTAP Professional 授權、NetApp Backup and Recovery，或任何其他 NetApp Data Services（例如 NetApp Disaster Recovery 和 NetApp Ransomware Resilience），您必須繼續使用 NIS 訂閱。如果您想要將 Cloud Volumes ONTAP Essentials Primary 或 Essentials Secondary 授權與資料服務搭配使用，您可以在支援的 https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["多訂閱模式"^]中同時使用 NSL 和 NIS 清單。
+
+單一 NetApp Console 帳戶可以同時擁有多個市場訂閱。如果您擁有 Cloud Volumes ONTAP 的 Essentials 授權，系統會自動透過 NSL 處理您的使用量費用，除非您在計費偏好設定中另有設定。您可以使用這些組合：
+
+[cols="2*"]
+|===
+| 服務 | 清單 
+
+
+ a| 
+* Cloud Volumes ONTAP Essentials 主要
+* Cloud Volumes ONTAP Essentials 次要
+
+ a| 
+NSL 搭配隨用隨付（PAYGO）或年度合約
+
+
+
+ a| 
+* Cloud Volumes ONTAP 專業版授權
+* 備份和復原
+* 災難復原
+* 勒索軟體復原能力
+
+ a| 
+NIS 搭配隨用隨付或年度合約
+
+
+
+ a| 
+Cloud Volumes ONTAP Essentials Primary/Essentials Secondary 以及 Backup and Recovery 或其他資料服務
+ a| 
+適用於 Cloud Volumes ONTAP Essentials Primary/Essentials Secondary 的 NSL，以及適用於備份與復原或資料服務的 NIS
+
+|===
+.開始之前
+評估您現有的產品與市場訂閱，並預估您未來的使用量和授權需求。請考慮下列事項：
+
+* 您目前的 Cloud Volumes ONTAP 授權或計費方式，可以是：
++
+** Cloud Volumes ONTAP Essentials
+** Cloud Volumes ONTAP 專業版
+
+
+* Backup and Recovery 或任何其他資料服務的要求
+* 您現有 NIS 或 NSL 合約的狀態
+* 目前與您的主控台帳戶相關聯的 AWS Marketplace 清單
+
+
+
+
+[[convert-cloud-volumes-ontap-nis-subscriptions-with-an-essentials-license]]
+== 使用 Essentials 授權轉換 Cloud Volumes ONTAP NIS 訂閱
+
+如果您擁有 NIS PAYGO 或年度訂閱，並持有 Cloud Volumes ONTAP Essentials 授權，且未使用 Backup and Recovery 或任何其他資料服務，請使用此方案。轉換後，您將擁有 NSL PAYGO 或年度訂閱，並持有 Cloud Volumes ONTAP Essentials 授權。
+
+
+
+[[convert-a-paygo-subscription]]
+=== 轉換 PAYGO 訂閱
+
+轉換前，您擁有 Cloud Volumes ONTAP NIS PAYGO 訂閱。
+
+.步驟
+. 從 AWS Marketplace 訂閱 Cloud Volumes ONTAP NSL PAYGO 訂閱，並將 NSL 訂閱與您的 Console 帳戶關聯。請參閱 link:task-onboard-cvo-aws-marketplace.html["使用 AWS Marketplace 上的獨立式產品清單部署 Cloud Volumes ONTAP"]。
+. 在主控台上，前往 *管理 > Licenses and subscriptions*，並確認 Cloud Volumes ONTAP 計費的首選訂閱是否正確。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-billing-preferences.html#set-billing-preferences["Licenses and subscriptions：設定計費偏好"^]。
+. 確認計費與授權狀態。
+. 如果您不再需要 NIS 訂閱，請將其移除。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：移除訂閱"^]。
+
+
+
+
+[[convert-an-annual-contract-or-private-offer]]
+=== 轉換年度合約或私人報價
+
+轉換前您有一份 Cloud Volumes ONTAP NIS 年度合約。
+
+.步驟
+. 透過 NSL 清單取得 Cloud Volumes ONTAP 的替換或修訂私有報價。請聯絡您的 NetApp 帳戶團隊。
+. 接受新優惠，啟動新訂閱，並將 NSL 訂閱與您的 Console 帳戶關聯。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-private-aws.html#accept-the-private-offer-in-the-aws-marketplace-portal["Licenses and subscriptions：接受並設定 AWS Marketplace 私有報價"^]。
+. 前往 *管理 > Licenses and subscriptions* ，確認 Cloud Volumes ONTAP 計費的首選訂閱是否正確。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-billing-preferences.html#set-billing-preferences["Licenses and subscriptions：設定計費偏好"^]。
+. 確認收費和帳單偏好設定。
+. 如果您不再需要 NIS 訂閱，請將其移除。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：移除訂閱"^]。
+
+
+
+
+[[convert-cloud-volumes-ontap-essentials-subscriptions-that-use-backup]]
+== 轉換使用備份的 Cloud Volumes ONTAP Essentials 訂閱
+
+如果您擁有 NIS 隨用隨付或年度訂閱，並已購買 Cloud Volumes ONTAP Essentials 授權，且啟用了 Backup and Recovery 或其他資料服務，請使用此情境。轉換後，您會將 NSL 隨用隨付或年度訂閱用於 Cloud Volumes ONTAP，並將 NIS 訂閱用於 Backup and Recovery 或資料服務。
+
+
+
+[[convert-a-paygo-subscription]]
+=== 轉換 PAYGO 訂閱
+
+轉換前，您擁有 Cloud Volumes ONTAP NIS PAYGO 訂閱。
+
+.步驟
+. 從 AWS Marketplace 訂閱適用於 Cloud Volumes ONTAP 的 NSL PAYGO 產品。請參閱link:task-onboard-cvo-aws-marketplace.html["使用 AWS Marketplace 上的獨立式產品清單部署 Cloud Volumes ONTAP"]。
+. 保留您的 Backup and Recovery NIS 訂閱，如果您還沒有訂閱，請新增一個。
+. 將兩個訂閱與同一個 Console 帳戶建立關聯。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：將訂閱與主控台帳戶關聯"^]。
+. 確認收費與帳單偏好設定。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-billing-preferences.html#verify-billing-preferences["Licenses and subscriptions：驗證計費偏好"^]。
+. 確認 Cloud Volumes ONTAP 的費用是透過 NSL 訂閱，資料服務的費用透過 NIS 訂閱。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["Licenses and subscriptions：AWS 中的 Cloud Volumes ONTAP 和資料服務的彈性計費方式"^]。
+
+
+
+
+[[convert-an-annual-contract-or-private-offer]]
+=== 轉換年度合約或私人報價
+
+轉換前，您擁有 Cloud Volumes ONTAP NIS 年度合約或私人優惠。
+
+.步驟
+. 透過 NSL 清單取得 Cloud Volumes ONTAP 的替換或修訂私有報價。請聯絡您的 NetApp 帳戶團隊。
+. 可透過以下方式之一取得或保留有效的 NIS 備份與還原訂閱：
++
+** 透過 NIS PAYGO 訂閱
+** 透過涵蓋備份與復原或其他資料服務的全新或修訂後 NIS 私人報價
+
+
+. 接受新優惠，啟動新訂閱，並將 NSL 訂閱與您的 Console 帳戶關聯。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-private-aws.html#accept-the-private-offer-in-the-aws-marketplace-portal["Licenses and subscriptions：接受並設定 AWS Marketplace 私有報價"^]。
+. 將兩個訂閱與同一個 Console 帳戶建立關聯。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：將訂閱與主控台帳戶關聯"^]。
+. 確認收費與帳單偏好設定。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-billing-preferences.html#verify-billing-preferences["Licenses and subscriptions：驗證計費偏好"^]。
+. 確認 Cloud Volumes ONTAP 的費用是透過 NSL 訂閱，資料服務的費用透過 NIS 訂閱。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["Licenses and subscriptions：AWS 中的 Cloud Volumes ONTAP 和資料服務的彈性計費方式"^]。
+
+
+.結果
+您有受支援的 https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["多訂閱組態"^]。
+
+
+
+[[convert-cloud-volumes-ontap-professional-subscriptions-without-data-services]]
+== 轉換不含資料服務的 Cloud Volumes ONTAP Professional 訂閱
+
+如果您擁有 Cloud Volumes ONTAP NIS 專業版訂閱，但目前未使用或計劃使用 Backup and Recovery 或其他任何資料服務，則必須將計費方式從專業版變更為基礎版。理想的目標狀態是擁有基礎版授權的 Cloud Volumes ONTAP NSL 訂閱。
+
+
+NOTE: 您必須在 NIS 訂閱到期或移除訂閱之前完成從專業版到基礎版的轉換。
+
+如果您不轉換計費方式：
+
+* 您的 Cloud Volumes ONTAP 系統將繼續透過現有的 NIS Professional 授權收費。
+* 您將沒有有效的專業計費途徑來繼續收取 Cloud Volumes ONTAP 的使用費用。
+* NIS 訂閱到期後，轉換工作流程可能無法使用。
+
+
+
+
+[[convert-a-professional-package-with-paygo-subscription]]
+=== 轉換具有 PAYGO 訂閱的專業套件
+
+.步驟
+. 將計費方式從 Professional 變更為 Essentials。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-capacity-licenses.html#change-charging-methods["Licenses and subscriptions：更改收費方式"^]。
+. 從 AWS Marketplace 訂閱適用於 Cloud Volumes ONTAP 的 NSL PAYGO 產品。請參閱link:task-onboard-cvo-aws-marketplace.html["使用 AWS Marketplace 上的獨立式產品清單部署 Cloud Volumes ONTAP"]。
+. 將 NSL 訂閱與您的 Console 帳戶關聯。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：將訂閱與主控台帳戶關聯"^]。
+. 請核實收費和帳單設定。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["Licenses and subscriptions：AWS 中的 Cloud Volumes ONTAP 和資料服務的彈性計費方式"^]。
+. 如果您不再需要 NIS 訂閱，請將其移除。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：移除訂閱"^]。
+
+
+
+
+[[convert-an-annual-contract-or-private-offer]]
+=== 轉換年度合約或私人報價
+
+.步驟
+. 如需透過 NSL 取得 Cloud Volumes ONTAP Essentials 的替換或修訂私人報價，請聯絡您的 NetApp 帳戶團隊。
+. 接受新優惠，啟動新訂閱，並將 NSL 訂閱與您的 Console 帳戶關聯。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-private-aws.html#accept-the-private-offer-in-the-aws-marketplace-portal["Licenses and subscriptions：接受並設定 AWS Marketplace 私有報價"^]。
+. 將計費方式從 Professional 變更為 Essentials。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-capacity-licenses.html#change-charging-methods["Licenses and subscriptions：更改收費方式"^]。
+. 將 NSL 訂閱與您的 Console 帳戶關聯。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：將訂閱與主控台帳戶關聯"^]。
+. 請核實收費和帳單設定。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["Licenses and subscriptions：AWS 中的 Cloud Volumes ONTAP 和資料服務的彈性計費方式"^]。
+. 如果您不再需要 NIS 訂閱，請將其移除。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["Licenses and subscriptions：移除訂閱"^]。
+
+
+
+
+[[troubleshooting]]
+== 故障排除
+
+了解遇到以下問題時需要採取的措施：
+
+
+
+[[you-have-a-cloud-volumes-ontap-professional-package]]
+=== 您擁有 Cloud Volumes ONTAP 專業版套件
+
+如果您擁有 Cloud Volumes ONTAP 訂閱並希望轉換為 NSL，則唯一支援的轉換選項是從 Professional 轉換為 Essentials。若要停止使用 Professional 功能並移轉至 Essentials，您必須將計費方式從 Professional 變更為 Essentials：
+
+https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-capacity-licenses.html#change-charging-methods["Licenses and subscriptions：更改收費方式"^]。
+
+
+
+[[systems-use-professional-packages-even-after-nsl-subscription]]
+=== 即使在 NSL 訂閱後，系統仍使用專業套件
+
+這是預期行為。NSL 僅支援 Essentials 授權套件。請執行下列操作之一：
+
+* 將計費方式從 Professional 變更為 Essentials。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-capacity-licenses.html#change-charging-methods["Licenses and subscriptions：更改收費方式"^]。
+* 繼續透過 NIS 訂閱對專業套件進行計費。
+
+
+
+
+[[you-use-backup-and-recovery-or-data-services-and-want-to-move-to-nsl]]
+=== 您使用 Backup and Recovery 或資料服務，並希望遷移到 NSL
+
+繼續使用 NIS 訂閱進行備份與復原或資料服務，並在多訂閱模式下將 NSL 訂閱用於 Cloud Volumes ONTAP。請參閱 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-billing-preferences.html["Licenses and subscriptions：管理計費偏好"^]。

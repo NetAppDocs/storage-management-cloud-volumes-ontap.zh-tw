@@ -4,7 +4,7 @@ permalink: task-azure-prevent-freeze.html
 keywords: Azure, maintenance event, HA, takeover, giveback, freeze, disruption 
 summary: 透過抑制 Cloud Volumes ONTAP HA 配對的自動接管和歸還，防止 Azure 維護期間中斷。 
 ---
-= 防止 Azure 維護期間 Cloud Volumes ONTAP HA 配對發生中斷
+= 防止 Azure 維護中斷 Cloud Volumes ONTAP HA 配對
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

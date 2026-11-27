@@ -4,7 +4,7 @@ permalink: task-change-route-tables.html
 keywords: route tables, update route tables, modify route tables, change route table 
 summary: 您可以修改 AWS 路由表，其中包含部署在多個 AWS 可用區中的 HA 對的浮動 IP 位址的路由。如果新的 NFS 或 CIFS 用戶端需要存取 AWS 中的 HA 對，您可以這樣做。 
 ---
-= 修改多個 AWS AZ 中的Cloud Volumes ONTAP HA 對的路由表
+= 修改 AWS 路由表以用於 Cloud Volumes ONTAP HA 配對
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,7 +4,7 @@ permalink: reference-vpc-service-controls-gcp.html
 keywords: vpc, service controls, vpc-sc, google, psc, private service connect 
 summary: 當選擇使用 VPC 服務控制鎖定您的 Google 環境時，您應該了解NetApp Console和Cloud Volumes ONTAP如何與 Google API 互動以及如何配置您的服務參數以部署Cloud Volumes ONTAP。 
 ---
-= 設定 VPC 服務控制以在 Google Cloud 中部署Cloud Volumes ONTAP
+= 在 Google Cloud 中為 Cloud Volumes ONTAP 設定 VPC Service Controls
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

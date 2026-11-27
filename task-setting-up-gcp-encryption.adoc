@@ -4,7 +4,7 @@ permalink: task-setting-up-gcp-encryption.html
 keywords: encryption, gcp, encryption key, permissions, customer-managed, gcpencryption 
 summary: 雖然 Google Cloud Storage 始終會在將資料寫入磁碟之前對其進行加密，但您可以使用控制台 API 建立使用客戶管理加密金鑰的Cloud Volumes ONTAP系統。這些是您使用雲端金鑰管理服務在 GCP 中產生和管理的金鑰。 
 ---
-= 將客戶管理的加密金鑰與Cloud Volumes ONTAP結合使用
+= 將客戶管理的加密金鑰與 Cloud Volumes ONTAP 搭配使用
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

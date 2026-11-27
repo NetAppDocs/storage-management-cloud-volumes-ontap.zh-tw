@@ -4,7 +4,7 @@ permalink: task-protecting-ransomware.html
 keywords: snapshot policy, ransomware, protection, fpolicy, block, extension, attacks, arp, autonomous, monitor, alert, attacks, Cloud Volumes ONTAP 
 summary: 勒索軟體攻擊會浪費企業的時間、資源和聲譽。控制台使您能夠實施NetApp勒索軟體解決方案，該解決方案提供了有效的可見性、檢測和補救工具。 
 ---
-= 為Cloud Volumes ONTAP啟用NetApp勒索軟體防護解決方案
+= 為 Cloud Volumes ONTAP 啟用勒索軟體保護
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
